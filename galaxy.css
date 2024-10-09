@@ -1,0 +1,222 @@
+html,
+body {
+  background: #000;
+}
+
+div.herobg {
+  perspective: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+div.plane {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+  transform-origin: center;
+}
+
+div#first {
+  animation: first 4s linear infinite;
+  box-shadow: 207px -428px #eee, 140px -149px #fff, -274px -375px #ddd,
+    323px 157px #fff, 442px 281px #fff, 166px 200px #fff, -335px -188px #eee,
+    323px -271px #fff, 414px -197px #fff, -73px -454px #ddd, 343px 272px #ddd,
+    50px 62px #eee, 280px -59px #eee, 39px -189px #fff, -170px -217px #ddd,
+    -218px 181px #eee, 90px 365px #eee, 315px -374px #ddd, 115px -175px #ddd,
+    41px -130px #fff, 152px -269px #eee, 415px -181px #ddd, -245px -196px #fff,
+    191px 341px #eee, -87px 234px #ddd, -86px 152px #fff, -188px -3px #fff,
+    276px 307px #ddd, -4px 341px #ddd, 74px 162px #fff, -140px -172px #fff,
+    -358px 317px #fff, 83px -328px #ddd, 277px -235px #eee, -352px -221px #ddd,
+    -87px -433px #eee, 25px 192px #ddd, 59px 207px #ddd, 279px 257px #ddd,
+    -36px -253px #ddd, 201px -204px #eee, 259px 411px #ddd, 148px -105px #fff,
+    -21px 47px #fff, 105px 19px #ddd, -198px -166px #ddd, 393px 344px #ddd,
+    -450px 251px #eee, 56px -90px #fff, -193px -389px #eee, -49px -125px #fff,
+    -427px 52px #fff, -190px 112px #ddd, -524px -12px #eee, -279px -471px #eee,
+    -142px 374px #ddd, -4px -115px #eee, -26px 131px #eee, -25px -400px #ddd,
+    217px 403px #eee, -199px 319px #fff, -125px 11px #eee, -410px -106px #ddd,
+    -250px -131px #ddd, -197px -147px #ddd, -15px -117px #eee, 259px -173px #ddd,
+    95px 295px #fff, -93px 69px #eee, 48px 91px #fff, 74px -326px #ddd,
+    341px -296px #ddd, -389px 381px #eee, -111px 282px #fff, -172px -96px #ddd,
+    -442px -96px #eee, 125px 465px #ddd, 130px -187px #ddd, 339px -387px #fff,
+    -263px 73px #ddd, -309px -346px #eee, 62px -146px #eee, -79px -193px #ddd,
+    -524px -116px #fff, 74px 59px #ddd, 130px -55px #ddd, -60px 129px #fff,
+    -323px 53px #ddd, 113px -388px #ddd, 155px 303px #eee, 23px 80px #eee,
+    -134px -14px #ddd, 228px 144px #eee, -383px -100px #eee, 321px -426px #ddd,
+    -283px 432px #ddd, -25px 453px #eee, 146px -172px #eee, -68px 174px #fff,
+    8px 136px #fff;
+}
+
+div#second {
+  animation: second 4s linear infinite;
+  box-shadow: -81px 52px #ddd, 38px -84px #ddd, -286px 60px #ddd,
+    -129px -65px #eee, -197px 413px #eee, 406px 123px #fff, 203px -459px #ddd,
+    323px -288px #eee, 152px -351px #ddd, 291px -188px #ddd, 248px 187px #eee,
+    187px 145px #fff, 168px 387px #fff, 41px -38px #eee, 463px 162px #ddd,
+    179px 380px #fff, 50px 89px #fff, -72px 9px #eee, 13px 60px #fff,
+    -178px -294px #eee, 50px 302px #fff, -342px 95px #ddd, -327px 61px #eee,
+    -150px 389px #ddd, 151px 89px #fff, -392px -72px #ddd, 94px 25px #ddd,
+    22px 132px #ddd, -446px -59px #fff, 42px -147px #eee, -409px 324px #fff,
+    -90px -135px #eee, -116px 109px #ddd, 152px -112px #fff, 204px -123px #eee,
+    245px -207px #eee, 19px 88px #eee, -260px -146px #fff, -21px -284px #ddd,
+    367px -123px #eee, -14px 466px #ddd, -205px 139px #eee, 259px -183px #fff,
+    -279px -151px #fff, 121px 289px #eee, -59px -105px #fff, 97px 447px #eee,
+    323px -154px #ddd, -12px -287px #fff, 285px -140px #eee, -130px 108px #fff,
+    67px -47px #fff, -407px 296px #eee, 158px 519px #ddd, 301px -349px #fff,
+    -87px -112px #fff, 75px 307px #ddd, -10px 246px #ddd, 467px 186px #fff,
+    227px -82px #fff, 19px -151px #eee, 62px -14px #fff, -145px -185px #ddd,
+    441px 115px #ddd, -449px 151px #fff, -220px -450px #eee, -109px -80px #eee,
+    -172px -86px #eee, -28px -235px #ddd, 112px -29px #fff, 457px -250px #fff,
+    -429px -80px #fff, -471px 79px #fff, -178px -421px #eee, -245px -40px #ddd,
+    389px 21px #ddd, -23px -252px #fff, -87px -382px #eee, -228px 363px #eee,
+    82px -392px #ddd, 168px -230px #ddd, -153px 231px #ddd, -5px -74px #ddd,
+    -506px -78px #eee, 21px -192px #ddd, 116px 122px #eee, 60px -40px #ddd,
+    -184px 53px #ddd, -299px 106px #eee, -29px 50px #fff, -520px -44px #ddd,
+    -46px 357px #fff, -427px -304px #fff, -127px 307px #eee, 323px -157px #fff,
+    380px 283px #ddd, 105px 176px #eee, 5px 419px #ddd, -257px -175px #eee,
+    138px -68px #ddd;
+}
+
+div#third {
+  animation: third 4s linear infinite;
+  box-shadow: -66px 87px #ddd, -173px -35px #fff, 23px -485px #eee,
+    51px -76px #eee, -229px -96px #eee, -50px 44px #eee, -255px 239px #ddd,
+    -285px -449px #fff, -6px -325px #fff, 184px -116px #ddd, 236px 136px #fff,
+    -405px 56px #fff, 99px 434px #ddd, 64px 73px #fff, -76px 228px #eee,
+    201px -60px #fff, 80px -65px #fff, 146px -426px #ddd, 170px 310px #ddd,
+    -292px 160px #ddd, -54px 34px #eee, 160px -140px #fff, -202px -28px #ddd,
+    -206px 94px #ddd, 122px 14px #fff, -185px -81px #fff, 78px 108px #fff,
+    194px -445px #ddd, 195px 314px #ddd, 391px 131px #eee, -30px 440px #ddd,
+    -163px -240px #ddd, -232px 124px #fff, -504px -44px #ddd, -174px 256px #fff,
+    -60px 405px #ddd, 369px 60px #fff, 387px 82px #ddd, 87px 15px #ddd,
+    -185px -112px #fff, -60px -167px #eee, -75px 320px #fff, -31px -77px #fff,
+    -180px -26px #fff, 239px 0px #eee, 188px -350px #ddd, -259px -350px #fff,
+    445px 296px #eee, -32px -123px #fff, 316px 23px #fff, 201px -476px #eee,
+    -114px 328px #ddd, 236px -276px #eee, -200px 117px #eee, -197px 105px #eee,
+    480px 81px #eee, -61px -300px #eee, -155px 245px #ddd, 165px 22px #eee,
+    149px 508px #ddd, 62px 427px #ddd, 209px -194px #ddd, 105px -19px #eee,
+    428px 84px #fff, 233px -346px #ddd, -460px 87px #ddd, -103px 40px #ddd,
+    270px 248px #eee, 12px -171px #fff, -227px -31px #fff, 141px -172px #fff,
+    -157px 144px #fff, -58px -145px #eee, -74px -521px #ddd, -258px -252px #ddd,
+    -225px 281px #fff, -337px 267px #ddd, 75px 111px #fff, 243px 373px #fff,
+    -386px 377px #fff, 304px 122px #ddd, -245px -411px #ddd, -385px -170px #ddd,
+    318px 58px #fff, -153px -353px #eee, 7px 218px #fff, -125px 34px #fff,
+    357px -282px #fff, -261px 201px #fff, -90px 419px #fff, -27px -137px #ddd,
+    281px 321px #eee, 168px -200px #ddd, -169px -445px #eee, -480px 80px #eee,
+    -51px 71px #fff, -506px 187px #fff, 359px -209px #ddd, -348px 50px #eee,
+    -495px 152px #eee;
+}
+
+div#fourth {
+  animation: fourth 4s linear infinite;
+  box-shadow: -215px 30px #fff, -38px -266px #eee, 255px 283px #fff,
+    53px -77px #eee, 1px -64px #fff, 116px 394px #eee, -203px -437px #eee,
+    86px -288px #ddd, 325px 341px #ddd, 93px -140px #ddd, -213px 229px #eee,
+    149px -100px #fff, -282px -467px #fff, 296px -337px #eee, 523px -46px #eee,
+    54px -422px #ddd, 115px -21px #eee, -114px 240px #fff, 71px -337px #ddd,
+    -322px -255px #eee, -62px 484px #eee, -120px 395px #eee, 50px 131px #ddd,
+    -266px -379px #eee, 246px 261px #fff, 78px 33px #ddd, -299px -37px #eee,
+    444px -223px #eee, -349px -245px #ddd, 486px 113px #eee, -413px -324px #eee,
+    -369px 252px #eee, 262px -453px #ddd, 193px -229px #fff, -87px -126px #fff,
+    -77px -29px #fff, 51px -23px #eee, 435px -281px #ddd, -222px -219px #ddd,
+    134px -169px #ddd, 78px -97px #ddd, 98px -101px #fff, -132px 66px #fff,
+    -384px 85px #eee, -45px -477px #eee, -131px -45px #fff, 80px 82px #fff,
+    -49px -13px #eee, 288px -459px #eee, 305px 106px #ddd, 166px -10px #fff,
+    236px -187px #ddd, -41px -107px #ddd, -217px 458px #fff, 149px 354px #fff,
+    480px -228px #fff, -13px 448px #fff, 116px -28px #fff, 97px -530px #eee,
+    -432px 34px #eee, -7px -58px #eee, 108px -85px #fff, 102px 80px #ddd,
+    130px 175px #ddd, 436px -31px #eee, 11px 187px #fff, 424px -156px #eee,
+    -248px -335px #eee, 274px 91px #fff, 337px -147px #ddd, 161px -312px #ddd,
+    98px 310px #eee, -178px -334px #ddd, -309px -342px #fff, -352px 11px #eee,
+    173px 393px #fff, 146px 65px #fff, 89px 303px #eee, -7px -388px #eee,
+    -256px -166px #fff, 47px -101px #eee, -371px -225px #eee, -77px 77px #fff,
+    197px 234px #ddd, -240px 300px #ddd, 474px 254px #fff, -152px 99px #ddd,
+    291px 388px #fff, -424px 146px #fff, 36px -157px #fff, 215px -353px #ddd,
+    125px -511px #ddd, 478px 258px #ddd, -86px 414px #eee, 396px 168px #fff,
+    -342px -65px #eee, 135px 8px #ddd, 131px 170px #fff, -20px 378px #eee,
+    49px -56px #eee;
+}
+
+@keyframes first {
+  0% {
+    transform: translateZ(-100px);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateZ(100px);
+    opacity: 1;
+  }
+}
+
+@keyframes second {
+  0% {
+    transform: translateZ(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateZ(100px);
+    opacity: 0.25;
+  }
+  51% {
+    transform: translateZ(-100px);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateZ(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes third {
+  0% {
+    transform: translateZ(50x);
+    opacity: 0.625;
+  }
+  25% {
+    transform: translateZ(100px);
+    opacity: 0.25;
+  }
+  26% {
+    transform: translateZ(-100px);
+    opacity: 0.25;
+  }
+  75% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateZ(50px);
+    opacity: 0.625;
+  }
+}
+
+@keyframes fourth {
+  0% {
+    transform: translateZ(-50px);
+    opacity: 0.625;
+  }
+  25% {
+    transform: translateZ(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateZ(50px);
+    opacity: 0.625;
+  }
+  75% {
+    transform: translateZ(100px);
+    opacity: 0.25;
+  }
+  76% {
+    transform: translateZ(-100px);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateZ(-50px);
+    opacity: 0.625;
+  }
+}

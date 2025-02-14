@@ -13,12 +13,6 @@
       "url": "https://github.com/hyperjumptech/monika"
     },
     {
-      "title": "React Native Confetti",
-      "category": "React Native",
-      "description": "React native component to show confetti. It can be used as raining snow effect animation, with option to use unicode, emoji, or image as the flying pieces.",
-      "url": "https://github.com/hyperjumptech/react-native-confetti"
-    },
-    {
       "title": "Grule Rule Engine",
       "category": "Golang",
       "description": "Grule is a Rule Engine library for Golang programming language. Inspired by the acclaimed JBOSS Drools, done in a much simple manner.",
@@ -41,6 +35,12 @@
       "category": "React Native",
       "description": "React component to check if there is a new version of your mobile app.",
       "url": "https://github.com/hyperjumptech/universal-update-checker"
+    },
+    {
+      "title": "WhatsApp Chatbot Connector",
+      "category": "TypeScript",
+      "description": "WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa.",
+      "url": "https://github.com/hyperjumptech/whatsapp-chatbot-connector"
     }
   ],
   "socials": [
@@ -165,7 +165,6 @@
       "category": "Back end",
       "description": "Full-time employment, full remote or on-site at Central Jakarta (Menteng), your choice. You will be responsible for developing and maintaining cloud-based data processing pipeline capable of digesting Petabytes of volume.",
       "url": "/jobs/se-backend",
-
       "responsibilities": [
         "Develop and maintain cloud-based data processing pipeline capable of digesting Petabytes of volume",
         "Design data analytics engine to facilitates the configuration and monitoring of deep insights of time-series technical and business metrics",

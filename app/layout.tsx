@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     apple: "/icons/apple-touch-icon.png",
     shortcut: "/icons/icon-192x192.png",
   },
-  themeColor: "#1C1F2E",
 };
 
 export default function RootLayout({

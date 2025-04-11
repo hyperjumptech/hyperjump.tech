@@ -7,11 +7,10 @@ export default function Footer() {
     <footer className="relative text-white px-4 py-10 md:py-14 md:px-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/swatch.svg"
+          src="/images/swatch.svg"
           alt="Footer background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
+          width={1440}
+          height={308}
           className="pointer-events-none select-none"
         />
         <div

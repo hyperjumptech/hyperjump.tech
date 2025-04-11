@@ -1,8 +1,10 @@
-import "@/app/galaxy.css";
+import data from "@/data.json";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { PartnersList } from "./partner-list";
+
+import "@/app/galaxy.css";
 
 export default function Hero() {
   return (
@@ -32,10 +34,10 @@ export default function Hero() {
             className="transition-all duration-200 ease-in-out transform hover:shadow-md hover:scale-[1.02] text-hyperjump-blue bg-white hover:bg-white/90"
           >
             <Link
-              href="https://forms.office.com/Pages/ResponsePage.aspx?id=YB_vnVvdsku6UOy9eolc4lSE-1zhiHZGuckpAFLZgMNUNzFXVlZCQjA0UFJRR1IyUk9aSjBZVENENS4u"
+              href={data.cta.link}
               className="py-4 px-7 text-lg font-semibold"
             >
-              Schedule Consultation
+              {data.cta.label}
             </Link>
           </Button>
         </div>

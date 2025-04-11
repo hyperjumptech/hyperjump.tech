@@ -1,4 +1,8 @@
 {
+  "cta": {
+    "link": "https://forms.office.com/Pages/ResponsePage.aspx?id=YB_vnVvdsku6UOy9eolc4lSE-1zhiHZGuckpAFLZgMNUNzFXVlZCQjA0UFJRR1IyUk9aSjBZVENENS4u",
+    "label": "Schedule Consultation"
+  },
   "GTM_ID": "G-L825T5QT2S",
   "SMDD_2024_SUBMIT_FORM_EMAIL": "gary@hyperjump.tech",
   "title": "Hyperjump Technology",
@@ -6,16 +10,10 @@
   "copyright": "Copyright © 2025 Hyperjump. All rights reserved.",
   "github": "https://github.com/hyperjumptech",
   "navLinks": [
-    { "label": "Services", "href": "#services", "type": "link" },
-    { "label": "Case Studies", "href": "#case-studies", "type": "link" },
-    { "label": "Open Source", "href": "#open-source", "type": "link" },
-    { "label": "FAQ", "href": "#faqs", "type": "link" },
-    {
-      "label": "Schedule Consultation",
-      "href": "https://forms.office.com/Pages/ResponsePage.aspx?id=YB_vnVvdsku6UOy9eolc4lSE-1zhiHZGuckpAFLZgMNUNzFXVlZCQjA0UFJRR1IyUk9aSjBZVENENS4u",
-      "type": "button",
-      "style": "outline"
-    }
+    { "label": "Services", "href": "#services" },
+    { "label": "Case Studies", "href": "#case-studies" },
+    { "label": "Open Source", "href": "#open-source" },
+    { "label": "FAQ", "href": "#faqs" }
   ],
   "partners": [
     "/icons/partners/amman.svg",

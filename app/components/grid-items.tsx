@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -165,7 +165,6 @@ export function GridItems({
               {icon ? (
                 <Avatar className="mb-6 w-14 h-14">
                   <AvatarImage className="w-14 h-14" src={icon} alt={title} />
-                  <AvatarFallback className="w-14 h-14">{title}</AvatarFallback>
                 </Avatar>
               ) : null}
               {category && (

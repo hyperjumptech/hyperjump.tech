@@ -19,10 +19,7 @@ export default function Services() {
           items={data.services}
           columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
         />
-        <GridItemsMoreButton
-          text="Schedule Consultation"
-          href="https://forms.office.com/Pages/ResponsePage.aspx?id=YB_vnVvdsku6UOy9eolc4lSE-1zhiHZGuckpAFLZgMNUNzFXVlZCQjA0UFJRR1IyUk9aSjBZVENENS4u"
-        />
+        <GridItemsMoreButton text={data.cta.label} href={data.cta.link} />
       </GridItemsContainer>
     </>
   );

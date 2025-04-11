@@ -19,7 +19,11 @@ export default function OpenSourceProducts() {
           items={data.openSourceProducts}
           columns={{ base: 1, md: 2, lg: 3 }}
         />
-        <GridItemsMoreButton text="View More" variant="outline" href="#" />
+        <GridItemsMoreButton
+          text="View More"
+          variant="outline"
+          href={data.github}
+        />
       </GridItemsContainer>
     </>
   );

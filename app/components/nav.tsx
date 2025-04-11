@@ -22,10 +22,6 @@ import LogoWithContextMenu from "./logo-with-context-menu";
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scheduleButton = data.navLinks.find(
-    (item) => item.type === "button" && item.label === "Schedule Consultation"
-  );
-
   return (
     <StickyNavigationMain isMenuOpen={isOpen}>
       {({ shouldBeWhite }) => (
@@ -38,41 +34,37 @@ export default function Nav() {
             <CenterNavItems>
               <NavigationMenu>
                 <NavigationMenuList className="flex gap-8">
-                  {data.navLinks
-                    .filter((item) => item.type !== "button")
-                    .map((item, idx) => (
-                      <NavigationMenuItem key={idx}>
-                        <Link
-                          href={item.href}
-                          className={cn(
-                            shouldBeWhite
-                              ? "text-hyperjump-black hover:text-hyperjump-blue"
-                              : "text-white hover:border-b-2",
-                            "font-medium text-xl transition-colors"
-                          )}
-                        >
-                          {item.label}
-                        </Link>
-                      </NavigationMenuItem>
-                    ))}
+                  {data.navLinks.map((item, idx) => (
+                    <NavigationMenuItem key={idx}>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          shouldBeWhite
+                            ? "text-hyperjump-black hover:text-hyperjump-blue"
+                            : "text-white hover:border-b-2",
+                          "font-medium text-xl transition-colors"
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    </NavigationMenuItem>
+                  ))}
                 </NavigationMenuList>
               </NavigationMenu>
             </CenterNavItems>
 
             <RightNavItems>
-              {scheduleButton && (
-                <Link
-                  href={scheduleButton.href}
-                  className={cn(
-                    shouldBeWhite
-                      ? "bg-hyperjump-blue text-white hover:bg-blue-400"
-                      : "border border-white text-white hover:bg-white hover:text-black",
-                    "px-4 py-2 text-sm rounded transition-colors"
-                  )}
-                >
-                  {scheduleButton.label}
-                </Link>
-              )}
+              <Link
+                href={data.cta.link}
+                className={cn(
+                  shouldBeWhite
+                    ? "bg-hyperjump-blue text-white hover:bg-blue-400"
+                    : "border border-white text-white hover:bg-white hover:text-black",
+                  "px-4 py-2 text-sm rounded transition-colors"
+                )}
+              >
+                {data.cta.label}
+              </Link>
             </RightNavItems>
 
             {/* Mobile Toggle */}
@@ -111,26 +103,22 @@ export default function Nav() {
           {isOpen && (
             <div className="lg:hidden bg-white shadow-md">
               <div className="flex flex-col px-4 md:px-20 mx-auto py-6 space-y-4">
-                {data.navLinks
-                  .filter((item) => item.type !== "button")
-                  .map((item, idx) => (
-                    <Link
-                      key={idx}
-                      href={item.href}
-                      className="text-hyperjump-black text-2xl hover:text-gray-400"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                {scheduleButton && (
+                {data.navLinks.map((item, idx) => (
                   <Link
-                    href={scheduleButton.href}
-                    className="mt-2 border text-base border-hyperjump-black hover:text-gray-400 text-hyperjump-black py-3 text-center rounded hover:border-gray-400"
+                    key={idx}
+                    href={item.href}
+                    className="text-hyperjump-black text-2xl hover:text-gray-400"
+                    onClick={() => setIsOpen(false)}
                   >
-                    {scheduleButton.label}
+                    {item.label}
                   </Link>
-                )}
+                ))}
+                <Link
+                  href={data.cta.link}
+                  className="mt-2 border text-base border-hyperjump-black hover:text-gray-400 text-hyperjump-black py-3 text-center rounded hover:border-gray-400"
+                >
+                  {data.cta.label}
+                </Link>
               </div>
             </div>
           )}
@@ -164,7 +152,7 @@ export function NavContainer({ children }: { children: ReactNode }) {
   );
 }
 
-export function CenterNavItems({ children }: { children: React.ReactNode }) {
+function CenterNavItems({ children }: { children: React.ReactNode }) {
   return (
     <div className="hidden lg:flex items-center justify-center space-x-8 flex-1">
       {children}

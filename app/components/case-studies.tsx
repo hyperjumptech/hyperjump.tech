@@ -20,10 +20,7 @@ export default function CaseStudies() {
           columns={{ base: 1, md: 2, lg: 2 }}
           classNameCard="rounded-xl"
         />
-        <GridItemsMoreButton
-          text="Schedule Consultation"
-          href="https://forms.office.com/Pages/ResponsePage.aspx?id=YB_vnVvdsku6UOy9eolc4lSE-1zhiHZGuckpAFLZgMNUNzFXVlZCQjA0UFJRR1IyUk9aSjBZVENENS4u"
-        />
+        <GridItemsMoreButton text={data.cta.label} href={data.cta.link} />
       </GridItemsContainer>
     </>
   );

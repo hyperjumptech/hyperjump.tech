@@ -13,8 +13,10 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Children, isValidElement, useEffect, useRef, useState } from "react";
+import { GitFork, Star } from "lucide-react";
 
 type GridItemsTitleProps = {
+  className?: string;
   title: string;
   description?: string;
   layout?: "horizontal" | "vertical";
@@ -24,10 +26,13 @@ type GridItemsTitleProps = {
 export function GridItemsTitle({
   title,
   description,
+  className = "",
   layout = "horizontal",
   descriptionStyle,
 }: GridItemsTitleProps) {
   const isHorizontal = layout === "horizontal";
+  const hasBgClass = /\bbg-/.test(className);
+  const finalClass = cn("scroll-mt-20", !hasBgClass && "bg-white", className);
 
   if (!description) {
     return (
@@ -40,7 +45,8 @@ export function GridItemsTitle({
   return (
     <div
       className={cn(
-        "w-full pt-4 pb-7 bg-white",
+        finalClass,
+        "w-full pt-4 pb-7",
         isHorizontal
           ? "flex flex-wrap justify-between gap-4"
           : "flex flex-col md:items-center md:text-center"
@@ -128,7 +134,7 @@ export function GridItems({
     .join(" ");
 
   return (
-    <div className={`grid gap-6 ${columnClasses}`}>
+    <div className={`grid gap-6 space-x-6 ${columnClasses}`}>
       {items.map((item, idx) => {
         const { image, title, description, url, category, icon } = item;
 
@@ -191,7 +197,7 @@ export function GridItems({
               )}
             </CardHeader>
 
-            <CardContent className="flex-1 -mt-3 flex flex-col gap-4">
+            <CardContent className="flex flex-col justify-between flex-1 gap-4 -mt-3">
               <div>
                 <CardDescription
                   ref={(el) => {
@@ -217,32 +223,28 @@ export function GridItems({
                 )}
               </div>
               {url && (
-                <div className="flex justify-center gap-4 flex-wrap">
-                  <span className="mx-2">
-                    <a
-                      className="github-button"
-                      href={url}
-                      data-icon="octicon-star"
-                      data-size="large"
-                      data-show-count="true"
-                      aria-label="Star hyperjumptech/monika on GitHub"
-                    >
-                      Star
-                    </a>
-                  </span>
+                <div className="flex flex-row justify-between gap-4 space-x-4">
+                  {/* Star Button */}
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full text-hyperjump-blue font-semibold items-center gap-2 rounded-md border border-[#D1D5DB] px-auto py-3 justify-center text-sm shadow-sm transition hover:bg-gray-50"
+                  >
+                    <Star className="h-4 w-4 " />
+                    <span>Star</span>
+                  </a>
 
-                  <span className="mx-2">
-                    <a
-                      className="github-button"
-                      href={`${url}/fork`}
-                      data-icon="octicon-repo-forked"
-                      data-size="large"
-                      data-show-count="true"
-                      aria-label="Fork hyperjumptech/monika on GitHub"
-                    >
-                      Fork
-                    </a>
-                  </span>
+                  {/* Fork Button */}
+                  <a
+                    href={`${url}/fork`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full text-hyperjump-blue font-semibold items-center gap-2 rounded-md border border-[#D1D5DB] px-auto py-3 justify-center text-sm shadow-sm transition hover:bg-gray-50"
+                  >
+                    <GitFork className="h-4 w-4 text-[#0056D2]" />
+                    <span>Fork</span>
+                  </a>
                 </div>
               )}
             </CardContent>
@@ -299,9 +301,11 @@ export const GridItemsMoreButton = ({
 
 export default function GridItemsContainer({
   children,
+  className = "",
   id,
 }: {
   children: React.ReactNode;
+  className?: string;
   id?: string;
 }) {
   const childrenArray = Children.toArray(children);
@@ -322,8 +326,11 @@ export default function GridItemsContainer({
     (child) => child !== title && child !== body && child !== more
   );
 
+  const hasBgClass = /\bbg-/.test(className);
+  const finalClass = cn("scroll-mt-20", !hasBgClass && "bg-white", className);
+
   return (
-    <section id={id} className="bg-white scroll-mt-20">
+    <section id={id} className={finalClass}>
       <div className="mx-auto flex py-5 md:py-8 px-4 md:px-20 flex-wrap justify-center items-center">
         {title}
         <div>{body || others}</div>

@@ -5,6 +5,19 @@
   "description": "Open source first. Cloud native. DevOps excellence.",
   "copyright": "Copyright © 2025 Hyperjump. All rights reserved.",
   "github": "https://github.com/hyperjumptech",
+  "location": {
+    "title": "D.Lab Building (6th floor)",
+    "address": [
+      "Jl. Riau No. 1, Gondangdia, Menteng,",
+      "Jakarta Pusat - 10350",
+      "Indonesia"
+    ],
+    "email": "solution@hyperjump.tech",
+    "duns": "65-975-4901",
+    "mapsUrl": "https://maps.google.com/?q=Jl. Riau No. 1, Menteng, Jakarta",
+    "image": "/images/location.webp",
+    "imageAlt": "D.Lab Location"
+  },
   "navLinks": [
     { "label": "Services", "href": "#services", "type": "link" },
     { "label": "Case Studies", "href": "#case-studies", "type": "link" },

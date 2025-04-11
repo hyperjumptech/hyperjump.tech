@@ -8,8 +8,9 @@ import GridItemsContainer, {
 export default function CaseStudies() {
   return (
     <>
-      <GridItemsContainer id="case-studies">
+      <GridItemsContainer className="bg-[#F6F8F9]" id="case-studies">
         <GridItemsTitle
+          className="bg-[#F6F8F9]"
           title="Case Studies"
           description="Discover how we successfully transform challenges into opportunities
         with real-world solutions that drive lasting impact and business

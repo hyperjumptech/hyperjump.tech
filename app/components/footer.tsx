@@ -23,7 +23,7 @@ export default function Footer() {
       </div>
 
       <div className="relative z-20 container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center space-y-6">
+        <div className="flex flex-col md:items-center space-y-6">
           <div className="flex items-center">
             <a href="/">
               <Image
@@ -37,7 +37,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <p className="text-left md:text-center text-[#C7CDCD] max-w-md text-sm">
+          <p className="text-[#C7CDCD] max-w-md text-sm">
             Accelerating Business Growth with Cutting-Edge Technology Solutions
           </p>
 

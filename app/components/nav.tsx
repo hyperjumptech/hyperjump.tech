@@ -164,7 +164,7 @@ export function NavContainer({ children }: { children: ReactNode }) {
     <div
       className={cn(
         showBorder,
-        "w-full px-4 md:px-20 mx-auto flex flex-wrap items-center justify-between mt-0 py-5"
+        "w-full px-4 md:px-20 mx-auto flex flex-wrap items-center justify-between mt-0 py-5 max-w-5xl xl:px-0"
       )}
     >
       {children}

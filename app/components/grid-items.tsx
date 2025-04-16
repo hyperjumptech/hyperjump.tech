@@ -338,7 +338,7 @@ export default function GridItemsContainer({
 
   return (
     <section id={id} className={finalClass}>
-      <div className="mx-auto flex py-5 md:py-14 px-4 md:px-20 flex-wrap justify-center items-center">
+      <div className="mx-auto flex py-5 md:py-14 px-4 md:px-20 flex-wrap justify-center items-center max-w-5xl xl:px-0">
         {title}
         <div>{body || others}</div>
         {more}

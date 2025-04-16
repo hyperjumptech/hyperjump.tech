@@ -5,6 +5,10 @@
     "gaEventName": "cta_click"
   },
   "GTM_ID": "G-L825T5QT2S",
+  "hero": {
+    "heading": "Your Partner in Building Reliable, Modern Software",
+    "subheading": "We help organizations deliver scalable, high-quality digital systems through engineering excellence and cloud-native technology."
+  },
   "SMDD_2024_SUBMIT_FORM_EMAIL": "gary@hyperjump.tech",
   "title": "Hyperjump Technology",
   "description": "Open source first. Cloud native. DevOps excellence.",

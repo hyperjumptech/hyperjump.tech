@@ -23,7 +23,7 @@ export default function Faqs() {
           <Accordion
             type="single"
             collapsible
-            className="w-full max-w-4xl space-y-4 mx-auto"
+            className="w-full max-w-5xl space-y-4 mx-auto"
           >
             {data.faqs.map((item, i) => (
               <AccordionItem key={i} value={`faq-${i}`} asChild>

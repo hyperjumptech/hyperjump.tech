@@ -40,14 +40,14 @@ export default function Footer() {
             Accelerating Business Growth with Cutting-Edge Technology Solutions
           </p>
 
-          <div className="flex space-x-6">
+          <div className="flex space-x-3">
             {data.socials.map((s, i) => (
               <a
                 key={i}
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition text-white hover:text-gray-300 text-xl"
+                className="transition text-white hover:bg-hyperjump-blue border border-[#2D364A] rounded-full w-10 h-10 flex items-center justify-center"
                 aria-label={s.platform}
               >
                 <i className={s.icon} aria-hidden="true"></i>
@@ -55,7 +55,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <Separator className="bg-[#2D364A] w-full" />
+          <Separator className="bg-[#2D364A] w-full max-w-5xl" />
 
           <p className="text-sm text-[#C7CDCD] text-center">{data.copyright}</p>
         </div>

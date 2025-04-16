@@ -18,6 +18,7 @@ import IconOnlyLogo from "@/public/images/hyperjump-icon-only.png";
 import SVGLogo from "@/public/images/hyperjump-svg.svg";
 import ColoredLogo from "@/public/images/hyperjump-colored.png";
 import LogoWithContextMenu from "./logo-with-context-menu";
+import { Button } from "@/components/ui/button";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,17 +55,18 @@ export default function Nav() {
             </CenterNavItems>
 
             <RightNavItems>
-              <Link
-                href={data.cta.link}
+              <Button
+                asChild
+                variant="outline"
                 className={cn(
                   shouldBeWhite
-                    ? "bg-hyperjump-blue text-white hover:bg-blue-400"
-                    : "border border-white text-white hover:bg-white hover:text-black",
-                  "px-4 py-2 text-sm rounded transition-colors"
+                    ? "bg-hyperjump-blue hover:text-white hover:bg-hyperjump-blue/90"
+                    : "bg-transparent",
+                  "font-semibold"
                 )}
               >
-                {data.cta.label}
-              </Link>
+                <Link href={data.cta.link}>{data.cta.label}</Link>
+              </Button>
             </RightNavItems>
 
             {/* Mobile Toggle */}
@@ -107,7 +109,7 @@ export default function Nav() {
                   <Link
                     key={idx}
                     href={item.href}
-                    className="text-hyperjump-black text-2xl hover:text-gray-400"
+                    className="transition text-hyperjump-black text-2xl hover:text-gray-400"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
@@ -115,7 +117,7 @@ export default function Nav() {
                 ))}
                 <Link
                   href={data.cta.link}
-                  className="mt-2 border text-base border-hyperjump-black hover:text-gray-400 text-hyperjump-black py-3 text-center rounded hover:border-gray-400"
+                  className="transition mt-2 border text-base border-hyperjump-black hover:text-gray-400 text-hyperjump-black py-3 text-center rounded hover:border-gray-400"
                 >
                   {data.cta.label}
                 </Link>
@@ -197,7 +199,7 @@ export function HyperjumpLogo() {
   return (
     <div className="pl-4 flex items-center">
       <Link
-        className="toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+        className="transition toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
         href={"/"}
       >
         <ClientOnly>

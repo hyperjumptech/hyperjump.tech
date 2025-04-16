@@ -15,11 +15,7 @@ export default function Projects() {
           items={data.projects}
           columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
         />
-        <GridItemsMoreButton
-          text="and more ..."
-          href={data.github}
-          variant="link"
-        />
+        <GridItemsMoreButton text="and more ..." href={data.github} />
       </GridItemsContainer>
       <Script src="https://buttons.github.io/buttons.js" />
     </>

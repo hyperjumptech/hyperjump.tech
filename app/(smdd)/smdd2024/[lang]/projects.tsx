@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import GridItemsContainer, {
   GridItems,
   GridItemsMoreButton,
@@ -13,11 +12,7 @@ export default function OpenSourceProjects() {
       <GridItemsContainer>
         <GridItemsTitle title="Open Source" />
         <GridItems items={data.projects} />
-        <GridItemsMoreButton
-          href={data.github}
-          variant="link"
-          text="and more..."
-        />
+        <GridItemsMoreButton href={data.github} text="and more..." />
       </GridItemsContainer>
       <Script src="https://buttons.github.io/buttons.js" />
     </div>

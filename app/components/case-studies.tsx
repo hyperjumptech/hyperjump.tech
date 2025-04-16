@@ -19,7 +19,7 @@ export default function CaseStudies() {
         <GridItems
           items={data.caseStudies}
           columns={{ base: 1, md: 2, lg: 2 }}
-          classNameCard="rounded-xl"
+          classNameCard="rounded"
         />
         <GridItemsMoreButton text={data.cta.label} href={data.cta.link} />
       </GridItemsContainer>

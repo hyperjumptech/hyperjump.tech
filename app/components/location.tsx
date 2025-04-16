@@ -1,23 +1,25 @@
-import data from "@/data.json";
+import Image from "next/image";
+
 import GridItemsContainer, {
   GridItemsTitle,
 } from "@/app/components/grid-items";
-import Image from "next/image";
+import { location } from "@/data.json";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Location() {
-  const { location } = data;
+  const { address, duns, email, imageUrl, mapsUrl, title } = location;
 
   return (
     <GridItemsContainer>
       <GridItemsTitle title="Our Location" layout="vertical" />
-      <div className="my-6 w-full grid grid-cols-1 lg:grid-cols-4 rounded-md overflow-hidden shadow-lg">
+      <div className="mt-8 mb-6 w-full grid grid-cols-1 lg:grid-cols-4 rounded overflow-hidden shadow-lg">
         <div className="relative text-white p-6 col-span-1 overflow-hidden">
           <Image
             src="/images/swatch.svg"
             alt="Footer background"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
+            height={378}
+            width={1440}
             className="absolute inset-0 z-0 pointer-events-none select-none"
           />
           <div
@@ -28,33 +30,37 @@ export default function Location() {
             }}
           />
           <div className="relative z-20">
-            <h2 className="text-lg font-bold mb-4">{location.title}</h2>
+            <h2 className="text-lg font-bold mb-4">{title}</h2>
             <div className="text-sm leading-relaxed mb-2">
-              {location.address.map((line, index) => (
+              {address.map((line, index) => (
                 <p key={index}>{line}</p>
               ))}
             </div>
-            <p className="text-sm mb-2 mt-4">Email: {location.email}</p>
-            <p className="text-sm mb-4">D&B D-U-N-S: {location.duns}</p>
-            <a
-              href={location.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-transparent text-white text-sm font-medium px-4 py-2 rounded-md border-white border hover:border-gray-500 transition"
-            >
-              Open in Google Maps
-            </a>
+            <p className="text-sm mb-2 mt-4">
+              Email:{" "}
+              <a
+                href={`mailto:${email}`}
+                className="transition-colors hover:text-hyperjump-blue"
+              >
+                {email}
+              </a>
+            </p>
+            <p className="text-sm mb-4">D&B D-U-N-S: {duns}</p>
+            <Button asChild variant="outline" className="bg-transparent">
+              <Link href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                Open in Google Maps
+              </Link>
+            </Button>
           </div>
         </div>
 
         <div className="col-span-1 lg:col-span-3">
           <Image
-            src={location.image}
-            alt={location.imageAlt}
-            width={1600}
+            src={imageUrl}
+            alt={title}
+            width={1072}
             height={500}
             className="w-full h-[300px] lg:h-[500px] object-cover object-right lg:object-center"
-            priority
           />
         </div>
       </div>

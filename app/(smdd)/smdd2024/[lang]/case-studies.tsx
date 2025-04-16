@@ -40,7 +40,7 @@ export default function CaseStudies({ lang }: { lang: SupportedLanguage }) {
             })}
           </div>
         </div>
-        <div className="mt-8 border p-4 pl-8 rounded-md">
+        <div className="mt-8 border p-4 pl-8 rounded">
           <div
             className="space-y-4 [&_b]:mt-4 [&_b]:block"
             dangerouslySetInnerHTML={{

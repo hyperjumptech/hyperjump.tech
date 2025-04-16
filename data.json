@@ -18,9 +18,8 @@
     ],
     "email": "solution@hyperjump.tech",
     "duns": "65-975-4901",
-    "mapsUrl": "https://maps.google.com/?q=Jl. Riau No. 1, Menteng, Jakarta",
-    "image": "/images/location-2.webp",
-    "imageAlt": "D.Lab Location"
+    "mapsUrl": "https://www.google.com/maps/place/DLab+SMD/@-6.1907514,106.8219552,17z/data=!4m15!1m8!3m7!1s0x2e69f42410acef4f:0x2ebaeebb8f5fafbb!2sJl.+Riau+No.1,+RT.9%2FRW.5,+Gondangdia,+Kec.+Menteng,+Kota+Jakarta+Pusat,+Daerah+Khusus+Ibukota+Jakarta+10350!3b1!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11c5lcsgsq!3m5!1s0x2e69f5e04c659f97:0xd2f4629d7651d317!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11kb72cx9p?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D",
+    "imageUrl": "/images/location-2.webp"
   },
   "navLinks": [
     { "label": "Services", "href": "#services" },
@@ -28,12 +27,27 @@
     { "label": "Open Source", "href": "#open-source" },
     { "label": "FAQ", "href": "#faqs" }
   ],
-  "partners": [
-    "/icons/partners/amman.svg",
-    "/icons/partners/bank-tabungan-negara.svg",
-    "/icons/partners/my-republic.svg",
-    "/icons/partners/smdv.svg",
-    "/icons/partners/smartfren.svg"
+  "clients": [
+    {
+      "name": "Amman Mineral Internasional",
+      "imageUrl": "/images/clients/amman.svg"
+    },
+    {
+      "name": "Bank Tabungan Negara",
+      "imageUrl": "/images/clients/bank-tabungan-negara.svg"
+    },
+    {
+      "name": "Eka Mas Republik",
+      "imageUrl": "/images/clients/my-republic.svg"
+    },
+    {
+      "name": "SMDV",
+      "imageUrl": "/images/clients/smdv.svg"
+    },
+    {
+      "name": "Smartfren",
+      "imageUrl": "/images/clients/smartfren.svg"
+    }
   ],
   "projects": [
     {
@@ -75,7 +89,7 @@
   ],
   "socials": [
     {
-      "platform": "Linked In",
+      "platform": "LinkedIn",
       "url": "https://www.linkedin.com/company/hyperjump",
       "icon": "fa fa-linkedin"
     },
@@ -217,35 +231,35 @@
   ],
   "services": [
     {
-      "icon": "/icons/cto-as-a-service.svg",
+      "icon": "/images/services/cto-as-a-service.svg",
       "title": "CTO as a Service",
       "description": "Finding, hiring, managing, and retaining top software engineers is complex and time-consuming. Let us handle it all for you."
     },
     {
-      "icon": "/icons/software-as-a-service.svg",
+      "icon": "/icoimages/servicesns/software-as-a-service.svg",
       "title": "Software as a Service",
       "description": "Deploy and scale software solutions tailored to your enterprise for optimal performance and growth."
     },
     {
-      "icon": "/icons/tech-due-diligence.svg",
+      "icon": "/images/services/tech-due-diligence.svg",
       "title": "Tech Due Diligence",
       "description": "We help verify and assess your company's ability to execute its roadmap and evaluate its current state."
     },
     {
-      "icon": "/icons/erp-implementation.svg",
+      "icon": "/images/services/erp-implementation.svg",
       "title": "ERP Implementation",
       "description": "Streamline operations with enterprise-grade ERP solutions, boosting efficiency and business intelligence."
     }
   ],
   "caseStudies": [
     {
-      "title": "Improving System Efficiency for a Media Company",
-      "description": "We conducted a technical due diligence to identify performance gaps in the media company’s system. Our findings helped the team enhance infrastructure and architecture, resulting in better efficiency and more reliable data access.",
+      "title": "Uncovering Hidden System Failures with Deep Technical Review",
+      "description": "A leading media company was struggling with slow systems and unreliable data. Our technical due diligence exposed critical infrastructure flaws and architectural gaps. With our recommendations, the company rebuilt its backend for faster performance and dependable data access.",
       "category": "Case Studies"
     },
     {
-      "title": "Optimizing Operations for a Fisheries Company with Odoo",
-      "description": "To reduce operational inefficiencies, we implemented a scalable ERP system using Odoo. The system, including an offline-capable mobile app, improved data accuracy and standardized processes across remote regions.",
+      "title": "Digitizing Remote Fisheries with a Custom ERP Solution",
+      "description": "Manual processes were slowing down operations across dozens of remote fisheries. We designed and implemented a custom ERP system using Odoo. Complete with an offline-ready mobile app, so teams could work reliably even without internet. The result: unified data, fewer errors, and faster decision-making across the entire network.",
       "category": "Case Studies"
     }
   ],
@@ -253,19 +267,19 @@
     {
       "title": "Monika",
       "description": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.",
-      "image": "/images/monika.svg",
+      "image": "/images/open-source/monika.svg",
       "url": "https://github.com/hyperjumptech/monika"
     },
     {
       "title": "Firebase Cronjob",
       "description": "The Scheduled functions feature runs autoIncrementJobCounter automatically every minute, incrementing jobConfigCounter in the Firestore database.",
-      "image": "/images/firebase-cronjob.svg",
+      "image": "/images/open-source/firebase-cronjob.svg",
       "url": "https://github.com/hyperjumptech/firebase-cronjob"
     },
     {
       "title": "WhatsApp Chatbot Connector",
       "description": "WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa.",
-      "image": "/images/whatsapp-chatbot-connector.svg",
+      "image": "/images/open-source/whatsapp-chatbot-connector.svg",
       "url": "https://github.com/hyperjumptech/whatsapp-chatbot-connector"
     }
   ],

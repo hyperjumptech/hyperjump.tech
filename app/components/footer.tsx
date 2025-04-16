@@ -32,7 +32,6 @@ export default function Footer() {
                 width={187}
                 height={32}
                 className="h-8 w-auto"
-                priority
               />
             </a>
           </div>
@@ -48,7 +47,7 @@ export default function Footer() {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-300 text-xl"
+                className="transition text-white hover:text-gray-300 text-xl"
                 aria-label={s.platform}
               >
                 <i className={s.icon} aria-hidden="true"></i>

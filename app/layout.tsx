@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import data from "@/data.json";
@@ -48,7 +48,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1C1F2E" />
         <link rel="icon" href="/icons/icon-192x192.png" />
-        <GoogleTagManager gtmId={data.GTM_ID} />
+        <GoogleAnalytics gaId={data.GTM_ID} />
       </head>
       <body
         data-scroll="false"

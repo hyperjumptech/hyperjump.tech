@@ -6,6 +6,8 @@ import GridItemsContainer, {
 } from "@/app/components/grid-items";
 
 export default function Services() {
+  const { gaEventName, label, link } = data.cta;
+
   return (
     <>
       <GridItemsContainer id="services">
@@ -20,7 +22,15 @@ export default function Services() {
           columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
           classNameCard="rounded"
         />
-        <GridItemsMoreButton text={data.cta.label} href={data.cta.link} />
+        <GridItemsMoreButton
+          text={label}
+          href={link}
+          gaEvent={{
+            event: gaEventName,
+            category: "engagement",
+            label: "Service CTA",
+          }}
+        />
       </GridItemsContainer>
     </>
   );

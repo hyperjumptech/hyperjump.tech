@@ -1,5 +1,6 @@
 "use client";
 
+import { sendGAEvent } from "@next/third-parties/google";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -260,16 +261,24 @@ export function GridItems({
   );
 }
 
-type GridItemsMoreButtonProps = {
+type GAEvent = {
+  event: string;
+  category: string;
+  label: string;
+};
+
+export type GridItemsMoreButtonProps = {
   href: string;
   text?: string;
   variant?: "default" | "outline" | "link";
+  gaEvent?: GAEvent;
 };
 
 export const GridItemsMoreButton = ({
   href,
   text,
   variant = "default",
+  gaEvent,
 }: GridItemsMoreButtonProps) => {
   const customClass = cn("font-semibold", {
     "bg-hyperjump-blue hover:bg-hyperjump-blue/90": variant === "default",
@@ -280,7 +289,16 @@ export const GridItemsMoreButton = ({
   return (
     <div className="w-full flex items-center justify-center mt-10">
       <Button asChild className={customClass} variant={variant}>
-        <Link href={href} target="_blank" rel="noreferrer noopener">
+        <Link
+          href={href}
+          target="_blank"
+          rel="noreferrer noopener"
+          onClick={() => {
+            if (gaEvent) {
+              sendGAEvent(gaEvent);
+            }
+          }}
+        >
           {text}
         </Link>
       </Button>

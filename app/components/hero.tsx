@@ -1,7 +1,5 @@
-import data from "@/data.json";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Link from "next/link";
+import { HeroCTAButton } from "./hero-cta-button";
 import { PartnersList } from "./partner-list";
 
 export default function Hero() {
@@ -27,14 +25,7 @@ export default function Hero() {
           <p className="text-white text-base md:text-xl font-medium mb-6 md:mb-10">
             Strategic technology solutions for scalable growth and efficiency
           </p>
-          <Button
-            asChild
-            variant="secondary"
-            size="lg"
-            className="font-semibold"
-          >
-            <Link href={data.cta.link}>{data.cta.label}</Link>
-          </Button>
+          <HeroCTAButton />
         </div>
 
         <PartnersList />

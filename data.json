@@ -1,7 +1,8 @@
 {
   "cta": {
     "link": "https://forms.office.com/Pages/ResponsePage.aspx?id=YB_vnVvdsku6UOy9eolc4lSE-1zhiHZGuckpAFLZgMNUNzFXVlZCQjA0UFJRR1IyUk9aSjBZVENENS4u",
-    "label": "Schedule Consultation"
+    "label": "Schedule Consultation",
+    "gaEventName": "cta_click"
   },
   "GTM_ID": "G-L825T5QT2S",
   "SMDD_2024_SUBMIT_FORM_EMAIL": "gary@hyperjump.tech",

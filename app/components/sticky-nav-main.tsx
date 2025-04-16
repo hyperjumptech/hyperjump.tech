@@ -15,6 +15,7 @@ export default function StickyNavigationMain({
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    setIsScrolled(window.scrollY > 0);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };

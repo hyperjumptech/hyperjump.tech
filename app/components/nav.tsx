@@ -1,10 +1,11 @@
 "use client";
 
+import { sendGAEvent } from "@next/third-parties/google";
 import Image from "next/image";
 import Link from "next/link";
 import data from "@/data.json";
 import { cn } from "@/app/utils/tailwind";
-import { ReactNode, useEffect, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 import WhiteLogo from "@/public/images/hyperjump-white.png";
 import BlackLogo from "@/public/images/hyperjump-black.png";
 import {
@@ -22,6 +23,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { gaEventName, label, link } = data.cta;
 
   return (
     <StickyNavigationMain isMenuOpen={isOpen}>
@@ -64,8 +66,17 @@ export default function Nav() {
                     : "bg-transparent",
                   "font-semibold"
                 )}
+                onClick={() => {
+                  sendGAEvent({
+                    event: gaEventName,
+                    category: "engagement",
+                    label: "Navigation CTA",
+                  });
+                }}
               >
-                <Link href={data.cta.link}>{data.cta.label}</Link>
+                <Link href={link} target="_blank" rel="noreferrer noopener">
+                  {label}
+                </Link>
               </Button>
             </RightNavItems>
 
@@ -116,10 +127,17 @@ export default function Nav() {
                   </Link>
                 ))}
                 <Link
-                  href={data.cta.link}
+                  href={link}
                   className="transition mt-2 border text-base border-hyperjump-black hover:text-gray-400 text-hyperjump-black py-3 text-center rounded hover:border-gray-400"
+                  onClick={() => {
+                    sendGAEvent({
+                      event: gaEventName,
+                      category: "engagement",
+                      label: "Navigation CTA",
+                    });
+                  }}
                 >
-                  {data.cta.label}
+                  {label}
                 </Link>
               </div>
             </div>

@@ -3,12 +3,12 @@ import Image from "next/image";
 import GridItemsContainer, {
   GridItemsTitle,
 } from "@/app/components/grid-items";
-import { location } from "@/data.json";
+import data from "@/data.json";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Location() {
-  const { address, duns, email, imageUrl, mapsUrl, title } = location;
+  const { address, duns, email, imageUrl, mapsUrl, title } = data.location;
 
   return (
     <GridItemsContainer>

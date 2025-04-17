@@ -1,0 +1,186 @@
+{
+  "hero": {
+    "header": "Build Custom AI Agents That Actually Get Work Done",
+    "subheader": "We help businesses design, develop, and deploy purpose-built AI agents that save time, cut costs, and scale operations—without the technical overwhelm.",
+    "image": "/images/swatch.svg"
+  },
+  "cta": {
+    "link": "https://teams.microsoft.com/l/message/19:meeting_ZTI5MTJhNmEtNzU5My00ZTBiLTg5YmMtNGNlZGE1Y2U0ZGVj@thread.v2/1744773620067?context=%7B%22contextType%22%3A%22chat%22%7D",
+    "label": "Schedule Consultation"
+  },
+  "navLinks": [
+    { "label": "How It Works", "href": "#how-it-works" },
+    { "label": "What You Get", "href": "#what-you-get" },
+    { "label": "Case Studies", "href": "#case-studies" },
+    { "label": "About", "href": "#about" },
+    { "label": "FAQ", "href": "#faqs" }
+  ],
+  "footer": {
+    "logo": "/images/hyperjump-white.png",
+    "text": "Driving Innovation and Growth with Intelligent AI Solutions",
+    "copyright": "Copyright © 2025. Company. All rights reserved.",
+    "socials": [
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/hyperjumptech",
+        "icon": "fa fa-github"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/company/hyperjump",
+        "icon": "fa fa-linkedin"
+      },
+      {
+        "platform": "Medium",
+        "url": "https://medium.com/hyperjump-tech",
+        "icon": "fab fa-medium-m"
+      },
+      {
+        "platform": "Substack",
+        "url": "https://hyperjump.substack.com",
+        "icon": "fa fa-newspaper"
+      }
+    ]
+  },
+  "partners": {
+    "header": "Chosen by Industry Leaders",
+    "logos": [
+      "/images/interfaceai/client/amman.svg",
+      "/images/interfaceai/client/bank-tabungan-negara.svg",
+      "/images/interfaceai/client/my-republic.svg",
+      "/images/interfaceai/client/sicepat.svg",
+      "/images/interfaceai/client/smdv.svg",
+      "/images/interfaceai/client/smartfren.svg"
+    ]
+  },
+  "whyWorkWithUs": {
+    "header": "Why Work with Us",
+    "subheader": "Get custom Al that actually works for your business-built fast, built smart, and built to grow with you.",
+    "data": [
+      {
+        "title": "Tailored to Your Workflow",
+        "description": "Your AI agent is designed specifically around your processes, tools, and goals. No bloated features. No guesswork.",
+        "icon": "/images/interfaceai/why-work-with-us/tailored-to-your-workflow.svg"
+      },
+      {
+        "title": "Speed to Launch",
+        "description": "We go from strategy to working prototype in under 2 weeks—so you can start seeing ROI faster.",
+        "icon": "/images/interfaceai/why-work-with-us/speed-to-launch.svg"
+      },
+      {
+        "title": "Ongoing Support & Optimization",
+        "description": "We don’t just build and bounce. We iterate, improve, and ensure your AI delivers long-term value.",
+        "icon": "/images/interfaceai/why-work-with-us/ongoing-support-n-optimization.svg"
+      }
+    ]
+  },
+  "testimonial": {
+    "quote": "Hyperjump transformed our IT strategy, helping us streamline operations and scale efficiently. Highly recommend for any enterprise looking to innovate.",
+    "author": "Alex Carter",
+    "role": "Head of Customer Experience – Catalog",
+    "avatar": "/images/interfaceai/"
+  },
+  "howItWorks": {
+    "header": "How It Works",
+    "subheader": "A clear, proven process-from idea to launch—in weeks, not months.",
+    "data": [
+      {
+        "title": "Discovery & Strategy",
+        "description": "Understand your business goals, existing workflows, and opportunities for automation.",
+        "image": "/images/interfaceai/how-it-works/discovery-n-strategy.png"
+      },
+      {
+        "title": "Agent Design & Prototype",
+        "description": "We design a tailored agent experience and quickly build a functional prototype for stakeholder buy-in.",
+        "image": "/images/interfaceai/how-it-works/agent-design-n-prototype.png"
+      },
+      {
+        "title": "Integration & Deployment",
+        "description": "Agents are deployed with your tools (Slack, CRM, calendars, APIs) to enhance existing systems.",
+        "image": "/images/interfaceai/how-it-works/integration-n-deployment.png"
+      },
+      {
+        "title": "Training & Iteration",
+        "description": "We help you retrain your data and refine based on real-world usage signals.",
+        "image": "/images/interfaceai/how-it-works/training-n-iteration.png"
+      }
+    ]
+  },
+  "whatYouGet": {
+    "header": "What You Get",
+    "subheader": "A clear, proven process-from idea to launch—in weeks, not months.",
+    "data": [
+      {
+        "title": "End-to-end strategy session",
+        "icon": "/images/interfaceai/what-you-get/end-to-end-strategy-session.svg"
+      },
+      {
+        "title": "Custom AI agent architecture & design",
+        "icon": "/images/interfaceai/what-you-get/custom-ai-agent-architecture-n-design.svg"
+      },
+      {
+        "title": "Prompt engineering & LLM integration",
+        "icon": "/images/interfaceai/what-you-get/pompt-engineering-n-llm-integration.svg"
+      },
+      {
+        "title": "API & tool integrations",
+        "icon": "/images/interfaceai/what-you-get/api-n-tool-integrations.svg"
+      },
+      {
+        "title": "Deployment & hosting setup",
+        "icon": "/images/interfaceai/what-you-get/deployment-n-hosting-setup.svg"
+      },
+      {
+        "title": "Training documentation & walkthrough",
+        "icon": "/images/interfaceai/what-you-get/training-documentation-n-walkthrough.svg"
+      }
+    ]
+  },
+  "caseStudies": {
+    "header": "Case Studies",
+    "subheader": "Explore how we turn challenges into growth opportunities with practical solutions that create lasting change and drive business success.",
+    "data": [
+      {
+        "title": "AI Knowledge Assistant with RAG",
+        "category": "Case Studies",
+        "description": "We built a custom AI agent that augments internal knowledge with Retrieval-Augmented Generation (RAG) using internal docs."
+      },
+      {
+        "title": "AI-Powered Meeting Notes Agent",
+        "category": "Case Studies",
+        "description": "We deployed a Slack agent that summarizes meetings, takes key points, and auto-syncs into project tools—saving hours every week."
+      }
+    ]
+  },
+  "aboutUs": {
+    "header": "About Us",
+    "subheader": "We’re a team of AI engineers, product strategists, and automation nerds passionate about building agents that actually work. We've helped startups, agencies, and enterprise teams harness AI in ways that are simple, strategic, and impactful.",
+    "image": "/images/interfaceai/about-us.png"
+  },
+  "faq": {
+    "header": "Frequently asked questions",
+    "subheader": "Everything you need to go from concept to fully deployed Al agent-done for you, end to end.",
+    "data": [
+      {
+        "question": "What kinds of problems can a custom AI agent solve?",
+        "answer": "AI agents can handle everything from answering customer inquiries, managing internal workflows, extracting insights from documents, to automating tasks across apps like Slack, CRMs, and databases. If it’s repetitive, time-consuming, or data-driven—an agent can likely help."
+      },
+      {
+        "question": "How long does the process take?",
+        "answer": "Most clients go from strategy to launch in 10–14 business days."
+      },
+      {
+        "question": "Do I need to know anything about AI?",
+        "answer": "Nope. We handle all the technical work—just tell us what you want the agent to do."
+      },
+      {
+        "question": "What kind of tools can it integrate with?",
+        "answer": "Slack, Notion, Google Workspace, CRMs, Zapier, APIs, internal databases—you name it."
+      },
+      {
+        "question": "Can the AI use our internal data?",
+        "answer": "Yes. We use Retrieval-Augmented Generation (RAG) to let your agent access and reason over your internal documents, knowledge bases, and systems—securely and with up-to-date context."
+      }
+    ]
+  }
+}

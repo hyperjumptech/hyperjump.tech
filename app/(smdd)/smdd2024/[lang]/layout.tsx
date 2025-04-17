@@ -5,7 +5,7 @@ import { SupportedLanguage } from "@/locales/.generated/types";
 
 export default function SmddLangLayout({
   children,
-  params,
+  params
 }: {
   children: React.ReactNode;
   params: { lang: string };

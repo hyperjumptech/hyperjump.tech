@@ -14,9 +14,9 @@ export default function CaseStudies({ lang }: { lang: SupportedLanguage }) {
   );
 
   return (
-    <section className="bg-white w-full pt-4 sm:pt-0 xl:pt-16 px-4">
-      <div className="w-full max-w-7xl mx-auto text-black container">
-        <h1 className="my-4 xl:text-5xl text-2xl font-bold leading-tight mb-8">
+    <section className="w-full bg-white px-4 pt-4 sm:pt-0 xl:pt-16">
+      <div className="container mx-auto w-full max-w-7xl text-black">
+        <h1 className="my-4 mb-8 text-2xl font-bold leading-tight xl:text-5xl">
           {caseStudies(lang)}
         </h1>
         <div>
@@ -26,27 +26,26 @@ export default function CaseStudies({ lang }: { lang: SupportedLanguage }) {
                 <button
                   onClick={() => setSelectedServiceCaseStudy(s.title)}
                   className={cn(
-                    "px-4 py-1 transition-all duration-150 rounded-full",
+                    "rounded-full px-4 py-1 transition-all duration-150",
                     selectedServiceCaseStudy &&
                       selectedServiceCaseStudy === s.title
                       ? "bg-smdd-red text-white"
                       : "bg-slate-100"
                   )}
-                  key={i}
-                >
+                  key={i}>
                   {s.title}
                 </button>
               );
             })}
           </div>
         </div>
-        <div className="mt-8 border p-4 pl-8 rounded-md">
+        <div className="mt-8 rounded-md border p-4 pl-8">
           <div
             className="space-y-4 [&_b]:mt-4 [&_b]:block"
             dangerouslySetInnerHTML={{
               __html:
                 services.find((s) => s.title === selectedServiceCaseStudy)
-                  ?.narative || "",
+                  ?.narative || ""
             }}
           />
         </div>

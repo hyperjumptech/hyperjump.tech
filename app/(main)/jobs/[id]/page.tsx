@@ -11,19 +11,19 @@ export default function JobDetail({ params }: { params: { id: string } }) {
     notFound();
   }
   return (
-    <section className="bg-white border-b py-8 text-black">
-      <div className="container mx-auto flex-wrap  py-12 flex flex-col space-y-8">
+    <section className="border-b bg-white py-8 text-black">
+      <div className="container mx-auto flex  flex-col flex-wrap space-y-8 py-12">
         <div>
           <p className="text-gray-500">{job.category}</p>
           <h1 className="text-5xl font-bold    text-gray-800">{job.title}</h1>
-          <p className=" text-gray-800 leading-normal">{job.description}</p>
+          <p className=" leading-normal text-gray-800">{job.description}</p>
         </div>
         <div className="flex flex-col space-y-4">
           {["Responsibilities", "Requirements", "Deliverables"].map(
             (title, i) => {
               return (
                 <div key={i} className="flex flex-col space-y-2">
-                  <h2 className="font-bold text-2xl">{title}</h2>
+                  <h2 className="text-2xl font-bold">{title}</h2>
                   <ul className="list-disc">
                     {(job[title.toLowerCase() as never] as string[]).map(
                       (item, i) => {
@@ -38,8 +38,7 @@ export default function JobDetail({ params }: { params: { id: string } }) {
         </div>
         <a
           href={`mailto:job@hyperjump.tech?subject=Apply for ${job.title}`}
-          className="bg-white self-start hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-        >
+          className="self-start rounded border border-gray-400 bg-white px-4 py-2 font-semibold text-gray-800 shadow hover:bg-gray-100">
           Apply
         </a>
       </div>

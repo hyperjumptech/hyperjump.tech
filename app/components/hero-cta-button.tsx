@@ -19,10 +19,9 @@ export function HeroCTAButton() {
         sendGAEvent({
           event: gaEventName,
           category: "engagement",
-          label: "Hero Banner CTA",
+          label: "Hero Banner CTA"
         });
-      }}
-    >
+      }}>
       <Link href={link} target="_blank" rel="noreferrer noopener">
         {label}
       </Link>

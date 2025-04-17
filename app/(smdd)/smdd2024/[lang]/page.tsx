@@ -11,13 +11,13 @@ export const generateStaticParams = async () => {
 };
 
 export default function Home({
-  params,
+  params
 }: {
   params: { lang: SupportedLanguage };
 }) {
   return (
-    <section className="bg-white border-b py-8">
-      <div className="container mx-auto flex flex-wrap pt-4 pb-12 space-y-4">
+    <section className="border-b bg-white py-8">
+      <div className="container mx-auto flex flex-wrap space-y-4 pb-12 pt-4">
         <Services lang={params.lang} />
         <DemosAndDocs lang={params.lang} />
         <OpenSourceProjects />

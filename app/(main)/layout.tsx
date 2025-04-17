@@ -3,7 +3,7 @@ import Nav from "@/app/components/nav";
 import ScrollObserver from "@/app/components/scroll-observer";
 
 export default function MainLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {

@@ -11,7 +11,7 @@ import {
   send,
   talkIntro,
   talkPunchline,
-  talkWithUs,
+  talkWithUs
 } from "@/locales/.generated/server";
 import { SupportedLanguage } from "@/locales/.generated/types";
 import { useState } from "react";
@@ -24,7 +24,7 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
     phone: "",
     company: "",
     company_size: "",
-    message: "",
+    message: ""
   });
 
   const handleChange = (
@@ -35,7 +35,7 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -61,8 +61,8 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
   };
 
   return (
-    <div className="w-full max-w-7xl px-4 sm:px-0 mx-auto text-black container">
-      <h1 className="my-4 xl:text-5xl text-2xl font-bold leading-tight mb-8">
+    <div className="container mx-auto w-full max-w-7xl px-4 text-black sm:px-0">
+      <h1 className="my-4 mb-8 text-2xl font-bold leading-tight xl:text-5xl">
         {talkWithUs(lang)}
       </h1>
       <p>
@@ -71,9 +71,8 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
       </p>
       <form
         id="contact-form"
-        className="flex flex-col gap-2 my-4"
-        onSubmit={handleSubmit}
-      >
+        className="my-4 flex flex-col gap-2"
+        onSubmit={handleSubmit}>
         <label className="font-semibold" htmlFor="name">
           {name(lang)}
         </label>
@@ -82,7 +81,7 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded-lg"
+          className="w-full rounded-lg border border-gray-300 p-2"
         />
         <label className="font-semibold" htmlFor="email">
           {email(lang)}
@@ -92,7 +91,7 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded-lg"
+          className="w-full rounded-lg border border-gray-300 p-2"
         />
         <label className="font-semibold" htmlFor="phone">
           {phone(lang)}
@@ -102,7 +101,7 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded-lg"
+          className="w-full rounded-lg border border-gray-300 p-2"
         />
         <label className="font-semibold" htmlFor="company">
           {company(lang)}
@@ -112,7 +111,7 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
           name="company"
           value={formData.company}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded-lg"
+          className="w-full rounded-lg border border-gray-300 p-2"
         />
         <label className="font-semibold" htmlFor="company_size">
           {companySize(lang)}
@@ -121,8 +120,7 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
           name="company_size"
           value={formData.company_size}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded-lg"
-        >
+          className="w-full rounded-lg border border-gray-300 p-2">
           <option value="1-10">1-10 {person(lang)}</option>
           <option value="10-25">10-25 {person(lang)}</option>
           <option value="25-100">25-100 {person(lang)}</option>
@@ -136,12 +134,10 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded-lg"
-        ></textarea>
+          className="w-full rounded-lg border border-gray-300 p-2"></textarea>
         <button
           type="submit"
-          className="p-2 my-2 self-start px-8 transition-all duration-150 rounded-full bg-smdd-red disabled:bg-smdd-red/50 text-white"
-        >
+          className="my-2 self-start rounded-full bg-smdd-red p-2 px-8 text-white transition-all duration-150 disabled:bg-smdd-red/50">
           <span>{send(lang)}</span>
         </button>
       </form>

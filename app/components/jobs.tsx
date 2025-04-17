@@ -1,7 +1,7 @@
 import data from "@/data.json";
 import GridItemsContainer, {
   GridItems,
-  GridItemsTitle,
+  GridItemsTitle
 } from "@/app/components/grid-items";
 
 export default function Jobs() {

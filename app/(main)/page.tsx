@@ -5,14 +5,14 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
+  AccordionTrigger
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import GridItemsContainer, {
   GridItems,
   GridItemsMoreButton,
-  GridItemsTitle,
+  GridItemsTitle
 } from "@/app/components/grid-items";
 import data from "@/data.json";
 import { CaseStudiesCTA } from "./components/case-studies-cta";
@@ -53,7 +53,7 @@ function Services() {
         gaEvent={{
           event: gaEventName,
           category: "engagement",
-          label: "Service CTA",
+          label: "Service CTA"
         }}
       />
     </GridItemsContainer>
@@ -105,8 +105,8 @@ function OpenSourceProducts() {
 
 function Faqs() {
   return (
-    <section id="faqs" className="bg-[#F6F8F9] scroll-mt-20 py-10">
-      <div className="mx-auto flex py-5 md:py-8 px-4 md:px-20 flex-wrap justify-center items-center">
+    <section id="faqs" className="scroll-mt-20 bg-[#F6F8F9] py-10">
+      <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-5 md:px-20 md:py-8">
         <div className="w-full">
           <GridItemsTitle
             title="Frequently asked questions"
@@ -118,18 +118,17 @@ function Faqs() {
           <Accordion
             type="single"
             collapsible
-            className="w-full max-w-5xl space-y-4 mx-auto"
-          >
+            className="mx-auto w-full max-w-5xl space-y-4">
             {data.faqs.map((item, i) => (
               <AccordionItem key={i} value={`faq-${i}`} asChild>
-                <Card className="bg-white border border-gray-200 shadow-sm transition-all duration-300 w-full">
-                  <CardHeader className="py-2 px-4">
-                    <AccordionTrigger className="transition flex items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] w-full no-underline hover:no-underline focus:no-underline">
+                <Card className="w-full border border-gray-200 bg-white shadow-sm transition-all duration-300">
+                  <CardHeader className="px-4 py-2">
+                    <AccordionTrigger className="flex w-full items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline">
                       {item.question}
                     </AccordionTrigger>
                   </CardHeader>
                   <AccordionContent asChild>
-                    <CardContent className="text-[#61656E] text-base lg:text-lg px-4 pb-4 pt-0">
+                    <CardContent className="px-4 pb-4 pt-0 text-base text-[#61656E] lg:text-lg">
                       {item.answer}
                     </CardContent>
                   </AccordionContent>
@@ -149,38 +148,37 @@ function Location() {
   return (
     <GridItemsContainer>
       <GridItemsTitle title="Our Location" layout="vertical" />
-      <div className="mt-8 mb-6 w-full grid grid-cols-1 lg:grid-cols-4 rounded overflow-hidden shadow-lg">
-        <div className="relative text-white p-6 col-span-1 overflow-hidden">
+      <div className="mb-6 mt-8 grid w-full grid-cols-1 overflow-hidden rounded shadow-lg lg:grid-cols-4">
+        <div className="relative col-span-1 overflow-hidden p-6 text-white">
           <div className="absolute inset-0 z-0">
             <Image
               src="/images/swatch.svg"
               alt="Location background"
               width={1440}
               height={308}
-              className="pointer-events-none select-none h-full object-cover"
+              className="pointer-events-none h-full select-none object-cover"
               style={{
                 background:
-                  "linear-gradient(134.7deg, #5954DA 3.43%, #0B0B0D 48.93%)",
+                  "linear-gradient(134.7deg, #5954DA 3.43%, #0B0B0D 48.93%)"
               }}
             />
           </div>
           <div className="relative z-20">
-            <h2 className="text-lg font-bold mb-4">{title}</h2>
-            <div className="text-sm leading-relaxed mb-2">
+            <h2 className="mb-4 text-lg font-bold">{title}</h2>
+            <div className="mb-2 text-sm leading-relaxed">
               {address.map((line, index) => (
                 <p key={index}>{line}</p>
               ))}
             </div>
-            <p className="text-sm mb-2 mt-4">
+            <p className="mb-2 mt-4 text-sm">
               Email:{" "}
               <a
                 href={`mailto:${email}`}
-                className="transition-colors hover:text-hyperjump-blue"
-              >
+                className="transition-colors hover:text-hyperjump-blue">
                 {email}
               </a>
             </p>
-            <p className="text-sm mb-4">D&B D-U-N-S: {duns}</p>
+            <p className="mb-4 text-sm">D&B D-U-N-S: {duns}</p>
             <Button asChild variant="outline" className="bg-transparent">
               <Link href={mapsUrl} target="_blank" rel="noopener noreferrer">
                 Open in Google Maps
@@ -195,7 +193,7 @@ function Location() {
             alt={title}
             width={1072}
             height={500}
-            className="w-full h-[300px] lg:h-[500px] object-cover object-right lg:object-center"
+            className="h-[300px] w-full object-cover object-right lg:h-[500px] lg:object-center"
           />
         </div>
       </div>

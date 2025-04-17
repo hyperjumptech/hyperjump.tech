@@ -2,7 +2,7 @@ import data from "@/data.json";
 import GridItemsContainer, {
   GridItems,
   GridItemsMoreButton,
-  GridItemsTitle,
+  GridItemsTitle
 } from "@/app/components/grid-items";
 import Script from "next/script";
 

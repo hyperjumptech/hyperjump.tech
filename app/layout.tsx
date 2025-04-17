@@ -12,12 +12,12 @@ import { Toaster } from "@/components/ui/sonner";
 const geistSans = localFont({
   src: "../public/fonts/Switzer-Regular.woff2",
   variable: "--font-geist-sans",
-  weight: "400 500",
+  weight: "400 500"
 });
 const geistMono = localFont({
   src: "/../public/fonts/Switzer-Semibold.woff2",
   variable: "--font-geist-mono",
-  weight: "600 700",
+  weight: "600 700"
 });
 
 export const metadata: Metadata = {
@@ -26,19 +26,19 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Nico Prananta",
-      url: "https://nico.fyi",
-    },
+      url: "https://nico.fyi"
+    }
   ],
   manifest: "/manifest.json",
   icons: {
     icon: "/icons/icon-192x192.png",
     apple: "/icons/apple-touch-icon.png",
-    shortcut: "/icons/icon-192x192.png",
-  },
+    shortcut: "/icons/icon-192x192.png"
+  }
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -55,9 +55,8 @@ export default function RootLayout({
         className={cn(
           "group",
           `${geistSans.variable} ${geistMono.variable} antialiased`,
-          "leading-normal tracking-normal text-white bg-black"
-        )}
-      >
+          "bg-black leading-normal tracking-normal text-white"
+        )}>
         {children}
         <Console />
         <Footer />

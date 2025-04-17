@@ -4,23 +4,22 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="relative text-white px-4 py-10 md:py-14 md:px-20 overflow-hidden">
+    <footer className="relative overflow-hidden px-4 py-10 text-white md:px-20 md:py-14">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/swatch.svg"
           alt="Footer background"
           width={1440}
           height={308}
-          className="pointer-events-none select-none w-full"
+          className="pointer-events-none w-full select-none"
           style={{
-            background:
-              "linear-gradient(44.24deg, #0D0B1E 0%, #161D29 109.69%)",
+            background: "linear-gradient(44.24deg, #0D0B1E 0%, #161D29 109.69%)"
           }}
         />
       </div>
 
-      <div className="relative z-20 container mx-auto px-4">
-        <div className="flex flex-col md:items-center space-y-6">
+      <div className="container relative z-20 mx-auto px-4">
+        <div className="flex flex-col space-y-6 md:items-center">
           <div className="flex items-center">
             <a href="/">
               <Image
@@ -33,7 +32,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <p className="text-[#C7CDCD] max-w-md text-sm">
+          <p className="max-w-md text-sm text-[#C7CDCD]">
             Accelerating Business Growth with Cutting-Edge Technology Solutions
           </p>
 
@@ -44,17 +43,16 @@ export default function Footer() {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition text-white hover:bg-hyperjump-blue border border-[#2D364A] rounded-full w-10 h-10 flex items-center justify-center"
-                aria-label={s.platform}
-              >
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition hover:bg-hyperjump-blue"
+                aria-label={s.platform}>
                 <i className={s.icon} aria-hidden="true"></i>
               </a>
             ))}
           </div>
 
-          <Separator className="bg-[#2D364A] w-full max-w-5xl" />
+          <Separator className="w-full max-w-5xl bg-[#2D364A]" />
 
-          <p className="text-sm text-[#C7CDCD] text-center">{data.copyright}</p>
+          <p className="text-center text-sm text-[#C7CDCD]">{data.copyright}</p>
         </div>
       </div>
     </footer>

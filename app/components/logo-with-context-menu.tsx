@@ -4,13 +4,13 @@ import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
-  ContextMenuTrigger,
+  ContextMenuTrigger
 } from "@/components/ui/context-menu";
 import { toast } from "sonner";
 
 export default function LogoWithContextMenu({
   downloadables,
-  children,
+  children
 }: {
   downloadables: { text: string; url: string; fileName: string }[];
   children: React.ReactNode;
@@ -50,8 +50,7 @@ export default function LogoWithContextMenu({
             key={i}
             onSelect={() => {
               downloadImage(downloadable.url, downloadable.fileName);
-            }}
-          >
+            }}>
             {downloadable.text}
           </ContextMenuItem>
         ))}

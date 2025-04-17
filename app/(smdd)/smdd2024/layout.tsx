@@ -1,5 +1,5 @@
 export default function MainSmddLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {

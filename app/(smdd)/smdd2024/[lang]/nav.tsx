@@ -1,7 +1,7 @@
 import {
   NavContainer,
   HyperjumpLogo,
-  RightNavItems,
+  RightNavItems
 } from "@/app/components/nav";
 import StickyNavigation from "@/app/components/sticky-nav";
 import LanguagePicker from "./language-picker";
@@ -20,7 +20,7 @@ export default function Nav({ lang }: { lang: SupportedLanguage }) {
         </RightNavItems>
       </NavContainer>
 
-      <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
+      <hr className="my-0 border-b border-gray-100 py-0 opacity-25" />
     </StickyNavigation>
   );
 }

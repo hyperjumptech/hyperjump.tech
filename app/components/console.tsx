@@ -7,7 +7,7 @@ const messages = [
   "🏃‍♂️‍➡️ Pengen maju bersama tukang coding yang menggandrungi dunia open-source?",
   "👨‍🔬 Ingin eksplorasi teknologi keren kayak CI/CD, Docker, microservice, dkk?",
   "✅ UDAH DEH: Gabung kita aja",
-  "👉 https://hyperjump.tech/jobs",
+  "👉 https://hyperjump.tech/jobs"
 ];
 
 export default function Console() {

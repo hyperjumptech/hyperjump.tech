@@ -8,7 +8,7 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -29,7 +29,7 @@ export function GridItemsTitle({
   description,
   className = "",
   layout = "horizontal",
-  descriptionStyle,
+  descriptionStyle
 }: GridItemsTitleProps) {
   const isHorizontal = layout === "horizontal";
   const hasBgClass = /\bbg-/.test(className);
@@ -37,7 +37,7 @@ export function GridItemsTitle({
 
   if (!description) {
     return (
-      <h1 className="w-full my-2 text-4xl font-menium leading-tight text-center text-hyperjump-black">
+      <h1 className="font-menium my-2 w-full text-center text-4xl leading-tight text-hyperjump-black">
         {title}
       </h1>
     );
@@ -47,28 +47,25 @@ export function GridItemsTitle({
     <div
       className={cn(
         finalClass,
-        "w-full pt-4 pb-7",
+        "w-full pb-7 pt-4",
         isHorizontal
           ? "flex flex-wrap justify-between gap-4"
           : "flex flex-col md:items-center md:text-center"
-      )}
-    >
+      )}>
       <h2
         className={cn(
           "text-4xl font-medium text-hyperjump-black",
           isHorizontal ? "mb-0 text-left" : "mb-6"
-        )}
-      >
+        )}>
         {title}
       </h2>
       <p
         className={cn(
-          "text-hyperjump-gray text-base md:text-lg",
+          "text-base text-hyperjump-gray md:text-lg",
           isHorizontal
-            ? "text-left max-w-lg"
-            : `w-full md:w-2/3 xl:w-3/4 text-left md:text-center ${descriptionStyle}`
-        )}
-      >
+            ? "max-w-lg text-left"
+            : `w-full text-left md:w-2/3 md:text-center xl:w-3/4 ${descriptionStyle}`
+        )}>
         {description}
       </p>
     </div>
@@ -89,10 +86,10 @@ export function GridItems({
   columns = {
     base: 1,
     md: 2,
-    xl: 3,
+    xl: 3
   },
   withCard = true,
-  classNameCard,
+  classNameCard
 }: {
   items: Item[];
   classNameCard?: string;
@@ -129,7 +126,7 @@ export function GridItems({
     columnClassMap("sm:", columns.sm),
     columnClassMap("md:", columns.md),
     columnClassMap("lg:", columns.lg),
-    columnClassMap("xl:", columns.xl),
+    columnClassMap("xl:", columns.xl)
   ]
     .filter(Boolean)
     .join(" ");
@@ -155,10 +152,9 @@ export function GridItems({
                     "flex flex-col overflow-hidden border-[#D9D9D9] bg-white"
                   )
                 : undefined
-            }
-          >
+            }>
             {image ? (
-              <div className="relative w-full aspect-[16/9]">
+              <div className="relative aspect-[16/9] w-full">
                 <Image
                   src={image}
                   alt={title}
@@ -170,12 +166,12 @@ export function GridItems({
 
             <CardHeader>
               {icon ? (
-                <Avatar className="mb-6 w-14 h-14">
-                  <AvatarImage className="w-14 h-14" src={icon} alt={title} />
+                <Avatar className="mb-6 h-14 w-14">
+                  <AvatarImage className="h-14 w-14" src={icon} alt={title} />
                 </Avatar>
               ) : null}
               {category && (
-                <p className="text-hyperjump-black font-medium mb-2 w-28 rounded-3xl text-center bg-hyperjump-black/10 px-2 py-1.5 text-sm">
+                <p className="mb-2 w-28 rounded-3xl bg-hyperjump-black/10 px-2 py-1.5 text-center text-sm font-medium text-hyperjump-black">
                   {category}
                 </p>
               )}
@@ -184,20 +180,19 @@ export function GridItems({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition hover:underline"
-                >
-                  <CardTitle className="md:text-[22px] text-xl font-semibold text-hyperjump-black">
+                  className="transition hover:underline">
+                  <CardTitle className="text-xl font-semibold text-hyperjump-black md:text-[22px]">
                     {title}
                   </CardTitle>
                 </Link>
               ) : (
-                <CardTitle className="md:text-[22px] text-xl font-semibold text-hyperjump-black">
+                <CardTitle className="text-xl font-semibold text-hyperjump-black md:text-[22px]">
                   {title}
                 </CardTitle>
               )}
             </CardHeader>
 
-            <CardContent className="flex flex-col justify-between flex-1 gap-4 -mt-3">
+            <CardContent className="-mt-3 flex flex-1 flex-col justify-between gap-4">
               <div>
                 <CardDescription
                   ref={(el) => {
@@ -206,8 +201,7 @@ export function GridItems({
                   className={cn(
                     "transition-all duration-300",
                     expandedIndex !== idx ? "line-clamp-4" : ""
-                  )}
-                >
+                  )}>
                   {description}
                 </CardDescription>
 
@@ -216,8 +210,7 @@ export function GridItems({
                     onClick={() =>
                       setExpandedIndex((prev) => (prev === idx ? null : idx))
                     }
-                    className="transition mt-1 text-gray-600 hover:underline"
-                  >
+                    className="mt-1 text-gray-600 transition hover:underline">
                     {expandedIndex === idx ? "See Less" : "See More"}
                   </button>
                 )}
@@ -228,8 +221,7 @@ export function GridItems({
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full text-hyperjump-blue border-hyperjump-blue hover:bg-hyperjump-blue hover:text-white"
-                  >
+                    className="w-full border-hyperjump-blue text-hyperjump-blue hover:bg-hyperjump-blue hover:text-white">
                     <Link href={url} target="_blank" rel="noopener noreferrer">
                       <Star className="h-4 w-4" />
                       <span>Star</span>
@@ -240,13 +232,11 @@ export function GridItems({
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full text-hyperjump-blue border-hyperjump-blue hover:bg-hyperjump-blue hover:text-white"
-                  >
+                    className="w-full border-hyperjump-blue text-hyperjump-blue hover:bg-hyperjump-blue hover:text-white">
                     <Link
                       href={`${url}/fork`}
                       target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                      rel="noopener noreferrer">
                       <GitFork className="h-4 w-4" />
                       <span>Fork</span>
                     </Link>
@@ -278,16 +268,16 @@ export const GridItemsMoreButton = ({
   href,
   text,
   variant = "default",
-  gaEvent,
+  gaEvent
 }: GridItemsMoreButtonProps) => {
   const customClass = cn("font-semibold", {
     "bg-hyperjump-blue hover:bg-hyperjump-blue/90": variant === "default",
     "text-hyperjump-blue border-hyperjump-blue hover:bg-hyperjump-blue hover:text-white":
-      variant === "outline",
+      variant === "outline"
   });
 
   return (
-    <div className="w-full flex items-center justify-center mt-10">
+    <div className="mt-10 flex w-full items-center justify-center">
       <Button asChild className={customClass} variant={variant}>
         <Link
           href={href}
@@ -297,8 +287,7 @@ export const GridItemsMoreButton = ({
             if (gaEvent) {
               sendGAEvent(gaEvent);
             }
-          }}
-        >
+          }}>
           {text}
         </Link>
       </Button>
@@ -309,7 +298,7 @@ export const GridItemsMoreButton = ({
 export default function GridItemsContainer({
   children,
   className = "",
-  id,
+  id
 }: {
   children: React.ReactNode;
   className?: string;
@@ -338,7 +327,7 @@ export default function GridItemsContainer({
 
   return (
     <section id={id} className={finalClass}>
-      <div className="mx-auto flex py-5 md:py-14 px-4 md:px-20 flex-wrap justify-center items-center max-w-5xl xl:px-0">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center px-4 py-5 md:px-20 md:py-14 xl:px-0">
         {title}
         <div>{body || others}</div>
         {more}

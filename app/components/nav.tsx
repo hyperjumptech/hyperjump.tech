@@ -11,7 +11,7 @@ import BlackLogo from "@/public/images/hyperjump-black.png";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuList,
+  NavigationMenuList
 } from "@/components/ui/navigation-menu";
 import StickyNavigationMain from "./sticky-nav-main";
 import ClientOnly from "./client-only";
@@ -45,9 +45,8 @@ export default function Nav() {
                           shouldBeWhite
                             ? "text-hyperjump-black hover:text-hyperjump-blue"
                             : "text-white hover:border-b-2",
-                          "font-medium text-xl transition-colors"
-                        )}
-                      >
+                          "text-xl font-medium transition-colors"
+                        )}>
                         {item.label}
                       </Link>
                     </NavigationMenuItem>
@@ -62,7 +61,7 @@ export default function Nav() {
                 variant="outline"
                 className={cn(
                   shouldBeWhite
-                    ? "bg-hyperjump-blue hover:text-white hover:bg-hyperjump-blue/90"
+                    ? "bg-hyperjump-blue hover:bg-hyperjump-blue/90 hover:text-white"
                     : "bg-transparent",
                   "font-semibold"
                 )}
@@ -70,10 +69,9 @@ export default function Nav() {
                   sendGAEvent({
                     event: gaEventName,
                     category: "engagement",
-                    label: "Navigation CTA",
+                    label: "Navigation CTA"
                   });
-                }}
-              >
+                }}>
                 <Link href={link} target="_blank" rel="noreferrer noopener">
                   {label}
                 </Link>
@@ -83,16 +81,14 @@ export default function Nav() {
             {/* Mobile Toggle */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2"
-              aria-label="Toggle menu"
-            >
+              className="p-2 lg:hidden"
+              aria-label="Toggle menu">
               <svg
-                className="w-6 h-6"
+                className="h-6 w-6"
                 fill="none"
                 stroke={shouldBeWhite ? "black" : "white"}
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+                xmlns="http://www.w3.org/2000/svg">
                 {isOpen ? (
                   <path
                     strokeLinecap="round"
@@ -114,29 +110,27 @@ export default function Nav() {
 
           {/* Mobile Menu */}
           {isOpen && (
-            <div className="lg:hidden bg-white shadow-md">
-              <div className="flex flex-col px-4 md:px-20 mx-auto py-6 space-y-4">
+            <div className="bg-white shadow-md lg:hidden">
+              <div className="mx-auto flex flex-col space-y-4 px-4 py-6 md:px-20">
                 {data.navLinks.map((item, idx) => (
                   <Link
                     key={idx}
                     href={item.href}
-                    className="transition text-hyperjump-black text-2xl hover:text-gray-400"
-                    onClick={() => setIsOpen(false)}
-                  >
+                    className="text-2xl text-hyperjump-black transition hover:text-gray-400"
+                    onClick={() => setIsOpen(false)}>
                     {item.label}
                   </Link>
                 ))}
                 <Link
                   href={link}
-                  className="transition mt-2 border text-base border-hyperjump-black hover:text-gray-400 text-hyperjump-black py-3 text-center rounded hover:border-gray-400"
+                  className="mt-2 rounded border border-hyperjump-black py-3 text-center text-base text-hyperjump-black transition hover:border-gray-400 hover:text-gray-400"
                   onClick={() => {
                     sendGAEvent({
                       event: gaEventName,
                       category: "engagement",
-                      label: "Navigation CTA",
+                      label: "Navigation CTA"
                     });
-                  }}
-                >
+                  }}>
                   {label}
                 </Link>
               </div>
@@ -164,9 +158,8 @@ export function NavContainer({ children }: { children: ReactNode }) {
     <div
       className={cn(
         showBorder,
-        "w-full px-4 md:px-20 mx-auto flex flex-wrap items-center justify-between mt-0 py-5 max-w-5xl xl:px-0"
-      )}
-    >
+        "mx-auto mt-0 flex w-full max-w-5xl flex-wrap items-center justify-between px-4 py-5 md:px-20 xl:px-0"
+      )}>
       {children}
     </div>
   );
@@ -174,7 +167,7 @@ export function NavContainer({ children }: { children: ReactNode }) {
 
 function CenterNavItems({ children }: { children: React.ReactNode }) {
   return (
-    <div className="hidden lg:flex items-center justify-center space-x-8 flex-1">
+    <div className="hidden flex-1 items-center justify-center space-x-8 lg:flex">
       {children}
     </div>
   );
@@ -182,7 +175,7 @@ function CenterNavItems({ children }: { children: React.ReactNode }) {
 
 export function RightNavItems({ children }: { children: React.ReactNode }) {
   return (
-    <div className="hidden lg:flex items-center justify-end space-x-4">
+    <div className="hidden items-center justify-end space-x-4 lg:flex">
       {children}
     </div>
   );
@@ -215,36 +208,34 @@ function HyperjumpLogoMain({ isOpen }: { isOpen: boolean }) {
 
 export function HyperjumpLogo() {
   return (
-    <div className="pl-4 flex items-center">
+    <div className="flex items-center pl-4">
       <Link
-        className="transition toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-        href={"/"}
-      >
+        className="toggleColour text-2xl font-bold no-underline transition hover:no-underline lg:text-4xl"
+        href={"/"}>
         <ClientOnly>
           <LogoWithContextMenu
             downloadables={[
               {
                 text: "Download colored logo",
                 url: ColoredLogo.src,
-                fileName: "hyperjump-logo-colored.png",
+                fileName: "hyperjump-logo-colored.png"
               },
               {
                 text: "Download Black and White logo",
                 url: BlackLogo.src,
-                fileName: "hyperjump-logo-bw.png",
+                fileName: "hyperjump-logo-bw.png"
               },
               {
                 text: "Download icon",
                 url: IconOnlyLogo.src,
-                fileName: "hyperjump-icon-only.png",
+                fileName: "hyperjump-icon-only.png"
               },
               {
                 text: "Download SVG logo",
                 url: SVGLogo.src,
-                fileName: "hyperjump-svg.svg",
-              },
-            ]}
-          >
+                fileName: "hyperjump-svg.svg"
+              }
+            ]}>
             {[WhiteLogo, ColoredLogo].map((image, i) => {
               return (
                 <Image

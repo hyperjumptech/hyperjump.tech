@@ -76,3 +76,30 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Interface AI */
+.bg-grid-faqs {
+  background: linear-gradient(0deg, #050013, #050013),
+    linear-gradient(180deg, #1513374d 0%, #15133700 23.58%);
+}
+
+.card-border-gradient {
+  border: 1px solid transparent;
+  border-image-source: linear-gradient(
+    109.19deg,
+    rgba(78, 69, 102, 0) -13.57%,
+    #4e4566 116.75%
+  );
+  background-color: #1b1728;
+}
+
+.border-left-radial {
+  border-left: 2px solid transparent;
+  border-image-source: radial-gradient(
+    6.63% 26.42% at 0% 44.6%,
+    #877f9f 0%,
+    rgba(135, 127, 159, 0) 100%
+  );
+  border-image-slice: 1;
+  border-image-repeat: stretch;
+}

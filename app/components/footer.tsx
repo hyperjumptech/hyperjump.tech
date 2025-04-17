@@ -11,10 +11,7 @@ export default function Footer() {
           alt="Footer background"
           width={1440}
           height={308}
-          className="pointer-events-none select-none"
-        />
-        <div
-          className="absolute inset-0 z-10"
+          className="pointer-events-none select-none w-full"
           style={{
             background:
               "linear-gradient(44.24deg, #0D0B1E 0%, #161D29 109.69%)",

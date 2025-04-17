@@ -270,7 +270,7 @@ type GAEvent = {
 export type GridItemsMoreButtonProps = {
   href: string;
   text?: string;
-  variant?: "default" | "outline" | "link";
+  variant?: "default" | "outline";
   gaEvent?: GAEvent;
 };
 

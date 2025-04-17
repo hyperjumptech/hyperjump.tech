@@ -7,7 +7,8 @@
     "dev": "npm run generate-locales && next dev",
     "build": "npm run generate-locales && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check-format": "prettier --check ."
   },
   "dependencies": {
     "@next/third-parties": "^14.2.28",
@@ -37,6 +38,8 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.28",
     "postcss": "^8",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.5.14",
     "simple-i18n-next": "^0.0.25",
     "tailwind-merge": "^2.5.3",
     "tailwindcss": "^3.4.1",

@@ -35,6 +35,7 @@ const config: Config = {
         "hyperjump-blue": "#3276F5",
         "hyperjump-black": "#020F15",
         "hyperjump-gray": "#73767E",
+        "inferenceai-ai-indigo": "#050013",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))"

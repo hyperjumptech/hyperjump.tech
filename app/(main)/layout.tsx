@@ -1,6 +1,7 @@
 import Hero from "@/app/components/hero";
 import Nav from "@/app/components/nav";
 import ScrollObserver from "@/app/components/scroll-observer";
+import Footer from "../components/footer";
 
 export default function MainLayout({
   children
@@ -13,6 +14,7 @@ export default function MainLayout({
       <Nav />
       <Hero />
       {children}
+      <Footer />
     </>
   );
 }

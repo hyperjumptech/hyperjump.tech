@@ -32,7 +32,10 @@ const getHtmlFiles = (dir) => {
 };
 
 (async () => {
-  const browser = await puppeteer.launch();
+  // Launch with no-sandbox flag for GitHub Actions
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
+  });
   const page = await browser.newPage();
 
   // Set viewport size

@@ -3,32 +3,34 @@ const fs = require("fs");
 const path = require("path");
 
 const OUT_DIR = path.join(process.cwd(), "screenshots");
-const SITE_DIR = path.join(process.cwd(), "out"); // Adjust if your export directory is different
+const SERVER_URL = "http://localhost:3000"; // Use the server URL instead of file paths
 
 // Create screenshots directory if it doesn't exist
 if (!fs.existsSync(OUT_DIR)) {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 }
 
-// Get all HTML files from the export directory
-const getHtmlFiles = (dir) => {
+// Get all HTML files from the export directory to determine pages
+// We'll still need this to know what pages to screenshot
+const getPages = (dir) => {
+  const baseDir = path.join(process.cwd(), "out");
   const files = fs.readdirSync(dir);
-  const htmlFiles = [];
+  const pages = [];
 
   for (const file of files) {
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
 
     if (stat.isDirectory()) {
-      htmlFiles.push(...getHtmlFiles(filePath));
+      pages.push(...getPages(filePath));
     } else if (file === "index.html") {
-      // Get relative path from SITE_DIR
-      const relativePath = path.relative(SITE_DIR, dir);
-      htmlFiles.push(relativePath || "home");
+      // Get relative path from baseDir
+      const relativePath = path.relative(baseDir, dir);
+      pages.push(relativePath || "");
     }
   }
 
-  return htmlFiles;
+  return pages;
 };
 
 (async () => {
@@ -41,25 +43,31 @@ const getHtmlFiles = (dir) => {
   // Set viewport size
   await page.setViewport({ width: 1280, height: 800 });
 
-  const pages = getHtmlFiles(SITE_DIR);
+  // Get pages from the out directory
+  const pages = getPages(path.join(process.cwd(), "out"));
 
   for (const pagePath of pages) {
-    // Create file URL
-    const filePath =
-      pagePath === "home"
-        ? path.join(SITE_DIR, "index.html")
-        : path.join(SITE_DIR, pagePath, "index.html");
+    // Create URL for the server
+    const pageUrl = pagePath ? `${SERVER_URL}/${pagePath}` : SERVER_URL;
 
-    const fileUrl = `file://${filePath}`;
+    console.log(`Navigating to ${pageUrl}`);
 
-    // Navigate to the page
-    await page.goto(fileUrl, { waitUntil: "networkidle0" });
+    try {
+      // Navigate to the page on the local server
+      await page.goto(pageUrl, {
+        waitUntil: "networkidle0",
+        timeout: 30000 // Increase timeout to 30 seconds
+      });
 
-    // Take screenshot
-    const screenshotPath = path.join(OUT_DIR, `${pagePath}.png`);
-    await page.screenshot({ path: screenshotPath, fullPage: true });
+      // Take screenshot
+      const screenshotName = pagePath || "home";
+      const screenshotPath = path.join(OUT_DIR, `${screenshotName}.png`);
+      await page.screenshot({ path: screenshotPath, fullPage: true });
 
-    console.log(`Screenshot taken for ${pagePath}`);
+      console.log(`Screenshot taken for ${screenshotName}`);
+    } catch (error) {
+      console.error(`Error taking screenshot for ${pagePath}:`, error);
+    }
   }
 
   await browser.close();

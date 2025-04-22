@@ -62,6 +62,8 @@ const getPages = (dir) => {
       // Take screenshot
       const screenshotName = pagePath || "home";
       const screenshotPath = path.join(OUT_DIR, `${screenshotName}.png`);
+      await page.waitForTimeout(2000); // Wait 2 seconds for everything to render
+
       await page.screenshot({ path: screenshotPath, fullPage: true });
 
       console.log(`Screenshot taken for ${screenshotName}`);

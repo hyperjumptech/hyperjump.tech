@@ -48,8 +48,8 @@ jobs:
         run: |
           # Start the server in the background
           npx serve out -p 3000 &
-          # Wait for server to start
-          sleep 5
+          # Wait longer for server to start
+          sleep 10
           # Take screenshots
           node .github/scripts/take-screenshots.js
           # Kill the server
@@ -77,7 +77,7 @@ jobs:
             const repoName = context.repo.repo;
 
             // Create a link to the artifacts
-            const artifactUrl = `https://github.com/${repoOwner}/${repoName}/actions/runs/${runId}/artifacts`;
+            const artifactUrl = `https://github.com/${repoOwner}/${repoName}/actions/runs/${runId}`;
 
             let body = `## 🔍 PR Preview Screenshots\n\n`;
             body += `Preview screenshots for this PR have been generated and are available as artifacts.\n\n`;

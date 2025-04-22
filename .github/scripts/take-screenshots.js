@@ -35,15 +35,34 @@ const getPages = (dir) => {
   return pages;
 };
 
+// Function to scroll the page to load lazy images
+async function autoScroll(page) {
+  await page.evaluate(async () => {
+    await new Promise((resolve) => {
+      let totalHeight = 0;
+      const distance = 100;
+      const timer = setInterval(() => {
+        const scrollHeight = document.body.scrollHeight;
+        window.scrollBy(0, distance);
+        totalHeight += distance;
+
+        if (totalHeight >= scrollHeight) {
+          clearInterval(timer);
+          window.scrollTo(0, 0); // Scroll back to top
+          resolve();
+        }
+      }, 100);
+    });
+  });
+}
+
 (async () => {
   // Launch with no-sandbox flag for GitHub Actions
   const browser = await puppeteer.launch({
-    args: ["--no-sandbox", "--disable-setuid-sandbox"]
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    defaultViewport: { width: 1280, height: 800 }
   });
   const page = await browser.newPage();
-
-  // Set viewport size
-  await page.setViewport({ width: 1280, height: 800 });
 
   // Get pages from the out directory
   const pages = getPages(path.join(process.cwd(), "out"));
@@ -61,7 +80,10 @@ const getPages = (dir) => {
         timeout: 30000 // Increase timeout to 30 seconds
       });
 
-      // Wait for 2 seconds to ensure everything is rendered
+      // Scroll through the page to load lazy images
+      await autoScroll(page);
+
+      // Wait for additional time to ensure images are loaded
       await delay(2000);
 
       // Take screenshot

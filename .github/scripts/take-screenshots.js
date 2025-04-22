@@ -10,8 +10,10 @@ if (!fs.existsSync(OUT_DIR)) {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 }
 
+// Helper function for delay
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 // Get all HTML files from the export directory to determine pages
-// We'll still need this to know what pages to screenshot
 const getPages = (dir) => {
   const baseDir = path.join(process.cwd(), "out");
   const files = fs.readdirSync(dir);
@@ -59,11 +61,12 @@ const getPages = (dir) => {
         timeout: 30000 // Increase timeout to 30 seconds
       });
 
+      // Wait for 2 seconds to ensure everything is rendered
+      await delay(2000);
+
       // Take screenshot
       const screenshotName = pagePath || "home";
       const screenshotPath = path.join(OUT_DIR, `${screenshotName}.png`);
-      await page.waitForTimeout(2000); // Wait 2 seconds for everything to render
-
       await page.screenshot({ path: screenshotPath, fullPage: true });
 
       console.log(`Screenshot taken for ${screenshotName}`);

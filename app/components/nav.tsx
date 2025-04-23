@@ -152,7 +152,7 @@ export function NavContainer({ children }: { children: ReactNode }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const showBorder = isScrolled ? "boder border-b-2" : "boder-none2";
+  const showBorder = isScrolled ? "border border-b-2" : "border-none";
 
   return (
     <div

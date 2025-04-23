@@ -247,6 +247,14 @@ function JsonLdOrganization() {
     name: title,
     url,
     logo: "https://hyperjump.tech/images/hyperjump-colored.png",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "D.Lab Building (6th floor), Jl. Riau No. 1",
+      addressLocality: "Gondangdia, Menteng, Jakarta Pusat",
+      addressRegion: "DKI Jakarta",
+      postalCode: "10350",
+      addressCountry: "ID"
+    },
     contactPoint: {
       "@type": "ContactPoint",
       email: location.email,
@@ -254,7 +262,8 @@ function JsonLdOrganization() {
       areaServed: "Worldwide",
       availableLanguage: ["English", "Indonesian"]
     },
-    sameAs: socials.map(({ url }) => url)
+    sameAs: socials.map(({ url }) => url),
+    duns: location.duns
   };
 
   return (

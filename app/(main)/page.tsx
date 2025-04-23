@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+import type { Organization, WebPage, WithContext } from "schema-dts";
 
 import {
   Accordion,
@@ -17,7 +19,34 @@ import GridItemsContainer, {
 import data from "@/data.json";
 import { CaseStudiesCTA } from "./components/case-studies-cta";
 
-const { cta, location } = data;
+const {
+  cta,
+  hero: { heading, subheading },
+  location,
+  socials,
+  title,
+  url
+} = data;
+
+export const metadata: Metadata = {
+  description: subheading,
+  title: `${title} - ${heading}`,
+  openGraph: {
+    url,
+    type: "website",
+    title: `${title} - ${heading}`,
+    images: [
+      {
+        url: "https://hyperjump.tech/images/hyperjump-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Hyperjump Logo",
+        type: "image/png"
+      }
+    ],
+    siteName: title
+  }
+};
 
 export default function Home() {
   return (
@@ -27,6 +56,7 @@ export default function Home() {
       <OpenSourceProducts />
       <Faqs />
       <Location />
+      <JsonLd />
     </>
   );
 }
@@ -198,5 +228,56 @@ function Location() {
         </div>
       </div>
     </GridItemsContainer>
+  );
+}
+
+function JsonLd() {
+  return (
+    <>
+      <JsonLdOrganization />
+      <JsonLdWebsite />
+    </>
+  );
+}
+
+function JsonLdOrganization() {
+  const jsonLd: WithContext<Organization> = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: title,
+    url,
+    logo: "https://hyperjump.tech/images/hyperjump-colored.png",
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: location.email,
+      contactType: "Sales",
+      areaServed: "Worldwide",
+      availableLanguage: ["English", "Indonesian"]
+    },
+    sameAs: socials.map(({ url }) => url)
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+function JsonLdWebsite() {
+  const jsonLd: WithContext<WebPage> = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    url,
+    description: subheading
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
   );
 }

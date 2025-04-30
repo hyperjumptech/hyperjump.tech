@@ -7,6 +7,7 @@ import { cn } from "@/app/utils/tailwind";
 import Console from "@/app/components/console";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
+import { AIAgent } from "@/app/components/ai-agent";
 
 const geistSans = localFont({
   src: "../public/fonts/Switzer-Regular.woff2",
@@ -63,6 +64,7 @@ export default function RootLayout({
         {children}
         <Console />
         <Toaster />
+        <AIAgent />
         <Script src="https://kit.fontawesome.com/f6999a3218.js" />
       </body>
     </html>

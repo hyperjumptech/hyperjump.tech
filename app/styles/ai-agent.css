@@ -1,0 +1,46 @@
+/** Chat UI **/
+
+/** Header **/
+#n8n-chat .chat-header {
+  @apply gap-2 p-6;
+}
+
+#n8n-chat .chat-heading {
+  @apply font-bold leading-none;
+}
+
+/** Chat **/
+#n8n-chat .chat-window {
+  @apply rounded-xl border-none shadow-lg transition-all duration-300;
+}
+
+#n8n-chat .chat-message-markdown {
+  @apply text-base;
+}
+
+#n8n-chat .chat-message {
+  @apply rounded-md;
+}
+
+/** Footer **/
+#n8n-chat .chat-footer {
+  @apply bg-white p-2;
+}
+
+#n8n-chat .chat-powered-by {
+  @apply text-[0px];
+}
+
+#n8n-chat .chat-powered-by {
+  --custom-content: "HyperBot made with \2665  by Hyperjump";
+  @apply relative text-transparent before:inline-block before:text-sm before:text-black before:content-[var(--custom-content)];
+}
+
+#n8n-chat .chat-powered-by a {
+  @apply hidden;
+}
+
+/** Floating action button **/
+#n8n-chat .chat-window-toggle {
+  @apply bg-[#3276F5];
+}

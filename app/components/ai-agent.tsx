@@ -3,14 +3,11 @@
 import { createChat } from "@n8n/chat";
 import config from "@/lib/config";
 import { useEffect } from "react";
-import useMedia from "@/hooks/use-media";
 
 import "@n8n/chat/style.css";
 import "../styles/ai-agent.css";
 
 export const AIAgent = () => {
-  const isMobile = useMedia("(max-width: 991px)");
-
   useEffect(() => {
     createChat({
       webhookUrl: config.AI_AGENT_URL,
@@ -32,7 +29,7 @@ export const AIAgent = () => {
         }
       }
     });
-  }, [isMobile]);
+  }, []);
 
   return <></>;
 };

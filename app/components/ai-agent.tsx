@@ -12,9 +12,9 @@ export const AIAgent = () => {
     createChat({
       webhookUrl: config.AI_AGENT_URL,
       initialMessages: [
-        `Hello! 👋`,
-        `I'm HyperBot, here to help you learn more about Hyperjump - including our services, case studies, and how we can assist with your tech challenges`,
-        `How can I assist you today?`
+        `Hi there! 👋`,
+        `I’m HyperBot — your guide to everything about Hyperjump: our services, success stories, and how we solve real tech problems.`,
+        `To see how we can support you with your tech problems, just say: “Can Hyperjump help me with my tech problem?”`
       ],
       showWelcomeScreen: false,
       // Currently, only EN is supported.

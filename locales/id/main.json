@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "heading": "Mitra Anda dalam Membangun Perangkat Lunak yang Andal dan Modern",
+    "desc": "Kami membantu organisasi menghadirkan sistem digital yang skalabel dan berkualitas tinggi melalui keunggulan rekayasa dan teknologi cloud-native."
+  },
+  "cta": {
+    "label": "Jadwalkan Konsultasi"
+  },
+  "view_more": "Lihat Selengkapnya",
+  "see_more": "Lihat Selengkapnya",
+  "see_less": "Lihat Lebih Sedikit",
+  "our_location": "Lokasi Kami",
+  "open_in_google_maps": "Buka di Google Maps",
+  "footer": "Mendorong Pertumbuhan Bisnis dengan Solusi Teknologi Terkini",
+  "case_studies_cta": {
+    "heading": "Atasi Hambatan yang Menghalangi Kemajuan Anda",
+    "desc": "Apakah Anda menghadapi sistem lama, hambatan operasional, atau tantangan dalam melakukan scaling? Kami siap membantu Anda menyelesaikan masalah tersebut dan membangun solusi untuk tahap berikutnya."
+  },
+  "nav_items": {
+    "0_label": "Layanan",
+    "1_label": "Studi Kasus",
+    "2_label": "Open Source",
+    "3_label": "FAQ"
+  },
+  "services": {
+    "heading": "Layanan",
+    "desc": "Kami menawarkan solusi teknologi ahli untuk membantu bisnis berkembang, meningkatkan efisiensi, mengoptimalkan operasional, dan mendorong inovasi berkelanjutan.",
+
+    "0_title": "CTO sebagai Layanan",
+    "0_text": "Mencari, merekrut, mengelola, dan mempertahankan engineer perangkat lunak terbaik adalah proses yang kompleks dan memakan waktu. Serahkan semua itu kepada kami.",
+
+    "1_title": "Perangkat Lunak sebagai Layanan",
+    "1_text": "Kami membangun dan mengelola solusi perangkat lunak yang disesuaikan dengan kebutuhan perusahaan Anda untuk kinerja dan pertumbuhan optimal.",
+
+    "2_title": "Uji Tuntas Teknologi",
+    "2_text": "Kami membantu memverifikasi dan menilai kemampuan perusahaan Anda dalam menjalankan roadmap serta mengevaluasi kondisi teknis saat ini.",
+
+    "3_title": "Implementasi ERP",
+    "3_text": "Tingkatkan efisiensi operasional Anda dengan solusi ERP tingkat enterprise, mempercepat proses bisnis dan meningkatkan kecerdasan operasional."
+  },
+  "case_studies": {
+    "heading": "Studi Kasus",
+    "desc": "Pelajari bagaimana kami mengubah tantangan menjadi peluang melalui solusi nyata yang memberikan dampak jangka panjang dan mendorong pertumbuhan bisnis.",
+
+    "0_title": "Mengungkap Kegagalan Sistem Tersembunyi melalui Tinjauan Teknis Mendalam",
+    "0_text": "Sebuah perusahaan media terkemuka menghadapi masalah sistem lambat dan data yang tidak andal. Melalui uji tuntas teknis kami, terungkap adanya kelemahan infrastruktur dan kesenjangan arsitektur. Dengan rekomendasi kami, perusahaan berhasil membangun ulang backend mereka untuk kinerja lebih cepat dan akses data yang lebih andal.",
+    "0_category": "Studi Kasus",
+
+    "1_title": "Digitalisasi Perikanan Remote dengan Solusi ERP Kustom",
+    "1_text": "Proses manual memperlambat operasional di puluhan lokasi perikanan remote. Kami merancang dan mengimplementasikan sistem ERP kustom menggunakan Odoo, lengkap dengan aplikasi mobile yang dapat digunakan tanpa koneksi internet. Hasilnya: data terintegrasi, kesalahan berkurang, dan pengambilan keputusan menjadi lebih cepat di seluruh jaringan.",
+    "1_category": "Studi Kasus"
+  },
+  "project": {
+    "heading": "Produk Open Source",
+    "desc": "Jelajahi proyek open-source kami dan lihat bagaimana kami berinovasi, berkolaborasi, dan membangun solusi berdampak nyata. Bergabunglah dengan komunitas kami dan berkontribusi dalam pengembangan teknologi mutakhir.",
+
+    "0_title": "Monika",
+    "0_text": "Monika adalah aplikasi baris perintah untuk memantau berbagai komponen aplikasi web Anda menggunakan konfigurasi sederhana berbasis JSON. Dapatkan notifikasi tidak hanya saat situs Anda down, tetapi juga ketika performanya melambat.",
+
+    "1_title": "Firebase Cronjob",
+    "1_text": "Fitur Scheduled Functions menjalankan autoIncrementJobCounter secara otomatis setiap menit, yang akan menambahkan jobConfigCounter dalam database Firestore.",
+
+    "2_title": "Konektor Chatbot WhatsApp",
+    "2_text": "Backend Konektor Chatbot WhatsApp dibangun menggunakan Express.js. Dirancang untuk terintegrasi dengan WhatsApp Business API dan mendukung berbagai platform AI seperti Dify dan Rasa."
+  },
+  "faq": {
+    "heading": "Pertanyaan yang Sering Diajukan",
+    "desc": "Temukan jawaban atas pertanyaan yang sering diajukan. Jika membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.",
+
+    "0_question": "Apa itu CTO sebagai Layanan (CTOaaS), dan bagaimana manfaatnya bagi perusahaan saya?",
+    "0_answer": "CTOaaS memberikan akses fleksibel ke kepemimpinan teknologi berpengalaman tanpa biaya eksekutif penuh waktu. Layanan ini membantu perusahaan dalam perencanaan strategis TI, transformasi digital, dan pengambilan keputusan teknis untuk mendukung pertumbuhan secara efisien.",
+
+    "1_question": "Bagaimana pendekatan Anda dalam implementasi ERP untuk perusahaan?",
+    "1_answer": "Kami mengikuti proses terstruktur yang mencakup analisis bisnis, pemilihan sistem, kustomisasi, integrasi, pelatihan, dan dukungan pasca implementasi untuk memastikan adopsi yang lancar dan keberhasilan jangka panjang.",
+
+    "2_question": "Apa saja yang dicakup dalam layanan uji tuntas teknologi Anda?",
+    "2_answer": "Uji tuntas teknologi kami mencakup review kode, evaluasi keamanan, analisis skalabilitas, penilaian infrastruktur, dan pemeriksaan kepatuhan untuk memastikan investasi teknologi Anda aman dan bernilai tinggi.",
+
+    "3_question": "Mengapa kami harus memilih layanan konsultasi Anda dibandingkan membangun tim internal?",
+    "3_answer": "Kami menawarkan keahlian khusus, fleksibilitas, dan solusi yang hemat biaya tanpa beban karyawan tetap. Tim kami memiliki pengalaman bertahun-tahun dalam TI enterprise, memastikan implementasi lebih cepat dan ROI yang lebih tinggi."
+  }
+}

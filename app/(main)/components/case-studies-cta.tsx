@@ -5,9 +5,15 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
 import Image from "next/image";
+import { SupportedLanguage } from "@/locales/.generated/types";
+import {
+  mainCaseStudiesCtaDesc,
+  mainCaseStudiesCtaHeading,
+  mainCtaLabel
+} from "@/locales/.generated/server";
 
-export function CaseStudiesCTA() {
-  const { gaEventName, label, link } = data.cta;
+export function CaseStudiesCTA({ lang }: { lang: SupportedLanguage }) {
+  const { gaEventName, link } = data.cta;
 
   return (
     <div className="relative mt-10 w-full max-w-5xl overflow-hidden rounded">
@@ -26,13 +32,9 @@ export function CaseStudiesCTA() {
       </div>
       <div className="relative flex flex-col items-center justify-center px-6 py-11 text-center">
         <h3 className="text-3xl font-medium">
-          Solve What&apos;s Holding You Back
+          {mainCaseStudiesCtaHeading(lang)}
         </h3>
-        <p className="mt-3 max-w-xl">
-          Whether you&apos;re dealing with legacy systems, operational
-          bottlenecks, or scaling pains. We&apos;re here to help you untangle
-          the mess and build what&apos;s next.
-        </p>
+        <p className="mt-3 max-w-xl">{mainCaseStudiesCtaDesc(lang)}</p>
         <Button
           asChild
           variant="outline"
@@ -48,7 +50,7 @@ export function CaseStudiesCTA() {
                 label: "Case Study CTA"
               });
             }}>
-            {label}
+            {mainCtaLabel(lang)}
           </Link>
         </Button>
       </div>

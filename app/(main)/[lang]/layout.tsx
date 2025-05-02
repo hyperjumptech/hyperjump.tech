@@ -1,10 +1,10 @@
-import Hero from "@/smdd/smdd2024/components/hero";
-import Nav from "./nav";
+import Footer from "@/app/components/footer";
+import { Hero } from "@/app/components/hero";
+import Nav from "@/app/components/nav";
 import ScrollObserver from "@/app/components/scroll-observer";
 import { SupportedLanguage } from "@/locales/.generated/types";
-import Footer from "@/app/components/footer";
 
-export default function SmddLangLayout({
+export default function MainLangLayout({
   children,
   params
 }: {

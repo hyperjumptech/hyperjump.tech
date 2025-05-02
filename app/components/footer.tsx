@@ -1,8 +1,10 @@
 import data from "@/data.json";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import { SupportedLanguage } from "@/locales/.generated/types";
+import { mainFooter } from "@/locales/.generated/server";
 
-export default function Footer() {
+export default function Footer({ lang }: { lang: SupportedLanguage }) {
   return (
     <footer className="relative overflow-hidden px-4 py-10 text-white md:px-20 md:py-14">
       <div className="absolute inset-0 z-0">
@@ -32,9 +34,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <p className="max-w-md text-sm text-[#C7CDCD]">
-            Accelerating Business Growth with Cutting-Edge Technology Solutions
-          </p>
+          <p className="max-w-md text-sm text-[#C7CDCD]">{mainFooter(lang)}</p>
 
           <div className="flex space-x-3">
             {data.socials.map((s, i) => (

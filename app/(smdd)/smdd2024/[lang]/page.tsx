@@ -20,7 +20,7 @@ export default function Home({
       <div className="container mx-auto flex flex-wrap space-y-4 pb-12 pt-4">
         <Services lang={params.lang} />
         <DemosAndDocs lang={params.lang} />
-        <OpenSourceProjects />
+        <OpenSourceProjects lang={params.lang} />
         <TrustedBy lang={params.lang} />
         <CaseStudies lang={params.lang} />
         <ContactForm lang={params.lang} />

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import data from "@/data.json";
 import { cn } from "@/app/utils/tailwind";
-import { type ReactNode, useEffect, useState } from "react";
+import { type ReactNode, useState } from "react";
 import WhiteLogo from "@/public/images/hyperjump-white.png";
 import BlackLogo from "@/public/images/hyperjump-black.png";
 import {
@@ -20,16 +20,20 @@ import SVGLogo from "@/public/images/hyperjump-svg.svg";
 import ColoredLogo from "@/public/images/hyperjump-colored.png";
 import LogoWithContextMenu from "./logo-with-context-menu";
 import { Button } from "@/components/ui/button";
+import { SupportedLanguage } from "@/locales/.generated/types";
+import { mainNav } from "../(main)/[lang]/data";
+import { mainCtaLabel } from "@/locales/.generated/server";
+import LanguagePicker from "../(main)/[lang]/language-picker";
 
-export default function Nav() {
+export default function Nav({ lang }: { lang: SupportedLanguage }) {
   const [isOpen, setIsOpen] = useState(false);
-  const { gaEventName, label, link } = data.cta;
+  const { gaEventName, link } = data.cta;
 
   return (
     <StickyNavigationMain isMenuOpen={isOpen}>
       {({ shouldBeWhite }) => (
         <>
-          <NavContainer className="max-w-5xl px-4 md:px-20 xl:px-0">
+          <NavContainer className="w-full px-3 md:px-4 lg:max-w-5xl xl:px-0">
             <HyperjumpLogo
               type="hyperjump"
               isOpen={isOpen}
@@ -37,10 +41,10 @@ export default function Nav() {
             />
 
             <CenterNavItems>
-              <NavigationMenu>
-                <NavigationMenuList className="flex gap-8">
-                  {data.navLinks.map((item, idx) => (
-                    <NavigationMenuItem key={idx}>
+              <NavigationMenu className="mx-8 xl:mx-0">
+                <NavigationMenuList className="flex gap-5">
+                  {mainNav(lang).map((item, idx) => (
+                    <NavigationMenuItem key={idx} className="text-center">
                       <Link
                         href={item.href}
                         className={cn(
@@ -58,6 +62,7 @@ export default function Nav() {
             </CenterNavItems>
 
             <RightNavItems>
+              <LanguagePicker lang={lang} />
               <Button
                 asChild
                 variant="outline"
@@ -75,46 +80,49 @@ export default function Nav() {
                   });
                 }}>
                 <Link href={link} target="_blank" rel="noreferrer noopener">
-                  {label}
+                  {mainCtaLabel(lang)}
                 </Link>
               </Button>
             </RightNavItems>
 
             {/* Mobile Toggle */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-0 lg:hidden"
-              aria-label="Toggle menu">
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke={shouldBeWhite ? "black" : "white"}
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                {isOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
+            <div className="flex items-center lg:hidden">
+              <LanguagePicker isOpen={isOpen} lang={lang} />
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="-mr-2 ml-1.5 p-2 md:ml-3 md:mr-0"
+                aria-label="Toggle menu">
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke={shouldBeWhite ? "black" : "white"}
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  {isOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
+            </div>
           </NavContainer>
 
           {/* Mobile Menu */}
           {isOpen && (
             <div className="bg-white shadow-md lg:hidden">
-              <div className="mx-auto flex flex-col space-y-4 px-4 py-6 md:px-20">
-                {data.navLinks.map((item, idx) => (
+              <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-8">
+                {mainNav(lang).map((item, idx) => (
                   <Link
                     key={idx}
                     href={item.href}
@@ -133,7 +141,7 @@ export default function Nav() {
                       label: "Navigation CTA"
                     });
                   }}>
-                  {label}
+                  {mainCtaLabel(lang)}
                 </Link>
               </div>
             </div>

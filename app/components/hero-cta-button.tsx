@@ -5,9 +5,11 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
+import { SupportedLanguage } from "@/locales/.generated/types";
+import { mainCtaLabel } from "@/locales/.generated/server";
 
-export function HeroCTAButton() {
-  const { gaEventName, label, link } = data.cta;
+export function HeroCTAButton({ lang }: { lang: SupportedLanguage }) {
+  const { gaEventName, link } = data.cta;
 
   return (
     <Button
@@ -23,7 +25,7 @@ export function HeroCTAButton() {
         });
       }}>
       <Link href={link} target="_blank" rel="noreferrer noopener">
-        {label}
+        {mainCtaLabel(lang)}
       </Link>
     </Button>
   );

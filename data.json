@@ -27,12 +27,6 @@
     "mapsUrl": "https://www.google.com/maps/place/DLab+SMD/@-6.1907514,106.8219552,17z/data=!4m15!1m8!3m7!1s0x2e69f42410acef4f:0x2ebaeebb8f5fafbb!2sJl.+Riau+No.1,+RT.9%2FRW.5,+Gondangdia,+Kec.+Menteng,+Kota+Jakarta+Pusat,+Daerah+Khusus+Ibukota+Jakarta+10350!3b1!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11c5lcsgsq!3m5!1s0x2e69f5e04c659f97:0xd2f4629d7651d317!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11kb72cx9p?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D",
     "imageUrl": "/images/location-2.webp"
   },
-  "navLinks": [
-    { "label": "Services", "href": "#services" },
-    { "label": "Case Studies", "href": "#case-studies" },
-    { "label": "Open Source", "href": "#open-source" },
-    { "label": "FAQ", "href": "#faqs" }
-  ],
   "url": "https://hyperjump.tech",
   "clients": [
     {
@@ -114,6 +108,23 @@
       "platform": "Substack",
       "url": "https://hyperjump.substack.com",
       "icon": "fa fa-newspaper"
+    }
+  ],
+  "aiSocials": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/hyperjumptech",
+      "icon": "/images/inferenceai/socials/github.svg"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/company/hyperjump",
+      "icon": "/images/inferenceai/socials/linkedin.svg"
+    },
+    {
+      "platform": "Medium",
+      "url": "https://medium.com/hyperjump-tech",
+      "icon": "/images/inferenceai/socials/medium.svg"
     }
   ],
   "jobs": [
@@ -234,101 +245,6 @@
         "A sufficiently thorough documentation of the key building blocks and deployment aspects",
         "A fully agreed-upon and comprehensive test plan for all the major and minor product features"
       ]
-    }
-  ],
-  "services": [
-    {
-      "icon": "/images/services/cto-as-a-service.svg",
-      "title": "CTO as a Service",
-      "description": "Finding, hiring, managing, and retaining top software engineers is complex and time-consuming. Let us handle it all for you."
-    },
-    {
-      "icon": "/images/services/software-as-a-service.svg",
-      "title": "Software as a Service",
-      "description": "Deploy and scale software solutions tailored to your enterprise for optimal performance and growth."
-    },
-    {
-      "icon": "/images/services/tech-due-diligence.svg",
-      "title": "Tech Due Diligence",
-      "description": "We help verify and assess your company's ability to execute its roadmap and evaluate its current state."
-    },
-    {
-      "icon": "/images/services/erp-implementation.svg",
-      "title": "ERP Implementation",
-      "description": "Streamline operations with enterprise-grade ERP solutions, boosting efficiency and business intelligence."
-    }
-  ],
-  "caseStudies": [
-    {
-      "title": "Uncovering Hidden System Failures with Deep Technical Review",
-      "description": "A leading media company was struggling with slow systems and unreliable data. Our technical due diligence exposed critical infrastructure flaws and architectural gaps. With our recommendations, the company rebuilt its backend for faster performance and dependable data access.",
-      "category": "Case Studies"
-    },
-    {
-      "title": "Digitizing Remote Fisheries with a Custom ERP Solution",
-      "description": "Manual processes were slowing down operations across dozens of remote fisheries. We designed and implemented a custom ERP system using Odoo. Complete with an offline-ready mobile app, so teams could work reliably even without internet. The result: unified data, fewer errors, and faster decision-making across the entire network.",
-      "category": "Case Studies"
-    }
-  ],
-  "openSourceProducts": [
-    {
-      "title": "Monika",
-      "description": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.",
-      "image": "/images/open-source/monika.svg",
-      "url": "https://github.com/hyperjumptech/monika",
-      "button": true,
-      "repo": "monika"
-    },
-    {
-      "title": "Firebase Cronjob",
-      "description": "The Scheduled functions feature runs autoIncrementJobCounter automatically every minute, incrementing jobConfigCounter in the Firestore database.",
-      "image": "/images/open-source/firebase-cronjob.svg",
-      "url": "https://github.com/hyperjumptech/firebase-cronjob",
-      "button": true,
-      "repo": "firebase-cronjob"
-    },
-    {
-      "title": "WhatsApp Chatbot Connector",
-      "description": "WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa.",
-      "image": "/images/open-source/whatsapp-chatbot-connector.svg",
-      "url": "https://github.com/hyperjumptech/whatsapp-chatbot-connector",
-      "button": true,
-      "repo": "whatsapp-chatbot-connector"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "What is CTO as a Service (CTOaaS), and how can it benefit my company?",
-      "answer": "CTOaaS provides on-demand access to experienced technology leadership without the cost of a full-time executive. It helps enterprises with strategic IT planning, digital transformation, and technical decision-making to scale efficiently."
-    },
-    {
-      "question": "How do you approach ERP implementation for enterprises?",
-      "answer": "We follow a structured process that includes business analysis, system selection, customization, integration, training, and post-implementation support to ensure seamless adoption and long-term success."
-    },
-    {
-      "question": "What does your tech due diligence service cover?",
-      "answer": "Our tech due diligence includes codebase reviews, security assessments, scalability analysis, infrastructure evaluation, and compliance checks to ensure that your technology investments are low-risk and high-value."
-    },
-    {
-      "question": "Why should we choose your consulting services over hiring an in-house team?",
-      "answer": "We offer specialized expertise, flexibility, and cost-effective solutions without the overhead of full-time employees. Our team brings years of experience in enterprise IT, ensuring faster implementation and better ROI."
-    }
-  ],
-  "aiSocials": [
-    {
-      "platform": "GitHub",
-      "url": "https://github.com/hyperjumptech",
-      "icon": "/images/inferenceai/socials/github.svg"
-    },
-    {
-      "platform": "LinkedIn",
-      "url": "https://www.linkedin.com/company/hyperjump",
-      "icon": "/images/inferenceai/socials/linkedin.svg"
-    },
-    {
-      "platform": "Medium",
-      "url": "https://medium.com/hyperjump-tech",
-      "icon": "/images/inferenceai/socials/medium.svg"
     }
   ]
 }

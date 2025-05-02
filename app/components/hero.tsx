@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { HeroCTAButton } from "./hero-cta-button";
 import { PartnersList } from "./partner-list";
-import data from "@/data.json";
+import { SupportedLanguage } from "@/locales/.generated/types";
+import { mainHeroDesc, mainHeroHeading } from "@/locales/.generated/server";
 
-export default function Hero() {
+export function Hero({ lang }: { lang: SupportedLanguage }) {
   return (
     <section className="relative h-[648px] overflow-hidden bg-hyperjump-black px-4 text-white md:px-20">
       <div className="absolute inset-0 z-0">
@@ -21,12 +22,12 @@ export default function Hero() {
       <div className="relative z-10 flex h-[648px] flex-col items-center justify-around">
         <div className="max-w-5xl text-center">
           <h1 className="md:mb-6l mb-4 mt-28 text-4xl font-medium sm:text-5xl md:text-6xl">
-            {data.hero.heading}
+            {mainHeroHeading(lang)}
           </h1>
           <p className="mb-6 text-sm font-medium text-white sm:text-base md:mb-10 md:text-xl">
-            {data.hero.subheading}
+            {mainHeroDesc(lang)}
           </p>
-          <HeroCTAButton />
+          <HeroCTAButton lang={lang} />
         </div>
 
         <PartnersList />

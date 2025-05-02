@@ -70,6 +70,7 @@ function WhyWorkWithUs({ lang }: { lang: SupportedLanguage }) {
         cardClassName="rounded-[20px]"
         borderClassName="card-border-gradient"
         titleClassName="text-white"
+        lang={lang}
       />
     </GridItemsSection>
   );
@@ -184,6 +185,7 @@ function CaseStudies({ lang }: { lang: SupportedLanguage }) {
       title={inferenceaiCaseStudiesHeading(lang)}
       description={inferenceaiCaseStudiesDesc(lang)}>
       <GridItems
+        lang={lang}
         items={getCaseStudies(lang)}
         columns={{ base: 1, md: 2, lg: 2 }}
         cardClassName="rounded-2xl mt-8"

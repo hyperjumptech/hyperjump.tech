@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "heading": "Your Partner in Building Reliable, Modern Software",
+    "desc": "We help organizations deliver scalable, high-quality digital systems through engineering excellence and cloud-native technology."
+  },
+  "cta": {
+    "label": "Schedule Consultation"
+  },
+  "view_more": "View More",
+  "see_more": "See More",
+  "see_less": "See Less",
+  "our_location": "Our Location",
+  "open_in_google_maps": "Open in Google Maps",
+  "footer": " Accelerating Business Growth with Cutting-Edge Technology Solutions",
+  "case_studies_cta": {
+    "heading": "Solve What's Holding You Back",
+    "desc": "Whether you're dealing with legacy systems, operational bottlenecks, or scaling pains. We're here to help you untangle the mess and build what's next."
+  },
+  "nav_items": {
+    "0_label": "Services",
+    "1_label": "Case Studies",
+    "2_label": "Open Source",
+    "3_label": "FAQ"
+  },
+  "services": {
+    "heading": "Services",
+    "desc": "We offer expert technology solutions to help businesses scale, enhance efficiency, optimize operations, and drive continuous innovation.",
+
+    "0_title": "CTO as a Service",
+    "0_text": "Finding, hiring, managing, and retaining top software engineers is complex and time-consuming. Let us handle it all for you.",
+
+    "1_title": "Software as a Service",
+    "1_text": "Deploy and scale software solutions tailored to your enterprise for optimal performance and growth.",
+
+    "2_title": "Tech Due Diligence",
+    "2_text": "We help verify and assess your company's ability to execute its roadmap and evaluate its current state.",
+
+    "3_title": "ERP Implementation",
+    "3_text": "Streamline operations with enterprise-grade ERP solutions, boosting efficiency and business intelligence."
+  },
+  "case_studies": {
+    "heading": "Case Studies",
+    "desc": "Discover how we successfully transform challenges into opportunities with real-world solutions that drive lasting impact and business growth.",
+
+    "0_title": "Uncovering Hidden System Failures with Deep Technical Review",
+    "0_text": "A leading media company was struggling with slow systems and unreliable data. Our technical due diligence exposed critical infrastructure flaws and architectural gaps. With our recommendations, the company rebuilt its backend for faster performance and dependable data access.",
+    "0_category": "Case Studies",
+
+    "1_title": "Digitizing Remote Fisheries with a Custom ERP Solution",
+    "1_text": "Manual processes were slowing down operations across dozens of remote fisheries. We designed and implemented a custom ERP system using Odoo. Complete with an offline-ready mobile app, so teams could work reliably even without internet. The result: unified data, fewer errors, and faster decision-making across the entire network.",
+    "1_category": "Case Studies"
+  },
+  "project": {
+    "heading": "Open Source Product",
+    "desc": "Explore our open-source projects and see how we innovate, collaborate, and build solutions that drive real impact. Join our community and contribute to cutting-edge technology.",
+
+    "0_title": "Monika",
+    "0_text": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.",
+
+    "1_title": "Firebase Cronjob",
+    "1_text": "The Scheduled functions feature runs autoIncrementJobCounter automatically every minute, incrementing jobConfigCounter in the Firestore database.",
+
+    "2_title": "WhatsApp Chatbot Connector",
+    "2_text": "WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa."
+  },
+  "faq": {
+    "heading": "Frequently asked questions",
+    "desc": "Find answers to commonly asked questions. If you need further assistance, feel free to reach out to us.",
+
+    "0_question": "What is CTO as a Service (CTOaaS), and how can it benefit my company?",
+    "0_answer": "CTOaaS provides on-demand access to experienced technology leadership without the cost of a full-time executive. It helps enterprises with strategic IT planning, digital transformation, and technical decision-making to scale efficiently.",
+
+    "1_question": "How do you approach ERP implementation for enterprises?",
+    "1_answer": "We follow a structured process that includes business analysis, system selection, customization, integration, training, and post-implementation support to ensure seamless adoption and long-term success.",
+
+    "2_question": "What does your tech due diligence service cover?",
+    "2_answer": "Our tech due diligence includes codebase reviews, security assessments, scalability analysis, infrastructure evaluation, and compliance checks to ensure that your technology investments are low-risk and high-value.",
+
+    "3_question": "Why should we choose your consulting services over hiring an in-house team?",
+    "3_answer": "We offer specialized expertise, flexibility, and cost-effective solutions without the overhead of full-time employees. Our team brings years of experience in enterprise IT, ensuring faster implementation and better ROI."
+  }
+}

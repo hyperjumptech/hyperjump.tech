@@ -16,6 +16,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Children, isValidElement, useEffect, useRef, useState } from "react";
 import { GitFork, Star } from "lucide-react";
+import { SupportedLanguage } from "@/locales/.generated/types";
+import { mainSeeLess, mainSeeMore } from "@/locales/.generated/server";
 
 type GridItemsTitleProps = {
   id?: string;
@@ -43,7 +45,7 @@ export function GridItemsTitle({
   ) : (
     <div
       className={cn(
-        "w-full scroll-mt-20 bg-white pb-7 pt-4",
+        "w-full scroll-mt-20 pb-7 pt-4",
         className,
         isHorizontal
           ? "flex flex-wrap justify-between gap-4"
@@ -87,7 +89,8 @@ export function GridItems({
   cardClassName = "border-[#D9D9D9] bg-white",
   borderClassName = "",
   categoryClassName = "bg-hyperjump-black/10 text-hyperjump-black",
-  titleClassName = "text-hyperjump-black"
+  titleClassName = "text-hyperjump-black",
+  lang
 }: {
   items: Item[];
   cardClassName?: string;
@@ -102,6 +105,7 @@ export function GridItems({
   borderClassName?: string;
   categoryClassName?: string;
   titleClassName?: string;
+  lang: SupportedLanguage;
 }) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const textRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -258,14 +262,16 @@ export function GridItems({
                     onClick={() =>
                       setExpandedIndex((prev) => (prev === idx ? null : idx))
                     }
-                    className="mt-1 text-gray-600 transition hover:underline">
-                    {expandedIndex === idx ? "See Less" : "See More"}
+                    className="mt-1 text-sm text-gray-600 transition hover:underline">
+                    {expandedIndex === idx
+                      ? mainSeeLess(lang)
+                      : mainSeeMore(lang)}
                   </button>
                 )}
               </div>
 
               {url && button ? (
-                <div className="flex flex-row justify-between gap-4">
+                <div className="mx-auto flex w-full flex-row gap-2 md:flex-col md:gap-4 xl:flex-row xl:justify-between">
                   <Button
                     asChild
                     variant="outline"

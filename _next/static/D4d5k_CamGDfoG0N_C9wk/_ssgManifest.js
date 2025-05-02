@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002Finferenceai\u002F[lang]","\u002Fjobs\u002F[id]","\u002Fsmdd2024\u002F[lang]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

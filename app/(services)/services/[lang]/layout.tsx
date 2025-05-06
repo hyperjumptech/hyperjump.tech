@@ -15,7 +15,6 @@ export default function ServicesLangLayout({
     <div className="bg-white">
       <ScrollObserver />
       <Nav
-        type="services"
         className="xxl:max-w-7xl max-w-6xl"
         lang={params.lang as SupportedLanguage}
       />

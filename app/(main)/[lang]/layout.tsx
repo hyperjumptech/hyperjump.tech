@@ -14,7 +14,7 @@ export default function MainLangLayout({
   return (
     <>
       <ScrollObserver />
-      <Nav lang={params.lang as SupportedLanguage} />
+      <Nav isTransparent lang={params.lang as SupportedLanguage} />
       <Hero lang={params.lang as SupportedLanguage} />
       {children}
       <Footer lang={params.lang as SupportedLanguage} />

@@ -15,7 +15,7 @@ export default function SmddHero({ lang }: { lang: SupportedLanguage }) {
         <a
           href="#contact-form"
           type="button"
-          className=" rounded-full bg-white px-4 py-2 font-bold text-smdd-red">
+          className="rounded-full bg-white px-4 py-2 font-bold text-smdd-red">
           {talkWithUs(lang)}
         </a>
       </div>

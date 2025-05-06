@@ -37,7 +37,7 @@ export default function DemosAndDocs({ lang }: { lang: SupportedLanguage }) {
             return (
               <div
                 key={i}
-                className="flex flex-col  space-y-4 overflow-hidden rounded-b-none rounded-t bg-white pb-6 shadow">
+                className="flex flex-col space-y-4 overflow-hidden rounded-b-none rounded-t bg-white pb-6 shadow">
                 <img
                   src={item.image}
                   alt={item.title}

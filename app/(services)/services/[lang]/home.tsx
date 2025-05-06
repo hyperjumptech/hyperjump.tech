@@ -110,7 +110,7 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
         />
       </section>
 
-      <section className="relative mb-10  mt-20 w-full">
+      <section className="relative mb-10 mt-20 w-full">
         <h3 className="mb-4 text-[28px] font-medium text-hyperjump-black md:text-4xl">
           {servicesPartnersHeading(lang)}
         </h3>

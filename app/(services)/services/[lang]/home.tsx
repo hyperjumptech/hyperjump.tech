@@ -38,8 +38,12 @@ import { ServiceCard } from "../components/service-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { sendGAEvent } from "@next/third-parties/google";
+import data from "@/data.json";
 
 export default function Home({ lang }: { lang: SupportedLanguage }) {
+  const { gaEventName, link } = data.cta;
+
   return (
     <main className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 py-12 text-center md:px-20 xl:px-0">
       <h3 className="mb-14 text-[34px] font-medium text-hyperjump-black md:text-[40px]">
@@ -160,7 +164,17 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
             asChild
             size="lg"
             className="bg-hyperjump-blue text-base font-semibold text-white hover:bg-hyperjump-blue/90">
-            <Link href="#" target="_blank" rel="noreferrer noopener">
+            <Link
+              onClick={() => {
+                sendGAEvent({
+                  event: gaEventName,
+                  category: "engagement",
+                  label: "Services CTA"
+                });
+              }}
+              href={link}
+              target="_blank"
+              rel="noreferrer noopener">
               {servicesCtaLabel(lang)}
             </Link>
           </Button>

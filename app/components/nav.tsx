@@ -104,7 +104,6 @@ export default function Nav({
 
                   <Button
                     asChild
-                    variant="outline"
                     className={cn(
                       isWhite
                         ? "bg-hyperjump-blue text-white hover:bg-hyperjump-blue/90"

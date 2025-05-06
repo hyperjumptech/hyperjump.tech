@@ -2,15 +2,15 @@
 
 import { sendGAEvent } from "@next/third-parties/google";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
-import Image from "next/image";
-import { SupportedLanguage } from "@/locales/.generated/types";
 import {
   mainCaseStudiesCtaDesc,
   mainCaseStudiesCtaHeading,
   mainCtaLabel
 } from "@/locales/.generated/server";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
 export function CaseStudiesCTA({ lang }: { lang: SupportedLanguage }) {
   const { gaEventName, link } = data.cta;

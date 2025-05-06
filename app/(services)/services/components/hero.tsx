@@ -1,6 +1,4 @@
-"use client";
-
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   servicesHeroHeading,
   servicesHeroDesc

@@ -3,8 +3,8 @@ import MainPage from "./[lang]/page";
 
 export default function NoLangMain() {
   return (
-    <MainLangLayout params={{ lang: "en" }}>
-      <MainPage params={{ lang: "en" }} />
+    <MainLangLayout params={Promise.resolve({ lang: "en" })}>
+      <MainPage params={Promise.resolve({ lang: "en" })} />
     </MainLangLayout>
   );
 }

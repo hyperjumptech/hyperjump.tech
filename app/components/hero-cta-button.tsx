@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import { mainCtaLabel } from "@/locales/.generated/server";
 
 export function HeroCTAButton({ lang }: { lang: SupportedLanguage }) {

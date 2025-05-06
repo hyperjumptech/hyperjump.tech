@@ -1,19 +1,16 @@
-"use client";
-
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
-  SupportedLanguage,
+  type SupportedLanguage,
   supportedLanguages
 } from "@/locales/.generated/types";
-import Link from "next/link";
 
-export function LanguagePicker({
-  lang,
-  isOpen
-}: {
+type LanguagePickerProps = {
   lang: SupportedLanguage;
   isOpen?: boolean;
-}) {
+};
+
+export function LanguagePicker({ lang, isOpen }: LanguagePickerProps) {
   return (
     <div className="flex gap-2">
       {supportedLanguages.map((l) => {
@@ -42,13 +39,7 @@ export function LanguagePicker({
   );
 }
 
-export function LanguagePickerServices({
-  lang,
-  isOpen
-}: {
-  lang: SupportedLanguage;
-  isOpen?: boolean;
-}) {
+export function LanguagePickerServices({ lang, isOpen }: LanguagePickerProps) {
   return (
     <div className="flex gap-2">
       {supportedLanguages.map((l) => {

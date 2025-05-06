@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import localFont from "next/font/local";
 import "./globals.css";
 import data from "@/data.json";
 import { cn } from "@/app/utils/tailwind";

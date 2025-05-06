@@ -1,23 +1,27 @@
 import ScrollObserver from "@/app/components/scroll-observer";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import Footer from "../components/footer";
 import Hero from "../components/hero";
 import Nav from "../components/nav";
 
-export default function InferenceAILangLayout({
+type InferenceAILangLayoutProps = {
+  children: React.ReactNode;
+  params: Promise<{ lang: SupportedLanguage }>;
+};
+
+export default async function InferenceAILangLayout({
   children,
   params
-}: {
-  children: React.ReactNode;
-  params: { lang: string };
-}) {
+}: InferenceAILangLayoutProps) {
+  const { lang } = await params;
+
   return (
     <>
       <ScrollObserver />
-      <Nav lang={params.lang as SupportedLanguage} />
-      <Hero lang={params.lang as SupportedLanguage} />
+      <Nav lang={lang} />
+      <Hero lang={lang} />
       {children}
-      <Footer lang={params.lang as SupportedLanguage} />
+      <Footer lang={lang} />
     </>
   );
 }

@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { servicesSeeMore } from "@/locales/.generated/server";
-import { SupportedLanguage } from "@/locales/.generated/types";
 
 interface ServiceCardProps {
   title: string;
@@ -13,23 +11,22 @@ interface ServiceCardProps {
   icon: string;
   url?: string;
   reverse?: boolean;
+  seeMoreText?: string;
   withBorder?: boolean;
 }
 
-export function ServiceCard(
-  {
-    title,
-    text,
-    desc,
-    items,
-    image,
-    icon,
-    reverse,
-    url = "#",
-    withBorder = true
-  }: ServiceCardProps,
-  { lang }: { lang: SupportedLanguage }
-) {
+export function ServiceCard({
+  title,
+  text,
+  desc,
+  items,
+  image,
+  icon,
+  reverse,
+  seeMoreText,
+  url = "#",
+  withBorder = true
+}: ServiceCardProps) {
   return (
     <div
       className={`mb-14 flex flex-col gap-6 ${
@@ -77,7 +74,7 @@ export function ServiceCard(
             asChild
             size="lg"
             className="w-full bg-hyperjump-blue text-base font-semibold text-white hover:bg-hyperjump-blue/90 md:w-44">
-            <Link href={url}>{servicesSeeMore(lang)}</Link>
+            <Link href={url}>{seeMoreText}</Link>
           </Button>
         </div>
       </div>

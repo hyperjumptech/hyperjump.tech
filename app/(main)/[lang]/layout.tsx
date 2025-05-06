@@ -2,22 +2,26 @@ import Footer from "@/app/components/footer";
 import { Hero } from "@/app/components/hero";
 import Nav from "@/app/components/nav";
 import ScrollObserver from "@/app/components/scroll-observer";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
-export default function MainLangLayout({
+type MainLangLayoutProps = {
+  children: React.ReactNode;
+  params: Promise<{ lang: SupportedLanguage }>;
+};
+
+export default async function MainLangLayout({
   children,
   params
-}: {
-  children: React.ReactNode;
-  params: { lang: string };
-}) {
+}: MainLangLayoutProps) {
+  const { lang } = await params;
+
   return (
     <>
       <ScrollObserver />
-      <Nav lang={params.lang as SupportedLanguage} />
-      <Hero lang={params.lang as SupportedLanguage} />
+      <Nav lang={lang} />
+      <Hero lang={lang} />
       {children}
-      <Footer lang={params.lang as SupportedLanguage} />
+      <Footer lang={lang} />
     </>
   );
 }

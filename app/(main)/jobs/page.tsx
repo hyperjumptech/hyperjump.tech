@@ -1,16 +1,10 @@
 import Jobs from "@/app/components/jobs";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
-export default function Home({
-  params
-}: {
-  params: { lang: SupportedLanguage };
-}) {
-  const lang = params.lang;
+type JobProps = {
+  params: Promise<{ lang: SupportedLanguage }>;
+};
 
-  return (
-    <>
-      <Jobs lang={lang} />
-    </>
-  );
+export default async function Home({ params }: JobProps) {
+  return <Jobs lang={(await params).lang} />;
 }

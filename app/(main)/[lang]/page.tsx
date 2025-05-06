@@ -1,14 +1,14 @@
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import Home from "./home";
 
 export const generateStaticParams = async () => {
   return [{ lang: "en" }, { lang: "id" }];
 };
 
-export default function MainPage({
-  params
-}: {
-  params: { lang: SupportedLanguage };
-}) {
-  return <Home lang={params.lang} />;
+type HomepageProps = {
+  params: Promise<{ lang: SupportedLanguage }>;
+};
+
+export default async function MainPage({ params }: HomepageProps) {
+  return <Home lang={(await params).lang} />;
 }

@@ -5,11 +5,15 @@ export const generateStaticParams = async () => {
   return data.jobs.map((job) => ({ id: job.url.split("/").pop() }));
 };
 
-export default function JobDetail({ params }: { params: { id: string } }) {
-  const job = data.jobs.find((j) => j.url.endsWith(params.id.toLowerCase()));
+type JobDetailProps = { params: Promise<{ id: string }> };
+
+export default async function JobDetail({ params }: JobDetailProps) {
+  const { id } = await params;
+  const job = data.jobs.find(({ url }) => url.endsWith(id.toLowerCase()));
   if (!job) {
     notFound();
   }
+
   return (
     <section className="border-b bg-white py-8 text-black">
       <div className="container mx-auto flex  flex-col flex-wrap space-y-8 py-12">

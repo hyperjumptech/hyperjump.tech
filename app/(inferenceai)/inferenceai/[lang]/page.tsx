@@ -5,10 +5,10 @@ export const generateStaticParams = async () => {
   return [{ lang: "en" }, { lang: "id" }];
 };
 
-export default function InferenceAIPage({
-  params
-}: {
-  params: { lang: SupportedLanguage };
-}) {
-  return <Home lang={params.lang} />;
+type InferenceAIProps = {
+  params: Promise<{ lang: SupportedLanguage }>;
+};
+
+export default async function InferenceAIPage({ params }: InferenceAIProps) {
+  return <Home lang={(await params).lang} />;
 }

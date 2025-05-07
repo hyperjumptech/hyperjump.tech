@@ -1,13 +1,13 @@
 {
   "hero": {
-    "heading": "Engineering, Product, and Strategy—Delivered as a Service",
-    "desc": "From audits to builds to leadership, Hyperjump helps you scale smarter—faster"
+    "heading": "Engineering, Product, and Strategy",
+    "desc": "From audits to builds to leadership, Hyperjump helps you scale smarter and faster"
   },
   "heading": "Our Services, Your Solution",
   "see_more": "See More Detail",
   "cta": {
     "heading": "Not sure where to start?",
-    "desc": "Let’s talk about your tech goals and point you in the right direction.",
+    "desc": "Let's talk about your tech goals and point you in the right direction.",
     "label": "Talk to us"
   },
   "ctoaas": {
@@ -51,7 +51,7 @@
     }
   },
   "partners": {
-    "Heading": "Our Trusted Partners",
-    "desc": "We’re proud to be trusted by companies across industries. These are just a few of them—many more continue to grow with us behind the scenes."
+    "Heading": "Trusted by Industry Leaders",
+    "desc": "We're proud to be trusted by companies across industries. These are just a few of them, many more continue to grow with us behind the scenes."
   }
 }

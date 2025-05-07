@@ -25,7 +25,7 @@ export function LanguagePicker({ lang, isOpen }: LanguagePickerProps) {
               "flex h-8 w-8 items-center justify-center rounded-md text-sm font-medium transition-colors",
               isActive
                 ? isOpen
-                  ? "bg-hyperjump-black"
+                  ? "bg-hyperjump-blue"
                   : "text-white group-data-[scroll='false']:bg-white group-data-[scroll='true']:bg-hyperjump-blue group-data-[scroll='false']:text-hyperjump-black group-data-[scroll='true']:text-white"
                 : isOpen
                   ? "text-hyperjump-black"
@@ -53,9 +53,7 @@ export function LanguagePickerServices({ lang, isOpen }: LanguagePickerProps) {
             className={cn(
               "flex h-8 w-8 items-center justify-center rounded-md text-sm font-medium transition-colors",
               isActive
-                ? isOpen
-                  ? "bg-hyperjump-black"
-                  : "bg-hyperjump-blue text-white"
+                ? "bg-hyperjump-blue text-white"
                 : isOpen
                   ? "text-hyperjump-black"
                   : "text-hyperjump-black group-data-[scroll='true']:text-hyperjump-black"

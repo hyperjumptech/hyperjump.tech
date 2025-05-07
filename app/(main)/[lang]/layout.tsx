@@ -18,7 +18,7 @@ export default async function MainLangLayout({
   return (
     <>
       <ScrollObserver />
-      <Nav lang={lang} />
+      <Nav isTransparent lang={lang} />
       <Hero lang={lang} />
       {children}
       <Footer lang={lang} />

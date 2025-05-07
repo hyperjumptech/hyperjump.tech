@@ -18,7 +18,7 @@ export default async function ServicesLangLayout({
   return (
     <div className="bg-white">
       <ScrollObserver />
-      <Nav type="services" className="xxl:max-w-7xl max-w-6xl" lang={lang} />
+      <Nav className="xxl:max-w-7xl max-w-6xl" lang={lang} />
       <Hero lang={lang} />
       {children}
       <Footer lang={lang} />

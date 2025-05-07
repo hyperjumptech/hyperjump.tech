@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "heading": "Get Instant, Accurate Answers from Your Own Data",
+    "desc": "Leverage Retrieval-Augmented Generation (RAG) to create an AI chatbot that understands your documents, databases, and APIs. Delivering precise, real-time answers every time."
+  },
+  "nav_items": {
+    "0_label": "Key Features",
+    "1_label": "How It Works",
+    "2_label": "What's Included",
+    "3_label": "FAQ"
+  },
+  "key_features": {
+    "heading": "AI Chatbot Powered by Your Knowledge",
+    "features": {
+      "0": {
+        "title": "Knowledge-Enhanced Responses",
+        "text": "Combines generative AI with your documents, databases, and external sources for the most accurate replies."
+      },
+      "1": {
+        "title": "Real-Time Information Retrieval",
+        "text": "Pulls the latest data from your selected sources, ensuring responses stay relevant Customizable Knowledge Base: Connects with your cloud storage, collaboration tools, databases, APIs, and internal wikis for tailored insights"
+      },
+      "2": {
+        "title": "Customizable Knowledge Base",
+        "text": "Connects with your cloud storage, collaboration tools, databases, APIs, and internal wikis for tailored insights."
+      },
+      "3": {
+        "title": "Memory & Context Awareness",
+        "text": "Maintains conversation history for smoother, more natural interactions."
+      },
+      "4": {
+        "title": "Secure & Scalable",
+        "text": "Enterprise-grade security with easy deployment across teams, customers, or applications."
+      }
+    }
+  },
+  "how_it_works": {
+    "heading": "How RAG Chatbot Works",
+    "steps": {
+      "0": {
+        "title": "Upload Your Data",
+        "text": "Connect to Microsoft Teams, OneDrive, Google Drive, SQL databases, APIs, and web pages."
+      },
+      "1": {
+        "title": "Fine-Tune Your Bot",
+        "text": "Set retrieval rules, add custom instructions, and refine responses."
+      },
+      "2": {
+        "title": "Deploy & Test",
+        "text": "Embed on websites, connect to WhatsApp or internal tools."
+      },
+      "3": {
+        "title": "Monitor & Improve",
+        "text": "Track bot performance and improve over time."
+      }
+    }
+  },
+  "what_is_included": {
+    "heading": "What’s Included?",
+    "items": {
+      "0": "Custom RAG chatbot setup",
+      "1": "API access & integrations",
+      "2": "Admin dashboard for insights",
+      "3": "Ongoing updates & improvements"
+    }
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "desc": "Everything you need to go from concept to fully deployed AI agent—done for you, end to end.",
+    "0_question": "How is this different from ChatGPT?",
+    "0_answer": "Unlike ChatGPT, which relies on static training data, our chatbot fetches live, relevant information in real-time.",
+    "1_question": "What data sources can it pull from?",
+    "1_answer": "It integrates with cloud storage, collaboration tools, databases, APIs, and web pages.",
+    "2_question": "Can I customize the responses?",
+    "2_answer": "Yes! You can fine-tune retrieval rules, control tone, and add specific instructions.",
+    "3_question": "Is my data secure?",
+    "3_answer": "Absolutely. We use encryption and access controls to ensure your information remains private."
+  }
+}

@@ -12,7 +12,7 @@ export default function Nav({ lang }: { lang: SupportedLanguage }) {
     <StickyNavigation>
       <NavContainer className="container">
         <div className="px-2 xl:px-0">
-          <HyperjumpLogo />
+          <HyperjumpLogo isTransparent isOpen={false} />
         </div>
 
         <RightNavItems>

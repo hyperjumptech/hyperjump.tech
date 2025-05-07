@@ -14,7 +14,13 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Children, isValidElement, useEffect, useRef, useState } from "react";
+import React, {
+  Children,
+  isValidElement,
+  useEffect,
+  useRef,
+  useState
+} from "react";
 import { GitFork, Star } from "lucide-react";
 import { SupportedLanguage } from "@/locales/.generated/types";
 import { mainSeeLess, mainSeeMore } from "@/locales/.generated/server";
@@ -77,7 +83,7 @@ type Item = {
   description: string;
   url?: string;
   category?: string;
-  icon?: string;
+  icon?: string | React.ReactElement;
   button?: boolean;
   repo?: string;
 };
@@ -184,7 +190,8 @@ export function GridItems({
       {items.map((item, idx) => {
         const { image, title, description, url, category, icon, button } = item;
         const stats = repoStats[idx] || { stars: 0, forks: 0 };
-
+        const isReactIcon = isValidElement(icon);
+        const isStringIcon = typeof icon === "string";
         return (
           <CardWrapper
             key={idx}
@@ -205,9 +212,15 @@ export function GridItems({
             )}
 
             <CardHeader>
-              {icon && (
+              {isReactIcon && (
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#2E2B3F] to-white/20 shadow-md">
+                  {icon}
+                </div>
+              )}
+
+              {isStringIcon && (
                 <Avatar className="mb-6 h-14 w-14">
-                  <AvatarImage src={icon} alt={title} />
+                  <AvatarImage src={icon as string} alt={title} />
                 </Avatar>
               )}
               {category && (
@@ -397,7 +410,7 @@ export default function GridItemsContainer({
 
 export const GridItemsSection = ({
   id,
-  className = "",
+  className = "max-w-5xl",
   title,
   description,
   layout = "horizontal",
@@ -409,9 +422,11 @@ export const GridItemsSection = ({
   return (
     <section
       id={id}
-      className={cn("scroll-mt-20 bg-section-gradient", className)}>
+      className={cn(
+        "mx-auto flex scroll-mt-20 flex-wrap items-center justify-center bg-section-gradient px-4 py-5 md:px-6 md:py-8",
+        className
+      )}>
       <motion.div
-        className="mx-auto flex max-w-5xl flex-wrap items-center justify-center px-4 py-5 md:px-6 md:py-8"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

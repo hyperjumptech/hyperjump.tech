@@ -12,24 +12,39 @@ import {
 import StickyNavigationMain from "@/app/components/sticky-nav-main";
 import { HeroCTAButton } from "./hero-cta-button";
 import { SupportedLanguage } from "@/locales/.generated/types";
-import LanguagePicker from "../[lang]/language-picker";
-import { nav } from "../[lang]/data";
+import { navInferenceai } from "../[lang]/data";
+import { navRagChatbot } from "../rag-chatbot/[lang]/data";
 
-export default function Nav({ lang }: { lang: SupportedLanguage }) {
+export default function Nav({
+  lang,
+  type = "inferenceai"
+}: {
+  lang: SupportedLanguage;
+  type?: "inferenceai" | "rag-chatbot";
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <StickyNavigationMain>
       <div className={cn("w-full px-4 py-5 md:px-8", isOpen && "bg-white")}>
         <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between transition-all duration-300 group-data-[scroll='false']:border-none">
-          <Link href="/inferenceai" className="flex items-center">
+          <Link
+            href={
+              type === "inferenceai"
+                ? "/inferenceai"
+                : "/inferenceai/rag-chatbot"
+            }
+            className="flex items-center">
             <InferenceAI isOpen={isOpen} />
           </Link>
 
           <CenterNavItems>
             <NavigationMenu className="mx-8 xl:mx-0">
               <NavigationMenuList className="flex gap-5">
-                {nav(lang).map(({ href, label }) => (
+                {(type === "inferenceai"
+                  ? navInferenceai(lang)
+                  : navRagChatbot(lang)
+                ).map(({ href, label }) => (
                   <NavigationMenuItem key={href} className="text-center">
                     <Link
                       href={href}
@@ -43,13 +58,11 @@ export default function Nav({ lang }: { lang: SupportedLanguage }) {
           </CenterNavItems>
 
           <RightNavItems>
-            <LanguagePicker lang={lang} />
             <HeroCTAButton lang={lang} />
           </RightNavItems>
 
           {/* Mobile Toggle */}
           <div className="flex items-center xl:hidden">
-            <LanguagePicker isOpen={isOpen} lang={lang} />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="ml-3 p-2"
@@ -89,13 +102,16 @@ export default function Nav({ lang }: { lang: SupportedLanguage }) {
       {isOpen && (
         <div className="bg-white shadow-md xl:hidden">
           <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-8">
-            {nav(lang).map((item, idx) => (
+            {(type === "inferenceai"
+              ? navInferenceai(lang)
+              : navRagChatbot(lang)
+            ).map(({ href, label }) => (
               <Link
-                key={idx}
-                href={item.href}
+                key={href}
+                href={href}
                 className="text-2xl text-inferenceai-indigo hover:text-hyperjump-blue"
                 onClick={() => setIsOpen(false)}>
-                {item.label}
+                {label}
               </Link>
             ))}
             <HeroCTAButton lang={lang} />

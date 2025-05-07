@@ -2,17 +2,26 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { HeroCTAButton } from "./hero-cta-button";
 import { SupportedLanguage } from "@/locales/.generated/types";
 import {
+  ragChatbotHeroHeading,
+  ragChatbotHeroDesc,
   inferenceaiHeroHeading,
   inferenceaiHeroDesc
 } from "@/locales/.generated/server";
+import { HeroCTAButton } from "./hero-cta-button";
 
-export default function Hero({ lang }: { lang: SupportedLanguage }) {
+export default function Hero({
+  lang,
+  type = "inferenceai"
+}: {
+  lang: SupportedLanguage;
+  type?: "inferenceai" | "rag-chatbot";
+}) {
   return (
-    <section className="relative overflow-hidden bg-[#04040B] text-white">
-      {/* Background Image with Zoom-in Effect */}
+    <section
+      id="hero"
+      className="relative overflow-hidden bg-[#04040B] text-white">
       <motion.div
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
@@ -35,7 +44,9 @@ export default function Hero({ lang }: { lang: SupportedLanguage }) {
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex w-full flex-col items-center justify-center">
           <h1 className="mb-4 mt-28 text-center text-5xl font-semibold md:mb-6 md:max-w-4xl md:text-6xl">
-            {inferenceaiHeroHeading(lang)}
+            {type === "inferenceai"
+              ? inferenceaiHeroHeading(lang)
+              : ragChatbotHeroHeading(lang)}
           </h1>
 
           <motion.p
@@ -43,7 +54,9 @@ export default function Hero({ lang }: { lang: SupportedLanguage }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
             className="my-6 text-center text-base font-medium text-[#AFB0C3] md:my-10 md:max-w-3xl md:text-[22px]">
-            {inferenceaiHeroDesc(lang)}
+            {type === "inferenceai"
+              ? inferenceaiHeroDesc(lang)
+              : ragChatbotHeroDesc(lang)}
           </motion.p>
 
           <motion.div
@@ -55,7 +68,6 @@ export default function Hero({ lang }: { lang: SupportedLanguage }) {
         </motion.div>
       </article>
 
-      {/* Bottom Banner with Fade-in */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 0.6, y: 0 }}

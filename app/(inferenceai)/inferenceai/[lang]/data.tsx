@@ -43,7 +43,7 @@ import {
   inferenceaiFaq4Answer
 } from "@/locales/.generated/server";
 
-export const nav = (lang: SupportedLanguage) => {
+export const navInferenceai = (lang: SupportedLanguage) => {
   const data = [
     { label: inferenceaiNavItems0Label(lang), href: "#how-it-works" },
     { label: inferenceaiNavItems1Label(lang), href: "#what-you-get" },

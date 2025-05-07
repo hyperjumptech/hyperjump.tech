@@ -6,7 +6,9 @@ import { mainHeroDesc, mainHeroHeading } from "@/locales/.generated/server";
 
 export function Hero({ lang }: { lang: SupportedLanguage }) {
   return (
-    <section className="relative h-[648px] overflow-hidden bg-hyperjump-black px-4 text-white md:px-20">
+    <section
+      id="hero"
+      className="relative h-[648px] overflow-hidden bg-hyperjump-black px-4 text-white md:px-20">
       <div className="absolute inset-0 z-0">
         <Image
           alt="Hero background"

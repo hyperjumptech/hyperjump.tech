@@ -23,12 +23,9 @@ import { Button } from "@/components/ui/button";
 import { SupportedLanguage } from "@/locales/.generated/types";
 import { mainNav } from "../(main)/[lang]/data";
 import { mainCtaLabel } from "@/locales/.generated/server";
-import {
-  LanguagePicker,
-  LanguagePickerServices
-} from "../(main)/[lang]/language-picker";
 
 type NavProps = {
+  type?: "hyperjump" | "services";
   className?: string;
   isTransparent?: boolean;
   lang: SupportedLanguage;
@@ -36,8 +33,9 @@ type NavProps = {
 
 export default function Nav({
   lang,
-  className = "max-w-5xl",
-  isTransparent = false
+  isTransparent = false,
+  type = "hyperjump",
+  className = "max-w-5xl"
 }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { gaEventName, link } = data.cta;
@@ -83,12 +81,6 @@ export default function Nav({
           </CenterNavItems>
 
           <RightNavItems>
-            {!isTransparent ? (
-              <LanguagePickerServices isOpen={isOpen} lang={lang} />
-            ) : (
-              <LanguagePicker isOpen={isOpen} lang={lang} />
-            )}
-
             <Button
               asChild
               variant={isTransparent ? "outline" : "default"}
@@ -112,12 +104,6 @@ export default function Nav({
 
           {/* Mobile Toggle */}
           <div className="flex items-center lg:hidden">
-            {!isTransparent ? (
-              <LanguagePickerServices isOpen={isOpen} lang={lang} />
-            ) : (
-              <LanguagePicker isOpen={isOpen} lang={lang} />
-            )}
-
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="ml-2 p-0 lg:hidden"

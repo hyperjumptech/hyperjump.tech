@@ -29,6 +29,8 @@ import {
 } from "@/locales/.generated/server";
 import { getServices, getCaseStudies, getProject, getFaqs } from "./data";
 import { Location } from "./location";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const {
   hero: { heading, subheading },
@@ -84,7 +86,14 @@ function Services({ lang }: { lang: SupportedLanguage }) {
         cardClassName="rounded"
         lang={lang}
       />
-      <GridItemsMoreButton text="View More" href="/services" />
+      <div className="mt-10 flex w-full items-center justify-center">
+        <Button
+          variant="default"
+          className="bg-hyperjump-blue hover:bg-hyperjump-blue/90"
+          asChild>
+          <Link href="/services">{mainViewMore(lang)}</Link>
+        </Button>
+      </div>
     </GridItemsContainer>
   );
 }

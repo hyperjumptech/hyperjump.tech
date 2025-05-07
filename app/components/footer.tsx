@@ -3,8 +3,15 @@ import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { SupportedLanguage } from "@/locales/.generated/types";
 import { mainFooter } from "@/locales/.generated/server";
+import { LanguagePicker } from "../(main)/[lang]/language-picker";
 
-export default function Footer({ lang }: { lang: SupportedLanguage }) {
+export default function Footer({
+  lang,
+  type = "hyperjump"
+}: {
+  lang: SupportedLanguage;
+  type?: "hyperjump" | "services";
+}) {
   return (
     <footer className="relative overflow-hidden px-4 py-10 text-white md:px-20 md:py-14">
       <div className="absolute inset-0 z-0">
@@ -49,6 +56,7 @@ export default function Footer({ lang }: { lang: SupportedLanguage }) {
               </a>
             ))}
           </div>
+          <LanguagePicker lang={lang} type={type} />
 
           <Separator className="w-full max-w-5xl bg-[#2D364A]" />
 

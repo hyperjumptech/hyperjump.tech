@@ -21,7 +21,7 @@ export default async function ServicesLangLayout({
       <Nav className="xxl:max-w-7xl max-w-6xl" lang={lang} />
       <Hero lang={lang} />
       {children}
-      <Footer lang={lang} />
+      <Footer lang={lang} type="services" />
     </div>
   );
 }

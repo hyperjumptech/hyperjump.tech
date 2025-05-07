@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+"use client";
+
 import {
   type SupportedLanguage,
   supportedLanguages
@@ -7,61 +7,34 @@ import {
 
 type LanguagePickerProps = {
   lang: SupportedLanguage;
-  isOpen?: boolean;
+  type?: "hyperjump" | "services";
 };
 
-export function LanguagePicker({ lang, isOpen }: LanguagePickerProps) {
+const labelByLang: Record<SupportedLanguage, string> = {
+  en: "🇬🇧 English",
+  id: "🇮🇩 Indonesia"
+};
+
+export function LanguagePicker({
+  lang,
+  type = "hyperjump"
+}: LanguagePickerProps) {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLang = e.target.value as SupportedLanguage;
+    window.location.href =
+      type === "hyperjump" ? `/${newLang}#hero` : `/services/${newLang}#hero`;
+  };
+
   return (
-    <div className="flex gap-2">
-      {supportedLanguages.map((l) => {
-        const isActive = lang === l;
-
-        return (
-          <Link
-            scroll={false}
-            key={l}
-            href={`/${l}`}
-            className={cn(
-              "flex h-8 w-8 items-center justify-center rounded-md text-sm font-medium transition-colors",
-              isActive
-                ? isOpen
-                  ? "bg-hyperjump-blue"
-                  : "text-white group-data-[scroll='false']:bg-white group-data-[scroll='true']:bg-hyperjump-blue group-data-[scroll='false']:text-hyperjump-black group-data-[scroll='true']:text-white"
-                : isOpen
-                  ? "text-hyperjump-black"
-                  : "text-white group-data-[scroll='true']:text-hyperjump-black"
-            )}>
-            {l.toUpperCase()}
-          </Link>
-        );
-      })}
-    </div>
-  );
-}
-
-export function LanguagePickerServices({ lang, isOpen }: LanguagePickerProps) {
-  return (
-    <div className="flex gap-2">
-      {supportedLanguages.map((l) => {
-        const isActive = lang === l;
-
-        return (
-          <Link
-            scroll={false}
-            key={l}
-            href={`/services/${l}`}
-            className={cn(
-              "flex h-8 w-8 items-center justify-center rounded-md text-sm font-medium transition-colors",
-              isActive
-                ? "bg-hyperjump-blue text-white"
-                : isOpen
-                  ? "text-hyperjump-black"
-                  : "text-hyperjump-black group-data-[scroll='true']:text-hyperjump-black"
-            )}>
-            {l.toUpperCase()}
-          </Link>
-        );
-      })}
-    </div>
+    <select
+      value={lang}
+      onChange={handleChange}
+      className="max-w-32 rounded-full border border-[#2D364A] bg-transparent px-3 py-2 text-sm font-medium text-white">
+      {supportedLanguages.map((l) => (
+        <option key={l} value={l}>
+          {labelByLang[l]}
+        </option>
+      ))}
+    </select>
   );
 }

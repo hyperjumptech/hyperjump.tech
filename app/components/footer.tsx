@@ -1,6 +1,8 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import data from "@/data.json";
 import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
 import { SupportedLanguage } from "@/locales/.generated/types";
 import { mainFooter } from "@/locales/.generated/server";
 import { LanguagePicker } from "../(main)/[lang]/language-picker";
@@ -27,10 +29,10 @@ export default function Footer({
         />
       </div>
 
-      <div className="relative z-20 container mx-auto px-4">
+      <div className="container relative z-20 mx-auto px-4">
         <div className="flex flex-col space-y-6 md:items-center">
           <div className="flex items-center">
-            <a href="/">
+            <Link href="/">
               <Image
                 src="/images/hyperjump-white.png"
                 alt="Hyperjump Logo"
@@ -38,7 +40,7 @@ export default function Footer({
                 height={32}
                 className="h-8 w-auto"
               />
-            </a>
+            </Link>
           </div>
 
           <p className="max-w-md text-sm text-[#C7CDCD]">{mainFooter(lang)}</p>
@@ -50,7 +52,7 @@ export default function Footer({
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:bg-hyperjump-blue flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition hover:bg-hyperjump-blue"
                 aria-label={s.platform}>
                 <i className={s.icon} aria-hidden="true"></i>
               </a>

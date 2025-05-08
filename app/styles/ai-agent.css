@@ -7,7 +7,7 @@
 }
 
 #n8n-chat .chat-heading {
-  @apply font-bold leading-none;
+  @apply leading-none font-bold;
 }
 
 /** Chat **/

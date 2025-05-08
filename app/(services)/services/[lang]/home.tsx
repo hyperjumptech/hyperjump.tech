@@ -46,7 +46,7 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
 
   return (
     <main className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 py-12 text-center md:px-20 xl:px-0">
-      <h3 className="mb-14 text-[34px] font-medium text-hyperjump-black md:text-[40px]">
+      <h3 className="text-hyperjump-black mb-14 text-[34px] font-medium md:text-[40px]">
         {servicesHeading(lang)}
       </h3>
       <section className="space-y-16">
@@ -110,11 +110,11 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
         />
       </section>
 
-      <section className="relative mb-10 mt-20 w-full">
-        <h3 className="mb-4 text-[28px] font-medium text-hyperjump-black md:text-4xl">
+      <section className="relative mt-20 mb-10 w-full">
+        <h3 className="text-hyperjump-black mb-4 text-[28px] font-medium md:text-4xl">
           {servicesPartnersHeading(lang)}
         </h3>
-        <p className="mx-auto mb-8 w-full max-w-3xl text-center text-base text-hyperjump-gray md:text-lg">
+        <p className="text-hyperjump-gray mx-auto mb-8 w-full max-w-3xl text-center text-base md:text-lg">
           {servicesPartnersDesc(lang)}
         </p>
 
@@ -147,7 +147,7 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
             alt="CTA Background"
             width={1440}
             height={308}
-            className="pointer-events-none h-full select-none object-cover"
+            className="pointer-events-none h-full object-cover select-none"
             style={{
               background:
                 "linear-gradient(134.7deg, #5954DA 3.43%, #0B0B0D 48.93%)"
@@ -163,7 +163,7 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
           <Button
             asChild
             size="lg"
-            className="bg-hyperjump-blue text-base font-semibold text-white hover:bg-hyperjump-blue/90">
+            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 text-base font-semibold text-white">
             <Link
               onClick={() => {
                 sendGAEvent({

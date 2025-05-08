@@ -48,7 +48,7 @@ export default function Nav({
                   <NavigationMenuItem key={href} className="text-center">
                     <Link
                       href={href}
-                      className="text-lg font-medium transition-colors group-data-[scroll=false]:text-white group-data-[scroll=true]:text-inferenceai-indigo hover:group-data-[scroll=false]:text-hyperjump-blue hover:group-data-[scroll=true]:text-hyperjump-blue xl:text-xl">
+                      className="group-data-[scroll=true]:text-inferenceai-indigo hover:group-data-[scroll=false]:text-hyperjump-blue hover:group-data-[scroll=true]:text-hyperjump-blue text-lg font-medium transition-colors group-data-[scroll=false]:text-white xl:text-xl">
                       {label}
                     </Link>
                   </NavigationMenuItem>
@@ -109,7 +109,7 @@ export default function Nav({
               <Link
                 key={href}
                 href={href}
-                className="text-2xl text-inferenceai-indigo hover:text-hyperjump-blue"
+                className="text-inferenceai-indigo hover:text-hyperjump-blue text-2xl"
                 onClick={() => setIsOpen(false)}>
                 {label}
               </Link>

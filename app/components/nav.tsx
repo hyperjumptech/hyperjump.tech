@@ -69,7 +69,7 @@ export default function Nav({
                       className={cn(
                         "text-xl font-medium transition",
                         isTransparent
-                          ? "group-data-[scroll=false]:text-white group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=false]:border-b-2 hover:group-data-[scroll=true]:text-hyperjump-blue"
+                          ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
                           : "text-hyperjump-black hover:text-hyperjump-blue"
                       )}>
                       {item.label}
@@ -86,7 +86,7 @@ export default function Nav({
               variant={isTransparent ? "outline" : "default"}
               className={cn(
                 isTransparent
-                  ? "group-data-[scroll=false]:bg-transparent group-data-[scroll=true]:bg-hyperjump-blue hover:group-data-[scroll=false]:bg-white hover:group-data-[scroll=true]:bg-hyperjump-blue/90 hover:group-data-[scroll=true]:text-white"
+                  ? "group-data-[scroll=true]:bg-hyperjump-blue hover:group-data-[scroll=true]:bg-hyperjump-blue/90 group-data-[scroll=false]:bg-transparent hover:group-data-[scroll=false]:bg-white hover:group-data-[scroll=true]:text-white"
                   : "bg-hyperjump-blue hover:bg-hyperjump-blue/90"
               )}
               onClick={() => {
@@ -146,14 +146,14 @@ export default function Nav({
               <Link
                 key={idx}
                 href={item.href}
-                className="text-2xl text-hyperjump-black transition hover:text-gray-400"
+                className="text-hyperjump-black text-2xl transition hover:text-gray-400"
                 onClick={() => setIsOpen(false)}>
                 {item.label}
               </Link>
             ))}
             <Link
               href={link}
-              className="mt-2 rounded border border-hyperjump-black py-3 text-center text-base text-hyperjump-black transition hover:border-gray-400 hover:text-gray-400"
+              className="border-hyperjump-black text-hyperjump-black mt-2 rounded border py-3 text-center text-base transition hover:border-gray-400 hover:text-gray-400"
               onClick={() => {
                 sendGAEvent({
                   event: gaEventName,
@@ -293,8 +293,7 @@ function logoClassNames({ isOpen, src }: LogoClassNamesProps): string {
   if (src.includes("colored")) {
     return cn(
       "group-data-[scroll=false]:hidden group-data-[scroll=true]:block",
-      isOpen &&
-        "group-data-[scroll=false]:block group-data-[scroll=true]:block"
+      isOpen && "group-data-[scroll=false]:block group-data-[scroll=true]:block"
     );
   }
 

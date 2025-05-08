@@ -8,7 +8,7 @@ export function Hero({ lang }: { lang: SupportedLanguage }) {
   return (
     <section
       id="hero"
-      className="relative h-[648px] overflow-hidden bg-hyperjump-black px-4 text-white md:px-20">
+      className="bg-hyperjump-black relative h-[648px] overflow-hidden px-4 text-white md:px-20">
       <div className="absolute inset-0 z-0">
         <Image
           alt="Hero background"
@@ -23,7 +23,7 @@ export function Hero({ lang }: { lang: SupportedLanguage }) {
 
       <div className="relative z-10 flex h-[648px] flex-col items-center justify-around">
         <div className="max-w-5xl text-center">
-          <h1 className="md:mb-6l mb-4 mt-28 text-4xl font-medium sm:text-5xl md:text-6xl">
+          <h1 className="md:mb-6l mt-28 mb-4 text-4xl font-medium sm:text-5xl md:text-6xl">
             {mainHeroHeading(lang)}
           </h1>
           <p className="mb-6 text-sm font-medium text-white sm:text-base md:mb-10 md:text-xl">

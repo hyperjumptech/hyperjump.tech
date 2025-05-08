@@ -43,7 +43,7 @@ export default function Hero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex w-full flex-col items-center justify-center">
-          <h1 className="mb-4 mt-28 text-center text-5xl font-semibold md:mb-6 md:max-w-4xl md:text-6xl">
+          <h1 className="mt-28 mb-4 text-center text-5xl font-semibold md:mb-6 md:max-w-4xl md:text-6xl">
             {type === "inferenceai"
               ? inferenceaiHeroHeading(lang)
               : ragChatbotHeroHeading(lang)}
@@ -80,7 +80,7 @@ export default function Hero({
           className="object-cover object-center md:object-top"
         />
 
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-[#020F15] to-transparent md:h-32" />
+        <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-24 bg-linear-to-t from-[#020F15] to-transparent md:h-32" />
       </motion.div>
     </section>
   );

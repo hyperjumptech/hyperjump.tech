@@ -47,7 +47,7 @@ export function ServiceCard({
 
       <div className="w-full md:w-1/2">
         <div className="text-left">
-          <h3 className="mb-4 text-[28px] font-medium text-hyperjump-black md:text-4xl">
+          <h3 className="text-hyperjump-black mb-4 text-[28px] font-medium md:text-4xl">
             {title}
           </h3>
           <p className="mb-4 text-lg text-gray-700">{text}</p>

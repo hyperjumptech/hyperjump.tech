@@ -103,7 +103,7 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
                   </AccordionTrigger>
                 </CardHeader>
                 <AccordionContent asChild>
-                  <CardContent className="px-4 pb-4 pt-0 text-base text-[#CDCED8] lg:text-lg">
+                  <CardContent className="px-4 pt-0 pb-4 text-base text-[#CDCED8] lg:text-lg">
                     <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl">
                       <Image
                         src={item.image}
@@ -128,13 +128,13 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
               className={cn(
                 "cursor-pointer rounded-2xl border bg-[#1B1728] p-4 transition-all duration-300 ease-in-out",
                 i === activeIndex
-                  ? "border-white/20 bg-[#2E2843] shadow-lg shadow-white/10 ring-1 ring-white/10"
+                  ? "border-white/20 bg-[#2E2843] shadow-lg ring-1 shadow-white/10 ring-white/10"
                   : "border-white/10"
               )}>
               <h3 className="mb-1 text-xl font-semibold text-white">
                 {item.title}
               </h3>
-              <p className="text-base text-[#AFB0C3] text-muted-foreground">
+              <p className="text-muted-foreground text-base text-[#AFB0C3]">
                 {item.description}
               </p>
             </Card>
@@ -168,7 +168,7 @@ function WhatYouGet({ lang }: { lang: SupportedLanguage }) {
           <div
             key={idx}
             className="relative flex flex-col items-start justify-start gap-4 pl-6">
-            <div className="absolute left-0 top-0 h-full w-[2px] bg-linear-to-b from-transparent via-white/20 to-transparent" />
+            <div className="absolute top-0 left-0 h-full w-[2px] bg-linear-to-b from-transparent via-white/20 to-transparent" />
             <Image src={item.icon} alt={item.title} width={32} height={32} />
             <p className="text-base font-semibold text-white/90 md:text-xl">
               {item.title}
@@ -254,7 +254,7 @@ function Faqs({ lang }: { lang: SupportedLanguage }) {
                 </AccordionTrigger>
               </CardHeader>
               <AccordionContent asChild>
-                <CardContent className="px-4 pb-4 pt-0 text-base text-[#CDCED8] lg:text-lg">
+                <CardContent className="px-4 pt-0 pb-4 text-base text-[#CDCED8] lg:text-lg">
                   {item.answer}
                 </CardContent>
               </AccordionContent>
@@ -271,7 +271,7 @@ function CTASection({ lang }: { lang: SupportedLanguage }) {
 
   return (
     <section className="w-full px-4 py-5 md:py-8">
-      <div className="custom-glow-border relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-inferenceai-indigo p-6 text-center md:p-10">
+      <div className="custom-glow-border bg-inferenceai-indigo relative mx-auto max-w-5xl overflow-hidden rounded-3xl p-6 text-center md:p-10">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/inferenceai/cta-background.png"

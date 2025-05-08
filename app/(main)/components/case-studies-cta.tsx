@@ -23,7 +23,7 @@ export function CaseStudiesCTA({ lang }: { lang: SupportedLanguage }) {
           alt="Footer background"
           width={1440}
           height={308}
-          className="pointer-events-none h-full select-none object-cover"
+          className="pointer-events-none h-full object-cover select-none"
           style={{
             background:
               "linear-gradient(134.7deg, #5954DA 3.43%, #0B0B0D 48.93%)"

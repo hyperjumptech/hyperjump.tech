@@ -22,7 +22,7 @@ export function Location({ lang }: LocationProps) {
   return (
     <GridItemsContainer>
       <GridItemsTitle title={mainOurLocation(lang)} layout="vertical" />
-      <div className="mb-6 mt-8 grid w-full grid-cols-1 overflow-hidden rounded shadow-lg lg:grid-cols-4">
+      <div className="mt-8 mb-6 grid w-full grid-cols-1 overflow-hidden rounded shadow-lg lg:grid-cols-4">
         <div className="relative col-span-1 overflow-hidden p-6 text-white">
           <div className="absolute inset-0 z-0">
             <Image
@@ -30,7 +30,7 @@ export function Location({ lang }: LocationProps) {
               alt="Location background"
               width={1440}
               height={308}
-              className="pointer-events-none h-full select-none object-cover"
+              className="pointer-events-none h-full object-cover select-none"
               style={{
                 background:
                   "linear-gradient(134.7deg, #5954DA 3.43%, #0B0B0D 48.93%)"
@@ -44,11 +44,11 @@ export function Location({ lang }: LocationProps) {
                 <p key={index}>{line}</p>
               ))}
             </div>
-            <p className="mb-2 mt-4 text-sm">
+            <p className="mt-4 mb-2 text-sm">
               Email:{" "}
               <a
                 href={`mailto:${email}`}
-                className="transition-colors hover:text-hyperjump-blue">
+                className="hover:text-hyperjump-blue transition-colors">
                 {email}
               </a>
             </p>

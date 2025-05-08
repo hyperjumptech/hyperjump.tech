@@ -12,7 +12,7 @@ export default function Services({ lang }: { lang: SupportedLanguage }) {
   return (
     <section className="w-full bg-white px-4 pt-4 sm:pt-0 xl:pt-16">
       <div className="container mx-auto w-full max-w-7xl text-black">
-        <h1 className="my-4 mb-8 text-2xl font-bold leading-tight xl:text-5xl">
+        <h1 className="my-4 mb-8 text-2xl leading-tight font-bold xl:text-5xl">
           {ourServices(lang)}
         </h1>
         <div>

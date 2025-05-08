@@ -45,13 +45,13 @@ export function GridItemsTitle({
   const isHorizontal = layout === "horizontal";
 
   return !description ? (
-    <h1 className="font-menium my-2 w-full text-center text-4xl leading-tight text-hyperjump-black">
+    <h1 className="font-menium text-hyperjump-black my-2 w-full text-center text-4xl leading-tight">
       {title}
     </h1>
   ) : (
     <div
       className={cn(
-        "w-full scroll-mt-20 pb-7 pt-4",
+        "w-full scroll-mt-20 pt-4 pb-7",
         className,
         isHorizontal
           ? "flex flex-wrap justify-between gap-4"
@@ -59,14 +59,14 @@ export function GridItemsTitle({
       )}>
       <h2
         className={cn(
-          "text-4xl font-medium text-hyperjump-black",
+          "text-hyperjump-black text-4xl font-medium",
           isHorizontal ? "mb-0 text-left" : "mb-6"
         )}>
         {title}
       </h2>
       <p
         className={cn(
-          "text-base text-hyperjump-gray md:text-lg",
+          "text-hyperjump-gray text-base md:text-lg",
           isHorizontal
             ? "max-w-lg text-left"
             : `w-full text-left md:w-2/3 md:text-center xl:w-3/4 ${descriptionClassname}`
@@ -288,7 +288,7 @@ export function GridItems({
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full border-hyperjump-blue text-hyperjump-blue hover:bg-hyperjump-blue hover:text-white">
+                    className="border-hyperjump-blue text-hyperjump-blue hover:bg-hyperjump-blue w-full hover:text-white">
                     <Link href={url} target="_blank" rel="noopener noreferrer">
                       <Star className="h-4 w-4" />
                       <span>Star ({stats.stars})</span>
@@ -298,7 +298,7 @@ export function GridItems({
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full border-hyperjump-blue text-hyperjump-blue hover:bg-hyperjump-blue hover:text-white">
+                    className="border-hyperjump-blue text-hyperjump-blue hover:bg-hyperjump-blue w-full hover:text-white">
                     <Link
                       href={`${url}/fork`}
                       target="_blank"
@@ -423,7 +423,7 @@ export const GridItemsSection = ({
     <section
       id={id}
       className={cn(
-        "mx-auto flex scroll-mt-20 flex-wrap items-center justify-center bg-section-gradient px-4 py-5 md:px-6 md:py-8",
+        "bg-section-gradient mx-auto flex scroll-mt-20 flex-wrap items-center justify-center px-4 py-5 md:px-6 md:py-8",
         className
       )}>
       <motion.div
@@ -445,7 +445,7 @@ export const GridItemsSection = ({
             )}>
             <h2
               className={cn(
-                "flex-1 text-4xl font-medium leading-tight text-white md:text-[40px]",
+                "flex-1 text-4xl leading-tight font-medium text-white md:text-[40px]",
                 isHorizontal ? "text-left" : "mb-4 text-left md:text-center"
               )}>
               {title}
@@ -466,7 +466,7 @@ export const GridItemsSection = ({
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="w-full text-center text-4xl font-medium leading-tight text-white md:text-[40px]">
+            className="w-full text-center text-4xl leading-tight font-medium text-white md:text-[40px]">
             {title}
           </motion.h1>
         )}

@@ -19,7 +19,7 @@ export default async function Home({ params }: SmddProps) {
 
   return (
     <section className="border-b bg-white py-8">
-      <div className="container mx-auto flex flex-wrap space-y-4 pb-12 pt-4">
+      <div className="container mx-auto flex flex-wrap space-y-4 pt-4 pb-12">
         <Services lang={lang} />
         <DemosAndDocs lang={lang} />
         <OpenSourceProjects lang={lang} />

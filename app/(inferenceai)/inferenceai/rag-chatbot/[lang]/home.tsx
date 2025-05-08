@@ -89,7 +89,7 @@ function WhatIsIncluded({ lang }: { lang: SupportedLanguage }) {
           <div
             key={idx}
             className="relative flex flex-col items-start justify-start gap-4 pl-6">
-            <div className="absolute left-0 top-0 h-full w-[2px] bg-linear-to-b from-transparent via-white/20 to-transparent" />
+            <div className="absolute top-0 left-0 h-full w-[2px] bg-linear-to-b from-transparent via-white/20 to-transparent" />
             {item.icon}
             <p className="text-base font-semibold text-white/90 md:text-xl">
               {item.title}
@@ -122,7 +122,7 @@ function Faqs({ lang }: { lang: SupportedLanguage }) {
                 </AccordionTrigger>
               </CardHeader>
               <AccordionContent asChild>
-                <CardContent className="px-4 pb-4 pt-0 text-base text-[#CDCED8] lg:text-lg">
+                <CardContent className="px-4 pt-0 pb-4 text-base text-[#CDCED8] lg:text-lg">
                   {item.answer}
                 </CardContent>
               </AccordionContent>

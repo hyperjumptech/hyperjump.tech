@@ -164,7 +164,7 @@ function Faqs({ lang }: { lang: SupportedLanguage }) {
                     </AccordionTrigger>
                   </CardHeader>
                   <AccordionContent asChild>
-                    <CardContent className="px-4 pb-4 pt-0 text-base text-[#61656E] lg:text-lg">
+                    <CardContent className="px-4 pt-0 pb-4 text-base text-[#61656E] lg:text-lg">
                       {item.answer}
                     </CardContent>
                   </AccordionContent>

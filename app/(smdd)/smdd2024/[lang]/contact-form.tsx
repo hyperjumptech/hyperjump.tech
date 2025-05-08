@@ -62,7 +62,7 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
 
   return (
     <div className="container mx-auto w-full max-w-7xl px-4 text-black sm:px-0">
-      <h1 className="my-4 mb-8 text-2xl font-bold leading-tight xl:text-5xl">
+      <h1 className="my-4 mb-8 text-2xl leading-tight font-bold xl:text-5xl">
         {talkWithUs(lang)}
       </h1>
       <p>
@@ -137,7 +137,7 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
           className="w-full rounded-lg border border-gray-300 p-2"></textarea>
         <button
           type="submit"
-          className="my-2 self-start rounded-full bg-smdd-red p-2 px-8 text-white transition-all duration-150 disabled:bg-smdd-red/50">
+          className="bg-smdd-red disabled:bg-smdd-red/50 my-2 self-start rounded-full p-2 px-8 text-white transition-all duration-150">
           <span>{send(lang)}</span>
         </button>
       </form>

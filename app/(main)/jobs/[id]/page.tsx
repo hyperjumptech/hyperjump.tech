@@ -42,7 +42,7 @@ export default async function JobDetail({ params }: JobDetailProps) {
         </div>
         <a
           href={`mailto:job@hyperjump.tech?subject=Apply for ${job.title}`}
-          className="self-start rounded border border-gray-400 bg-white px-4 py-2 font-semibold text-gray-800 shadow hover:bg-gray-100">
+          className="self-start rounded border border-gray-400 bg-white px-4 py-2 font-semibold text-gray-800 shadow-sm hover:bg-gray-100">
           Apply
         </a>
       </div>

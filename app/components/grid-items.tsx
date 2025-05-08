@@ -201,7 +201,7 @@ export function GridItems({
               borderClassName
             )}>
             {image && (
-              <div className="relative aspect-[22/9] w-full md:aspect-[16/9]">
+              <div className="relative aspect-22/9 w-full md:aspect-16/9">
                 <Image
                   src={image}
                   alt={title}
@@ -213,7 +213,7 @@ export function GridItems({
 
             <CardHeader>
               {isReactIcon && (
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#2E2B3F] to-white/20 shadow-md">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-[#2E2B3F] to-white/20 shadow-md">
                   {icon}
                 </div>
               )}

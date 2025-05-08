@@ -89,7 +89,7 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
         <Accordion type="single" collapsible className="w-full">
           {getHowItWorks(lang).map((item, i) => (
             <AccordionItem key={i} value={`faq-${i}`} asChild>
-              <Card className="my-4 w-full border-none bg-[#1B1728] shadow-sm transition-all duration-300">
+              <Card className="my-4 w-full border-none bg-[#1B1728] shadow-xs transition-all duration-300">
                 <CardHeader className="px-4 py-2">
                   <AccordionTrigger className="flex items-center justify-between no-underline hover:no-underline focus:no-underline">
                     <div className="flex flex-col">
@@ -104,7 +104,7 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
                 </CardHeader>
                 <AccordionContent asChild>
                   <CardContent className="px-4 pb-4 pt-0 text-base text-[#CDCED8] lg:text-lg">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+                    <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl">
                       <Image
                         src={item.image}
                         alt={item.title}
@@ -141,8 +141,8 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
           ))}
         </div>
 
-        <div className="flex min-h-[100%] items-center justify-center rounded-2xl bg-gradient-to-br from-[#2B2543] to-[#1A152E] p-8">
-          <div className="relative aspect-[4/3] w-full max-w-md">
+        <div className="flex min-h-[100%] items-center justify-center rounded-2xl bg-linear-to-br from-[#2B2543] to-[#1A152E] p-8">
+          <div className="relative aspect-4/3 w-full max-w-md">
             <Image
               src={getHowItWorks(lang)[activeIndex].image}
               alt={getHowItWorks(lang)[activeIndex].title}
@@ -168,7 +168,7 @@ function WhatYouGet({ lang }: { lang: SupportedLanguage }) {
           <div
             key={idx}
             className="relative flex flex-col items-start justify-start gap-4 pl-6">
-            <div className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+            <div className="absolute left-0 top-0 h-full w-[2px] bg-linear-to-b from-transparent via-white/20 to-transparent" />
             <Image src={item.icon} alt={item.title} width={32} height={32} />
             <p className="text-base font-semibold text-white/90 md:text-xl">
               {item.title}
@@ -247,7 +247,7 @@ function Faqs({ lang }: { lang: SupportedLanguage }) {
         className="mx-auto mt-8 w-full max-w-4xl space-y-4">
         {getFaqs(lang).map((item, i) => (
           <AccordionItem key={i} value={`faq-${i}`} asChild>
-            <Card className="w-full border-none bg-[#1B1728] shadow-sm transition-all duration-300">
+            <Card className="w-full border-none bg-[#1B1728] shadow-xs transition-all duration-300">
               <CardHeader className="px-4 py-2">
                 <AccordionTrigger className="flex w-full items-center justify-between gap-2 text-left text-lg font-medium text-white no-underline hover:no-underline focus:no-underline md:text-[22px]">
                   {item.question}

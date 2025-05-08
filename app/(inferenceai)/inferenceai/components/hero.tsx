@@ -36,7 +36,7 @@ export default function Hero({
       </motion.div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 to-transparent" />
+      <div className="absolute inset-0 z-10 bg-linear-to-t from-black/70 to-transparent" />
       <article className="relative z-20 mt-16 flex items-center justify-center px-4 md:mt-28 md:px-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -80,7 +80,7 @@ export default function Hero({
           className="object-cover object-center md:object-top"
         />
 
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#020F15] to-transparent md:h-32" />
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-[#020F15] to-transparent md:h-32" />
       </motion.div>
     </section>
   );

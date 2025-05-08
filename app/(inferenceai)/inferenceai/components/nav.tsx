@@ -48,7 +48,7 @@ export default function Nav({
                   <NavigationMenuItem key={href} className="text-center">
                     <Link
                       href={href}
-                      className="text-lg font-medium transition-colors group-[[data-scroll=false]]:text-white group-[[data-scroll=true]]:text-inferenceai-indigo group-[[data-scroll=false]]:hover:text-hyperjump-blue group-[[data-scroll=true]]:hover:text-hyperjump-blue xl:text-xl">
+                      className="text-lg font-medium transition-colors group-data-[scroll=false]:text-white group-data-[scroll=true]:text-inferenceai-indigo hover:group-data-[scroll=false]:text-hyperjump-blue hover:group-data-[scroll=true]:text-hyperjump-blue xl:text-xl">
                       {label}
                     </Link>
                   </NavigationMenuItem>
@@ -72,7 +72,7 @@ export default function Nav({
                   "h-6 w-6",
                   isOpen
                     ? "stroke-black"
-                    : "stroke-white group-[[data-scroll=true]]:stroke-black"
+                    : "stroke-white group-data-[scroll=true]:stroke-black"
                 )}
                 fill="none"
                 viewBox="0 0 24 24"

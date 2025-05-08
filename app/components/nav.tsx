@@ -46,7 +46,7 @@ export default function Nav({
         className={cn(
           "w-full transition",
           isTransparent && !isOpen
-            ? "group-[[data-scroll=false]]:bg-transparent group-[[data-scroll=true]]:bg-white"
+            ? "group-data-[scroll=false]:bg-transparent group-data-[scroll=true]:bg-white"
             : "bg-white"
         )}>
         <div
@@ -69,7 +69,7 @@ export default function Nav({
                       className={cn(
                         "text-xl font-medium transition",
                         isTransparent
-                          ? "group-[[data-scroll=false]]:text-white group-[[data-scroll=true]]:text-hyperjump-black group-[[data-scroll=false]]:hover:border-b-2 group-[[data-scroll=true]]:hover:text-hyperjump-blue"
+                          ? "group-data-[scroll=false]:text-white group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=false]:border-b-2 hover:group-data-[scroll=true]:text-hyperjump-blue"
                           : "text-hyperjump-black hover:text-hyperjump-blue"
                       )}>
                       {item.label}
@@ -86,7 +86,7 @@ export default function Nav({
               variant={isTransparent ? "outline" : "default"}
               className={cn(
                 isTransparent
-                  ? "group-[[data-scroll=false]]:bg-transparent group-[[data-scroll=true]]:bg-hyperjump-blue group-[[data-scroll=false]]:hover:bg-white group-[[data-scroll=true]]:hover:bg-hyperjump-blue/90 group-[[data-scroll=true]]:hover:text-white"
+                  ? "group-data-[scroll=false]:bg-transparent group-data-[scroll=true]:bg-hyperjump-blue hover:group-data-[scroll=false]:bg-white hover:group-data-[scroll=true]:bg-hyperjump-blue/90 hover:group-data-[scroll=true]:text-white"
                   : "bg-hyperjump-blue hover:bg-hyperjump-blue/90"
               )}
               onClick={() => {
@@ -112,7 +112,7 @@ export default function Nav({
                 className={cn(
                   "h-6 w-6",
                   isTransparent && !isOpen
-                    ? "stroke-white group-[[data-scroll=true]]:stroke-black"
+                    ? "stroke-white group-data-[scroll=true]:stroke-black"
                     : "stroke-black"
                 )}
                 fill="none"
@@ -285,16 +285,16 @@ type LogoClassNamesProps = {
 function logoClassNames({ isOpen, src }: LogoClassNamesProps): string {
   if (src.includes("white")) {
     return cn(
-      "group-[[data-scroll=false]]:block group-[[data-scroll=true]]:hidden",
-      isOpen && "group-[[data-scroll=false]]:hidden"
+      "group-data-[scroll=false]:block group-data-[scroll=true]:hidden",
+      isOpen && "group-data-[scroll=false]:hidden"
     );
   }
 
   if (src.includes("colored")) {
     return cn(
-      "group-[[data-scroll=false]]:hidden group-[[data-scroll=true]]:block",
+      "group-data-[scroll=false]:hidden group-data-[scroll=true]:block",
       isOpen &&
-        "group-[[data-scroll=false]]:block group-[[data-scroll=true]]:block"
+        "group-data-[scroll=false]:block group-data-[scroll=true]:block"
     );
   }
 

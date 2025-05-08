@@ -29,7 +29,7 @@ export default function Footer({
         />
       </div>
 
-      <div className="container relative z-20 mx-auto px-4">
+      <div className="relative z-20 container mx-auto px-4">
         <div className="flex flex-col space-y-6 md:items-center">
           <div className="flex items-center">
             <Link href="/">
@@ -52,7 +52,7 @@ export default function Footer({
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition hover:bg-hyperjump-blue"
+                className="hover:bg-hyperjump-blue flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition"
                 aria-label={s.platform}>
                 <i className={s.icon} aria-hidden="true"></i>
               </a>

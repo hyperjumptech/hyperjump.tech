@@ -83,7 +83,7 @@ type Item = {
   description: string;
   url?: string;
   category?: string;
-  icon?: string | React.ReactElement;
+  icon?: string | React.ReactElement<any>;
   button?: boolean;
   repo?: string;
 };

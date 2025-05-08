@@ -5,10 +5,10 @@ export const generateStaticParams = async () => {
   return [{ lang: "en" }, { lang: "id" }];
 };
 
-export default function RagChatbotPage({
-  params
-}: {
-  params: { lang: SupportedLanguage };
-}) {
-  return <Home lang={params.lang} />;
+type RagChatbotProps = {
+  params: Promise<{ lang: SupportedLanguage }>;
+};
+
+export default async function RagChatbotPage({ params }: RagChatbotProps) {
+  return <Home lang={(await params).lang} />;
 }

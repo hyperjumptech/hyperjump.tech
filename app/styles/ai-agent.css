@@ -34,7 +34,7 @@
 
 #n8n-chat .chat-powered-by {
   --custom-content: "HyperBot made with \2665  by Hyperjump";
-  @apply relative text-transparent before:inline-block before:text-sm before:text-black before:content-[var(--custom-content)];
+  @apply relative text-transparent before:inline-block before:text-sm before:text-black before:content-(--custom-content);
 }
 
 #n8n-chat .chat-powered-by a {

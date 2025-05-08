@@ -408,78 +408,84 @@ export default function GridItemsContainer({
   );
 }
 
-export const GridItemsSection = ({
+interface GridItemsContainerProps {
+  id?: string;
+  className?: string;
+  bgClassName?: string;
+  children: React.ReactNode;
+}
+
+export const GridItemsContainerBlack = ({
   id,
   className = "max-w-5xl",
-  title,
-  description,
-  layout = "horizontal",
-  descriptionClassname,
+  bgClassName = "bg-red-500",
   children
-}: GridItemsTitleProps) => {
-  const isHorizontal = layout === "horizontal";
-
+}: GridItemsContainerProps) => {
   return (
     <section
       id={id}
       className={cn(
-        "bg-section-gradient mx-auto flex scroll-mt-20 flex-wrap items-center justify-center px-4 py-5 md:px-6 md:py-8",
-        className
+        "flex w-full scroll-mt-20 flex-wrap items-center justify-center",
+        bgClassName
       )}>
       <motion.div
+        className={cn(className, "px-4 py-7 md:px-6 md:py-[60px]")}
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}>
-        {description ? (
-          <motion.div
-            viewport={{ once: true, amount: 0.3 }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className={cn(
-              "w-full",
-              isHorizontal
-                ? "flex flex-col flex-wrap justify-between gap-4 md:flex-row"
-                : "flex flex-col md:items-center"
-            )}>
-            <h2
-              className={cn(
-                "flex-1 text-4xl leading-tight font-medium text-white md:text-[40px]",
-                isHorizontal ? "text-left" : "mb-4 text-left md:text-center"
-              )}>
-              {title}
-            </h2>
-            <p
-              className={cn(
-                "flex-1 text-base text-[#AFB0C3] md:text-lg",
-                isHorizontal
-                  ? "max-w-lg text-left"
-                  : `w-full text-left md:w-2/3 md:text-center xl:w-3/4 ${descriptionClassname}`
-              )}>
-              {description}
-            </p>
-          </motion.div>
-        ) : (
-          <motion.h1
-            viewport={{ once: true, amount: 0.3 }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="w-full text-center text-4xl leading-tight font-medium text-white md:text-[40px]">
-            {title}
-          </motion.h1>
-        )}
-
-        <motion.div
-          viewport={{ once: true, amount: 0.3 }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="w-full">
-          {children}
-        </motion.div>
+        {children}
       </motion.div>
     </section>
+  );
+};
+
+export const GridItemsTitleBlack = ({
+  title,
+  description,
+  layout = "horizontal",
+  descriptionClassname
+}: GridItemsTitleProps) => {
+  const isHorizontal = layout === "horizontal";
+  const sharedMotionProps = {
+    viewport: { once: true, amount: 0.3 },
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  return description ? (
+    <motion.div
+      {...sharedMotionProps}
+      className={cn(
+        "w-full",
+        isHorizontal
+          ? "flex flex-col flex-wrap justify-between gap-4 md:flex-row"
+          : "flex flex-col md:items-center"
+      )}>
+      <h2
+        className={cn(
+          "flex-1 text-4xl leading-tight font-medium text-white md:text-[40px]",
+          isHorizontal ? "text-left" : "mb-4 text-left md:text-center"
+        )}>
+        {title}
+      </h2>
+      <p
+        className={cn(
+          "w-full flex-1 text-base leading-8 text-[#AFB0C3] md:max-w-xl md:text-lg",
+          isHorizontal
+            ? "max-w-lg text-left"
+            : `w-full text-left md:w-2/3 md:text-center xl:w-3/4 ${descriptionClassname}`
+        )}>
+        {description}
+      </p>
+    </motion.div>
+  ) : (
+    <motion.h1
+      {...sharedMotionProps}
+      transition={{ delay: 0.1, duration: 0.6 }}
+      className="w-full text-center text-4xl leading-tight font-medium text-white md:text-[40px]">
+      {title}
+    </motion.h1>
   );
 };

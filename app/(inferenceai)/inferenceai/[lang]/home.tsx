@@ -3,10 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import data from "@/data.json";
+import { motion } from "framer-motion";
 import {
   GridItems,
-  GridItemsSection,
-  GridItemsMoreButton
+  GridItemsMoreButton,
+  GridItemsContainerBlack,
+  GridItemsTitleBlack
 } from "@/app/components/grid-items";
 import {
   Accordion,
@@ -58,21 +60,30 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
 
 function WhyWorkWithUs({ lang }: { lang: SupportedLanguage }) {
   return (
-    <GridItemsSection
+    <GridItemsContainerBlack
       id="why-work-with-us"
-      title={inferenceaiWhyWorkWithUsHeading(lang)}
-      description={inferenceaiWhyWorkWithUsDesc(lang)}
-      layout="vertical">
-      <div className="mb-8" />
-      <GridItems
-        items={getWhyWorkWithUs(lang)}
-        columns={{ base: 1, sm: 1, md: 3, lg: 3 }}
-        cardClassName="rounded-[20px]"
-        borderClassName="card-border-gradient"
-        titleClassName="text-white md:text-lg"
-        lang={lang}
+      bgClassName="bg-inference-ai">
+      <GridItemsTitleBlack
+        title={inferenceaiWhyWorkWithUsHeading(lang)}
+        description={inferenceaiWhyWorkWithUsDesc(lang)}
+        layout="vertical"
       />
-    </GridItemsSection>
+      <div className="my-6" />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}>
+        <GridItems
+          items={getWhyWorkWithUs(lang)}
+          columns={{ base: 1, sm: 1, md: 3, lg: 3 }}
+          cardClassName="rounded-[20px]"
+          borderClassName="card-border-gradient"
+          titleClassName="text-white md:text-lg"
+          lang={lang}
+        />
+      </motion.div>
+    </GridItemsContainerBlack>
   );
 }
 
@@ -80,69 +91,82 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <GridItemsSection
-      id="how-it-works"
-      title={inferenceaiHowItWorksHeading(lang)}
-      description={inferenceaiHowItWorksDesc(lang)}
-      layout="vertical">
+    <GridItemsContainerBlack id="how-it-works" bgClassName="bg-inference-ai">
+      <GridItemsTitleBlack
+        title={inferenceaiHowItWorksHeading(lang)}
+        description={inferenceaiHowItWorksDesc(lang)}
+        layout="vertical"
+      />
       <div className="md:hidden">
-        <Accordion type="single" collapsible className="w-full">
-          {getHowItWorks(lang).map((item, i) => (
-            <AccordionItem key={i} value={`faq-${i}`} asChild>
-              <Card className="my-4 w-full border-none bg-[#1B1728] shadow-xs transition-all duration-300">
-                <CardHeader className="px-4 py-2">
-                  <AccordionTrigger className="flex items-center justify-between no-underline hover:no-underline focus:no-underline">
-                    <div className="flex flex-col">
-                      <div className="text-left text-xl font-medium text-white">
-                        {item.title}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}>
+          <Accordion type="single" collapsible className="w-full">
+            {getHowItWorks(lang).map((item, i) => (
+              <AccordionItem key={i} value={`faq-${i}`} asChild>
+                <Card className="my-4 w-full border-none bg-[#1B1728] shadow-sm transition-all duration-300">
+                  <CardHeader className="px-4 py-2">
+                    <AccordionTrigger className="flex items-center justify-between no-underline hover:no-underline focus:no-underline">
+                      <div className="flex flex-col">
+                        <div className="text-left text-xl font-medium text-white">
+                          {item.title}
+                        </div>
+                        <div className="text-left font-medium text-[#AFB0C3]">
+                          {item.description}
+                        </div>
                       </div>
-                      <div className="text-left font-medium text-[#AFB0C3]">
-                        {item.description}
+                    </AccordionTrigger>
+                  </CardHeader>
+                  <AccordionContent asChild>
+                    <CardContent className="px-4 pt-0 pb-4 text-base text-[#CDCED8] lg:text-lg">
+                      <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="object-contain"
+                        />
                       </div>
-                    </div>
-                  </AccordionTrigger>
-                </CardHeader>
-                <AccordionContent asChild>
-                  <CardContent className="px-4 pt-0 pb-4 text-base text-[#CDCED8] lg:text-lg">
-                    <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </CardContent>
-                </AccordionContent>
-              </Card>
-            </AccordionItem>
-          ))}
-        </Accordion>
+                    </CardContent>
+                  </AccordionContent>
+                </Card>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </motion.div>
       </div>
       <div className="mx-auto mt-8 hidden w-full grid-cols-1 items-stretch gap-8 md:grid lg:grid-cols-2">
         <div className="h-full space-y-4">
           {getHowItWorks(lang).map((item, i) => (
-            <Card
+            <motion.div
               key={i}
-              onClick={() => setActiveIndex(i)}
-              className={cn(
-                "cursor-pointer rounded-2xl border bg-[#1B1728] p-4 transition-all duration-300 ease-in-out",
-                i === activeIndex
-                  ? "border-white/20 bg-[#2E2843] shadow-lg ring-1 shadow-white/10 ring-white/10"
-                  : "border-white/10"
-              )}>
-              <h3 className="mb-1 text-xl font-semibold text-white">
-                {item.title}
-              </h3>
-              <p className="text-muted-foreground text-base text-[#AFB0C3]">
-                {item.description}
-              </p>
-            </Card>
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}>
+              <Card
+                onClick={() => setActiveIndex(i)}
+                className={cn(
+                  "transform cursor-pointer bg-transparent p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl",
+                  i === activeIndex
+                    ? "border-white/20 bg-[#1B1728] shadow-md ring-1 shadow-white/10 ring-white/10"
+                    : "border-[#4E4566] hover:border-white/20 hover:bg-[#1f1a2f]/40 hover:ring-1 hover:ring-white/10"
+                )}>
+                <h3 className="mb-1 text-xl font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-base text-[#AFB0C3]">
+                  {item.description}
+                </p>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
-        <div className="flex min-h-[100%] items-center justify-center rounded-2xl bg-linear-to-br from-[#2B2543] to-[#1A152E] p-8">
-          <div className="relative aspect-4/3 w-full max-w-md">
+        <div className="flex min-h-[100%] items-center justify-center rounded-2xl bg-[#302A43] p-3">
+          <div className="relative aspect-3/3 w-full max-w-md md:aspect-4/3">
             <Image
               src={getHowItWorks(lang)[activeIndex].image}
               alt={getHowItWorks(lang)[activeIndex].title}
@@ -152,20 +176,26 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
           </div>
         </div>
       </div>
-    </GridItemsSection>
+    </GridItemsContainerBlack>
   );
 }
 
 function WhatYouGet({ lang }: { lang: SupportedLanguage }) {
   return (
-    <GridItemsSection
-      id="what-you-get"
-      title={inferenceaiWhatYouGetHeading(lang)}
-      description={inferenceaiWhatYouGetDesc(lang)}
-      layout="vertical">
-      <div className="grid grid-cols-2 gap-10 bg-[#0A0713] pt-8 text-white lg:grid-cols-3">
+    <GridItemsContainerBlack id="what-you-get" bgClassName="bg-what-you-get">
+      <GridItemsTitleBlack
+        title={inferenceaiWhatYouGetHeading(lang)}
+        description={inferenceaiWhatYouGetDesc(lang)}
+        layout="vertical"
+      />
+      <div className="my-6" />
+      <div className="grid grid-cols-2 gap-10 text-white lg:grid-cols-3">
         {getWhatYouGet(lang).map((item, idx) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
             key={idx}
             className="relative flex flex-col items-start justify-start gap-4 pl-6">
             <div className="absolute top-0 left-0 h-full w-[2px] bg-linear-to-b from-transparent via-white/20 to-transparent" />
@@ -173,10 +203,10 @@ function WhatYouGet({ lang }: { lang: SupportedLanguage }) {
             <p className="text-base font-semibold text-white/90 md:text-xl">
               {item.title}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </GridItemsSection>
+    </GridItemsContainerBlack>
   );
 }
 
@@ -184,85 +214,108 @@ function CaseStudies({ lang }: { lang: SupportedLanguage }) {
   const { linkAI, gaEventName } = data.cta;
 
   return (
-    <GridItemsSection
+    <GridItemsContainerBlack
       id="case-studies"
-      title={inferenceaiCaseStudiesHeading(lang)}
-      description={inferenceaiCaseStudiesDesc(lang)}>
-      <GridItems
-        lang={lang}
-        items={getCaseStudies(lang)}
-        columns={{ base: 1, md: 2, lg: 2 }}
-        cardClassName="rounded-2xl mt-8"
-        borderClassName="card-border-gradient"
-        categoryClassName="bg-white/10 text-white"
-        titleClassName="text-white text=[22px] font-semibold"
+      bgClassName="bg-multilayer-gradient">
+      <GridItemsTitleBlack
+        title={inferenceaiCaseStudiesHeading(lang)}
+        description={inferenceaiCaseStudiesDesc(lang)}
       />
-      <div className="mt-8 flex w-full justify-center">
-        <GridItemsMoreButton
-          type="inferenceai"
-          text={inferenceaiCtaLabel(lang)}
-          href={linkAI}
-          gaEvent={{
-            event: gaEventName,
-            category: "engagement",
-            label: "Case Study Inference AI"
-          }}
+      <div className="my-6" />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}>
+        <GridItems
+          lang={lang}
+          items={getCaseStudies(lang)}
+          columns={{ base: 1, md: 2, lg: 2 }}
+          cardClassName="rounded-2xl"
+          borderClassName="card-border-gradient"
+          categoryClassName="bg-white/10 text-white"
+          titleClassName="text-white text-[22px] font-semibold"
         />
-      </div>
-    </GridItemsSection>
+        <div className="flex w-full justify-center">
+          <GridItemsMoreButton
+            type="inferenceai"
+            text={inferenceaiCtaLabel(lang)}
+            href={linkAI}
+            gaEvent={{
+              event: gaEventName,
+              category: "engagement",
+              label: "Case Study Inference AI"
+            }}
+          />
+        </div>
+      </motion.div>
+    </GridItemsContainerBlack>
   );
 }
 
 function AboutUs({ lang }: { lang: SupportedLanguage }) {
   return (
-    <GridItemsSection
-      id="about-us"
-      title={inferenceaiAboutUsHeading(lang)}
-      description={inferenceaiAboutUsDesc(lang)}>
-      <div className="relative mt-9 flex w-full justify-center">
-        <div className="relative aspect-[1280/603.7735595703125] w-full max-w-[1280px] overflow-hidden rounded-[24.15px]">
-          <Image
-            src="/images/inferenceai/about-us.webp"
-            alt="image"
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div>
-    </GridItemsSection>
+    <GridItemsContainerBlack id="about-us" bgClassName="bg-multilayer-gradient">
+      <GridItemsTitleBlack
+        title={inferenceaiAboutUsHeading(lang)}
+        description={inferenceaiAboutUsDesc(lang)}
+      />
+      <div className="my-6" />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto flex h-[400px] w-full max-w-full items-center overflow-hidden rounded-xl xl:w-[1100px]">
+        <Image
+          src="/images/inferenceai/about-us.webp"
+          alt="image"
+          width={1100}
+          height={600}
+          className="h-full w-full object-cover object-center"
+        />
+      </motion.div>
+    </GridItemsContainerBlack>
   );
 }
 
 function Faqs({ lang }: { lang: SupportedLanguage }) {
   return (
-    <GridItemsSection
-      id="faqs"
-      title={inferenceaiFaqHeading(lang)}
-      description={inferenceaiFaqDesc(lang)}
-      layout="vertical"
-      className="bg-grid-faqs">
-      <Accordion
-        type="single"
-        collapsible
-        className="mx-auto mt-8 w-full max-w-4xl space-y-4">
-        {getFaqs(lang).map((item, i) => (
-          <AccordionItem key={i} value={`faq-${i}`} asChild>
-            <Card className="w-full border-none bg-[#1B1728] shadow-xs transition-all duration-300">
-              <CardHeader className="px-4 py-2">
-                <AccordionTrigger className="flex w-full items-center justify-between gap-2 text-left text-lg font-medium text-white no-underline hover:no-underline focus:no-underline md:text-[22px]">
-                  {item.question}
-                </AccordionTrigger>
-              </CardHeader>
-              <AccordionContent asChild>
-                <CardContent className="px-4 pt-0 pb-4 text-base text-[#CDCED8] lg:text-lg">
-                  {item.answer}
-                </CardContent>
-              </AccordionContent>
-            </Card>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </GridItemsSection>
+    <GridItemsContainerBlack id="faqs" bgClassName="bg-inference-ai">
+      <GridItemsTitleBlack
+        title={inferenceaiFaqHeading(lang)}
+        description={inferenceaiFaqDesc(lang)}
+        layout="vertical"
+      />
+      <div className="my-6" />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}>
+        <Accordion
+          type="single"
+          collapsible
+          className="mx-auto mt-8 w-full max-w-4xl space-y-4">
+          {getFaqs(lang).map((item, i) => (
+            <AccordionItem key={i} value={`faq-${i}`} asChild>
+              <Card className="w-full border-none bg-[#1B1728] shadow-sm transition-all duration-300">
+                <CardHeader className="px-4 py-2">
+                  <AccordionTrigger className="flex w-full items-center justify-between gap-2 text-left text-lg font-medium text-white no-underline hover:no-underline focus:no-underline md:text-[22px]">
+                    {item.question}
+                  </AccordionTrigger>
+                </CardHeader>
+                <AccordionContent asChild>
+                  <CardContent className="px-4 pt-0 pb-4 text-base text-[#CDCED8] lg:text-lg">
+                    {item.answer}
+                  </CardContent>
+                </AccordionContent>
+              </Card>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </motion.div>
+    </GridItemsContainerBlack>
   );
 }
 
@@ -282,7 +335,7 @@ function CTASection({ lang }: { lang: SupportedLanguage }) {
           <div className="absolute inset-0 bg-black/30" />
         </div>
         <div className="relative z-20 space-y-4 text-white md:space-y-6">
-          <h2 className="text-center text-2xl font-semibold md:text-[48px]">
+          <h2 className="text-center text-2xl leading-8 font-semibold md:text-4xl xl:text-[48px]">
             {inferenceaiCtaHeading(lang)}
           </h2>
           <p className="mx-auto max-w-xl text-lg md:text-[22px]">

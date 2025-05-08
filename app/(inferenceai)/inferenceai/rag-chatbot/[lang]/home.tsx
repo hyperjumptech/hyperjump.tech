@@ -1,6 +1,11 @@
 "use client";
 
-import { GridItems, GridItemsSection } from "@/app/components/grid-items";
+import { motion } from "framer-motion";
+import {
+  GridItems,
+  GridItemsContainerBlack,
+  GridItemsTitleBlack
+} from "@/app/components/grid-items";
 import {
   Accordion,
   AccordionContent,
@@ -36,57 +41,75 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
 
 function KeyFeatures({ lang }: { lang: SupportedLanguage }) {
   return (
-    <GridItemsSection
+    <GridItemsContainerBlack
       id="key-features"
-      title={ragChatbotKeyFeaturesHeading(lang)}
-      className="my-10 max-w-7xl">
-      <div className="my-10" />
-      <GridItems
-        items={getKeyFeatures(lang)}
-        columns={{ base: 1, sm: 2, md: 3, lg: 3, xl: 5 }}
-        cardClassName="rounded-[20px]"
-        borderClassName="card-border-gradient"
-        titleClassName="text-white md:text-lg"
-        lang={lang}
-      />
-    </GridItemsSection>
+      className="max-w-7xl"
+      bgClassName="bg-[#050013]">
+      <GridItemsTitleBlack title={ragChatbotKeyFeaturesHeading(lang)} />
+      <div className="my-6" />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}>
+        <GridItems
+          items={getKeyFeatures(lang)}
+          columns={{ base: 1, sm: 2, md: 3, lg: 3, xl: 5 }}
+          cardClassName="rounded-xl"
+          borderClassName="card-border-gradient"
+          titleClassName="text-white md:text-lg"
+          lang={lang}
+        />
+      </motion.div>
+    </GridItemsContainerBlack>
   );
 }
 
 function HowItWorks({ lang }: { lang: SupportedLanguage }) {
   return (
-    <GridItemsSection
-      id="how-it-works"
-      title={ragChatbotHowItWorksHeading(lang)}
-      className="my-10 max-w-7xl">
-      <div className="my-10" />
-      <div className="mt-8 w-full grid-cols-1 gap-8 space-y-6 md:grid md:space-y-0 lg:grid-cols-1">
-        {getHowItWorks(lang).map((item, i) => (
-          <Card
-            key={i}
-            className="group cursor-pointer rounded-2xl border border-white/10 bg-[#1B1728] p-6 transition-all duration-300 ease-in-out hover:border-white/20 hover:bg-linear-to-br hover:from-[#2E2843] hover:to-[#1B1728] hover:shadow-lg hover:ring-1 hover:ring-white/10">
-            <h3 className="mb-1 text-xl font-semibold text-white group-hover:text-white">
-              {item.title}
-            </h3>
-            <p className="text-base text-[#AFB0C3] group-hover:text-[#CDCED8]">
-              {item.description}
-            </p>
-          </Card>
-        ))}
+    <section id="how-it-works" className="bg-inference-ai scroll-mt-20">
+      <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">
+        <div className="w-full max-w-3xl">
+          <GridItemsTitleBlack title={ragChatbotHowItWorksHeading(lang)} />
+          <div className="my-6" />
+          <div className="space-y-6">
+            {getHowItWorks(lang).map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6 }}>
+                <Card key={i} className="card-border-gradient rounded-xl p-6">
+                  <h3 className="mb-1 text-xl font-semibold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-base text-[#AFB0C3]">{item.description}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
-    </GridItemsSection>
+    </section>
   );
 }
 
 function WhatIsIncluded({ lang }: { lang: SupportedLanguage }) {
   return (
-    <GridItemsSection
+    <GridItemsContainerBlack
       id="what-is-included"
-      title={ragChatbotWhatIsIncludedHeading(lang)}
-      className="my-10 max-w-7xl">
-      <div className="mt-10 grid grid-cols-2 gap-10 bg-[#0A0713] pt-8 text-white lg:grid-cols-4">
+      className="max-w-7xl"
+      bgClassName="bg-multilayer-gradient">
+      <GridItemsTitleBlack title={ragChatbotWhatIsIncludedHeading(lang)} />
+      <div className="my-6" />
+      <div className="grid grid-cols-2 gap-10 bg-[#0A0713] pt-8 text-white lg:grid-cols-4">
         {getWhatIsIncluded(lang).map((item, idx) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
             key={idx}
             className="relative flex flex-col items-start justify-start gap-4 pl-6">
             <div className="absolute top-0 left-0 h-full w-[2px] bg-linear-to-b from-transparent via-white/20 to-transparent" />
@@ -94,42 +117,50 @@ function WhatIsIncluded({ lang }: { lang: SupportedLanguage }) {
             <p className="text-base font-semibold text-white/90 md:text-xl">
               {item.title}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </GridItemsSection>
+    </GridItemsContainerBlack>
   );
 }
 
 function Faqs({ lang }: { lang: SupportedLanguage }) {
   return (
-    <GridItemsSection
-      id="faqs"
-      title={ragChatbotFaqHeading(lang)}
-      description={ragChatbotFaqDesc(lang)}
-      layout="vertical"
-      className="bg-grid-faqs my-10">
-      <Accordion
-        type="single"
-        collapsible
-        className="mx-auto mt-8 w-full max-w-7xl space-y-4">
-        {getFaqs(lang).map((item, i) => (
-          <AccordionItem key={i} value={`faq-${i}`} asChild>
-            <Card className="w-full border-none bg-[#1B1728] shadow-xs transition-all duration-300">
-              <CardHeader className="px-4 py-2">
-                <AccordionTrigger className="flex w-full items-center justify-between gap-2 text-left text-lg font-medium text-white no-underline hover:no-underline focus:no-underline md:text-[22px]">
-                  {item.question}
-                </AccordionTrigger>
-              </CardHeader>
-              <AccordionContent asChild>
-                <CardContent className="px-4 pt-0 pb-4 text-base text-[#CDCED8] lg:text-lg">
-                  {item.answer}
-                </CardContent>
-              </AccordionContent>
-            </Card>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </GridItemsSection>
+    <section id="faqs" className="bg-inference-ai scroll-mt-20">
+      <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">
+        <div className="w-full max-w-3xl">
+          <GridItemsTitleBlack
+            title={ragChatbotFaqHeading(lang)}
+            description={ragChatbotFaqDesc(lang)}
+            layout="vertical"
+          />
+          <div className="my-6" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}>
+            <Accordion type="single" collapsible className="space-y-6">
+              {getFaqs(lang).map((item, i) => (
+                <AccordionItem key={i} value={`faq-${i}`} asChild>
+                  <Card className="card-border-gradient w-full shadow-sm transition-all duration-300">
+                    <CardHeader className="py-4 md:p-6">
+                      <AccordionTrigger className="flex w-full items-center justify-between text-left text-xl font-medium text-white no-underline transition hover:no-underline focus:no-underline md:gap-2">
+                        {item.question}
+                      </AccordionTrigger>
+                    </CardHeader>
+                    <AccordionContent asChild>
+                      <CardContent className="text-base text-[#CDCED8] lg:text-lg">
+                        {item.answer}
+                      </CardContent>
+                    </AccordionContent>
+                  </Card>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 }

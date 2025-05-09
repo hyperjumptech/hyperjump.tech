@@ -107,20 +107,18 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
             {getHowItWorks(lang).map((item, i) => (
               <AccordionItem key={i} value={`faq-${i}`} asChild>
                 <Card className="my-4 w-full border-none bg-[#1B1728] shadow-sm transition-all duration-300">
-                  <CardHeader className="px-4 py-2">
+                  <CardHeader className="py-0 md:py-2">
                     <AccordionTrigger className="flex items-center justify-between no-underline hover:no-underline focus:no-underline">
-                      <div className="flex flex-col">
-                        <div className="text-left text-xl font-medium text-white">
-                          {item.title}
-                        </div>
-                        <div className="text-left font-medium text-[#AFB0C3]">
-                          {item.description}
-                        </div>
+                      <div className="text-left text-xl font-medium text-white">
+                        {item.title}
                       </div>
                     </AccordionTrigger>
                   </CardHeader>
                   <AccordionContent asChild>
-                    <CardContent className="px-4 pt-0 pb-4 text-base text-[#CDCED8] lg:text-lg">
+                    <CardContent className="flex flex-col py-0 text-base text-[#CDCED8] lg:text-lg">
+                      <div className="mb-4 text-left font-medium text-[#AFB0C3]">
+                        {item.description}
+                      </div>
                       <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl">
                         <Image
                           src={item.image}
@@ -255,67 +253,75 @@ function CaseStudies({ lang }: { lang: SupportedLanguage }) {
 
 function AboutUs({ lang }: { lang: SupportedLanguage }) {
   return (
-    <GridItemsContainerBlack id="about-us" bgClassName="bg-multilayer-gradient">
-      <GridItemsTitleBlack
-        title={inferenceaiAboutUsHeading(lang)}
-        description={inferenceaiAboutUsDesc(lang)}
-      />
-      <div className="my-6" />
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-        className="mx-auto flex h-[400px] w-full max-w-full items-center overflow-hidden rounded-xl xl:w-[1100px]">
-        <Image
-          src="/images/inferenceai/about-us.webp"
-          alt="image"
-          width={1100}
-          height={600}
-          className="h-full w-full object-cover object-center"
-        />
-      </motion.div>
-    </GridItemsContainerBlack>
+    <section id="about-us" className="bg-inference-ai scroll-mt-20">
+      <div className="mx-auto flex flex-col flex-wrap items-center justify-center px-4 py-7 md:flex-row md:px-6 md:py-[60px]">
+        <div className="w-full max-w-5xl">
+          <GridItemsTitleBlack
+            title={inferenceaiAboutUsHeading(lang)}
+            description={inferenceaiAboutUsDesc(lang)}
+          />
+          <div className="my-6" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto flex h-52 w-full max-w-full items-center overflow-hidden rounded-xl md:h-[400px] xl:w-[1100px]">
+            <Image
+              src="/images/inferenceai/about-us.webp"
+              alt="image"
+              width={1100}
+              height={600}
+              className="h-full w-full object-cover object-center"
+            />
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 }
 
 function Faqs({ lang }: { lang: SupportedLanguage }) {
   return (
-    <GridItemsContainerBlack id="faqs" bgClassName="bg-inference-ai">
-      <GridItemsTitleBlack
-        title={inferenceaiFaqHeading(lang)}
-        description={inferenceaiFaqDesc(lang)}
-        layout="vertical"
-      />
-      <div className="my-6" />
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}>
-        <Accordion
-          type="single"
-          collapsible
-          className="mx-auto mt-8 w-full max-w-4xl space-y-4">
-          {getFaqs(lang).map((item, i) => (
-            <AccordionItem key={i} value={`faq-${i}`} asChild>
-              <Card className="w-full border-none bg-[#1B1728] shadow-sm transition-all duration-300">
-                <CardHeader className="px-4 py-2">
-                  <AccordionTrigger className="flex w-full items-center justify-between gap-2 text-left text-lg font-medium text-white no-underline hover:no-underline focus:no-underline md:text-[22px]">
-                    {item.question}
-                  </AccordionTrigger>
-                </CardHeader>
-                <AccordionContent asChild>
-                  <CardContent className="px-4 pt-0 pb-4 text-base text-[#CDCED8] lg:text-lg">
-                    {item.answer}
-                  </CardContent>
-                </AccordionContent>
-              </Card>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </motion.div>
-    </GridItemsContainerBlack>
+    <section id="faqs" className="bg-inference-ai scroll-mt-20">
+      <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">
+        <div className="w-full max-w-3xl">
+          <GridItemsTitleBlack
+            title={inferenceaiFaqHeading(lang)}
+            description={inferenceaiFaqDesc(lang)}
+            layout="vertical"
+          />
+          <div className="my-6" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}>
+            <Accordion
+              type="single"
+              collapsible
+              className="mx-auto mt-8 w-full max-w-4xl space-y-4">
+              {getFaqs(lang).map((item, i) => (
+                <AccordionItem key={i} value={`faq-${i}`} asChild>
+                  <Card className="card-border-gradient w-full shadow-sm transition-all duration-300">
+                    <CardHeader className="py-0 md:py-2">
+                      <AccordionTrigger className="flex w-full items-center justify-between text-left text-xl font-medium text-white no-underline transition hover:no-underline focus:no-underline md:gap-2">
+                        {item.question}
+                      </AccordionTrigger>
+                    </CardHeader>
+                    <AccordionContent asChild className="py-0">
+                      <CardContent className="text-base text-[#CDCED8] lg:text-lg">
+                        {item.answer}
+                      </CardContent>
+                    </AccordionContent>
+                  </Card>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 }
 

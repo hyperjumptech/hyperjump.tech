@@ -47,20 +47,14 @@ function KeyFeatures({ lang }: { lang: SupportedLanguage }) {
       bgClassName="bg-[#050013]">
       <GridItemsTitleBlack title={ragChatbotKeyFeaturesHeading(lang)} />
       <div className="my-6" />
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}>
-        <GridItems
-          items={getKeyFeatures(lang)}
-          columns={{ base: 1, sm: 2, md: 3, lg: 3, xl: 5 }}
-          cardClassName="rounded-xl"
-          borderClassName="card-border-gradient"
-          titleClassName="text-white md:text-lg"
-          lang={lang}
-        />
-      </motion.div>
+      <GridItems
+        items={getKeyFeatures(lang)}
+        columns={{ base: 1, sm: 2, md: 3, lg: 3, xl: 5 }}
+        cardClassName="rounded-xl"
+        borderClassName="card-border-gradient"
+        titleClassName="text-white md:text-lg"
+        lang={lang}
+      />
     </GridItemsContainerBlack>
   );
 }
@@ -71,8 +65,7 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
       <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">
         <div className="w-full max-w-3xl">
           <GridItemsTitleBlack title={ragChatbotHowItWorksHeading(lang)} />
-          <div className="my-6" />
-          <div className="space-y-6">
+          <div className="my-6 space-y-6">
             {getHowItWorks(lang).map((item, i) => (
               <motion.div
                 key={i}
@@ -103,7 +96,7 @@ function WhatIsIncluded({ lang }: { lang: SupportedLanguage }) {
       bgClassName="bg-multilayer-gradient">
       <GridItemsTitleBlack title={ragChatbotWhatIsIncludedHeading(lang)} />
       <div className="my-6" />
-      <div className="grid grid-cols-2 gap-10 bg-[#0A0713] pt-8 text-white lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-10 bg-transparent pt-8 text-white lg:grid-cols-4">
         {getWhatIsIncluded(lang).map((item, idx) => (
           <motion.div
             initial={{ opacity: 0 }}
@@ -140,16 +133,19 @@ function Faqs({ lang }: { lang: SupportedLanguage }) {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}>
-            <Accordion type="single" collapsible className="space-y-6">
+            <Accordion
+              type="single"
+              collapsible
+              className="mx-auto w-full max-w-4xl space-y-4">
               {getFaqs(lang).map((item, i) => (
                 <AccordionItem key={i} value={`faq-${i}`} asChild>
                   <Card className="card-border-gradient w-full shadow-sm transition-all duration-300">
-                    <CardHeader className="py-4 md:p-6">
+                    <CardHeader className="py-0 md:py-2">
                       <AccordionTrigger className="flex w-full items-center justify-between text-left text-xl font-medium text-white no-underline transition hover:no-underline focus:no-underline md:gap-2">
                         {item.question}
                       </AccordionTrigger>
                     </CardHeader>
-                    <AccordionContent asChild>
+                    <AccordionContent asChild className="py-0">
                       <CardContent className="text-base text-[#CDCED8] lg:text-lg">
                         {item.answer}
                       </CardContent>

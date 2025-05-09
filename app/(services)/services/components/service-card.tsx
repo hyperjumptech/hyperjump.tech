@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 interface ServiceCardProps {
   title: string;
@@ -9,9 +7,7 @@ interface ServiceCardProps {
   items: string[];
   image: string;
   icon: string;
-  url?: string;
   reverse?: boolean;
-  seeMoreText?: string;
   withBorder?: boolean;
 }
 
@@ -23,8 +19,6 @@ export function ServiceCard({
   image,
   icon,
   reverse,
-  seeMoreText,
-  url = "#",
   withBorder = true
 }: ServiceCardProps) {
   return (

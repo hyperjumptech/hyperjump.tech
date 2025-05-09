@@ -34,6 +34,11 @@ import {
   mainFaq3Answer
 } from "@/locales/.generated/server";
 
+export const data = {
+  name: "Hyperjump Technology",
+  baseUrl: "https://hyperjump.tech"
+};
+
 export const mainNav = (lang: SupportedLanguage) => {
   const data = [
     { label: mainNavItems0Label(lang), href: "/services" },

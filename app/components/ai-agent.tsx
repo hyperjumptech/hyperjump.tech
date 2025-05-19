@@ -256,6 +256,12 @@ export default function AIAgent() {
                 className="z-0 h-[52px] w-full max-w-7xl rounded-lg bg-white p-2 pr-12 pl-12 text-gray-800 placeholder:text-gray-400"
                 value={text}
                 onChange={({ target }) => setText(target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSubmit(text);
+                  }
+                }}
                 aria-describedby="Ask me about services, success stories, or your challenges"
                 placeholder="Ask me about services, success stories, or your challenges"
               />

@@ -7,7 +7,16 @@ import {
 
 type LanguagePickerProps = {
   lang: SupportedLanguage;
-  type?: "hyperjump" | "services";
+  type?:
+    | "hyperjump"
+    | "services"
+    | "tech-due-diligence"
+    | "software-as-a-service"
+    | "erp-implementation"
+    | "cto-as-a-service"
+    | "case-studies"
+    | "erp-fisheries"
+    | "ctoaas-media";
 };
 
 const labelByLang: Record<SupportedLanguage, string> = {
@@ -15,42 +24,47 @@ const labelByLang: Record<SupportedLanguage, string> = {
   id: "🇮🇩 Indonesia"
 };
 
+type Href = {
+  lang: SupportedLanguage;
+  type: NonNullable<LanguagePickerProps["type"]>;
+};
+
+function getHrefByLangAndType({ lang, type }: Href): string {
+  const links: { type: Href["type"]; href: string }[] = [
+    { type: "hyperjump", href: `/${lang}#hero` },
+    { type: "services", href: `/services/${lang}#hero` },
+    {
+      type: "tech-due-diligence",
+      href: `/services/tech-due-diligence/${lang}#hero`
+    },
+    {
+      type: "software-as-a-service",
+      href: `/services/software-as-a-service/${lang}#hero`
+    },
+    {
+      type: "erp-implementation",
+      href: `/services/erp-implementation/${lang}#hero`
+    },
+    {
+      type: "cto-as-a-service",
+      href: `/services/cto-as-a-service/${lang}#hero`
+    },
+    { type: "case-studies", href: `/case-studies/${lang}#hero` },
+    { type: "erp-fisheries", href: `/case-studies/erp-fisheries/${lang}#hero` },
+    { type: "ctoaas-media", href: `/case-studies/ctoaas-media/${lang}#hero` }
+  ];
+
+  return links.find((link) => link.type === type)?.href || `/${lang}#hero`;
+}
+
 export function LanguagePicker({
   lang,
   type = "hyperjump"
-}: {
-  lang: SupportedLanguage;
-  type?:
-    | "hyperjump"
-    | "services"
-    | "tech-due-diligence"
-    | "software-as-a-service"
-    | "erp-implementation"
-    | "cto-as-a-service";
-}) {
+}: LanguagePickerProps) {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLang = e.target.value as SupportedLanguage;
-
-    const urlHyperjump = `/${newLang}#hero`;
-    const urlServices = `/services/${newLang}#hero`;
-    const urlTdd = `/services/tech-due-diligence/${newLang}#hero`;
-    const urlSaas = `/services/software-as-a-service/${newLang}#hero`;
-    const urlErp = `/services/erp-implementation/${newLang}#hero`;
-    const urlCtoAAS = `/services/cto-as-a-service/${newLang}#hero`;
-
-    if (type === "services") {
-      window.location.href = urlServices;
-    } else if (type === "tech-due-diligence") {
-      window.location.href = urlTdd;
-    } else if (type === "cto-as-a-service") {
-      window.location.href = urlCtoAAS;
-    } else if (type === "software-as-a-service") {
-      window.location.href = urlSaas;
-    } else if (type === "erp-implementation") {
-      window.location.href = urlErp;
-    } else {
-      window.location.href = urlHyperjump;
-    }
+    const targetHref = getHrefByLangAndType({ lang: newLang, type });
+    window.location.href = targetHref;
   };
 
   return (

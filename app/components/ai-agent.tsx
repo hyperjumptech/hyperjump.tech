@@ -25,6 +25,7 @@ export default function AIAgent() {
   const [isChatOpen, setIsChatOpen] = useState<boolean>(true);
 
   // Refs to store DOM elements
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const chatDivRef = useRef<HTMLElement | null>(null);
   const chatWindowRef = useRef<HTMLElement | null>(null);
   const chatFABRef = useRef<HTMLElement | null>(null);
@@ -252,6 +253,7 @@ export default function AIAgent() {
                 className="absolute left-0 z-10 ml-4 h-6 w-6 text-[#3276F5]"
               />
               <input
+                ref={inputRef}
                 type="text"
                 className="z-0 h-[52px] w-full max-w-7xl rounded-lg bg-white p-2 pr-12 pl-12 text-gray-800 placeholder:text-gray-400"
                 value={text}
@@ -291,7 +293,10 @@ export default function AIAgent() {
               <Button
                 key={id}
                 className="rounded-md border border-white bg-transparent hover:cursor-pointer"
-                onClick={() => setText(text)}>
+                onClick={() => {
+                  setText(text);
+                  inputRef.current?.focus();
+                }}>
                 {text}
               </Button>
             ))}

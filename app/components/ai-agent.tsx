@@ -10,6 +10,7 @@ import "../styles/ai-agent.css";
 import { LoaderCircle, SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import useMedia from "@/hooks/use-media";
 
 const DEFAULT_MESSAGES = [
   { id: 1, text: "What services does Hyperjump offer?" },
@@ -17,7 +18,8 @@ const DEFAULT_MESSAGES = [
   { id: 3, text: "Schedule a free consultation" }
 ];
 
-export const AIAgent = () => {
+export default function AIAgent() {
+  const isDesktop = useMedia("(min-width: 992px)");
   const [text, setText] = useState<string>("");
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [isChatOpen, setIsChatOpen] = useState<boolean>(true);
@@ -90,6 +92,7 @@ export const AIAgent = () => {
           `;
           minimizeButton.onclick = () => {
             const chatFAB = chatDiv.querySelector(".chat-window-toggle");
+
             if (chatFAB) {
               const clickEvent = new MouseEvent("click", {
                 bubbles: true,
@@ -98,39 +101,47 @@ export const AIAgent = () => {
               });
               chatFAB.dispatchEvent(clickEvent);
               setIsChatOpen(false);
-              chatWindow?.classList.add("chat-window-right");
-              chatWindow?.classList.toggle("chat-window-minimized");
+
+              if (!isDesktop) {
+                chatFAB.setAttribute("style", "display:flex;");
+                chatFAB;
+              } else {
+                chatWindow?.classList.add("chat-window-right");
+                chatWindow?.classList.toggle("chat-window-minimized");
+              }
             }
           };
+          chatHeader.appendChild(minimizeButton);
 
-          const maximizeButton = document.createElement("button");
-          maximizeButton.classList?.add(
-            "absolute",
-            "flex",
-            "items-center",
-            "justify-center",
-            "right-0",
-            "top-0",
-            "text-white",
-            "border",
-            "border-white",
-            "mt-4",
-            "mr-12",
-            "h-7",
-            "w-7",
-            "rounded-full",
-            "bg-transparent",
-            "hover:bg-gray-100",
-            "flex",
-            "items-center",
-            "justify-center",
-            "hover:text-black",
-            "transition-all",
-            "duration-300"
-          );
-          maximizeButton.type = "button";
-          maximizeButton.title = "Full screen";
-          maximizeButton.innerHTML = `
+          if (isDesktop) {
+            const maximizeButton = document.createElement("button");
+            maximizeButton.classList?.add(
+              "absolute",
+              "flex",
+              "items-center",
+              "justify-center",
+              "right-0",
+              "top-0",
+              "text-white",
+              "border",
+              "border-white",
+              "mt-4",
+              "mr-12",
+              "h-7",
+              "w-7",
+              "rounded-full",
+              "bg-transparent",
+              "hover:bg-gray-100",
+              "flex",
+              "items-center",
+              "justify-center",
+              "hover:text-black",
+              "transition-all",
+              "duration-300"
+            );
+            maximizeButton.type = "button";
+            maximizeButton.title = "Full screen";
+            maximizeButton.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize-2">
               <path d="M15 3h6v6"></path>
               <path d="m21 3-7 7"></path>
@@ -138,20 +149,20 @@ export const AIAgent = () => {
               <path d="M9 21H3v-6"></path>
             </svg>
           `;
-          maximizeButton.onclick = () => {
-            const chatWrapper = chatDiv.querySelector(".chat-window-wrapper");
-            if (chatWrapper) {
-              if (chatWrapper.classList.contains("chat-window-right")) {
-                chatWrapper.classList.remove("chat-window-right");
-                chatWrapper.classList.add("chat-window-centered");
-              } else {
-                chatWrapper.classList.remove("chat-window-centered");
-                chatWrapper.classList.add("chat-window-right");
+            maximizeButton.onclick = () => {
+              const chatWrapper = chatDiv.querySelector(".chat-window-wrapper");
+              if (chatWrapper) {
+                if (chatWrapper.classList.contains("chat-window-right")) {
+                  chatWrapper.classList.remove("chat-window-right");
+                  chatWrapper.classList.add("chat-window-centered");
+                } else {
+                  chatWrapper.classList.remove("chat-window-centered");
+                  chatWrapper.classList.add("chat-window-right");
+                }
               }
-            }
-          };
-          chatHeader.appendChild(minimizeButton);
-          chatHeader.appendChild(maximizeButton);
+            };
+            chatHeader.appendChild(maximizeButton);
+          }
         }
       }
 
@@ -159,7 +170,32 @@ export const AIAgent = () => {
         chat.unmount();
       };
     }
-  }, []);
+  }, [isDesktop]);
+
+  // Event listener for mobile chat FAB
+  useEffect(() => {
+    if (!isDesktop) {
+      const chatFAB = document.querySelector(".chat-window-toggle");
+      if (chatFAB) {
+        chatFAB.addEventListener("click", () => {
+          console.log("Nicely");
+          chatFAB.setAttribute("style", "display:none;");
+        });
+      }
+    }
+
+    return () => {
+      if (!isDesktop) {
+        const chatFAB = document.querySelector(".chat-window-toggle");
+        if (chatFAB) {
+          chatFAB.removeEventListener("click", () => {
+            console.log("Done");
+            chatFAB.setAttribute("style", "display:block;");
+          });
+        }
+      }
+    };
+  }, [isDesktop]);
 
   const handleSubmit = (text: string) => {
     if (text.length > 0) {
@@ -301,11 +337,11 @@ export const AIAgent = () => {
           }
         }}
         className={cn(
-          isChatOpen ? "hidden" : "flex",
-          "fixed right-0 bottom-0 z-50 mr-8 mb-4 rounded-full bg-[#3276F5] p-2 px-4 font-bold hover:cursor-pointer hover:bg-[#3276F5DD]"
+          isChatOpen ? "hidden" : "lg:flex",
+          "fixed right-0 bottom-0 z-50 mr-8 mb-4 hidden rounded-full bg-[#3276F5] p-2 px-4 font-bold hover:cursor-pointer hover:bg-[#3276F5DD]"
         )}>
         <div className="flex items-center justify-center">Ask HyperBot</div>
       </Button>
     </>
   );
-};
+}

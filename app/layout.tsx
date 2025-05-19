@@ -6,8 +6,10 @@ import { cn } from "@/app/utils/tailwind";
 import Console from "@/app/components/console";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
-import { AIAgent } from "@/app/components/ai-agent";
 import { figtree, geistMono, geistSans, switzer } from "./fonts";
+import { lazy } from "react";
+
+const AIAgent = lazy(() => import("@/app/components/ai-agent"));
 
 export const metadata: Metadata = {
   title: data.title,

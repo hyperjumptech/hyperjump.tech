@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import config from "@/lib/config";
 import { createChat } from "@n8n/chat";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "@n8n/chat/style.css";
 import "../styles/ai-agent.css";
@@ -23,6 +23,39 @@ export default function AIAgent() {
   const [text, setText] = useState<string>("");
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [isChatOpen, setIsChatOpen] = useState<boolean>(true);
+
+  // Refs to store DOM elements
+  const chatDivRef = useRef<HTMLElement | null>(null);
+  const chatWindowRef = useRef<HTMLElement | null>(null);
+  const chatFABRef = useRef<HTMLElement | null>(null);
+
+  // Helper function to trigger click event
+  const triggerClick = (element: Element) => {
+    const clickEvent = new MouseEvent("click", {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    element.dispatchEvent(clickEvent);
+  };
+
+  // Helper function to initialize chat elements
+  const initializeChatElements = () => {
+    const chatDiv = document.querySelector("#n8n-chat");
+    if (!chatDiv) return;
+
+    chatDivRef.current = chatDiv as HTMLElement;
+    chatWindowRef.current = chatDiv.querySelector(
+      ".chat-window-wrapper"
+    ) as HTMLElement;
+    chatFABRef.current = chatDiv.querySelector(
+      ".chat-window-toggle"
+    ) as HTMLElement;
+
+    if (chatWindowRef.current) {
+      chatWindowRef.current.classList.toggle("chat-window-minimized");
+    }
+  };
 
   // Effect to create the chat widget
   useEffect(() => {
@@ -47,19 +80,19 @@ export default function AIAgent() {
           }
         }
       });
+      initializeChatElements();
 
-      // Append minimize button to the chat window
-      const chatDiv = document.querySelector("#n8n-chat");
-      if (chatDiv) {
-        const chatWindow = chatDiv.querySelector(".chat-window-wrapper");
-        if (chatWindow) {
-          chatWindow.classList.toggle("chat-window-minimized");
-        }
-
-        const chatHeader = chatDiv.querySelector(".chat-header");
-        if (chatHeader) {
-          const minimizeButton = document.createElement("button");
-          minimizeButton.classList?.add(
+      // Create chat controls
+      const chatHeader = chatDivRef.current?.querySelector(".chat-header");
+      if (chatHeader) {
+        const createButton = (
+          title: string,
+          icon: string,
+          marginRight: string,
+          onClick: () => void
+        ) => {
+          const button = document.createElement("button");
+          button.classList.add(
             "absolute",
             "flex",
             "items-center",
@@ -70,99 +103,78 @@ export default function AIAgent() {
             "border",
             "border-white",
             "mt-4",
-            "mr-4",
+            marginRight,
             "h-7",
             "w-7",
             "rounded-full",
             "bg-transparent",
             "hover:bg-gray-100",
-            "flex",
-            "items-center",
-            "justify-center",
             "hover:text-black",
             "transition-all",
             "duration-300"
           );
-          minimizeButton.type = "button";
-          minimizeButton.title = "Minimize";
-          minimizeButton.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus-icon lucide-minus">
-              <path d="M5 12h14"/>
-            </svg>
-          `;
-          minimizeButton.onclick = () => {
-            const chatFAB = chatDiv.querySelector(".chat-window-toggle");
+          button.type = "button";
+          button.title = title;
+          button.innerHTML = icon;
+          button.onclick = onClick;
+          return button;
+        };
 
-            if (chatFAB) {
-              const clickEvent = new MouseEvent("click", {
-                bubbles: true,
-                cancelable: true,
-                view: window
-              });
-              chatFAB.dispatchEvent(clickEvent);
-              setIsChatOpen(false);
-
-              if (!isDesktop) {
-                chatFAB.setAttribute("style", "display:flex;");
-                chatFAB;
-              } else {
-                chatWindow?.classList.add("chat-window-right");
-                chatWindow?.classList.toggle("chat-window-minimized");
-              }
-            }
-          };
-          chatHeader.appendChild(minimizeButton);
-
-          if (isDesktop) {
-            const maximizeButton = document.createElement("button");
-            maximizeButton.classList?.add(
-              "absolute",
-              "flex",
-              "items-center",
-              "justify-center",
-              "right-0",
-              "top-0",
-              "text-white",
-              "border",
-              "border-white",
-              "mt-4",
-              "mr-12",
-              "h-7",
-              "w-7",
-              "rounded-full",
-              "bg-transparent",
-              "hover:bg-gray-100",
-              "flex",
-              "items-center",
-              "justify-center",
-              "hover:text-black",
-              "transition-all",
-              "duration-300"
-            );
-            maximizeButton.type = "button";
-            maximizeButton.title = "Full screen";
-            maximizeButton.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize-2">
-              <path d="M15 3h6v6"></path>
-              <path d="m21 3-7 7"></path>
-              <path d="m3 21 7-7"></path>
-              <path d="M9 21H3v-6"></path>
-            </svg>
-          `;
-            maximizeButton.onclick = () => {
-              const chatWrapper = chatDiv.querySelector(".chat-window-wrapper");
-              if (chatWrapper) {
-                if (chatWrapper.classList.contains("chat-window-right")) {
-                  chatWrapper.classList.remove("chat-window-right");
-                  chatWrapper.classList.add("chat-window-centered");
-                } else {
-                  chatWrapper.classList.remove("chat-window-centered");
-                  chatWrapper.classList.add("chat-window-right");
+        // Add minimize button
+        chatHeader.appendChild(
+          createButton(
+            "Minimize",
+            `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus-icon lucide-minus"><path d="M5 12h14"/></svg>`,
+            "mr-4",
+            () => {
+              if (chatFABRef.current) {
+                triggerClick(chatFABRef.current);
+                setIsChatOpen(false);
+                if (!isDesktop) {
+                  chatFABRef.current.setAttribute("style", "display:flex;");
+                } else if (chatWindowRef.current) {
+                  chatWindowRef.current.classList.add("chat-window-right");
+                  chatWindowRef.current.classList.toggle(
+                    "chat-window-minimized"
+                  );
                 }
               }
-            };
-            chatHeader.appendChild(maximizeButton);
-          }
+            }
+          )
+        );
+
+        // Add maximize button for desktop
+        if (isDesktop) {
+          chatHeader.appendChild(
+            createButton(
+              "Full screen",
+              `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize-2"><path d="M15 3h6v6"></path><path d="m21 3-7 7"></path><path d="m3 21 7-7"></path><path d="M9 21H3v-6"></path></svg>`,
+              "mr-12",
+              () => {
+                if (chatWindowRef.current) {
+                  if (chatWindowRef.current) {
+                    if (
+                      chatWindowRef.current.classList.contains(
+                        "chat-window-right"
+                      )
+                    ) {
+                      chatWindowRef.current.classList.remove(
+                        "chat-window-right"
+                      );
+                      chatWindowRef.current.classList.add(
+                        "chat-window-centered"
+                      );
+                    } else {
+                      chatWindowRef.current.classList.remove(
+                        "chat-window-centered"
+                      );
+                      chatWindowRef.current.classList.add("chat-window-right");
+                    }
+                  }
+                }
+              }
+            )
+          );
         }
       }
 
@@ -172,88 +184,57 @@ export default function AIAgent() {
     }
   }, [isDesktop]);
 
-  // Event listener for mobile chat FAB
+  // Effect to handle mobile FAB
   useEffect(() => {
-    if (!isDesktop) {
-      const chatFAB = document.querySelector(".chat-window-toggle");
-      if (chatFAB) {
-        chatFAB.addEventListener("click", () => {
-          console.log("Nicely");
-          chatFAB.setAttribute("style", "display:none;");
-        });
-      }
+    if (!isDesktop && chatFABRef.current) {
+      chatFABRef.current.addEventListener("click", () => {
+        chatFABRef.current?.setAttribute("style", "display:none;");
+      });
     }
 
     return () => {
-      if (!isDesktop) {
-        const chatFAB = document.querySelector(".chat-window-toggle");
-        if (chatFAB) {
-          chatFAB.removeEventListener("click", () => {
-            console.log("Done");
-            chatFAB.setAttribute("style", "display:block;");
-          });
-        }
+      if (!isDesktop && chatFABRef.current) {
+        chatFABRef.current.removeEventListener("click", () => {
+          chatFABRef.current?.setAttribute("style", "display:block;");
+        });
       }
     };
   }, [isDesktop]);
 
-  const handleSubmit = (text: string) => {
-    if (text.length > 0) {
-      setIsSubmitted(true);
-      const chatDiv = document.querySelector("#n8n-chat");
-      if (chatDiv) {
-        const textarea = chatDiv.querySelector("textarea");
-        if (textarea) {
-          // Set the value and trigger input event
-          textarea.value = text;
-          const inputEvent = new Event("input", { bubbles: true });
-          textarea.dispatchEvent(inputEvent);
+  const handleSubmit = async (text: string) => {
+    if (!text.length || !chatDivRef.current) return;
 
-          // Wait for the send button to be enabled
-          const waitForSendButton = setInterval(() => {
-            const sendButton = chatDiv.querySelector(".chat-input-send-button");
-            if (sendButton && !sendButton.hasAttribute("disabled")) {
-              clearInterval(waitForSendButton);
+    setIsSubmitted(true);
+    const textarea = chatDivRef.current.querySelector("textarea");
+    if (!textarea) return;
 
-              // Trigger click event on the enabled button
-              const clickEvent = new MouseEvent("click", {
-                bubbles: true,
-                cancelable: true,
-                view: window
-              });
-              sendButton.dispatchEvent(clickEvent);
+    textarea.value = text;
+    textarea.dispatchEvent(new Event("input", { bubbles: true }));
 
-              // Open the n8n chat window
-              const chatWindow = chatDiv.querySelector(".chat-window-wrapper");
-              if (chatWindow) {
-                chatWindow.classList.toggle("chat-window-minimized");
-                chatWindow.classList.toggle("chat-window-centered");
-              }
-              const chatFAB = chatDiv.querySelector(".chat-window-toggle");
-              if (chatFAB) {
-                const clickEvent = new MouseEvent("click", {
-                  bubbles: true,
-                  cancelable: true,
-                  view: window
-                });
-                chatFAB.dispatchEvent(clickEvent);
+    const waitForSendButton = setInterval(() => {
+      const sendButton = chatDivRef.current?.querySelector(
+        ".chat-input-send-button"
+      );
+      if (sendButton && !sendButton.hasAttribute("disabled")) {
+        clearInterval(waitForSendButton);
+        triggerClick(sendButton);
 
-                // Clear the textarea
-                textarea.value = "";
-                setText("");
-                setIsSubmitted(true);
-                setIsChatOpen(true);
-              }
-            }
-          }, 100);
+        if (chatWindowRef.current) {
+          chatWindowRef.current.classList.toggle("chat-window-minimized");
+          chatWindowRef.current.classList.toggle("chat-window-centered");
+        }
 
-          // Add a timeout to prevent infinite waiting
-          setTimeout(() => {
-            clearInterval(waitForSendButton);
-          }, 5000);
+        if (chatFABRef.current) {
+          triggerClick(chatFABRef.current);
+          textarea.value = "";
+          setText("");
+          setIsSubmitted(true);
+          setIsChatOpen(true);
         }
       }
-    }
+    }, 100);
+
+    setTimeout(() => clearInterval(waitForSendButton), 5000);
   };
 
   return (

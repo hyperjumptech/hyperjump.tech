@@ -40,14 +40,14 @@
   },
   "case_studies": {
     "heading": "Studi Kasus",
-    "desc": "Pelajari bagaimana kami mengubah tantangan menjadi peluang melalui solusi nyata yang memberikan dampak jangka panjang dan mendorong pertumbuhan bisnis.",
-
-    "0_title": "Mengungkap Kegagalan Sistem Tersembunyi melalui Tinjauan Teknis Mendalam",
-    "0_text": "Sebuah perusahaan media terkemuka menghadapi masalah sistem lambat dan data yang tidak andal. Melalui uji tuntas teknis kami, terungkap adanya kelemahan infrastruktur dan kesenjangan arsitektur. Dengan rekomendasi kami, perusahaan berhasil membangun ulang backend mereka untuk kinerja lebih cepat dan akses data yang lebih andal.",
+    "desc": "Temukan bagaimana kami berhasil mengubah tantangan menjadi peluang melalui solusi nyata yang mendorong dampak berkelanjutan dan pertumbuhan bisnis.",
+    "button": "Baca Studi Kasus",
+    "0_title": "Mengubah Tim Teknologi Perikanan Menjadi Mesin Produk yang Skalabel",
+    "0_text": "Sebuah tim teknologi junior namun penuh semangat. Tidak ada produk yang sudah berjalan. Taruhannya besar. Kami terlibat secara mendalam dengan tim mereka untuk memperkenalkan struktur, membangun kepercayaan diri, dan merilis MVP yang berfungsi dalam 3 bulan. Melalui praktik agile yang ketat dan peluncuran sistem menyeluruh, kami membantu mengubah organisasi teknologi yang rapuh menjadi mesin produk yang andal.",
     "0_category": "Studi Kasus",
 
-    "1_title": "Digitalisasi Perikanan Remote dengan Solusi ERP Kustom",
-    "1_text": "Proses manual memperlambat operasional di puluhan lokasi perikanan remote. Kami merancang dan mengimplementasikan sistem ERP kustom menggunakan Odoo, lengkap dengan aplikasi mobile yang dapat digunakan tanpa koneksi internet. Hasilnya: data terintegrasi, kesalahan berkurang, dan pengambilan keputusan menjadi lebih cepat di seluruh jaringan.",
+    "1_title": "Meningkatkan Tim Rekayasa Media-Tech dari Pabrik Fitur Menjadi Pusat Inovasi",
+    "1_text": "Ketika pertumbuhan pesat melampaui kematangan rekayasa, tim ini membutuhkan lebih dari sekadar fitur—mereka membutuhkan transformasi. Kami merestrukturisasi praktik agile mereka, mengotomatisasi DevOps, menetapkan KPI yang terukur, dan membantu mereka beralih dari sekadar mengeksekusi tugas menjadi pemilik produk sejati yang mampu berinovasi.",
     "1_category": "Studi Kasus"
   },
   "project": {

@@ -23,7 +23,11 @@ import React, {
 } from "react";
 import { GitFork, Star } from "lucide-react";
 import { SupportedLanguage } from "@/locales/.generated/types";
-import { mainSeeLess, mainSeeMore } from "@/locales/.generated/server";
+import {
+  mainCaseStudiesButton,
+  mainSeeLess,
+  mainSeeMore
+} from "@/locales/.generated/server";
 
 type GridItemsTitleProps = {
   id?: string;
@@ -86,6 +90,7 @@ type Item = {
   icon?: string | React.ReactElement<any>;
   button?: boolean;
   repo?: string;
+  urlCaseStudy?: string;
 };
 
 export function GridItems({
@@ -188,7 +193,16 @@ export function GridItems({
   return (
     <div className={columnClasses}>
       {items.map((item, idx) => {
-        const { image, title, description, url, category, icon, button } = item;
+        const {
+          image,
+          title,
+          description,
+          url,
+          category,
+          icon,
+          button,
+          urlCaseStudy
+        } = item;
         const stats = repoStats[idx] || { stars: 0, forks: 0 };
         const isReactIcon = isValidElement(icon);
         const isStringIcon = typeof icon === "string";
@@ -282,6 +296,14 @@ export function GridItems({
                   </button>
                 )}
               </div>
+              {urlCaseStudy && (
+                <Button
+                  asChild
+                  variant="outline"
+                  className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
+                  <Link href={urlCaseStudy}>{mainCaseStudiesButton(lang)}</Link>
+                </Button>
+              )}
 
               {url && button ? (
                 <div className="mx-auto flex w-full flex-row gap-2 md:flex-col md:gap-4 xl:flex-row xl:justify-between">

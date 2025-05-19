@@ -41,13 +41,13 @@
   "case_studies": {
     "heading": "Case Studies",
     "desc": "Discover how we successfully transform challenges into opportunities with real-world solutions that drive lasting impact and business growth.",
-
-    "0_title": "Uncovering Hidden System Failures with Deep Technical Review",
-    "0_text": "A leading media company was struggling with slow systems and unreliable data. Our technical due diligence exposed critical infrastructure flaws and architectural gaps. With our recommendations, the company rebuilt its backend for faster performance and dependable data access.",
+    "button": "Read Case Study",
+    "0_title": "Transforming a Fisheries Tech Team into a Scalable Product Engine",
+    "0_text": "A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.",
     "0_category": "Case Studies",
 
-    "1_title": "Digitizing Remote Fisheries with a Custom ERP Solution",
-    "1_text": "Manual processes were slowing down operations across dozens of remote fisheries. We designed and implemented a custom ERP system using Odoo. Complete with an offline-ready mobile app, so teams could work reliably even without internet. The result: unified data, fewer errors, and faster decision-making across the entire network.",
+    "1_title": "Elevating a Media-Tech Engineering Team from Feature Factory to Innovation Powerhouse",
+    "1_text": "When rapid growth outpaced engineering maturity, this team needed more than features—they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.",
     "1_category": "Case Studies"
   },
   "project": {

@@ -1,0 +1,138 @@
+{
+  "hero": {
+    "heading": "From Chaos to Clarity: Real Stories of <span class=\"text-[#3276F5]\">Engineering Transformation</span>",
+    "desc": "At Hyperjump, we don’t just improve engineering teams—we help reshape how tech orgs think, operate, and grow. Explore how we’ve partnered with fast-growing companies to unlock their full potential through hands-on leadership, scalable systems, and deep technical coaching."
+  },
+  "cta": {
+    "heading": "Not sure where to start?",
+    "desc": "Let’s talk about your tech goals and point you in the right direction.",
+    "label": "Talk to us"
+  },
+  "explore": "Explore Our Case Studies",
+  "button": "Read Case Study",
+  "category": "Case Studies",
+  "erp_fisheries": {
+    "title": "Transforming a Fisheries Tech Team into a Scalable Product Engine",
+    "text": "Empowering a mission-driven startup to digitize Indonesia’s fisheries supply chain—coast to customer.",
+    "desc": "A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.",
+    "overview": {
+      "title": "overview",
+      "text": "A growing fisheries startup faced a familiar challenge: a passionate but inexperienced tech team, green leadership, and a critical mission—digitize Indonesia's fisheries supply chain from coast to customer. The stakes were high, but the potential impact was massive.",
+      "desc": "With no live product and a team just finding its feet, the company partnered with Hyperjump under a CTO-as-a-Service model to build strong technical foundations, processes, and culture."
+    },
+    "challenge": {
+      "title": "The Challenge",
+      "1": "The tech team had <span class=\"font-bold\">no working software</span> in production.",
+      "2": "Product ownership was scattered, and <span class=\"font-bold\">sprint ceremonies were more ritual than practice</span>.",
+      "3": "There was <span class=\"font-bold\">no clear roadmap</span>, no scalable infrastructure, and major gaps in senior technical leadership.",
+      "4": "Cross-functional collaboration and quality control were inconsistent."
+    },
+    "approach": {
+      "title": "Our Approach",
+      "desc": "Working closely over 12 months, Hyperjump embedded with the product, engineering, and operations teams. Here's what we delivered:"
+    },
+    "agile": {
+      "title": "Agile Overhaul",
+      "1": "Implemented real <span class=\"font-bold\">Scrum discipline—</span>clear Definition of Done, structured grooming, and meaningful retrospectives.",
+      "2": "Introduced <span class=\"font-bold\">Fibonacci-based story point estimations</span> and velocity tracking, enabling better planning and delivery."
+    },
+    "launch": {
+      "title": "From Zero to Launch",
+      "1": "Delivered an MVP of the mobile app, <span class=\"font-bold\">'Heroes'</span>, within 3 months—beating the internal team in a friendly 'build-off.'",
+      "2": "Released new features every 2–4 weeks with <span class=\"font-bold\">CI/CD pipelines, Firebase crash reporting</span>, and automated testing."
+    },
+    "engineering": {
+      "title": "Engineering Maturity",
+      "1": "Introduced <span class=\"font-bold\">unit testing, code coverage (70%+)</span>, and CI pipelines via GitLab.",
+      "2": "Consolidated version control into a <span class=\"font-bold\">single-trunk Git strategy</span> with branch protections and structured naming conventions.",
+      "3": "Enabled daily production-ready deployments across Web, Android, and ERP backends."
+    },
+    "full_system_rollouts": {
+      "title": "Full-System Rollouts",
+      "1": "Supported multiple ERP Go-Lives across regions, with integrated <span class=\"font-bold\">backend (Odoo)</span> and <span class=\"font-bold\">mobile systems</span> for tracking sales, inventory, and expenses.",
+      "2": "Deployed a <span class=\"font-bold\">search-enhanced inquiry system</span> tailored for multilingual buyers across markets, including Mandarin localization."
+    },
+    "key_learnings": {
+      "title": "Key Learnings",
+      "1": "<span class=\"font-bold\">Strong process beats strong people—at first</span>. With the right rituals, even a junior team can ship serious software.",
+      "2": "<span class=\"font-bold\">Tech debt happens—but must be managed</span>. By identifying technical debt early, the team avoided snowballing rework.",
+      "3": "<span class=\"font-bold\">QA isn't a department, it's a culture</span>. A shared commitment to quality reduced defects and increased confidence in releases.",
+      "4": "<span class=\"font-bold\">Documentation is your secret weapon</span>. A growing internal wiki and consistent Jira practices made onboarding and scaling smoother."
+    },
+    "results": {
+      "title": "Results",
+      "text": "The team is now stable and self-sufficient. The next challenge? Strengthen internal leadership and establish a long-term product roadmap to keep delivering value—at scale.",
+      "desc": "We’re proud to have played a part in helping this fisheries company build not just software, but a high-performing tech organization that’s ready to transform the industry."
+    },
+    "more": "More Case Studies",
+    "what_is_next": {
+      "title": "What’s Next",
+      "desc": "The team is now stable and self-sufficient. The next challenge? Strengthen internal leadership and establish a long-term <span class=\"font-bold\">product roadmap</span> to keep delivering value—at scale. We’re proud to have played a part in helping this fisheries company build not just software, but a high-performing <span class=\"font-bold\">tech organization</span> that’s ready to transform the industry."
+    }
+  },
+  "ctoaas_media": {
+    "title": "Elevating a Media-Tech Engineering Team from Feature Factory to Innovation Powerhouse",
+    "text": "Helping a leading digital media platform shift from reactive delivery to strategic innovation.",
+    "desc": "When rapid growth outpaced engineering maturity, this team needed more than features—they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.",
+    "overview": {
+      "title": "overview",
+      "desc": "A prominent digital media platform catering to Millennials and Gen Z was growing rapidly—but its engineering team wasn’t keeping pace. The team was excellent at shipping features on <span class=\"underline\">request, but</span> struggled to evolve into strategic innovators capable of leading product and technology transformation. To shift gears from reactive to proactive development, they brought in Hyperjump to support the transformation with a structured, hands-on approach."
+    },
+    "challenge": {
+      "title": "The Challenge",
+      "1": "Despite having a solid work ethic and collaborative company culture, the engineering team functioned more like an internal agency—handling feature requests from business units with minimal structure or tracking.",
+      "2": "No task management or ticketing systems",
+      "3": "Feature requests often went directly to individual developers",
+      "4": "Lack of metrics to measure performance or progress",
+      "5": "No agile ceremonies or standardized development processes",
+      "6": "As product demand surged, the business needed more than execution—they needed innovation."
+    },
+    "approach": {
+      "title": "Our Approach",
+      "desc": "With a dedicated <span class=\"font-bold\">CTO-as-a-Service</span> engagement, Hyperjump introduced a series of foundational improvements designed to help the team scale sustainably."
+    },
+    "agile": {
+      "title": "Agile Overhaul",
+      "1": "Introduced proper <span class=\"font-bold\">Scrum ceremonies</span>, including Sprint Planning, Grooming, Retrospectives, and Daily Standups.",
+      "2": "Defined a <span class=\"font-bold\">clear Definition of Done (DoD)</span> and taught teams to write better user stories—bridging the communication gap between product, design, and development.",
+      "3": "Tracked team <span class=\"font-bold\">velocity</span> to create predictable, measurable delivery cycles."
+    },
+    "ci_cd": {
+      "title": "CI/CD Transformation",
+      "1": "Established <span class=\"font-bold\">automated CI/CD pipelines</span>, removing manual deployment work from engineers.",
+      "2": "Enforced <span class=\"font-bold\">unit test coverage</span>, improving internal code quality and catching issues early.",
+      "3": "Developers could now focus on innovation, not infrastructure."
+    },
+    "qa": {
+      "title": "Quality Assurance Reinforcement",
+      "1": "Reorganized the QA team into a structured, cross-functional unit.",
+      "2": "Testing became a <span class=\"font-bold\">mandatory release step</span>, with better knowledge sharing and coverage planning."
+    },
+    "kpi": {
+      "title": "KPI-Driven Growth",
+      "1": "Developed <span class=\"font-bold\">clear internal quality metrics</span> (defects caught during QA, unit test coverage) to improve maintainability and reduce tech debt.",
+      "2": "Tracked <span class=\"font-bold\">external quality metrics</span> (production defects) to ensure faster issue resolution and service reliability.",
+      "3": "Teams gained visibility into their strengths and growth areas."
+    },
+    "centralized": {
+      "title": "C️entralized Feedback Handling ",
+      "1": "Set up a proper <span class=\"font-bold\">service desk system</span> to collect bug reports and feedback from business units.",
+      "2": "Ensured each issue was tracked, triaged, and resolved with clear preventive documentation."
+    },
+    "key_learnings": {
+      "title": "Key Learnings",
+      "1": "From Order-Takers to Innovators: Shifting an engineering team from reactive development to proactive innovation requires structural, cultural, and process-level changes—not just more resources.",
+      "2": "Agile Foundations Enable Predictability: Introducing Scrum ceremonies and a Definition of Done created clarity, accountability, and a shared rhythm that improved delivery consistency and cross-team communication.",
+      "3": "CI/CD Frees Developers to Focus on Value: Automating deployments and enforcing test coverage allowed engineers to spend more time innovating rather than maintaining infrastructure.",
+      "4": "Quality Must Be Systematized: Embedding QA into the development cycle and using cross-functional QA teams improved test coverage, reduced defects, and accelerated feedback loops.",
+      "5": "Data-Driven Teams Grow Faster: By introducing KPIs and tracking both internal and external quality metrics, teams gained visibility into performance gaps and made informed decisions for continuous improvement.",
+      "6": "Structured Feedback Loops Build Trust: Centralizing issue intake and resolution fostered stronger alignment with business units and ensured nothing fell through the cracks.",
+      "7": "Cultural Transformation is Hands-On: Coaching, real-time collaboration, and continuous support were crucial in building not just process maturity—but a mindset shift toward engineering excellence and ownership."
+    },
+    "results": {
+      "title": "Results",
+      "text": "After 6 months of close collaboration and coaching:",
+      "desc": "They’ve laid the foundation for engineering excellence. Now, they're ready to build the future."
+    }
+  }
+}

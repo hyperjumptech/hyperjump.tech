@@ -37,7 +37,7 @@ import {
 export const mainNav = (lang: SupportedLanguage) => {
   const data = [
     { label: mainNavItems0Label(lang), href: "/services" },
-    { label: mainNavItems1Label(lang), href: "/#case-studies" },
+    { label: mainNavItems1Label(lang), href: "/case-studies" },
     { label: mainNavItems2Label(lang), href: "/#open-source" },
     { label: mainNavItems3Label(lang), href: "/#faqs" }
   ];
@@ -108,12 +108,14 @@ export const getCaseStudies = (lang: SupportedLanguage) => {
     {
       title: mainCaseStudies0Title(lang),
       category: mainCaseStudies0Category(lang),
-      description: mainCaseStudies0Text(lang)
+      description: mainCaseStudies0Text(lang),
+      urlCaseStudy: "/case-studies/erp-fisheries"
     },
     {
       title: mainCaseStudies1Title(lang),
       category: mainCaseStudies1Category(lang),
-      description: mainCaseStudies1Text(lang)
+      description: mainCaseStudies1Text(lang),
+      urlCaseStudy: "/case-studies/ctoaas-media"
     }
   ];
 

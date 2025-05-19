@@ -45,3 +45,37 @@
 #n8n-chat .chat-window-toggle {
   @apply bg-[#3276F5];
 }
+
+@media screen and (min-width: 992px) {
+  #n8n-chat .chat-window-toggle {
+    @apply mx-auto !hidden;
+  }
+
+  #n8n-chat .chat-header {
+    @apply relative;
+  }
+
+  #n8n-chat .chat-window-wrapper.chat-window-minimized {
+    @apply -z-10 mr-8 opacity-0;
+  }
+
+  #n8n-chat .chat-window-wrapper {
+    @apply bottom-0 mx-auto mt-8 h-[600px] w-full transition-all duration-300;
+  }
+
+  #n8n-chat .chat-window-wrapper.chat-window-centered {
+    @apply left-0 mx-auto max-w-4xl;
+  }
+
+  #n8n-chat .chat-window-wrapper.chat-window-right {
+    @apply right-0 mx-auto mr-4 max-w-lg;
+  }
+
+  #n8n-chat .chat-window {
+    @apply w-full;
+  }
+}
+
+#n8n-chat .chat-window-toggle {
+  @apply bg-[#3276F5];
+}

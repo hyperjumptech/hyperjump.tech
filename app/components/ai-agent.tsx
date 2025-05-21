@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 import "@n8n/chat/style.css";
 import "../styles/ai-agent.css";
-import { LoaderCircle, SparklesIcon } from "lucide-react";
+import { LoaderCircle, MinusIcon, SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import useMedia from "@/hooks/use-media";
@@ -21,7 +21,7 @@ const DEFAULT_MESSAGES = [
 export default function AIAgent() {
   const isDesktop = useMedia("(min-width: 992px)");
   const [text, setText] = useState<string>("");
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isMinimized, setIsMinimized] = useState<boolean>(false);
   const [isChatOpen, setIsChatOpen] = useState<boolean>(true);
 
   // Refs to store DOM elements
@@ -205,7 +205,7 @@ export default function AIAgent() {
   const handleSubmit = async (text: string) => {
     if (!text.length || !chatDivRef.current) return;
 
-    setIsSubmitted(true);
+    setIsMinimized(true);
     const textarea = chatDivRef.current.querySelector("textarea");
     if (!textarea) return;
 
@@ -229,7 +229,7 @@ export default function AIAgent() {
           triggerClick(chatFABRef.current);
           textarea.value = "";
           setText("");
-          setIsSubmitted(true);
+          setIsMinimized(true);
           setIsChatOpen(true);
         }
       }
@@ -238,102 +238,115 @@ export default function AIAgent() {
     setTimeout(() => clearInterval(waitForSendButton), 5000);
   };
 
-  return (
-    <>
-      <div
-        className={cn(
-          "animate-fade-in-up fixed bottom-0 z-50 mb-8 hidden w-full items-center px-4 transition-all",
-          isSubmitted ? "hidden" : "lg:flex"
-        )}>
-        <div className="mx-auto flex w-full max-w-4xl flex-col gap-2 rounded-xl bg-[url('/images/ai-agent.png')] bg-contain bg-center p-4 shadow-xl">
-          <div className="flex flex-row items-center gap-2">
-            <div className="relative flex w-full items-center">
-              <SparklesIcon
-                strokeWidth={1.5}
-                className="absolute left-0 z-10 ml-4 h-6 w-6 text-[#3276F5]"
-              />
-              <input
-                ref={inputRef}
-                type="text"
-                className="z-0 h-[52px] w-full max-w-7xl rounded-lg bg-white p-2 pr-12 pl-12 text-gray-800 placeholder:text-gray-400"
-                value={text}
-                onChange={({ target }) => setText(target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && !e.shiftKey) {
-                    e.preventDefault();
-                    handleSubmit(text);
-                  }
-                }}
-                aria-describedby="Ask me about services, success stories, or your challenges"
-                placeholder="Ask me about services, success stories, or your challenges"
-              />
-              <Button
-                id="desktop-ai-submit"
-                type="button"
-                className="absolute right-0 z-10 mr-4 ml-4 h-7 w-7 rounded-full bg-[#3276F5] p-2 hover:cursor-pointer hover:bg-[#3276F5DD]"
-                onClick={() => handleSubmit(text)}
-                disabled={isSubmitted}>
-                <div className="flex items-center justify-center">
-                  {isSubmitted ? (
-                    <LoaderCircle className="h-4 w-4 animate-spin" />
-                  ) : (
-                    <Image
-                      alt="Send message to AI"
-                      src="/icons/ai-agent-button.svg"
-                      width={16}
-                      height={16}
-                    />
-                  )}
+  if (config.AI_AGENT_URL) {
+    return (
+      <>
+        <div
+          className={cn(
+            "animate-fade-in-up fixed bottom-0 z-50 mb-8 hidden w-full items-center px-4 transition-all",
+            isMinimized ? "hidden" : "lg:flex"
+          )}>
+          <div className="relative mx-auto flex w-full max-w-4xl flex-col gap-2">
+            <Button
+              className="z-10 h-8 w-8 self-end rounded-full bg-[#000000b3] p-0"
+              onClick={() => {
+                setIsChatOpen(false);
+                setIsMinimized(true);
+              }}>
+              <MinusIcon />
+            </Button>
+            <div className="mx-auto flex w-full max-w-4xl flex-col gap-2 rounded-xl bg-[url('/images/ai-agent.png')] bg-contain bg-center p-4 shadow-xl">
+              <div className="flex flex-row items-center gap-2">
+                <div className="relative flex w-full items-center">
+                  <SparklesIcon
+                    strokeWidth={1.5}
+                    className="absolute left-0 z-10 ml-4 h-6 w-6 text-[#3276F5]"
+                  />
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    className="z-0 h-[52px] w-full max-w-7xl rounded-lg bg-white p-2 pr-12 pl-12 text-gray-800 placeholder:text-gray-400"
+                    value={text}
+                    onChange={({ target }) => setText(target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && !e.shiftKey) {
+                        e.preventDefault();
+                        handleSubmit(text);
+                      }
+                    }}
+                    aria-describedby="Ask me about services, success stories, or your challenges"
+                    placeholder="Ask me about services, success stories, or your challenges"
+                  />
+                  <Button
+                    id="desktop-ai-submit"
+                    type="button"
+                    className="absolute right-0 z-10 mr-4 ml-4 h-7 w-7 rounded-full bg-[#3276F5] p-2 hover:cursor-pointer hover:bg-[#3276F5DD]"
+                    onClick={() => handleSubmit(text)}
+                    disabled={isMinimized}>
+                    <div className="flex items-center justify-center">
+                      {isMinimized ? (
+                        <LoaderCircle className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <Image
+                          alt="Send message to AI"
+                          src="/icons/ai-agent-button.svg"
+                          width={16}
+                          height={16}
+                        />
+                      )}
+                    </div>
+                  </Button>
                 </div>
-              </Button>
+              </div>
+              <div className="flex shrink-0 flex-row gap-2 overflow-auto">
+                {DEFAULT_MESSAGES.map(({ text, id }) => (
+                  <Button
+                    key={id}
+                    className="rounded-md border border-white bg-transparent hover:cursor-pointer"
+                    onClick={() => {
+                      setText(text);
+                      inputRef.current?.focus();
+                    }}>
+                    {text}
+                  </Button>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="flex shrink-0 flex-row gap-2 overflow-auto">
-            {DEFAULT_MESSAGES.map(({ text, id }) => (
-              <Button
-                key={id}
-                className="rounded-md border border-white bg-transparent hover:cursor-pointer"
-                onClick={() => {
-                  setText(text);
-                  inputRef.current?.focus();
-                }}>
-                {text}
-              </Button>
-            ))}
-          </div>
         </div>
-      </div>
-      <Button
-        onClick={() => {
-          const chatFAB = document.querySelector(
-            "#n8n-chat .chat-window-toggle"
-          );
-          if (chatFAB) {
-            const clickEvent = new MouseEvent("click", {
-              bubbles: true,
-              cancelable: true,
-              view: window
-            });
-            chatFAB.dispatchEvent(clickEvent);
+        <Button
+          onClick={() => {
+            const chatFAB = document.querySelector(
+              "#n8n-chat .chat-window-toggle"
+            );
+            if (chatFAB) {
+              const clickEvent = new MouseEvent("click", {
+                bubbles: true,
+                cancelable: true,
+                view: window
+              });
+              chatFAB.dispatchEvent(clickEvent);
 
-            // Open the n8n chat window
-            const chatDiv = document.querySelector("#n8n-chat");
-            if (chatDiv) {
-              const chatWindow = chatDiv.querySelector(".chat-window-wrapper");
-              if (chatWindow) {
-                chatWindow.classList.toggle("chat-window-minimized");
+              // Open the n8n chat window
+              if (chatWindowRef) {
+                chatWindowRef.current?.classList.toggle(
+                  "chat-window-minimized"
+                );
+                chatWindowRef.current?.classList.add("chat-window-right");
               }
-            }
 
-            setIsChatOpen(true);
-          }
-        }}
-        className={cn(
-          isChatOpen ? "hidden" : "lg:flex",
-          "fixed right-0 bottom-0 z-50 mr-8 mb-4 hidden rounded-full bg-[#3276F5] p-2 px-4 font-bold hover:cursor-pointer hover:bg-[#3276F5DD]"
-        )}>
-        <div className="flex items-center justify-center">Ask HyperBot</div>
-      </Button>
-    </>
-  );
+              setIsChatOpen(true);
+            }
+          }}
+          className={cn(
+            isChatOpen ? "hidden" : "lg:flex",
+            "fixed right-0 bottom-0 z-50 mr-8 mb-4 hidden rounded-full bg-[#3276F5] p-2 px-4 font-bold hover:cursor-pointer hover:bg-[#3276F5DD]"
+          )}>
+          <div className="flex items-center justify-center">Ask HyperBot</div>
+        </Button>
+      </>
+    );
+  }
+
+  return <></>;
 }

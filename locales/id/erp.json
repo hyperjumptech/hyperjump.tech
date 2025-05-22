@@ -5,12 +5,12 @@
   },
   "what_is_erp": {
     "heading": "Apa Itu Implementasi ERP?",
-    "desc": "Sistem Enterprise Resource Planning (ERP) menghubungkan proses bisnis Anda—keuangan, rantai pasok, inventaris, penjualan—ke dalam satu sumber kebenaran. Namun, ERP yang hebat bukan hanya soal perangkat lunak—ini tentang implementasi yang memahami operasi bisnis Anda.",
+    "desc": "Sistem Enterprise Resource Planning (ERP) menghubungkan proses bisnis Anda. Keuangan, rantai pasok, inventaris, penjualan ke dalam satu sumber kebenaran. Namun, ERP yang hebat bukan hanya soal perangkat lunak, ini tentang implementasi yang memahami operasi bisnis Anda.",
     "highlight": "Kami membantu organisasi mengimplementasikan <span class=\"font-bold\">Odoo</span> dan <span class=\"font-bold\">ERPNext</span>, disesuaikan dengan alur kerja, kebutuhan industri, dan ambisi pertumbuhan mereka."
   },
   "who_is_it": {
     "heading": "Untuk Siapa?",
-    "desc": "Dibuat untuk tim dan bisnis yang serius tentang keunggulan operasional. Baik Anda sedang tumbuh cepat, menghadapi kompleksitas, atau ingin menyederhanakan kekacauan—kami hadir untuk membantu Anda mendapatkan kejelasan dan kendali.",
+    "desc": "Dibuat untuk tim dan bisnis yang serius tentang keunggulan operasional. Baik Anda sedang tumbuh cepat, menghadapi kompleksitas, atau ingin menyederhanakan kekacauan. Kami hadir untuk membantu Anda mendapatkan kejelasan dan kendali.",
     "target": {
       "0": "<span class=\"font-bold\">Startup yang sedang berkembang</span> dan butuh kendali lebih atas operasional",
       "1": "<span class=\"font-bold\">UKM & Perusahaan</span> yang ingin mengganti alat terfragmentasi atau spreadsheet",
@@ -54,7 +54,7 @@
   },
   "how_it_works": {
     "heading": "Bagaimana Prosesnya",
-    "desc": "Pelajari bagaimana kami mengubah ide menjadi dampak nyata. Proses kami dibuat sederhana, transparan, dan fokus pada hasil—di setiap tahapnya.",
+    "desc": "Pelajari bagaimana kami mengubah ide menjadi dampak nyata. Proses kami dibuat sederhana, transparan, dan fokus pada hasil di setiap tahapnya.",
     "step": {
       "0": {
         "title": "Discovery & Audit Proses Bisnis",
@@ -90,10 +90,10 @@
   },
   "why_us": {
     "heading": "Mengapa Hyperjump?",
-    "desc": "Kami tidak hanya mengimplementasikan ERP—kami memastikan ERP benar-benar bekerja untuk bisnis Anda. Dari operasi kompleks hingga rekayasa teknis yang mendalam, kami membawa pengalaman dan eksekusi nyata untuk menjadikan ERP pendorong pertumbuhan dan efisiensi.",
+    "desc": "Kami tidak hanya mengimplementasikan ERP, kami memastikan ERP benar-benar bekerja untuk bisnis Anda. Dari operasi kompleks hingga rekayasa teknis yang mendalam, kami membawa pengalaman dan eksekusi nyata untuk menjadikan ERP pendorong pertumbuhan dan efisiensi.",
     "reasons": {
       "0": "Pengalaman implementasi ERP terbukti untuk klien seperti <span class=\"font-bold\">Aruna</span> dan <span class=\"font-bold\">1Engage</span>, dalam operasi yang kompleks.",
-      "1": "Keahlian produk dan rekayasa mendalam—lebih dari sekadar setup, kami menjadikan ERP sebagai alat pendukung bisnis.",
+      "1": "Keahlian produk dan rekayasa mendalam, lebih dari sekadar setup, kami menjadikan ERP sebagai alat pendukung bisnis.",
       "2": "Kami menggabungkan <span class=\"font-bold\">eksekusi teknis</span> dengan <span class=\"font-bold\">wawasan operasional</span> untuk memastikan tim Anda benar-benar menggunakan dan merasakan manfaat dari ERP."
     }
   },

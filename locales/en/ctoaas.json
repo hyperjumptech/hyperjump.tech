@@ -5,8 +5,8 @@
   },
   "what_is_ctoaas": {
     "heading": "What is CTO-as-a-Service?",
-    "desc": "Not every company needs a full-time CTO—but every tech team needs strong leadership.",
-    "highlight": "CTO-as-a-Service by Hyperjump gives you access to senior-level engineering leadership and a battle-tested product team. We help you <span class=\"font-bold\">build a strong engineering culture, ship better software,</span> and <span class=\"font-bold\">scale your product organization</span>—without the overhead of building it alone."
+    "desc": "Not every company needs a full-time CTO, but every tech team needs strong leadership.",
+    "highlight": "CTO-as-a-Service by Hyperjump gives you access to senior-level engineering leadership and a battle-tested product team. We help you <span class=\"font-bold\">build a strong engineering culture, ship better software,</span> and <span class=\"font-bold\">scale your product organization</span> without the overhead of building it alone."
   },
 
   "who_is_it": {
@@ -60,7 +60,7 @@
     "step": {
       "0": {
         "title": "Hands-on leadership + system building",
-        "text": "We don’t just advise—we lead, build systems, and work closely with your team to drive sustainable growth."
+        "text": "We don't just advise, we lead, build systems, and work closely with your team to drive sustainable growth."
       },
       "1": {
         "title": "Team setup, code review, sprint coaching",
@@ -71,8 +71,8 @@
         "text": "Stay aligned with regular updates, issue tracking, and clear visibility into roadmap progress every week."
       },
       "3": {
-        "title": "Goal: after 6–12 months, you’re self-sufficient",
-        "text": "Our mission is to empower your team to operate independently—with strong processes, discipline, and confidence."
+        "title": "Goal: after 6-12 months, you're self-sufficient",
+        "text": "Our mission is to empower your team to operate independently, with strong processes, discipline, and confidence."
       }
     }
   },
@@ -84,7 +84,7 @@
       "0": "A clear technology direction",
       "1": "Strong engineering foundation",
       "2": "Improved delivery velocity and product quality",
-      "3": "Tech team that’s built for scale—not just survival"
+      "3": "Tech team that's built for scale, not just survival"
     }
   },
 
@@ -93,7 +93,7 @@
     "desc": "At Hyperjump, we combine proven experience, strong leadership, and hands-on execution to drive success for your business.",
     "reasons": {
       "0": "Proven across <span class=\"font-bold\">early stage to post-Series A startups</span>",
-      "1": "We bring <span class=\"font-bold\">leadership, structure, and systems</span>—not just advice",
+      "1": "We bring <span class=\"font-bold\">leadership, structure, and systems</span>, not just advice",
       "2": "Our goal is to <span class=\"font-bold\">make ourselves obsolete</span> by empowering your internal team",
       "3": "Clients include"
     }
@@ -101,7 +101,7 @@
 
   "cta": {
     "heading": "Build your tech team the right way",
-    "desc": "Let’s shape a world-class product engineering team—together.",
+    "desc": "Let's shape a world-class product engineering team together.",
     "label": "Talk to us"
   }
 }

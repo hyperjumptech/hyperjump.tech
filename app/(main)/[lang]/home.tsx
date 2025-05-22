@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import type { Organization, WebPage, WithContext } from "schema-dts";
 
 import {

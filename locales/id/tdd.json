@@ -6,13 +6,13 @@
 
   "what_is_tdd": {
     "heading": "Apa itu Tech Due Diligence?",
-    "desc": "Tech Due Diligence adalah evaluasi terstruktur terhadap lanskap teknologi suatu organisasi—dirancang untuk mengungkap risiko tersembunyi, menilai kesiapan, dan memberikan kejelasan untuk pengambilan keputusan yang tepat.",
+    "desc": "Tech Due Diligence adalah evaluasi terstruktur terhadap lanskap teknologi suatu organisasi. Dirancang untuk mengungkap risiko tersembunyi, menilai kesiapan, dan memberikan kejelasan untuk pengambilan keputusan yang tepat.",
     "highlight": "Baik Anda berinvestasi di startup, bersiap untuk merger, atau mengaudit kapabilitas internal, layanan TDD kami memberikan wawasan yang dapat ditindaklanjuti untuk meminimalkan risiko dalam perjalanan teknologi Anda."
   },
 
   "who_is_it": {
     "heading": "Untuk Siapa Layanan Ini?",
-    "desc": "Bagi mereka yang membutuhkan kejelasan, keyakinan, dan wawasan—sebelum melakukan ekspansi, investasi, atau langkah besar di bidang teknologi.",
+    "desc": "Bagi mereka yang membutuhkan kejelasan, keyakinan, dan wawasan. Sebelum melakukan ekspansi, investasi, atau langkah besar di bidang teknologi.",
     "target": {
       "0": "<span class=\"font-bold\">Investor</span> yang mengevaluasi kesehatan dan skalabilitas sebuah produk atau platform",
       "1": "<span class=\"font-bold\">Founder/CTO</span> yang bersiap menghadapi pendanaan atau akuisisi",
@@ -23,7 +23,7 @@
 
   "what_we_deliver": {
     "heading": "Apa yang Kami Tawarkan",
-    "desc": "Mulai dari audit mendalam hingga sistem yang dapat diskalakan, kami memberikan kejelasan, kecepatan, dan hasil—disesuaikan dengan tahap pertumbuhan Anda.",
+    "desc": "Mulai dari audit mendalam hingga sistem yang dapat diskalakan, kami memberikan kejelasan, kecepatan, dan hasil. Disesuaikan dengan tahap pertumbuhan Anda.",
     "card_0": {
       "title": "Performa Pengiriman Perangkat Lunak",
       "text": "Kami menilai seberapa efisien tim Anda dalam merilis perangkat lunak:",
@@ -58,7 +58,7 @@
 
   "how_it_works": {
     "heading": "Bagaimana Cara Kerjanya",
-    "desc": "Lihat bagaimana kami mengubah wawasan menjadi dampak. Proses kami dirancang agar sederhana, transparan, dan fokus pada hasil—di setiap langkahnya.",
+    "desc": "Lihat bagaimana kami mengubah wawasan menjadi dampak. Proses kami dirancang agar sederhana, transparan, dan fokus pada hasil di setiap langkahnya.",
     "step": {
       "0": {
         "title": "Discovery & Wawancara",
@@ -70,7 +70,7 @@
       },
       "2": {
         "title": "Laporan & Rekomendasi",
-        "text": "Anda akan menerima laporan komprehensif yang merinci kekuatan, risiko, dan langkah-langkah yang dapat diambil—lengkap dengan tingkat keparahan dan saran roadmap."
+        "text": "Anda akan menerima laporan komprehensif yang merinci kekuatan, risiko, dan langkah-langkah yang dapat diambil. Lengkap dengan tingkat keparahan dan saran roadmap."
       },
       "3": {
         "title": "Dukungan Implementasi Pasca Audit (Opsional)",
@@ -81,7 +81,7 @@
 
   "what_you_get": {
     "heading": "Apa yang Anda Dapatkan",
-    "desc": "Semua yang Anda butuhkan untuk mengevaluasi, meningkatkan, dan menskalakan—disajikan dalam format yang mudah dipahami baik oleh pengambil keputusan teknis maupun bisnis.",
+    "desc": "Semua yang Anda butuhkan untuk mengevaluasi, meningkatkan, dan menskalakan. Disajikan dalam format yang mudah dipahami baik oleh pengambil keputusan teknis maupun bisnis.",
     "items": {
       "0": "Ringkasan eksekutif untuk C-Level & investor",
       "1": "Laporan Audit Teknis (kualitas kode, arsitektur, infrastruktur)",
@@ -92,10 +92,10 @@
 
   "why_us": {
     "heading": "Mengapa Hyperjump?",
-    "desc": "Kami membawa keahlian teknis mendalam, pengalaman lintas industri, dan pendekatan langsung ke setiap audit. Tim kami tak sekadar meninjau kode—kami memahami orang, proses, dan tekanan di baliknya.",
+    "desc": "Kami membawa keahlian teknis mendalam, pengalaman lintas industri, dan pendekatan langsung ke setiap audit. Tim kami tak sekadar meninjau kode, kami memahami orang, proses, dan tekanan di baliknya.",
     "reasons": {
       "0": "Kami telah mengaudit tim engineering di <span class=\"font-bold\">startup teknologi, fintech, media, dan sektor publik.</span>",
-      "1": "Kami adalah engineer—kami tidak hanya menunjukkan masalah, kami juga menyelesaikannya.",
+      "1": "Kami adalah engineer, kami tidak hanya menunjukkan masalah, kami juga menyelesaikannya.",
       "2": "Dipercaya oleh klien seperti"
     }
   },

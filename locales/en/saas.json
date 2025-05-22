@@ -5,7 +5,7 @@
   },
   "what_is_saas": {
     "heading": "What is Software as a service?",
-    "desc": "You have a product idea—or maybe an MVP that needs to scale. But managing an in-house team is time-consuming, expensive, and distracting.",
+    "desc": "You have a product idea or maybe an MVP that needs to scale. But managing an in-house team is time consuming, expensive, and distracting.",
     "highlight": "With Hyperjump SaaS, you get a dedicated product engineering team that not only builds but continuously improves your software. We take ownership of your roadmap and deliver month-by-month improvements, fully aligned with your business goals."
   },
 
@@ -57,7 +57,7 @@
     "step": {
       "0": {
         "title": "Predictable costs, no hidden charges",
-        "text": "Clear pricing with no surprises. Know exactly what you’re paying for—no hidden fees, ever."
+        "text": "Clear pricing with no surprises. Know exactly what you're paying for. No hidden fees, ever."
       },
       "1": {
         "title": "Continuous communication & iterations",
@@ -68,7 +68,7 @@
         "text": "Get monthly updates on roadmap, tech progress, and KPIs to stay on track."
       },
       "3": {
-        "title": "A high-functioning squad you don’t need to manage day-to-day",
+        "title": "A high-functioning squad you don't need to manage day-to-day",
         "text": "A skilled team that delivers results with minimal oversight."
       }
     }
@@ -76,12 +76,12 @@
 
   "what_you_get": {
     "heading": "What You Get",
-    "desc": "With us, you gain more than just development—get a strategic partnership that ensures quality, scalability, and continuous improvement.",
+    "desc": "With us, you gain more than just development, get a strategic partnership that ensures quality, scalability, and continuous improvement.",
     "items": {
       "0": "Agile product roadmap and regular updates",
       "1": "Scalable architecture & codebase",
       "2": "QA and CI/CD baked in from day one",
-      "3": "Strategic input—not just task execution"
+      "3": "Strategic input, not just task execution"
     }
   },
 
@@ -89,14 +89,14 @@
     "heading": "Why Hyperjump?",
     "desc": "Choose Hyperjump for a team that combines hands-on experience, product-first thinking, and operational efficiency to drive your tech forward.",
     "reasons": {
-      "0": "We’ve built and operated live SaaS products for clients in any kind of business",
-      "1": "We’re not just coders—we bring <span class=\"font-bold\">product thinking</span> and <span class=\"font-bold\">engineering discipline</span>",
-      "2": "We make your software run like a startup team would—but without the hiring headaches"
+      "0": "We've built and operated live SaaS products for clients in any kind of business",
+      "1": "We're not just coders, we bring <span class=\"font-bold\">product thinking</span> and <span class=\"font-bold\">engineering discipline</span>",
+      "2": "We make your software run like a startup team would, but without the hiring headaches"
     }
   },
   "cta": {
     "heading": "Ready to launch or scale your product?",
-    "desc": "Let’s build great software together—fast, lean, and reliable.",
+    "desc": "Let's build great software together. fast, lean, and reliable.",
     "label": "Talk to us"
   }
 }

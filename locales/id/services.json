@@ -1,6 +1,6 @@
 {
   "hero": {
-    "heading": "Engineering, Produk, dan Strategi—dalam satu Layanan",
+    "heading": "Engineering, Produk, dan Strategi dalam satu layanan",
     "desc": "Mulai dari audit hingga pembangunan dan kepemimpinan, Hyperjump membantu Anda berkembang lebih cepat dan cerdas."
   },
   "heading": "Layanan Kami, Solusi Anda",
@@ -51,12 +51,7 @@
     }
   },
   "partners": {
-    "Heading": "Partner Terpercaya Kami",
-    "desc": "Kami dipercaya oleh berbagai perusahaan lintas industri. Ini hanya sebagian — masih banyak lagi yang berkembang bersama kami di balik layar.",
-    "clients": {
-      "0_name": "Myrepublik",
-      "1_name": "Bifi",
-      "2_name": "Aruna"
-    }
+    "Heading": "Dipercaya oleh Industry Leaders",
+    "desc": "Kami dipercaya oleh berbagai perusahaan lintas industri. Ini hanya sebagian, masih banyak lagi yang berkembang bersama kami di balik layar."
   }
 }

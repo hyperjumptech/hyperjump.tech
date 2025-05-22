@@ -1,5 +1,3 @@
-"use client";
-
 import ERPImplementationLangLayout from "./[lang]/layout";
 import ERPImplementationPage from "./[lang]/page";
 

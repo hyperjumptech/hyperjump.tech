@@ -1,10 +1,12 @@
+import Link from "next/link";
 import Image from "next/image";
-import data from "@/data.json";
+
 import { Separator } from "@/components/ui/separator";
 import { SupportedLanguage } from "@/locales/.generated/types";
-import { inferenceaiFooter } from "@/locales/.generated/server";
+import { copyright, inferenceaiFooter } from "@/locales/.generated/server";
+
+import { data } from "../data";
 import LanguagePicker from "./language-picker";
-import Link from "next/link";
 
 export default function Footer({
   lang,
@@ -13,8 +15,6 @@ export default function Footer({
   lang: SupportedLanguage;
   type?: "inferenceai" | "rag-chatbot";
 }) {
-  const { aiSocials, copyright } = data;
-
   return (
     <footer className="relative overflow-hidden border border-[#29223E] px-4 py-10 text-[#AFB0C3] md:px-20 md:py-14">
       <div className="flex flex-col space-y-6 md:items-center">
@@ -31,7 +31,6 @@ export default function Footer({
               width={187}
               height={32}
               className="h-8 w-auto"
-              priority
             />
           </Link>
         </div>
@@ -41,17 +40,17 @@ export default function Footer({
         </p>
 
         <div className="flex space-x-6">
-          {aiSocials.map((s, i) => (
+          {data.socials.map(({ icon, platform, url }) => (
             <a
-              key={i}
-              href={s.url}
+              key={platform}
+              href={url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={s.platform}
+              aria-label={platform}
               className="flex items-center justify-center rounded-full bg-transparent transition-colors duration-200 hover:bg-white/20">
               <Image
-                src={s.icon}
-                alt={s.platform}
+                src={icon}
+                alt={platform}
                 width={20}
                 height={20}
                 className="h-12 w-12"
@@ -64,7 +63,7 @@ export default function Footer({
 
         <Separator className="w-full bg-[#29223E]" />
 
-        <p className="text-center text-sm">{copyright}</p>
+        <p className="text-center text-sm">{copyright(lang)}</p>
       </div>
     </footer>
   );

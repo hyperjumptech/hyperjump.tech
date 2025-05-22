@@ -11,9 +11,11 @@ import { lazy } from "react";
 
 const AIAgent = lazy(() => import("@/app/components/ai-agent"));
 
+const { description, gaId, title, url } = data;
+
 export const metadata: Metadata = {
-  title: data.title,
-  description: data.description,
+  title,
+  description,
   authors: [
     {
       name: "Nico Prananta",
@@ -27,17 +29,17 @@ export const metadata: Metadata = {
     shortcut: "/icons/icon-192x192.png"
   },
   openGraph: {
-    title: data.title,
-    description: data.description,
+    title,
+    description,
     type: "website",
-    url: data.url,
-    siteName: data.title,
+    url,
+    siteName: title,
     images: [
       {
         url: "https://hyperjump.tech/images/hyperjump-og.png",
         width: 1200,
         height: 630,
-        alt: `${data.title} Logo`,
+        alt: `${title} Logo`,
         type: "image/png"
       }
     ]
@@ -59,7 +61,7 @@ export default function RootLayout({
           name="format-detection"
           content="telephone=no, date=no, email=no, address=no"
         />
-        <GoogleAnalytics gaId={data.GTM_ID} />
+        <GoogleAnalytics gaId={gaId} />
       </head>
       <body
         data-scroll="false"

@@ -1,11 +1,23 @@
 import Image from "next/image";
-import data from "@/data.json";
 
-export const PartnersList = () => {
+type Client = {
+  imageUrl: string;
+  name: string;
+};
+
+type ClientsProps = {
+  isPriorityLoad?: boolean;
+  clients: Client[];
+};
+
+export function Clients({
+  clients = [],
+  isPriorityLoad = false
+}: ClientsProps) {
   return (
     <div className="relative px-8 py-4 md:px-20">
       <div className="flex flex-wrap items-center justify-center gap-8">
-        {data.clients.map(({ imageUrl, name }) => (
+        {clients.map(({ imageUrl, name }) => (
           <Image
             key={name}
             src={imageUrl}
@@ -13,10 +25,10 @@ export const PartnersList = () => {
             height={36}
             width={120}
             className="h-6 w-auto object-contain opacity-60 grayscale transition hover:opacity-100 sm:h-7"
-            priority
+            priority={isPriorityLoad}
           />
         ))}
       </div>
     </div>
   );
-};
+}

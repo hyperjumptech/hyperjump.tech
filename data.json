@@ -1,33 +1,5 @@
 {
-  "cta": {
-    "link": "https://forms.office.com/Pages/ResponsePage.aspx?id=YB_vnVvdsku6UOy9eolc4lSE-1zhiHZGuckpAFLZgMNUNzFXVlZCQjA0UFJRR1IyUk9aSjBZVENENS4u",
-    "label": "Schedule Consultation",
-    "gaEventName": "cta_click",
-    "linkAI": "https://forms.office.com/Pages/ResponsePage.aspx?id=YB_vnVvdsku6UOy9eolc4lSE-1zhiHZGuckpAFLZgMNUQ0pPVFE0UFczTU5GNDYxN1FPTUVZRTIwOS4u"
-  },
-  "GTM_ID": "G-L825T5QT2S",
-  "hero": {
-    "heading": "Your Partner in Building Reliable, Modern Software",
-    "subheading": "We help organizations deliver scalable, high-quality digital systems through engineering excellence and cloud-native technology."
-  },
-  "SMDD_2024_SUBMIT_FORM_EMAIL": "gary@hyperjump.tech",
-  "title": "Hyperjump Technology",
   "description": "Open source first. Cloud native. DevOps excellence.",
-  "copyright": "Copyright © 2025 Hyperjump. All rights reserved.",
-  "github": "https://github.com/hyperjumptech",
-  "location": {
-    "title": "D.Lab Building (6th floor)",
-    "address": [
-      "Jl. Riau No. 1, Gondangdia, Menteng,",
-      "Jakarta Pusat - 10350",
-      "Indonesia"
-    ],
-    "email": "solution@hyperjump.tech",
-    "duns": "65-975-4901",
-    "mapsUrl": "https://www.google.com/maps/place/DLab+SMD/@-6.1907514,106.8219552,17z/data=!4m15!1m8!3m7!1s0x2e69f42410acef4f:0x2ebaeebb8f5fafbb!2sJl.+Riau+No.1,+RT.9%2FRW.5,+Gondangdia,+Kec.+Menteng,+Kota+Jakarta+Pusat,+Daerah+Khusus+Ibukota+Jakarta+10350!3b1!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11c5lcsgsq!3m5!1s0x2e69f5e04c659f97:0xd2f4629d7651d317!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11kb72cx9p?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D",
-    "imageUrl": "/images/location-2.webp"
-  },
-  "url": "https://hyperjump.tech",
   "clients": [
     {
       "name": "Amman Mineral Internasional",
@@ -50,44 +22,12 @@
       "imageUrl": "/images/clients/smartfren.svg"
     }
   ],
-  "projects": [
-    {
-      "title": "Monika",
-      "category": "TypeScript",
-      "description": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.",
-      "url": "https://github.com/hyperjumptech/monika"
-    },
-    {
-      "title": "Grule Rule Engine",
-      "category": "Golang",
-      "description": "Grule is a Rule Engine library for Golang programming language. Inspired by the acclaimed JBOSS Drools, done in a much simple manner.",
-      "url": "https://github.com/hyperjumptech/grule-rule-engine"
-    },
-    {
-      "title": "HttpTarget",
-      "category": "Golang",
-      "description": "HttpTarget is a very simple, small and lightweight HTTP server that would be helpful for http client development tool. Simply start the server and it'll be ready to accept incoming http requests. It can easily simulate heavy server side load by implementing random delay range, or simulate any kind of http response code.",
-      "url": "https://github.com/hyperjumptech/httptarget"
-    },
-    {
-      "title": "Firebase Cronjob",
-      "category": "JavaScript",
-      "description": "Using the Scheduled functions feature, the function autoIncrementJobCounter gets executed once every minute. This function does a very simple thing, i.e. it increments the value of jobConfig/counter in the Firestore database.",
-      "url": "https://github.com/hyperjumptech/firebase-cronjob"
-    },
-    {
-      "title": "Universal Update Checker",
-      "category": "React Native",
-      "description": "React component to check if there is a new version of your mobile app.",
-      "url": "https://github.com/hyperjumptech/universal-update-checker"
-    },
-    {
-      "title": "WhatsApp Chatbot Connector",
-      "category": "TypeScript",
-      "description": "WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa.",
-      "url": "https://github.com/hyperjumptech/whatsapp-chatbot-connector"
-    }
-  ],
+  "cta": {
+    "gaEventName": "cta_click",
+    "link": "https://forms.office.com/Pages/ResponsePage.aspx?id=YB_vnVvdsku6UOy9eolc4lSE-1zhiHZGuckpAFLZgMNUNzFXVlZCQjA0UFJRR1IyUk9aSjBZVENENS4u"
+  },
+  "github": "https://github.com/hyperjumptech",
+  "gaId": "G-L825T5QT2S",
   "socials": [
     {
       "platform": "LinkedIn",
@@ -110,141 +50,6 @@
       "icon": "fa fa-newspaper"
     }
   ],
-  "aiSocials": [
-    {
-      "platform": "GitHub",
-      "url": "https://github.com/hyperjumptech",
-      "icon": "/images/inferenceai/socials/github.svg"
-    },
-    {
-      "platform": "LinkedIn",
-      "url": "https://www.linkedin.com/company/hyperjump",
-      "icon": "/images/inferenceai/socials/linkedin.svg"
-    },
-    {
-      "platform": "Medium",
-      "url": "https://medium.com/hyperjump-tech",
-      "icon": "/images/inferenceai/socials/medium.svg"
-    }
-  ],
-  "jobs": [
-    {
-      "title": "Software Engineer",
-      "category": "Front End",
-      "description": "Front-end with React/Vue.js. Full-time employment, full remote or on-site at Central Jakarta (Menteng), your choice. You will be responsible for developing cross-browser and mobile-friendly front-end for enterprise applications (SaaS).",
-      "url": "/jobs/se-frontend",
-      "responsibilities": [
-        "Develop cross-browser and mobile-friendly front-end for enterprise applications (SaaS)",
-        "Write extensive unit and integration tests to ensure the product is of the highest quality",
-        "Troubleshoot and analyze potential performance bottlenecks"
-      ],
-      "requirements": [
-        "Bachelor's degree (or above) in Computer Science, Statistics, Mathematics, or a similar quantitative field",
-        "2+ years of software development experience",
-        "Solid computer science fundamentals in data-structures and algorithms",
-        "Proficient understanding of HTML, CSS, and JavaScript/TypeScript",
-        "Production experience building web apps using React or Vue.js",
-        "Firm grasp of Chrome/Firefox/Safari developer tools"
-      ],
-      "deliverables": [
-        "A complete implementation of the product per the requirements and architecture design",
-        "A sufficiently thorough documentation of the key building blocks and deployment aspects",
-        "A fully agreed-upon and comprehensive test plan for all the major and minor product features"
-      ]
-    },
-    {
-      "title": "Software Engineer",
-      "category": "Android/iOS",
-      "description": "Full-time employment, full remote or on-site at Central Jakarta (Menteng), your choice. You will be responsible for developing pixel-perfect, buttery smooth UI across Android and iOS.",
-      "url": "/jobs/se-mobile",
-      "responsibilities": [
-        "Develop pixel-perfect, buttery smooth UI across Android and iOS",
-        "Write extensive unit and integration tests to ensure the product is of the highest quality",
-        "Troubleshoot and analyze potential performance bottlenecks"
-      ],
-      "requirements": [
-        "Bachelor's degree (or above) in Computer Science, Statistics, Mathematics, or a similar quantitative field",
-        "2+ years of software development experience",
-        "Solid computer science fundamentals in data-structures and algorithms",
-        "Firm grasp of React Native or Kotlin or Swift",
-        "Excellent object-oriented concepts (in any programming language)"
-      ],
-      "deliverables": [
-        "A complete implementation of the product per the requirements and architecture design",
-        "A sufficiently thorough documentation of the key building blocks and deployment aspects",
-        "A fully agreed-upon and comprehensive test plan for all the major and minor product features"
-      ]
-    },
-    {
-      "title": "User Interface Designer",
-      "category": "Design",
-      "description": "Full-time employment, full remote or on-site at Central Jakarta (Menteng), your choice. You will be responsible for building wireframes/mock-ups in the form storyboards to conceptualize the designs.",
-      "url": "/jobs/ui-designer",
-      "responsibilities": [
-        "Build wireframes/mock-ups in the form storyboards to conceptualize the designs",
-        "Perform user research for surveys/feedback and usability studies",
-        "Measure human-computer interactions (HCI) element of a design",
-        "Conduct user testing of applications and their end-to-end experience"
-      ],
-      "requirements": [
-        "Bachelor's degree in Interaction Design, Architecture, or related field",
-        "Experience with multiple visual design programs such as Adobe softwares, sketch, figma, etc",
-        "Knowledgeable in wire-framing tools, storyboards, user flows, and site mapping",
-        "Two (2) years' previous experience in UI, engineering, UX, programming, or related position",
-        "Proven experience with UI design with portfolio of sample projects",
-        "Artistic eye for design, user interaction, functionality, and readability"
-      ],
-      "deliverables": [
-        "Wireframes and storyboards for each flow of the user interface",
-        "Interface mock-ups as well as ready-to-use assets for the front-end implementation",
-        "Recommendation for user experience improvements based on the usability studies"
-      ]
-    },
-    {
-      "title": "Site Reliability Operator",
-      "category": "DevOps",
-      "description": "Full-time employment, full remote or on-site at Central Jakarta (Menteng), your choice. You will be responsible for maintaining services once they are alive by measuring and monitoring their performance and availability metrics and overall system health.",
-      "url": "/jobs/sro",
-      "responsibilities": [
-        "Automate key deployment, monitoring, and verification tools",
-        "Maintain services once they are alive by measuring and monitoring their performance and availability metrics and overall system health",
-        "Work collaboratively with the engineering team to support new features, releases, and services",
-        "Develop automation tools to streamline all aspects of automatic deployment"
-      ],
-      "requirements": [
-        "Bachelor's degree (or above) in Computer Science, Statistics, Mathematics, or a similar quantitative field",
-        "5+ years of in-depth experience using provisioning tools (Ansible, Chef, Puppet, etc)",
-        "2+ years of exposure to orchestration systems (DC/OS, Docker Swarm, Kubernetes, etc)",
-        "Expertise in Python or any other scripting environments"
-      ],
-      "deliverables": [
-        "Consistent and predictable SLA for all services",
-        "Root cause analysis for every operation incident"
-      ]
-    },
-    {
-      "title": "Senior Software Engineer",
-      "category": "Back end",
-      "description": "Full-time employment, full remote or on-site at Central Jakarta (Menteng), your choice. You will be responsible for developing and maintaining cloud-based data processing pipeline capable of digesting Petabytes of volume.",
-      "url": "/jobs/se-backend",
-      "responsibilities": [
-        "Develop and maintain cloud-based data processing pipeline capable of digesting Petabytes of volume",
-        "Design data analytics engine to facilitates the configuration and monitoring of deep insights of time-series technical and business metrics",
-        "Collaborate with the professional service team to analyze and fulfill customer requests/customizations"
-      ],
-      "requirements": [
-        "Bachelor's degree (or above) in Computer Science, Statistics, Mathematics, or a similar quantitative field",
-        "5+ years of enterprise software development experience",
-        "Solid computer science fundamentals in data-structures and algorithms",
-        "Excellent object-oriented design/programming in Python, Go, Scala, or Java",
-        "Proficient with a few well-known ETL stacks (e.g. DataFlow, MySQL, Spark, Kafka, ...)",
-        "Experience with data services in the public cloud (AWS, GCP, Azure)"
-      ],
-      "deliverables": [
-        "A complete implementation of the product per the requirements and architecture design",
-        "A sufficiently thorough documentation of the key building blocks and deployment aspects",
-        "A fully agreed-upon and comprehensive test plan for all the major and minor product features"
-      ]
-    }
-  ]
+  "title": "Hyperjump Technology",
+  "url": "https://hyperjump.tech"
 }

@@ -9,7 +9,7 @@ import type { SupportedLanguage } from "@/locales/.generated/types";
 import { inferenceaiCtaLabel } from "@/locales/.generated/server";
 
 export function HeroCTAButton({ lang }: { lang: SupportedLanguage }) {
-  const { gaEventName, linkAI } = data.cta;
+  const { gaEventName, link } = data.cta;
 
   return (
     <Button
@@ -24,7 +24,7 @@ export function HeroCTAButton({ lang }: { lang: SupportedLanguage }) {
           label: "Inference AI CTA Button"
         });
       }}>
-      <Link href={linkAI} target="_blank" rel="noreferrer noopener">
+      <Link href={link} target="_blank" rel="noreferrer noopener">
         {inferenceaiCtaLabel(lang)}
       </Link>
     </Button>

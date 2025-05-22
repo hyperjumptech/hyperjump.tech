@@ -15,7 +15,7 @@ import {
 } from "@/locales/.generated/server";
 import { SupportedLanguage } from "@/locales/.generated/types";
 import { useState } from "react";
-import data from "@/data.json";
+import { data } from "../data";
 
 export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
   const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ export default function ContactForm({ lang }: { lang: SupportedLanguage }) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const recipient = data.SMDD_2024_SUBMIT_FORM_EMAIL;
+    const recipient = data.submitFormEmail;
     const subject = "SMDD 2024 Contact Form";
     const body = `
     Name: ${formData.name}

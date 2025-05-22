@@ -1,5 +1,5 @@
-import data from "@/data.json";
 import { notFound } from "next/navigation";
+import { data } from "../data";
 
 export const generateStaticParams = async () => {
   return data.jobs.map((job) => ({ id: job.url.split("/").pop() }));

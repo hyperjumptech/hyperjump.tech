@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import data from "@/data.json";
 import { motion } from "framer-motion";
 import {
   GridItems,
@@ -36,6 +35,7 @@ import {
   inferenceaiCtaDesc,
   inferenceaiCtaLabel
 } from "@/locales/.generated/server";
+import { data } from "../data";
 import {
   getWhyWorkWithUs,
   getHowItWorks,
@@ -155,7 +155,7 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
                 <h3 className="mb-1 text-xl font-semibold text-white">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground text-base text-[#AFB0C3]">
+                <p className="text-muted-foreground text-base">
                   {item.description}
                 </p>
               </Card>
@@ -209,7 +209,7 @@ function WhatYouGet({ lang }: { lang: SupportedLanguage }) {
 }
 
 function CaseStudies({ lang }: { lang: SupportedLanguage }) {
-  const { linkAI, gaEventName } = data.cta;
+  const { link, gaEventName } = data.cta;
 
   return (
     <GridItemsContainerBlack
@@ -238,7 +238,7 @@ function CaseStudies({ lang }: { lang: SupportedLanguage }) {
           <GridItemsMoreButton
             type="inferenceai"
             text={inferenceaiCtaLabel(lang)}
-            href={linkAI}
+            href={link}
             gaEvent={{
               event: gaEventName,
               category: "engagement",
@@ -326,7 +326,7 @@ function Faqs({ lang }: { lang: SupportedLanguage }) {
 }
 
 function CTASection({ lang }: { lang: SupportedLanguage }) {
-  const { linkAI, gaEventName } = data.cta;
+  const { link, gaEventName } = data.cta;
 
   return (
     <section className="w-full px-4 py-5 md:py-8">
@@ -350,7 +350,7 @@ function CTASection({ lang }: { lang: SupportedLanguage }) {
           <GridItemsMoreButton
             type="inferenceai"
             text={inferenceaiCtaLabel(lang)}
-            href={linkAI}
+            href={link}
             gaEvent={{
               event: gaEventName,
               category: "engagement",

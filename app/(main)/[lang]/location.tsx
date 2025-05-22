@@ -7,17 +7,25 @@ import GridItemsContainer, {
   GridItemsTitle
 } from "@/app/components/grid-items";
 import { Button } from "@/components/ui/button";
-import data from "@/data.json";
 import {
   mainOpenInGoogleMaps,
   mainOurLocation
 } from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
-type LocationProps = { lang: SupportedLanguage };
+type Location = {
+  title: string;
+  address: string[];
+  email: string;
+  duns: string;
+  mapsUrl: string;
+  imageUrl: string;
+};
 
-export function Location({ lang }: LocationProps) {
-  const { address, duns, email, imageUrl, mapsUrl, title } = data.location;
+type LocationProps = { lang: SupportedLanguage; location: Location };
+
+export function Location({ lang, location }: LocationProps) {
+  const { address, duns, email, imageUrl, mapsUrl, title } = location;
 
   return (
     <GridItemsContainer>

@@ -38,8 +38,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { sendGAEvent } from "@next/third-parties/google";
+import { Clients } from "@/app/components/clients";
 import data from "@/data.json";
-import { PartnersList } from "@/app/components/partner-list";
 
 export default function Home({ lang }: { lang: SupportedLanguage }) {
   return (
@@ -322,8 +322,7 @@ function Partners({ lang }: { lang: SupportedLanguage }) {
       <p className="text-hyperjump-gray mx-auto mb-8 w-full max-w-3xl text-center text-base md:text-lg">
         {servicesPartnersDesc(lang)}
       </p>
-
-      <PartnersList />
+      <Clients clients={data.clients} />
     </section>
   );
 }

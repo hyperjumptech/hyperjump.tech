@@ -1,7 +1,7 @@
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import Services from "./services";
 import DemosAndDocs from "./demos";
-import OpenSourceProjects from "./projects";
+import { OpenSourceProjects } from "./projects";
 import TrustedBy from "./trusted";
 import CaseStudies from "./case-studies";
 import ContactForm from "./contact-form";

@@ -4,7 +4,7 @@ import Link from "next/link";
 import data from "@/data.json";
 import { Separator } from "@/components/ui/separator";
 import { SupportedLanguage } from "@/locales/.generated/types";
-import { mainFooter } from "@/locales/.generated/server";
+import { copyright, mainFooter } from "@/locales/.generated/server";
 import { LanguagePicker } from "../(main)/[lang]/language-picker";
 
 export default function Footer({
@@ -55,15 +55,15 @@ export default function Footer({
           <p className="max-w-md text-sm text-[#C7CDCD]">{mainFooter(lang)}</p>
 
           <div className="flex space-x-3">
-            {data.socials.map((s, i) => (
+            {data.socials.map(({ icon, platform, url }) => (
               <a
-                key={i}
-                href={s.url}
+                key={platform}
+                href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:bg-hyperjump-blue flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition"
-                aria-label={s.platform}>
-                <i className={s.icon} aria-hidden="true"></i>
+                aria-label={platform}>
+                <i className={icon} aria-hidden="true"></i>
               </a>
             ))}
           </div>
@@ -71,7 +71,9 @@ export default function Footer({
 
           <Separator className="w-full max-w-5xl bg-[#2D364A]" />
 
-          <p className="text-center text-sm text-[#C7CDCD]">{data.copyright}</p>
+          <p className="text-center text-sm text-[#C7CDCD]">
+            {copyright(lang)}
+          </p>
         </div>
       </div>
     </footer>

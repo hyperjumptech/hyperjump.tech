@@ -64,5 +64,6 @@
   "brief_description": "Describe briefly about your project",
   "send": "Send",
 
-  "close": "Close"
+  "close": "Close",
+  "copyright": "Copyright © 2025 Hyperjump. All rights reserved."
 }

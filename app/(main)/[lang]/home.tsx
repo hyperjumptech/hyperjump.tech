@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 import type { Organization, WebPage, WithContext } from "schema-dts";
 
 import {
@@ -25,35 +25,35 @@ import {
   mainProjectDesc,
   mainFaqHeading,
   mainFaqDesc,
-  mainViewMore
+  mainViewMore,
+  mainHeroDesc
 } from "@/locales/.generated/server";
 import { getServices, getCaseStudies, getProject, getFaqs } from "./data";
 import { Location } from "./location";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
-const {
-  hero: { subheading },
-  location,
-  socials,
-  title,
-  url
-} = data;
+import { data as pageData } from "../data";
 
-export default function Home({ lang }: { lang: SupportedLanguage }) {
+const { github, socials, title, url } = data;
+
+type HomeProps = {
+  lang: SupportedLanguage;
+};
+
+export default function Home({ lang }: HomeProps) {
   return (
     <>
       <Services lang={lang} />
       <CaseStudies lang={lang} />
       <OpenSourceProducts lang={lang} />
       <Faqs lang={lang} />
-      <Location lang={lang} />
-      <JsonLd />
+      <Location lang={lang} location={pageData.location} />
+      <JsonLd lang={lang} />
     </>
   );
 }
 
-function Services({ lang }: { lang: SupportedLanguage }) {
+function Services({ lang }: HomeProps) {
   return (
     <GridItemsContainer id="services">
       <GridItemsTitle
@@ -78,7 +78,7 @@ function Services({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function CaseStudies({ lang }: { lang: SupportedLanguage }) {
+function CaseStudies({ lang }: HomeProps) {
   return (
     <GridItemsContainer className="bg-[#F6F8F9]" id="case-studies">
       <GridItemsTitle
@@ -97,7 +97,7 @@ function CaseStudies({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function OpenSourceProducts({ lang }: { lang: SupportedLanguage }) {
+function OpenSourceProducts({ lang }: HomeProps) {
   return (
     <GridItemsContainer id="open-source">
       <GridItemsTitle
@@ -113,13 +113,13 @@ function OpenSourceProducts({ lang }: { lang: SupportedLanguage }) {
       <GridItemsMoreButton
         text={mainViewMore(lang)}
         variant="outline"
-        href={data.github}
+        href={github}
       />
     </GridItemsContainer>
   );
 }
 
-function Faqs({ lang }: { lang: SupportedLanguage }) {
+function Faqs({ lang }: HomeProps) {
   return (
     <section id="faqs" className="scroll-mt-20 bg-[#F6F8F9] py-10">
       <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-5 md:px-20 md:py-8">
@@ -158,11 +158,11 @@ function Faqs({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function JsonLd() {
+function JsonLd({ lang }: HomeProps) {
   return (
     <>
       <JsonLdOrganization />
-      <JsonLdWebsite />
+      <JsonLdWebsite lang={lang} />
     </>
   );
 }
@@ -184,13 +184,13 @@ function JsonLdOrganization() {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      email: location.email,
+      email: pageData.location.email,
       contactType: "Sales",
       areaServed: "Worldwide",
       availableLanguage: ["English", "Indonesian"]
     },
     sameAs: socials.map(({ url }) => url),
-    duns: location.duns
+    duns: pageData.location.duns
   };
 
   return (
@@ -201,13 +201,17 @@ function JsonLdOrganization() {
   );
 }
 
-function JsonLdWebsite() {
+type JsonLdWebsiteParameters = {
+  lang: SupportedLanguage;
+};
+
+function JsonLdWebsite({ lang }: JsonLdWebsiteParameters) {
   const jsonLd: WithContext<WebPage> = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: title,
     url,
-    description: subheading
+    description: mainHeroDesc(lang)
   };
 
   return (

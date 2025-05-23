@@ -1,5 +1,3 @@
-"use client";
-
 import CTOAsAServiceLangLayout from "./[lang]/layout";
 import CTOAsAServicePage from "./[lang]/page";
 

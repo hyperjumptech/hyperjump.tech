@@ -4,7 +4,7 @@ import { sendGAEvent } from "@next/third-parties/google";
 import Image from "next/image";
 import Link from "next/link";
 import data from "@/data.json";
-import { cn } from "@/app/utils/tailwind";
+import { cn } from "@/lib/utils";
 import { type ReactNode, useState } from "react";
 import WhiteLogo from "@/public/images/hyperjump-white.png";
 import BlackLogo from "@/public/images/hyperjump-black.png";

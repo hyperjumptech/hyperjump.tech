@@ -1,14 +1,9 @@
 "use client";
 
+import { serviceBySlug, ServiceSlug } from "@/app/data/service";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
-  servicesCtoaasTitle,
   servicesHeading,
-  servicesCtoaasText,
-  servicesCtoaasDesc,
-  servicesCtoaasItems0,
-  servicesCtoaasItems1,
-  servicesCtoaasItems2,
   servicesSaasTitle,
   servicesSaasText,
   servicesSaasDesc,
@@ -48,7 +43,7 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
         {servicesHeading(lang)}
       </h3>
       <section className="space-y-16">
-        <CtoAsAService lang={lang} />
+        <Service lang={lang} slug={ServiceSlug.CtoAsAService} />
         <SoftwareAsAService lang={lang} />
         <TechDueDilligence lang={lang} />
         <ErpImplementation lang={lang} />
@@ -59,13 +54,24 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function CtoAsAService({ lang }: { lang: SupportedLanguage }) {
+type ServiceProps = { lang: SupportedLanguage; slug: ServiceSlug };
+
+function Service({ lang, slug }: ServiceProps) {
+  const service = serviceBySlug({ lang, slug });
+
+  if (!service) {
+    return null;
+  }
+
+  const { bestFor, features, imageIconUrl, imageUrl, shortDescription, title } =
+    service;
+
   return (
-    <section className="flex flex-col items-center gap-6 border-b border-gray-200 pb-7 md:flex-row md:pb-14">
+    <div className="flex flex-col items-center gap-6 border-b border-gray-200 pb-7 md:flex-row md:pb-14">
       <div className="relative w-full xl:w-1/2">
         <Image
-          src="/images/services/ctoaas.webp"
-          alt={servicesCtoaasTitle(lang)}
+          src={imageUrl}
+          alt={title}
           className="h-auto w-full rounded-2xl"
           width={660}
           height={400}
@@ -73,8 +79,8 @@ function CtoAsAService({ lang }: { lang: SupportedLanguage }) {
         <div className="absolute -bottom-1 left-1 rounded-md">
           <Image
             className="h-20 w-20"
-            src="/images/services/ctoaas-icon.svg"
-            alt={`${servicesCtoaasTitle(lang)} icon`}
+            src={imageIconUrl}
+            alt={`${title} icon`}
             width={80}
             height={80}
           />
@@ -84,31 +90,25 @@ function CtoAsAService({ lang }: { lang: SupportedLanguage }) {
       <div className="w-full xl:w-1/2">
         <div className="text-left">
           <h3 className="text-hyperjump-black mb-4 text-[28px] font-medium md:text-4xl">
-            {servicesCtoaasTitle(lang)}
+            {title}
           </h3>
-          <p className="mb-4 text-lg text-gray-700">
-            {servicesCtoaasText(lang)}
-          </p>
-          <p className="mb-6 text-lg text-gray-700 underline">
-            {servicesCtoaasDesc(lang)}
-          </p>
+          <p className="mb-4 text-lg text-gray-700">{shortDescription}</p>
+          <p className="mb-6 text-lg text-gray-700 underline">{bestFor}</p>
         </div>
 
-        <ul
-          className="list-none space-y-4 text-left text-base text-gray-700 md:text-lg [&_b]:mt-4 [&_b]:block"
-          dangerouslySetInnerHTML={{
-            __html: [
-              servicesCtoaasItems0(lang),
-              servicesCtoaasItems1(lang),
-              servicesCtoaasItems2(lang)
-            ]
-              .map(
-                (point) =>
-                  `<li class="flex items-center gap-2"><img src="/images/checklist.svg" width="24" height="24" alt="icon" /><div>${point}</div></li>`
-              )
-              .join("")
-          }}
-        />
+        <ul className="list-none space-y-4 text-left text-base text-gray-700 md:text-lg [&_b]:mt-4 [&_b]:block">
+          {features.map((feature) => (
+            <li key={feature} className="flex items-center gap-2">
+              <Image
+                src="/images/checklist.svg"
+                width="24"
+                height="24"
+                alt="Checklist icon"
+              />
+              {feature}
+            </li>
+          ))}
+        </ul>
 
         <div className="mt-8 md:text-left">
           <Button
@@ -121,7 +121,7 @@ function CtoAsAService({ lang }: { lang: SupportedLanguage }) {
           </Button>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

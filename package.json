@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "generate-locales": "simple-i18n-next -i ./locales -l en",
+    "generate-sitemap": "bun .github/scripts/generate-sitemap.js",
     "dev": "npm run generate-locales && next dev",
-    "build": "npm run generate-locales && next build",
+    "build": "npm run generate-locales && next build && npm run generate-sitemap",
     "start": "next start",
     "lint": "next lint",
     "check-format": "prettier --check .",

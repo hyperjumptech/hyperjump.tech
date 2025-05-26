@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Build Custom AI Agents That Actually Get Work Done",
-    "desc": "We help businesses design, develop, and deploy purpose-built AI agents that save time, cut costs, and scale operations—without the technical overwhelm."
+    "desc": "We help businesses design, develop, and deploy purpose-built AI agents that save time, cut costs, and scale operations. Without the technical overwhelm."
   },
   "cta": {
     "heading": "Ready to Transform Your Workflow?",
@@ -23,13 +23,13 @@
     "0_title": "Tailored to Your Workflow",
     "0_text": "Your AI agent is designed specifically around your processes, tools, and goals. No bloated features. No guesswork.",
     "1_title": "Speed to Launch",
-    "1_text": "We go from strategy to working prototype in under 2 weeks—so you can start seeing ROI faster.",
+    "1_text": "We go from strategy to working prototype in under 2 weeks. So you can start seeing ROI faster.",
     "2_title": "Ongoing Support & Optimization",
-    "2_text": "We don’t just build and bounce. We iterate, improve, and ensure your AI delivers long-term value."
+    "2_text": "We don't just build and bounce. We iterate, improve, and ensure your AI delivers long-term value."
   },
   "how_it_works": {
     "heading": "How It Works",
-    "desc": "A clear, proven process-from idea to launch—in weeks, not months.",
+    "desc": "A clear, proven process-from idea to launch. In weeks, not months.",
 
     "0_title": "Discovery & Strategy",
     "0_text": "We dive deep into your business goals, existing workflows, and opportunities for automation",
@@ -42,7 +42,7 @@
   },
   "what_you_get": {
     "heading": "What You Get",
-    "desc": "A clear, proven process-from idea to launch—in weeks, not months.",
+    "desc": "A clear, proven process-from idea to launch. In weeks, not months.",
 
     "0_title": "End-to-end strategy session",
     "1_title": "Custom AI agent architecture & design",
@@ -57,28 +57,28 @@
 
     "0_title": "AI Knowledge Assistant with RAG",
     "0_category": "Case Studies",
-    "0_text": "We built a custom AI agent that answers employee questions using internal documentation via Retrieval-Augmented Generation—cutting support time by 60%.",
+    "0_text": "We built a custom AI agent that answers employee questions using internal documentation via Retrieval-Augmented Generation. Cutting support time by 60%.",
     "1_title": "AI-Powered Meeting Notes Agent",
     "1_category": "Case Studies",
-    "1_text": "This agent joins meetings, transcribes in real time, summarizes key points, and auto-updates project tools—saving teams hours every week."
+    "1_text": "This agent joins meetings, transcribes in real time, summarizes key points, and auto-updates project tools. Saving teams hours every week."
   },
   "about_us": {
     "heading": "About Us",
-    "desc": "We’re a team of AI engineers, product strategists, and automation nerds passionate about building agents that actually work. We've helped startups, agencies, and enterprise teams harness AI in ways that are simple, strategic, and impactful."
+    "desc": "We're a team of AI engineers, product strategists, and automation nerds passionate about building agents that actually work. We've helped startups, agencies, and enterprise teams harness AI in ways that are simple, strategic, and impactful."
   },
   "faq": {
     "heading": "Frequently asked questions",
     "desc": "Everything you need to go from concept to fully deployed Al agent-done for you, end to end.",
 
     "0_question": "What kinds of problems can a custom AI agent solve?",
-    "0_answer": "AI agents can handle everything from answering customer inquiries, managing internal workflows, extracting insights from documents, to automating tasks across apps like Slack, CRMs, and databases. If it's repetitive, time-consuming, or data-driven—an agent can likely help.",
+    "0_answer": "AI agents can handle everything from answering customer inquiries, managing internal workflows, extracting insights from documents, to automating tasks across apps like Slack, CRMs, and databases. If it's repetitive, time-consuming, or data-driven. An agent can likely help.",
     "1_question": "How long does the process take?",
-    "1_answer": "Most clients go from strategy to launch in 10–14 business days.",
+    "1_answer": "Most clients go from strategy to launch in 10-14 business days.",
     "2_question": "Do I need to know anything about AI?",
-    "2_answer": "Nope. We handle all the technical work—just tell us what you want the agent to do.",
+    "2_answer": "Nope. We handle all the technical work. Just tell us what you want the agent to do.",
     "3_question": "What kind of tools can it integrate with?",
-    "3_answer": "Slack, Notion, Google Workspace, CRMs, Zapier, APIs, internal databases—you name it.",
+    "3_answer": "Slack, Notion, Google Workspace, CRMs, Zapier, APIs, internal databases, you name it.",
     "4_question": "Can the AI use our internal data?",
-    "4_answer": "Yes. We use Retrieval-Augmented Generation (RAG) to let your agent access and reason over your internal documents, knowledge bases, and systems—securely and with up-to-date context."
+    "4_answer": "Yes. We use Retrieval-Augmented Generation (RAG) to let your agent access and reason over your internal documents, knowledge bases, and systems. Securely and with up-to-date context."
   }
 }

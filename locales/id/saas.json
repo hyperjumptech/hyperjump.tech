@@ -5,7 +5,7 @@
   },
   "what_is_saas": {
     "heading": "Apa itu Software sebagai Layanan?",
-    "desc": "Anda memiliki ide produk—atau mungkin MVP yang perlu dikembangkan. Tapi mengelola tim internal memakan waktu, mahal, dan mengganggu fokus utama.",
+    "desc": "Anda memiliki ide produk atau mungkin MVP yang perlu dikembangkan. Tapi mengelola tim internal memakan waktu, mahal, dan mengganggu fokus utama.",
     "highlight": "Dengan Hyperjump SaaS, Anda mendapatkan tim rekayasa produk yang berdedikasi, yang tidak hanya membangun tetapi juga terus menyempurnakan perangkat lunak Anda. Kami mengambil alih roadmap Anda dan menghadirkan peningkatan setiap bulan, sepenuhnya selaras dengan tujuan bisnis Anda."
   },
 
@@ -57,7 +57,7 @@
     "step": {
       "0": {
         "title": "Biaya tetap, tanpa biaya tersembunyi",
-        "text": "Harga transparan tanpa kejutan. Anda tahu persis apa yang dibayar—tanpa biaya tambahan."
+        "text": "Harga transparan tanpa kejutan. Anda tahu persis apa yang dibayar, tanpa biaya tambahan."
       },
       "1": {
         "title": "Komunikasi dan iterasi berkelanjutan",
@@ -76,12 +76,12 @@
 
   "what_you_get": {
     "heading": "Apa yang Anda Dapatkan",
-    "desc": "Bersama kami, Anda mendapatkan lebih dari sekadar pengembangan—kami menjadi mitra strategis untuk menjamin kualitas, skalabilitas, dan perbaikan berkelanjutan.",
+    "desc": "Bersama kami, Anda mendapatkan lebih dari sekadar pengembangan. Kami menjadi mitra strategis untuk menjamin kualitas, skalabilitas, dan perbaikan berkelanjutan.",
     "items": {
       "0": "Roadmap produk agile dan pembaruan rutin",
       "1": "Arsitektur & kode yang dapat diskalakan",
       "2": "QA dan CI/CD terintegrasi sejak hari pertama",
-      "3": "Masukan strategis—bukan sekadar eksekusi tugas"
+      "3": "Masukan strategis, bukan sekadar eksekusi tugas"
     }
   },
 
@@ -90,13 +90,13 @@
     "desc": "Pilih Hyperjump untuk tim yang menggabungkan pengalaman langsung, pemikiran berbasis produk, dan efisiensi operasional guna mendorong pertumbuhan teknologi Anda.",
     "reasons": {
       "0": "Kami telah membangun dan mengoperasikan produk SaaS untuk berbagai jenis bisnis",
-      "1": "Kami bukan sekadar coder—kami hadir dengan <span class=\"font-bold\">pemikiran produk</span> dan <span class=\"font-bold\">disiplin rekayasa</span>",
-      "2": "Kami memastikan perangkat lunak Anda bekerja layaknya startup—tanpa kerepotan merekrut tim sendiri"
+      "1": "Kami bukan sekadar coder, kami hadir dengan <span class=\"font-bold\">pemikiran produk</span> dan <span class=\"font-bold\">disiplin rekayasa</span>",
+      "2": "Kami memastikan perangkat lunak Anda bekerja layaknya startup, tanpa kerepotan merekrut tim sendiri"
     }
   },
   "cta": {
     "heading": "Siap meluncurkan atau mengembangkan produk Anda?",
-    "desc": "Mari bangun perangkat lunak hebat bersama—cepat, efisien, dan andal.",
+    "desc": "Mari bangun perangkat lunak hebat bersama. Cepat, efisien, dan andal.",
     "label": "Hubungi Kami"
   }
 }

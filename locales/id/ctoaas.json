@@ -5,8 +5,8 @@
   },
   "what_is_ctoaas": {
     "heading": "Apa itu CTO-as-a-Service?",
-    "desc": "Tidak semua perusahaan membutuhkan CTO penuh waktu—tetapi setiap tim teknologi membutuhkan kepemimpinan yang kuat.",
-    "highlight": "CTO-as-a-Service dari Hyperjump memberi Anda akses ke kepemimpinan teknis tingkat senior dan tim produk yang telah teruji. Kami membantu Anda <span class=\"font-bold\">membangun budaya rekayasa yang kuat, menghasilkan perangkat lunak yang lebih baik,</span> dan <span class=\"font-bold\">menskalakan organisasi produk Anda</span>—tanpa harus membangunnya sendirian."
+    "desc": "Tidak semua perusahaan membutuhkan CTO penuh waktu, tetapi setiap tim teknologi membutuhkan kepemimpinan yang kuat.",
+    "highlight": "CTO-as-a-Service dari Hyperjump memberi Anda akses ke kepemimpinan teknis tingkat senior dan tim produk yang telah teruji. Kami membantu Anda <span class=\"font-bold\">membangun budaya rekayasa yang kuat, menghasilkan perangkat lunak yang lebih baik,</span> dan <span class=\"font-bold\">menskalakan organisasi produk Anda</span> tanpa harus membangunnya sendirian."
   },
   "who_is_it": {
     "heading": "Siapa yang Cocok Menggunakannya?",
@@ -58,7 +58,7 @@
     "step": {
       "0": {
         "title": "Kepemimpinan langsung + pembangunan sistem",
-        "text": "Kami tidak hanya memberi saran—kami memimpin, membangun sistem, dan bekerja sama dengan tim Anda untuk mendorong pertumbuhan yang berkelanjutan."
+        "text": "Kami tidak hanya memberi saran, kami memimpin, membangun sistem, dan bekerja sama dengan tim Anda untuk mendorong pertumbuhan yang berkelanjutan."
       },
       "1": {
         "title": "Pembentukan tim, tinjauan kode, pelatihan sprint",
@@ -69,8 +69,8 @@
         "text": "Tetap sinkron dengan pembaruan rutin, pelacakan isu, dan visibilitas yang jelas terhadap progres peta jalan setiap minggunya."
       },
       "3": {
-        "title": "Tujuan: mandiri dalam 6–12 bulan",
-        "text": "Misi kami adalah memberdayakan tim Anda agar bisa beroperasi secara mandiri—dengan proses yang kuat, disiplin, dan kepercayaan diri."
+        "title": "Tujuan: mandiri dalam 6-12 bulan",
+        "text": "Misi kami adalah memberdayakan tim Anda agar bisa beroperasi secara mandiri. Dengan proses yang kuat, disiplin, dan kepercayaan diri."
       }
     }
   },
@@ -81,7 +81,7 @@
       "0": "Arah teknologi yang jelas",
       "1": "Fondasi engineering yang kuat",
       "2": "Kecepatan pengiriman dan kualitas produk yang meningkat",
-      "3": "Tim teknologi yang siap untuk skala—bukan hanya bertahan"
+      "3": "Tim teknologi yang siap untuk skala, bukan hanya bertahan"
     }
   },
   "why_us": {
@@ -89,14 +89,14 @@
     "desc": "Di Hyperjump, kami menggabungkan pengalaman terbukti, kepemimpinan yang kuat, dan eksekusi langsung untuk mendorong kesuksesan bisnis Anda.",
     "reasons": {
       "0": "Terbukti dalam <span class=\"font-bold\">startup tahap awal hingga pasca-Series A</span>",
-      "1": "Kami menghadirkan <span class=\"font-bold\">kepemimpinan, struktur, dan sistem</span>—bukan sekadar saran",
+      "1": "Kami menghadirkan <span class=\"font-bold\">kepemimpinan, struktur, dan sistem</span>. Bukan sekadar saran",
       "2": "Tujuan kami adalah <span class=\"font-bold\">membuat diri kami tidak lagi dibutuhkan</span> dengan memberdayakan tim internal Anda",
       "3": "Klien kami mencakup"
     }
   },
   "cta": {
     "heading": "Bangun Tim Teknologi Anda dengan Cara yang Tepat",
-    "desc": "Mari kita bentuk tim rekayasa produk kelas dunia—bersama-sama.",
+    "desc": "Mari kita bentuk tim rekayasa produk kelas dunia bersama-sama.",
     "label": "Hubungi Kami"
   }
 }

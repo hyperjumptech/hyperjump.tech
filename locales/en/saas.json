@@ -4,13 +4,11 @@
     "desc": "Own the Product Vision. Let us Build the Engine."
   },
   "what_is_saas": {
-    "heading": "What is Software as a service?",
     "desc": "You have a product idea or maybe an MVP that needs to scale. But managing an in-house team is time consuming, expensive, and distracting.",
     "highlight": "With Hyperjump SaaS, you get a dedicated product engineering team that not only builds but continuously improves your software. We take ownership of your roadmap and deliver month-by-month improvements, fully aligned with your business goals."
   },
 
   "who_is_it": {
-    "heading": "Who is it for?",
     "desc": "This is for organizations looking to scale quickly, innovate, and modernize without the burden of daily management.",
     "target": {
       "0": "<span class=\"font-bold\">Startups</span> building their first or second product",
@@ -20,7 +18,6 @@
     }
   },
   "what_we_deliver": {
-    "heading": "What We Deliver",
     "desc": "We deliver tailored solutions to help you modernize, innovate, and optimize your processes with precision.",
     "card_0": {
       "title": "Application Modernization",
@@ -52,7 +49,6 @@
   },
 
   "how_it_works": {
-    "heading": "How It Works",
     "desc": "We work under a <span class=\"font-bold\">monthly subscription with a yearly commitment</span>, which means:",
     "step": {
       "0": {
@@ -75,7 +71,6 @@
   },
 
   "what_you_get": {
-    "heading": "What You Get",
     "desc": "With us, you gain more than just development, get a strategic partnership that ensures quality, scalability, and continuous improvement.",
     "items": {
       "0": "Agile product roadmap and regular updates",
@@ -86,17 +81,11 @@
   },
 
   "why_us": {
-    "heading": "Why Hyperjump?",
     "desc": "Choose Hyperjump for a team that combines hands-on experience, product-first thinking, and operational efficiency to drive your tech forward.",
     "reasons": {
       "0": "We've built and operated live SaaS products for clients in any kind of business",
       "1": "We're not just coders, we bring <span class=\"font-bold\">product thinking</span> and <span class=\"font-bold\">engineering discipline</span>",
       "2": "We make your software run like a startup team would, but without the hiring headaches"
     }
-  },
-  "cta": {
-    "heading": "Ready to launch or scale your product?",
-    "desc": "Let's build great software together. fast, lean, and reliable.",
-    "label": "Talk to us"
   }
 }

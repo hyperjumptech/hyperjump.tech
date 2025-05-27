@@ -4,12 +4,10 @@
     "desc": "Bangun Seperti Perusahaan Terbaik. Tanpa Perlu Merekrut CTO."
   },
   "what_is_ctoaas": {
-    "heading": "Apa itu CTO-as-a-Service?",
     "desc": "Tidak semua perusahaan membutuhkan CTO penuh waktu, tetapi setiap tim teknologi membutuhkan kepemimpinan yang kuat.",
     "highlight": "CTO-as-a-Service dari Hyperjump memberi Anda akses ke kepemimpinan teknis tingkat senior dan tim produk yang telah teruji. Kami membantu Anda <span class=\"font-bold\">membangun budaya rekayasa yang kuat, menghasilkan perangkat lunak yang lebih baik,</span> dan <span class=\"font-bold\">menskalakan organisasi produk Anda</span> tanpa harus membangunnya sendirian."
   },
   "who_is_it": {
-    "heading": "Siapa yang Cocok Menggunakannya?",
     "desc": "Solusi kami ideal bagi bisnis yang ingin bertumbuh secara efisien dan mengoptimalkan operasional.",
     "target": {
       "0": "<span class=\"font-bold\">Founder atau CEO</span> tanpa rekan teknis",
@@ -19,7 +17,6 @@
     }
   },
   "what_we_deliver": {
-    "heading": "Apa yang Kami Tawarkan",
     "desc": "Kami menyediakan solusi yang disesuaikan untuk memastikan teknologi dan operasional Anda berada di jalur yang tepat menuju pertumbuhan berkelanjutan.",
     "card_0": {
       "title": "Strategi & Peta Jalan Teknis",
@@ -53,7 +50,6 @@
     }
   },
   "how_it_works": {
-    "heading": "Bagaimana Cara Kerjanya",
     "desc": "Kami menyisipkan <span style=\"font-weight: bold;\">pemimpin teknologi setingkat mitra Hyperjump</span> ke dalam organisasi Anda, didukung oleh tim engineering yang berpengalaman.",
     "step": {
       "0": {
@@ -75,7 +71,6 @@
     }
   },
   "what_you_get": {
-    "heading": "Apa yang Anda Dapatkan",
     "desc": "Dengan keahlian kami, Anda akan menerima alat dan panduan yang dibutuhkan untuk kesuksesan jangka panjang di bidang teknologi dan operasional.",
     "items": {
       "0": "Arah teknologi yang jelas",
@@ -85,7 +80,6 @@
     }
   },
   "why_us": {
-    "heading": "Mengapa Hyperjump?",
     "desc": "Di Hyperjump, kami menggabungkan pengalaman terbukti, kepemimpinan yang kuat, dan eksekusi langsung untuk mendorong kesuksesan bisnis Anda.",
     "reasons": {
       "0": "Terbukti dalam <span class=\"font-bold\">startup tahap awal hingga pasca-Series A</span>",
@@ -93,10 +87,5 @@
       "2": "Tujuan kami adalah <span class=\"font-bold\">membuat diri kami tidak lagi dibutuhkan</span> dengan memberdayakan tim internal Anda",
       "3": "Klien kami mencakup"
     }
-  },
-  "cta": {
-    "heading": "Bangun Tim Teknologi Anda dengan Cara yang Tepat",
-    "desc": "Mari kita bentuk tim rekayasa produk kelas dunia bersama-sama.",
-    "label": "Hubungi Kami"
   }
 }

@@ -4,13 +4,11 @@
     "desc": "Build Like the Best. Without Hiring a CTO."
   },
   "what_is_ctoaas": {
-    "heading": "What is CTO-as-a-Service?",
     "desc": "Not every company needs a full-time CTO, but every tech team needs strong leadership.",
     "highlight": "CTO-as-a-Service by Hyperjump gives you access to senior-level engineering leadership and a battle-tested product team. We help you <span class=\"font-bold\">build a strong engineering culture, ship better software,</span> and <span class=\"font-bold\">scale your product organization</span> without the overhead of building it alone."
   },
 
   "who_is_it": {
-    "heading": "Who is it for?",
     "desc": "Our solutions are ideal for businesses seeking to scale efficiently and optimize operations.",
     "target": {
       "0": "<span class=\"font-bold\">Founders or CEOs</span> without a technical co-founder",
@@ -21,7 +19,6 @@
   },
 
   "what_we_deliver": {
-    "heading": "What We Deliver",
     "desc": "We provide tailored solutions to ensure your tech and operations are on the right track for sustainable growth.",
     "card_0": {
       "title": "Technical Strategy & Roadmap",
@@ -55,7 +52,6 @@
     }
   },
   "how_it_works": {
-    "heading": "How It Works",
     "desc": "We embed a <span style=\"font-weight: bold;\">Hyperjump partner-level tech leader</span> into your organization, supported by an experienced engineering team.",
     "step": {
       "0": {
@@ -78,7 +74,6 @@
   },
 
   "what_you_get": {
-    "heading": "What You Get",
     "desc": "With our expertise, you will receive the tools and guidance needed for long-term success in technology and operations.",
     "items": {
       "0": "A clear technology direction",
@@ -89,7 +84,6 @@
   },
 
   "why_us": {
-    "heading": "Why Hyperjump?",
     "desc": "At Hyperjump, we combine proven experience, strong leadership, and hands-on execution to drive success for your business.",
     "reasons": {
       "0": "Proven across <span class=\"font-bold\">early stage to post-Series A startups</span>",
@@ -97,11 +91,5 @@
       "2": "Our goal is to <span class=\"font-bold\">make ourselves obsolete</span> by empowering your internal team",
       "3": "Clients include"
     }
-  },
-
-  "cta": {
-    "heading": "Build your tech team the right way",
-    "desc": "Let's shape a world-class product engineering team together.",
-    "label": "Talk to us"
   }
 }

@@ -1,14 +1,15 @@
 "use client";
 
 import { sendGAEvent } from "@next/third-parties/google";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
 import {
   mainCaseStudiesCtaDesc,
-  mainCaseStudiesCtaHeading,
-  mainCtaLabel
+  mainCaseStudiesCtaExploreOurCaseStudies,
+  mainCaseStudiesCtaHeading
 } from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
@@ -50,7 +51,7 @@ export function CaseStudiesCTA({ lang }: { lang: SupportedLanguage }) {
                 label: "Case Study CTA"
               });
             }}>
-            {mainCtaLabel(lang)}
+            {mainCaseStudiesCtaExploreOurCaseStudies(lang)}
           </Link>
         </Button>
       </div>

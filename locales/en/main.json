@@ -14,7 +14,8 @@
   "footer": " Accelerating Business Growth with Cutting-Edge Technology Solutions",
   "case_studies_cta": {
     "heading": "Solve What's Holding You Back",
-    "desc": "Whether you're dealing with legacy systems, operational bottlenecks, or scaling pains. We're here to help you untangle the mess and build what's next."
+    "desc": "Whether you're dealing with legacy systems, operational bottlenecks, or scaling pains. We're here to help you untangle the mess and build what's next.",
+    "explore_our_case_studies": "Explore Our Case Studies"
   },
   "nav_items": {
     "0_label": "Services",

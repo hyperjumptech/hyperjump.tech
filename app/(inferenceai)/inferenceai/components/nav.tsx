@@ -2,26 +2,26 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { useState } from "react";
+
+import StickyNavigationMain from "@/app/components/sticky-nav-main";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList
 } from "@/components/ui/navigation-menu";
-import StickyNavigationMain from "@/app/components/sticky-nav-main";
-import { HeroCTAButton } from "./hero-cta-button";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import { cn } from "@/lib/utils";
+import type { SupportedLanguage } from "@/locales/.generated/types";
+
 import { navInferenceai } from "../[lang]/data";
 import { navRagChatbot } from "../rag-chatbot/[lang]/data";
 
-export default function Nav({
-  lang,
-  type = "inferenceai"
-}: {
+type NavProps = {
   lang: SupportedLanguage;
   type?: "inferenceai" | "rag-chatbot";
-}) {
+};
+
+export default function Nav({ lang, type = "inferenceai" }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -35,10 +35,29 @@ export default function Nav({
                 : "/inferenceai/rag-chatbot"
             }
             className="flex items-center">
-            <InferenceAI isOpen={isOpen} />
+            <Image
+              src="/images/inferenceai/inference-ai-white.svg"
+              alt="Inference AI Logo"
+              width={187}
+              height={32}
+              className={cn(
+                "h-8 group-data-[scroll='true']:hidden",
+                isOpen && "hidden"
+              )}
+            />
+            <Image
+              src="/images/inferenceai/inference-ai-black.svg"
+              alt="Inference AI Logo"
+              width={187}
+              height={32}
+              className={cn(
+                "hidden h-8 group-data-[scroll='true']:block",
+                isOpen && "block"
+              )}
+            />
           </Link>
 
-          <CenterNavItems>
+          <div className="hidden items-center justify-center space-x-8 xl:flex">
             <NavigationMenu className="mx-8 xl:mx-0">
               <NavigationMenuList className="flex gap-5">
                 {(type === "inferenceai"
@@ -55,11 +74,7 @@ export default function Nav({
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
-          </CenterNavItems>
-
-          <RightNavItems>
-            <HeroCTAButton lang={lang} />
-          </RightNavItems>
+          </div>
 
           {/* Mobile Toggle */}
           <div className="flex items-center xl:hidden">
@@ -114,53 +129,9 @@ export default function Nav({
                 {label}
               </Link>
             ))}
-            <HeroCTAButton lang={lang} />
           </div>
         </div>
       )}
     </StickyNavigationMain>
-  );
-}
-
-function CenterNavItems({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="hidden flex-1 items-center justify-center space-x-8 xl:flex">
-      {children}
-    </div>
-  );
-}
-
-export function RightNavItems({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="hidden items-center justify-end space-x-4 xl:flex">
-      {children}
-    </div>
-  );
-}
-
-function InferenceAI({ isOpen }: { isOpen: boolean }) {
-  return (
-    <>
-      <Image
-        src="/images/inferenceai/inference-ai-white.svg"
-        alt="Inference AI Logo"
-        width={187}
-        height={32}
-        className={cn(
-          "h-8 group-data-[scroll='true']:hidden",
-          isOpen && "hidden"
-        )}
-      />
-      <Image
-        src="/images/inferenceai/inference-ai-black.svg"
-        alt="Inference AI Logo"
-        width={187}
-        height={32}
-        className={cn(
-          "hidden h-8 group-data-[scroll='true']:block",
-          isOpen && "block"
-        )}
-      />
-    </>
   );
 }

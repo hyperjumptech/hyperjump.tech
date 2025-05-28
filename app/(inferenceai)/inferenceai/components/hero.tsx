@@ -9,15 +9,13 @@ import {
   inferenceaiHeroHeading,
   inferenceaiHeroDesc
 } from "@/locales/.generated/server";
-import { HeroCTAButton } from "./hero-cta-button";
 
-export default function Hero({
-  lang,
-  type = "inferenceai"
-}: {
+type HeroProps = {
   lang: SupportedLanguage;
   type?: "inferenceai" | "rag-chatbot";
-}) {
+};
+
+export default function Hero({ lang, type = "inferenceai" }: HeroProps) {
   return (
     <section
       id="hero"
@@ -62,9 +60,11 @@ export default function Hero({
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}>
-            <HeroCTAButton lang={lang} />
-          </motion.div>
+            transition={{
+              delay: 0.6,
+              duration: 1,
+              ease: "easeOut"
+            }}></motion.div>
         </motion.div>
       </article>
 

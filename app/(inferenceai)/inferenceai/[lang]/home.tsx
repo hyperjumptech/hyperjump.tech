@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   GridItems,
-  GridItemsMoreButton,
   GridItemsContainerBlack,
   GridItemsTitleBlack
 } from "@/app/components/grid-items";
@@ -30,12 +29,8 @@ import {
   inferenceaiAboutUsHeading,
   inferenceaiAboutUsDesc,
   inferenceaiFaqHeading,
-  inferenceaiFaqDesc,
-  inferenceaiCtaHeading,
-  inferenceaiCtaDesc,
-  inferenceaiCtaLabel
+  inferenceaiFaqDesc
 } from "@/locales/.generated/server";
-import { data } from "../data";
 import {
   getWhyWorkWithUs,
   getHowItWorks,
@@ -44,7 +39,9 @@ import {
   getFaqs
 } from "./data";
 
-export default function Home({ lang }: { lang: SupportedLanguage }) {
+type HomeProps = { lang: SupportedLanguage };
+
+export default function Home({ lang }: HomeProps) {
   return (
     <>
       <WhyWorkWithUs lang={lang} />
@@ -53,12 +50,11 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
       <CaseStudies lang={lang} />
       <AboutUs lang={lang} />
       <Faqs lang={lang} />
-      <CTASection lang={lang} />
     </>
   );
 }
 
-function WhyWorkWithUs({ lang }: { lang: SupportedLanguage }) {
+function WhyWorkWithUs({ lang }: HomeProps) {
   return (
     <GridItemsContainerBlack
       id="why-work-with-us"
@@ -87,7 +83,7 @@ function WhyWorkWithUs({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function HowItWorks({ lang }: { lang: SupportedLanguage }) {
+function HowItWorks({ lang }: HomeProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -178,7 +174,7 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function WhatYouGet({ lang }: { lang: SupportedLanguage }) {
+function WhatYouGet({ lang }: HomeProps) {
   return (
     <GridItemsContainerBlack id="what-you-get" bgClassName="bg-what-you-get">
       <GridItemsTitleBlack
@@ -208,9 +204,7 @@ function WhatYouGet({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function CaseStudies({ lang }: { lang: SupportedLanguage }) {
-  const { link, gaEventName } = data.cta;
-
+function CaseStudies({ lang }: HomeProps) {
   return (
     <GridItemsContainerBlack
       id="case-studies"
@@ -234,24 +228,12 @@ function CaseStudies({ lang }: { lang: SupportedLanguage }) {
           categoryClassName="bg-white/10 text-white"
           titleClassName="text-white text-[22px] font-semibold"
         />
-        <div className="flex w-full justify-center">
-          <GridItemsMoreButton
-            type="inferenceai"
-            text={inferenceaiCtaLabel(lang)}
-            href={link}
-            gaEvent={{
-              event: gaEventName,
-              category: "engagement",
-              label: "Case Study Inference AI"
-            }}
-          />
-        </div>
       </motion.div>
     </GridItemsContainerBlack>
   );
 }
 
-function AboutUs({ lang }: { lang: SupportedLanguage }) {
+function AboutUs({ lang }: HomeProps) {
   return (
     <section id="about-us" className="bg-inference-ai scroll-mt-20">
       <div className="mx-auto flex flex-col flex-wrap items-center justify-center px-4 py-7 md:flex-row md:px-6 md:py-[60px]">
@@ -281,7 +263,7 @@ function AboutUs({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function Faqs({ lang }: { lang: SupportedLanguage }) {
+function Faqs({ lang }: HomeProps) {
   return (
     <section id="faqs" className="bg-inference-ai scroll-mt-20">
       <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">
@@ -319,44 +301,6 @@ function Faqs({ lang }: { lang: SupportedLanguage }) {
               ))}
             </Accordion>
           </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CTASection({ lang }: { lang: SupportedLanguage }) {
-  const { link, gaEventName } = data.cta;
-
-  return (
-    <section className="w-full px-4 py-5 md:py-8">
-      <div className="custom-glow-border bg-inferenceai-indigo relative mx-auto max-w-5xl overflow-hidden rounded-3xl p-6 text-center md:p-10">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/inferenceai/cta-background.png"
-            alt="Background"
-            fill
-            className="translate-y-16 scale-125 object-cover object-center md:translate-y-8"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
-        <div className="relative z-20 space-y-4 text-white md:space-y-6">
-          <h2 className="text-center text-2xl leading-8 font-semibold md:text-4xl xl:text-[48px]">
-            {inferenceaiCtaHeading(lang)}
-          </h2>
-          <p className="mx-auto max-w-xl text-lg md:text-[22px]">
-            {inferenceaiCtaDesc(lang)}
-          </p>
-          <GridItemsMoreButton
-            type="inferenceai"
-            text={inferenceaiCtaLabel(lang)}
-            href={link}
-            gaEvent={{
-              event: gaEventName,
-              category: "engagement",
-              label: "CTA Inference AI"
-            }}
-          />
         </div>
       </div>
     </section>

@@ -56,15 +56,6 @@ export default function Hero({ lang, type = "inferenceai" }: HeroProps) {
               ? inferenceaiHeroDesc(lang)
               : ragChatbotHeroDesc(lang)}
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.6,
-              duration: 1,
-              ease: "easeOut"
-            }}></motion.div>
         </motion.div>
       </article>
 

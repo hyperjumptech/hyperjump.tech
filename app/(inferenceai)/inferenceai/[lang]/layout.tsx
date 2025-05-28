@@ -1,5 +1,10 @@
 import ScrollObserver from "@/app/components/scroll-observer";
+import {
+  inferenceaiHeroDesc,
+  inferenceaiHeroHeading
+} from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
+
 import Footer from "../components/footer";
 import Hero from "../components/hero";
 import Nav from "../components/nav";
@@ -19,7 +24,10 @@ export default async function InferenceAILangLayout({
     <>
       <ScrollObserver />
       <Nav lang={lang} />
-      <Hero lang={lang} />
+      <Hero
+        heading={inferenceaiHeroHeading(lang)}
+        subheading={inferenceaiHeroDesc(lang)}
+      />
       {children}
       <Footer lang={lang} />
     </>

@@ -19,10 +19,8 @@ import IconOnlyLogo from "@/public/images/hyperjump-icon-only.png";
 import SVGLogo from "@/public/images/hyperjump-svg.svg";
 import ColoredLogo from "@/public/images/hyperjump-colored.png";
 import LogoWithContextMenu from "./logo-with-context-menu";
-import { Button } from "@/components/ui/button";
 import { SupportedLanguage } from "@/locales/.generated/types";
 import { mainNav } from "../(main)/[lang]/data";
-import { mainCtaLabel } from "@/locales/.generated/server";
 
 type NavProps = {
   className?: string;
@@ -79,25 +77,7 @@ export default function Nav({
           </CenterNavItems>
 
           <RightNavItems>
-            <Button
-              asChild
-              variant={isTransparent ? "outline" : "default"}
-              className={cn(
-                isTransparent
-                  ? "group-data-[scroll=true]:bg-hyperjump-blue hover:group-data-[scroll=true]:bg-hyperjump-blue/90 group-data-[scroll=false]:bg-transparent hover:group-data-[scroll=false]:bg-white hover:group-data-[scroll=true]:text-white"
-                  : "bg-hyperjump-blue hover:bg-hyperjump-blue/90"
-              )}
-              onClick={() => {
-                sendGAEvent({
-                  event: gaEventName,
-                  category: "engagement",
-                  label: "Navigation CTA"
-                });
-              }}>
-              <Link href={link} target="_blank" rel="noreferrer noopener">
-                {mainCtaLabel(lang)}
-              </Link>
-            </Button>
+            <div className="w-28" />
           </RightNavItems>
 
           {/* Mobile Toggle */}
@@ -150,18 +130,6 @@ export default function Nav({
                 {item.label}
               </Link>
             ))}
-            <Link
-              href={link}
-              className="border-hyperjump-black text-hyperjump-black mt-2 rounded border py-3 text-center text-base transition hover:border-gray-400 hover:text-gray-400"
-              onClick={() => {
-                sendGAEvent({
-                  event: gaEventName,
-                  category: "engagement",
-                  label: "Navigation CTA"
-                });
-              }}>
-              {mainCtaLabel(lang)}
-            </Link>
           </div>
         </div>
       )}

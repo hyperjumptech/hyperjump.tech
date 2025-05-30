@@ -12,15 +12,10 @@
   "how_it_works": "How It Works",
   "what_you_get": "What You Get",
   "why_hyperjump": "Why Hyperjump?",
-  "cta": {
-    "heading": "Not sure where to start?",
-    "desc": "Let's talk about your tech goals and point you in the right direction.",
-    "label": "Talk to us"
-  },
   "ctoaas": {
     "title": "CTO-as-a-Service",
     "text": "Build like the best, without hiring a CTO.",
-    "desc": "Best for: Non-technical founders, growth-stage startups",
+    "desc": ["Non-technical founders", "growth-stage startups"],
     "items": {
       "0": "Technical Leadership",
       "1": "Team Structure & Process",
@@ -30,7 +25,7 @@
   "saas": {
     "title": "Software-as-a-Service",
     "text": "You own the product. We build the engine.",
-    "desc": "Best for: Startups & scale-ups",
+    "desc": ["Startups & scale-ups"],
     "items": {
       "0": "MVP to Scale",
       "1": "Monthly Dev Squad",
@@ -40,7 +35,7 @@
   "tech_due_diligence": {
     "title": "Tech Due Diligence",
     "text": "Identify risks. Unlock opportunities.",
-    "desc": "Best for: Investors, CTOs, PE/VC firms",
+    "desc": ["Investors", "CTOs", "PE/VC firms"],
     "items": {
       "0": "Architecture & Code Audit",
       "1": "KPI Benchmarking",
@@ -50,7 +45,7 @@
   "erp": {
     "title": "ERP Implementation",
     "text": "Streamline operations. Enable scale.",
-    "desc": "Best for: Ops teams, SMEs, vertical industries",
+    "desc": ["Ops teams", "SMEs", "vertical industries"],
     "items": {
       "0": "Odoo & ERPNext Setup",
       "1": "Custom Modules & Integration",

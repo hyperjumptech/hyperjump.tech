@@ -12,15 +12,10 @@
   "how_it_works": "Bagaimana Cara Kerjanya",
   "what_you_get": "Apa yang Anda Dapatkan",
   "why_hyperjump": "Kenapa Hyperjump?",
-  "cta": {
-    "heading": "Tidak yakin harus mulai dari mana?",
-    "desc": "Mari diskusikan kebutuhan teknologi Anda, dan kami akan bantu arahkan langkah selanjutnya.",
-    "label": "Hubungi Kami"
-  },
   "ctoaas": {
     "title": "CTO-as-a-Service",
     "text": "Bangun produk layaknya perusahaan terbaik, tanpa perlu merekrut CTO.",
-    "desc": "Cocok untuk: Founder non-teknis, startup tahap pertumbuhan",
+    "desc": ["Founder non-teknis", "startup tahap pertumbuhan"],
     "items": {
       "0": "Kepemimpinan Teknis",
       "1": "Struktur & Proses Tim",
@@ -30,7 +25,7 @@
   "saas": {
     "title": "Software-as-a-Service",
     "text": "Produk milik Anda. Kami yang membangun mesinnya.",
-    "desc": "Cocok untuk: Startup & perusahaan tahap ekspansi",
+    "desc": ["Startup & perusahaan tahap ekspansi"],
     "items": {
       "0": "Dari MVP hingga Skalabilitas",
       "1": "Tim Pengembang Bulanan",
@@ -40,7 +35,7 @@
   "tech_due_diligence": {
     "title": "Tech Due Diligence",
     "text": "Identifikasi risiko. Temukan peluang.",
-    "desc": "Cocok untuk: Investor, CTO, dan perusahaan modal ventura",
+    "desc": ["Investor", "CTO", "perusahaan modal ventura"],
     "items": {
       "0": "Audit Arsitektur & Kode",
       "1": "Benchmark KPI",
@@ -50,7 +45,7 @@
   "erp": {
     "title": "Implementasi ERP",
     "text": "Tingkatkan efisiensi operasional. Siap untuk skala besar.",
-    "desc": "Cocok untuk: Tim operasional, UKM, dan industri vertikal",
+    "desc": ["Tim operasional", "UMKM", "industri vertikal"],
     "items": {
       "0": "Implementasi Odoo & ERPNext",
       "1": "Modul Kustom & Integrasi",

@@ -1,17 +1,9 @@
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   mainNavItems0Label,
   mainNavItems1Label,
   mainNavItems2Label,
   mainNavItems3Label,
-  mainServices0Title,
-  mainServices1Title,
-  mainServices2Title,
-  mainServices3Title,
-  mainServices0Text,
-  mainServices1Text,
-  mainServices2Text,
-  mainServices3Text,
   mainCaseStudies0Title,
   mainCaseStudies1Title,
   mainCaseStudies0Text,
@@ -41,37 +33,6 @@ export const mainNav = (lang: SupportedLanguage) => {
     { label: mainNavItems2Label(lang), href: "/#open-source" },
     { label: mainNavItems3Label(lang), href: "/#faqs" }
   ];
-  return data;
-};
-
-export const getServices = (lang: SupportedLanguage) => {
-  const data = [
-    {
-      title: mainServices0Title(lang),
-      description: mainServices0Text(lang),
-      icon: "/images/services/cto-as-a-service.svg",
-      url: "/services/cto-as-a-service"
-    },
-    {
-      title: mainServices1Title(lang),
-      description: mainServices1Text(lang),
-      icon: "/images/services/software-as-a-service.svg",
-      url: "/services/software-as-a-service"
-    },
-    {
-      title: mainServices2Title(lang),
-      description: mainServices2Text(lang),
-      icon: "/images/services/tech-due-diligence.svg",
-      url: "/services/tech-due-diligence"
-    },
-    {
-      title: mainServices3Title(lang),
-      description: mainServices3Text(lang),
-      icon: "/images/services/erp-implementation.svg",
-      url: "/services/erp-implementation"
-    }
-  ];
-
   return data;
 };
 

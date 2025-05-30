@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Organization, WebPage, WithContext } from "schema-dts";
 
+import { services } from "@/app/data/service";
 import {
   Accordion,
   AccordionContent,
@@ -28,11 +29,11 @@ import {
   mainViewMore,
   mainHeroDesc
 } from "@/locales/.generated/server";
-import { getServices, getCaseStudies, getProject, getFaqs } from "./data";
 import { Location } from "./location";
 import { Button } from "@/components/ui/button";
 
 import { data as pageData } from "../data";
+import { getCaseStudies, getProject, getFaqs } from "./data";
 
 const { github, socials, title, url } = data;
 
@@ -61,7 +62,12 @@ function Services({ lang }: HomeProps) {
         description={mainServicesDesc(lang)}
       />
       <GridItems
-        items={getServices(lang)}
+        items={services(lang).map(({ description, iconUrl, slug, title }) => ({
+          title,
+          description,
+          icon: iconUrl,
+          url: `/services/${slug}`
+        }))}
         columns={{ base: 1, sm: 2, lg: 4 }}
         cardClassName="rounded"
         lang={lang}

@@ -5,7 +5,6 @@ import {
 } from "@/locales/.generated/server";
 import { getCaseStudies } from "../components/data";
 import { CaseStudyButton } from "../components/button";
-import { CTACaseStudies } from "../components/cta-case-studies";
 
 export const generateStaticParams = async () => {
   return [{ lang: "en" }, { lang: "id" }];
@@ -26,7 +25,6 @@ function Home({ lang }: { lang: SupportedLanguage }) {
         {caseStudyExplore(lang)}
       </h3>
       <CaseStudies lang={lang} />
-      <CTACaseStudies lang={lang} />
     </main>
   );
 }

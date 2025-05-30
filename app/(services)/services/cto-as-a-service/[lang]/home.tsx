@@ -5,8 +5,6 @@ import { type Service, serviceBySlug, ServiceSlug } from "@/app/data/service";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
-  ctoaasCtaHeading,
-  ctoaasCtaDesc,
   servicesWhoIsItFor,
   servicesWhatWeDeliver,
   servicesHowItWorks,
@@ -14,9 +12,9 @@ import {
   servicesWhyHyperjump
 } from "@/locales/.generated/server";
 
-import { ServicesCTA } from "../../components/services-cta";
+type HomeProps = { lang: SupportedLanguage };
 
-export default function Home({ lang }: { lang: SupportedLanguage }) {
+export default function Home({ lang }: HomeProps) {
   const service = serviceBySlug({ lang, slug: ServiceSlug.CtoAsAService });
 
   if (!service) {
@@ -31,7 +29,6 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
       <HowItWorks lang={lang} service={service} />
       <WhatYouGet lang={lang} service={service} />
       <WhyUs lang={lang} service={service} />
-      <CtoaasCTA lang={lang} />
     </>
   );
 }
@@ -44,7 +41,7 @@ type ServiceProps = {
   service: Service;
 };
 
-function About({ service }: ServiceProps) {
+export function About({ service }: ServiceProps) {
   const {
     content: { what },
     title
@@ -65,7 +62,7 @@ function About({ service }: ServiceProps) {
   );
 }
 
-function WhoIsIt({ lang, service }: LangProps & ServiceProps) {
+export function WhoIsIt({ lang, service }: LangProps & ServiceProps) {
   const {
     content: {
       who: { description, imageUrl, items }
@@ -118,7 +115,7 @@ function WhoIsIt({ lang, service }: LangProps & ServiceProps) {
   );
 }
 
-function WhatWeDeliver({ lang, service }: LangProps & ServiceProps) {
+export function WhatWeDeliver({ lang, service }: LangProps & ServiceProps) {
   const {
     content: {
       deliverables: { description, items }
@@ -159,7 +156,7 @@ function WhatWeDeliver({ lang, service }: LangProps & ServiceProps) {
   );
 }
 
-function HowItWorks({ lang, service }: LangProps & ServiceProps) {
+export function HowItWorks({ lang, service }: LangProps & ServiceProps) {
   const {
     content: {
       how: { description, items }
@@ -205,7 +202,7 @@ function HowItWorks({ lang, service }: LangProps & ServiceProps) {
   );
 }
 
-function WhatYouGet({ lang, service }: LangProps & ServiceProps) {
+export function WhatYouGet({ lang, service }: LangProps & ServiceProps) {
   const {
     content: {
       whatYouGet: { description, imageUrl, items }
@@ -236,7 +233,7 @@ function WhatYouGet({ lang, service }: LangProps & ServiceProps) {
                   src="/images/checklist.svg"
                   width="24"
                   height="24"
-                  alt="icon"
+                  alt="Checklist icon"
                 />
                 {item}
               </li>
@@ -248,10 +245,10 @@ function WhatYouGet({ lang, service }: LangProps & ServiceProps) {
   );
 }
 
-function WhyUs({ lang, service }: LangProps & ServiceProps) {
+export function WhyUs({ lang, service }: LangProps & ServiceProps) {
   const {
     content: {
-      why: { clients, description, imageUrl, items }
+      why: { backgroundImageUrl, clients, description, imageUrl, items }
     }
   } = service;
   return (
@@ -259,7 +256,7 @@ function WhyUs({ lang, service }: LangProps & ServiceProps) {
       <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-col items-center gap-6 md:flex-row">
         <div className="relative w-full xl:w-1/2">
           <Image
-            src="/images/services/ctoaas/why-us-bg.webp"
+            src={backgroundImageUrl}
             alt={servicesWhyHyperjump(lang)}
             className="h-auto w-full rounded-2xl"
             width={660}
@@ -307,19 +304,6 @@ function WhyUs({ lang, service }: LangProps & ServiceProps) {
           </div>
         </div>
       </div>
-    </section>
-  );
-}
-
-function CtoaasCTA({ lang }: { lang: SupportedLanguage }) {
-  return (
-    <section className="flex w-full flex-wrap items-center justify-center bg-white px-4 text-center md:px-20 xl:px-0">
-      <ServicesCTA
-        lang={lang}
-        heading={ctoaasCtaHeading(lang)}
-        desc={ctoaasCtaDesc(lang)}
-        className="xxl:max-w-7xl mx-auto w-full max-w-6xl"
-      />
     </section>
   );
 }

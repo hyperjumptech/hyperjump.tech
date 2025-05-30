@@ -2,7 +2,6 @@ import type { SupportedLanguage } from "@/locales/.generated/types";
 
 import { Content } from "../../erp-fisheries/[lang]/components/content";
 import { Recommendation } from "../../erp-fisheries/[lang]/components/recommendation";
-import { CTACaseStudies } from "../../components/cta-case-studies";
 import { getCaseStudies } from "../../components/data";
 
 type CaseStudyProps = {
@@ -26,9 +25,6 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
 
       <section className="mt-5 px-4 md:px-20">
         <Recommendation caseStudies={getCaseStudies(lang)} lang={lang} />
-      </section>
-      <section className="flex justify-center px-4 md:px-20">
-        <CTACaseStudies lang={lang} />
       </section>
     </>
   );

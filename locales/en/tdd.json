@@ -5,13 +5,11 @@
   },
 
   "what_is_tdd": {
-    "heading": "What is Tech Due Diligence?",
     "desc": "Tech Due Diligence is a structured evaluation of an organization's technology landscape. Designed to uncover hidden risks, assess readiness, and provide clarity for informed decisions.",
     "highlight": "Whether you're investing in a startup, preparing for a merger, or auditing internal capabilities, our TDD service delivers actionable insights to de-risk your tech journey."
   },
 
   "who_is_it": {
-    "heading": "Who is it for?",
     "desc": "For those who need clarity, confidence, and insights. Before scaling, investing, or making big tech moves.",
     "target": {
       "0": "<span class=\"font-bold\">Investors</span> evaluating the health and scalability of a product or platform",
@@ -22,7 +20,6 @@
   },
 
   "what_we_deliver": {
-    "heading": "What We Deliver",
     "desc": "From deep-dive audits to scalable systems, we deliver clarity, speed, and results. Tailored to your growth stage.",
     "card_0": {
       "title": "Software Delivery Performance",
@@ -57,7 +54,6 @@
   },
 
   "how_it_works": {
-    "heading": "How It Works",
     "desc": "Discover how we turn ideas into impact. Our process is built to be simple, transparent, and focused on results. Every step of the way.",
     "step": {
       "0": {
@@ -80,7 +76,6 @@
   },
 
   "what_you_get": {
-    "heading": "What You Get",
     "desc": "Everything you need to evaluate, improve, and scale. Delivered in a format that speaks to both business and technical decision-makers.",
     "items": {
       "0": "Executive summary for C-Level & investors",
@@ -91,18 +86,11 @@
   },
 
   "why_us": {
-    "heading": "Why Hyperjump?",
     "desc": "We bring deep technical expertise, cross-industry experience, and a hands-on approach to every audit. Our team doesn't just review code, we understand the people, processes, and pressure behind it.",
     "reasons": {
       "0": "We've audited engineering teams in <span class=\"font-bold\">tech startups, fintech, media, and public sector.</span>",
       "1": "We're engineers ourselves, we don't just point at problems, we solve them.",
       "2": "Trusted by clients like"
     }
-  },
-
-  "cta": {
-    "heading": "Ready to audit your tech?",
-    "desc": "Let's uncover your blind spots and turn them into strengths.",
-    "label": "Talk to us"
   }
 }

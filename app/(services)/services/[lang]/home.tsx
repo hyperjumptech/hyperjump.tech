@@ -1,40 +1,19 @@
-"use client";
+import Link from "next/link";
+import Image from "next/image";
 
-import { serviceBySlug, ServiceSlug } from "@/app/data/service";
+import { Clients } from "@/app/components/clients";
+import { serviceBySlug, services, ServiceSlug } from "@/app/data/service";
+import { Button } from "@/components/ui/button";
+import data from "@/data.json";
+import { cn } from "@/lib/utils";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   servicesHeading,
-  servicesSaasTitle,
-  servicesSaasText,
-  servicesSaasDesc,
-  servicesSaasItems0,
-  servicesSaasItems1,
-  servicesSaasItems2,
-  servicesTechDueDiligenceTitle,
-  servicesTechDueDiligenceText,
-  servicesTechDueDiligenceDesc,
-  servicesTechDueDiligenceItems0,
-  servicesTechDueDiligenceItems1,
-  servicesTechDueDiligenceItems2,
-  servicesErpTitle,
-  servicesErpText,
-  servicesErpDesc,
-  servicesErpItems0,
-  servicesErpItems1,
-  servicesErpItems2,
-  servicesCtaLabel,
-  servicesCtaHeading,
-  servicesCtaDesc,
   servicesPartnersHeading,
   servicesPartnersDesc,
-  servicesSeeMore
+  servicesSeeMore,
+  servicesBestFor
 } from "@/locales/.generated/server";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import Image from "next/image";
-import { sendGAEvent } from "@next/third-parties/google";
-import { Clients } from "@/app/components/clients";
-import data from "@/data.json";
 
 export default function Home({ lang }: { lang: SupportedLanguage }) {
   return (
@@ -43,20 +22,36 @@ export default function Home({ lang }: { lang: SupportedLanguage }) {
         {servicesHeading(lang)}
       </h3>
       <section className="space-y-16">
-        <Service lang={lang} slug={ServiceSlug.CtoAsAService} />
-        <SoftwareAsAService lang={lang} />
-        <TechDueDilligence lang={lang} />
-        <ErpImplementation lang={lang} />
-        <Partners lang={lang} />
-        <CTAServices lang={lang} />
+        {services(lang).map(({ slug }, index) => (
+          <Service
+            key={slug}
+            lang={lang}
+            slug={slug}
+            isReverseImagePosition={index % 2 !== 0}
+          />
+        ))}
+      </section>
+
+      <section className="relative w-full pt-16">
+        <h3 className="text-hyperjump-black mb-4 text-[28px] font-medium md:text-4xl">
+          {servicesPartnersHeading(lang)}
+        </h3>
+        <p className="text-hyperjump-gray mx-auto mb-8 w-full max-w-3xl text-center text-base md:text-lg">
+          {servicesPartnersDesc(lang)}
+        </p>
+        <Clients clients={data.clients} />
       </section>
     </main>
   );
 }
 
-type ServiceProps = { lang: SupportedLanguage; slug: ServiceSlug };
+type ServiceProps = {
+  lang: SupportedLanguage;
+  slug: ServiceSlug;
+  isReverseImagePosition?: boolean;
+};
 
-function Service({ lang, slug }: ServiceProps) {
+function Service({ lang, isReverseImagePosition = false, slug }: ServiceProps) {
   const service = serviceBySlug({ lang, slug });
 
   if (!service) {
@@ -67,7 +62,11 @@ function Service({ lang, slug }: ServiceProps) {
     service;
 
   return (
-    <div className="flex flex-col items-center gap-6 border-b border-gray-200 pb-7 md:flex-row md:pb-14">
+    <div
+      className={cn(
+        "flex flex-col items-center gap-6 border-b border-gray-200 pb-7 md:flex-row md:pb-14",
+        isReverseImagePosition && "md:flex-row-reverse"
+      )}>
       <div className="relative w-full xl:w-1/2">
         <Image
           src={imageUrl}
@@ -93,7 +92,10 @@ function Service({ lang, slug }: ServiceProps) {
             {title}
           </h3>
           <p className="mb-4 text-lg text-gray-700">{shortDescription}</p>
-          <p className="mb-6 text-lg text-gray-700 underline">{bestFor}</p>
+          <p className="mb-6 text-lg text-gray-700">
+            {servicesBestFor(lang)}:{" "}
+            <span className="underline">{bestFor.join(", ")}</span>
+          </p>
         </div>
 
         <ul className="list-none space-y-4 text-left text-base text-gray-700 md:text-lg [&_b]:mt-4 [&_b]:block">
@@ -115,261 +117,10 @@ function Service({ lang, slug }: ServiceProps) {
             asChild
             size="lg"
             className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-full text-base font-semibold text-white md:w-44">
-            <Link href="/services/cto-as-a-service">
-              {servicesSeeMore(lang)}
-            </Link>
+            <Link href={`/services/${slug}`}>{servicesSeeMore(lang)}</Link>
           </Button>
         </div>
       </div>
     </div>
-  );
-}
-
-function SoftwareAsAService({ lang }: { lang: SupportedLanguage }) {
-  return (
-    <section className="flex flex-col items-center gap-6 border-b border-gray-200 pb-7 md:flex-row-reverse md:pb-14">
-      <div className="relative w-full xl:w-1/2">
-        <Image
-          src="/images/services/saas.webp"
-          alt={servicesSaasTitle(lang)}
-          className="h-auto w-full rounded-2xl"
-          width={660}
-          height={400}
-        />
-        <div className="absolute top-3 left-0 rounded-md">
-          <Image
-            className="h-20 w-20"
-            src="/images/services/saas-icon.svg"
-            alt={`${servicesSaasTitle(lang)} icon`}
-            width={80}
-            height={80}
-          />
-        </div>
-      </div>
-      <div className="w-full xl:w-1/2">
-        <div className="text-left">
-          <h3 className="text-hyperjump-black mb-4 text-[28px] font-medium md:text-4xl">
-            {servicesSaasTitle(lang)}
-          </h3>
-          <p className="mb-4 text-lg text-gray-700">{servicesSaasText(lang)}</p>
-          <p className="mb-6 text-lg text-gray-700 underline">
-            {servicesSaasDesc(lang)}
-          </p>
-        </div>
-        <ul
-          className="list-none space-y-4 text-left text-base text-gray-700 md:text-lg [&_b]:mt-4 [&_b]:block"
-          dangerouslySetInnerHTML={{
-            __html: [
-              servicesSaasItems0(lang),
-              servicesSaasItems1(lang),
-              servicesSaasItems2(lang)
-            ]
-              .map(
-                (point) =>
-                  `<li class="flex items-center gap-2"><img src="/images/checklist.svg" width="24" height="24" alt="icon" /><div>${point}</div></li>`
-              )
-              .join("")
-          }}
-        />
-        <div className="mt-8 md:text-left">
-          <Button
-            asChild
-            size="lg"
-            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-full text-base font-semibold text-white md:w-44">
-            <Link href="/services/software-as-a-service">
-              {servicesSeeMore(lang)}
-            </Link>
-          </Button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function TechDueDilligence({ lang }: { lang: SupportedLanguage }) {
-  return (
-    <section className="flex flex-col items-center gap-6 border-b border-gray-200 pb-7 md:flex-row md:pb-14">
-      <div className="relative w-full xl:w-1/2">
-        <Image
-          src="/images/services/tech-due-diligence.webp"
-          alt={servicesTechDueDiligenceTitle(lang)}
-          className="h-auto w-full rounded-2xl"
-          width={660}
-          height={400}
-        />
-        <div className="absolute right-1 -bottom-1 rounded-md">
-          <Image
-            className="h-20 w-20"
-            src="/images/services/tech-due-diligence-icon.svg"
-            alt={`${servicesTechDueDiligenceTitle(lang)} icon`}
-            width={80}
-            height={80}
-          />
-        </div>
-      </div>
-
-      <div className="w-full xl:w-1/2">
-        <div className="text-left">
-          <h3 className="text-hyperjump-black mb-4 text-[28px] font-medium md:text-4xl">
-            {servicesTechDueDiligenceTitle(lang)}
-          </h3>
-          <p className="mb-4 text-lg text-gray-700">
-            {servicesTechDueDiligenceText(lang)}
-          </p>
-          <p className="mb-6 text-lg text-gray-700 underline">
-            {servicesTechDueDiligenceDesc(lang)}
-          </p>
-        </div>
-
-        <ul
-          className="list-none space-y-4 text-left text-base text-gray-700 md:text-lg [&_b]:mt-4 [&_b]:block"
-          dangerouslySetInnerHTML={{
-            __html: [
-              servicesTechDueDiligenceItems0(lang),
-              servicesTechDueDiligenceItems1(lang),
-              servicesTechDueDiligenceItems2(lang)
-            ]
-              .map(
-                (point) =>
-                  `<li class="flex items-center gap-2"><img src="/images/checklist.svg" width="24" height="24" alt="icon" /><div>${point}</div></li>`
-              )
-              .join("")
-          }}
-        />
-
-        <div className="mt-8 md:text-left">
-          <Button
-            asChild
-            size="lg"
-            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-full text-base font-semibold text-white md:w-44">
-            <Link href="/services/tech-due-diligence">
-              {servicesSeeMore(lang)}
-            </Link>
-          </Button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ErpImplementation({ lang }: { lang: SupportedLanguage }) {
-  return (
-    <section className="flex flex-col items-center gap-6 border-b border-gray-200 pb-7 md:flex-row-reverse md:pb-14">
-      <div className="relative w-full xl:w-1/2">
-        <Image
-          src="/images/services/erp.webp"
-          alt={servicesErpTitle(lang)}
-          className="h-auto w-full rounded-2xl"
-          width={660}
-          height={400}
-        />
-        <div className="absolute right-1 -bottom-1 rounded-md">
-          <Image
-            className="h-20 w-20"
-            src="/images/services/erp-icon.svg"
-            alt={`${servicesErpTitle(lang)} icon`}
-            width={80}
-            height={80}
-          />
-        </div>
-      </div>
-      <div className="w-full xl:w-1/2">
-        <div className="text-left">
-          <h3 className="text-hyperjump-black mb-4 text-[28px] font-medium md:text-4xl">
-            {servicesErpTitle(lang)}
-          </h3>
-          <p className="mb-4 text-lg text-gray-700">{servicesErpText(lang)}</p>
-          <p className="mb-6 text-lg text-gray-700 underline">
-            {servicesErpDesc(lang)}
-          </p>
-        </div>
-        <ul
-          className="list-none space-y-4 text-left text-base text-gray-700 md:text-lg [&_b]:mt-4 [&_b]:block"
-          dangerouslySetInnerHTML={{
-            __html: [
-              servicesErpItems0(lang),
-              servicesErpItems1(lang),
-              servicesErpItems2(lang)
-            ]
-              .map(
-                (point) =>
-                  `<li class="flex items-center gap-2"><img src="/images/checklist.svg" width="24" height="24" alt="icon" /><div>${point}</div></li>`
-              )
-              .join("")
-          }}
-        />
-        <div className="mt-8 md:text-left">
-          <Button
-            asChild
-            size="lg"
-            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-full text-base font-semibold text-white md:w-44">
-            <Link href="/services/erp-implementation">
-              {servicesSeeMore(lang)}
-            </Link>
-          </Button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Partners({ lang }: { lang: SupportedLanguage }) {
-  return (
-    <section className="relative w-full">
-      <h3 className="text-hyperjump-black mb-4 text-[28px] font-medium md:text-4xl">
-        {servicesPartnersHeading(lang)}
-      </h3>
-      <p className="text-hyperjump-gray mx-auto mb-8 w-full max-w-3xl text-center text-base md:text-lg">
-        {servicesPartnersDesc(lang)}
-      </p>
-      <Clients clients={data.clients} />
-    </section>
-  );
-}
-
-function CTAServices({ lang }: { lang: SupportedLanguage }) {
-  const { gaEventName, link } = data.cta;
-
-  return (
-    <section className="relative w-full max-w-7xl overflow-hidden rounded-lg">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/swatch.svg"
-          alt="CTA Background"
-          width={1440}
-          height={308}
-          className="pointer-events-none h-full object-cover select-none"
-          style={{
-            background:
-              "linear-gradient(134.7deg, #5954DA 3.43%, #0B0B0D 48.93%)"
-          }}
-        />
-      </div>
-      <div className="relative flex flex-col items-center justify-center px-6 py-11 text-center">
-        <h4 className="mb-3 text-3xl font-medium text-white md:text-4xl">
-          {servicesCtaHeading(lang)}
-        </h4>
-        <p className="mb-8 text-lg text-white">{servicesCtaDesc(lang)}</p>
-
-        <Button
-          asChild
-          size="lg"
-          className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 text-base font-semibold text-white">
-          <Link
-            onClick={() => {
-              sendGAEvent({
-                event: gaEventName,
-                category: "engagement",
-                label: "Services CTA"
-              });
-            }}
-            href={link}
-            target="_blank"
-            rel="noreferrer noopener">
-            {servicesCtaLabel(lang)}
-          </Link>
-        </Button>
-      </div>
-    </section>
   );
 }

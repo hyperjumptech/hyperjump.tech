@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Organization, WebPage, WithContext } from "schema-dts";
 
@@ -8,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import GridItemsContainer, {
   GridItems,
@@ -15,8 +17,7 @@ import GridItemsContainer, {
   GridItemsTitle
 } from "@/app/components/grid-items";
 import data from "@/data.json";
-import { CaseStudiesCTA } from "../components/case-studies-cta";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   mainServicesHeading,
   mainServicesDesc,
@@ -27,13 +28,15 @@ import {
   mainFaqHeading,
   mainFaqDesc,
   mainViewMore,
-  mainHeroDesc
+  mainHeroDesc,
+  mainCaseStudiesCtaHeading,
+  mainCaseStudiesCtaDesc,
+  mainCaseStudiesCtaExploreOurCaseStudies
 } from "@/locales/.generated/server";
-import { Location } from "./location";
-import { Button } from "@/components/ui/button";
 
 import { data as pageData } from "../data";
 import { getCaseStudies, getProject, getFaqs } from "./data";
+import { Location } from "./location";
 
 const { github, socials, title, url } = data;
 
@@ -98,7 +101,35 @@ function CaseStudies({ lang }: HomeProps) {
         cardClassName="rounded"
         lang={lang}
       />
-      <CaseStudiesCTA lang={lang} />
+      <div className="relative mt-10 w-full max-w-5xl overflow-hidden rounded">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/swatch.svg"
+            alt="Footer background"
+            width={1440}
+            height={308}
+            className="pointer-events-none h-full object-cover select-none"
+            style={{
+              background:
+                "linear-gradient(134.7deg, #5954DA 3.43%, #0B0B0D 48.93%)"
+            }}
+          />
+        </div>
+        <div className="relative flex flex-col items-center justify-center px-6 py-11 text-center">
+          <h3 className="text-3xl font-medium">
+            {mainCaseStudiesCtaHeading(lang)}
+          </h3>
+          <p className="mt-3 max-w-xl">{mainCaseStudiesCtaDesc(lang)}</p>
+          <Button
+            asChild
+            variant="outline"
+            className="mt-8 bg-transparent font-semibold text-white hover:bg-white">
+            <Link href="/case-studies">
+              {mainCaseStudiesCtaExploreOurCaseStudies(lang)}
+            </Link>
+          </Button>
+        </div>
+      </div>
     </GridItemsContainer>
   );
 }

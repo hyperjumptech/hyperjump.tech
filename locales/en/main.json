@@ -58,8 +58,8 @@
     "0_title": "Monika",
     "0_text": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.",
 
-    "1_title": "Firebase Cronjob",
-    "1_text": "The Scheduled functions feature runs autoIncrementJobCounter automatically every minute, incrementing jobConfigCounter in the Firestore database.",
+    "1_title": "Grule",
+    "1_text": "Grule is a powerful open-source rule engine for Go that lets you define business rules in a human-readable format—making your app more flexible and maintainable.",
 
     "2_title": "WhatsApp Chatbot Connector",
     "2_text": "WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa."

@@ -49,10 +49,10 @@ export const getProject = (lang: SupportedLanguage) => {
     {
       title: mainProject1Title(lang),
       description: mainProject1Text(lang),
-      image: "/images/open-source/firebase-cronjob.svg",
-      url: "https://github.com/hyperjumptech/firebase-cronjob",
+      image: "/images/open-source/grule.svg",
+      url: "https://github.com/hyperjumptech/grule-rule-engine",
       button: true,
-      repo: "firebase-cronjob"
+      repo: "grule-rule-engine"
     },
     {
       title: mainProject2Title(lang),

@@ -58,9 +58,8 @@
     "0_title": "Monika",
     "0_text": "Monika adalah aplikasi baris perintah untuk memantau berbagai komponen aplikasi web Anda menggunakan konfigurasi sederhana berbasis JSON. Dapatkan notifikasi tidak hanya saat situs Anda down, tetapi juga ketika performanya melambat.",
 
-    "1_title": "Firebase Cronjob",
-    "1_text": "Fitur Scheduled Functions menjalankan autoIncrementJobCounter secara otomatis setiap menit, yang akan menambahkan jobConfigCounter dalam database Firestore.",
-
+    "1_title": "Grule",
+    "1_text": "Grule adalah mesin aturan (rule engine) open-source yang kuat untuk Go, yang memungkinkan Anda mendefinisikan aturan bisnis dalam format yang mudah dibaca manusia—membuat aplikasi Anda lebih fleksibel dan mudah dipelihara.",
     "2_title": "Konektor Chatbot WhatsApp",
     "2_text": "Backend Konektor Chatbot WhatsApp dibangun menggunakan Express.js. Dirancang untuk terintegrasi dengan WhatsApp Business API dan mendukung berbagai platform AI seperti Dify dan Rasa."
   },

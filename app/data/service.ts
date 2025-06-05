@@ -204,7 +204,13 @@ import {
   tddWhyUsDesc,
   tddWhyUsReasons0,
   tddWhyUsReasons1,
-  tddWhyUsReasons2
+  tddWhyUsReasons2,
+  caseStudyErpFisheriesTitle,
+  caseStudyErpFisheriesDesc,
+  caseStudyErpFisheriesCategory,
+  caseStudyCtoaasMediaTitle,
+  caseStudyCtoaasMediaDesc,
+  caseStudyCtoaasMediaCategory
 } from "@/locales/.generated/server";
 
 type ListWithIcon = {
@@ -255,6 +261,13 @@ export type Service = {
   shortDescription: string;
   slug: ServiceSlug;
   title: string;
+};
+
+type CaseStudy = {
+  title: string;
+  description: string;
+  category: string;
+  url: string;
 };
 
 export function services(lang: SupportedLanguage): Service[] {
@@ -771,3 +784,18 @@ type ServiceBySlugParameters = {
 export function serviceBySlug({ lang, slug }: ServiceBySlugParameters) {
   return services(lang).find((service) => service.slug === slug);
 }
+
+export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => [
+  {
+    title: caseStudyErpFisheriesTitle(lang),
+    description: caseStudyErpFisheriesDesc(lang),
+    category: caseStudyErpFisheriesCategory(lang),
+    url: "/case-studies/erp-fisheries"
+  },
+  {
+    title: caseStudyCtoaasMediaTitle(lang),
+    description: caseStudyCtoaasMediaDesc(lang),
+    category: caseStudyCtoaasMediaCategory(lang),
+    url: "/case-studies/ctoaas-media"
+  }
+];

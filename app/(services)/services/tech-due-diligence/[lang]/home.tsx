@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { serviceBySlug, ServiceSlug } from "@/app/data/service";
+import { getCaseStudies, serviceBySlug, ServiceSlug } from "@/app/data/service";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   About,
@@ -11,12 +11,16 @@ import {
   WhyUs
 } from "../../cto-as-a-service/[lang]/home";
 import { Recommendation } from "../../components/case-studies-recommendation";
-import { getCaseStudies } from "../../[lang]/data";
 
 type HomeProps = { lang: SupportedLanguage };
 
 export default function Home({ lang }: HomeProps) {
   const service = serviceBySlug({ lang, slug: ServiceSlug.TechDueDiligence });
+  const filteredCaseStudies = getCaseStudies(lang).filter(
+    (i) =>
+      i.category.trim().toLowerCase() ===
+      "Tech Due Diligence".trim().toLowerCase()
+  );
 
   if (!service) {
     notFound();
@@ -30,7 +34,7 @@ export default function Home({ lang }: HomeProps) {
       <HowItWorks lang={lang} service={service} />
       <WhatYouGet lang={lang} service={service} />
       <WhyUs lang={lang} service={service} />
-      <Recommendation caseStudies={getCaseStudies(lang)} lang={lang} />
+      <Recommendation caseStudies={filteredCaseStudies} lang={lang} />
     </>
   );
 }

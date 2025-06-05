@@ -1,6 +1,8 @@
 import {
+  caseStudyCtoaasMediaCategory,
   caseStudyCtoaasMediaDesc,
   caseStudyCtoaasMediaTitle,
+  caseStudyErpFisheriesCategory,
   caseStudyErpFisheriesDesc,
   caseStudyErpFisheriesTitle,
   caseStudyHeroDesc,
@@ -26,11 +28,13 @@ export const getCaseStudies = (lang: SupportedLanguage) => {
     {
       title: caseStudyErpFisheriesTitle(lang),
       description: caseStudyErpFisheriesDesc(lang),
+      category: caseStudyErpFisheriesCategory(lang),
       url: "/case-studies/erp-fisheries"
     },
     {
       title: caseStudyCtoaasMediaTitle(lang),
       description: caseStudyCtoaasMediaDesc(lang),
+      category: caseStudyCtoaasMediaCategory(lang),
       url: "/case-studies/ctoaas-media"
     }
   ];

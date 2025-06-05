@@ -1,7 +1,12 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-import { type Service, serviceBySlug, ServiceSlug } from "@/app/data/service";
+import {
+  getCaseStudies,
+  type Service,
+  serviceBySlug,
+  ServiceSlug
+} from "@/app/data/service";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
@@ -12,12 +17,16 @@ import {
   servicesWhyHyperjump
 } from "@/locales/.generated/server";
 import { Recommendation } from "../../components/case-studies-recommendation";
-import { getCaseStudies } from "../../[lang]/data";
 
 type HomeProps = { lang: SupportedLanguage };
 
 export default function Home({ lang }: HomeProps) {
   const service = serviceBySlug({ lang, slug: ServiceSlug.CtoAsAService });
+  const filteredCaseStudies = getCaseStudies(lang).filter(
+    (i) =>
+      i.category.trim().toLowerCase() ===
+      "CTO as a Service".trim().toLowerCase()
+  );
 
   if (!service) {
     notFound();
@@ -31,7 +40,7 @@ export default function Home({ lang }: HomeProps) {
       <HowItWorks lang={lang} service={service} />
       <WhatYouGet lang={lang} service={service} />
       <WhyUs lang={lang} service={service} />
-      <Recommendation caseStudies={getCaseStudies(lang)} lang={lang} />
+      <Recommendation caseStudies={filteredCaseStudies} lang={lang} />
     </>
   );
 }

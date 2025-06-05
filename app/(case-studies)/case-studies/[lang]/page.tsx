@@ -1,8 +1,5 @@
 import type { SupportedLanguage } from "@/locales/.generated/types";
-import {
-  caseStudyExplore,
-  caseStudyCategory
-} from "@/locales/.generated/server";
+import { caseStudyExplore } from "@/locales/.generated/server";
 import { getCaseStudies } from "../components/data";
 import { CaseStudyButton } from "../components/button";
 
@@ -40,7 +37,7 @@ function CaseStudies({ lang }: { lang: SupportedLanguage }) {
               className="flex h-full flex-col justify-between rounded-xl border border-gray-200 p-6 text-left shadow-sm transition duration-300 hover:shadow-md">
               <div>
                 <span className="mb-4 inline-block rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-800">
-                  {caseStudyCategory(lang)}
+                  {study.category}
                 </span>
                 <h3 className="text-hyperjump-black mb-2 text-lg font-semibold md:text-[22px]">
                   {study.title}

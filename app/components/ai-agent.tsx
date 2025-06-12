@@ -11,6 +11,7 @@ import { LoaderCircle, MinusIcon, SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import useMedia from "@/hooks/use-media";
+import { usePathname } from "next/navigation";
 
 const DEFAULT_MESSAGES = [
   { id: 1, text: "What services does Hyperjump offer?" },
@@ -19,10 +20,12 @@ const DEFAULT_MESSAGES = [
 ];
 
 export default function AIAgent() {
-  const isDesktop = useMedia("(min-width: 992px)");
+  const isDesktop = useMedia("(min-width: 992px)", true);
+  const pathname = usePathname();
   const [text, setText] = useState<string>("");
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
   const [isChatOpen, setIsChatOpen] = useState<boolean>(true);
+  const [isChatAccessible, setIsChatAccessible] = useState<boolean>(true);
 
   // Refs to store DOM elements
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -60,7 +63,7 @@ export default function AIAgent() {
 
   // Effect to create the chat widget
   useEffect(() => {
-    if (config.AI_AGENT_URL) {
+    if (config.AI_AGENT_URL && pathname.startsWith("/inferenceai")) {
       const chat = createChat({
         webhookUrl: config.AI_AGENT_URL,
         initialMessages: [
@@ -81,6 +84,10 @@ export default function AIAgent() {
           }
         }
       });
+      chat.config.errorHandler = () => {
+        setIsChatAccessible(false);
+      };
+
       initializeChatElements();
 
       // Create chat controls
@@ -183,7 +190,7 @@ export default function AIAgent() {
         chat.unmount();
       };
     }
-  }, [isDesktop]);
+  }, [isDesktop, pathname]);
 
   // Effect to handle mobile FAB
   useEffect(() => {
@@ -240,7 +247,12 @@ export default function AIAgent() {
 
   if (config.AI_AGENT_URL) {
     return (
-      <>
+      <div
+        className={cn(
+          isChatAccessible && !pathname.startsWith("/inferenceai")
+            ? ""
+            : "hidden"
+        )}>
         <div
           className={cn(
             "animate-fade-in-up fixed bottom-0 z-50 mb-8 hidden w-full items-center px-4 transition-all",
@@ -344,7 +356,7 @@ export default function AIAgent() {
           )}>
           <div className="flex items-center justify-center">Ask HyperBot</div>
         </Button>
-      </>
+      </div>
     );
   }
 

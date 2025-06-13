@@ -63,7 +63,7 @@ export default function AIAgent() {
 
   // Effect to create the chat widget
   useEffect(() => {
-    if (config.AI_AGENT_URL && pathname.startsWith("/inferenceai")) {
+    if (config.AI_AGENT_URL && !pathname.startsWith("/inferenceai")) {
       const chat = createChat({
         webhookUrl: config.AI_AGENT_URL,
         initialMessages: [

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import InferenceAIAgent from "./inference-ai-agent";
 
 type HeroProps = {
   heading: string;
@@ -28,7 +29,7 @@ export default function Hero({ heading, subheading }: HeroProps) {
 
       {/* Overlay */}
       <div className="absolute inset-0 z-10 bg-linear-to-t from-black/70 to-transparent" />
-      <article className="relative z-20 mt-16 flex items-center justify-center px-4 md:mt-28 md:px-20">
+      <article className="relative z-20 mt-16 flex flex-col items-center justify-center px-4 md:mt-28 md:px-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,6 +46,13 @@ export default function Hero({ heading, subheading }: HeroProps) {
             className="my-6 text-center text-base font-medium text-[#AFB0C3] md:my-10 md:max-w-3xl md:text-[22px]">
             {subheading}
           </motion.p>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
+          className="mx-auto flex w-full flex-col items-center justify-center md:max-w-4xl">
+          <InferenceAIAgent />
         </motion.div>
       </article>
 

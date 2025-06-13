@@ -5,10 +5,6 @@ import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import rehypeStringify from "rehype-stringify";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import { unified } from "unified";
 
 // Types
 type TMessageResponse = {
@@ -33,8 +29,12 @@ const DEFAULT_MESSAGES = [
 const fetchPreviousMessages = async (
   sessionId: string
 ): Promise<TMessageResponse> => {
-  const url = String(process.env.NEXT_PUBLIC_INFERENCE_AI_GET_CHATS_WEBHOOK);
-  const response = await fetch(`${url}/${sessionId}`);
+  const url = new URL(
+    `${String(process.env.NEXT_PUBLIC_INFERENCEAI_GET_CHATS_WEBHOOK)}/${sessionId}`
+  );
+  url.searchParams.set("outputType", "html");
+
+  const response = await fetch(url);
   if (!response.ok) {
     return {
       messages: [],
@@ -51,7 +51,7 @@ const fetchAsk = async (payload: {
   sessionId: string;
 }): Promise<{ output: string }> => {
   const { chatInput, sessionId } = payload;
-  const url = String(process.env.NEXT_PUBLIC_INFERENCE_AI_POST_CHATS_WEBHOOK);
+  const url = String(process.env.NEXT_PUBLIC_INFERENCEAI_POST_CHATS_WEBHOOK);
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -59,7 +59,8 @@ const fetchAsk = async (payload: {
     },
     body: JSON.stringify({
       chatInput,
-      sessionId
+      sessionId,
+      outputType: "html"
     })
   });
 
@@ -288,27 +289,10 @@ export default function InferenceAIAgent() {
 }
 
 const MarkdownContent = ({ input }: { input: string }) => {
-  const [content, setContent] = useState<string>("");
-
-  useEffect(() => {
-    async function processMarkdown() {
-      // Use remark to convert markdown into HTML string
-      const parsed = await unified()
-        .use(remarkParse)
-        .use(remarkRehype)
-        .use(rehypeStringify)
-        .process(input)
-        .then((result) => String(result.value));
-
-      setContent(parsed);
-    }
-    processMarkdown();
-  }, [input]);
-
   return (
     <div
       className="prose prose-ul:list-disc prose-ol:list-decimal prose-strong:font-black text-sm"
-      dangerouslySetInnerHTML={{ __html: content }}
+      dangerouslySetInnerHTML={{ __html: input }}
     />
   );
 };

@@ -173,7 +173,7 @@ type HyperjumpLogoProps = {
   isOpen: boolean;
   isTransparent: boolean;
   onClose?: () => void;
-  lang: SupportedLanguage;
+  lang?: SupportedLanguage;
 };
 
 export function HyperjumpLogo({
@@ -186,7 +186,7 @@ export function HyperjumpLogo({
     <div className="flex items-center">
       <Link
         className="toggleColour text-2xl font-bold no-underline transition hover:no-underline lg:text-4xl"
-        href={`/${lang}`}
+        href={lang ? `/${lang}` : "/"}
         {...(isOpen ? { onClick: onClose } : {})}>
         <ClientOnly>
           <LogoWithContextMenu

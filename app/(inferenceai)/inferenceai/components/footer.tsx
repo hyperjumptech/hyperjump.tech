@@ -22,8 +22,8 @@ export default function Footer({
           <Link
             href={
               type === "inferenceai"
-                ? "/inferenceai"
-                : "/inferenceai/rag-chatbot"
+                ? `/${lang}/inferenceai`
+                : `/${lang}/inferenceai/rag-chatbot`
             }>
             <Image
               src="/images/inferenceai/inference-ai-white.svg"

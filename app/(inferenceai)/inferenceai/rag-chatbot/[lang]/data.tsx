@@ -53,10 +53,22 @@ export const data = {
 
 export const navRagChatbot = (lang: SupportedLanguage) => {
   const data = [
-    { label: ragChatbotNavItems0Label(lang), href: "#key-features" },
-    { label: ragChatbotNavItems1Label(lang), href: "#how-it-works" },
-    { label: ragChatbotNavItems2Label(lang), href: "#what-is-included" },
-    { label: ragChatbotNavItems3Label(lang), href: "#faqs" }
+    {
+      label: ragChatbotNavItems0Label(lang),
+      href: `/${lang}/inferenceai/rag-chatbot#key-features`
+    },
+    {
+      label: ragChatbotNavItems1Label(lang),
+      href: `/${lang}/inferenceai/rag-chatbot#how-it-works`
+    },
+    {
+      label: ragChatbotNavItems2Label(lang),
+      href: `/${lang}/inferenceai/rag-chatbot#what-is-included`
+    },
+    {
+      label: ragChatbotNavItems3Label(lang),
+      href: `/${lang}/inferenceai/rag-chatbot#faqs`
+    }
   ];
   return data;
 };

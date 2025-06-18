@@ -30,8 +30,8 @@ export const mainNav = (lang: SupportedLanguage) => {
   const data = [
     { label: mainNavItems0Label(lang), href: `/${lang}/services` },
     { label: mainNavItems1Label(lang), href: `/${lang}/case-studies` },
-    { label: mainNavItems2Label(lang), href: `/${lang}/#open-source` },
-    { label: mainNavItems3Label(lang), href: `/${lang}/#faqs` }
+    { label: mainNavItems2Label(lang), href: `/${lang}#open-source` },
+    { label: mainNavItems3Label(lang), href: `/${lang}#faqs` }
   ];
   return data;
 };

@@ -31,8 +31,8 @@ export default function Nav({ lang, type = "inferenceai" }: NavProps) {
           <Link
             href={
               type === "inferenceai"
-                ? "/inferenceai"
-                : "/inferenceai/rag-chatbot"
+                ? `/${lang}/inferenceai`
+                : `/${lang}/inferenceai/rag-chatbot`
             }
             className="flex items-center">
             <Image

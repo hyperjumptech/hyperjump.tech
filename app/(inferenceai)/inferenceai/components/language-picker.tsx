@@ -18,11 +18,11 @@ export default function LanguagePicker({
   type: "inferenceai" | "rag-chatbot";
 }) {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLang = e.target.value as SupportedLanguage;
+    const lang = e.target.value as SupportedLanguage;
     window.location.href =
       type === "inferenceai"
-        ? `/inferenceai/${newLang}#hero`
-        : `/inferenceai/rag-chatbot/${newLang}#hero`;
+        ? `/${lang}/inferenceai`
+        : `/${lang}/inferenceai/rag-chatbot`;
   };
 
   return (

@@ -41,7 +41,7 @@ export default function Footer({
       <div className="relative z-20 container mx-auto px-4">
         <div className="flex flex-col space-y-6 md:items-center">
           <div className="flex items-center">
-            <Link href="/">
+            <Link href={`/${lang}`}>
               <Image
                 src="/images/hyperjump-white.png"
                 alt="Hyperjump Logo"

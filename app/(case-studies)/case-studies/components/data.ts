@@ -29,13 +29,13 @@ export const getCaseStudies = (lang: SupportedLanguage) => {
       title: caseStudyErpFisheriesTitle(lang),
       description: caseStudyErpFisheriesDesc(lang),
       category: caseStudyErpFisheriesCategory(lang),
-      url: "/case-studies/erp-fisheries"
+      url: `/${lang}/case-studies/erp-fisheries`
     },
     {
       title: caseStudyCtoaasMediaTitle(lang),
       description: caseStudyCtoaasMediaDesc(lang),
       category: caseStudyCtoaasMediaCategory(lang),
-      url: "/case-studies/ctoaas-media"
+      url: `/${lang}/case-studies/ctoaas-media`
     }
   ];
 

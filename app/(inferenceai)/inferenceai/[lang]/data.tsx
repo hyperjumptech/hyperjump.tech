@@ -45,11 +45,26 @@ import {
 
 export const navInferenceai = (lang: SupportedLanguage) => {
   const data = [
-    { label: inferenceaiNavItems0Label(lang), href: "#how-it-works" },
-    { label: inferenceaiNavItems1Label(lang), href: "#what-you-get" },
-    { label: inferenceaiNavItems2Label(lang), href: "#case-studies" },
-    { label: inferenceaiNavItems3Label(lang), href: "#about-us" },
-    { label: inferenceaiNavItems4Label(lang), href: "#faqs" }
+    {
+      label: inferenceaiNavItems0Label(lang),
+      href: `/${lang}/inferenceai#how-it-works`
+    },
+    {
+      label: inferenceaiNavItems1Label(lang),
+      href: `/${lang}/inferenceai#what-you-get`
+    },
+    {
+      label: inferenceaiNavItems2Label(lang),
+      href: `/${lang}/inferenceai#case-studies`
+    },
+    {
+      label: inferenceaiNavItems3Label(lang),
+      href: `/${lang}/inferenceai#about-us`
+    },
+    {
+      label: inferenceaiNavItems4Label(lang),
+      href: `/${lang}/inferenceai#faqs`
+    }
   ];
   return data;
 };
@@ -140,7 +155,7 @@ export const getCaseStudies = (lang: SupportedLanguage) => {
       title: inferenceaiCaseStudies0Title(lang),
       category: inferenceaiCaseStudies0Category(lang),
       description: inferenceaiCaseStudies0Text(lang),
-      url: "/inferenceai/rag-chatbot"
+      url: `/${lang}/inferenceai/rag-chatbot`
     },
     {
       title: inferenceaiCaseStudies1Title(lang),

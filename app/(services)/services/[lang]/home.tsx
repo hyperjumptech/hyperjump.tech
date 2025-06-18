@@ -117,7 +117,9 @@ function Service({ lang, isReverseImagePosition = false, slug }: ServiceProps) {
             asChild
             size="lg"
             className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-full text-base font-semibold text-white md:w-44">
-            <Link href={`/services/${slug}`}>{servicesSeeMore(lang)}</Link>
+            <Link href={`/${lang}/services/${slug}`}>
+              {servicesSeeMore(lang)}
+            </Link>
           </Button>
         </div>
       </div>

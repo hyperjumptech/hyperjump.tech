@@ -1,9 +1,7 @@
 "use client";
 
-import { sendGAEvent } from "@next/third-parties/google";
 import Image from "next/image";
 import Link from "next/link";
-import data from "@/data.json";
 import { cn } from "@/lib/utils";
 import { type ReactNode, useState } from "react";
 import WhiteLogo from "@/public/images/hyperjump-white.png";
@@ -34,7 +32,6 @@ export default function Nav({
   className = "max-w-5xl"
 }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const { gaEventName, link } = data.cta;
 
   return (
     <StickyNavigationMain>
@@ -51,6 +48,7 @@ export default function Nav({
             className
           )}>
           <HyperjumpLogo
+            lang={lang}
             isTransparent={isTransparent}
             isOpen={isOpen}
             onClose={() => setIsOpen(!isOpen)}
@@ -175,18 +173,20 @@ type HyperjumpLogoProps = {
   isOpen: boolean;
   isTransparent: boolean;
   onClose?: () => void;
+  lang: SupportedLanguage;
 };
 
 export function HyperjumpLogo({
   isOpen,
   isTransparent,
-  onClose
+  onClose,
+  lang
 }: HyperjumpLogoProps) {
   return (
     <div className="flex items-center">
       <Link
         className="toggleColour text-2xl font-bold no-underline transition hover:no-underline lg:text-4xl"
-        href={"/"}
+        href={`/${lang}`}
         {...(isOpen ? { onClick: onClose } : {})}>
         <ClientOnly>
           <LogoWithContextMenu

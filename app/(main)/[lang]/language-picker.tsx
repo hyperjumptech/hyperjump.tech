@@ -31,30 +31,30 @@ type Href = {
 
 function getHrefByLangAndType({ lang, type }: Href): string {
   const links: { type: Href["type"]; href: string }[] = [
-    { type: "hyperjump", href: `/${lang}#hero` },
-    { type: "services", href: `/services/${lang}#hero` },
+    { type: "hyperjump", href: `/${lang}` },
+    { type: "services", href: `/${lang}/services` },
     {
       type: "tech-due-diligence",
-      href: `/services/tech-due-diligence/${lang}#hero`
+      href: `/${lang}/services/tech-due-diligence`
     },
     {
       type: "software-as-a-service",
-      href: `/services/software-as-a-service/${lang}#hero`
+      href: `/${lang}/services/software-as-a-service`
     },
     {
       type: "erp-implementation",
-      href: `/services/erp-implementation/${lang}#hero`
+      href: `/${lang}/services/erp-implementation`
     },
     {
       type: "cto-as-a-service",
-      href: `/services/cto-as-a-service/${lang}#hero`
+      href: `/${lang}/services/cto-as-a-service`
     },
-    { type: "case-studies", href: `/case-studies/${lang}#hero` },
-    { type: "erp-fisheries", href: `/case-studies/erp-fisheries/${lang}#hero` },
-    { type: "ctoaas-media", href: `/case-studies/ctoaas-media/${lang}#hero` }
+    { type: "case-studies", href: `/${lang}/case-studies` },
+    { type: "erp-fisheries", href: `/${lang}/case-studies/erp-fisheries` },
+    { type: "ctoaas-media", href: `/${lang}/case-studies/ctoaas-media` }
   ];
 
-  return links.find((link) => link.type === type)?.href || `/${lang}#hero`;
+  return links.find((link) => link.type === type)?.href || `/${lang}`;
 }
 
 export function LanguagePicker({

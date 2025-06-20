@@ -268,7 +268,7 @@ export default function InferenceAIAgent() {
           </Button>
         </div>
         {/* Button */}
-        <div className="flex space-x-2 overflow-x-scroll whitespace-nowrap">
+        <div className="flex space-x-2 overflow-x-auto whitespace-nowrap">
           {DEFAULT_MESSAGES.map(({ text, id }) => (
             <Button
               key={id}

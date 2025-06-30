@@ -3,12 +3,14 @@ import {
   type SupportedLanguage
 } from "@/locales/.generated/types";
 import {
+  caseStudyButton,
   caseStudyExplore,
   caseStudyHeroDesc,
   caseStudyHeroHeading
 } from "@/locales/.generated/server";
 import { getCaseStudies } from "./data";
-import { CaseStudyButton } from "./components/button";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
@@ -76,10 +78,14 @@ function CaseStudies({ lang }: { lang: SupportedLanguage }) {
                   </p>
                 </div>
 
-                <CaseStudyButton
-                  url={`/${lang}/case-studies/${slug}`}
-                  lang={lang}
-                />
+                <Button
+                  asChild
+                  variant="outline"
+                  className="text-hyperjump-blue hover:bg-hyperjump-blue mt-4 w-full border-gray-300 hover:text-white">
+                  <Link href={`/${lang}/case-studies/${slug}`}>
+                    {caseStudyButton(lang)}
+                  </Link>
+                </Button>
               </div>
             )
           )}

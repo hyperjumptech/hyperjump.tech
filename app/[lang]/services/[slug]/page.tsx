@@ -106,7 +106,7 @@ type ServiceProps = {
   service: Service;
 };
 
-export function About({ service }: ServiceProps) {
+function About({ service }: ServiceProps) {
   const {
     content: { what },
     title
@@ -127,7 +127,7 @@ export function About({ service }: ServiceProps) {
   );
 }
 
-export function WhoIsIt({ lang, service }: LangProps & ServiceProps) {
+function WhoIsIt({ lang, service }: LangProps & ServiceProps) {
   const {
     content: {
       who: { description, imageUrl, items }
@@ -180,7 +180,7 @@ export function WhoIsIt({ lang, service }: LangProps & ServiceProps) {
   );
 }
 
-export function WhatWeDeliver({ lang, service }: LangProps & ServiceProps) {
+function WhatWeDeliver({ lang, service }: LangProps & ServiceProps) {
   const {
     content: {
       deliverables: { description, items }
@@ -221,7 +221,7 @@ export function WhatWeDeliver({ lang, service }: LangProps & ServiceProps) {
   );
 }
 
-export function HowItWorks({ lang, service }: LangProps & ServiceProps) {
+function HowItWorks({ lang, service }: LangProps & ServiceProps) {
   const {
     content: {
       how: { description, items }
@@ -267,7 +267,7 @@ export function HowItWorks({ lang, service }: LangProps & ServiceProps) {
   );
 }
 
-export function WhatYouGet({ lang, service }: LangProps & ServiceProps) {
+function WhatYouGet({ lang, service }: LangProps & ServiceProps) {
   const {
     content: {
       whatYouGet: { description, imageUrl, items }
@@ -310,7 +310,7 @@ export function WhatYouGet({ lang, service }: LangProps & ServiceProps) {
   );
 }
 
-export function WhyUs({ lang, service }: LangProps & ServiceProps) {
+function WhyUs({ lang, service }: LangProps & ServiceProps) {
   const {
     content: {
       why: { backgroundImageUrl, clients, description, imageUrl, items }

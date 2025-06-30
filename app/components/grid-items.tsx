@@ -226,7 +226,9 @@ export function GridItems({
                 </p>
               )}
               {url ? (
-                <Link href={url} className="transition hover:underline">
+                <Link
+                  href={`/${lang}${url}`}
+                  className="transition hover:underline">
                   <CardTitle
                     className={cn(
                       "text-xl font-semibold md:text-[22px]",

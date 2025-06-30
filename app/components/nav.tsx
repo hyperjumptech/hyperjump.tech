@@ -1,9 +1,7 @@
 "use client";
 
-import { sendGAEvent } from "@next/third-parties/google";
 import Image from "next/image";
 import Link from "next/link";
-import data from "@/data.json";
 import { cn } from "@/lib/utils";
 import { type ReactNode, useState } from "react";
 import WhiteLogo from "@/public/images/hyperjump-white.png";
@@ -19,22 +17,42 @@ import IconOnlyLogo from "@/public/images/hyperjump-icon-only.png";
 import SVGLogo from "@/public/images/hyperjump-svg.svg";
 import ColoredLogo from "@/public/images/hyperjump-colored.png";
 import LogoWithContextMenu from "./logo-with-context-menu";
-import { SupportedLanguage } from "@/locales/.generated/types";
-import { mainNav } from "../(main)/[lang]/data";
+import {
+  SupportedLanguage,
+  supportedLanguages
+} from "@/locales/.generated/types";
+import { mainNav } from "../[lang]/data";
+import { usePathname } from "next/navigation";
+import { data } from "../[lang]/jobs/data";
+
+const SOLID_NAV_PATHS = [
+  "/case-studies",
+  "/jobs",
+  "/inferenceai",
+  "/inferenceai/rag-chatbot",
+  "/services",
+  "/smdd2024",
+  ...data.jobs.map(({ id }) => `/jobs/${id}`)
+];
+const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(
+  (acc, locale) => [
+    ...acc,
+    ...SOLID_NAV_PATHS.map((path) => `/${locale}${path}`)
+  ],
+  SOLID_NAV_PATHS
+);
 
 type NavProps = {
   className?: string;
-  isTransparent?: boolean;
   lang: SupportedLanguage;
 };
 
-export default function Nav({
-  lang,
-  isTransparent = false,
-  className = "max-w-5xl"
-}: NavProps) {
+export default function Nav({ lang, className = "max-w-5xl" }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const { gaEventName, link } = data.cta;
+  const pathname = usePathname();
+  const isTransparent = Boolean(
+    !SOLID_NAV_PATHS_WITH_LOCALE.find((path) => path === pathname)
+  );
 
   return (
     <StickyNavigationMain>

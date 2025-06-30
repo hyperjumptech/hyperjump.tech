@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import "./globals.css";
 import data from "@/data.json";
 import { cn } from "@/lib/utils";
 import Console from "@/app/components/console";
@@ -8,6 +7,8 @@ import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
 import { figtree, geistMono, geistSans, switzer } from "./fonts";
 import { lazy } from "react";
+
+import "./globals.css";
 
 const AIAgent = lazy(() => import("@/app/components/ai-agent"));
 
@@ -68,7 +69,7 @@ export default function RootLayout({
         className={cn(
           "group",
           `${geistSans.variable} ${geistMono.variable} ${switzer.variable} ${figtree.variable} antialiased`,
-          "bg-black leading-normal tracking-normal text-white"
+          "font-switzer bg-black leading-normal tracking-normal text-white"
         )}>
         {children}
         <Console />

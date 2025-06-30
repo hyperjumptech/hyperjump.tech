@@ -1,4 +1,7 @@
-import type { SupportedLanguage } from "@/locales/.generated/types";
+import {
+  supportedLanguages,
+  type SupportedLanguage
+} from "@/locales/.generated/types";
 import Services from "./services";
 import DemosAndDocs from "./demos";
 import { OpenSourceProjects } from "./projects";
@@ -7,7 +10,7 @@ import CaseStudies from "./case-studies";
 import ContactForm from "./contact-form";
 
 export const generateStaticParams = async () => {
-  return [{ lang: "en" }, { lang: "id" }];
+  return supportedLanguages.map((lang) => ({ lang }));
 };
 
 type SmddProps = {

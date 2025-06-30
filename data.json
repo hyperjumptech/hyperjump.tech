@@ -26,10 +26,6 @@
       "imageUrl": "/images/clients/smartfren.svg"
     }
   ],
-  "cta": {
-    "gaEventName": "cta_click",
-    "link": "https://forms.office.com/Pages/ResponsePage.aspx?id=YB_vnVvdsku6UOy9eolc4lSE-1zhiHZGuckpAFLZgMNUNzFXVlZCQjA0UFJRR1IyUk9aSjBZVENENS4u"
-  },
   "github": "https://github.com/hyperjumptech",
   "gaId": "G-L825T5QT2S",
   "socials": [

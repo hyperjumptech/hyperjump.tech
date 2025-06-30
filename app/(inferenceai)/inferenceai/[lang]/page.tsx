@@ -1,8 +1,11 @@
-import { SupportedLanguage } from "@/locales/.generated/types";
+import {
+  SupportedLanguage,
+  supportedLanguages
+} from "@/locales/.generated/types";
 import Home from "./home";
 
 export const generateStaticParams = async () => {
-  return [{ lang: "en" }, { lang: "id" }];
+  return supportedLanguages.map((lang) => ({ lang }));
 };
 
 type InferenceAIProps = {

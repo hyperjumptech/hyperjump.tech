@@ -3,6 +3,188 @@
    xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://hyperjump.tech/en/case-studies/ctoaas-media</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/case-studies/ctoaas-media"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/case-studies/ctoaas-media/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/case-studies/erp-fisheries</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/case-studies/erp-fisheries"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/case-studies/erp-fisheries/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/jobs/se-frontend</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/jobs/se-frontend"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/jobs/se-frontend/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/jobs/sro</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/jobs/sro"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/jobs/sro/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/jobs/ui-designer</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/jobs/ui-designer"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/jobs/ui-designer/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/jobs/se-backend</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/jobs/se-backend"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/jobs/se-backend/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/jobs/se-mobile</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/jobs/se-mobile"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/jobs/se-mobile/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/case-studies</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/case-studies"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/case-studies/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/jobs</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/jobs"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/jobs/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/services</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/services"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/services/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/services/erp-implementation</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/services/erp-implementation"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/services/erp-implementation/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/services/cto-as-a-service</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/services/cto-as-a-service"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/services/cto-as-a-service/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/services/software-as-a-service</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/services/software-as-a-service"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/services/software-as-a-service/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/services/tech-due-diligence</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/services/tech-due-diligence"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/services/tech-due-diligence/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
     <loc>https://hyperjump.tech/inferenceai/rag-chatbot</loc>
     <xhtml:link
       rel="alternate"
@@ -12,7 +194,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/inferenceai/rag-chatbot/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
@@ -25,46 +207,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/inferenceai/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
-  </url>
-
-  <url>
-    <loc>https://hyperjump.tech/services</loc>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://hyperjump.tech/services"/>
-    <xhtml:link
-      rel="alternate"
-      hreflang="id"
-      href="https://hyperjump.tech/services/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
-  </url>
-
-  <url>
-    <loc>https://hyperjump.tech/smdd2024</loc>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://hyperjump.tech/smdd2024"/>
-    <xhtml:link
-      rel="alternate"
-      hreflang="id"
-      href="https://hyperjump.tech/smdd2024/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
-  </url>
-
-  <url>
-    <loc>https://hyperjump.tech/404</loc>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://hyperjump.tech/404"/>
-    <xhtml:link
-      rel="alternate"
-      hreflang="id"
-      href="https://hyperjump.tech/404/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
@@ -77,59 +220,20 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/services/erp-implementation</loc>
+    <loc>https://hyperjump.tech/404</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/services/erp-implementation"/>
+      href="https://hyperjump.tech/404"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/services/erp-implementation/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
-  </url>
-
-  <url>
-    <loc>https://hyperjump.tech/services/tech-due-diligence</loc>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://hyperjump.tech/services/tech-due-diligence"/>
-    <xhtml:link
-      rel="alternate"
-      hreflang="id"
-      href="https://hyperjump.tech/services/tech-due-diligence/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
-  </url>
-
-  <url>
-    <loc>https://hyperjump.tech/services/cto-as-a-service</loc>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://hyperjump.tech/services/cto-as-a-service"/>
-    <xhtml:link
-      rel="alternate"
-      hreflang="id"
-      href="https://hyperjump.tech/services/cto-as-a-service/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
-  </url>
-
-  <url>
-    <loc>https://hyperjump.tech/services/software-as-a-service</loc>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://hyperjump.tech/services/software-as-a-service"/>
-    <xhtml:link
-      rel="alternate"
-      hreflang="id"
-      href="https://hyperjump.tech/services/software-as-a-service/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+      href="https://hyperjump.tech/404/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
@@ -142,123 +246,201 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/./id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/jobs/se-mobile</loc>
+    <loc>https://hyperjump.tech/id/case-studies/ctoaas-media</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/jobs/se-mobile"/>
+      href="https://hyperjump.tech/id/case-studies/ctoaas-media"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/jobs/se-mobile/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+      href="https://hyperjump.tech/id/case-studies/ctoaas-media/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/jobs/se-frontend</loc>
+    <loc>https://hyperjump.tech/id/case-studies/erp-fisheries</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/jobs/se-frontend"/>
+      href="https://hyperjump.tech/id/case-studies/erp-fisheries"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/jobs/se-frontend/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+      href="https://hyperjump.tech/id/case-studies/erp-fisheries/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/jobs/se-backend</loc>
+    <loc>https://hyperjump.tech/id/jobs/se-frontend</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/jobs/se-backend"/>
+      href="https://hyperjump.tech/id/jobs/se-frontend"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/jobs/se-backend/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+      href="https://hyperjump.tech/id/jobs/se-frontend/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/jobs/sro</loc>
+    <loc>https://hyperjump.tech/id/jobs/sro</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/jobs/sro"/>
+      href="https://hyperjump.tech/id/jobs/sro"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/jobs/sro/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+      href="https://hyperjump.tech/id/jobs/sro/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/jobs/ui-designer</loc>
+    <loc>https://hyperjump.tech/id/jobs/ui-designer</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/jobs/ui-designer"/>
+      href="https://hyperjump.tech/id/jobs/ui-designer"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/jobs/ui-designer/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+      href="https://hyperjump.tech/id/jobs/ui-designer/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/case-studies</loc>
+    <loc>https://hyperjump.tech/id/jobs/se-backend</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/case-studies"/>
+      href="https://hyperjump.tech/id/jobs/se-backend"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/case-studies/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+      href="https://hyperjump.tech/id/jobs/se-backend/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/case-studies/ctoaas-media</loc>
+    <loc>https://hyperjump.tech/id/jobs/se-mobile</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/case-studies/ctoaas-media"/>
+      href="https://hyperjump.tech/id/jobs/se-mobile"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/case-studies/ctoaas-media/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+      href="https://hyperjump.tech/id/jobs/se-mobile/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/case-studies/erp-fisheries</loc>
+    <loc>https://hyperjump.tech/id/case-studies</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/case-studies/erp-fisheries"/>
+      href="https://hyperjump.tech/id/case-studies"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/case-studies/erp-fisheries/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+      href="https://hyperjump.tech/id/case-studies/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/jobs</loc>
+    <loc>https://hyperjump.tech/id/jobs</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/jobs"/>
+      href="https://hyperjump.tech/id/jobs"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/jobs/id"/>
-    <lastmod>2025-06-20T08:22:38.393Z</lastmod>
+      href="https://hyperjump.tech/id/jobs/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/id/services</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/id/services"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/id/services/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/id/services/erp-implementation</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/id/services/erp-implementation"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/id/services/erp-implementation/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/id/services/cto-as-a-service</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/id/services/cto-as-a-service"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/id/services/cto-as-a-service/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/id/services/software-as-a-service</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/id/services/software-as-a-service"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/id/services/software-as-a-service/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/id/services/tech-due-diligence</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/id/services/tech-due-diligence"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/id/services/tech-due-diligence/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/smdd2024</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/smdd2024"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/smdd2024/id"/>
+    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
   </url>
 </urlset>

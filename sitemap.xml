@@ -12,7 +12,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/case-studies/ctoaas-media/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -25,7 +25,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/case-studies/erp-fisheries/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -38,7 +38,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/jobs/se-frontend/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -51,7 +51,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/jobs/sro/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -64,7 +64,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/jobs/ui-designer/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -77,7 +77,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/jobs/se-backend/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -90,7 +90,20 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/jobs/se-mobile/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/en/inferenceai/rag-chatbot</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/en/inferenceai/rag-chatbot"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/en/inferenceai/rag-chatbot/id"/>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -103,7 +116,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/case-studies/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -116,7 +129,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/jobs/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -129,7 +142,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/services/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -142,7 +155,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/services/erp-implementation/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -155,7 +168,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/services/cto-as-a-service/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -168,7 +181,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/services/software-as-a-service/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -181,33 +194,20 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/en/services/tech-due-diligence/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
-    <loc>https://hyperjump.tech/inferenceai/rag-chatbot</loc>
+    <loc>https://hyperjump.tech/en/inferenceai</loc>
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://hyperjump.tech/inferenceai/rag-chatbot"/>
+      href="https://hyperjump.tech/en/inferenceai"/>
     <xhtml:link
       rel="alternate"
       hreflang="id"
-      href="https://hyperjump.tech/inferenceai/rag-chatbot/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
-  </url>
-
-  <url>
-    <loc>https://hyperjump.tech/inferenceai</loc>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://hyperjump.tech/inferenceai"/>
-    <xhtml:link
-      rel="alternate"
-      hreflang="id"
-      href="https://hyperjump.tech/inferenceai/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+      href="https://hyperjump.tech/en/inferenceai/id"/>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -220,7 +220,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -233,7 +233,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/404/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -246,7 +246,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/./id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -259,7 +259,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/case-studies/ctoaas-media/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -272,7 +272,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/case-studies/erp-fisheries/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -285,7 +285,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/jobs/se-frontend/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -298,7 +298,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/jobs/sro/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -311,7 +311,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/jobs/ui-designer/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -324,7 +324,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/jobs/se-backend/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -337,7 +337,20 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/jobs/se-mobile/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/id/inferenceai/rag-chatbot</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/id/inferenceai/rag-chatbot"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/id/inferenceai/rag-chatbot/id"/>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -350,7 +363,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/case-studies/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -363,7 +376,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/jobs/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -376,7 +389,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/services/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -389,7 +402,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/services/erp-implementation/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -402,7 +415,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/services/cto-as-a-service/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -415,7 +428,7 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/services/software-as-a-service/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -428,7 +441,20 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/id/services/tech-due-diligence/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://hyperjump.tech/id/inferenceai</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://hyperjump.tech/id/inferenceai"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="id"
+      href="https://hyperjump.tech/id/inferenceai/id"/>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 
   <url>
@@ -441,6 +467,6 @@
       rel="alternate"
       hreflang="id"
       href="https://hyperjump.tech/smdd2024/id"/>
-    <lastmod>2025-07-01T04:55:43.021Z</lastmod>
+    <lastmod>2025-07-09T10:27:14.848Z</lastmod>
   </url>
 </urlset>

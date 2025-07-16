@@ -7,7 +7,6 @@ import Footer from "@/app/components/footer";
 
 import NavInferenceAI from "../(inferenceai)/inferenceai/components/nav";
 import FooterInferenceAI from "../(inferenceai)/inferenceai/components/footer";
-import NavSmdd2024 from "../(smdd)/smdd2024/components/nav";
 
 export default function ClientWrapper({
   children,
@@ -19,7 +18,6 @@ export default function ClientWrapper({
   const pathname = usePathname();
   const isInferenceAi = pathname === `/${lang}/inferenceai`;
   const isRagChatbot = pathname === `/${lang}/inferenceai/rag-chatbot`;
-  const isSmdd2024 = pathname === `/${lang}/smdd2024`;
 
   return (
     <>
@@ -27,8 +25,6 @@ export default function ClientWrapper({
         <NavInferenceAI lang={lang} />
       ) : isRagChatbot ? (
         <NavInferenceAI type="rag-chatbot" lang={lang} />
-      ) : isSmdd2024 ? (
-        <NavSmdd2024 lang={lang} />
       ) : (
         <Nav lang={lang} />
       )}
@@ -37,8 +33,6 @@ export default function ClientWrapper({
         <FooterInferenceAI lang={lang} />
       ) : isRagChatbot ? (
         <FooterInferenceAI type="rag-chatbot" lang={lang} />
-      ) : isSmdd2024 ? (
-        <Footer type="smdd2024" lang={lang} />
       ) : (
         <Footer lang={lang} />
       )}

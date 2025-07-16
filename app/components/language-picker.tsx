@@ -15,7 +15,9 @@ export default function LanguagePicker({ lang }: { lang: SupportedLanguage }) {
           href={`/${l}/smdd2024`}
           className={cn(
             "rounded-full px-6 py-2 text-sm group-[data-scroll='false']:text-white group-[data-scroll='true']:text-black",
-            lang === l ? "bg-smdd-red text-white" : null
+            lang === l
+              ? "bg-smdd-red text-white"
+              : "text-blackgroup-data-[scroll=false]:text-white group-data-[scroll=true]:text-black"
           )}>
           {l.toUpperCase()}
         </Link>

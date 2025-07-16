@@ -34,7 +34,7 @@ export function LanguagePicker({ lang }: LanguagePickerProps) {
     <select
       value={lang}
       onChange={handleChange}
-      className="max-w-48 appearance-none rounded-full border border-[#2D364A] bg-transparent px-3 py-2 text-sm font-medium text-white focus:ring-1 focus:ring-white/30 focus:outline-none">
+      className="appearance-none rounded-full border border-[#2D364A] bg-transparent px-3 py-2 text-sm font-medium text-white focus:ring-1 focus:ring-white/30 focus:outline-none">
       {supportedLanguages.map((locale) => (
         <option key={locale} value={locale}>
           {labelByLang[locale]}

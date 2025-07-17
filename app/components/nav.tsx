@@ -24,6 +24,7 @@ import {
 import { mainNav } from "../[lang]/data";
 import { usePathname } from "next/navigation";
 import { data } from "../[lang]/jobs/data";
+import LanguagePicker from "./language-picker";
 
 const SOLID_NAV_PATHS = [
   "/case-studies",
@@ -43,16 +44,17 @@ const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(
 );
 
 type NavProps = {
-  className?: string;
   lang: SupportedLanguage;
 };
 
-export default function Nav({ lang, className = "max-w-5xl" }: NavProps) {
+export default function Nav({ lang }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const isTransparent = Boolean(
     !SOLID_NAV_PATHS_WITH_LOCALE.find((path) => path === pathname)
   );
+  const isSMDD = pathname === `/${lang}/smdd2024`;
+  console.log(pathname, "pathname");
 
   return (
     <StickyNavigationMain>
@@ -61,41 +63,42 @@ export default function Nav({ lang, className = "max-w-5xl" }: NavProps) {
           "w-full transition",
           isTransparent && !isOpen
             ? "group-data-[scroll=false]:bg-transparent group-data-[scroll=true]:bg-white"
-            : "bg-white"
+            : "bg-transparent"
         )}>
         <div
           className={cn(
             "mx-auto flex w-full items-center justify-between px-4 md:px-20 xl:px-0",
-            className
+            isSMDD ? "container" : "w-5xl"
           )}>
           <HyperjumpLogo
-            isTransparent={isTransparent}
+            isTransparent
             isOpen={isOpen}
             onClose={() => setIsOpen(!isOpen)}
           />
-          <CenterNavItems>
-            <NavigationMenu className="mx-8 xl:mx-0">
-              <NavigationMenuList className="flex gap-5">
-                {mainNav(lang).map((item, idx) => (
-                  <NavigationMenuItem key={idx} className="text-center">
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "text-xl font-medium transition",
-                        isTransparent
-                          ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
-                          : "text-hyperjump-black hover:text-hyperjump-blue"
-                      )}>
-                      {item.label}
-                    </Link>
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </CenterNavItems>
 
           <RightNavItems>
-            <div className="w-28" />
+            {isSMDD ? (
+              <LanguagePicker lang={lang} />
+            ) : (
+              <NavigationMenu className="mx-8 xl:mx-0">
+                <NavigationMenuList className="flex gap-5">
+                  {mainNav(lang).map((item, idx) => (
+                    <NavigationMenuItem key={idx} className="text-center">
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "text-xl font-medium transition",
+                          isTransparent
+                            ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
+                            : "text-hyperjump-black hover:text-hyperjump-blue"
+                        )}>
+                        {item.label}
+                      </Link>
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
+            )}
           </RightNavItems>
 
           {/* Mobile Toggle */}

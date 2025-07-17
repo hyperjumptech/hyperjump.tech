@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "generate-locales": "simple-i18n-next -i ./locales -l en",
+    "generate-redirect": "bun .github/scripts/generate-redirect.js",
     "generate-sitemap": "bun .github/scripts/generate-sitemap.js",
-    "dev": "npm run generate-locales && next dev",
-    "build": "npm run generate-locales && next build && npm run generate-sitemap",
+    "dev": "bun run generate-locales && next dev",
+    "build": "bun run generate-locales && next build",
+    "postbuild": "bun run generate-sitemap && bun run generate-redirect",
     "start": "next start",
     "lint": "next lint",
     "check-format": "prettier --check .",

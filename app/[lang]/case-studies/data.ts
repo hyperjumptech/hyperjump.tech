@@ -4,18 +4,11 @@ import {
   caseStudyCtoaasMediaTitle,
   caseStudyErpFisheriesCategory,
   caseStudyErpFisheriesDesc,
-  caseStudyErpFisheriesTitle,
-  caseStudyHeroDesc,
-  caseStudyTitle
+  caseStudyErpFisheriesTitle
 } from "@/locales/.generated/server";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
-export const caseStudy = {
-  title: `Case Studies - ${caseStudyTitle("en")}`,
-  description: caseStudyHeroDesc("en")
-};
-
-export const getCaseStudies = (lang: SupportedLanguage = "en") => {
+export const getCaseStudies = (lang: SupportedLanguage) => {
   return [
     {
       slug: "erp-fisheries",

@@ -18,7 +18,7 @@ import SVGLogo from "@/public/images/hyperjump-svg.svg";
 import ColoredLogo from "@/public/images/hyperjump-colored.png";
 import LogoWithContextMenu from "./logo-with-context-menu";
 import {
-  SupportedLanguage,
+  type SupportedLanguage,
   supportedLanguages
 } from "@/locales/.generated/types";
 import { mainNav } from "../[lang]/data";
@@ -54,7 +54,6 @@ export default function Nav({ lang }: NavProps) {
     !SOLID_NAV_PATHS_WITH_LOCALE.find((path) => path === pathname)
   );
   const isSMDD = pathname === `/${lang}/smdd2024`;
-  console.log(pathname, "pathname");
 
   return (
     <StickyNavigationMain>

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+
 import data from "@/data.json";
 import { cn } from "@/lib/utils";
+import { supportedLanguages } from "@/locales/.generated/types";
 import Console from "@/app/components/console";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
@@ -53,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang={supportedLanguages[0]}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1C1F2E" />

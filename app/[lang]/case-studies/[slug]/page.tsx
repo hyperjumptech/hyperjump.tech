@@ -15,18 +15,18 @@ import { Content } from "./components/content";
 
 type Params = { lang: SupportedLanguage; slug: string };
 
-export const generateStaticParams = async () => {
-  return getCaseStudies().reduce<Params[]>(
+type CaseStudyProps = {
+  params: Promise<Params>;
+};
+
+export const generateStaticParams = async ({ params }: CaseStudyProps) => {
+  return getCaseStudies((await params).lang).reduce<Params[]>(
     (acc, { slug }) => [
       ...acc,
       ...supportedLanguages.map((lang) => ({ slug, lang }))
     ],
     []
   );
-};
-
-type CaseStudyProps = {
-  params: Promise<Params>;
 };
 
 export default async function CaseStudy({ params }: CaseStudyProps) {

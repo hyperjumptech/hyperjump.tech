@@ -25,7 +25,10 @@ await (async function generateSitemap() {
   await Promise.all(
     pagesWithRootPage.map(
       async (page) =>
-        await createRedirectPage(page, `/${DEFAULT_LOCALE}/${page}`)
+        await createRedirectPage(
+          page,
+          page ? `/${DEFAULT_LOCALE}/${page}` : `/${DEFAULT_LOCALE}`
+        )
     )
   );
 })();

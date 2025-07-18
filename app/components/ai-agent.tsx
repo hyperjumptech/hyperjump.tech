@@ -11,7 +11,7 @@ import { LoaderCircle, MinusIcon, SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import useMedia from "@/hooks/use-media";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 const DEFAULT_MESSAGES = [
   { id: 1, text: "What services does Hyperjump offer?" },
@@ -22,10 +22,12 @@ const DEFAULT_MESSAGES = [
 export default function AIAgent() {
   const isDesktop = useMedia("(min-width: 992px)", true);
   const pathname = usePathname();
+  const params = useParams();
   const [text, setText] = useState<string>("");
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
   const [isChatOpen, setIsChatOpen] = useState<boolean>(true);
   const [isChatAccessible, setIsChatAccessible] = useState<boolean>(true);
+  const isInferenceAI = pathname.startsWith(`/${params.lang}/inferenceai`);
 
   // Refs to store DOM elements
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -63,7 +65,7 @@ export default function AIAgent() {
 
   // Effect to create the chat widget
   useEffect(() => {
-    if (config.AI_AGENT_URL && !pathname.startsWith("/inferenceai")) {
+    if (config.AI_AGENT_URL && !isInferenceAI) {
       const chat = createChat({
         webhookUrl: config.AI_AGENT_URL,
         initialMessages: [
@@ -190,7 +192,7 @@ export default function AIAgent() {
         chat.unmount();
       };
     }
-  }, [isDesktop, pathname]);
+  }, [isDesktop, isInferenceAI]);
 
   // Effect to handle mobile FAB
   useEffect(() => {
@@ -245,14 +247,9 @@ export default function AIAgent() {
     setTimeout(() => clearInterval(waitForSendButton), 5000);
   };
 
-  if (config.AI_AGENT_URL) {
+  if (config.AI_AGENT_URL && !isInferenceAI) {
     return (
-      <div
-        className={cn(
-          isChatAccessible && !pathname.startsWith("/inferenceai")
-            ? ""
-            : "hidden"
-        )}>
+      <div className={cn(isChatAccessible && !isInferenceAI ? "" : "hidden")}>
         <div
           className={cn(
             "animate-fade-in-up fixed bottom-0 z-50 mb-8 hidden w-full items-center px-4 transition-all",

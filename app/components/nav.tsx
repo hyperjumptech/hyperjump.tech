@@ -18,7 +18,7 @@ import SVGLogo from "@/public/images/hyperjump-svg.svg";
 import ColoredLogo from "@/public/images/hyperjump-colored.png";
 import LogoWithContextMenu from "./logo-with-context-menu";
 import {
-  SupportedLanguage,
+  type SupportedLanguage,
   supportedLanguages
 } from "@/locales/.generated/types";
 import { mainNav } from "../[lang]/data";
@@ -54,7 +54,6 @@ export default function Nav({ lang }: NavProps) {
     !SOLID_NAV_PATHS_WITH_LOCALE.find((path) => path === pathname)
   );
   const isSMDD = pathname === `/${lang}/smdd2024`;
-  console.log(pathname, "pathname");
 
   return (
     <StickyNavigationMain>
@@ -73,6 +72,7 @@ export default function Nav({ lang }: NavProps) {
           <HyperjumpLogo
             isTransparent
             isOpen={isOpen}
+            lang={lang}
             onClose={() => setIsOpen(!isOpen)}
           />
 
@@ -158,7 +158,7 @@ export default function Nav({ lang }: NavProps) {
   );
 }
 
-export function NavContainer({
+function NavContainer({
   children,
   className
 }: {
@@ -184,7 +184,7 @@ function CenterNavItems({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function RightNavItems({ children }: { children: React.ReactNode }) {
+function RightNavItems({ children }: { children: React.ReactNode }) {
   return (
     <div className="hidden items-center justify-end space-x-4 lg:flex">
       {children}
@@ -195,19 +195,21 @@ export function RightNavItems({ children }: { children: React.ReactNode }) {
 type HyperjumpLogoProps = {
   isOpen: boolean;
   isTransparent: boolean;
+  lang: SupportedLanguage;
   onClose?: () => void;
 };
 
-export function HyperjumpLogo({
+function HyperjumpLogo({
   isOpen,
   isTransparent,
+  lang,
   onClose
 }: HyperjumpLogoProps) {
   return (
     <div className="flex items-center">
       <Link
         className="toggleColour text-2xl font-bold no-underline transition hover:no-underline lg:text-4xl"
-        href={"/"}
+        href={`/${lang}`}
         {...(isOpen ? { onClick: onClose } : {})}>
         <ClientOnly>
           <LogoWithContextMenu

@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require("path");
+const { findAllPages } = require("./find-all-pages");
 
 const OUT_DIR = path.join(process.cwd(), "screenshots");
 const SERVER_URL = "http://localhost:3000"; // Use the server URL instead of file paths
@@ -13,39 +14,6 @@ if (!fs.existsSync(OUT_DIR)) {
 
 // Helper function for delay
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-// Improved function to find all HTML pages in the Next.js export directory
-function findAllPages(dir, baseDir = dir, result = []) {
-  const files = fs.readdirSync(dir);
-
-  for (const file of files) {
-    const fullPath = path.join(dir, file);
-    const stat = fs.statSync(fullPath);
-
-    if (stat.isDirectory()) {
-      // Recursively search directories
-      findAllPages(fullPath, baseDir, result);
-    } else if (file.endsWith(".html")) {
-      // Found an HTML file, this is a page
-      const relativePath = path.relative(baseDir, dir);
-      const pagePath = relativePath
-        ? path.join(
-            relativePath,
-            file === "index.html" ? "" : file.replace(".html", "")
-          )
-        : file === "index.html"
-          ? ""
-          : file.replace(".html", "");
-
-      // Skip duplicate routes (e.g., /index.html and /)
-      if (!result.includes(pagePath)) {
-        result.push(pagePath);
-      }
-    }
-  }
-
-  return result;
-}
 
 // Function to scroll the page to load lazy images
 async function autoScroll(page) {

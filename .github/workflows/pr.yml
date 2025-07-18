@@ -51,7 +51,7 @@ jobs:
           # Wait longer for server to start
           sleep 10
           # Take screenshots
-          node .github/scripts/take-screenshots.js
+          bun .github/scripts/take-screenshots.js
           # Kill the server
           kill $(lsof -t -i:3000)
           echo "screenshot_path=screenshots" >> $GITHUB_OUTPUT

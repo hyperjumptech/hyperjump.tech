@@ -6,8 +6,13 @@ export async function GET() {
   const content = `
 # LLMs.txt for https://hyperjump.tech
 Site: https://hyperjump.tech
-Owner: PT Artha Rajamas Mandiri
 Contact: solution@hyperjump.tech
+
+## Languages supported
+
+English, Bahasa Indonesia
+
+## Main Navigation Links
 
 - [Reliable Software Partner](https://hyperjump.tech/en): Expert software solutions for scalable, high-quality digital systems.
 - [Tech Job Opportunities](https://hyperjump.tech/en/jobs): Explore various tech job opportunities at Hyperjump.
@@ -48,6 +53,54 @@ Contact: solution@hyperjump.tech
 - [Software as a Service](https://hyperjump.tech/id/services/software-as-a-service): Dedicated SaaS solutions for product development and modernization.
 - [ERP Implementation Services](https://hyperjump.tech/id/services/erp-implementation): Streamline operations and enhance visibility with ERP implementation.
 - [CTO-as-a-Service](https://hyperjump.tech/id/services/cto-as-a-service): Access senior technical leadership without hiring a full-time CTO.
+
+## Sitemap
+
+https://hyperjump.tech/sitemap.xml
+
+## Bot Access Policy
+
+Hyperjump.tech®’s preferences for AI/LLM access, training, and content usage:
+
+- **User-agent: gptbot**  
+  Allow‑Training: yes  
+  Allow‑Retrieval: yes  
+
+- **User-agent: claudebot**  
+  Allow‑Training: yes  
+  Allow‑Retrieval: yes  
+
+- **User-agent: google-extended**  
+  Allow‑Training: yes  
+  Allow‑Retrieval: yes  
+
+- **User-agent: perplexitybot**  
+  Allow‑Training: yes  
+  Allow‑Retrieval: yes  
+
+- **User-agent: neevabot**  
+  Allow‑Training: yes  
+  Allow‑Retrieval: yes  
+
+- **User-agent: youbot**  
+  Allow‑Training: yes  
+  Allow‑Retrieval: yes  
+
+- **User-agent: ccbot** (Common Crawl)  
+  Allow‑Training: yes  
+  Allow‑Retrieval: yes  
+
+- **User-agent: duckduckbot** (DuckDuckGo AI)  
+  Allow‑Training: yes  
+  Allow‑Retrieval: yes  
+
+- **User-agent: yandexbot**  
+  Allow‑Training: yes  
+  Allow‑Retrieval: yes  
+
+- **User-agent: archive.org_bot**  
+  Allow‑Training: yes  
+  Allow‑Retrieval: yes  
   `.trim();
 
   return new NextResponse(content, {

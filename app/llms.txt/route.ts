@@ -3,105 +3,71 @@ import { NextResponse } from "next/server";
 export const dynamic = "force-static";
 
 export async function GET() {
-  const content = `
-# LLMs.txt for https://hyperjump.tech
-Site: https://hyperjump.tech
-Contact: solution@hyperjump.tech
+  const content = `# Hyperjump
 
-## Languages supported
+Your partner in building reliable, modern software. We help organizations deliver scalable, high‑quality digital systems through engineering excellence and cloud‑native technology.
 
-English, Bahasa Indonesia
+## Clients
 
-## Main Navigation Links
+- Amman Mineral Internasional
+- Bank Tabungan Negara
+- Eka Mas Republik
+- Sinar Mas Digital Day
+- SMDV
+- Smartfren
 
-- [Reliable Software Partner](https://hyperjump.tech/en): Expert software solutions for scalable, high-quality digital systems.
-- [Tech Job Opportunities](https://hyperjump.tech/en/jobs): Explore various tech job opportunities at Hyperjump.
-- [Open-Source DevOps Solutions](https://hyperjump.tech/en/smdd2024): Hyperjump offers open-source solutions for modern DevOps practices.
-- [Engineering Transformation Case Studies](https://hyperjump.tech/en/case-studies): Explore engineering transformations through real case studies and success stories.
-- [AI Chatbot Solutions](https://hyperjump.tech/en/inferenceai/rag-chatbot): Create an AI chatbot for accurate, real-time answers.
-- [Reliable Software Solutions](https://hyperjump.tech/en): Expert technology solutions for scalable, high-quality digital systems.
-- [Media-Tech Innovation Transformation](https://hyperjump.tech/en/case-studies/ctoaas-media): Transforming a media-tech team into innovative leaders through agile practices.
-- [Custom AI Solutions](https://hyperjump.tech/en/inferenceai): Custom AI agents designed to enhance business efficiency and growth.
-- [Tech Solutions Provider](https://hyperjump.tech/en/services): Hyperjump offers tech solutions for startups and enterprises.
-- [Hyperjump Overview](https://hyperjump.tech/sitemap.xml): Explore Hyperjump's services, jobs, and case studies.
-- [Fisheries Tech Transformation](https://hyperjump.tech/en/case-studies/erp-fisheries): Transforming a fisheries tech team into a scalable product engine.
-- [Site Reliability Operator](https://hyperjump.tech/en/jobs/sro): Remote Site Reliability Operator role focusing on service maintenance.
-- [UI Designer Position](https://hyperjump.tech/en/jobs/ui-designer): Remote UI Designer role focusing on wireframes and user research.
-- [Senior Software Engineer](https://hyperjump.tech/en/jobs/se-backend): Remote Senior Software Engineer role for cloud data processing.
-- [Software Engineer Position](https://hyperjump.tech/en/jobs/se-frontend): Remote or on-site front-end developer role with React/Vue.js.
-- [Software Engineer Position](https://hyperjump.tech/en/jobs/se-mobile): Remote Software Engineer role for Android/iOS development.
-- [Tech Due Diligence](https://hyperjump.tech/en/services/tech-due-diligence): Evaluate technology risks and opportunities for informed decisions.
-- [SaaS Product Development](https://hyperjump.tech/en/services/software-as-a-service): Dedicated SaaS solutions for scalable product development and innovation.
-- [ERP Implementation Services](https://hyperjump.tech/en/services/erp-implementation): Expert ERP implementation services for streamlined business operations.
-- [CTO-as-a-Service](https://hyperjump.tech/en/services/cto-as-a-service): Access senior engineering leadership without hiring a full-time CTO.
-- [Reliable Software Solutions](https://hyperjump.tech/id): Helping organizations build scalable, high-quality digital systems.
-- [Hyperjump 404 Page](https://hyperjump.tech/404): Explore Hyperjump's services and chat with HyperBot for help.
-- [Tech Job Opportunities](https://hyperjump.tech/id/jobs): Explore various tech job opportunities at Hyperjump.
-- [Engineering Team Transformations](https://hyperjump.tech/id/case-studies): Transforming engineering teams for scalable product success.
-- [Hyperjump Open-Source Solutions](https://hyperjump.tech/id/smdd2024): Hyperjump offers open-source solutions for modern DevOps practices.
-- [Tech Solutions for Growth](https://hyperjump.tech/id/services): Hyperjump offers comprehensive tech solutions for startups and businesses.
-- [AI Chatbot Solutions](https://hyperjump.tech/id/inferenceai/rag-chatbot): Instant, accurate answers using your own data with AI.
-- [Custom AI Solutions](https://hyperjump.tech/id/inferenceai): Custom AI agents designed to enhance business efficiency and reduce costs.
-- [Media-Tech Engineering Transformation](https://hyperjump.tech/id/case-studies/ctoaas-media): Transforming media-tech engineering teams into innovation hubs.
-- [Fisheries Tech Transformation](https://hyperjump.tech/id/case-studies/erp-fisheries): Transforming fisheries tech team into a scalable product machine.
-- [Site Reliability Operator](https://hyperjump.tech/id/jobs/sro): Remote Site Reliability Operator role focusing on service maintenance.
-- [UI Designer Position](https://hyperjump.tech/id/jobs/ui-designer): Remote UI Designer role focusing on wireframes and user research.
-- [Senior Software Engineer Job](https://hyperjump.tech/id/jobs/se-backend): Remote or on-site Senior Software Engineer position in Jakarta.
-- [Software Engineer Position](https://hyperjump.tech/id/jobs/se-frontend): Remote or on-site front-end software engineer position available.
-- [Software Engineer Position](https://hyperjump.tech/id/jobs/se-mobile): Remote Software Engineer role for Android/iOS development.
-- [Tech Due Diligence Services](https://hyperjump.tech/id/services/tech-due-diligence): Comprehensive tech due diligence for informed decision-making.
-- [Software as a Service](https://hyperjump.tech/id/services/software-as-a-service): Dedicated SaaS solutions for product development and modernization.
-- [ERP Implementation Services](https://hyperjump.tech/id/services/erp-implementation): Streamline operations and enhance visibility with ERP implementation.
-- [CTO-as-a-Service](https://hyperjump.tech/id/services/cto-as-a-service): Access senior technical leadership without hiring a full-time CTO.
+## Services
 
-## Sitemap
+We offer expert technology solutions to help businesses scale, enhance efficiency, optimize operations, and drive continuous innovation.
 
-https://hyperjump.tech/sitemap.xml
+- [CTO-as-a-Service](https://hyperjump.tech/en/services/cto-as-a-service): Finding, hiring, managing, and retaining top software engineers is complex and time-consuming. Let us handle it all for you.
+- [Software-as-a-Service](https://hyperjump.tech/en/services/software-as-a-service): Deploy and scale software solutions tailored to your enterprise for optimal performance and growth.
+- [Tech Due Diligence](https://hyperjump.tech/en/services/tech-due-diligence): We help verify and assess your company's ability to execute its roadmap and evaluate its current state.
+- [ERP Implementation](https://hyperjump.tech/en/services/erp-implementation): Streamline operations with enterprise-grade ERP solutions, boosting efficiency and business intelligence.
 
-## Bot Access Policy
+## Case studies
 
-Hyperjump.tech®’s preferences for AI/LLM access, training, and content usage:
+Discover how we successfully transform challenges into opportunities with real-world solutions that drive lasting impact and business growth.
 
-- **User-agent: gptbot**  
-  Allow‑Training: yes  
-  Allow‑Retrieval: yes  
+- [Transforming a Fisheries Tech Team into a Scalable Product Engine](https://hyperjump.tech/case-studies/erp-fisheries): A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.
+- [Elevating a Media-Tech Engineering Team from Feature Factory to Innovation Powerhouse](https://hyperjump.tech/case-studies/ctoaas-media): When rapid growth outpaced engineering maturity, this team needed more than features, they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.
 
-- **User-agent: claudebot**  
-  Allow‑Training: yes  
-  Allow‑Retrieval: yes  
+## Open source product
 
-- **User-agent: google-extended**  
-  Allow‑Training: yes  
-  Allow‑Retrieval: yes  
+Explore our open-source projects and see how we innovate, collaborate, and build solutions that drive real impact. Join our community and contribute to cutting-edge technology.
 
-- **User-agent: perplexitybot**  
-  Allow‑Training: yes  
-  Allow‑Retrieval: yes  
+- [Grule](https://hyperjump.tech/enhttps://github.com/hyperjumptech/grule-rule-engine): Grule is a powerful open-source rule engine for Go that lets you define business rules in a human-readable format—making your app more flexible and maintainable.
+- [Monika](https://hyperjump.tech/enhttps://github.com/hyperjumptech/monika): Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.
+- [WhatsApp Chatbot Connector](https://hyperjump.tech/enhttps://github.com/hyperjumptech/whatsapp-chatbot-connector): WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa.
 
-- **User-agent: neevabot**  
-  Allow‑Training: yes  
-  Allow‑Retrieval: yes  
+## Frequently asked questions
 
-- **User-agent: youbot**  
-  Allow‑Training: yes  
-  Allow‑Retrieval: yes  
+Find answers to commonly asked questions. If you need further assistance, feel free to reach out to us.
 
-- **User-agent: ccbot** (Common Crawl)  
-  Allow‑Training: yes  
-  Allow‑Retrieval: yes  
+### What is CTO as a Service (CTOaaS), and how can it benefit my company?
 
-- **User-agent: duckduckbot** (DuckDuckGo AI)  
-  Allow‑Training: yes  
-  Allow‑Retrieval: yes  
+CTOaaS provides on-demand access to experienced technology leadership without the cost of a full-time executive. It helps enterprises with strategic IT planning, digital transformation, and technical decision-making to scale efficiently.
 
-- **User-agent: yandexbot**  
-  Allow‑Training: yes  
-  Allow‑Retrieval: yes  
+### How do you approach ERP implementation for enterprises?
 
-- **User-agent: archive.org_bot**  
-  Allow‑Training: yes  
-  Allow‑Retrieval: yes  
-  `.trim();
+We follow a structured process that includes business analysis, system selection, customization, integration, training, and post-implementation support to ensure seamless adoption and long-term success.
+
+### What does your tech due diligence service cover?
+
+Our tech due diligence includes codebase reviews, security assessments, scalability analysis, infrastructure evaluation, and compliance checks to ensure that your technology investments are low-risk and high-value.
+
+### Why should we choose your consulting services over hiring an in-house team?
+
+We offer specialized expertise, flexibility, and cost-effective solutions without the overhead of full-time employees. Our team brings years of experience in enterprise IT, ensuring faster implementation and better ROI.
+
+## Our location
+
+### D.Lab Building (6th floor)
+
+Jl. Riau No. 1, Gondangdia, Menteng, Jakarta Pusat - 10350 Indonesia
+Email: [solution@hyperjump.tech](mailto:solution@hyperjump.tech)
+D&B D-U-N-S: 65-975-4901
+[Open in Google Maps](https://www.google.com/maps/place/DLab+SMD/@-6.1907514,106.8219552,17z/data=!4m15!1m8!3m7!1s0x2e69f42410acef4f:0x2ebaeebb8f5fafbb!2sJl.+Riau+No.1,+RT.9%2FRW.5,+Gondangdia,+Kec.+Menteng,+Kota+Jakarta+Pusat,+Daerah+Khusus+Ibukota+Jakarta+10350!3b1!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11c5lcsgsq!3m5!1s0x2e69f5e04c659f97:0xd2f4629d7651d317!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11kb72cx9p?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D)`;
 
   return new NextResponse(content, {
     status: 200,

@@ -12,8 +12,6 @@ import { lazy } from "react";
 
 import "./globals.css";
 
-const AIAgent = lazy(() => import("@/app/components/ai-agent"));
-
 const { description, gaId, title, url } = data;
 
 export const metadata: Metadata = {
@@ -76,7 +74,6 @@ export default function RootLayout({
         {children}
         <Console />
         <Toaster />
-        <AIAgent />
         <Script src="https://kit.fontawesome.com/f6999a3218.js" />
       </body>
     </html>

@@ -7,6 +7,7 @@ import Footer from "@/app/components/footer";
 
 import NavInferenceAI from "../(inferenceai)/inferenceai/components/nav";
 import FooterInferenceAI from "../(inferenceai)/inferenceai/components/footer";
+import LandingAIAgent from "./landing-ai-agent";
 
 export default function ClientWrapper({
   children,
@@ -20,7 +21,7 @@ export default function ClientWrapper({
   const isRagChatbot = pathname === `/${lang}/inferenceai/rag-chatbot`;
 
   return (
-    <>
+    <div className="relative min-h-screen bg-white">
       {isInferenceAi ? (
         <NavInferenceAI lang={lang} />
       ) : isRagChatbot ? (
@@ -29,6 +30,7 @@ export default function ClientWrapper({
         <Nav lang={lang} />
       )}
       {children}
+      {isInferenceAi ? <></> : <LandingAIAgent />}
       {isInferenceAi ? (
         <FooterInferenceAI lang={lang} />
       ) : isRagChatbot ? (
@@ -36,6 +38,6 @@ export default function ClientWrapper({
       ) : (
         <Footer lang={lang} />
       )}
-    </>
+    </div>
   );
 }

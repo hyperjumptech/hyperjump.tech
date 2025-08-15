@@ -23,7 +23,10 @@ export default function ClientWrapper({
 
   return (
     <div
-      className={cn("relative min-h-screen", isInferenceAi ? "" : "bg-white")}>
+      className={cn(
+        "relative min-h-screen",
+        isInferenceAi ? "bg-transparent" : "bg-white"
+      )}>
       {isInferenceAi ? (
         <NavInferenceAI lang={lang} />
       ) : isRagChatbot ? (

@@ -348,6 +348,7 @@ export default function LandingAIAgent() {
     );
   }
 
+  // Chat UI
   return (
     <div
       className={cn(
@@ -558,25 +559,6 @@ export default function LandingAIAgent() {
                     height={10}
                   />
                 </Button>
-              </div>
-              {/* Default messages */}
-              <div
-                className={cn(
-                  "flex space-x-2 overflow-x-auto whitespace-nowrap"
-                )}>
-                {DEFAULT_MESSAGES.map(({ text, id }) => (
-                  <Button
-                    key={id}
-                    variant="outline"
-                    disabled={isSubmitting}
-                    className="rounded-md border border-white bg-transparent hover:cursor-pointer"
-                    onClick={() => {
-                      setText(text);
-                      inputRef.current?.focus();
-                    }}>
-                    {text}
-                  </Button>
-                ))}
               </div>
             </div>
           </div>

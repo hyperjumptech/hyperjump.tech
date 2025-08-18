@@ -234,6 +234,11 @@ export default function LandingAIAgent() {
               ...prevState,
               closed: false
             }));
+
+            // Scroll to bottom after 100ms to avoid the window opening and closing immediately
+            setTimeout(() => {
+              scrollToBottom();
+            }, 100);
           }}>
           <span className="hidden lg:block">Ask HyperBot</span>
           <span className="block lg:hidden">
@@ -559,6 +564,26 @@ export default function LandingAIAgent() {
                     height={10}
                   />
                 </Button>
+              </div>
+              {/* Default messages */}
+              <div
+                className={cn(
+                  "flex space-x-2 overflow-x-auto whitespace-nowrap",
+                  windowState.mode === "chat" && messages.length > 0 && "hidden"
+                )}>
+                {DEFAULT_MESSAGES.map(({ text, id }) => (
+                  <Button
+                    key={id}
+                    variant="outline"
+                    disabled={isSubmitting}
+                    className="rounded-md border border-white bg-transparent hover:cursor-pointer"
+                    onClick={() => {
+                      setText(text);
+                      inputRef.current?.focus();
+                    }}>
+                    {text}
+                  </Button>
+                ))}
               </div>
             </div>
           </div>

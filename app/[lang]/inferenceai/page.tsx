@@ -3,7 +3,15 @@ import {
   supportedLanguages
 } from "@/locales/.generated/types";
 
-import Home from "./home";
+import {
+  AboutUs,
+  CaseStudies,
+  Faqs,
+  Hero,
+  HowItWorks,
+  WhatYouGet,
+  WhyWorkWithUs
+} from "./home";
 
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
@@ -15,5 +23,16 @@ type InferenceAIProps = {
 
 export default async function InferenceAIPage({ params }: InferenceAIProps) {
   const { lang } = await params;
-  return <Home lang={lang} />;
+
+  return (
+    <>
+      <Hero lang={lang} />
+      <WhyWorkWithUs lang={lang} />
+      <HowItWorks lang={lang} />
+      <WhatYouGet lang={lang} />
+      <CaseStudies lang={lang} />
+      <AboutUs lang={lang} />
+      <Faqs lang={lang} />
+    </>
+  );
 }

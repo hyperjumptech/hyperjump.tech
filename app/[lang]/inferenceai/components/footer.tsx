@@ -8,21 +8,12 @@ import { copyright, inferenceaiFooter } from "@/locales/.generated/server";
 import { LanguagePicker } from "@/app/[lang]/components/language-picker";
 import { getData } from "../data";
 
-export default function FooterInferenceAI({
-  lang,
-  type = "inferenceai"
-}: {
-  lang: SupportedLanguage;
-  type?: "inferenceai" | "rag-chatbot";
-}) {
+export function Footer({ lang }: { lang: SupportedLanguage }) {
   return (
     <footer className="relative overflow-hidden border border-[#29223E] px-4 py-10 text-[#AFB0C3] md:px-20 md:py-14">
       <div className="flex flex-col space-y-6 md:items-center">
         <div className="flex items-center">
-          <Link
-            href={
-              type ? `/${lang}/inferenceai` : `/${lang}/inferenceai/rag-chatbot`
-            }>
+          <Link href={`/${lang}/inferenceai`}>
             <Image
               src="/images/inferenceai/inference-ai-white.svg"
               alt="Inference AI Logo"

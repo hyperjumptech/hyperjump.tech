@@ -12,8 +12,8 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import type { SupportedLanguage } from "@/locales/.generated/types";
-import { navRagChatbot } from "../rag-chatbot/data";
 import { navInferenceai } from "../data";
+import { navRagChatbot } from "../[slug]/data";
 
 type NavProps = {
   lang: SupportedLanguage;
@@ -30,11 +30,7 @@ export default function NavInferenceAI({
     <StickyNavigationMain>
       <div className={cn("w-full px-4 py-5 md:px-8", isOpen && "bg-white")}>
         <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between transition-all duration-300 group-data-[scroll='false']:border-none">
-          <Link
-            href={
-              type ? `/${lang}/inferenceai` : `/${lang}/inferenceai/rag-chatbot`
-            }
-            className="flex items-center">
+          <Link href={`/${lang}/inferenceai`} className="flex items-center">
             <Image
               src="/images/inferenceai/inference-ai-white.svg"
               alt="Inference AI Logo"

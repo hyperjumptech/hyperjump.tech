@@ -9,7 +9,9 @@ import BlackLogo from "@/public/images/hyperjump-black.png";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuList
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuContent
 } from "@/components/ui/navigation-menu";
 import StickyNavigationMain from "./sticky-nav-main";
 import ClientOnly from "./client-only";
@@ -49,6 +51,7 @@ type NavProps = {
 
 export default function Nav({ lang }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const pathname = usePathname();
   const isTransparent = Boolean(
     !SOLID_NAV_PATHS_WITH_LOCALE.find((path) => path === pathname)
@@ -76,29 +79,64 @@ export default function Nav({ lang }: NavProps) {
             onClose={() => setIsOpen(!isOpen)}
           />
 
-          <RightNavItems>
+          <CenterNavItems>
             {isSMDD ? (
-              <LanguagePicker lang={lang} />
+              <></>
             ) : (
               <NavigationMenu className="mx-8 xl:mx-0">
                 <NavigationMenuList className="flex gap-5">
-                  {mainNav(lang).map((item, idx) => (
-                    <NavigationMenuItem key={idx} className="text-center">
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          "text-xl font-medium transition",
-                          isTransparent
-                            ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
-                            : "text-hyperjump-black hover:text-hyperjump-blue"
-                        )}>
-                        {item.label}
-                      </Link>
-                    </NavigationMenuItem>
-                  ))}
+                  {mainNav(lang).map((item, idx) =>
+                    item.children ? (
+                      <NavigationMenuItem key={idx}>
+                        <NavigationMenuTrigger
+                          className={cn(
+                            "relative rounded-none border-b-2 border-transparent text-xl font-medium transition",
+                            "focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none",
+                            "bg-transparent hover:!bg-transparent data-[active]:!bg-transparent data-[state=open]:!bg-transparent",
+                            "hover:group-data-[scroll=true]:text-hyperjump-blue hover:border-white hover:group-data-[scroll=false]:text-white",
+                            isTransparent
+                              ? "group-data-[scroll=true]:text-hyperjump-black group-data-[scroll=false]:text-white"
+                              : "text-hyperjump-black"
+                          )}>
+                          {item.label}
+                        </NavigationMenuTrigger>
+
+                        <NavigationMenuContent className="min-w-52 rounded-md bg-white p-4 shadow-lg">
+                          <ul className="grid w-full gap-2">
+                            {item.children.map((child, cIdx) => (
+                              <li key={cIdx}>
+                                <Link
+                                  href={child.href}
+                                  className="text-hyperjump-black hover:text-hyperjump-blue block transition">
+                                  {child.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </NavigationMenuContent>
+                      </NavigationMenuItem>
+                    ) : (
+                      <NavigationMenuItem key={idx}>
+                        <Link
+                          href={item.href}
+                          className={cn(
+                            "text-xl font-medium transition",
+                            isTransparent
+                              ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
+                              : "text-hyperjump-black hover:text-hyperjump-blue"
+                          )}>
+                          {item.label}
+                        </Link>
+                      </NavigationMenuItem>
+                    )
+                  )}
                 </NavigationMenuList>
               </NavigationMenu>
             )}
+          </CenterNavItems>
+
+          <RightNavItems>
+            {isSMDD && <LanguagePicker lang={lang} />}
           </RightNavItems>
 
           {/* Mobile Toggle */}
@@ -142,15 +180,54 @@ export default function Nav({ lang }: NavProps) {
       {isOpen && (
         <div className="bg-white shadow-md lg:hidden">
           <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-20 xl:px-0">
-            {mainNav(lang).map((item, idx) => (
-              <Link
-                key={idx}
-                href={item.href}
-                className="text-hyperjump-black text-2xl transition hover:text-gray-400"
-                onClick={() => setIsOpen(false)}>
-                {item.label}
-              </Link>
-            ))}
+            {mainNav(lang).map((item, idx) =>
+              item.children ? (
+                <div key={idx} className="flex flex-col">
+                  <button
+                    onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                    className="text-hyperjump-black flex w-full items-center justify-between py-2 text-2xl transition hover:text-gray-400">
+                    {item.label}
+                    <svg
+                      className={cn(
+                        "h-5 w-5 transition-transform",
+                        openIndex === idx && "rotate-180"
+                      )}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+
+                  {openIndex === idx && (
+                    <div className="ml-4 flex flex-col space-y-2">
+                      {item.children.map((child, cIdx) => (
+                        <Link
+                          key={cIdx}
+                          href={child.href}
+                          className="text-hyperjump-black space-y-2 text-xl transition hover:text-gray-400"
+                          onClick={() => setIsOpen(false)}>
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={idx}
+                  href={item.href}
+                  className="text-hyperjump-black text-2xl transition hover:text-gray-400"
+                  onClick={() => setIsOpen(false)}>
+                  {item.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
       )}

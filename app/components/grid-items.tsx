@@ -16,7 +16,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import React, { Children, isValidElement, useEffect, useState } from "react";
 import { GitFork, Star } from "lucide-react";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import { mainCaseStudiesButton } from "@/locales/.generated/server";
 
 type GridItemsTitleProps = {
@@ -71,7 +71,7 @@ export function GridItemsTitle({
   );
 }
 
-type Item = {
+export type Item = {
   image?: string;
   title: string;
   description: string;

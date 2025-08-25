@@ -1,4 +1,6 @@
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { ReactNode } from "react";
+
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   ragChatbotNavItems0Label,
   ragChatbotNavItems1Label,
@@ -46,23 +48,17 @@ import {
   ReloadIcon
 } from "@radix-ui/react-icons";
 
-export const getData = (lang: SupportedLanguage) => ({
-  name: "RAG Chatbot",
-  baseUrl: `https://hyperjump.tech/${lang}/inferenceai/rag-chatbot`
-});
-
 export const navRagChatbot = (lang: SupportedLanguage) => {
-  const data = [
+  return [
     { label: ragChatbotNavItems0Label(lang), href: "#key-features" },
     { label: ragChatbotNavItems1Label(lang), href: "#how-it-works" },
     { label: ragChatbotNavItems2Label(lang), href: "#what-is-included" },
     { label: ragChatbotNavItems3Label(lang), href: "#faqs" }
   ];
-  return data;
 };
 
 export const getKeyFeatures = (lang: SupportedLanguage) => {
-  const data = [
+  return [
     {
       title: ragChatbotKeyFeaturesFeatures0Title(lang),
       description: ragChatbotKeyFeaturesFeatures0Text(lang),
@@ -89,12 +85,10 @@ export const getKeyFeatures = (lang: SupportedLanguage) => {
       icon: <LockClosedIcon className="h-7 w-7 text-white" />
     }
   ];
-
-  return data;
 };
 
 export const getHowItWorks = (lang: SupportedLanguage) => {
-  const data = [
+  return [
     {
       title: ragChatbotHowItWorksSteps0Title(lang),
       description: ragChatbotHowItWorksSteps0Text(lang)
@@ -112,12 +106,17 @@ export const getHowItWorks = (lang: SupportedLanguage) => {
       description: ragChatbotHowItWorksSteps3Text(lang)
     }
   ];
-
-  return data;
 };
 
-export const getWhatIsIncluded = (lang: SupportedLanguage) => {
-  const data = [
+export type WhatIsIncluded = {
+  icon: ReactNode;
+  title: string;
+};
+
+export const getWhatIsIncluded = (
+  lang: SupportedLanguage
+): WhatIsIncluded[] => {
+  return [
     {
       title: ragChatbotWhatIsIncludedItems0(lang),
       icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
@@ -135,8 +134,6 @@ export const getWhatIsIncluded = (lang: SupportedLanguage) => {
       icon: <ReloadIcon className="h-7 w-7 text-white" />
     }
   ];
-
-  return data;
 };
 
 export const getFaqs = (lang: SupportedLanguage) => {

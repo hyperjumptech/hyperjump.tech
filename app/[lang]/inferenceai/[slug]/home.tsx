@@ -113,7 +113,7 @@ export function HowItWorks({
   caseStudy: { howItWorks, howItWorksHeading }
 }: HeroProps) {
   return (
-    <section id="how-it-works" className="bg-[#050013] scroll-mt-20">
+    <section id="how-it-works" className="scroll-mt-20 bg-[#050013]">
       <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">
         <div className="w-full max-w-3xl">
           <GridItemsTitleBlack title={howItWorksHeading} />
@@ -151,7 +151,7 @@ export function WhatIsIncluded({
       <GridItemsTitleBlack title={whatsIncludedHeading} />
       <div className="my-6" />
       <div className="grid grid-cols-2 gap-10 bg-transparent pt-8 text-white lg:grid-cols-4">
-        {whatsIncluded.map(({ icon, title }) => (
+        {whatsIncluded.map(({ icon, title, text }) => (
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -164,6 +164,9 @@ export function WhatIsIncluded({
             <p className="text-base font-semibold text-white/90 md:text-xl">
               {title}
             </p>
+            <p className="text-base font-medium text-white/90 md:text-xl">
+              {text}
+            </p>
           </motion.div>
         ))}
       </div>
@@ -173,7 +176,7 @@ export function WhatIsIncluded({
 
 export function Faqs({ caseStudy: { faqDesc, faqHeading, faqs } }: HeroProps) {
   return (
-    <section id="faqs" className="bg-[#050013] scroll-mt-20">
+    <section id="faqs" className="scroll-mt-20 bg-[#050013]">
       <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">
         <div className="w-full max-w-3xl">
           <GridItemsTitleBlack

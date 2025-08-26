@@ -47,6 +47,7 @@ import {
   ragChatbotWhatIsIncludedHeading,
   ragChatbotFaqDesc,
   ragChatbotFaqHeading,
+<<<<<<< HEAD
   inferenceaiCaseStudies4Category,
   inferenceaiCaseStudies4Text,
   presentonFaqDesc,
@@ -63,6 +64,24 @@ import {
   getKeyFeaturesPresenton,
   getWhatIsIncluded,
   getWhatIsIncludedPresenton,
+=======
+  inferenceaiCaseStudies2Category,
+  inferenceaiCaseStudies2Text,
+  mediaPulseFaqDesc,
+  mediaPulseFaqHeading,
+  mediaPulseHowItWorksHeading,
+  mediaPulseKeyFeaturesHeading,
+  inferenceaiCaseStudies2Title,
+  mediaPulseWhatIsIncludedHeading
+} from "@/locales/.generated/server";
+import {
+  getFaqsMediaPulse,
+  getHowItWorksMediaPulse,
+  getKeyFeatures,
+  getKeyFeaturesMediaPulse,
+  getWhatIsIncluded,
+  getWhatIsIncludedMediaPulse,
+>>>>>>> Change text
   type WhatIsIncluded
 } from "./[slug]/data";
 
@@ -204,6 +223,7 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       whatsIncludedHeading: ragChatbotWhatIsIncludedHeading(lang)
     },
     {
+<<<<<<< HEAD
       category: inferenceaiCaseStudies4Category(lang),
       description: inferenceaiCaseStudies4Text(lang),
       faqDesc: presentonFaqDesc(lang),
@@ -217,6 +237,21 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       title: inferenceaiCaseStudies4Title(lang),
       whatsIncluded: getWhatIsIncludedPresenton(lang),
       whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)
+=======
+      category: inferenceaiCaseStudies2Category(lang),
+      description: inferenceaiCaseStudies2Text(lang),
+      faqDesc: mediaPulseFaqDesc(lang),
+      faqHeading: mediaPulseFaqHeading(lang),
+      faqs: getFaqsMediaPulse(lang),
+      howItWorks: getHowItWorksMediaPulse(lang),
+      howItWorksHeading: mediaPulseHowItWorksHeading(lang),
+      keyFeatures: getKeyFeaturesMediaPulse(lang),
+      keyFeaturesHeading: mediaPulseKeyFeaturesHeading(lang),
+      slug: "media-pulse",
+      title: inferenceaiCaseStudies2Title(lang),
+      whatsIncluded: getWhatIsIncludedMediaPulse(lang),
+      whatsIncludedHeading: mediaPulseWhatIsIncludedHeading(lang)
+>>>>>>> Change text
     }
   ];
 };

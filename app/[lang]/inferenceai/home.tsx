@@ -116,9 +116,7 @@ export function Hero({ lang }: HeroProps) {
 
 export function WhyWorkWithUs({ lang }: HomeProps) {
   return (
-    <GridItemsContainerBlack
-      id="why-work-with-us"
-      bgClassName="bg-[#050013]">
+    <GridItemsContainerBlack id="why-work-with-us" bgClassName="bg-[#050013]">
       <GridItemsTitleBlack
         title={inferenceaiWhyWorkWithUsHeading(lang)}
         description={inferenceaiWhyWorkWithUsDesc(lang)}
@@ -298,7 +296,7 @@ export function CaseStudies({ lang }: HomeProps) {
 
 export function AboutUs({ lang }: HomeProps) {
   return (
-    <section id="about-us" className="bg-[#050013] scroll-mt-20">
+    <section id="about-us" className="scroll-mt-20 bg-[#050013]">
       <div className="mx-auto flex flex-col flex-wrap items-center justify-center px-4 py-7 md:flex-row md:px-6 md:py-[60px]">
         <div className="w-full max-w-5xl">
           <GridItemsTitleBlack
@@ -328,7 +326,7 @@ export function AboutUs({ lang }: HomeProps) {
 
 export function Faqs({ lang }: HomeProps) {
   return (
-    <section id="faqs" className="bg-[#050013] scroll-mt-20">
+    <section id="faqs" className="scroll-mt-20 bg-[#050013]">
       <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">
         <div className="w-full max-w-3xl">
           <GridItemsTitleBlack

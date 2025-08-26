@@ -17,7 +17,7 @@ import { navRagChatbot } from "../[slug]/data";
 
 type NavProps = {
   lang: SupportedLanguage;
-  type?: "inferenceai" | "rag-chatbot";
+  type?: "inferenceai" | "rag-chatbot" | "media-pulse";
 };
 
 export default function NavInferenceAI({
@@ -56,10 +56,7 @@ export default function NavInferenceAI({
           <div className="hidden items-center justify-center space-x-8 xl:flex">
             <NavigationMenu className="mx-8 xl:mx-0">
               <NavigationMenuList className="flex gap-5">
-                {(type === "inferenceai"
-                  ? navInferenceai(lang)
-                  : navRagChatbot(lang)
-                ).map(({ href, label }) => (
+                {navInferenceai(lang).map(({ href, label }) => (
                   <NavigationMenuItem key={href} className="text-center">
                     <Link
                       href={href}
@@ -113,10 +110,7 @@ export default function NavInferenceAI({
       {isOpen && (
         <div className="bg-white shadow-md xl:hidden">
           <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-8">
-            {(type === "inferenceai"
-              ? navInferenceai(lang)
-              : navRagChatbot(lang)
-            ).map(({ href, label }) => (
+            {navInferenceai(lang).map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}

@@ -1,0 +1,81 @@
+{
+  "hero": {
+    "heading": "Save 10+ Hours Every Week: Let AI Handle Your Media Monitoring, So You Focus on Strategy",
+    "desc": "Track public sentiment, competitors, and brand mentions in real-time — Automated insights to email or WhatsApp."
+  },
+  "nav_items": {
+    "0_label": "Key Features",
+    "1_label": "How It Works",
+    "2_label": "What's Included",
+    "3_label": "FAQ"
+  },
+  "key_features": {
+    "heading": "AI-Powered Media Intelligence",
+    "features": {
+      "0": {
+        "title": "Track Everything That Matters",
+        "text": "Add unlimited websites, YouTube channels, podcasts, and news outlets. Filter noise: Focus only on relevant media and influencers."
+      },
+      "1": {
+        "title": "Stakeholder Access Made Easy",
+        "text": "Invite email/WhatsApp subscribers with role-based permissions (executives get summaries; teams get deep-dive reports)."
+      },
+      "2": {
+        "title": "AI Analytics That Matter",
+        "text": "Monitor sentiment trends, spot positives and negatives instantly, ,so you can catch PR risks before they go viral and amplify wins faster."
+      },
+      "3": {
+        "title": "Plug-and-Play Integrations",
+        "text": "Maintains conversation history for smoother, more natural interactions."
+      }
+    }
+  },
+  "how_it_works": {
+    "heading": "How Media Pulse Works",
+    "steps": {
+      "0": {
+        "title": "Discovery Call ",
+        "text": "Collaborate with our team to define your media monitoring objectives, target sources, and reporting needs."
+      },
+      "1": {
+        "title": "Custom Solution Design ",
+        "text": "Deploy MediaPulse securely in your infrastructure or preferred cloud environment."
+      },
+      "2": {
+        "title": "Implementation and Integration ",
+        "text": "Choose and customize AI models to track mentions, analyze sentiment, and surface actionable insights."
+      },
+      "3": {
+        "title": "Deploy, Monitor, and Iterate ",
+        "text": "Roll out organization-wide, monitor performance, and refine insights based on real-time feedback."
+      }
+    }
+  },
+  "what_is_included": {
+    "heading": "What's Included?",
+    "items": {
+      "0": {
+        "title": "Premium Support",
+        "text": "Dedicated account manager + 60-minute response SLA"
+      },
+      "1": {
+        "title": "Training & Onboarding",
+        "text": "1:1 session with our team to optimize feeds"
+      }
+    }
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "desc": "Everything you need to go from concept to fully deployed AI agent. Done for you, end to end.",
+    "0_question": "What sources can I track? ",
+    "0_answer": "Any public website (Google News, Forum, blogs), YouTube, podcasts, LinkedIn, and major news outlets.",
+    "1_question": "How do email/WhatsApp reports work? ",
+    "1_answer": "Choose templates, set branding, and schedule. Subscribers get a summary. No tech skills are needed.",
+    "2_question": "What if I need deeper integration? ",
+    "2_answer": "Webhooks let you push data to ERP, CRM, or internal tools. ",
+    "3_question": "How is this better than Google Alerts? ",
+    "3_answer": "Track thousands of sources (not just web pages), use sentiment AI, and automate actions. Imagine Google Alerts + steroids—built for teams.",
+    "4_question": "What happens next?",
+    "4_answer": "You book a call, we audit your current workflow and show how to cut up to 90% of manual work—without a mess of spreadsheets."
+  }
+}

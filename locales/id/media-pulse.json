@@ -1,0 +1,81 @@
+{
+  "hero": {
+    "heading": "Hemat 10+ Jam Setiap Minggu: Biarkan AI Menangani Monitoring Media Anda, Fokuslah pada Strategi",
+    "desc": "Lacak sentimen publik, kompetitor, dan penyebutan brand secara real-time — Insight otomatis dikirim ke email atau WhatsApp."
+  },
+  "nav_items": {
+    "0_label": "Fitur Utama",
+    "1_label": "Cara Kerja",
+    "2_label": "Apa Saja yang Termasuk",
+    "3_label": "FAQ"
+  },
+  "key_features": {
+    "heading": "Kecerdasan Media Berbasis AI",
+    "features": {
+      "0": {
+        "title": "Lacak Semua yang Penting",
+        "text": "Tambahkan situs web, channel YouTube, podcast, dan media berita tanpa batas. Saring kebisingan: Fokus hanya pada media dan influencer yang relevan."
+      },
+      "1": {
+        "title": "Akses Pemangku Kepentingan Lebih Mudah",
+        "text": "Undang pelanggan email/WhatsApp dengan izin berbasis peran (eksekutif mendapat ringkasan; tim mendapat laporan mendalam)."
+      },
+      "2": {
+        "title": "Analitik AI yang Relevan",
+        "text": "Pantau tren sentimen, deteksi positif dan negatif secara instan, sehingga Anda bisa menangkap risiko PR sebelum viral dan mempercepat penguatan pencapaian."
+      },
+      "3": {
+        "title": "Integrasi Plug-and-Play",
+        "text": "Menyimpan riwayat percakapan untuk interaksi yang lebih mulus dan natural."
+      }
+    }
+  },
+  "how_it_works": {
+    "heading": "Bagaimana Media Pulse Bekerja",
+    "steps": {
+      "0": {
+        "title": "Sesi Discovery Call",
+        "text": "Berkolaborasi dengan tim kami untuk menentukan tujuan monitoring media, sumber target, dan kebutuhan laporan Anda."
+      },
+      "1": {
+        "title": "Desain Solusi Khusus",
+        "text": "Deploy MediaPulse secara aman di infrastruktur atau cloud pilihan Anda."
+      },
+      "2": {
+        "title": "Implementasi dan Integrasi",
+        "text": "Pilih dan sesuaikan model AI untuk melacak penyebutan, menganalisis sentimen, dan menampilkan insight yang dapat ditindaklanjuti."
+      },
+      "3": {
+        "title": "Deploy, Monitor, dan Iterasi",
+        "text": "Luncurkan ke seluruh organisasi, pantau performa, dan sempurnakan insight berdasarkan feedback real-time."
+      }
+    }
+  },
+  "what_is_included": {
+    "heading": "Apa Saja yang Termasuk?",
+    "items": {
+      "0": {
+        "title": "Dukungan Premium",
+        "text": "Account manager khusus + SLA respon 60 menit"
+      },
+      "1": {
+        "title": "Pelatihan & Onboarding",
+        "text": "Sesi 1:1 dengan tim kami untuk mengoptimalkan feed"
+      }
+    }
+  },
+  "faq": {
+    "heading": "Pertanyaan yang Sering Diajukan",
+    "desc": "Semua yang Anda butuhkan untuk beralih dari konsep ke agen AI yang ter-deploy penuh. Dikerjakan untuk Anda, end-to-end.",
+    "0_question": "Sumber apa saja yang bisa saya lacak?",
+    "0_answer": "Situs publik apa pun (Google News, forum, blog), YouTube, podcast, LinkedIn, dan media berita besar.",
+    "1_question": "Bagaimana laporan email/WhatsApp bekerja?",
+    "1_answer": "Pilih template, atur branding, dan jadwalkan. Pelanggan menerima ringkasan. Tidak perlu skill teknis.",
+    "2_question": "Bagaimana jika saya butuh integrasi lebih dalam?",
+    "2_answer": "Webhook memungkinkan Anda mengirim data ke ERP, CRM, atau tools internal.",
+    "3_question": "Apa keunggulannya dibanding Google Alerts?",
+    "3_answer": "Lacak ribuan sumber (bukan hanya halaman web), gunakan AI sentimen, dan otomatisasi aksi. Bayangkan Google Alerts + steroid—dibangun untuk tim.",
+    "4_question": "Apa langkah selanjutnya?",
+    "4_answer": "Anda booking call, kami audit workflow saat ini dan tunjukkan cara memangkas hingga 90% pekerjaan manual—tanpa ribet dengan spreadsheet."
+  }
+}

@@ -75,11 +75,11 @@ import {
   mediaPulseWhatIsIncludedHeading
 } from "@/locales/.generated/server";
 import {
+  getKeyFeatures,
+  getWhatIsIncluded,
   getFaqsMediaPulse,
   getHowItWorksMediaPulse,
-  getKeyFeatures,
   getKeyFeaturesMediaPulse,
-  getWhatIsIncluded,
   getWhatIsIncludedMediaPulse,
 >>>>>>> Change text
   type WhatIsIncluded

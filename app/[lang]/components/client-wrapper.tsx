@@ -19,9 +19,8 @@ type ClientWrapperProps = {
 
 export default function ClientWrapper({ children, lang }: ClientWrapperProps) {
   const pathname = usePathname();
-  const isInferenceAi = pathname === `/${lang}/inferenceai`;
-  const isRagChatbot = pathname === `/${lang}/inferenceai/rag-chatbot`;
-  const isMediaPulse = pathname === `/${lang}/inferenceai/media-pulse`;
+  const isInferenceAi = pathname.includes(`/${lang}/inferenceai`);
+  const isInferenceAiCaseStudy = pathname.includes(`/${lang}/inferenceai/`);
 
   return (
     <div
@@ -30,11 +29,10 @@ export default function ClientWrapper({ children, lang }: ClientWrapperProps) {
         isInferenceAi ? "bg-transparent" : "bg-white"
       )}>
       {isInferenceAi ? (
-        <NavInferenceAI lang={lang} />
-      ) : isRagChatbot ? (
-        <NavInferenceAI type="rag-chatbot" lang={lang} />
-      ) : isMediaPulse ? (
-        <NavInferenceAI type="media-pulse" lang={lang} />
+        <NavInferenceAI
+          type={isInferenceAiCaseStudy ? "rag-chatbot" : "inferenceai"}
+          lang={lang}
+        />
       ) : (
         <Nav lang={lang} />
       )}

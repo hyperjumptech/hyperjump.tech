@@ -22,11 +22,11 @@
       },
       "2": {
         "title": "AI Analytics That Matter",
-        "text": "Monitor sentiment trends, spot positives and negatives instantly, ,so you can catch PR risks before they go viral and amplify wins faster."
+        "text": "Monitor sentiment trends, spot positives and negatives instantly, so you can catch PR risks before they go viral and amplify wins faster."
       },
       "3": {
         "title": "Plug-and-Play Integrations",
-        "text": "Maintains conversation history for smoother, more natural interactions."
+        "text": "Push data to Slack, Zapier, Airtable, or custom workflows via webhooks.  "
       }
     }
   },

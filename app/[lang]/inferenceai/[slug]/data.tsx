@@ -71,6 +71,14 @@ import {
   mediaPulseFaq2Answer,
   mediaPulseFaq3Answer,
   mediaPulseFaq4Answer,
+  mediaPulseKeyFeaturesFeatures0Title,
+  mediaPulseKeyFeaturesFeatures1Title,
+  mediaPulseKeyFeaturesFeatures2Title,
+  mediaPulseKeyFeaturesFeatures3Title,
+  mediaPulseKeyFeaturesFeatures0Text,
+  mediaPulseKeyFeaturesFeatures1Text,
+  mediaPulseKeyFeaturesFeatures2Text,
+  mediaPulseKeyFeaturesFeatures3Text,
   mediaPulseHowItWorksSteps0Title,
   mediaPulseHowItWorksSteps1Title,
   mediaPulseHowItWorksSteps2Title,
@@ -83,14 +91,16 @@ import {
   mediaPulseWhatIsIncludedItems1Title,
   mediaPulseWhatIsIncludedItems0Text,
   mediaPulseWhatIsIncludedItems1Text,
-  mediaPulseKeyFeaturesFeatures0Title,
-  mediaPulseKeyFeaturesFeatures1Title,
-  mediaPulseKeyFeaturesFeatures2Title,
-  mediaPulseKeyFeaturesFeatures3Title,
-  mediaPulseKeyFeaturesFeatures0Text,
-  mediaPulseKeyFeaturesFeatures1Text,
-  mediaPulseKeyFeaturesFeatures2Text,
-  mediaPulseKeyFeaturesFeatures3Text
+  mediaPulseFaq0Question,
+  mediaPulseFaq1Question,
+  mediaPulseFaq2Question,
+  mediaPulseFaq3Question,
+  mediaPulseFaq4Question,
+  mediaPulseFaq0Answer,
+  mediaPulseFaq1Answer,
+  mediaPulseFaq2Answer,
+  mediaPulseFaq3Answer,
+  mediaPulseFaq4Answer
 } from "@/locales/.generated/server";
 import {
   ChatBubbleIcon,
@@ -365,6 +375,28 @@ export const getHowItWorksMediaPulse = (lang: SupportedLanguage) => {
   ];
 
   return data;
+};
+
+export const getWhatIsIncludedMediaPulse = (
+  lang: SupportedLanguage
+): WhatIsIncluded[] => {
+  return [
+    {
+      title: mediaPulseWhatIsIncludedItems0Title(lang),
+      text: mediaPulseWhatIsIncludedItems0Text(lang),
+      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseWhatIsIncludedItems1Title(lang),
+      text: mediaPulseWhatIsIncludedItems1Text(lang),
+      icon: <Link2Icon className="h-7 w-7 text-white" />
+    }
+  ];
+};
+
+type Faq = {
+  answer: string;
+  question: string;
 };
 
 export const getFaqsMediaPulse = (lang: SupportedLanguage): Faq[] => {

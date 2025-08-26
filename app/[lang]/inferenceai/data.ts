@@ -62,13 +62,24 @@ import {
   mediaPulseHowItWorksHeading,
   mediaPulseKeyFeaturesHeading,
   inferenceaiCaseStudies2Title,
-  mediaPulseWhatIsIncludedHeading
-} from "@/locales/.generated/server";
-import {
+  mediaPulseWhatIsIncludedHeading,
   getFaqsPresenton,
   getHowItWorksPresenton,
   getKeyFeatures,
   getKeyFeaturesPresenton,
+  startGptKeyFeaturesHeading,
+  inferenceaiCaseStudies3Category,
+  inferenceaiCaseStudies3Text,
+  startGptFaqDesc,
+  startGptFaqHeading,
+  startGptHowItWorksHeading
+} from "@/locales/.generated/server";
+
+import {
+  getFaqsStartGPT,
+  getHowItWorksStartGPT,
+  getKeyFeatures,
+  getKeyFeaturesStartGPT,
   getWhatIsIncluded,
   getWhatIsIncludedPresenton,
   getFaqsMediaPulse,
@@ -244,6 +255,20 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       title: inferenceaiCaseStudies2Title(lang),
       whatsIncluded: getWhatIsIncludedMediaPulse(lang),
       whatsIncludedHeading: mediaPulseWhatIsIncludedHeading(lang)
+    },
+    {
+      category: inferenceaiCaseStudies3Category(lang),
+      description: inferenceaiCaseStudies3Text(lang),
+      faqDesc: startGptFaqDesc(lang),
+      faqHeading: startGptFaqHeading(lang),
+      faqs: getFaqsStartGPT(lang),
+      howItWorks: getHowItWorksStartGPT(lang),
+      howItWorksHeading: startGptHowItWorksHeading(lang),
+      keyFeatures: getKeyFeaturesStartGPT(lang),
+      keyFeaturesHeading: startGptKeyFeaturesHeading(lang),
+      slug: "start-gpt",
+      title: inferenceaiCaseStudies1Title(lang),
+      whatsIncluded: getWhatIsIncluded(lang)
     }
   ];
 };

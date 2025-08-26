@@ -91,6 +91,32 @@ import {
   mediaPulseFaq2Answer,
   mediaPulseFaq3Answer,
   mediaPulseFaq4Answer
+  startGptKeyFeaturesFeatures0Title,
+  startGptKeyFeaturesFeatures1Title,
+  startGptKeyFeaturesFeatures2Title,
+  startGptKeyFeaturesFeatures3Title,
+  startGptKeyFeaturesFeatures0Text,
+  startGptKeyFeaturesFeatures1Text,
+  startGptKeyFeaturesFeatures2Text,
+  startGptKeyFeaturesFeatures3Text,
+  startGptHowItWorksSteps0Title,
+  startGptHowItWorksSteps1Title,
+  startGptHowItWorksSteps2Title,
+  startGptHowItWorksSteps3Title,
+  startGptHowItWorksSteps0Text,
+  startGptHowItWorksSteps1Text,
+  startGptHowItWorksSteps2Text,
+  startGptHowItWorksSteps3Text,
+  startGptFaq0Question,
+  startGptFaq1Question,
+  startGptFaq2Question,
+  startGptFaq3Question,
+  startGptFaq0Answer,
+  startGptFaq1Answer,
+  startGptFaq2Answer,
+  startGptFaq3Answer,
+  startGptFaq4Question,
+  startGptFaq4Answer
 } from "@/locales/.generated/server";
 import {
   ChatBubbleIcon,
@@ -233,6 +259,30 @@ export const getKeyFeaturesPresenton = (lang: SupportedLanguage) => {
     {
       title: presentonKeyFeaturesFeatures3Title(lang),
       description: presentonKeyFeaturesFeatures3Text(lang),
+    }
+  ]
+}
+
+export const getKeyFeaturesStartGPT = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: startGptKeyFeaturesFeatures0Title(lang),
+      description: startGptKeyFeaturesFeatures0Text(lang),
+      icon: <FileTextIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: startGptKeyFeaturesFeatures1Title(lang),
+      description: startGptKeyFeaturesFeatures1Text(lang),
+      icon: <ClockIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: startGptKeyFeaturesFeatures2Title(lang),
+      description: startGptKeyFeaturesFeatures2Text(lang),
+      icon: <LayersIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: startGptKeyFeaturesFeatures3Title(lang),
+      description: startGptKeyFeaturesFeatures3Text(lang),
       icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
     }
   ];
@@ -255,6 +305,27 @@ export const getHowItWorksPresenton = (lang: SupportedLanguage) => {
     {
       title: presentonHowItWorksSteps3Title(lang),
       description: presentonHowItWorksSteps3Text(lang)
+    }
+  ]
+}
+
+export const getHowItWorksStartGPT = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: startGptHowItWorksSteps0Title(lang),
+      description: startGptHowItWorksSteps0Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps1Title(lang),
+      description: startGptHowItWorksSteps1Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps2Title(lang),
+      description: startGptHowItWorksSteps2Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps3Title(lang),
+      description: startGptHowItWorksSteps3Text(lang)
     }
   ];
 };
@@ -388,6 +459,31 @@ export const getFaqsMediaPulse = (lang: SupportedLanguage): Faq[] => {
     {
       question: mediaPulseFaq4Question(lang),
       answer: mediaPulseFaq4Answer(lang)
+    }
+  ]
+}
+
+export const getFaqsStartGPT = (lang: SupportedLanguage) => {
+  return [
+    {
+      question: startGptFaq0Question(lang),
+      answer: startGptFaq0Answer(lang)
+    },
+    {
+      question: startGptFaq1Question(lang),
+      answer: startGptFaq1Answer(lang)
+    },
+    {
+      question: startGptFaq2Question(lang),
+      answer: startGptFaq2Answer(lang)
+    },
+    {
+      question: startGptFaq3Question(lang),
+      answer: startGptFaq3Answer(lang)
+    },
+    {
+      question: startGptFaq4Question(lang),
+      answer: startGptFaq4Answer(lang)
     }
   ];
 };

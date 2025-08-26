@@ -1,25 +1,26 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { SupportedLanguage } from "@/locales/.generated/types";
-import Nav from "@/app/components/nav";
+import type { ReactNode } from "react";
+
 import Footer from "@/app/components/footer";
-
-import NavInferenceAI from "../(inferenceai)/inferenceai/components/nav";
-import FooterInferenceAI from "../(inferenceai)/inferenceai/components/footer";
-import LandingAIAgent from "./landing-ai-agent";
+import Nav from "@/app/components/nav";
 import { cn } from "@/lib/utils";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
-export default function ClientWrapper({
-  children,
-  lang
-}: {
-  children: React.ReactNode;
+import { Footer as FooterInferenceAI } from "../inferenceai/components/footer";
+import NavInferenceAI from "../inferenceai/components/nav";
+import LandingAIAgent from "./landing-ai-agent";
+
+type ClientWrapperProps = {
+  children: ReactNode;
   lang: SupportedLanguage;
-}) {
+};
+
+export default function ClientWrapper({ children, lang }: ClientWrapperProps) {
   const pathname = usePathname();
-  const isInferenceAi = pathname === `/${lang}/inferenceai`;
-  const isRagChatbot = pathname === `/${lang}/inferenceai/rag-chatbot`;
+  const isInferenceAi = pathname.includes(`/${lang}/inferenceai`);
+  const isInferenceAiCaseStudy = pathname.includes(`/${lang}/inferenceai/`);
 
   return (
     <div
@@ -28,9 +29,10 @@ export default function ClientWrapper({
         isInferenceAi ? "bg-transparent" : "bg-white"
       )}>
       {isInferenceAi ? (
-        <NavInferenceAI lang={lang} />
-      ) : isRagChatbot ? (
-        <NavInferenceAI type="rag-chatbot" lang={lang} />
+        <NavInferenceAI
+          type={isInferenceAiCaseStudy ? "rag-chatbot" : "inferenceai"}
+          lang={lang}
+        />
       ) : (
         <Nav lang={lang} />
       )}
@@ -38,8 +40,6 @@ export default function ClientWrapper({
       {isInferenceAi ? <></> : <LandingAIAgent />}
       {isInferenceAi ? (
         <FooterInferenceAI lang={lang} />
-      ) : isRagChatbot ? (
-        <FooterInferenceAI type="rag-chatbot" lang={lang} />
       ) : (
         <Footer lang={lang} />
       )}

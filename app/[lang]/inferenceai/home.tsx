@@ -1,14 +1,15 @@
 "use client";
 
-import { SupportedLanguage } from "@/locales/.generated/types";
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
+
 import {
   GridItems,
   GridItemsContainerBlack,
   GridItemsTitleBlack
 } from "@/app/components/grid-items";
+import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
@@ -16,12 +17,9 @@ import {
   AccordionTrigger
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 import {
   inferenceaiWhyWorkWithUsHeading,
   inferenceaiWhyWorkWithUsDesc,
-  inferenceaiHowItWorksHeading,
-  inferenceaiHowItWorksDesc,
   inferenceaiWhatYouGetHeading,
   inferenceaiWhatYouGetDesc,
   inferenceaiCaseStudiesHeading,
@@ -31,38 +29,27 @@ import {
   inferenceaiFaqHeading,
   inferenceaiFaqDesc,
   inferenceaiHeroHeading,
-  inferenceaiHeroDesc
+  inferenceaiHeroDesc,
+  inferenceaiHowItWorksHeading,
+  inferenceaiHowItWorksDesc
 } from "@/locales/.generated/server";
+import type { SupportedLanguage } from "@/locales/.generated/types";
+import InferenceAIAgent from "./components/chatbot-ui";
 import {
   getWhyWorkWithUs,
-  getHowItWorks,
   getWhatYouGet,
   getCaseStudies,
-  getFaqs
+  getFaqs,
+  getHowItWorks
 } from "./data";
-import InferenceAIAgent from "./components/inference-ai-agent";
 
 type HomeProps = {
   lang: SupportedLanguage;
 };
 
-export default function Home({ lang }: { lang: SupportedLanguage }) {
-  return (
-    <>
-      <Hero lang={lang} />
-      <WhyWorkWithUs lang={lang} />
-      <HowItWorks lang={lang} />
-      <WhatYouGet lang={lang} />
-      <CaseStudies lang={lang} />
-      <AboutUs lang={lang} />
-      <Faqs lang={lang} />
-    </>
-  );
-}
-
 type HeroProps = { lang: SupportedLanguage };
 
-function Hero({ lang }: HeroProps) {
+export function Hero({ lang }: HeroProps) {
   return (
     <section
       id="hero"
@@ -127,7 +114,7 @@ function Hero({ lang }: HeroProps) {
   );
 }
 
-function WhyWorkWithUs({ lang }: HomeProps) {
+export function WhyWorkWithUs({ lang }: HomeProps) {
   return (
     <GridItemsContainerBlack
       id="why-work-with-us"
@@ -156,7 +143,37 @@ function WhyWorkWithUs({ lang }: HomeProps) {
   );
 }
 
-function HowItWorks({ lang }: HomeProps) {
+export function WhatYouGet({ lang }: HomeProps) {
+  return (
+    <GridItemsContainerBlack id="what-you-get" bgClassName="bg-what-you-get">
+      <GridItemsTitleBlack
+        title={inferenceaiWhatYouGetHeading(lang)}
+        description={inferenceaiWhatYouGetDesc(lang)}
+        layout="vertical"
+      />
+      <div className="my-6" />
+      <div className="grid grid-cols-2 gap-10 text-white lg:grid-cols-3">
+        {getWhatYouGet(lang).map((item, idx) => (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            key={idx}
+            className="relative flex flex-col items-start justify-start gap-4 pl-6">
+            <div className="absolute top-0 left-0 h-full w-[2px] bg-linear-to-b from-transparent via-white/20 to-transparent" />
+            <Image src={item.icon} alt={item.title} width={32} height={32} />
+            <p className="text-base font-semibold text-white/90 md:text-xl">
+              {item.title}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </GridItemsContainerBlack>
+  );
+}
+
+export function HowItWorks({ lang }: HomeProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -173,25 +190,25 @@ function HowItWorks({ lang }: HomeProps) {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}>
           <Accordion type="single" collapsible className="w-full">
-            {getHowItWorks(lang).map((item, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} asChild>
+            {getHowItWorks(lang).map(({ description, image, title }) => (
+              <AccordionItem key={title} value={`faq-${title}`} asChild>
                 <Card className="my-4 w-full border-none bg-[#1B1728] shadow-sm transition-all duration-300">
                   <CardHeader className="py-0 md:py-2">
                     <AccordionTrigger className="flex items-center justify-between no-underline hover:no-underline focus:no-underline">
                       <div className="text-left text-xl font-medium text-white">
-                        {item.title}
+                        {title}
                       </div>
                     </AccordionTrigger>
                   </CardHeader>
                   <AccordionContent asChild>
                     <CardContent className="flex flex-col py-0 text-base text-[#CDCED8] lg:text-lg">
                       <div className="mb-4 text-left font-medium text-[#AFB0C3]">
-                        {item.description}
+                        {description}
                       </div>
                       <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl">
                         <Image
-                          src={item.image}
-                          alt={item.title}
+                          src={image}
+                          alt={title}
                           fill
                           className="object-contain"
                         />
@@ -247,37 +264,7 @@ function HowItWorks({ lang }: HomeProps) {
   );
 }
 
-function WhatYouGet({ lang }: HomeProps) {
-  return (
-    <GridItemsContainerBlack id="what-you-get" bgClassName="bg-what-you-get">
-      <GridItemsTitleBlack
-        title={inferenceaiWhatYouGetHeading(lang)}
-        description={inferenceaiWhatYouGetDesc(lang)}
-        layout="vertical"
-      />
-      <div className="my-6" />
-      <div className="grid grid-cols-2 gap-10 text-white lg:grid-cols-3">
-        {getWhatYouGet(lang).map((item, idx) => (
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            key={idx}
-            className="relative flex flex-col items-start justify-start gap-4 pl-6">
-            <div className="absolute top-0 left-0 h-full w-[2px] bg-linear-to-b from-transparent via-white/20 to-transparent" />
-            <Image src={item.icon} alt={item.title} width={32} height={32} />
-            <p className="text-base font-semibold text-white/90 md:text-xl">
-              {item.title}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-    </GridItemsContainerBlack>
-  );
-}
-
-function CaseStudies({ lang }: HomeProps) {
+export function CaseStudies({ lang }: HomeProps) {
   return (
     <GridItemsContainerBlack
       id="case-studies"
@@ -294,7 +281,10 @@ function CaseStudies({ lang }: HomeProps) {
         transition={{ duration: 0.6 }}>
         <GridItems
           lang={lang}
-          items={getCaseStudies(lang)}
+          items={getCaseStudies(lang).map((caseStudy) => ({
+            ...caseStudy,
+            url: caseStudy.slug ? `/inferenceai/${caseStudy.slug}` : ""
+          }))}
           columns={{ base: 1, md: 2, lg: 2 }}
           cardClassName="rounded-2xl"
           borderClassName="card-border-gradient"
@@ -306,7 +296,7 @@ function CaseStudies({ lang }: HomeProps) {
   );
 }
 
-function AboutUs({ lang }: HomeProps) {
+export function AboutUs({ lang }: HomeProps) {
   return (
     <section id="about-us" className="bg-inference-ai scroll-mt-20">
       <div className="mx-auto flex flex-col flex-wrap items-center justify-center px-4 py-7 md:flex-row md:px-6 md:py-[60px]">
@@ -336,7 +326,7 @@ function AboutUs({ lang }: HomeProps) {
   );
 }
 
-function Faqs({ lang }: HomeProps) {
+export function Faqs({ lang }: HomeProps) {
   return (
     <section id="faqs" className="bg-inference-ai scroll-mt-20">
       <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">

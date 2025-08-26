@@ -1,4 +1,5 @@
-import { SupportedLanguage } from "@/locales/.generated/types";
+import { Item } from "@/app/components/grid-items";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   inferenceaiNavItems0Label,
   inferenceaiNavItems1Label,
@@ -40,22 +41,31 @@ import {
   inferenceaiFaq1Answer,
   inferenceaiFaq2Answer,
   inferenceaiFaq3Answer,
-  inferenceaiFaq4Answer
+  inferenceaiFaq4Answer,
+  ragChatbotKeyFeaturesHeading,
+  ragChatbotHowItWorksHeading,
+  ragChatbotWhatIsIncludedHeading,
+  ragChatbotFaqDesc,
+  ragChatbotFaqHeading
 } from "@/locales/.generated/server";
+import {
+  getKeyFeatures,
+  getWhatIsIncluded,
+  type WhatIsIncluded
+} from "./[slug]/data";
 
 export const navInferenceai = (lang: SupportedLanguage) => {
-  const data = [
+  return [
     { label: inferenceaiNavItems0Label(lang), href: "#how-it-works" },
     { label: inferenceaiNavItems1Label(lang), href: "#what-you-get" },
     { label: inferenceaiNavItems2Label(lang), href: "#case-studies" },
     { label: inferenceaiNavItems3Label(lang), href: "#about-us" },
     { label: inferenceaiNavItems4Label(lang), href: "#faqs" }
   ];
-  return data;
 };
 
 export const getWhyWorkWithUs = (lang: SupportedLanguage) => {
-  const data = [
+  return [
     {
       title: inferenceaiWhyWorkWithUs0Title(lang),
       description: inferenceaiWhyWorkWithUs0Text(lang),
@@ -72,12 +82,10 @@ export const getWhyWorkWithUs = (lang: SupportedLanguage) => {
       icon: "/images/inferenceai/why-work-with-us/ongoing-support-n-optimization.svg"
     }
   ];
-
-  return data;
 };
 
 export const getHowItWorks = (lang: SupportedLanguage) => {
-  const data = [
+  return [
     {
       title: inferenceaiHowItWorks0Title(lang),
       description: inferenceaiHowItWorks0Text(lang),
@@ -99,12 +107,10 @@ export const getHowItWorks = (lang: SupportedLanguage) => {
       image: "/images/inferenceai/how-it-works/training-n-iteration.png"
     }
   ];
-
-  return data;
 };
 
 export const getWhatYouGet = (lang: SupportedLanguage) => {
-  const data = [
+  return [
     {
       title: inferenceaiWhatYouGet0Title(lang),
       icon: "/images/inferenceai/what-you-get/end-to-end-strategy-session.svg"
@@ -130,29 +136,69 @@ export const getWhatYouGet = (lang: SupportedLanguage) => {
       icon: "/images/inferenceai/what-you-get/training-documentation-n-walkthrough.svg"
     }
   ];
-
-  return data;
 };
 
-export const getCaseStudies = (lang: SupportedLanguage) => {
-  const data = [
+type Faq = {
+  answer: string;
+  question: string;
+};
+
+export type CaseStudy = {
+  category: string;
+  description: string;
+  faqDesc: string;
+  faqHeading: string;
+  faqs: Faq[];
+  howItWorks: Item[];
+  howItWorksHeading: string;
+  keyFeatures: Item[];
+  keyFeaturesHeading: string;
+  slug: string;
+  title: string;
+  whatsIncluded: WhatIsIncluded[];
+  whatsIncludedHeading: string;
+};
+
+export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
+  return [
     {
-      title: inferenceaiCaseStudies0Title(lang),
       category: inferenceaiCaseStudies0Category(lang),
       description: inferenceaiCaseStudies0Text(lang),
-      url: "/inferenceai/rag-chatbot"
+      faqDesc: ragChatbotFaqDesc(lang),
+      faqHeading: ragChatbotFaqHeading(lang),
+      faqs: getFaqs(lang),
+      howItWorks: getHowItWorks(lang),
+      howItWorksHeading: ragChatbotHowItWorksHeading(lang),
+      keyFeatures: getKeyFeatures(lang),
+      keyFeaturesHeading: ragChatbotKeyFeaturesHeading(lang),
+      slug: "rag-chatbot",
+      title: inferenceaiCaseStudies0Title(lang),
+      whatsIncluded: getWhatIsIncluded(lang),
+      whatsIncludedHeading: ragChatbotWhatIsIncludedHeading(lang)
     },
     {
-      title: inferenceaiCaseStudies1Title(lang),
       category: inferenceaiCaseStudies1Category(lang),
-      description: inferenceaiCaseStudies1Text(lang)
+      description: inferenceaiCaseStudies1Text(lang),
+      faqDesc: ragChatbotFaqDesc(lang),
+      faqHeading: ragChatbotFaqHeading(lang),
+      faqs: getFaqs(lang),
+      howItWorks: getHowItWorks(lang),
+      howItWorksHeading: ragChatbotHowItWorksHeading(lang),
+      keyFeatures: getKeyFeatures(lang),
+      keyFeaturesHeading: ragChatbotKeyFeaturesHeading(lang),
+      slug: "",
+      title: inferenceaiCaseStudies1Title(lang),
+      whatsIncluded: getWhatIsIncluded(lang),
+      whatsIncludedHeading: ragChatbotWhatIsIncludedHeading(lang)
     }
   ];
-
-  return data;
 };
 
-export const getFaqs = (lang: SupportedLanguage) => {
+export function caseStudyBy(slug: string, lang: SupportedLanguage) {
+  return getCaseStudies(lang).find((cs) => cs.slug === slug);
+}
+
+export const getFaqs = (lang: SupportedLanguage): Faq[] => {
   return [
     {
       question: inferenceaiFaq0Question(lang),

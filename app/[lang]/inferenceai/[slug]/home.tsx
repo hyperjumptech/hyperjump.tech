@@ -1,15 +1,8 @@
 "use client";
 
-import {
-  supportedLanguages,
-  SupportedLanguage
-} from "@/locales/.generated/types";
 import { motion } from "framer-motion";
-import {
-  GridItems,
-  GridItemsContainerBlack,
-  GridItemsTitleBlack
-} from "@/app/components/grid-items";
+import Image from "next/image";
+
 import {
   Accordion,
   AccordionContent,
@@ -18,42 +11,17 @@ import {
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
-  ragChatbotKeyFeaturesHeading,
-  ragChatbotHowItWorksHeading,
-  ragChatbotWhatIsIncludedHeading,
-  ragChatbotFaqHeading,
-  ragChatbotFaqDesc,
-  ragChatbotHeroHeading,
-  ragChatbotHeroDesc
-} from "@/locales/.generated/server";
-import {
-  getKeyFeatures,
-  getHowItWorks,
-  getWhatIsIncluded,
-  getFaqs
-} from "./data";
-import Image from "next/image";
-import InferenceAIAgent from "../components/inference-ai-agent";
+  GridItems,
+  GridItemsContainerBlack,
+  GridItemsTitleBlack
+} from "@/app/components/grid-items";
+import type { SupportedLanguage } from "@/locales/.generated/types";
+import InferenceAIAgent from "../components/chatbot-ui";
+import { CaseStudy } from "../data";
 
-export const generateStaticParams = async () => {
-  return supportedLanguages.map((lang) => ({ lang }));
-};
+type HeroProps = { caseStudy: CaseStudy };
 
-export default function Home({ lang }: { lang: SupportedLanguage }) {
-  return (
-    <>
-      <Hero lang={lang} />
-      <KeyFeatures lang={lang} />
-      <HowItWorks lang={lang} />
-      <WhatIsIncluded lang={lang} />
-      <Faqs lang={lang} />
-    </>
-  );
-}
-
-type HeroProps = { lang: SupportedLanguage };
-
-function Hero({ lang }: HeroProps) {
+export function Hero({ caseStudy: { title, description } }: HeroProps) {
   return (
     <section
       id="hero"
@@ -80,7 +48,7 @@ function Hero({ lang }: HeroProps) {
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex w-full flex-col items-center justify-center">
           <h1 className="mt-28 mb-4 text-center text-5xl font-semibold md:mb-6 md:max-w-4xl md:text-6xl">
-            {ragChatbotHeroHeading(lang)}
+            {title}
           </h1>
 
           <motion.p
@@ -88,7 +56,7 @@ function Hero({ lang }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
             className="my-6 text-center text-base font-medium text-[#AFB0C3] md:my-10 md:max-w-3xl md:text-[22px]">
-            {ragChatbotHeroDesc(lang)}
+            {description}
           </motion.p>
         </motion.div>
         <motion.div
@@ -118,16 +86,19 @@ function Hero({ lang }: HeroProps) {
   );
 }
 
-function KeyFeatures({ lang }: { lang: SupportedLanguage }) {
+export function KeyFeatures({
+  caseStudy: { keyFeatures, keyFeaturesHeading },
+  lang
+}: { lang: SupportedLanguage } & HeroProps) {
   return (
     <GridItemsContainerBlack
       id="key-features"
       className="max-w-7xl"
       bgClassName="bg-[#050013]">
-      <GridItemsTitleBlack title={ragChatbotKeyFeaturesHeading(lang)} />
+      <GridItemsTitleBlack title={keyFeaturesHeading} />
       <div className="my-6" />
       <GridItems
-        items={getKeyFeatures(lang)}
+        items={keyFeatures}
         columns={{ base: 1, sm: 2, md: 3, lg: 3, xl: 5 }}
         cardClassName="rounded-xl"
         borderClassName="card-border-gradient"
@@ -138,25 +109,27 @@ function KeyFeatures({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function HowItWorks({ lang }: { lang: SupportedLanguage }) {
+export function HowItWorks({
+  caseStudy: { howItWorks, howItWorksHeading }
+}: HeroProps) {
   return (
     <section id="how-it-works" className="bg-inference-ai scroll-mt-20">
       <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">
         <div className="w-full max-w-3xl">
-          <GridItemsTitleBlack title={ragChatbotHowItWorksHeading(lang)} />
+          <GridItemsTitleBlack title={howItWorksHeading} />
           <div className="my-6 space-y-6">
-            {getHowItWorks(lang).map((item, i) => (
+            {howItWorks.map(({ description, title }) => (
               <motion.div
-                key={i}
+                key={title}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6 }}>
-                <Card key={i} className="card-border-gradient rounded-xl p-6">
+                <Card className="card-border-gradient rounded-xl p-6">
                   <h3 className="mb-1 text-xl font-semibold text-white">
-                    {item.title}
+                    {title}
                   </h3>
-                  <p className="text-base text-[#AFB0C3]">{item.description}</p>
+                  <p className="text-base text-[#AFB0C3]">{description}</p>
                 </Card>
               </motion.div>
             ))}
@@ -167,27 +140,29 @@ function HowItWorks({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function WhatIsIncluded({ lang }: { lang: SupportedLanguage }) {
+export function WhatIsIncluded({
+  caseStudy: { whatsIncluded, whatsIncludedHeading }
+}: HeroProps) {
   return (
     <GridItemsContainerBlack
       id="what-is-included"
       className="max-w-7xl"
       bgClassName="bg-multilayer-gradient">
-      <GridItemsTitleBlack title={ragChatbotWhatIsIncludedHeading(lang)} />
+      <GridItemsTitleBlack title={whatsIncludedHeading} />
       <div className="my-6" />
       <div className="grid grid-cols-2 gap-10 bg-transparent pt-8 text-white lg:grid-cols-4">
-        {getWhatIsIncluded(lang).map((item, idx) => (
+        {whatsIncluded.map(({ icon, title }) => (
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            key={idx}
+            key={title}
             className="relative flex flex-col items-start justify-start gap-4 pl-6">
             <div className="absolute top-0 left-0 h-full w-[2px] bg-linear-to-b from-transparent via-white/20 to-transparent" />
-            {item.icon}
+            {icon}
             <p className="text-base font-semibold text-white/90 md:text-xl">
-              {item.title}
+              {title}
             </p>
           </motion.div>
         ))}
@@ -196,14 +171,14 @@ function WhatIsIncluded({ lang }: { lang: SupportedLanguage }) {
   );
 }
 
-function Faqs({ lang }: { lang: SupportedLanguage }) {
+export function Faqs({ caseStudy: { faqDesc, faqHeading, faqs } }: HeroProps) {
   return (
     <section id="faqs" className="bg-inference-ai scroll-mt-20">
       <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-7 md:px-6 md:py-[60px]">
         <div className="w-full max-w-3xl">
           <GridItemsTitleBlack
-            title={ragChatbotFaqHeading(lang)}
-            description={ragChatbotFaqDesc(lang)}
+            title={faqHeading}
+            description={faqDesc}
             layout="vertical"
           />
           <div className="my-6" />
@@ -216,17 +191,17 @@ function Faqs({ lang }: { lang: SupportedLanguage }) {
               type="single"
               collapsible
               className="mx-auto w-full max-w-4xl space-y-4">
-              {getFaqs(lang).map((item, i) => (
-                <AccordionItem key={i} value={`faq-${i}`} asChild>
+              {faqs.map(({ answer, question }) => (
+                <AccordionItem key={question} value={`faq-${question}`} asChild>
                   <Card className="card-border-gradient w-full shadow-sm transition-all duration-300">
                     <CardHeader className="py-0 md:py-2">
                       <AccordionTrigger className="flex w-full items-center justify-between text-left text-xl font-medium text-white no-underline transition hover:no-underline focus:no-underline md:gap-2">
-                        {item.question}
+                        {question}
                       </AccordionTrigger>
                     </CardHeader>
                     <AccordionContent asChild className="py-0">
                       <CardContent className="text-base text-[#CDCED8] lg:text-lg">
-                        {item.answer}
+                        {answer}
                       </CardContent>
                     </AccordionContent>
                   </Card>

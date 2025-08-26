@@ -25,10 +25,32 @@ import {
   mainFaq2Answer,
   mainFaq3Answer
 } from "@/locales/.generated/server";
+import { ServiceSlug } from "../data";
 
 export const mainNav = (lang: SupportedLanguage) => {
   const data = [
-    { label: mainNavItems0Label(lang), href: `/${lang}/services` },
+    {
+      label: mainNavItems0Label(lang),
+      href: `/${lang}/services`,
+      children: [
+        {
+          label: "CTO as a Service",
+          href: `/${lang}/services/${ServiceSlug.CtoAsAService}`
+        },
+        {
+          label: "Software as a Service",
+          href: `/${lang}/services/${ServiceSlug.SoftwareAsAService}`
+        },
+        {
+          label: "Tech Due Diligence",
+          href: `/${lang}/services/${ServiceSlug.TechDueDiligence}`
+        },
+        {
+          label: "ERP Implementation",
+          href: `/${lang}/services/${ServiceSlug.ErpImplementation}`
+        }
+      ]
+    },
     { label: mainNavItems1Label(lang), href: `/${lang}/case-studies` },
     { label: mainNavItems2Label(lang), href: `/${lang}/#open-source` },
     { label: mainNavItems3Label(lang), href: `/${lang}/#faqs` }

@@ -47,7 +47,6 @@ import {
   ragChatbotWhatIsIncludedHeading,
   ragChatbotFaqDesc,
   ragChatbotFaqHeading,
-<<<<<<< HEAD
   inferenceaiCaseStudies4Category,
   inferenceaiCaseStudies4Text,
   presentonFaqDesc,
@@ -55,16 +54,7 @@ import {
   presentonHowItWorksHeading,
   presentonKeyFeaturesHeading,
   inferenceaiCaseStudies4Title,
-  presentonWhatIsIncludedHeading
-} from "@/locales/.generated/server";
-import {
-  getFaqsPresenton,
-  getHowItWorksPresenton,
-  getKeyFeatures,
-  getKeyFeaturesPresenton,
-  getWhatIsIncluded,
-  getWhatIsIncludedPresenton,
-=======
+  presentonWhatIsIncludedHeading,
   inferenceaiCaseStudies2Category,
   inferenceaiCaseStudies2Text,
   mediaPulseFaqDesc,
@@ -75,13 +65,16 @@ import {
   mediaPulseWhatIsIncludedHeading
 } from "@/locales/.generated/server";
 import {
+  getFaqsPresenton,
+  getHowItWorksPresenton,
   getKeyFeatures,
+  getKeyFeaturesPresenton,
   getWhatIsIncluded,
+  getWhatIsIncludedPresenton,
   getFaqsMediaPulse,
   getHowItWorksMediaPulse,
   getKeyFeaturesMediaPulse,
   getWhatIsIncludedMediaPulse,
->>>>>>> Change text
   type WhatIsIncluded
 } from "./[slug]/data";
 
@@ -223,7 +216,6 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       whatsIncludedHeading: ragChatbotWhatIsIncludedHeading(lang)
     },
     {
-<<<<<<< HEAD
       category: inferenceaiCaseStudies4Category(lang),
       description: inferenceaiCaseStudies4Text(lang),
       faqDesc: presentonFaqDesc(lang),
@@ -237,7 +229,8 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       title: inferenceaiCaseStudies4Title(lang),
       whatsIncluded: getWhatIsIncludedPresenton(lang),
       whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)
-=======
+    },
+    {
       category: inferenceaiCaseStudies2Category(lang),
       description: inferenceaiCaseStudies2Text(lang),
       faqDesc: mediaPulseFaqDesc(lang),
@@ -251,7 +244,6 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       title: inferenceaiCaseStudies2Title(lang),
       whatsIncluded: getWhatIsIncludedMediaPulse(lang),
       whatsIncludedHeading: mediaPulseWhatIsIncludedHeading(lang)
->>>>>>> Change text
     }
   ];
 };

@@ -60,17 +60,7 @@ import {
   presentonFaq2Question,
   presentonFaq0Answer,
   presentonFaq1Answer,
-  presentonFaq2Answer
-  mediaPulseFaq0Question,
-  mediaPulseFaq1Question,
-  mediaPulseFaq2Question,
-  mediaPulseFaq3Question,
-  mediaPulseFaq4Question,
-  mediaPulseFaq0Answer,
-  mediaPulseFaq1Answer,
-  mediaPulseFaq2Answer,
-  mediaPulseFaq3Answer,
-  mediaPulseFaq4Answer,
+  presentonFaq2Answer,
   mediaPulseKeyFeaturesFeatures0Title,
   mediaPulseKeyFeaturesFeatures1Title,
   mediaPulseKeyFeaturesFeatures2Title,
@@ -266,8 +256,8 @@ export const getHowItWorksPresenton = (lang: SupportedLanguage) => {
       title: presentonHowItWorksSteps3Title(lang),
       description: presentonHowItWorksSteps3Text(lang)
     }
-  ]
-}
+  ];
+};
 
 export const getKeyFeaturesMediaPulse = (lang: SupportedLanguage) => {
   const data = [
@@ -294,23 +284,6 @@ export const getKeyFeaturesMediaPulse = (lang: SupportedLanguage) => {
   ];
 
   return data;
-};
-
-export const getWhatIsIncludedMediaPulse = (
-  lang: SupportedLanguage
-): WhatIsIncluded[] => {
-  return [
-    {
-      title: mediaPulseWhatIsIncludedItems0Title(lang),
-      text: mediaPulseWhatIsIncludedItems0Text(lang),
-      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
-    },
-    {
-      title: mediaPulseWhatIsIncludedItems1Title(lang),
-      text: mediaPulseWhatIsIncludedItems1Text(lang),
-      icon: <Link2Icon className="h-7 w-7 text-white" />
-    }
-  ];
 };
 
 export const getWhatIsIncludedPresenton = (
@@ -392,11 +365,6 @@ export const getWhatIsIncludedMediaPulse = (
       icon: <Link2Icon className="h-7 w-7 text-white" />
     }
   ];
-};
-
-type Faq = {
-  answer: string;
-  question: string;
 };
 
 export const getFaqsMediaPulse = (lang: SupportedLanguage): Faq[] => {

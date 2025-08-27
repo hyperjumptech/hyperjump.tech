@@ -54,7 +54,15 @@ import {
   presentonHowItWorksHeading,
   presentonKeyFeaturesHeading,
   inferenceaiCaseStudies4Title,
-  presentonWhatIsIncludedHeading
+  presentonWhatIsIncludedHeading,
+  inferenceaiCaseStudies2Category,
+  inferenceaiCaseStudies2Text,
+  mediaPulseFaqDesc,
+  mediaPulseFaqHeading,
+  mediaPulseHowItWorksHeading,
+  mediaPulseKeyFeaturesHeading,
+  inferenceaiCaseStudies2Title,
+  mediaPulseWhatIsIncludedHeading
 } from "@/locales/.generated/server";
 import {
   getFaqsPresenton,
@@ -63,6 +71,10 @@ import {
   getKeyFeaturesPresenton,
   getWhatIsIncluded,
   getWhatIsIncludedPresenton,
+  getFaqsMediaPulse,
+  getHowItWorksMediaPulse,
+  getKeyFeaturesMediaPulse,
+  getWhatIsIncludedMediaPulse,
   type WhatIsIncluded
 } from "./[slug]/data";
 
@@ -217,6 +229,21 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       title: inferenceaiCaseStudies4Title(lang),
       whatsIncluded: getWhatIsIncludedPresenton(lang),
       whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)
+    },
+    {
+      category: inferenceaiCaseStudies2Category(lang),
+      description: inferenceaiCaseStudies2Text(lang),
+      faqDesc: mediaPulseFaqDesc(lang),
+      faqHeading: mediaPulseFaqHeading(lang),
+      faqs: getFaqsMediaPulse(lang),
+      howItWorks: getHowItWorksMediaPulse(lang),
+      howItWorksHeading: mediaPulseHowItWorksHeading(lang),
+      keyFeatures: getKeyFeaturesMediaPulse(lang),
+      keyFeaturesHeading: mediaPulseKeyFeaturesHeading(lang),
+      slug: "media-pulse",
+      title: inferenceaiCaseStudies2Title(lang),
+      whatsIncluded: getWhatIsIncludedMediaPulse(lang),
+      whatsIncludedHeading: mediaPulseWhatIsIncludedHeading(lang)
     }
   ];
 };

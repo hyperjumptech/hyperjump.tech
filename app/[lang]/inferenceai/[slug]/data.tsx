@@ -60,7 +60,37 @@ import {
   presentonFaq2Question,
   presentonFaq0Answer,
   presentonFaq1Answer,
-  presentonFaq2Answer
+  presentonFaq2Answer,
+  mediaPulseKeyFeaturesFeatures0Title,
+  mediaPulseKeyFeaturesFeatures1Title,
+  mediaPulseKeyFeaturesFeatures2Title,
+  mediaPulseKeyFeaturesFeatures3Title,
+  mediaPulseKeyFeaturesFeatures0Text,
+  mediaPulseKeyFeaturesFeatures1Text,
+  mediaPulseKeyFeaturesFeatures2Text,
+  mediaPulseKeyFeaturesFeatures3Text,
+  mediaPulseHowItWorksSteps0Title,
+  mediaPulseHowItWorksSteps1Title,
+  mediaPulseHowItWorksSteps2Title,
+  mediaPulseHowItWorksSteps3Title,
+  mediaPulseHowItWorksSteps0Text,
+  mediaPulseHowItWorksSteps1Text,
+  mediaPulseHowItWorksSteps2Text,
+  mediaPulseHowItWorksSteps3Text,
+  mediaPulseWhatIsIncludedItems0Title,
+  mediaPulseWhatIsIncludedItems1Title,
+  mediaPulseWhatIsIncludedItems0Text,
+  mediaPulseWhatIsIncludedItems1Text,
+  mediaPulseFaq0Question,
+  mediaPulseFaq1Question,
+  mediaPulseFaq2Question,
+  mediaPulseFaq3Question,
+  mediaPulseFaq4Question,
+  mediaPulseFaq0Answer,
+  mediaPulseFaq1Answer,
+  mediaPulseFaq2Answer,
+  mediaPulseFaq3Answer,
+  mediaPulseFaq4Answer
 } from "@/locales/.generated/server";
 import {
   ChatBubbleIcon,
@@ -136,6 +166,7 @@ export const getHowItWorks = (lang: SupportedLanguage) => {
 export type WhatIsIncluded = {
   icon: ReactNode;
   title: string;
+  text?: string;
 };
 
 export const getWhatIsIncluded = (
@@ -228,6 +259,33 @@ export const getHowItWorksPresenton = (lang: SupportedLanguage) => {
   ];
 };
 
+export const getKeyFeaturesMediaPulse = (lang: SupportedLanguage) => {
+  const data = [
+    {
+      title: mediaPulseKeyFeaturesFeatures0Title(lang),
+      description: mediaPulseKeyFeaturesFeatures0Text(lang),
+      icon: <FileTextIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseKeyFeaturesFeatures1Title(lang),
+      description: mediaPulseKeyFeaturesFeatures1Text(lang),
+      icon: <ClockIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseKeyFeaturesFeatures2Title(lang),
+      description: mediaPulseKeyFeaturesFeatures2Text(lang),
+      icon: <LayersIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseKeyFeaturesFeatures3Title(lang),
+      description: mediaPulseKeyFeaturesFeatures3Text(lang),
+      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+    }
+  ];
+
+  return data;
+};
+
 export const getWhatIsIncludedPresenton = (
   lang: SupportedLanguage
 ): WhatIsIncluded[] => {
@@ -260,6 +318,76 @@ export const getFaqsPresenton = (lang: SupportedLanguage) => {
     {
       question: presentonFaq2Question(lang),
       answer: presentonFaq2Answer(lang)
+    }
+  ];
+};
+
+type Faq = {
+  answer: string;
+  question: string;
+};
+
+export const getHowItWorksMediaPulse = (lang: SupportedLanguage) => {
+  const data = [
+    {
+      title: mediaPulseHowItWorksSteps0Title(lang),
+      description: mediaPulseHowItWorksSteps0Text(lang)
+    },
+    {
+      title: mediaPulseHowItWorksSteps1Title(lang),
+      description: mediaPulseHowItWorksSteps1Text(lang)
+    },
+    {
+      title: mediaPulseHowItWorksSteps2Title(lang),
+      description: mediaPulseHowItWorksSteps2Text(lang)
+    },
+    {
+      title: mediaPulseHowItWorksSteps3Title(lang),
+      description: mediaPulseHowItWorksSteps3Text(lang)
+    }
+  ];
+
+  return data;
+};
+
+export const getWhatIsIncludedMediaPulse = (
+  lang: SupportedLanguage
+): WhatIsIncluded[] => {
+  return [
+    {
+      title: mediaPulseWhatIsIncludedItems0Title(lang),
+      text: mediaPulseWhatIsIncludedItems0Text(lang),
+      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseWhatIsIncludedItems1Title(lang),
+      text: mediaPulseWhatIsIncludedItems1Text(lang),
+      icon: <Link2Icon className="h-7 w-7 text-white" />
+    }
+  ];
+};
+
+export const getFaqsMediaPulse = (lang: SupportedLanguage): Faq[] => {
+  return [
+    {
+      question: mediaPulseFaq0Question(lang),
+      answer: mediaPulseFaq0Answer(lang)
+    },
+    {
+      question: mediaPulseFaq1Question(lang),
+      answer: mediaPulseFaq1Answer(lang)
+    },
+    {
+      question: mediaPulseFaq2Question(lang),
+      answer: mediaPulseFaq2Answer(lang)
+    },
+    {
+      question: mediaPulseFaq3Question(lang),
+      answer: mediaPulseFaq3Answer(lang)
+    },
+    {
+      question: mediaPulseFaq4Question(lang),
+      answer: mediaPulseFaq4Answer(lang)
     }
   ];
 };

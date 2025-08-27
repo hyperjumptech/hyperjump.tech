@@ -150,8 +150,12 @@ export function WhatIsIncluded({
       bgClassName="bg-multilayer-gradient">
       <GridItemsTitleBlack title={whatsIncludedHeading} />
       <div className="my-6" />
-      <div className="grid grid-cols-2 gap-10 bg-transparent pt-8 text-white lg:grid-cols-4">
-        {whatsIncluded.map(({ icon, title }) => (
+      <div
+        className="grid grid-cols-2 gap-10 bg-transparent pt-8 text-white lg:grid-cols-4 xl:grid-cols-none"
+        style={{
+          gridTemplateColumns: `repeat(${whatsIncluded.length}, minmax(0, 1fr))`
+        }}>
+        {whatsIncluded.map(({ icon, title, text }) => (
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -163,6 +167,9 @@ export function WhatIsIncluded({
             {icon}
             <p className="text-base font-semibold text-white/90 md:text-xl">
               {title}
+            </p>
+            <p className="text-sm font-medium text-white/90 md:text-lg">
+              {text}
             </p>
           </motion.div>
         ))}

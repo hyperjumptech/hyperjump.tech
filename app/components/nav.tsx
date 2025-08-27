@@ -90,15 +90,18 @@ export default function Nav({ lang }: NavProps) {
                       <NavigationMenuItem key={idx}>
                         <NavigationMenuTrigger
                           className={cn(
-                            "relative rounded-none border-b-2 border-transparent text-xl font-medium transition",
+                            "relative cursor-pointer text-xl font-medium no-underline transition",
                             "focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none",
+                            "bg-transparent hover:!bg-transparent",
                             "bg-transparent hover:!bg-transparent data-[active]:!bg-transparent data-[state=open]:!bg-transparent",
-                            "hover:group-data-[scroll=true]:text-hyperjump-blue hover:border-white hover:group-data-[scroll=false]:text-white",
+                            "data-[state=open]:group-data-[scroll=true]:!text-hyperjump-blue",
                             isTransparent
-                              ? "group-data-[scroll=true]:text-hyperjump-black group-data-[scroll=false]:text-white"
-                              : "text-hyperjump-black"
+                              ? "data-[state=open]:group-data-[scroll=false]:!text-hyperjump-blue hover:text-hyperjump-blue group-data-[scroll=true]:!text-hyperjump-black"
+                              : "data-[state=open]:text-hyperjump-blue text-hyperjump-black"
                           )}>
-                          {item.label}
+                          <Link href={item.href} className="no-underline">
+                            {item.label}
+                          </Link>
                         </NavigationMenuTrigger>
 
                         <NavigationMenuContent className="min-w-52 rounded-md bg-white p-4 shadow-lg">

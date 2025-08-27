@@ -90,7 +90,7 @@ import {
   mediaPulseFaq1Answer,
   mediaPulseFaq2Answer,
   mediaPulseFaq3Answer,
-  mediaPulseFaq4Answer
+  mediaPulseFaq4Answer,
   startGptKeyFeaturesFeatures0Title,
   startGptKeyFeaturesFeatures1Title,
   startGptKeyFeaturesFeatures2Title,
@@ -128,6 +128,17 @@ import {
   DashboardIcon,
   ReloadIcon
 } from "@radix-ui/react-icons";
+
+export type WhatIsIncluded = {
+  icon: ReactNode;
+  title: string;
+  text?: string;
+};
+
+type Faq = {
+  answer: string;
+  question: string;
+};
 
 export const navRagChatbot = (lang: SupportedLanguage) => {
   return [
@@ -187,12 +198,6 @@ export const getHowItWorks = (lang: SupportedLanguage) => {
       description: ragChatbotHowItWorksSteps3Text(lang)
     }
   ];
-};
-
-export type WhatIsIncluded = {
-  icon: ReactNode;
-  title: string;
-  text?: string;
 };
 
 export const getWhatIsIncluded = (
@@ -258,32 +263,7 @@ export const getKeyFeaturesPresenton = (lang: SupportedLanguage) => {
     },
     {
       title: presentonKeyFeaturesFeatures3Title(lang),
-      description: presentonKeyFeaturesFeatures3Text(lang),
-    }
-  ]
-}
-
-export const getKeyFeaturesStartGPT = (lang: SupportedLanguage) => {
-  return [
-    {
-      title: startGptKeyFeaturesFeatures0Title(lang),
-      description: startGptKeyFeaturesFeatures0Text(lang),
-      icon: <FileTextIcon className="h-7 w-7 text-white" />
-    },
-    {
-      title: startGptKeyFeaturesFeatures1Title(lang),
-      description: startGptKeyFeaturesFeatures1Text(lang),
-      icon: <ClockIcon className="h-7 w-7 text-white" />
-    },
-    {
-      title: startGptKeyFeaturesFeatures2Title(lang),
-      description: startGptKeyFeaturesFeatures2Text(lang),
-      icon: <LayersIcon className="h-7 w-7 text-white" />
-    },
-    {
-      title: startGptKeyFeaturesFeatures3Title(lang),
-      description: startGptKeyFeaturesFeatures3Text(lang),
-      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+      description: presentonKeyFeaturesFeatures3Text(lang)
     }
   ];
 };
@@ -306,55 +286,7 @@ export const getHowItWorksPresenton = (lang: SupportedLanguage) => {
       title: presentonHowItWorksSteps3Title(lang),
       description: presentonHowItWorksSteps3Text(lang)
     }
-  ]
-}
-
-export const getHowItWorksStartGPT = (lang: SupportedLanguage) => {
-  return [
-    {
-      title: startGptHowItWorksSteps0Title(lang),
-      description: startGptHowItWorksSteps0Text(lang)
-    },
-    {
-      title: startGptHowItWorksSteps1Title(lang),
-      description: startGptHowItWorksSteps1Text(lang)
-    },
-    {
-      title: startGptHowItWorksSteps2Title(lang),
-      description: startGptHowItWorksSteps2Text(lang)
-    },
-    {
-      title: startGptHowItWorksSteps3Title(lang),
-      description: startGptHowItWorksSteps3Text(lang)
-    }
   ];
-};
-
-export const getKeyFeaturesMediaPulse = (lang: SupportedLanguage) => {
-  const data = [
-    {
-      title: mediaPulseKeyFeaturesFeatures0Title(lang),
-      description: mediaPulseKeyFeaturesFeatures0Text(lang),
-      icon: <FileTextIcon className="h-7 w-7 text-white" />
-    },
-    {
-      title: mediaPulseKeyFeaturesFeatures1Title(lang),
-      description: mediaPulseKeyFeaturesFeatures1Text(lang),
-      icon: <ClockIcon className="h-7 w-7 text-white" />
-    },
-    {
-      title: mediaPulseKeyFeaturesFeatures2Title(lang),
-      description: mediaPulseKeyFeaturesFeatures2Text(lang),
-      icon: <LayersIcon className="h-7 w-7 text-white" />
-    },
-    {
-      title: mediaPulseKeyFeaturesFeatures3Title(lang),
-      description: mediaPulseKeyFeaturesFeatures3Text(lang),
-      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
-    }
-  ];
-
-  return data;
 };
 
 export const getWhatIsIncludedPresenton = (
@@ -393,9 +325,31 @@ export const getFaqsPresenton = (lang: SupportedLanguage) => {
   ];
 };
 
-type Faq = {
-  answer: string;
-  question: string;
+export const getKeyFeaturesMediaPulse = (lang: SupportedLanguage) => {
+  const data = [
+    {
+      title: mediaPulseKeyFeaturesFeatures0Title(lang),
+      description: mediaPulseKeyFeaturesFeatures0Text(lang),
+      icon: <FileTextIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseKeyFeaturesFeatures1Title(lang),
+      description: mediaPulseKeyFeaturesFeatures1Text(lang),
+      icon: <ClockIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseKeyFeaturesFeatures2Title(lang),
+      description: mediaPulseKeyFeaturesFeatures2Text(lang),
+      icon: <LayersIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseKeyFeaturesFeatures3Title(lang),
+      description: mediaPulseKeyFeaturesFeatures3Text(lang),
+      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+    }
+  ];
+
+  return data;
 };
 
 export const getHowItWorksMediaPulse = (lang: SupportedLanguage) => {
@@ -460,8 +414,54 @@ export const getFaqsMediaPulse = (lang: SupportedLanguage): Faq[] => {
       question: mediaPulseFaq4Question(lang),
       answer: mediaPulseFaq4Answer(lang)
     }
-  ]
-}
+  ];
+};
+
+export const getKeyFeaturesStartGPT = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: startGptKeyFeaturesFeatures0Title(lang),
+      description: startGptKeyFeaturesFeatures0Text(lang),
+      icon: <FileTextIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: startGptKeyFeaturesFeatures1Title(lang),
+      description: startGptKeyFeaturesFeatures1Text(lang),
+      icon: <ClockIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: startGptKeyFeaturesFeatures2Title(lang),
+      description: startGptKeyFeaturesFeatures2Text(lang),
+      icon: <LayersIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: startGptKeyFeaturesFeatures3Title(lang),
+      description: startGptKeyFeaturesFeatures3Text(lang),
+      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+    }
+  ];
+};
+
+export const getHowItWorksStartGPT = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: startGptHowItWorksSteps0Title(lang),
+      description: startGptHowItWorksSteps0Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps1Title(lang),
+      description: startGptHowItWorksSteps1Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps2Title(lang),
+      description: startGptHowItWorksSteps2Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps3Title(lang),
+      description: startGptHowItWorksSteps3Text(lang)
+    }
+  ];
+};
 
 export const getFaqsStartGPT = (lang: SupportedLanguage) => {
   return [

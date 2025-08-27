@@ -46,11 +46,23 @@ import {
   ragChatbotHowItWorksHeading,
   ragChatbotWhatIsIncludedHeading,
   ragChatbotFaqDesc,
-  ragChatbotFaqHeading
+  ragChatbotFaqHeading,
+  inferenceaiCaseStudies4Category,
+  inferenceaiCaseStudies4Text,
+  presentonFaqDesc,
+  presentonFaqHeading,
+  presentonHowItWorksHeading,
+  presentonKeyFeaturesHeading,
+  inferenceaiCaseStudies4Title,
+  presentonWhatIsIncludedHeading
 } from "@/locales/.generated/server";
 import {
+  getFaqsPresenton,
+  getHowItWorksPresenton,
   getKeyFeatures,
+  getKeyFeaturesPresenton,
   getWhatIsIncluded,
+  getWhatIsIncludedPresenton,
   type WhatIsIncluded
 } from "./[slug]/data";
 
@@ -190,6 +202,21 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       title: inferenceaiCaseStudies1Title(lang),
       whatsIncluded: getWhatIsIncluded(lang),
       whatsIncludedHeading: ragChatbotWhatIsIncludedHeading(lang)
+    },
+    {
+      category: inferenceaiCaseStudies4Category(lang),
+      description: inferenceaiCaseStudies4Text(lang),
+      faqDesc: presentonFaqDesc(lang),
+      faqHeading: presentonFaqHeading(lang),
+      faqs: getFaqsPresenton(lang),
+      howItWorks: getHowItWorksPresenton(lang),
+      howItWorksHeading: presentonHowItWorksHeading(lang),
+      keyFeatures: getKeyFeaturesPresenton(lang),
+      keyFeaturesHeading: presentonKeyFeaturesHeading(lang),
+      slug: "presenton",
+      title: inferenceaiCaseStudies4Title(lang),
+      whatsIncluded: getWhatIsIncludedPresenton(lang),
+      whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)
     }
   ];
 };

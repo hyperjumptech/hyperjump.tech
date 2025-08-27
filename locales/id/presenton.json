@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "heading": "Dari Ide ke Slide dalam Hitungan Detik",
+    "desc": "Buat, sesuaikan, dan bagikan presentasi menarik dengan mudah."
+  },
+  "nav_items": {
+    "0_label": "Fitur Utama",
+    "1_label": "Cara Kerja",
+    "2_label": "Yang Tersedia",
+    "3_label": "FAQ"
+  },
+  "key_features": {
+    "heading": "Pembuat Presentasi Bertenaga AI",
+    "features": {
+      "0": {
+        "title": "Generasi Fleksibel",
+        "text": "Bangun presentasi yang berdampak hanya dengan prompt sederhana atau dokumen yang Anda unggah, disesuaikan dengan kebutuhan spesifik Anda."
+      },
+      "1": {
+        "title": "Pembuatan Template AI",
+        "text": "Secara otomatis buat template dari dokumen PowerPoint yang sudah ada untuk pengalaman presentasi yang konsisten dan profesional."
+      },
+      "2": {
+        "title": "Gunakan Kunci API Anda Sendiri",
+        "text": "Gunakan API key pribadi dari penyedia tepercaya seperti OpenAI, Google Gemini, atau Anthropic Claude."
+      },
+      "3": {
+        "title": "Siap Diekspor",
+        "text": "Simpan pekerjaan Anda dengan mudah dalam format PowerPoint (PPTX) atau PDF, dengan kualitas tata letak profesional setiap saat."
+      }
+    }
+  },
+  "how_it_works": {
+    "heading": "Cara Kerja Presenton",
+    "steps": {
+      "0": {
+        "title": "Sesi Diskusi Awal",
+        "text": "Bekerja sama dengan tim kami untuk menentukan tujuan presentasi, kebutuhan konten, dan penyesuaian yang diperlukan."
+      },
+      "1": {
+        "title": "Penyediaan & Implementasi",
+        "text": "Implementasikan Presenton dengan aman di lingkungan Anda, baik on-premises maupun di cloud."
+      },
+      "2": {
+        "title": "Pilih dan Konfigurasi Model LLM",
+        "text": "Pilih serta sesuaikan model AI untuk menghasilkan, menyusun, dan mendesain presentasi yang sesuai dengan gaya dan brand Anda."
+      },
+      "3": {
+        "title": "Pantau dan Kembangkan",
+        "text": "Sebarkan ke seluruh organisasi, pantau penggunaan serta umpan balik, dan terus kembangkan untuk hasil yang lebih optimal."
+      }
+    }
+  },
+  "what_is_included": {
+    "heading": "Apa yang Tersedia?",
+    "items": {
+      "0": "Pilihan beragam untuk pembuatan gambar dengan DALL-E 3, Gemini Flash, Pexels, atau Pixabay",
+      "1": "Dukungan untuk media kaya: ikon, grafik, dan elemen visual kustom untuk meningkatkan kualitas presentasi Anda",
+      "2": "Antarmuka yang ramah pengguna dan dirancang agar mudah terintegrasi dengan alur kerja yang sudah ada"
+    }
+  },
+  "faq": {
+    "heading": "Pertanyaan yang Sering Diajukan",
+    "desc": "Temukan jawaban tentang bagaimana AI kami membantu Anda membuat, menyesuaikan, dan mengekspor presentasi profesional dengan mudah.",
+    "0_question": "Bagaimana cara kerja Generasi Fleksibel?",
+    "0_answer": "Generasi Fleksibel memungkinkan Anda memulai dengan prompt sederhana atau unggahan dokumen. AI kami akan mengatur tata letak dan desain, sehingga menghemat waktu dan tenaga Anda.",
+    "1_question": "Apa yang saya butuhkan untuk Pembuatan Template AI?",
+    "1_answer": "Cukup unggah file PowerPoint Anda yang sudah ada, dan AI kami akan membuat template yang sesuai, sehingga mempercepat proses pembuatan presentasi.",
+    "2_question": "Format apa saja yang didukung untuk mengekspor presentasi saya?",
+    "2_answer": "Anda dapat mengekspor presentasi dalam format PowerPoint (PPTX) maupun PDF, sehingga mudah dibagikan dan kompatibel dengan audiens atau tim Anda."
+  }
+}

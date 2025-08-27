@@ -19,7 +19,7 @@ type JobProps = {
 
 export default async function Home({ params }: JobProps) {
   return (
-    <GridItemsContainer className="mt-10">
+    <GridItemsContainer className="pt-10">
       <GridItemsTitle title="Available Positions" />
       <div className="mt-5" />
       <GridItems

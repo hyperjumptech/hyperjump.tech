@@ -15,25 +15,23 @@ export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
 };
 
-type Smdd2024Props = {
+type SmddProps = {
   params: Promise<{ lang: SupportedLanguage }>;
 };
 
-export default async function Smdd2024Page({ params }: Smdd2024Props) {
+export default async function Smdd({ params }: SmddProps) {
   const { lang } = await params;
   return (
     <>
       <SmddHero lang={lang} />
-      <section className="border-b bg-white py-8">
-        <div className="container mx-auto flex flex-wrap space-y-4 pt-4 pb-12">
-          <Services lang={lang} />
-          <DemosAndDocs lang={lang} />
-          <OpenSourceProjects lang={lang} />
-          <TrustedBy lang={lang} />
-          <CaseStudies lang={lang} />
-          <ContactForm lang={lang} />
-        </div>
-      </section>
+      <div className="container mx-auto flex max-w-5xl flex-col space-y-8 border-b bg-white px-4 pt-8 text-black">
+        <Services lang={lang} />
+        <DemosAndDocs lang={lang} />
+        <OpenSourceProjects lang={lang} />
+        <TrustedBy lang={lang} />
+        <CaseStudies lang={lang} />
+        <ContactForm lang={lang} />
+      </div>
     </>
   );
 }

@@ -27,33 +27,31 @@ export default function DemosAndDocs({ lang }: { lang: SupportedLanguage }) {
   ];
 
   return (
-    <section className="w-full bg-white px-4 pt-4 sm:pt-0 xl:pt-16">
-      <div className="container mx-auto w-full max-w-7xl text-black">
-        <h1 className="my-4 mb-8 text-2xl leading-tight font-bold xl:text-5xl">
-          {demosAndDocumentation(lang)}
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-          {items.map((item, i) => {
-            return (
-              <div
-                key={i}
-                className="flex flex-col space-y-4 overflow-hidden rounded-t rounded-b-none bg-white pb-6 shadow-sm">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="h-40 w-full object-cover"
-                />
-                <div>
-                  <a
-                    href={item.link}
-                    className="text-smdd-red flex flex-wrap px-4 font-bold no-underline hover:no-underline">
-                    {item.title}
-                  </a>
-                </div>
+    <section>
+      <h1 className="my-4 mb-8 text-2xl leading-tight font-bold xl:text-5xl">
+        {demosAndDocumentation(lang)}
+      </h1>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
+        {items.map((item, i) => {
+          return (
+            <div
+              key={i}
+              className="flex flex-col space-y-4 overflow-hidden rounded-t rounded-b-none bg-white pb-6 shadow-sm">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-40 w-full object-cover"
+              />
+              <div>
+                <a
+                  href={item.link}
+                  className="text-smdd-red flex flex-wrap px-4 font-bold no-underline hover:no-underline">
+                  {item.title}
+                </a>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

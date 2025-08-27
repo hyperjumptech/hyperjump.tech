@@ -24,12 +24,12 @@ export default async function JobDetail({ params }: JobDetailProps) {
   }
 
   return (
-    <section className="mt-5 border-b bg-white py-8 text-black">
-      <div className="container mx-auto flex flex-col flex-wrap space-y-8 py-12">
+    <section className="container mx-auto max-w-5xl border-b px-4 py-8 pt-20 text-black md:px-20 xl:px-0">
+      <div className="flex flex-col space-y-8 py-12">
         <div>
           <p className="text-gray-500">{job.category}</p>
           <h1 className="text-5xl font-bold text-gray-800">{job.title}</h1>
-          <p className="leading-normal text-gray-800">{job.description}</p>
+          <p className="mt-4 leading-normal text-gray-800">{job.description}</p>
         </div>
         <div className="flex flex-col space-y-4">
           {["Responsibilities", "Requirements", "Deliverables"].map(

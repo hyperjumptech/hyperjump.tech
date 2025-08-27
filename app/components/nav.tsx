@@ -26,7 +26,6 @@ import {
 import { mainNav } from "../[lang]/data";
 import { usePathname } from "next/navigation";
 import { data } from "../[lang]/jobs/data";
-import LanguagePicker from "./language-picker";
 
 const SOLID_NAV_PATHS = [
   "/case-studies",
@@ -34,7 +33,6 @@ const SOLID_NAV_PATHS = [
   "/inferenceai",
   "/inferenceai/rag-chatbot",
   "/services",
-  "/smdd2024",
   ...data.jobs.map(({ id }) => `/jobs/${id}`)
 ];
 const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(
@@ -56,7 +54,6 @@ export default function Nav({ lang }: NavProps) {
   const isTransparent = Boolean(
     !SOLID_NAV_PATHS_WITH_LOCALE.find((path) => path === pathname)
   );
-  const isSMDD = pathname === `/${lang}/smdd2024`;
 
   return (
     <StickyNavigationMain>
@@ -67,80 +64,68 @@ export default function Nav({ lang }: NavProps) {
             ? "group-data-[scroll=false]:bg-transparent group-data-[scroll=true]:bg-white"
             : "bg-transparent"
         )}>
-        <div
-          className={cn(
-            "mx-auto flex w-full items-center justify-between px-4 md:px-20 xl:px-0",
-            isSMDD ? "container" : "w-5xl"
-          )}>
+        <div className="mx-auto flex w-5xl items-center justify-between px-4 md:px-20 xl:px-0">
           <HyperjumpLogo
-            isTransparent
+            isTransparent={isTransparent}
             isOpen={isOpen}
             lang={lang}
             onClose={() => setIsOpen(!isOpen)}
           />
 
           <CenterNavItems>
-            {isSMDD ? (
-              <></>
-            ) : (
-              <NavigationMenu className="mx-8 xl:mx-0">
-                <NavigationMenuList className="flex gap-5">
-                  {mainNav(lang).map((item, idx) =>
-                    item.children ? (
-                      <NavigationMenuItem key={idx}>
-                        <NavigationMenuTrigger
-                          className={cn(
-                            "relative cursor-pointer text-xl font-medium no-underline transition",
-                            "focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none",
-                            "bg-transparent hover:!bg-transparent",
-                            "bg-transparent hover:!bg-transparent data-[active]:!bg-transparent data-[state=open]:!bg-transparent",
-                            "data-[state=open]:group-data-[scroll=true]:!text-hyperjump-blue",
-                            isTransparent
-                              ? "data-[state=open]:group-data-[scroll=false]:!text-hyperjump-blue hover:text-hyperjump-blue group-data-[scroll=true]:!text-hyperjump-black"
-                              : "data-[state=open]:text-hyperjump-blue text-hyperjump-black"
-                          )}>
-                          <Link href={item.href} className="no-underline">
-                            {item.label}
-                          </Link>
-                        </NavigationMenuTrigger>
-
-                        <NavigationMenuContent className="min-w-52 rounded-md bg-white p-4 shadow-lg">
-                          <ul className="grid w-full gap-2">
-                            {item.children.map((child, cIdx) => (
-                              <li key={cIdx}>
-                                <Link
-                                  href={child.href}
-                                  className="text-hyperjump-black hover:text-hyperjump-blue block transition">
-                                  {child.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    ) : (
-                      <NavigationMenuItem key={idx}>
-                        <Link
-                          href={item.href}
-                          className={cn(
-                            "text-xl font-medium transition",
-                            isTransparent
-                              ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
-                              : "text-hyperjump-black hover:text-hyperjump-blue"
-                          )}>
+            <NavigationMenu className="mx-8 xl:mx-0">
+              <NavigationMenuList className="flex gap-5">
+                {mainNav(lang).map((item, idx) =>
+                  item.children ? (
+                    <NavigationMenuItem key={idx}>
+                      <NavigationMenuTrigger
+                        className={cn(
+                          "relative cursor-pointer text-xl font-medium no-underline transition",
+                          "focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none",
+                          "bg-transparent hover:!bg-transparent",
+                          "bg-transparent hover:!bg-transparent data-[active]:!bg-transparent data-[state=open]:!bg-transparent",
+                          "data-[state=open]:group-data-[scroll=true]:!text-hyperjump-blue",
+                          isTransparent
+                            ? "data-[state=open]:group-data-[scroll=false]:!text-hyperjump-blue hover:text-hyperjump-blue group-data-[scroll=true]:!text-hyperjump-black"
+                            : "data-[state=open]:text-hyperjump-blue text-hyperjump-black"
+                        )}>
+                        <Link href={item.href} className="no-underline">
                           {item.label}
                         </Link>
-                      </NavigationMenuItem>
-                    )
-                  )}
-                </NavigationMenuList>
-              </NavigationMenu>
-            )}
-          </CenterNavItems>
+                      </NavigationMenuTrigger>
 
-          <RightNavItems>
-            {isSMDD && <LanguagePicker lang={lang} />}
-          </RightNavItems>
+                      <NavigationMenuContent className="min-w-52 rounded-md bg-white p-4 shadow-lg">
+                        <ul className="grid w-full gap-2">
+                          {item.children.map((child, cIdx) => (
+                            <li key={cIdx}>
+                              <Link
+                                href={child.href}
+                                className="text-hyperjump-black hover:text-hyperjump-blue block transition">
+                                {child.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  ) : (
+                    <NavigationMenuItem key={idx}>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "text-xl font-medium transition",
+                          isTransparent
+                            ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
+                            : "text-hyperjump-black hover:text-hyperjump-blue"
+                        )}>
+                        {item.label}
+                      </Link>
+                    </NavigationMenuItem>
+                  )
+                )}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </CenterNavItems>
 
           {/* Mobile Toggle */}
           <div className="flex items-center lg:hidden">
@@ -258,15 +243,7 @@ function NavContainer({
 
 function CenterNavItems({ children }: { children: React.ReactNode }) {
   return (
-    <div className="hidden flex-1 items-center justify-center space-x-8 lg:flex">
-      {children}
-    </div>
-  );
-}
-
-function RightNavItems({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="hidden items-center justify-end space-x-4 lg:flex">
+    <div className="hidden flex-1 items-center justify-end space-x-8 lg:flex">
       {children}
     </div>
   );

@@ -53,9 +53,14 @@
     "0_title": "AI Knowledge Assistant with RAG",
     "0_category": "Case Studies",
     "0_text": "We built a custom AI agent that answers employee questions using internal documentation via Retrieval-Augmented Generation. Cutting support time by 60%.",
+
     "1_title": "AI-Powered Meeting Notes Agent",
     "1_category": "Case Studies",
-    "1_text": "This agent joins meetings, transcribes in real time, summarizes key points, and auto-updates project tools. Saving teams hours every week."
+    "1_text": "This agent joins meetings, transcribes in real time, summarizes key points, and auto-updates project tools. Saving teams hours every week.",
+
+    "4_title": "From Idea to Slides in Seconds",
+    "4_category": "Studi Kasus",
+    "4_text": "Create, customize, and share engaging presentations effortlessly"
   },
   "about_us": {
     "heading": "About Us",

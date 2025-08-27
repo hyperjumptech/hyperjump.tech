@@ -35,7 +35,32 @@ import {
   ragChatbotFaq0Answer,
   ragChatbotFaq1Answer,
   ragChatbotFaq2Answer,
-  ragChatbotFaq3Answer
+  ragChatbotFaq3Answer,
+  presentonKeyFeaturesFeatures0Title,
+  presentonKeyFeaturesFeatures1Title,
+  presentonKeyFeaturesFeatures2Title,
+  presentonKeyFeaturesFeatures3Title,
+  presentonKeyFeaturesFeatures0Text,
+  presentonKeyFeaturesFeatures1Text,
+  presentonKeyFeaturesFeatures2Text,
+  presentonKeyFeaturesFeatures3Text,
+  presentonHowItWorksSteps0Title,
+  presentonHowItWorksSteps1Title,
+  presentonHowItWorksSteps2Title,
+  presentonHowItWorksSteps3Title,
+  presentonHowItWorksSteps0Text,
+  presentonHowItWorksSteps1Text,
+  presentonHowItWorksSteps2Text,
+  presentonHowItWorksSteps3Text,
+  presentonWhatIsIncludedItems0,
+  presentonWhatIsIncludedItems1,
+  presentonWhatIsIncludedItems2,
+  presentonFaq0Question,
+  presentonFaq1Question,
+  presentonFaq2Question,
+  presentonFaq0Answer,
+  presentonFaq1Answer,
+  presentonFaq2Answer
 } from "@/locales/.generated/server";
 import {
   ChatBubbleIcon,
@@ -153,6 +178,88 @@ export const getFaqs = (lang: SupportedLanguage) => {
     {
       question: ragChatbotFaq3Question(lang),
       answer: ragChatbotFaq3Answer(lang)
+    }
+  ];
+};
+
+export const getKeyFeaturesPresenton = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: presentonKeyFeaturesFeatures0Title(lang),
+      description: presentonKeyFeaturesFeatures0Text(lang),
+      icon: <FileTextIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: presentonKeyFeaturesFeatures1Title(lang),
+      description: presentonKeyFeaturesFeatures1Text(lang),
+      icon: <ClockIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: presentonKeyFeaturesFeatures2Title(lang),
+      description: presentonKeyFeaturesFeatures2Text(lang),
+      icon: <LayersIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: presentonKeyFeaturesFeatures3Title(lang),
+      description: presentonKeyFeaturesFeatures3Text(lang),
+      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+    }
+  ];
+};
+
+export const getHowItWorksPresenton = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: presentonHowItWorksSteps0Title(lang),
+      description: presentonHowItWorksSteps0Text(lang)
+    },
+    {
+      title: presentonHowItWorksSteps1Title(lang),
+      description: presentonHowItWorksSteps1Text(lang)
+    },
+    {
+      title: presentonHowItWorksSteps2Title(lang),
+      description: presentonHowItWorksSteps2Text(lang)
+    },
+    {
+      title: presentonHowItWorksSteps3Title(lang),
+      description: presentonHowItWorksSteps3Text(lang)
+    }
+  ];
+};
+
+export const getWhatIsIncludedPresenton = (
+  lang: SupportedLanguage
+): WhatIsIncluded[] => {
+  return [
+    {
+      title: presentonWhatIsIncludedItems0(lang),
+      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: presentonWhatIsIncludedItems1(lang),
+      icon: <Link2Icon className="h-7 w-7 text-white" />
+    },
+    {
+      title: presentonWhatIsIncludedItems2(lang),
+      icon: <DashboardIcon className="h-7 w-7 text-white" />
+    }
+  ];
+};
+
+export const getFaqsPresenton = (lang: SupportedLanguage) => {
+  return [
+    {
+      question: presentonFaq0Question(lang),
+      answer: presentonFaq0Answer(lang)
+    },
+    {
+      question: presentonFaq1Question(lang),
+      answer: presentonFaq1Answer(lang)
+    },
+    {
+      question: presentonFaq2Question(lang),
+      answer: presentonFaq2Answer(lang)
     }
   ];
 };

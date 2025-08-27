@@ -53,9 +53,14 @@
     "0_title": "Asisten Pengetahuan AI dengan RAG",
     "0_category": "Studi Kasus",
     "0_text": "Kami membangun agen AI kustom yang menjawab pertanyaan karyawan menggunakan dokumentasi internal melalui Retrieval-Augmented Generation mengurangi waktu dukungan hingga 60%.",
+
     "1_title": "Agen Catatan Rapat Berbasis AI",
     "1_category": "Studi Kasus",
-    "1_text": "Agen ini ikut serta dalam rapat, mentranskripsi secara real-time, merangkum poin penting, dan memperbarui alat proyek secara otomatis menghemat waktu tim setiap minggunya."
+    "1_text": "Agen ini ikut serta dalam rapat, mentranskripsi secara real-time, merangkum poin penting, dan memperbarui alat proyek secara otomatis menghemat waktu tim setiap minggunya.",
+
+    "4_title": "Bangun agen AI kustom yang benar-benar menyelesaikan pekerjaan",
+    "4_category": "Studi Kasus",
+    "4_text": "Kami membantu bisnis merancang, mengembangkan, dan menerapkan agen AI khusus yang menghemat waktu, menekan biaya, dan mempercepat operasional tanpa kerumitan teknis."
   },
   "about_us": {
     "heading": "Tentang Kami",

@@ -90,7 +90,35 @@ import {
   mediaPulseFaq1Answer,
   mediaPulseFaq2Answer,
   mediaPulseFaq3Answer,
-  mediaPulseFaq4Answer
+  mediaPulseFaq4Answer,
+  startGptKeyFeaturesFeatures0Title,
+  startGptKeyFeaturesFeatures1Title,
+  startGptKeyFeaturesFeatures2Title,
+  startGptKeyFeaturesFeatures3Title,
+  startGptKeyFeaturesFeatures0Text,
+  startGptKeyFeaturesFeatures1Text,
+  startGptKeyFeaturesFeatures2Text,
+  startGptKeyFeaturesFeatures3Text,
+  startGptHowItWorksSteps0Title,
+  startGptHowItWorksSteps1Title,
+  startGptHowItWorksSteps2Title,
+  startGptHowItWorksSteps3Title,
+  startGptHowItWorksSteps0Text,
+  startGptHowItWorksSteps1Text,
+  startGptHowItWorksSteps2Text,
+  startGptHowItWorksSteps3Text,
+  startGptFaq0Question,
+  startGptFaq1Question,
+  startGptFaq2Question,
+  startGptFaq3Question,
+  startGptFaq0Answer,
+  startGptFaq1Answer,
+  startGptFaq2Answer,
+  startGptFaq3Answer,
+  startGptFaq4Question,
+  startGptFaq4Answer,
+  startGptHowItWorksSteps4Title,
+  startGptHowItWorksSteps4Text
 } from "@/locales/.generated/server";
 import {
   ChatBubbleIcon,
@@ -102,6 +130,17 @@ import {
   DashboardIcon,
   ReloadIcon
 } from "@radix-ui/react-icons";
+
+export type WhatIsIncluded = {
+  icon: ReactNode;
+  title: string;
+  text?: string;
+};
+
+type Faq = {
+  answer: string;
+  question: string;
+};
 
 export const navRagChatbot = (lang: SupportedLanguage) => {
   return [
@@ -161,12 +200,6 @@ export const getHowItWorks = (lang: SupportedLanguage) => {
       description: ragChatbotHowItWorksSteps3Text(lang)
     }
   ];
-};
-
-export type WhatIsIncluded = {
-  icon: ReactNode;
-  title: string;
-  text?: string;
 };
 
 export const getWhatIsIncluded = (
@@ -232,8 +265,7 @@ export const getKeyFeaturesPresenton = (lang: SupportedLanguage) => {
     },
     {
       title: presentonKeyFeaturesFeatures3Title(lang),
-      description: presentonKeyFeaturesFeatures3Text(lang),
-      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+      description: presentonKeyFeaturesFeatures3Text(lang)
     }
   ];
 };
@@ -257,33 +289,6 @@ export const getHowItWorksPresenton = (lang: SupportedLanguage) => {
       description: presentonHowItWorksSteps3Text(lang)
     }
   ];
-};
-
-export const getKeyFeaturesMediaPulse = (lang: SupportedLanguage) => {
-  const data = [
-    {
-      title: mediaPulseKeyFeaturesFeatures0Title(lang),
-      description: mediaPulseKeyFeaturesFeatures0Text(lang),
-      icon: <FileTextIcon className="h-7 w-7 text-white" />
-    },
-    {
-      title: mediaPulseKeyFeaturesFeatures1Title(lang),
-      description: mediaPulseKeyFeaturesFeatures1Text(lang),
-      icon: <ClockIcon className="h-7 w-7 text-white" />
-    },
-    {
-      title: mediaPulseKeyFeaturesFeatures2Title(lang),
-      description: mediaPulseKeyFeaturesFeatures2Text(lang),
-      icon: <LayersIcon className="h-7 w-7 text-white" />
-    },
-    {
-      title: mediaPulseKeyFeaturesFeatures3Title(lang),
-      description: mediaPulseKeyFeaturesFeatures3Text(lang),
-      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
-    }
-  ];
-
-  return data;
 };
 
 export const getWhatIsIncludedPresenton = (
@@ -322,9 +327,31 @@ export const getFaqsPresenton = (lang: SupportedLanguage) => {
   ];
 };
 
-type Faq = {
-  answer: string;
-  question: string;
+export const getKeyFeaturesMediaPulse = (lang: SupportedLanguage) => {
+  const data = [
+    {
+      title: mediaPulseKeyFeaturesFeatures0Title(lang),
+      description: mediaPulseKeyFeaturesFeatures0Text(lang),
+      icon: <FileTextIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseKeyFeaturesFeatures1Title(lang),
+      description: mediaPulseKeyFeaturesFeatures1Text(lang),
+      icon: <ClockIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseKeyFeaturesFeatures2Title(lang),
+      description: mediaPulseKeyFeaturesFeatures2Text(lang),
+      icon: <LayersIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: mediaPulseKeyFeaturesFeatures3Title(lang),
+      description: mediaPulseKeyFeaturesFeatures3Text(lang),
+      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+    }
+  ];
+
+  return data;
 };
 
 export const getHowItWorksMediaPulse = (lang: SupportedLanguage) => {
@@ -388,6 +415,81 @@ export const getFaqsMediaPulse = (lang: SupportedLanguage): Faq[] => {
     {
       question: mediaPulseFaq4Question(lang),
       answer: mediaPulseFaq4Answer(lang)
+    }
+  ];
+};
+
+export const getKeyFeaturesStartGPT = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: startGptKeyFeaturesFeatures0Title(lang),
+      description: startGptKeyFeaturesFeatures0Text(lang),
+      icon: <FileTextIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: startGptKeyFeaturesFeatures1Title(lang),
+      description: startGptKeyFeaturesFeatures1Text(lang),
+      icon: <ClockIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: startGptKeyFeaturesFeatures2Title(lang),
+      description: startGptKeyFeaturesFeatures2Text(lang),
+      icon: <LayersIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: startGptKeyFeaturesFeatures3Title(lang),
+      description: startGptKeyFeaturesFeatures3Text(lang),
+      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+    }
+  ];
+};
+
+export const getHowItWorksStartGPT = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: startGptHowItWorksSteps0Title(lang),
+      description: startGptHowItWorksSteps0Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps1Title(lang),
+      description: startGptHowItWorksSteps1Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps2Title(lang),
+      description: startGptHowItWorksSteps2Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps3Title(lang),
+      description: startGptHowItWorksSteps3Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps4Title(lang),
+      description: startGptHowItWorksSteps4Text(lang)
+    }
+  ];
+};
+
+export const getFaqsStartGPT = (lang: SupportedLanguage) => {
+  return [
+    {
+      question: startGptFaq0Question(lang),
+      answer: startGptFaq0Answer(lang)
+    },
+    {
+      question: startGptFaq1Question(lang),
+      answer: startGptFaq1Answer(lang)
+    },
+    {
+      question: startGptFaq2Question(lang),
+      answer: startGptFaq2Answer(lang)
+    },
+    {
+      question: startGptFaq3Question(lang),
+      answer: startGptFaq3Answer(lang)
+    },
+    {
+      question: startGptFaq4Question(lang),
+      answer: startGptFaq4Answer(lang)
     }
   ];
 };

@@ -21,7 +21,7 @@ import { CaseStudy } from "../data";
 
 type HeroProps = { caseStudy: CaseStudy };
 
-export function Hero({ caseStudy: { title, description } }: HeroProps) {
+export function Hero({ caseStudy: { title, description, slug } }: HeroProps) {
   return (
     <section
       id="hero"
@@ -64,7 +64,7 @@ export function Hero({ caseStudy: { title, description } }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
           className="mx-auto flex w-full flex-col items-center justify-center md:max-w-4xl">
-          <InferenceAIAgent />
+          {slug === "rag-chatbot" && <InferenceAIAgent />}
         </motion.div>
       </article>
 
@@ -153,7 +153,7 @@ export function WhatIsIncluded({
       <div
         className="grid grid-cols-2 gap-10 bg-transparent pt-8 text-white lg:grid-cols-4 xl:grid-cols-none"
         style={{
-          gridTemplateColumns: `repeat(${whatsIncluded.length}, minmax(0, 1fr))`
+          gridTemplateColumns: `repeat(${whatsIncluded?.length}, minmax(0, 1fr))`
         }}>
         {whatsIncluded.map(({ icon, title, text }) => (
           <motion.div
@@ -207,9 +207,10 @@ export function Faqs({ caseStudy: { faqDesc, faqHeading, faqs } }: HeroProps) {
                       </AccordionTrigger>
                     </CardHeader>
                     <AccordionContent asChild className="py-0">
-                      <CardContent className="text-base text-[#CDCED8] lg:text-lg">
-                        {answer}
-                      </CardContent>
+                      <CardContent
+                        className="text-base text-[#CDCED8] lg:text-lg"
+                        dangerouslySetInnerHTML={{ __html: answer }}
+                      />
                     </AccordionContent>
                   </Card>
                 </AccordionItem>

@@ -58,12 +58,17 @@
     "1_category": "Case Studies",
     "1_text": "This agent joins meetings, transcribes in real time, summarizes key points, and auto-updates project tools. Saving teams hours every week.",
 
-    "4_title": "From Idea to Slides in Seconds",
-    "4_category": "Studi Kasus",
-    "4_text": "Create, customize, and share engaging presentations effortlessly",
-    "2_title": "AI Knowledge Assistant for Media Monitoring",
+    "2_title": "Save 10+ Hours Every Week: Let AI Handle Your Media Monitoring, So You Focus on Strategy",
     "2_category": "Case Studies",
-    "2_text": "Track public sentiment, competitors, and brand mentions in real-time — Automated insights to email or WhatsApp."
+    "2_text": "Track public sentiment, competitors, and brand mentions in real-time — Automated insights to email or WhatsApp.",
+
+    "3_title": "Deploy Your Own Enterprise AI Assistant",
+    "3_category": "Case Studies",
+    "3_text": "Deploy a private, ChatGPT-like assistant that supports your own model, whether proprietary or open source, in both cloud and on-premises environments. Enjoy enterprise-grade control over data, security, and costs with integration options for top open-source LLMs like GPT-5, Claude Sonnet 4, Qwen3, and Gemini 2.5 Pro.",
+
+    "4_title": "From Idea to Slides in Seconds",
+    "4_category": "Case Studies",
+    "4_text": "Create, customize, and share engaging presentations effortlessly"
   },
   "about_us": {
     "heading": "About Us",

@@ -27,6 +27,7 @@ export const generateStaticParams = async ({ params }: CaseStudyProps) => {
 export default async function CaseStudy({ params }: CaseStudyProps) {
   const { lang, slug } = await params;
   const caseStudy = caseStudyBy(slug, lang);
+
   if (!caseStudy) {
     notFound();
   }
@@ -36,7 +37,9 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
       <Hero caseStudy={caseStudy} />
       <KeyFeatures caseStudy={caseStudy} lang={lang} />
       <HowItWorks caseStudy={caseStudy} />
-      <WhatIsIncluded caseStudy={caseStudy} />
+      {(caseStudy.whatsIncluded ?? []).length > 0 && (
+        <WhatIsIncluded caseStudy={caseStudy} />
+      )}
       <Faqs caseStudy={caseStudy} />
     </>
   );

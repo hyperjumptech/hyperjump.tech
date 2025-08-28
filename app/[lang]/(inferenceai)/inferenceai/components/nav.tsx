@@ -13,9 +13,10 @@ import {
 import { cn } from "@/lib/utils";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
+type Menu = { label: string; href: string };
 type NavProps = {
   lang: SupportedLanguage;
-  menus: { label: string; href: string }[];
+  menus: Menu[];
 };
 
 export default function Nav({ lang, menus }: NavProps) {

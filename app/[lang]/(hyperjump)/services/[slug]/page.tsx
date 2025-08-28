@@ -18,12 +18,8 @@ import {
   caseStudyButton
 } from "@/locales/.generated/server";
 
-import {
-  CaseStudy,
-  type Service,
-  serviceBySlug,
-  ServiceSlug
-} from "../../data";
+import type { CaseStudy, Service } from "../../data";
+import { serviceBySlug, ServiceSlug } from "../../data";
 
 type LangProps = {
   lang: SupportedLanguage;

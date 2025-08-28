@@ -42,14 +42,9 @@ import {
   inferenceaiFaq2Answer,
   inferenceaiFaq3Answer,
   inferenceaiFaq4Answer,
-  inferenceaiCaseStudies2Title,
   inferenceaiCaseStudies2Category,
-  inferenceaiCaseStudies2Text,
   inferenceaiCaseStudies3Category,
-  inferenceaiCaseStudies3Text,
-  inferenceaiCaseStudies4Title,
   inferenceaiCaseStudies4Category,
-  inferenceaiCaseStudies4Text,
   ragChatbotKeyFeaturesHeading,
   ragChatbotHowItWorksHeading,
   ragChatbotWhatIsIncludedHeading,
@@ -69,7 +64,13 @@ import {
   startGptFaqDesc,
   startGptFaqHeading,
   startGptHowItWorksHeading,
-  inferenceaiCaseStudies3Title
+  inferenceaiCaseStudies3Title,
+  mediaPulseHeroHeading,
+  mediaPulseHeroDesc,
+  startGptHeroDesc,
+  startGptHeroHeading,
+  presentonHeroDesc,
+  presentonHeroHeading
 } from "@/locales/.generated/server";
 
 import {
@@ -228,7 +229,7 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
     },
     {
       category: inferenceaiCaseStudies2Category(lang),
-      description: inferenceaiCaseStudies2Text(lang),
+      description: mediaPulseHeroDesc(lang),
       faqDesc: mediaPulseFaqDesc(lang),
       faqHeading: mediaPulseFaqHeading(lang),
       faqs: getFaqsMediaPulse(lang),
@@ -237,13 +238,13 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesMediaPulse(lang),
       keyFeaturesHeading: mediaPulseKeyFeaturesHeading(lang),
       slug: "media-pulse",
-      title: inferenceaiCaseStudies2Title(lang),
+      title: mediaPulseHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedMediaPulse(lang),
       whatsIncludedHeading: mediaPulseWhatIsIncludedHeading(lang)
     },
     {
       category: inferenceaiCaseStudies3Category(lang),
-      description: inferenceaiCaseStudies3Text(lang),
+      description: startGptHeroDesc(lang),
       faqDesc: startGptFaqDesc(lang),
       faqHeading: startGptFaqHeading(lang),
       faqs: getFaqsStartGPT(lang),
@@ -252,13 +253,13 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesStartGPT(lang),
       keyFeaturesHeading: startGptKeyFeaturesHeading(lang),
       slug: "startgpt",
-      title: inferenceaiCaseStudies3Title(lang),
+      title: startGptHeroHeading(lang),
       whatsIncluded: [],
       whatsIncludedHeading: ""
     },
     {
       category: inferenceaiCaseStudies4Category(lang),
-      description: inferenceaiCaseStudies4Text(lang),
+      description: presentonHeroDesc(lang),
       faqDesc: presentonFaqDesc(lang),
       faqHeading: presentonFaqHeading(lang),
       faqs: getFaqsPresenton(lang),
@@ -267,7 +268,7 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesPresenton(lang),
       keyFeaturesHeading: presentonKeyFeaturesHeading(lang),
       slug: "presenton",
-      title: inferenceaiCaseStudies4Title(lang),
+      title: presentonHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedPresenton(lang),
       whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)
     }

@@ -252,7 +252,9 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesStartGPT(lang),
       keyFeaturesHeading: startGptKeyFeaturesHeading(lang),
       slug: "startgpt",
-      title: inferenceaiCaseStudies3Title(lang)
+      title: inferenceaiCaseStudies3Title(lang),
+      whatsIncluded: [],
+      whatsIncludedHeading: ""
     },
     {
       category: inferenceaiCaseStudies4Category(lang),

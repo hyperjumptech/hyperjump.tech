@@ -68,7 +68,8 @@ import {
   startGptKeyFeaturesHeading,
   startGptFaqDesc,
   startGptFaqHeading,
-  startGptHowItWorksHeading
+  startGptHowItWorksHeading,
+  inferenceaiCaseStudies3Title
 } from "@/locales/.generated/server";
 
 import {
@@ -226,21 +227,6 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       whatsIncludedHeading: ragChatbotWhatIsIncludedHeading(lang)
     },
     {
-      category: inferenceaiCaseStudies4Category(lang),
-      description: inferenceaiCaseStudies4Text(lang),
-      faqDesc: presentonFaqDesc(lang),
-      faqHeading: presentonFaqHeading(lang),
-      faqs: getFaqsPresenton(lang),
-      howItWorks: getHowItWorksPresenton(lang),
-      howItWorksHeading: presentonHowItWorksHeading(lang),
-      keyFeatures: getKeyFeaturesPresenton(lang),
-      keyFeaturesHeading: presentonKeyFeaturesHeading(lang),
-      slug: "presenton",
-      title: inferenceaiCaseStudies4Title(lang),
-      whatsIncluded: getWhatIsIncludedPresenton(lang),
-      whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)
-    },
-    {
       category: inferenceaiCaseStudies2Category(lang),
       description: inferenceaiCaseStudies2Text(lang),
       faqDesc: mediaPulseFaqDesc(lang),
@@ -265,9 +251,23 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       howItWorksHeading: startGptHowItWorksHeading(lang),
       keyFeatures: getKeyFeaturesStartGPT(lang),
       keyFeaturesHeading: startGptKeyFeaturesHeading(lang),
-      slug: "start-gpt",
-      title: inferenceaiCaseStudies1Title(lang),
-      whatsIncluded: getWhatIsIncluded(lang)
+      slug: "startgpt",
+      title: inferenceaiCaseStudies3Title(lang)
+    },
+    {
+      category: inferenceaiCaseStudies4Category(lang),
+      description: inferenceaiCaseStudies4Text(lang),
+      faqDesc: presentonFaqDesc(lang),
+      faqHeading: presentonFaqHeading(lang),
+      faqs: getFaqsPresenton(lang),
+      howItWorks: getHowItWorksPresenton(lang),
+      howItWorksHeading: presentonHowItWorksHeading(lang),
+      keyFeatures: getKeyFeaturesPresenton(lang),
+      keyFeaturesHeading: presentonKeyFeaturesHeading(lang),
+      slug: "presenton",
+      title: inferenceaiCaseStudies4Title(lang),
+      whatsIncluded: getWhatIsIncludedPresenton(lang),
+      whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)
     }
   ];
 };

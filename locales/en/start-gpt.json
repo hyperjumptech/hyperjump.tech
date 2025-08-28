@@ -59,34 +59,14 @@
     "heading": "Frequently Asked Questions",
     "desc": "All the details you need to confidently plan, deploy, and scale your enterprise AI assistant.",
     "0_question": "What does this service include?",
-    "0_answer": [
-      "Infrastructure provisioning",
-      "Core stack install (frontend/backend/proxy)",
-      "Key integrations (Ollama/OpenAI, RAG, web-fetch, SCIM, RBAC, i18n, image gen)",
-      "Security hardening",
-      "Testing, documentation and handoff"
-    ],
+    "0_answer": "Infrastructure provisioning, core stack install (frontend/backend/proxy), key integrations (Ollama/OpenAI, RAG, web‐fetch, SCIM, RBAC, i18n, image gen), security hardening, testing, documentation and handoff.",
     "1_question": "What integrations are supported?",
-    "1_answer": [
-      "Ollama & any OpenAI-compatible endpoint (LMStudio, GroqCloud, Mistral, OpenRouter, etc.)",
-      "Local RAG, OneDrive, and Google Drive",
-      "SCIM 2.0 (Okta, Azure AD, Google Workspace)",
-      "Image-generation backends (AUTOMATIC1111, ComfyUI, DALL·E)"
-    ],
+    "1_answer": "<ul class=\"list-disc ml-8\"><li class=\"mb-2\">Ollama & any OpenAI-compatible endpoint (LMStudio, GroqCloud, Mistral, OpenRouter, etc.)</li><li class=\"mb-2\">Local RAG, OneDrive, and Google Drive</li><li class=\"mb-2\">SCIM 2.0 (Okta, Azure AD, Google Workspace)</li><li class=\"mb-2\">Image-generation backends (AUTOMATIC1111, ComfyUI, DALL·E)</li></ul>",
     "2_question": "How long does setup take?",
     "2_answer": "Typically 1–3 weeks, depending on infrastructure readiness, number of integrations, customization and compliance requirements.",
     "3_question": "What deployment models are available?",
-    "3_answer": [
-      "Cloud (AWS, Azure, GCP)",
-      "On-premises (bare-metal or private cloud)",
-      "Hybrid (mix of on-prem and public cloud)"
-    ],
+    "3_answer": "<ul class=\"list-disc ml-8\"><li class=\"mb-2\">Cloud (AWS, Azure, GCP)</li><li class=\"mb-2\">On-premises (bare-metal or private cloud)</li><li class=\"mb-2\">Hybrid (mix of on-prem and public cloud)</li></ul>",
     "4_question": "How much does it cost?",
-    "4_answer": [
-      "One-time setup fee",
-      "Pay-as-you-go (based on compute usage)",
-      "Optional support & maintenance",
-      "No hidden fees, no lock-in"
-    ]
+    "4_answer": "We offer a flexible model: <ul class=\"list-disc ml-8\"><li class=\"mb-2\">One-time setup fee</li><li class=\"mb-2\">Pay-as-you-go (based on compute usage)</li><li class=\"mb-2\">Optional support & maintenance</li><li class=\"mb-2\">No hidden fees, no lock-in</li></ul>"
   }
 }

@@ -57,36 +57,16 @@
   },
   "faq": {
     "heading": "Pertanyaan yang Sering Diajukan",
-    "desc": "Semua detail yang Anda butuhkan untuk merencanakan, mengimplementasikan, dan mengembangkan asisten AI enterprise Anda dengan percaya diri.",
+    "desc": "Semua detail yang Anda butuhkan untuk merencanakan, menerapkan, dan mengembangkan asisten AI perusahaan dengan percaya diri.",
     "0_question": "Apa saja yang termasuk dalam layanan ini?",
-    "0_answer": [
-      "Provisioning infrastruktur",
-      "Instalasi core stack (frontend/backend/proxy)",
-      "Integrasi utama (Ollama/OpenAI, RAG, web-fetch, SCIM, RBAC, i18n, image gen)",
-      "Penguatan keamanan",
-      "Testing, dokumentasi, dan serah terima"
-    ],
+    "0_answer": "Penyediaan infrastruktur, instalasi core stack (frontend/backend/proxy), integrasi utama (Ollama/OpenAI, RAG, web-fetch, SCIM, RBAC, i18n, image gen), peningkatan keamanan, pengujian, dokumentasi, dan serah terima.",
     "1_question": "Integrasi apa saja yang didukung?",
-    "1_answer": [
-      "Ollama & endpoint yang kompatibel dengan OpenAI (LMStudio, GroqCloud, Mistral, OpenRouter, dll.)",
-      "RAG lokal, OneDrive, dan Google Drive",
-      "SCIM 2.0 (Okta, Azure AD, Google Workspace)",
-      "Backend generasi gambar (AUTOMATIC1111, ComfyUI, DALL·E)"
-    ],
-    "2_question": "Berapa lama waktu setup?",
-    "2_answer": "Biasanya 1–3 minggu, tergantung pada kesiapan infrastruktur, jumlah integrasi, tingkat kustomisasi, dan kebutuhan kepatuhan.",
+    "1_answer": "<ul class=\"list-disc ml-8\"><li class=\"mb-2\">Ollama & endpoint yang kompatibel dengan OpenAI (LMStudio, GroqCloud, Mistral, OpenRouter, dll.)</li><li class=\"mb-2\">RAG lokal, OneDrive, dan Google Drive</li><li class=\"mb-2\">SCIM 2.0 (Okta, Azure AD, Google Workspace)</li><li class=\"mb-2\">Backend pembuatan gambar (AUTOMATIC1111, ComfyUI, DALL·E)</li></ul>",
+    "2_question": "Berapa lama waktu yang dibutuhkan untuk setup?",
+    "2_answer": "Biasanya 1–3 minggu, tergantung pada kesiapan infrastruktur, jumlah integrasi, kebutuhan kustomisasi, dan persyaratan kepatuhan.",
     "3_question": "Model deployment apa saja yang tersedia?",
-    "3_answer": [
-      "Cloud (AWS, Azure, GCP)",
-      "On-premises (bare-metal atau private cloud)",
-      "Hybrid (campuran on-prem dan public cloud)"
-    ],
+    "3_answer": "<ul class=\"list-disc ml-8\"><li class=\"mb-2\">Cloud (AWS, Azure, GCP)</li><li class=\"mb-2\">On-premises (bare-metal atau private cloud)</li><li class=\"mb-2\">Hybrid (gabungan on-prem dan public cloud)</li></ul>",
     "4_question": "Berapa biayanya?",
-    "4_answer": [
-      "Biaya setup sekali",
-      "Pay-as-you-go (berdasarkan penggunaan komputasi)",
-      "Opsional: dukungan & maintenance",
-      "Tanpa biaya tersembunyi, tanpa lock-in"
-    ]
+    "4_answer": "Kami menawarkan model fleksibel: <ul class=\"list-disc ml-8\"><li class=\"mb-2\">Biaya setup sekali</li><li class=\"mb-2\">Bayar sesuai penggunaan (berdasarkan pemakaian komputasi)</li><li class=\"mb-2\">Dukungan & pemeliharaan opsional</li><li class=\"mb-2\">Tanpa biaya tersembunyi, tanpa kontrak mengikat</li></ul>"
   }
 }

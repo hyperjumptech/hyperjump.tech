@@ -116,7 +116,9 @@ import {
   startGptFaq2Answer,
   startGptFaq3Answer,
   startGptFaq4Question,
-  startGptFaq4Answer
+  startGptFaq4Answer,
+  startGptHowItWorksSteps4Title,
+  startGptHowItWorksSteps4Text
 } from "@/locales/.generated/server";
 import {
   ChatBubbleIcon,
@@ -459,6 +461,10 @@ export const getHowItWorksStartGPT = (lang: SupportedLanguage) => {
     {
       title: startGptHowItWorksSteps3Title(lang),
       description: startGptHowItWorksSteps3Text(lang)
+    },
+    {
+      title: startGptHowItWorksSteps4Title(lang),
+      description: startGptHowItWorksSteps4Text(lang)
     }
   ];
 };

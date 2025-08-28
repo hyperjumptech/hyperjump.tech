@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { demosAndDocumentation } from "@/locales/.generated/server";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
 export default function DemosAndDocs({ lang }: { lang: SupportedLanguage }) {
   const items = [

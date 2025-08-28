@@ -34,7 +34,7 @@ import {
   volunteeringPlatformNarrative,
   volunteeringPlatformQuotes
 } from "@/locales/.generated/server";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
 export const getServices = (lang: SupportedLanguage) => {
   const services = [

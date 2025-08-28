@@ -1,4 +1,4 @@
-import { Item } from "@/app/components/grid-items";
+import type { Item } from "@/app/components/grid-items";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   inferenceaiNavItems0Label,

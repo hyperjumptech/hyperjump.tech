@@ -1,6 +1,7 @@
 import ScrollObserver from "@/app/components/scroll-observer";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import ClientWrapper from "./components/client-wrapper";
+import { Footer } from "./components/footer";
 
 type MainLangLayoutProps = {
   children: React.ReactNode;
@@ -16,7 +17,11 @@ export default async function MainLangLayout({
   return (
     <>
       <ScrollObserver />
-      <ClientWrapper lang={lang}>{children}</ClientWrapper>
+      <div className="relative min-h-screen bg-transparent">
+        <ClientWrapper lang={lang} />
+        {children}
+        <Footer lang={lang} />
+      </div>
     </>
   );
 }

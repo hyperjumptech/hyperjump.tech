@@ -1,6 +1,14 @@
 import type { ReactNode } from "react";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
+  caseStudyCtoaasMediaCategory,
+  caseStudyCtoaasMediaDesc,
+  caseStudyCtoaasMediaTitle,
+  caseStudyErpFisheriesCategory,
+  caseStudyErpFisheriesDesc,
+  caseStudyErpFisheriesTitle,
+  ctoaasHeroDesc,
+  ctoaasHeroHeading,
   ctoaasHowItWorksDesc,
   ctoaasHowItWorksStep0Text,
   ctoaasHowItWorksStep0Title,
@@ -45,6 +53,8 @@ import {
   ctoaasWhyUsReasons1,
   ctoaasWhyUsReasons2,
   ctoaasWhyUsReasons3,
+  erpHeroDesc,
+  erpHeroHeading,
   erpHowItWorksDesc,
   erpHowItWorksStep0Text,
   erpHowItWorksStep0Title,
@@ -91,10 +101,32 @@ import {
   erpWhyUsReasons0,
   erpWhyUsReasons1,
   erpWhyUsReasons2,
+  mainCaseStudies0Category,
+  mainCaseStudies0Text,
+  mainCaseStudies0Title,
+  mainCaseStudies1Category,
+  mainCaseStudies1Text,
+  mainCaseStudies1Title,
+  mainFaq0Answer,
+  mainFaq0Question,
+  mainFaq1Answer,
+  mainFaq1Question,
+  mainFaq2Answer,
+  mainFaq2Question,
+  mainFaq3Answer,
+  mainFaq3Question,
+  mainProject0Text,
+  mainProject0Title,
+  mainProject1Text,
+  mainProject1Title,
+  mainProject2Text,
+  mainProject2Title,
   mainServices0Text,
   mainServices1Text,
   mainServices2Text,
   mainServices3Text,
+  saasHeroDesc,
+  saasHeroHeading,
   saasHowItWorksDesc,
   saasHowItWorksStep0Text,
   saasHowItWorksStep0Title,
@@ -160,6 +192,8 @@ import {
   servicesTechDueDiligenceItems2,
   servicesTechDueDiligenceText,
   servicesTechDueDiligenceTitle,
+  tddHeroDesc,
+  tddHeroHeading,
   tddHowItWorksDesc,
   tddHowItWorksStep0Text,
   tddHowItWorksStep0Title,
@@ -203,22 +237,76 @@ import {
   tddWhyUsDesc,
   tddWhyUsReasons0,
   tddWhyUsReasons1,
-  tddWhyUsReasons2,
-  caseStudyErpFisheriesTitle,
-  caseStudyErpFisheriesDesc,
-  caseStudyErpFisheriesCategory,
-  caseStudyCtoaasMediaTitle,
-  caseStudyCtoaasMediaDesc,
-  caseStudyCtoaasMediaCategory,
-  ctoaasHeroHeading,
-  ctoaasHeroDesc,
-  erpHeroHeading,
-  erpHeroDesc,
-  tddHeroDesc,
-  tddHeroHeading,
-  saasHeroHeading,
-  saasHeroDesc
+  tddWhyUsReasons2
 } from "@/locales/.generated/server";
+
+export function getCaseStudies(lang: SupportedLanguage) {
+  return [
+    {
+      title: mainCaseStudies0Title(lang),
+      category: mainCaseStudies0Category(lang),
+      description: mainCaseStudies0Text(lang),
+      urlCaseStudy: "/case-studies/erp-fisheries"
+    },
+    {
+      title: mainCaseStudies1Title(lang),
+      category: mainCaseStudies1Category(lang),
+      description: mainCaseStudies1Text(lang),
+      urlCaseStudy: "/case-studies/ctoaas-media"
+    }
+  ];
+}
+
+export function getFaqs(lang: SupportedLanguage) {
+  return [
+    {
+      question: mainFaq0Question(lang),
+      answer: mainFaq0Answer(lang)
+    },
+    {
+      question: mainFaq1Question(lang),
+      answer: mainFaq1Answer(lang)
+    },
+    {
+      question: mainFaq2Question(lang),
+      answer: mainFaq2Answer(lang)
+    },
+    {
+      question: mainFaq3Question(lang),
+      answer: mainFaq3Answer(lang)
+    }
+  ];
+}
+
+export function getProject(lang: SupportedLanguage) {
+  return [
+    {
+      title: mainProject0Title(lang),
+      description: mainProject0Text(lang),
+      image: "/images/open-source/grule.svg",
+      url: "https://github.com/hyperjumptech/grule-rule-engine",
+      button: true,
+      repo: "grule-rule-engine"
+    },
+    {
+      title: mainProject1Title(lang),
+      description: mainProject1Text(lang),
+      image: "/images/open-source/monika.svg",
+      url: "https://github.com/hyperjumptech/monika",
+      button: true,
+      repo: "monika"
+    },
+    {
+      title: mainProject2Title(lang),
+      description: mainProject2Text(lang),
+
+      image: "/images/open-source/whatsapp-chatbot-connector.svg",
+      url: "https://github.com/hyperjumptech/whatsapp-chatbot-connector",
+      button: true,
+      repo: "whatsapp-chatbot-connector"
+    }
+  ];
+}
 
 type ListWithIcon = {
   iconUrl: string;
@@ -826,3 +914,19 @@ type ServiceBySlugParameters = {
 export function serviceBySlug({ lang, slug }: ServiceBySlugParameters) {
   return services(lang).find((service) => service.slug === slug);
 }
+
+export const pageData = {
+  location: {
+    title: "D.Lab Building (6th floor)",
+    address: [
+      "Jl. Riau No. 1, Gondangdia, Menteng,",
+      "Jakarta Pusat - 10350",
+      "Indonesia"
+    ],
+    email: "solution@hyperjump.tech",
+    duns: "65-975-4901",
+    mapsUrl:
+      "https://www.google.com/maps/place/DLab+SMD/@-6.1907514,106.8219552,17z/data=!4m15!1m8!3m7!1s0x2e69f42410acef4f:0x2ebaeebb8f5fafbb!2sJl.+Riau+No.1,+RT.9%2FRW.5,+Gondangdia,+Kec.+Menteng,+Kota+Jakarta+Pusat,+Daerah+Khusus+Ibukota+Jakarta+10350!3b1!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11c5lcsgsq!3m5!1s0x2e69f5e04c659f97:0xd2f4629d7651d317!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11kb72cx9p?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D",
+    imageUrl: "/images/location-2.webp"
+  }
+};

@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Organization, WebPage, WithContext } from "schema-dts";
 
-import { services } from "@/app/data";
 import {
   Accordion,
   AccordionContent,
@@ -38,9 +37,15 @@ import {
   mainHeroHeading
 } from "@/locales/.generated/server";
 
-import { Clients } from "../components/clients";
+import { Clients } from "./components/clients";
 import { Location } from "./components/location";
-import { getCaseStudies, getProject, getFaqs, pageData } from "./data";
+import {
+  getCaseStudies,
+  getFaqs,
+  getProject,
+  pageData,
+  services
+} from "./data";
 
 const { github, socials, title, url } = data;
 

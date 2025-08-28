@@ -118,7 +118,39 @@ import {
   startGptFaq4Question,
   startGptFaq4Answer,
   startGptHowItWorksSteps4Title,
-  startGptHowItWorksSteps4Text
+  startGptHowItWorksSteps4Text,
+  voxaKeyFeaturesFeatures0Title,
+  voxaKeyFeaturesFeatures1Title,
+  voxaKeyFeaturesFeatures2Title,
+  voxaKeyFeaturesFeatures3Title,
+  voxaKeyFeaturesFeatures0Text,
+  voxaKeyFeaturesFeatures1Text,
+  voxaKeyFeaturesFeatures2Text,
+  voxaKeyFeaturesFeatures3Text,
+  voxaHowItWorksSteps0Title,
+  voxaHowItWorksSteps1Title,
+  voxaHowItWorksSteps2Title,
+  voxaHowItWorksSteps3Title,
+  voxaHowItWorksSteps0Text,
+  voxaHowItWorksSteps1Text,
+  voxaHowItWorksSteps2Text,
+  voxaHowItWorksSteps3Text,
+  voxaWhatIsIncludedItems0,
+  voxaWhatIsIncludedItems1,
+  voxaWhatIsIncludedItems2,
+  voxaFaq0Question,
+  voxaFaq1Question,
+  voxaFaq2Question,
+  voxaFaq0Answer,
+  voxaFaq1Answer,
+  voxaFaq2Answer,
+  voxaWhatIsIncludedItems3,
+  voxaFaq3Question,
+  voxaFaq3Answer,
+  voxaFaq4Question,
+  voxaFaq4Answer,
+  voxaFaq5Question,
+  voxaFaq5Answer
 } from "@/locales/.generated/server";
 import {
   ChatBubbleIcon,
@@ -438,7 +470,31 @@ export const getKeyFeaturesStartGPT = (lang: SupportedLanguage) => {
     },
     {
       title: startGptKeyFeaturesFeatures3Title(lang),
-      description: startGptKeyFeaturesFeatures3Text(lang),
+      description: startGptKeyFeaturesFeatures3Text(lang)
+    }
+  ];
+};
+
+export const getKeyFeaturesVoxa = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: voxaKeyFeaturesFeatures0Title(lang),
+      description: voxaKeyFeaturesFeatures0Text(lang),
+      icon: <FileTextIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: voxaKeyFeaturesFeatures1Title(lang),
+      description: voxaKeyFeaturesFeatures1Text(lang),
+      icon: <ClockIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: voxaKeyFeaturesFeatures2Title(lang),
+      description: voxaKeyFeaturesFeatures2Text(lang),
+      icon: <LayersIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: voxaKeyFeaturesFeatures3Title(lang),
+      description: voxaKeyFeaturesFeatures3Text(lang),
       icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
     }
   ];
@@ -469,6 +525,50 @@ export const getHowItWorksStartGPT = (lang: SupportedLanguage) => {
   ];
 };
 
+export const getHowItWorksVoxa = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: voxaHowItWorksSteps0Title(lang),
+      description: voxaHowItWorksSteps0Text(lang)
+    },
+    {
+      title: voxaHowItWorksSteps1Title(lang),
+      description: voxaHowItWorksSteps1Text(lang)
+    },
+    {
+      title: voxaHowItWorksSteps2Title(lang),
+      description: voxaHowItWorksSteps2Text(lang)
+    },
+    {
+      title: voxaHowItWorksSteps3Title(lang),
+      description: voxaHowItWorksSteps3Text(lang)
+    }
+  ];
+};
+
+export const getWhatIsIncludedVoxa = (
+  lang: SupportedLanguage
+): WhatIsIncluded[] => {
+  return [
+    {
+      title: voxaWhatIsIncludedItems0(lang),
+      icon: <ChatBubbleIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: voxaWhatIsIncludedItems1(lang),
+      icon: <Link2Icon className="h-7 w-7 text-white" />
+    },
+    {
+      title: voxaWhatIsIncludedItems2(lang),
+      icon: <DashboardIcon className="h-7 w-7 text-white" />
+    },
+    {
+      title: voxaWhatIsIncludedItems3(lang),
+      icon: <DashboardIcon className="h-7 w-7 text-white" />
+    }
+  ];
+};
+
 export const getFaqsStartGPT = (lang: SupportedLanguage) => {
   return [
     {
@@ -490,6 +590,35 @@ export const getFaqsStartGPT = (lang: SupportedLanguage) => {
     {
       question: startGptFaq4Question(lang),
       answer: startGptFaq4Answer(lang)
+    }
+  ];
+};
+
+export const getFaqsVoxa = (lang: SupportedLanguage) => {
+  return [
+    {
+      question: voxaFaq0Question(lang),
+      answer: voxaFaq0Answer(lang)
+    },
+    {
+      question: voxaFaq1Question(lang),
+      answer: voxaFaq1Answer(lang)
+    },
+    {
+      question: voxaFaq2Question(lang),
+      answer: voxaFaq2Answer(lang)
+    },
+    {
+      question: voxaFaq3Question(lang),
+      answer: voxaFaq3Answer(lang)
+    },
+    {
+      question: voxaFaq4Question(lang),
+      answer: voxaFaq4Answer(lang)
+    },
+    {
+      question: voxaFaq5Question(lang),
+      answer: voxaFaq5Answer(lang)
     }
   ];
 };

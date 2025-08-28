@@ -64,13 +64,20 @@ import {
   startGptFaqDesc,
   startGptFaqHeading,
   startGptHowItWorksHeading,
-  inferenceaiCaseStudies3Title,
   mediaPulseHeroHeading,
   mediaPulseHeroDesc,
   startGptHeroDesc,
   startGptHeroHeading,
   presentonHeroDesc,
-  presentonHeroHeading
+  presentonHeroHeading,
+  voxaHeroDesc,
+  voxaFaqDesc,
+  voxaFaqHeading,
+  voxaHowItWorksHeading,
+  voxaKeyFeaturesHeading,
+  voxaHeroHeading,
+  inferenceaiCaseStudies5Category,
+  voxaWhatIsIncludedHeading
 } from "@/locales/.generated/server";
 
 import {
@@ -87,7 +94,11 @@ import {
   getHowItWorksMediaPulse,
   getKeyFeaturesMediaPulse,
   getWhatIsIncludedMediaPulse,
-  type WhatIsIncluded
+  type WhatIsIncluded,
+  getFaqsVoxa,
+  getHowItWorksVoxa,
+  getKeyFeaturesVoxa,
+  getWhatIsIncludedVoxa
 } from "./[slug]/data";
 
 export const navInferenceai = (lang: SupportedLanguage) => {
@@ -271,6 +282,21 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       title: presentonHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedPresenton(lang),
       whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)
+    },
+    {
+      category: inferenceaiCaseStudies5Category(lang),
+      description: voxaHeroDesc(lang),
+      faqDesc: voxaFaqDesc(lang),
+      faqHeading: voxaFaqHeading(lang),
+      faqs: getFaqsVoxa(lang),
+      howItWorks: getHowItWorksVoxa(lang),
+      howItWorksHeading: voxaHowItWorksHeading(lang),
+      keyFeatures: getKeyFeaturesVoxa(lang),
+      keyFeaturesHeading: voxaKeyFeaturesHeading(lang),
+      slug: "voxa",
+      title: voxaHeroHeading(lang),
+      whatsIncluded: getWhatIsIncludedVoxa(lang),
+      whatsIncludedHeading: voxaWhatIsIncludedHeading(lang)
     }
   ];
 };

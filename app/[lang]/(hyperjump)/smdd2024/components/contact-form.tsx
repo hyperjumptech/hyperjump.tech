@@ -13,7 +13,7 @@ import {
   talkPunchline,
   talkWithUs
 } from "@/locales/.generated/server";
-import { SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import { useState } from "react";
 import { data } from "../data";
 

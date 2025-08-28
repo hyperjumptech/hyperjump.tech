@@ -8,7 +8,6 @@ import Console from "@/app/components/console";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
 import { figtree, geistMono, geistSans, switzer } from "./fonts";
-import { lazy } from "react";
 
 import "./globals.css";
 

@@ -13,8 +13,8 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent
 } from "@/components/ui/navigation-menu";
-import StickyNavigationMain from "./sticky-nav-main";
-import ClientOnly from "./client-only";
+import StickyNavigationMain from "../../../components/sticky-nav-main";
+import ClientOnly from "../../../components/client-only";
 import IconOnlyLogo from "@/public/images/hyperjump-icon-only.png";
 import SVGLogo from "@/public/images/hyperjump-svg.svg";
 import ColoredLogo from "@/public/images/hyperjump-colored.png";
@@ -23,15 +23,19 @@ import {
   type SupportedLanguage,
   supportedLanguages
 } from "@/locales/.generated/types";
-import { mainNav } from "../[lang]/data";
 import { usePathname } from "next/navigation";
-import { data } from "../[lang]/jobs/data";
+import { data } from "../jobs/data";
+import {
+  mainNavItems0Label,
+  mainNavItems1Label,
+  mainNavItems2Label,
+  mainNavItems3Label
+} from "@/locales/.generated/server";
+import { ServiceSlug } from "../data";
 
 const SOLID_NAV_PATHS = [
   "/case-studies",
   "/jobs",
-  "/inferenceai",
-  "/inferenceai/rag-chatbot",
   "/services",
   ...data.jobs.map(({ id }) => `/jobs/${id}`)
 ];
@@ -42,6 +46,36 @@ const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(
   ],
   SOLID_NAV_PATHS
 );
+
+function mainNav(lang: SupportedLanguage) {
+  return [
+    {
+      label: mainNavItems0Label(lang),
+      href: `/${lang}/services`,
+      children: [
+        {
+          label: "CTO as a Service",
+          href: `/${lang}/services/${ServiceSlug.CtoAsAService}`
+        },
+        {
+          label: "Software as a Service",
+          href: `/${lang}/services/${ServiceSlug.SoftwareAsAService}`
+        },
+        {
+          label: "Tech Due Diligence",
+          href: `/${lang}/services/${ServiceSlug.TechDueDiligence}`
+        },
+        {
+          label: "ERP Implementation",
+          href: `/${lang}/services/${ServiceSlug.ErpImplementation}`
+        }
+      ]
+    },
+    { label: mainNavItems1Label(lang), href: `/${lang}/case-studies` },
+    { label: mainNavItems2Label(lang), href: `/${lang}/#open-source` },
+    { label: mainNavItems3Label(lang), href: `/${lang}/#faqs` }
+  ];
+}
 
 type NavProps = {
   lang: SupportedLanguage;

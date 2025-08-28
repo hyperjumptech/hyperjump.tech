@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 export async function GET() {
   const content = `# Hyperjump
 
-Your partner in building reliable, modern software. We help organizations deliver scalable, high‑quality digital systems through engineering excellence and cloud‑native technology.
+Your partner in building reliable, modern software. We help organizations deliver scalable, high-quality digital systems through engineering excellence and cloud-native technology.
 
 ## Clients
 

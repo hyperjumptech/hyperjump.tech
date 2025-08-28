@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Separator } from "@/components/ui/separator";
-import { type SupportedLanguage } from "@/locales/.generated/types";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 import { copyright, inferenceaiFooter } from "@/locales/.generated/server";
 
-import { LanguagePicker } from "@/app/[lang]/components/language-picker";
+import { LanguagePicker } from "@/app/components/language-picker";
 import { getData } from "../data";
 
 export function Footer({ lang }: { lang: SupportedLanguage }) {

@@ -7,7 +7,7 @@ import {
   type Service,
   serviceBySlug,
   ServiceSlug
-} from "@/app/data";
+} from "@/app/[lang]/(hyperjump)/data";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {

@@ -12,18 +12,13 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import type { SupportedLanguage } from "@/locales/.generated/types";
-import { navInferenceai } from "../data";
-import { navRagChatbot } from "../[slug]/data";
 
 type NavProps = {
   lang: SupportedLanguage;
-  type?: "inferenceai" | "rag-chatbot";
+  menus: { label: string; href: string }[];
 };
 
-export default function NavInferenceAI({
-  lang,
-  type = "inferenceai"
-}: NavProps) {
+export default function Nav({ lang, menus }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -56,10 +51,7 @@ export default function NavInferenceAI({
           <div className="hidden items-center justify-center space-x-8 xl:flex">
             <NavigationMenu className="mx-8 xl:mx-0">
               <NavigationMenuList className="flex gap-5">
-                {(type === "inferenceai"
-                  ? navInferenceai(lang)
-                  : navRagChatbot(lang)
-                ).map(({ href, label }) => (
+                {menus.map(({ href, label }) => (
                   <NavigationMenuItem key={href} className="text-center">
                     <Link
                       href={href}
@@ -113,10 +105,7 @@ export default function NavInferenceAI({
       {isOpen && (
         <div className="bg-white shadow-md xl:hidden">
           <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-8">
-            {(type === "inferenceai"
-              ? navInferenceai(lang)
-              : navRagChatbot(lang)
-            ).map(({ href, label }) => (
+            {menus.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}

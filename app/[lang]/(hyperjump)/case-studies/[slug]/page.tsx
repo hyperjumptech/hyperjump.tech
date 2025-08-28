@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import type { CaseStudy } from "@/app/data";
+import type { CaseStudy } from "@/app/[lang]/(hyperjump)/data";
 import { Button } from "@/components/ui/button";
 import { caseStudyButton, caseStudyMore } from "@/locales/.generated/server";
 import {

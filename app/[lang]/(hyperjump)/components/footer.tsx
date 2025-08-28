@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import data from "@/data.json";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import { copyright, mainFooter } from "@/locales/.generated/server";
-import { LanguagePicker } from "../[lang]/components/language-picker";
+import { LanguagePicker } from "../../../components/language-picker";
 
 type FooterProps = { lang: SupportedLanguage };
 

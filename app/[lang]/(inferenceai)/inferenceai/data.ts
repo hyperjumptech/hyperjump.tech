@@ -104,30 +104,34 @@ import {
 
 export const navInferenceai = (lang: SupportedLanguage) => {
   return [
+    { label: inferenceaiNavItems0Label(lang), href: "#how-it-works" },
+    { label: inferenceaiNavItems1Label(lang), href: "#what-you-get" },
     {
       label: inferenceaiNavItems5Label(lang),
-      href: "#Solutions",
+      href: "#",
       children: [
         {
-          label: "MediaPulse - Media monitoring",
-          href: `/${lang}/inferenceai/media-pulse`
+          label: "MediaPulse",
+          href: `/${lang}/inferenceai/media-pulse`,
+          description: "Media monitoring"
         },
         {
-          label: "StartGPT - Enterprise AI assistant",
-          href: `/${lang}/inferenceai/startgpt`
+          label: "StartGPT",
+          href: `/${lang}/inferenceai/startgpt`,
+          description: "Enterprise AI assistant"
         },
         {
-          label: "RAG Chatbot - AI Chatbot",
-          href: `/${lang}/inferenceai/rag-chatbot`
+          label: "RAG Chatbot",
+          href: `/${lang}/inferenceai/rag-chatbot`,
+          description: "AI Chatbot"
         },
         {
-          label: "Voxa - Phone cold outreach",
-          href: `/${lang}/inferenceai/voxa`
+          label: "Voxa",
+          href: `/${lang}/inferenceai/voxa`,
+          description: "Phone cold outreach"
         }
       ]
     },
-    { label: inferenceaiNavItems0Label(lang), href: "#how-it-works" },
-    { label: inferenceaiNavItems1Label(lang), href: "#what-you-get" },
     { label: inferenceaiNavItems2Label(lang), href: "#case-studies" },
     { label: inferenceaiNavItems3Label(lang), href: "#about-us" },
     { label: inferenceaiNavItems4Label(lang), href: "#faqs" }

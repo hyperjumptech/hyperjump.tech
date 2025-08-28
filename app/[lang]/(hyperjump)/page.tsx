@@ -3,13 +3,6 @@ import Link from "next/link";
 import type { Organization, WebPage, WithContext } from "schema-dts";
 
 import {
-  getCaseStudies,
-  getFaqs,
-  getProject,
-  pageData,
-  services
-} from "@/app/[lang]/(hyperjump)/data";
-import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -46,6 +39,13 @@ import {
 
 import { Clients } from "./components/clients";
 import { Location } from "./components/location";
+import {
+  getCaseStudies,
+  getFaqs,
+  getProject,
+  pageData,
+  services
+} from "./data";
 
 const { github, socials, title, url } = data;
 

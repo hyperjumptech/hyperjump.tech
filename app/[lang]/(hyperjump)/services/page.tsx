@@ -1,11 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import {
-  serviceBySlug,
-  services,
-  ServiceSlug
-} from "@/app/[lang]/(hyperjump)/data";
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
 import { cn } from "@/lib/utils";
@@ -24,6 +19,7 @@ import {
 } from "@/locales/.generated/server";
 
 import { Clients } from "../components/clients";
+import { serviceBySlug, services, ServiceSlug } from "../data";
 
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));

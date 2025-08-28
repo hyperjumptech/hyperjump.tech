@@ -2,12 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import {
-  CaseStudy,
-  type Service,
-  serviceBySlug,
-  ServiceSlug
-} from "@/app/[lang]/(hyperjump)/data";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,6 +17,13 @@ import {
   servicesCaseStudies,
   caseStudyButton
 } from "@/locales/.generated/server";
+
+import {
+  CaseStudy,
+  type Service,
+  serviceBySlug,
+  ServiceSlug
+} from "../../data";
 
 type LangProps = {
   lang: SupportedLanguage;

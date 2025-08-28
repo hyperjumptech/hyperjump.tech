@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 import { type ReactNode, useState } from "react";
-import WhiteLogo from "@/public/images/hyperjump-white.png";
-import BlackLogo from "@/public/images/hyperjump-black.png";
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -13,25 +12,28 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent
 } from "@/components/ui/navigation-menu";
-import StickyNavigationMain from "../../../components/sticky-nav-main";
-import ClientOnly from "../../../components/client-only";
-import IconOnlyLogo from "@/public/images/hyperjump-icon-only.png";
-import SVGLogo from "@/public/images/hyperjump-svg.svg";
-import ColoredLogo from "@/public/images/hyperjump-colored.png";
-import LogoWithContextMenu from "./logo-with-context-menu";
-import {
-  type SupportedLanguage,
-  supportedLanguages
-} from "@/locales/.generated/types";
-import { usePathname } from "next/navigation";
-import { data } from "../jobs/data";
+import { cn } from "@/lib/utils";
 import {
   mainNavItems0Label,
   mainNavItems1Label,
   mainNavItems2Label,
   mainNavItems3Label
 } from "@/locales/.generated/server";
+import {
+  type SupportedLanguage,
+  supportedLanguages
+} from "@/locales/.generated/types";
+import BlackLogo from "@/public/images/hyperjump-black.png";
+import ColoredLogo from "@/public/images/hyperjump-colored.png";
+import IconOnlyLogo from "@/public/images/hyperjump-icon-only.png";
+import SVGLogo from "@/public/images/hyperjump-svg.svg";
+import WhiteLogo from "@/public/images/hyperjump-white.png";
+
+import ClientOnly from "../../../components/client-only";
+import StickyNavigationMain from "../../../components/sticky-nav-main";
 import { ServiceSlug } from "../data";
+import { data } from "../jobs/data";
+import LogoWithContextMenu from "./logo-with-context-menu";
 
 const SOLID_NAV_PATHS = [
   "/case-studies",
@@ -47,7 +49,7 @@ const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(
   SOLID_NAV_PATHS
 );
 
-function mainNav(lang: SupportedLanguage) {
+function menu(lang: SupportedLanguage) {
   return [
     {
       label: mainNavItems0Label(lang),
@@ -83,7 +85,7 @@ type NavProps = {
 
 export default function Nav({ lang }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<string | null>(null);
   const pathname = usePathname();
   const isTransparent = Boolean(
     !SOLID_NAV_PATHS_WITH_LOCALE.find((path) => path === pathname)
@@ -96,7 +98,8 @@ export default function Nav({ lang }: NavProps) {
           "w-full transition",
           isTransparent && !isOpen
             ? "group-data-[scroll=false]:bg-transparent group-data-[scroll=true]:bg-white"
-            : "bg-transparent"
+            : "bg-transparent",
+          isOpen && "bg-white"
         )}>
         <div className="mx-auto flex w-5xl items-center justify-between px-4 md:px-20 xl:px-0">
           <HyperjumpLogo
@@ -109,33 +112,30 @@ export default function Nav({ lang }: NavProps) {
           <CenterNavItems>
             <NavigationMenu className="mx-8 xl:mx-0">
               <NavigationMenuList className="flex gap-5">
-                {mainNav(lang).map((item, idx) =>
-                  item.children ? (
-                    <NavigationMenuItem key={idx}>
+                {menu(lang).map(({ href, label, children }) =>
+                  children ? (
+                    <NavigationMenuItem key={label}>
                       <NavigationMenuTrigger
                         className={cn(
-                          "relative cursor-pointer text-xl font-medium no-underline transition",
-                          "focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none",
-                          "bg-transparent hover:!bg-transparent",
                           "bg-transparent hover:!bg-transparent data-[active]:!bg-transparent data-[state=open]:!bg-transparent",
-                          "data-[state=open]:group-data-[scroll=true]:!text-hyperjump-blue",
+                          "group-data-[scroll=true]:text-hyperjump-black",
                           isTransparent
-                            ? "data-[state=open]:group-data-[scroll=false]:!text-hyperjump-blue hover:text-hyperjump-blue group-data-[scroll=true]:!text-hyperjump-black"
-                            : "data-[state=open]:text-hyperjump-blue text-hyperjump-black"
+                            ? "hover:group-data-[scroll=true]:text-hyperjump-blue hover:group-data-[scroll=false]:text-white group-data-[scroll=false]:data-[state=open]:text-white"
+                            : "text-hyperjump-black hover:text-hyperjump-blue data-[state=open]:text-hyperjump-blue"
                         )}>
-                        <Link href={item.href} className="no-underline">
-                          {item.label}
+                        <Link href={href} className="text-xl font-medium">
+                          {label}
                         </Link>
                       </NavigationMenuTrigger>
 
                       <NavigationMenuContent className="min-w-52 rounded-md bg-white p-4 shadow-lg">
                         <ul className="grid w-full gap-2">
-                          {item.children.map((child, cIdx) => (
-                            <li key={cIdx}>
+                          {children.map(({ href, label }) => (
+                            <li key={label}>
                               <Link
-                                href={child.href}
+                                href={href}
                                 className="text-hyperjump-black hover:text-hyperjump-blue block transition">
-                                {child.label}
+                                {label}
                               </Link>
                             </li>
                           ))}
@@ -143,16 +143,16 @@ export default function Nav({ lang }: NavProps) {
                       </NavigationMenuContent>
                     </NavigationMenuItem>
                   ) : (
-                    <NavigationMenuItem key={idx}>
+                    <NavigationMenuItem key={label}>
                       <Link
-                        href={item.href}
+                        href={href}
                         className={cn(
-                          "text-xl font-medium transition",
+                          "text-xl font-medium transition duration-300",
                           isTransparent
                             ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
                             : "text-hyperjump-black hover:text-hyperjump-blue"
                         )}>
-                        {item.label}
+                        {label}
                       </Link>
                     </NavigationMenuItem>
                   )
@@ -202,17 +202,19 @@ export default function Nav({ lang }: NavProps) {
       {isOpen && (
         <div className="bg-white shadow-md lg:hidden">
           <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-20 xl:px-0">
-            {mainNav(lang).map((item, idx) =>
-              item.children ? (
-                <div key={idx} className="flex flex-col">
+            {menu(lang).map(({ href, label, children }) =>
+              children ? (
+                <div key={label} className="flex flex-col">
                   <button
-                    onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                    onClick={() =>
+                      setOpenIndex(openIndex === label ? null : label)
+                    }
                     className="text-hyperjump-black flex w-full items-center justify-between py-2 text-2xl transition hover:text-gray-400">
-                    {item.label}
+                    {label}
                     <svg
                       className={cn(
                         "h-5 w-5 transition-transform",
-                        openIndex === idx && "rotate-180"
+                        openIndex === label && "rotate-180"
                       )}
                       fill="none"
                       stroke="currentColor"
@@ -226,15 +228,15 @@ export default function Nav({ lang }: NavProps) {
                     </svg>
                   </button>
 
-                  {openIndex === idx && (
+                  {openIndex === label && (
                     <div className="ml-4 flex flex-col space-y-2">
-                      {item.children.map((child, cIdx) => (
+                      {children.map(({ href, label }) => (
                         <Link
-                          key={cIdx}
-                          href={child.href}
+                          key={label}
+                          href={href}
                           className="text-hyperjump-black space-y-2 text-xl transition hover:text-gray-400"
                           onClick={() => setIsOpen(false)}>
-                          {child.label}
+                          {label}
                         </Link>
                       ))}
                     </div>
@@ -242,11 +244,11 @@ export default function Nav({ lang }: NavProps) {
                 </div>
               ) : (
                 <Link
-                  key={idx}
-                  href={item.href}
+                  key={label}
+                  href={href}
                   className="text-hyperjump-black text-2xl transition hover:text-gray-400"
                   onClick={() => setIsOpen(false)}>
-                  {item.label}
+                  {label}
                 </Link>
               )
             )}

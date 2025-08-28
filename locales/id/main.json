@@ -18,7 +18,8 @@
     "0_label": "Layanan",
     "1_label": "Studi Kasus",
     "2_label": "Open Source",
-    "3_label": "FAQ"
+    "3_label": "FAQ",
+    "4_label": "Inference AI"
   },
   "services": {
     "heading": "Layanan",

@@ -17,7 +17,8 @@ import {
   mainNavItems0Label,
   mainNavItems1Label,
   mainNavItems2Label,
-  mainNavItems3Label
+  mainNavItems3Label,
+  mainNavItems4Label
 } from "@/locales/.generated/server";
 import {
   type SupportedLanguage,
@@ -75,7 +76,8 @@ function menu(lang: SupportedLanguage) {
     },
     { label: mainNavItems1Label(lang), href: `/${lang}/case-studies` },
     { label: mainNavItems2Label(lang), href: `/${lang}/#open-source` },
-    { label: mainNavItems3Label(lang), href: `/${lang}/#faqs` }
+    { label: mainNavItems3Label(lang), href: `/${lang}/#faqs` },
+    { label: mainNavItems4Label(lang), href: `/${lang}/inferenceai` }
   ];
 }
 

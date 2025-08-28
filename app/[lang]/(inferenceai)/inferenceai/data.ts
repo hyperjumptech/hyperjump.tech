@@ -77,7 +77,8 @@ import {
   voxaKeyFeaturesHeading,
   voxaHeroHeading,
   inferenceaiCaseStudies5Category,
-  voxaWhatIsIncludedHeading
+  voxaWhatIsIncludedHeading,
+  inferenceaiNavItems5Label
 } from "@/locales/.generated/server";
 
 import {
@@ -103,6 +104,28 @@ import {
 
 export const navInferenceai = (lang: SupportedLanguage) => {
   return [
+    {
+      label: inferenceaiNavItems5Label(lang),
+      href: "#Solutions",
+      children: [
+        {
+          label: "MediaPulse - Media monitoring",
+          href: `/${lang}/inferenceai/media-pulse`
+        },
+        {
+          label: "StartGPT - Enterprise AI assistant",
+          href: `/${lang}/inferenceai/startgpt`
+        },
+        {
+          label: "RAG Chatbot - AI Chatbot",
+          href: `/${lang}/inferenceai/rag-chatbot`
+        },
+        {
+          label: "Voxa - Phone cold outreach",
+          href: `/${lang}/inferenceai/voxa`
+        }
+      ]
+    },
     { label: inferenceaiNavItems0Label(lang), href: "#how-it-works" },
     { label: inferenceaiNavItems1Label(lang), href: "#what-you-get" },
     { label: inferenceaiNavItems2Label(lang), href: "#case-studies" },

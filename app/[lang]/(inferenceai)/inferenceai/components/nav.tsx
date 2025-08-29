@@ -165,7 +165,7 @@ export default function Nav({ lang, menus }: NavProps) {
                 <div key={idx} className="flex flex-col">
                   <button
                     onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                    className="text-inferenceai-indigo flex w-full items-center justify-between py-2 text-2xl transition hover:text-gray-400">
+                    className="text-inferenceai-indigo hover:text-hyperjump-blue flex w-full items-center justify-between py-2 text-2xl transition">
                     {item.label}
                     <svg
                       className={cn(
@@ -190,9 +190,10 @@ export default function Nav({ lang, menus }: NavProps) {
                         <Link
                           key={cIdx}
                           href={child.href || "#"}
-                          className="text-hyperjump-black space-y-2 text-xl transition hover:text-gray-400"
-                          onClick={() => setIsOpen(false)}>
-                          {child.label}
+                          onClick={() => setIsOpen(false)}
+                          className="hover:text-hyperjump-blue text-hyperjump-black block space-y-2 text-xl transition">
+                          {child.label} - s{" "}
+                          {child.description ? child.description : null}
                         </Link>
                       ))}
                     </div>
@@ -202,7 +203,7 @@ export default function Nav({ lang, menus }: NavProps) {
                 <Link
                   key={idx}
                   href={item.href || "#"}
-                  className="text-hyperjump-black text-2xl transition hover:text-gray-400"
+                  className="text-hyperjump-black hover:text-hyperjump-blue text-2xl transition"
                   onClick={() => setIsOpen(false)}>
                   {item.label}
                 </Link>

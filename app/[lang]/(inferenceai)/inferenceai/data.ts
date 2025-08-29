@@ -95,11 +95,11 @@ import {
   getHowItWorksMediaPulse,
   getKeyFeaturesMediaPulse,
   getWhatIsIncludedMediaPulse,
-  type WhatIsIncluded,
   getFaqsVoxa,
   getHowItWorksVoxa,
   getKeyFeaturesVoxa,
-  getWhatIsIncludedVoxa
+  getWhatIsIncludedVoxa,
+  type WhatIsIncluded
 } from "./[slug]/data";
 
 export const navInferenceai = (lang: SupportedLanguage) => {
@@ -112,22 +112,22 @@ export const navInferenceai = (lang: SupportedLanguage) => {
       children: [
         {
           label: "MediaPulse",
-          href: `/${lang}/inferenceai/media-pulse`,
+          href: `/${lang}/inferenceai/${caseStudyBy("media-pulse", lang)?.slug}`,
           description: "Media monitoring"
         },
         {
           label: "StartGPT",
-          href: `/${lang}/inferenceai/startgpt`,
+          href: `/${lang}/inferenceai/${caseStudyBy("startgpt", lang)?.slug}`,
           description: "Enterprise AI assistant"
         },
         {
           label: "RAG Chatbot",
-          href: `/${lang}/inferenceai/rag-chatbot`,
+          href: `/${lang}/inferenceai/${caseStudyBy("rag-chatbot", lang)?.slug}`,
           description: "AI Chatbot"
         },
         {
           label: "Voxa",
-          href: `/${lang}/inferenceai/voxa`,
+          href: `/${lang}/inferenceai/${caseStudyBy("voxa", lang)?.slug}`,
           description: "Phone cold outreach"
         }
       ]

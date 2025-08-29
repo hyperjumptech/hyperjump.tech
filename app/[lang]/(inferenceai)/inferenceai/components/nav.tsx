@@ -192,7 +192,7 @@ export default function Nav({ lang, menus }: NavProps) {
                           href={child.href || "#"}
                           onClick={() => setIsOpen(false)}
                           className="hover:text-hyperjump-blue text-hyperjump-black block space-y-2 text-xl transition">
-                          {child.label} - {" "}
+                          {child.label} -{" "}
                           {child.description ? child.description : null}
                         </Link>
                       ))}

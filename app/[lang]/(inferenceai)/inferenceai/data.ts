@@ -77,7 +77,8 @@ import {
   voxaKeyFeaturesHeading,
   voxaHeroHeading,
   inferenceaiCaseStudies5Category,
-  voxaWhatIsIncludedHeading
+  voxaWhatIsIncludedHeading,
+  inferenceaiNavItems5Label
 } from "@/locales/.generated/server";
 
 import {
@@ -94,17 +95,31 @@ import {
   getHowItWorksMediaPulse,
   getKeyFeaturesMediaPulse,
   getWhatIsIncludedMediaPulse,
-  type WhatIsIncluded,
   getFaqsVoxa,
   getHowItWorksVoxa,
   getKeyFeaturesVoxa,
-  getWhatIsIncludedVoxa
+  getWhatIsIncludedVoxa,
+  type WhatIsIncluded
 } from "./[slug]/data";
 
 export const navInferenceai = (lang: SupportedLanguage) => {
+  const caseStudies = getCaseStudies(lang);
+
   return [
     { label: inferenceaiNavItems0Label(lang), href: "#how-it-works" },
     { label: inferenceaiNavItems1Label(lang), href: "#what-you-get" },
+    {
+      label: inferenceaiNavItems5Label(lang),
+      href: "#",
+      children: caseStudies
+        .filter((cs) => cs.slug)
+        .filter((cs) => cs.slug !== "rag-chatbot")
+        .map((cs) => ({
+          label: cs.labelUrl,
+          href: `/${lang}/inferenceai/${cs.slug}`,
+          description: cs.descUrl
+        }))
+    },
     { label: inferenceaiNavItems2Label(lang), href: "#case-studies" },
     { label: inferenceaiNavItems3Label(lang), href: "#about-us" },
     { label: inferenceaiNavItems4Label(lang), href: "#faqs" }
@@ -204,6 +219,8 @@ export type CaseStudy = {
   title: string;
   whatsIncluded: WhatIsIncluded[];
   whatsIncludedHeading: string;
+  labelUrl?: string;
+  descUrl?: string;
 };
 
 export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
@@ -249,6 +266,8 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesMediaPulse(lang),
       keyFeaturesHeading: mediaPulseKeyFeaturesHeading(lang),
       slug: "media-pulse",
+      labelUrl: "Media Pulse",
+      descUrl: "Media monitoring",
       title: mediaPulseHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedMediaPulse(lang),
       whatsIncludedHeading: mediaPulseWhatIsIncludedHeading(lang)
@@ -264,6 +283,8 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesStartGPT(lang),
       keyFeaturesHeading: startGptKeyFeaturesHeading(lang),
       slug: "startgpt",
+      labelUrl: "StartGPT",
+      descUrl: "Enterprise AI assistant",
       title: startGptHeroHeading(lang),
       whatsIncluded: [],
       whatsIncludedHeading: ""
@@ -279,6 +300,8 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesPresenton(lang),
       keyFeaturesHeading: presentonKeyFeaturesHeading(lang),
       slug: "presenton",
+      labelUrl: "Presenton",
+      descUrl: "AI-Powered Presentation",
       title: presentonHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedPresenton(lang),
       whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)
@@ -294,6 +317,8 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesVoxa(lang),
       keyFeaturesHeading: voxaKeyFeaturesHeading(lang),
       slug: "voxa",
+      labelUrl: "Voxa",
+      descUrl: "Phone cold outreach",
       title: voxaHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedVoxa(lang),
       whatsIncludedHeading: voxaWhatIsIncludedHeading(lang)

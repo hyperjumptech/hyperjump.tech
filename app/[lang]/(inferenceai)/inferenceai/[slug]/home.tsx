@@ -96,6 +96,21 @@ export function Hero({
               </div>
             </>
           )}
+          {slug === "startgpt" && (
+            <>
+              <Button
+                asChild
+                variant="default"
+                className="mb-3 rounded-full border border-[#6D5697] bg-[radial-gradient(50%_50%_at_50%_50%,_#413AA3_0%,_#332C95_100%),linear-gradient(177.61deg,rgba(255,255,255,0)_2%,rgba(255,255,255,0.12)_98.17%)] font-semibold text-white transition-all hover:bg-white hover:text-gray-300 md:-mt-5">
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={demoUrl ?? `/${lang}/inferenceai/${slug}`}>
+                  {inferenceaiHeroLabelDemoButton(lang)}
+                </Link>
+              </Button>
+            </>
+          )}
         </motion.div>
       </article>
 

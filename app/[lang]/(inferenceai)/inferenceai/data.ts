@@ -288,6 +288,7 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       slug: "startgpt",
       labelUrl: "StartGPT",
       descUrl: "Enterprise AI assistant",
+      demoUrl: "https://chatgpt.hyperjump.tech/",
       title: startGptHeroHeading(lang),
       whatsIncluded: [],
       whatsIncludedHeading: ""

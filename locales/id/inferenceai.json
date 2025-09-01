@@ -1,7 +1,9 @@
 {
   "hero": {
     "heading": "Bangun agen AI kustom yang benar-benar menyelesaikan pekerjaan",
-    "desc": "Kami membantu bisnis merancang, mengembangkan, dan menerapkan agen AI khusus yang menghemat waktu, menekan biaya, dan mempercepat operasional tanpa kerumitan teknis."
+    "desc": "Kami membantu bisnis merancang, mengembangkan, dan menerapkan agen AI khusus yang menghemat waktu, menekan biaya, dan mempercepat operasional tanpa kerumitan teknis.",
+    "label_demo_button": "Coba Demo Produk",
+    "text_demo": "Masuk dengan"
   },
   "nav_items": {
     "0_label": "Cara Kerja",

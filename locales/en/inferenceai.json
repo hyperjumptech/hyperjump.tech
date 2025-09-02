@@ -1,7 +1,11 @@
 {
   "hero": {
     "heading": "Build custom AI agents that actually get work done",
-    "desc": "We help businesses design, develop, and deploy purpose-built AI agents that save time, cut costs, and scale operations. Without the technical overwhelm."
+    "desc": "We help businesses design, develop, and deploy purpose-built AI agents that save time, cut costs, and scale operations. Without the technical overwhelm.",
+    "label_demo_button": "Try Product Demo",
+    "text_demo": "Login with",
+    "username": "Username",
+    "password": "Password"
   },
   "nav_items": {
     "0_label": "How It Works",

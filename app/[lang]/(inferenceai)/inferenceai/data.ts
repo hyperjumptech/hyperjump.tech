@@ -221,6 +221,9 @@ export type CaseStudy = {
   whatsIncludedHeading: string;
   labelUrl?: string;
   descUrl?: string;
+  demoUrl?: string;
+  username?: string;
+  password?: string;
 };
 
 export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
@@ -285,6 +288,9 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       slug: "startgpt",
       labelUrl: "StartGPT",
       descUrl: "Enterprise AI assistant",
+      demoUrl: "https://chatgpt.hyperjump.tech/",
+      username: "demo@hyperjump.tech",
+      password: "inference-ai-is-my-solution",
       title: startGptHeroHeading(lang),
       whatsIncluded: [],
       whatsIncludedHeading: ""
@@ -302,6 +308,9 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       slug: "presenton",
       labelUrl: "Presenton",
       descUrl: "AI-Powered Presentation",
+      demoUrl: "https://presenton.hyperjump.tech/",
+      username: "hyperjump",
+      password: "inference-ai-is-my-solution",
       title: presentonHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedPresenton(lang),
       whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)

@@ -22,7 +22,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   inferenceaiHeroLabelDemoButton,
-  inferenceaiHeroTextDemo
+  inferenceaiHeroPassword,
+  inferenceaiHeroTextDemo,
+  inferenceaiHeroUsername
 } from "@/locales/.generated/server";
 
 type HeroProps = { caseStudy: CaseStudy; lang: SupportedLanguage };
@@ -90,7 +92,8 @@ export function Hero({
               <div className="flex flex-col text-center text-sm md:flex-row md:items-center md:gap-2 md:text-base">
                 <div>{inferenceaiHeroTextDemo(lang)}</div>
                 <span>
-                  <b>Username:</b> {username} &nbsp;|&nbsp; <b>Password:</b>{" "}
+                  <b>{inferenceaiHeroUsername(lang)}:</b> {username}{" "}
+                  &nbsp;|&nbsp; <b>{inferenceaiHeroPassword(lang)}:</b>{" "}
                   {password}
                 </span>
               </div>
@@ -109,6 +112,14 @@ export function Hero({
                   {inferenceaiHeroLabelDemoButton(lang)}
                 </Link>
               </Button>
+              <div className="flex flex-col text-center text-sm md:flex-row md:items-center md:gap-2 md:text-base">
+                <div>{inferenceaiHeroTextDemo(lang)}</div>
+                <span>
+                  <b>{inferenceaiHeroUsername(lang)}:</b> {username}{" "}
+                  &nbsp;|&nbsp; <b>{inferenceaiHeroPassword(lang)}:</b>{" "}
+                  {password}
+                </span>
+              </div>
             </>
           )}
         </motion.div>

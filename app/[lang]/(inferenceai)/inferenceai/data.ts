@@ -308,7 +308,7 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       descUrl: "AI-Powered Presentation",
       demoUrl: "https://presenton.hyperjump.tech/",
       username: "hyperjump",
-      password: "#Jadi-Mud4h-Jualan",
+      password: "inference-ai-is-my-solution",
       title: presentonHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedPresenton(lang),
       whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)

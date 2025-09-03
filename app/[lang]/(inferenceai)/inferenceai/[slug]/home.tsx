@@ -18,14 +18,10 @@ import {
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import InferenceAIAgent from "../components/chatbot-ui";
 import { CaseStudy } from "../data";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import {
-  inferenceaiHeroLabelDemoButton,
-  inferenceaiHeroPassword,
-  inferenceaiHeroTextDemo,
-  inferenceaiHeroUsername
-} from "@/locales/.generated/server";
+import Presenton from "./components/presenton";
+import StartGPT from "./components/startgpt";
+import Voxa from "./components/voxa";
+import { cn } from "@/lib/utils";
 
 type HeroProps = { caseStudy: CaseStudy; lang: SupportedLanguage };
 
@@ -77,51 +73,24 @@ export function Hero({
           className="mx-auto flex w-full flex-col items-center justify-center md:max-w-4xl">
           {slug === "rag-chatbot" && <InferenceAIAgent />}
           {slug === "presenton" && (
-            <>
-              <Button
-                asChild
-                variant="default"
-                className="mb-3 rounded-full border border-[#6D5697] bg-[radial-gradient(50%_50%_at_50%_50%,_#413AA3_0%,_#332C95_100%),linear-gradient(177.61deg,rgba(255,255,255,0)_2%,rgba(255,255,255,0.12)_98.17%)] font-semibold text-white transition-all hover:bg-white hover:text-gray-300 md:-mt-5">
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={demoUrl ?? `/${lang}/inferenceai/${slug}`}>
-                  {inferenceaiHeroLabelDemoButton(lang)}
-                </Link>
-              </Button>
-              <div className="flex flex-col text-center text-sm md:flex-row md:items-center md:gap-2 md:text-base">
-                <div>{inferenceaiHeroTextDemo(lang)}</div>
-                <span>
-                  <b>{inferenceaiHeroUsername(lang)}:</b> {username}{" "}
-                  &nbsp;|&nbsp; <b>{inferenceaiHeroPassword(lang)}:</b>{" "}
-                  {password}
-                </span>
-              </div>
-            </>
+            <Presenton
+              demoUrl={demoUrl ?? ""}
+              lang={lang}
+              slug={slug}
+              username={username ?? ""}
+              password={password ?? ""}
+            />
           )}
           {slug === "startgpt" && (
-            <>
-              <Button
-                asChild
-                variant="default"
-                className="mb-3 rounded-full border border-[#6D5697] bg-[radial-gradient(50%_50%_at_50%_50%,_#413AA3_0%,_#332C95_100%),linear-gradient(177.61deg,rgba(255,255,255,0)_2%,rgba(255,255,255,0.12)_98.17%)] font-semibold text-white transition-all hover:bg-white hover:text-gray-300 md:-mt-5">
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={demoUrl ?? `/${lang}/inferenceai/${slug}`}>
-                  {inferenceaiHeroLabelDemoButton(lang)}
-                </Link>
-              </Button>
-              <div className="flex flex-col text-center text-sm md:flex-row md:items-center md:gap-2 md:text-base">
-                <div>{inferenceaiHeroTextDemo(lang)}</div>
-                <span>
-                  <b>{inferenceaiHeroUsername(lang)}:</b> {username}{" "}
-                  &nbsp;|&nbsp; <b>{inferenceaiHeroPassword(lang)}:</b>{" "}
-                  {password}
-                </span>
-              </div>
-            </>
+            <StartGPT
+              demoUrl={demoUrl ?? ""}
+              lang={lang}
+              slug={slug}
+              username={username ?? ""}
+              password={password ?? ""}
+            />
           )}
+          {slug === "voxa" && <Voxa />}
         </motion.div>
       </article>
 
@@ -208,10 +177,13 @@ export function WhatIsIncluded({
       <GridItemsTitleBlack title={whatsIncludedHeading} />
       <div className="my-6" />
       <div
-        className="grid grid-cols-2 gap-10 bg-transparent pt-8 text-white lg:grid-cols-4 xl:grid-cols-none"
-        style={{
-          gridTemplateColumns: `repeat(${whatsIncluded?.length}, minmax(0, 1fr))`
-        }}>
+        className={cn(
+          "grid grid-cols-1 gap-10 bg-transparent pt-8 text-white",
+          whatsIncluded?.length < 4
+            ? `lg:grid-cols-${whatsIncluded?.length}`
+            : "lg:grid-cols-4",
+          whatsIncluded?.length < 2 ? "md:grid-cols-1" : "md:grid-cols-2"
+        )}>
         {whatsIncluded.map(({ icon, title, text }) => (
           <motion.div
             initial={{ opacity: 0 }}

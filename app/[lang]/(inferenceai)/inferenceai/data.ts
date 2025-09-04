@@ -131,7 +131,6 @@ export const navInferenceai = (lang: SupportedLanguage) => {
           description: cs.descUrl
         }))
     },
-    { label: inferenceaiNavItems2Label(lang), href: "#case-studies" },
     { label: inferenceaiNavItems3Label(lang), href: "#about-us" },
     { label: inferenceaiNavItems4Label(lang), href: "#faqs" }
   ];

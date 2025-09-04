@@ -15,7 +15,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 
-type Menu = {
+export type Menu = {
+  key: string;
   label: string;
   href?: string;
   children?: Menu[];
@@ -60,9 +61,9 @@ export default function Nav({ lang, menus }: NavProps) {
 
           <nav className="hidden items-center justify-center space-x-8 xl:flex">
             <ul className="flex items-center gap-5">
-              {menus.map(({ href, label, children }) =>
+              {menus.map(({ href, label, children, key }) =>
                 children ? (
-                  <li key={label} className="relative">
+                  <li key={key} className="relative">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <button
@@ -82,19 +83,19 @@ export default function Nav({ lang, menus }: NavProps) {
                         align="start"
                         side="bottom"
                         sideOffset={8}
-                        className="min-w-56 rounded-md bg-white p-4 shadow-lg">
+                        className="hidden min-w-52 rounded-md bg-white p-4 shadow-lg xl:flex">
                         <ul className="grid w-full gap-2">
-                          {children.map(({ href, label, description }) => (
-                            <li key={label}>
+                          {children.map(({ href, label, description, key }) => (
+                            <li key={key}>
                               <Link
                                 href={href || "#"}
                                 className="hover:text-hyperjump-blue block transition">
                                 {label}
-                                {description ? (
+                                {description && (
                                   <div className="text-sm font-normal text-[#565656]">
                                     {description}
                                   </div>
-                                ) : null}
+                                )}
                               </Link>
                             </li>
                           ))}
@@ -103,7 +104,7 @@ export default function Nav({ lang, menus }: NavProps) {
                     </DropdownMenu>
                   </li>
                 ) : (
-                  <li key={label}>
+                  <li key={key}>
                     <Link
                       href={href || "#"}
                       className={cn(
@@ -162,7 +163,7 @@ export default function Nav({ lang, menus }: NavProps) {
           <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-8">
             {menus.map((item, idx) =>
               item.children ? (
-                <div key={idx} className="flex flex-col">
+                <div key={item.key} className="flex flex-col">
                   <button
                     onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                     className="text-inferenceai-indigo hover:text-hyperjump-blue flex w-full items-center justify-between py-2 text-2xl transition">
@@ -186,14 +187,18 @@ export default function Nav({ lang, menus }: NavProps) {
 
                   {openIndex === idx && (
                     <div className="ml-4 flex flex-col space-y-2">
-                      {item.children.map((child, cIdx) => (
+                      {item.children.map((child) => (
                         <Link
-                          key={cIdx}
+                          key={child.key}
                           href={child.href || "#"}
                           onClick={() => setIsOpen(false)}
-                          className="hover:text-hyperjump-blue text-hyperjump-black block space-y-2 text-xl transition">
-                          {child.label} -{" "}
-                          {child.description ? child.description : null}
+                          className="hover:text-hyperjump-blue text-hyperjump-black block text-base transition">
+                          {child.label}
+                          {child.description && (
+                            <span className="block text-sm text-gray-500">
+                              {child.description}
+                            </span>
+                          )}
                         </Link>
                       ))}
                     </div>
@@ -201,7 +206,7 @@ export default function Nav({ lang, menus }: NavProps) {
                 </div>
               ) : (
                 <Link
-                  key={idx}
+                  key={item.key}
                   href={item.href || "#"}
                   className="text-hyperjump-black hover:text-hyperjump-blue text-2xl transition"
                   onClick={() => setIsOpen(false)}>

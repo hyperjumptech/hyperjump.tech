@@ -22,6 +22,7 @@ import Presenton from "./components/presenton";
 import StartGPT from "./components/startgpt";
 import Voxa from "./components/voxa";
 import { cn } from "@/lib/utils";
+import Dubsy from "./components/dubsy";
 
 type HeroProps = { caseStudy: CaseStudy; lang: SupportedLanguage };
 
@@ -91,6 +92,7 @@ export function Hero({
             />
           )}
           {slug === "voxa" && <Voxa />}
+          {slug === "dubsy" && <Dubsy />}
         </motion.div>
       </article>
 

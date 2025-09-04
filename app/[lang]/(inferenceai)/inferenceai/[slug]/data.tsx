@@ -150,7 +150,27 @@ import {
   voxaFaq4Question,
   voxaFaq4Answer,
   voxaFaq5Question,
-  voxaFaq5Answer
+  voxaFaq5Answer,
+  dubsyHowItWorksSteps0Title,
+  dubsyHowItWorksSteps2Title,
+  dubsyHowItWorksSteps3Title,
+  dubsyHowItWorksSteps1Text,
+  dubsyHowItWorksSteps1Title,
+  dubsyHowItWorksSteps0Text,
+  dubsyWhatIsIncludedItems0,
+  dubsyWhatIsIncludedItems1,
+  dubsyFaq0Question,
+  dubsyFaq0Answer,
+  dubsyFaq1Question,
+  dubsyFaq1Answer,
+  dubsyFaq2Question,
+  dubsyFaq2Answer,
+  dubsyKeyFeaturesFeatures0Text,
+  dubsyKeyFeaturesFeatures0Title,
+  dubsyKeyFeaturesFeatures1Text,
+  dubsyKeyFeaturesFeatures1Title,
+  dubsyKeyFeaturesFeatures2Title,
+  dubsyKeyFeaturesFeatures2Text
 } from "@/locales/.generated/server";
 import {
   ChatBubbleIcon,
@@ -162,6 +182,7 @@ import {
   DashboardIcon,
   ReloadIcon
 } from "@radix-ui/react-icons";
+import { Users } from "lucide-react";
 
 export type WhatIsIncluded = {
   icon: ReactNode;
@@ -525,6 +546,31 @@ export const getHowItWorksStartGPT = (lang: SupportedLanguage) => {
   ];
 };
 
+export const getFaqsStartGPT = (lang: SupportedLanguage) => {
+  return [
+    {
+      question: startGptFaq0Question(lang),
+      answer: startGptFaq0Answer(lang)
+    },
+    {
+      question: startGptFaq1Question(lang),
+      answer: startGptFaq1Answer(lang)
+    },
+    {
+      question: startGptFaq2Question(lang),
+      answer: startGptFaq2Answer(lang)
+    },
+    {
+      question: startGptFaq3Question(lang),
+      answer: startGptFaq3Answer(lang)
+    },
+    {
+      question: startGptFaq4Question(lang),
+      answer: startGptFaq4Answer(lang)
+    }
+  ];
+};
+
 export const getHowItWorksVoxa = (lang: SupportedLanguage) => {
   return [
     {
@@ -569,31 +615,6 @@ export const getWhatIsIncludedVoxa = (
   ];
 };
 
-export const getFaqsStartGPT = (lang: SupportedLanguage) => {
-  return [
-    {
-      question: startGptFaq0Question(lang),
-      answer: startGptFaq0Answer(lang)
-    },
-    {
-      question: startGptFaq1Question(lang),
-      answer: startGptFaq1Answer(lang)
-    },
-    {
-      question: startGptFaq2Question(lang),
-      answer: startGptFaq2Answer(lang)
-    },
-    {
-      question: startGptFaq3Question(lang),
-      answer: startGptFaq3Answer(lang)
-    },
-    {
-      question: startGptFaq4Question(lang),
-      answer: startGptFaq4Answer(lang)
-    }
-  ];
-};
-
 export const getFaqsVoxa = (lang: SupportedLanguage) => {
   return [
     {
@@ -619,6 +640,76 @@ export const getFaqsVoxa = (lang: SupportedLanguage) => {
     {
       question: voxaFaq5Question(lang),
       answer: voxaFaq5Answer(lang)
+    }
+  ];
+};
+
+export const getHowItWorksDubsy = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: dubsyHowItWorksSteps0Title(lang),
+      description: dubsyHowItWorksSteps0Text(lang)
+    },
+    {
+      title: dubsyHowItWorksSteps1Title(lang),
+      description: dubsyHowItWorksSteps1Text(lang)
+    },
+    {
+      title: dubsyHowItWorksSteps2Title(lang),
+      description: voxaHowItWorksSteps2Text(lang)
+    },
+    {
+      title: dubsyHowItWorksSteps3Title(lang),
+      description: voxaHowItWorksSteps3Text(lang)
+    }
+  ];
+};
+
+export const getWhatIsIncludedDubsy = (
+  lang: SupportedLanguage
+): WhatIsIncluded[] => {
+  return [
+    {
+      title: dubsyWhatIsIncludedItems0(lang),
+      icon: <Users className="h-7 w-7 text-white" />
+    },
+    {
+      title: dubsyWhatIsIncludedItems1(lang),
+      icon: <DashboardIcon className="h-7 w-7 text-white" />
+    }
+  ];
+};
+
+export const getFaqsDubsy = (lang: SupportedLanguage) => {
+  return [
+    {
+      question: dubsyFaq0Question(lang),
+      answer: dubsyFaq0Answer(lang)
+    },
+    {
+      question: dubsyFaq1Question(lang),
+      answer: dubsyFaq1Answer(lang)
+    },
+    {
+      question: dubsyFaq2Question(lang),
+      answer: dubsyFaq2Answer(lang)
+    }
+  ];
+};
+
+export const getKeyFeaturesDubsy = (lang: SupportedLanguage) => {
+  return [
+    {
+      title: dubsyKeyFeaturesFeatures0Title(lang),
+      description: dubsyKeyFeaturesFeatures0Text(lang)
+    },
+    {
+      title: dubsyKeyFeaturesFeatures1Title(lang),
+      description: dubsyKeyFeaturesFeatures1Text(lang)
+    },
+    {
+      title: dubsyKeyFeaturesFeatures2Title(lang),
+      description: dubsyKeyFeaturesFeatures2Text(lang)
     }
   ];
 };

@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "heading": "Turn Videos into Multilingual, Searchable Assets ",
+    "desc": "Transform your videos into accurate, multilingual transcriptions to enhance accessibility and compliance across your organization"
+  },
+  "nav_items": {
+    "0_label": "Key Features",
+    "1_label": "How It Works",
+    "2_label": "What's Included",
+    "3_label": "FAQ"
+  },
+  "key_features": {
+    "heading": "Powerful Video Translation & Captioning",
+    "features": {
+      "0": {
+        "title": "Accurate Transcription Engine ",
+        "text": "Employ advanced AI-driven transcription APIs to ensure high accuracy, especially important for enterprise-grade solutions where precision is required."
+      },
+      "1": {
+        "title": "Multi-language Support ",
+        "text": "Offer transcription in multiple languages and dialects, catering to global enterprises."
+      },
+      "2": {
+        "title": "Integration Capabilities",
+        "text": "Allow integration with existing enterprise software systems, such as CRM, CMS, video management platforms, and analytics tools."
+      },
+      "3": {
+        "title": "Customization Options",
+        "text": "Allow enterprises to customize the app’s interface and transcription processes to align with their branding and specific needs."
+      }
+    }
+  },
+  "how_it_works": {
+    "heading": "How Voxa Works",
+    "steps": {
+      "0": {
+        "title": "Discovery Call",
+        "text": "Collaborate with our team to understand your content, audience, and dubbing requirements for a tailored voice solution."
+      },
+      "1": {
+        "title": "Custom Solution Design",
+        "text": "We create a personalized dubbing strategy, selecting the right voices, languages, and workflows to align with your production needs. "
+      },
+      "2": {
+        "title": "Implementation and Integration",
+        "text": "Seamlessly integrate Dubsy into your content pipeline, with full support for media formats, editing tools, and platform compatibility. "
+      },
+      "3": {
+        "title": "Deploy, Monitor, and Iterate",
+        "text": "Publish your localized or dubbed content, monitor audience response, and refine voices or workflows for continuous improvement. "
+      }
+    }
+  },
+  "what_is_included": {
+    "heading": "What's Included?",
+    "items": {
+      "0": "Role-based access management for flexible access control tailored to your organization.",
+      "1": "Dedicated support team to assist with setup and ongoing queries."
+    }
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "desc": "Learn more about Dubsy — our showcase AI tool that demonstrates how Hyperjump builds a translation and dubbing solution",
+    "0_question": "How easily can the interface be customized to match our company's branding? ",
+    "0_answer": "Our platform offers a range of customization options to ensure a seamless fit with your existing visual and operational standards.",
+    "1_question": "Is this service truly scalable for enterprise-level needs? ",
+    "1_answer": "Yes, our infrastructure is designed to handle large volumes efficiently, adapting to the needs of both growing and established enterprises.",
+    "2_question": "Can this integrate with our existing enterprise systems? ",
+    "2_answer": "Absolutely, with our integrated API, you can connect our transcription service seamlessly with various systems within your organization. "
+  }
+}

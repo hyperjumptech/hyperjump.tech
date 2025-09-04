@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "heading": "Ubah Video menjadi Aset Multibahasa yang Dapat Dicari",
+    "desc": "Transformasikan video Anda menjadi transkripsi multibahasa yang akurat untuk meningkatkan aksesibilitas dan kepatuhan di seluruh organisasi Anda"
+  },
+  "nav_items": {
+    "0_label": "Fitur Utama",
+    "1_label": "Cara Kerja",
+    "2_label": "Apa yang Didapat",
+    "3_label": "FAQ"
+  },
+  "key_features": {
+    "heading": "Penerjemahan & Captioning Video yang Powerful",
+    "features": {
+      "0": {
+        "title": "Mesin Transkripsi yang Akurat",
+        "text": "Menggunakan API transkripsi berbasis AI canggih untuk memastikan akurasi tinggi, terutama penting untuk solusi tingkat enterprise yang membutuhkan presisi."
+      },
+      "1": {
+        "title": "Dukungan Multi-bahasa",
+        "text": "Menawarkan transkripsi dalam berbagai bahasa dan dialek, melayani perusahaan global."
+      },
+      "2": {
+        "title": "Kemampuan Integrasi",
+        "text": "Memungkinkan integrasi dengan sistem perangkat lunak enterprise yang ada, seperti CRM, CMS, platform manajemen video, dan alat analitik."
+      },
+      "3": {
+        "title": "Opsi Kustomisasi",
+        "text": "Memungkinkan perusahaan untuk menyesuaikan antarmuka aplikasi dan proses transkripsi agar selaras dengan branding dan kebutuhan spesifik mereka."
+      }
+    }
+  },
+  "how_it_works": {
+    "heading": "Cara Kerja Voxa",
+    "steps": {
+      "0": {
+        "title": "Discovery Call",
+        "text": "Bekerja sama dengan tim kami untuk memahami kebutuhan transkripsi dan voice intelligence Anda, sehingga tujuan dan ekspektasi dapat selaras."
+      },
+      "1": {
+        "title": "Desain Solusi Khusus",
+        "text": "Kami merancang pengaturan Voxa yang sesuai dengan alur kerja Anda — memilih fitur, bahasa, dan integrasi yang paling relevan untuk organisasi Anda."
+      },
+      "2": {
+        "title": "Implementasi dan Integrasi",
+        "text": "Hubungkan Voxa dengan mulus ke alat yang sudah Anda gunakan (CRM, platform meeting, atau penyimpanan cloud) dengan dukungan langsung dari tim kami."
+      },
+      "3": {
+        "title": "Deploy, Monitor, dan Iterasi",
+        "text": "Terapkan Voxa ke seluruh tim Anda, pantau adopsi dan kinerjanya, serta tingkatkan secara berkelanjutan berdasarkan wawasan dan masukan."
+      }
+    }
+  },
+  "what_is_included": {
+    "heading": "Apa Saja yang Termasuk?",
+    "items": {
+      "0": "Manajemen akses berbasis peran untuk kontrol akses yang fleksibel sesuai kebutuhan organisasi.",
+      "1": "Tim dukungan khusus untuk membantu proses setup dan menjawab pertanyaan berkelanjutan."
+    }
+  },
+  "faq": {
+    "heading": "Pertanyaan yang Sering Diajukan",
+    "desc": "Pelajari lebih lanjut tentang Dubsy — alat AI showcase kami yang menunjukkan bagaimana Hyperjump membangun solusi penerjemahan dan dubbing",
+    "0_question": "Seberapa mudah antarmuka dapat disesuaikan dengan branding perusahaan kami?",
+    "0_answer": "Platform kami menawarkan berbagai opsi kustomisasi untuk memastikan kesesuaian yang mulus dengan standar visual dan operasional Anda yang ada.",
+    "1_question": "Apakah layanan ini benar-benar dapat diskalakan untuk kebutuhan tingkat enterprise?",
+    "1_answer": "Ya, infrastruktur kami dirancang untuk menangani volume besar secara efisien, beradaptasi dengan kebutuhan perusahaan yang sedang berkembang maupun yang sudah mapan.",
+    "2_question": "Bisakah ini terintegrasi dengan sistem enterprise kami yang ada?",
+    "2_answer": "Tentu saja, dengan API terintegrasi kami, Anda dapat menghubungkan layanan transkripsi kami dengan mulus ke berbagai sistem dalam organisasi Anda."
+  }
+}

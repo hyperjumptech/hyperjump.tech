@@ -78,7 +78,14 @@ import {
   voxaHeroHeading,
   inferenceaiCaseStudies5Category,
   voxaWhatIsIncludedHeading,
-  inferenceaiNavItems5Label
+  inferenceaiNavItems5Label,
+  dubsyHeroDesc,
+  dubsyFaqDesc,
+  dubsyFaqHeading,
+  dubsyHowItWorksHeading,
+  dubsyKeyFeaturesHeading,
+  dubsyHeroHeading,
+  dubsyWhatIsIncludedHeading
 } from "@/locales/.generated/server";
 
 import {
@@ -99,7 +106,11 @@ import {
   getHowItWorksVoxa,
   getKeyFeaturesVoxa,
   getWhatIsIncludedVoxa,
-  type WhatIsIncluded
+  type WhatIsIncluded,
+  getFaqsDubsy,
+  getHowItWorksDubsy,
+  getKeyFeaturesDubsy,
+  getWhatIsIncludedDubsy
 } from "./[slug]/data";
 
 export const navInferenceai = (lang: SupportedLanguage) => {
@@ -331,6 +342,23 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       title: voxaHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedVoxa(lang),
       whatsIncludedHeading: voxaWhatIsIncludedHeading(lang)
+    },
+    {
+      category: inferenceaiCaseStudies5Category(lang),
+      description: dubsyHeroDesc(lang),
+      faqDesc: dubsyFaqDesc(lang),
+      faqHeading: dubsyFaqHeading(lang),
+      faqs: getFaqsDubsy(lang),
+      howItWorks: getHowItWorksDubsy(lang),
+      howItWorksHeading: dubsyHowItWorksHeading(lang),
+      keyFeatures: getKeyFeaturesDubsy(lang),
+      keyFeaturesHeading: dubsyKeyFeaturesHeading(lang),
+      slug: "dubsy",
+      labelUrl: "Dubsy",
+      descUrl: "Turn videos into multilingual captions",
+      title: dubsyHeroHeading(lang),
+      whatsIncluded: getWhatIsIncludedDubsy(lang),
+      whatsIncludedHeading: dubsyWhatIsIncludedHeading(lang)
     }
   ];
 };

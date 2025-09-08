@@ -82,8 +82,8 @@ export default function Nav({ lang, menus }: NavProps) {
                         align="start"
                         side="bottom"
                         sideOffset={8}
-                        className="hidden min-w-52 rounded-md bg-white p-4 shadow-lg xl:flex">
-                        <ul className="grid w-full gap-2">
+                        className="-ml-3 hidden max-w-48 justify-center bg-white shadow-none xl:flex">
+                        <ul className="grid w-full gap-2 rounded-md bg-white p-2 shadow-lg">
                           {children.map(({ href, label, description, key }) => (
                             <li key={key}>
                               <Link

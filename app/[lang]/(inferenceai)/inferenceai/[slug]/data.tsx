@@ -170,7 +170,8 @@ import {
   dubsyKeyFeaturesFeatures1Text,
   dubsyKeyFeaturesFeatures1Title,
   dubsyKeyFeaturesFeatures2Title,
-  dubsyKeyFeaturesFeatures2Text
+  dubsyKeyFeaturesFeatures2Text,
+  inferenceaiNavItems5Label
 } from "@/locales/.generated/server";
 import {
   ChatBubbleIcon,
@@ -183,6 +184,7 @@ import {
   ReloadIcon
 } from "@radix-ui/react-icons";
 import { Users } from "lucide-react";
+import { getSolutionsMenu } from "../components/dropdown-menu";
 
 export type WhatIsIncluded = {
   icon: ReactNode;
@@ -197,10 +199,27 @@ type Faq = {
 
 export const navRagChatbot = (lang: SupportedLanguage) => {
   return [
-    { label: ragChatbotNavItems0Label(lang), href: "#key-features" },
-    { label: ragChatbotNavItems1Label(lang), href: "#how-it-works" },
-    { label: ragChatbotNavItems2Label(lang), href: "#what-is-included" },
-    { label: ragChatbotNavItems3Label(lang), href: "#faqs" }
+    {
+      key: "key-features",
+      label: ragChatbotNavItems0Label(lang),
+      href: "#key-features"
+    },
+    {
+      key: "how-it-works",
+      label: ragChatbotNavItems1Label(lang),
+      href: "#how-it-works"
+    },
+    {
+      key: "what-is-include",
+      label: ragChatbotNavItems2Label(lang),
+      href: "#what-is-included"
+    },
+    {
+      key: "solutions",
+      label: inferenceaiNavItems5Label(lang),
+      children: getSolutionsMenu(lang)
+    },
+    { key: "faqs", label: ragChatbotNavItems3Label(lang), href: "#faqs" }
   ];
 };
 

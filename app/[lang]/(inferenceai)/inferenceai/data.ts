@@ -113,26 +113,53 @@ import {
   getWhatIsIncludedDubsy
 } from "./[slug]/data";
 
-export const navInferenceai = (lang: SupportedLanguage) => {
-  const caseStudies = getCaseStudies(lang);
+export type Menu = {
+  key: string;
+  label: string;
+  href?: string;
+  description?: string;
+  children?: Menu[];
+};
+
+export const navInferenceai = (lang: SupportedLanguage): Menu[] => {
+  const caseStudies = getCaseStudies(lang) ?? [];
+
+  const solutions: Menu[] = caseStudies
+    .filter((cs) => cs.slug && cs.slug !== "rag-chatbot")
+    .map((cs) => ({
+      key: cs.slug,
+      label: cs.labelUrl ?? cs.title ?? "Untitled",
+      href: `/${lang}/inferenceai/${cs.slug}`,
+      description: cs.descUrl ?? ""
+    }));
 
   return [
-    { label: inferenceaiNavItems0Label(lang), href: "#how-it-works" },
-    { label: inferenceaiNavItems1Label(lang), href: "#what-you-get" },
     {
-      label: inferenceaiNavItems5Label(lang),
-      href: "#",
-      children: caseStudies
-        .filter((cs) => cs.slug)
-        .filter((cs) => cs.slug !== "rag-chatbot")
-        .map((cs) => ({
-          label: cs.labelUrl,
-          href: `/${lang}/inferenceai/${cs.slug}`,
-          description: cs.descUrl
-        }))
+      key: "how-it-works",
+      label: inferenceaiNavItems0Label(lang),
+      href: "#how-it-works"
     },
-    { label: inferenceaiNavItems3Label(lang), href: "#about-us" },
-    { label: inferenceaiNavItems4Label(lang), href: "#faqs" }
+    {
+      key: "what-you-get",
+      label: inferenceaiNavItems1Label(lang),
+      href: "#what-you-get"
+    },
+    {
+      key: "solutions",
+      label: inferenceaiNavItems5Label(lang),
+      children: solutions
+    },
+    {
+      key: "case-studies",
+      label: inferenceaiNavItems2Label(lang),
+      href: "#case-studies"
+    },
+    {
+      key: "about-us",
+      label: inferenceaiNavItems3Label(lang),
+      href: "#about-us"
+    },
+    { key: "faqs", label: inferenceaiNavItems4Label(lang), href: "#faqs" }
   ];
 };
 

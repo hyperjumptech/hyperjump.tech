@@ -112,27 +112,9 @@ import {
   getKeyFeaturesDubsy,
   getWhatIsIncludedDubsy
 } from "./[slug]/data";
+import { getSolutionsMenu } from "./components/dropdown-menu";
 
-export type Menu = {
-  key: string;
-  label: string;
-  href?: string;
-  description?: string;
-  children?: Menu[];
-};
-
-export const navInferenceai = (lang: SupportedLanguage): Menu[] => {
-  const caseStudies = getCaseStudies(lang) ?? [];
-
-  const solutions: Menu[] = caseStudies
-    .filter((cs) => cs.slug && cs.slug !== "rag-chatbot")
-    .map((cs) => ({
-      key: cs.slug,
-      label: cs.labelUrl ?? cs.title ?? "Untitled",
-      href: `/${lang}/inferenceai/${cs.slug}`,
-      description: cs.descUrl ?? ""
-    }));
-
+export const navInferenceai = (lang: SupportedLanguage) => {
   return [
     {
       key: "how-it-works",
@@ -147,12 +129,7 @@ export const navInferenceai = (lang: SupportedLanguage): Menu[] => {
     {
       key: "solutions",
       label: inferenceaiNavItems5Label(lang),
-      children: solutions
-    },
-    {
-      key: "case-studies",
-      label: inferenceaiNavItems2Label(lang),
-      href: "#case-studies"
+      children: getSolutionsMenu(lang)
     },
     {
       key: "about-us",

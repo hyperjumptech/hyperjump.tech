@@ -10,25 +10,12 @@ type ClientWrapperProps = {
   lang: SupportedLanguage;
 };
 
-function normalizeMenus(
-  raw: { label: string; href: string }[],
-  prefix = "menu"
-): Menu[] {
-  return raw.map((item, idx) => ({
-    key: item.href || `${prefix}-${idx}`,
-    label: item.label,
-    href: item.href,
-    description: undefined,
-    children: undefined
-  }));
-}
-
 export default function ClientWrapper({ lang }: ClientWrapperProps) {
   const pathname = usePathname();
   const isInferenceAiCaseStudy = pathname.includes(`/${lang}/inferenceai/`);
 
   const menus: Menu[] = isInferenceAiCaseStudy
-    ? normalizeMenus(navRagChatbot(lang), "rag")
+    ? navRagChatbot(lang)
     : navInferenceai(lang);
 
   return <Nav menus={menus} lang={lang} />;

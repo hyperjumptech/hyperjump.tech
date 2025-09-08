@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 import StickyNavigationMain from "@/app/components/sticky-nav-main";
 import { cn } from "@/lib/utils";
@@ -11,7 +12,8 @@ import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
-  DropdownMenuContent
+  DropdownMenuContent,
+  DropdownMenuItem
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 
@@ -30,6 +32,15 @@ type NavProps = {
 export default function Nav({ lang, menus }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setDropdownOpen(false);
+    setIsOpen(false);
+    setOpenIndex(null);
+  }, [pathname]);
 
   return (
     <StickyNavigationMain>
@@ -59,12 +70,15 @@ export default function Nav({ lang, menus }: NavProps) {
             />
           </Link>
 
+          {/* Desktop Menu */}
           <nav className="hidden items-center justify-center space-x-8 xl:flex">
             <ul className="flex items-center gap-5">
               {menus.map(({ href, label, children, key }) =>
                 children ? (
                   <li key={key} className="relative">
-                    <DropdownMenu>
+                    <DropdownMenu
+                      open={dropdownOpen}
+                      onOpenChange={setDropdownOpen}>
                       <DropdownMenuTrigger asChild>
                         <button
                           className={cn(
@@ -86,16 +100,20 @@ export default function Nav({ lang, menus }: NavProps) {
                         <ul className="grid w-full gap-2 rounded-md bg-white p-2 shadow-lg">
                           {children.map(({ href, label, description, key }) => (
                             <li key={key}>
-                              <Link
-                                href={href || "#"}
-                                className="hover:text-hyperjump-blue block transition">
-                                {label}
-                                {description && (
-                                  <div className="text-sm font-normal text-[#565656]">
-                                    {description}
-                                  </div>
-                                )}
-                              </Link>
+                              <DropdownMenuItem asChild>
+                                <>
+                                  <Link
+                                    href={href || "#"}
+                                    className="hover:text-hyperjump-blue block transition">
+                                    {label}
+                                  </Link>
+                                  {description && (
+                                    <div className="text-sm text-[#565656]">
+                                      {description}
+                                    </div>
+                                  )}
+                                </>
+                              </DropdownMenuItem>
                             </li>
                           ))}
                         </ul>
@@ -190,7 +208,6 @@ export default function Nav({ lang, menus }: NavProps) {
                         <Link
                           key={child.key}
                           href={child.href || "#"}
-                          onClick={() => setIsOpen(false)}
                           className="hover:text-hyperjump-blue text-hyperjump-black block text-base transition">
                           {child.label}
                           {child.description && (
@@ -207,8 +224,7 @@ export default function Nav({ lang, menus }: NavProps) {
                 <Link
                   key={item.key}
                   href={item.href || "#"}
-                  className="text-hyperjump-black hover:text-hyperjump-blue text-2xl transition"
-                  onClick={() => setIsOpen(false)}>
+                  className="text-hyperjump-black hover:text-hyperjump-blue text-2xl transition">
                   {item.label}
                 </Link>
               )

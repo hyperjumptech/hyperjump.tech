@@ -150,11 +150,6 @@ export const navInferenceai = (lang: SupportedLanguage): Menu[] => {
       children: solutions
     },
     {
-      key: "case-studies",
-      label: inferenceaiNavItems2Label(lang),
-      href: "#case-studies"
-    },
-    {
       key: "about-us",
       label: inferenceaiNavItems3Label(lang),
       href: "#about-us"

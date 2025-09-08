@@ -68,8 +68,7 @@ export default function Nav({ lang, menus }: NavProps) {
                       <DropdownMenuTrigger asChild>
                         <button
                           className={cn(
-                            "flex items-center gap-1 text-xl font-medium outline-none",
-                            "bg-transparent",
+                            "m-0 flex items-center gap-1 bg-transparent p-0 text-xl font-medium outline-none", // ⬅️ tanpa padding/margin
                             "group-data-[scroll=true]:text-hyperjump-black",
                             "hover:group-data-[scroll=true]:text-hyperjump-blue",
                             "hover:group-data-[scroll=false]:text-hyperjump-blue group-data-[scroll=false]:text-white"

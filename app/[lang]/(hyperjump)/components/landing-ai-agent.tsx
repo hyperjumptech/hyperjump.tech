@@ -355,13 +355,7 @@ export default function LandingAIAgent() {
 
   // Chat UI
   return (
-    <div
-      className={cn(
-        "sticky bottom-4 z-40 mb-4 transition-all duration-300 lg:mb-0",
-        windowState.maximized
-          ? "lg:mx-auto lg:max-w-4xl"
-          : "lg:ml-auto lg:max-w-lg"
-      )}>
+    <div className="sticky bottom-4 z-40 mb-4 transition-all duration-300 lg:mb-0 lg:ml-auto lg:max-w-lg">
       <div className="mx-auto max-h-full w-full px-4 transition-all duration-300 lg:mx-auto lg:max-w-4xl">
         <div
           className={cn(
@@ -396,38 +390,20 @@ export default function LandingAIAgent() {
           </div>
           {/* Chat header actions */}
           <div className="flex h-full min-h-full flex-col items-end justify-between gap-10">
-            {/* Maximize/Minimize and Minimize buttons */}
-            <div className="flex flex-row gap-x-2 gap-y-0">
-              <Button
-                variant="outline"
-                size="icon"
-                className="hidden h-7 w-7 rounded-full bg-transparent lg:flex"
-                onClick={() => {
-                  setWindowState((prevState) => ({
-                    ...prevState,
-                    maximized: !prevState.maximized
-                  }));
-                }}>
-                {windowState.maximized ? (
-                  <Minimize2 className="h-4 w-4" />
-                ) : (
-                  <Maximize2 className="h-4 w-4" />
-                )}
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-7 w-7 rounded-full bg-transparent"
-                onClick={() => {
-                  setWindowState((prevState) => ({
-                    ...prevState,
-                    maximized: false,
-                    closed: true
-                  }));
-                }}>
-                <MinusIcon className="h-4 w-4" />
-              </Button>
-            </div>
+            {/* Minimize buttons */}
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-7 w-7 rounded-full bg-transparent"
+              onClick={() => {
+                setWindowState((prevState) => ({
+                  ...prevState,
+                  maximized: false,
+                  closed: true
+                }));
+              }}>
+              <MinusIcon className="h-4 w-4" />
+            </Button>
             {/* Clear chat button at the bottom */}
             <div className="w-full">
               <Button

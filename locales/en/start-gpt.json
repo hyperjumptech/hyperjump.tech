@@ -3,12 +3,6 @@
     "heading": "Deploy Your Own Enterprise AI Assistant",
     "desc": "Deploy a private, ChatGPT-like assistant that supports your own model, whether proprietary or open source, in both cloud and on-premises environments. Enjoy enterprise-grade control over data, security, and costs with integration options for top open-source LLMs like GPT-5, Claude Sonnet 4, Qwen3, and Gemini 2.5 Pro."
   },
-  "nav_items": {
-    "0_label": "Key Features",
-    "1_label": "How It Works",
-    "2_label": "What's Included",
-    "3_label": "FAQ"
-  },
   "key_features": {
     "heading": "Flexible, Integrated, and Secure AI Assistant",
     "features": {

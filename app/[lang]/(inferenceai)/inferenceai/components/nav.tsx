@@ -97,22 +97,20 @@ export default function Nav({ lang, menus }: NavProps) {
                         side="bottom"
                         sideOffset={8}
                         className="-ml-3 hidden max-w-48 justify-center bg-white shadow-none xl:flex">
-                        <ul className="grid w-full gap-2 rounded-md bg-white p-2 shadow-lg">
+                        <ul className="grid w-full gap-2 rounded-md bg-white p-1 shadow-lg">
                           {children.map(({ href, label, description, key }) => (
                             <li key={key}>
                               <DropdownMenuItem asChild>
-                                <>
-                                  <Link
-                                    href={href || "#"}
-                                    className="hover:text-hyperjump-blue block transition">
-                                    {label}
-                                  </Link>
+                                <Link
+                                  href={href || "#"}
+                                  className="hover:text-hyperjump-blue block flex-row items-start justify-start gap-2 leading-2 transition md:flex-col">
+                                  <div>{label}</div>
                                   {description && (
                                     <div className="text-sm text-[#565656]">
                                       {description}
                                     </div>
                                   )}
-                                </>
+                                </Link>
                               </DropdownMenuItem>
                             </li>
                           ))}

@@ -72,7 +72,6 @@ export function Hero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
           className="mx-auto flex w-full flex-col items-center justify-center md:max-w-4xl">
-          {slug === "rag-chatbot" && <InferenceAIAgent />}
           {slug === "presenton" && (
             <Presenton
               demoUrl={demoUrl ?? ""}

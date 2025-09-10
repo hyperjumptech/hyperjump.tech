@@ -3,9 +3,13 @@ import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   inferenceaiNavItems0Label,
   inferenceaiNavItems1Label,
-  inferenceaiNavItems2Label,
   inferenceaiNavItems3Label,
   inferenceaiNavItems4Label,
+  inferenceaiNavSolutions0Label,
+  inferenceaiNavSolutions1Label,
+  inferenceaiNavSolutions2Label,
+  inferenceaiNavSolutions3Label,
+  inferenceaiNavSolutions4Label,
   inferenceaiWhyWorkWithUs0Title,
   inferenceaiWhyWorkWithUs1Title,
   inferenceaiWhyWorkWithUs2Title,
@@ -26,12 +30,6 @@ import {
   inferenceaiWhatYouGet3Title,
   inferenceaiWhatYouGet4Title,
   inferenceaiWhatYouGet5Title,
-  inferenceaiCaseStudies0Title,
-  inferenceaiCaseStudies1Title,
-  inferenceaiCaseStudies0Text,
-  inferenceaiCaseStudies1Text,
-  inferenceaiCaseStudies0Category,
-  inferenceaiCaseStudies1Category,
   inferenceaiFaq0Question,
   inferenceaiFaq1Question,
   inferenceaiFaq2Question,
@@ -45,11 +43,6 @@ import {
   inferenceaiCaseStudies2Category,
   inferenceaiCaseStudies3Category,
   inferenceaiCaseStudies4Category,
-  ragChatbotKeyFeaturesHeading,
-  ragChatbotHowItWorksHeading,
-  ragChatbotWhatIsIncludedHeading,
-  ragChatbotFaqDesc,
-  ragChatbotFaqHeading,
   presentonFaqDesc,
   presentonFaqHeading,
   presentonHowItWorksHeading,
@@ -91,12 +84,10 @@ import {
 import {
   getFaqsPresenton,
   getHowItWorksPresenton,
-  getKeyFeatures,
   getKeyFeaturesPresenton,
   getFaqsStartGPT,
   getHowItWorksStartGPT,
   getKeyFeaturesStartGPT,
-  getWhatIsIncluded,
   getWhatIsIncludedPresenton,
   getFaqsMediaPulse,
   getHowItWorksMediaPulse,
@@ -128,16 +119,51 @@ export const navInferenceai = (lang: SupportedLanguage) => {
     },
     {
       key: "solutions",
-      label: inferenceaiNavItems5Label(lang),
+      label: inferenceaiNavItems3Label(lang),
       children: getSolutionsMenu(lang)
     },
     {
       key: "about-us",
-      label: inferenceaiNavItems3Label(lang),
+      label: inferenceaiNavItems4Label(lang),
       href: "#about-us"
     },
-    { key: "faqs", label: inferenceaiNavItems4Label(lang), href: "#faqs" }
+    { key: "faqs", label: inferenceaiNavItems5Label(lang), href: "#faqs" }
   ];
+};
+
+export const navSolutions = (lang: SupportedLanguage, slug: string) => {
+  const caseStudies = getCaseStudies(lang);
+  const activeCase = caseStudies.find((c) => c.slug === slug);
+
+  let items = [
+    {
+      key: "key-features",
+      label: inferenceaiNavSolutions0Label(lang),
+      href: "#key-features"
+    },
+    {
+      key: "how-it-works",
+      label: inferenceaiNavSolutions1Label(lang),
+      href: "#how-it-works"
+    },
+    {
+      key: "what-is-include",
+      label: inferenceaiNavSolutions2Label(lang),
+      href: "#what-is-included"
+    },
+    {
+      key: "solutions",
+      label: inferenceaiNavSolutions3Label(lang),
+      children: getSolutionsMenu(lang)
+    },
+    { key: "faqs", label: inferenceaiNavSolutions4Label(lang), href: "#faqs" }
+  ];
+
+  if (activeCase?.slug === "startgpt") {
+    items = items.filter((item) => item.key !== "what-is-include");
+  }
+
+  return items;
 };
 
 export const getWhyWorkWithUs = (lang: SupportedLanguage) => {
@@ -242,36 +268,6 @@ export type CaseStudy = {
 
 export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
   return [
-    {
-      category: inferenceaiCaseStudies0Category(lang),
-      description: inferenceaiCaseStudies0Text(lang),
-      faqDesc: ragChatbotFaqDesc(lang),
-      faqHeading: ragChatbotFaqHeading(lang),
-      faqs: getFaqs(lang),
-      howItWorks: getHowItWorks(lang),
-      howItWorksHeading: ragChatbotHowItWorksHeading(lang),
-      keyFeatures: getKeyFeatures(lang),
-      keyFeaturesHeading: ragChatbotKeyFeaturesHeading(lang),
-      slug: "rag-chatbot",
-      title: inferenceaiCaseStudies0Title(lang),
-      whatsIncluded: getWhatIsIncluded(lang),
-      whatsIncludedHeading: ragChatbotWhatIsIncludedHeading(lang)
-    },
-    {
-      category: inferenceaiCaseStudies1Category(lang),
-      description: inferenceaiCaseStudies1Text(lang),
-      faqDesc: ragChatbotFaqDesc(lang),
-      faqHeading: ragChatbotFaqHeading(lang),
-      faqs: getFaqs(lang),
-      howItWorks: getHowItWorks(lang),
-      howItWorksHeading: ragChatbotHowItWorksHeading(lang),
-      keyFeatures: getKeyFeatures(lang),
-      keyFeaturesHeading: ragChatbotKeyFeaturesHeading(lang),
-      slug: "",
-      title: inferenceaiCaseStudies1Title(lang),
-      whatsIncluded: getWhatIsIncluded(lang),
-      whatsIncludedHeading: ragChatbotWhatIsIncludedHeading(lang)
-    },
     {
       category: inferenceaiCaseStudies2Category(lang),
       description: mediaPulseHeroDesc(lang),

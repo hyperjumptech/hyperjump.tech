@@ -11,9 +11,16 @@
     "0_label": "How It Works",
     "1_label": "What You Get",
     "2_label": "Case Studies",
-    "3_label": "About",
-    "4_label": "FAQ",
-    "5_label": "Solutions"
+    "3_label": "Solutions",
+    "4_label": "About",
+    "5_label": "FAQ"
+  },
+  "nav_solutions": {
+    "0_label": "Key Features",
+    "1_label": "How It Works",
+    "2_label": "What's Included",
+    "3_label": "Solutions",
+    "4_label": "FAQ"
   },
   "footer": "Driving Innovation and Growth with Intelligent AI Solutions",
   "why_work_with_us": {
@@ -54,14 +61,6 @@
   "case_studies": {
     "heading": "Case Studies",
     "desc": "Explore how we turn challenges into growth opportunities with practical solutions that create lasting change and drive business success.",
-
-    "0_title": "AI Knowledge Assistant with RAG",
-    "0_category": "Case Studies",
-    "0_text": "We built a custom AI agent that answers employee questions using internal documentation via Retrieval-Augmented Generation. Cutting support time by 60%.",
-
-    "1_title": "AI-Powered Meeting Notes Agent",
-    "1_category": "Case Studies",
-    "1_text": "This agent joins meetings, transcribes in real time, summarizes key points, and auto-updates project tools. Saving teams hours every week.",
 
     "2_title": "Save 10+ Hours Every Week: Let AI Handle Your Media Monitoring, So You Focus on Strategy",
     "2_category": "Case Studies",

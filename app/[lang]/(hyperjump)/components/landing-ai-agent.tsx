@@ -2,11 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
-import { Maximize2, MessageCircle, Minimize2, MinusIcon } from "lucide-react";
+import { MessageCircle, X } from "lucide-react";
 import Image from "next/image";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Types
 type TMessageResponse = {
@@ -111,15 +111,7 @@ export default function LandingAIAgent() {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   // Window state
-  const [windowState, setWindowState] = useState<{
-    mode: "entrypoint" | "chat";
-    closed: boolean;
-    maximized: boolean;
-  }>({
-    mode: "entrypoint",
-    closed: false,
-    maximized: false
-  });
+  const [closed, setClosed] = useState(true);
 
   // UI Refs
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -190,13 +182,6 @@ export default function LandingAIAgent() {
     setText("");
     inputRef.current.value = "";
 
-    // If this is the first message, set the window state to maximized
-    setWindowState((prevState) => ({
-      ...prevState,
-      mode: "chat",
-      maximized: true
-    }));
-
     setIsSubmitting(true);
     try {
       const prevMessages = messages;
@@ -221,299 +206,78 @@ export default function LandingAIAgent() {
     }
   };
 
-  // Floating action button
-  if (windowState.closed)
-    return (
-      <div className="fixed right-4 bottom-4 z-50 transition-all duration-300">
-        <Button
-          variant="default"
-          size="icon"
-          className="!m-0 h-12 w-12 rounded-full bg-blue-500 px-4 font-semibold shadow-md lg:w-full"
-          onClick={() => {
-            setWindowState((prevState) => ({
-              ...prevState,
-              closed: false
-            }));
-
-            // Scroll to bottom after 100ms to avoid the window opening and closing immediately
-            setTimeout(() => {
-              scrollToBottom();
-            }, 100);
-          }}>
-          <span className="hidden lg:block">Ask HyperBot</span>
-          <span className="block lg:hidden">
-            <MessageCircle className="h-16 w-16 fill-white text-white" />
-          </span>
-        </Button>
-      </div>
-    );
-
-  // Entrypoint UI (Just input and predefined messages)
-  if (windowState.mode === "entrypoint") {
-    return (
-      <Fragment>
-        {/* Mobile FAB */}
-        <div className="fixed right-4 bottom-4 z-50 flex transition-all duration-300 lg:hidden">
-          <Button
-            variant="default"
-            size="lg"
-            className="!m-0 h-12 w-12 rounded-full bg-blue-500 !p-0 font-semibold shadow-md"
-            onClick={() => {
-              setWindowState((prevState) => ({
-                ...prevState,
-                mode: "chat"
-              }));
-            }}>
-            <MessageCircle className="h-16 w-16 fill-white text-white" />
-          </Button>
-        </div>
-        {/* Desktop Floating UI */}
-        <div className="sticky bottom-8 z-40 mb-8 hidden transition-all duration-300 lg:flex">
-          <div className="mx-auto flex flex-col items-end justify-end gap-1 transition-all duration-300 lg:max-w-4xl">
-            <Button
-              variant="outline"
-              size="icon"
-              className="h-7 w-7 self-end rounded-full bg-[#49495EF2]"
-              onClick={() => {
-                setWindowState((prevState) => ({
-                  ...prevState,
-                  closed: true
-                }));
-              }}>
-              <MinusIcon className="h-4 w-4" />
-            </Button>
-            <div className="w-full rounded-xl bg-[#49495EF2] p-4">
-              {/* Chat container */}
-              <div
-                className={cn(
-                  "flex h-full w-full flex-col gap-2 shadow-xl transition-all duration-300"
-                )}>
-                {/* Input */}
-                <div
-                  className={cn(
-                    "flex flex-col gap-2 rounded-b-xl transition-all duration-300"
-                  )}>
-                  <div className="relative flex w-full">
-                    <input
-                      ref={inputRef}
-                      type="text"
-                      className="h-13 w-full rounded-xl bg-white pr-16 pl-4 text-sm text-black outline-0"
-                      value={text}
-                      disabled={isSubmitting}
-                      onChange={({ target }) => setText(target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" && !e.shiftKey) {
-                          e.preventDefault();
-                          handleSubmit(text);
-                        }
-                      }}
-                      placeholder="Ask me about services, success stories, or your challenges"
-                      aria-describedby="Ask me about services, success stories, or your challenges"
-                    />
-                    <Button
-                      className="absolute top-3 right-4 m-0 h-7 w-7 rounded-full bg-blue-500 p-2"
-                      variant="default"
-                      disabled={isSubmitting}
-                      onClick={() => {
-                        handleSubmit(text);
-                      }}>
-                      <Image
-                        alt="Send message to AI"
-                        src="/icons/ai-agent-button.svg"
-                        width={10}
-                        height={10}
-                      />
-                    </Button>
-                  </div>
-                  {/* Default messages */}
-                  <div
-                    className={cn(
-                      "flex space-x-2 overflow-x-auto whitespace-nowrap"
-                    )}>
-                    {DEFAULT_MESSAGES.map(({ text, id }) => (
-                      <Button
-                        key={id}
-                        variant="outline"
-                        disabled={isSubmitting}
-                        className="rounded-md border border-white bg-transparent hover:cursor-pointer"
-                        onClick={() => {
-                          setText(text);
-                          inputRef.current?.focus();
-                        }}>
-                        {text}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Fragment>
-    );
-  }
-
-  // Chat UI
   return (
-    <div className="sticky bottom-4 z-40 mb-4 transition-all duration-300 lg:mb-0 lg:ml-auto lg:max-w-lg">
-      <div className="mx-auto max-h-full w-full px-4 transition-all duration-300 lg:mx-auto lg:max-w-4xl">
-        <div
-          className={cn(
-            "mb-1 flex items-end justify-end",
-            windowState.mode === "chat" ? "hidden" : "flex"
-          )}>
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-7 w-7 self-end rounded-full bg-[#49495EF2]"
-            onClick={() => {
-              setWindowState((prevState) => ({
-                ...prevState,
-                closed: true
-              }));
-            }}>
-            <MinusIcon className="h-4 w-4" />
-          </Button>
-        </div>
-        {/* Chat header*/}
-        <div
-          className={cn(
-            "flex flex-row items-start justify-between gap-4 rounded-t-xl bg-[#101330]",
-            messages.length === 0 ? "hidden" : "flex p-6"
-          )}>
-          {/* Chat header content */}
-          <div className="flex flex-col gap-2">
-            <p className="text-xl font-bold lg:text-3xl">Hi there! 👋</p>
-            <p className="lg:text-normal text-sm text-white">
-              Start a chat. We are here to help you 24/7.
-            </p>
-          </div>
-          {/* Chat header actions */}
-          <div className="flex h-full min-h-full flex-col items-end justify-between gap-10">
-            {/* Minimize buttons */}
-            <Button
-              variant="outline"
-              size="icon"
-              className="h-7 w-7 rounded-full bg-transparent"
-              onClick={() => {
-                setWindowState((prevState) => ({
-                  ...prevState,
-                  maximized: false,
-                  closed: true
-                }));
-              }}>
-              <MinusIcon className="h-4 w-4" />
-            </Button>
-            {/* Clear chat button at the bottom */}
-            <div className="w-full">
-              <Button
-                variant="link"
-                className="m-0 h-max w-full p-0 text-right text-xs text-white lg:text-sm"
-                onClick={() => {
-                  generateNewSessionId();
-                  setMessages([]);
-                  setWindowState((prevState) => ({
-                    ...prevState,
-                    mode: "entrypoint"
-                  }));
-                }}>
-                Clear chat
-              </Button>
+    <div className="fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3">
+      {/* Chat window with animation */}
+      <AnimatePresence>
+        {!closed && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="w-[90vw] overflow-hidden rounded-md bg-white shadow-xl sm:w-[90vw] lg:max-w-md">
+            {/* Header */}
+            <div className="bg-[#101330] px-4 py-5 text-white">
+              <p className="text-lg font-bold">Hi there! 👋</p>
+              <p className="text-sm">Start a chat. We are here to help 24/7.</p>
             </div>
-          </div>
-        </div>
-        {/* Chat container */}
-        <div
-          className={cn(
-            "flex h-full w-full flex-col gap-2 shadow-xl transition-all duration-300",
-            // Change the theme based on the number of messages
-            messages.length === 0
-              ? "rounded-xl bg-[#49495EF2]"
-              : "rounded-none bg-[#f2f4f8]"
-          )}>
-          {/* Message threads */}
-          <div
-            id="chat-container"
-            className={cn(
-              "h-auto max-h-80 flex-col gap-4 overflow-y-auto transition-all duration-300 md:max-h-96",
-              messages.length === 0
-                ? "hidden h-0 p-0"
-                : "flex min-h-80 p-4 md:min-h-96"
-            )}
-            ref={chatContainerRef}>
-            {/* Message threads */}
-            {messages.map((message, index) => (
-              <div className="flex flex-col gap-4" key={index}>
-                {message.human && (
-                  <div
-                    className={cn(
-                      "flex w-10/12 flex-row items-center gap-2 self-end rounded-xl bg-[#20b69e] p-4",
-                      windowState.maximized ? "lg:w-1/2" : "lg:w-10/12"
-                    )}>
-                    <div className="flex flex-col">
-                      <MarkdownContent
-                        className="!text-white"
-                        input={message.human}
-                      />
+
+            {/* Messages */}
+            <div
+              ref={chatContainerRef}
+              className="flex h-60 flex-col gap-4 overflow-y-auto bg-[#f2f4f8] p-4 md:h-72">
+              {messages.map((m, i) => (
+                <div key={i} className="flex flex-col gap-2">
+                  {m.human && (
+                    <div className="max-w-[80%] self-end rounded-xl bg-[#20b69e] p-3 text-white">
+                      <MarkdownContent input={m.human} />
                     </div>
-                  </div>
-                )}
-                {message.ai && (
-                  <div
-                    className={cn(
-                      "flex w-10/12 flex-row items-center gap-2 rounded-xl bg-white p-4",
-                      windowState.maximized ? "lg:w-1/2" : "lg:w-10/12"
-                    )}>
-                    <div className="flex flex-col">
-                      {isSubmitting && index === messages.length - 1 ? (
-                        <div className="flex flex-row gap-1">
-                          <span className="sr-only">Loading...</span>
-                          <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.3s]"></div>
-                          <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.15s]"></div>
-                          <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500"></div>
+                  )}
+                  {m.ai && (
+                    <div className="max-w-[80%] self-start rounded-xl bg-white p-3">
+                      {isSubmitting && i === messages.length - 1 ? (
+                        <div className="flex gap-1">
+                          <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.3s]" />
+                          <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.15s]" />
+                          <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500" />
                         </div>
                       ) : (
-                        <MarkdownContent
-                          className="!text-black"
-                          input={message.ai}
-                        />
+                        <MarkdownContent input={m.ai} />
                       )}
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
-            {/* Loading state */}
-            {isSubmitting && (
-              <div className="flex w-10/12 flex-row items-center gap-2 rounded-xl bg-white p-4 md:w-1/2">
-                <span className="sr-only">Loading...</span>
-                <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.3s]"></div>
-                <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.15s]"></div>
-                <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500"></div>
-              </div>
-            )}
-          </div>
-          {/* Separator */}
-          <Separator
-            className={cn(
-              "transition-all duration-300",
-              messages.length === 0 ? "hidden" : "-my-2 flex"
-            )}
-          />
-          {/* Input */}
-          <div
-            className={cn(
-              "flex flex-col gap-2 rounded-b-xl transition-all duration-300",
-              messages.length === 0
-                ? "rounded-t-xl bg-[#49495EF2] p-4"
-                : "bg-white"
-            )}>
-            <div className="flex flex-col gap-2">
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* <Separator /> */}
+
+            {/* Input */}
+            <div className="bg-[#f2f4f8] p-3 md:bg-white">
+              {messages.length === 0 && (
+                <div className="mb-3 flex flex-wrap gap-2 md:hidden">
+                  {DEFAULT_MESSAGES.map(({ text, id }) => (
+                    <Button
+                      key={id}
+                      variant="outline"
+                      disabled={isSubmitting}
+                      className="rounded-md border border-gray-400 bg-transparent text-gray-600 hover:cursor-pointer"
+                      onClick={() => {
+                        setText(text);
+                        inputRef.current?.focus();
+                      }}>
+                      {text}
+                    </Button>
+                  ))}
+                </div>
+              )}
+
               <div className="relative flex w-full">
                 <input
                   ref={inputRef}
                   type="text"
-                  className="h-13 w-full rounded-xl bg-white pr-16 pl-4 text-sm text-black outline-0"
+                  className="h-12 w-full truncate rounded-md border bg-white pr-12 pl-4 text-sm text-black outline-0"
                   value={text}
                   disabled={isSubmitting}
                   onChange={({ target }) => setText(target.value)}
@@ -527,7 +291,7 @@ export default function LandingAIAgent() {
                   aria-describedby="Ask me about services, success stories, or your challenges"
                 />
                 <Button
-                  className="absolute top-3 right-4 m-0 h-7 w-7 rounded-full bg-blue-500 p-2"
+                  className="absolute top-2 right-2 h-8 w-8 rounded-full bg-blue-500 p-2"
                   variant="default"
                   disabled={isSubmitting}
                   onClick={() => {
@@ -541,48 +305,52 @@ export default function LandingAIAgent() {
                   />
                 </Button>
               </div>
-              {/* Default messages */}
-              <div
-                className={cn(
-                  "flex space-x-2 overflow-x-auto whitespace-nowrap",
-                  windowState.mode === "chat" && messages.length > 0 && "hidden"
-                )}>
-                {DEFAULT_MESSAGES.map(({ text, id }) => (
-                  <Button
-                    key={id}
-                    variant="outline"
-                    disabled={isSubmitting}
-                    className="rounded-md border border-white bg-transparent hover:cursor-pointer"
-                    onClick={() => {
-                      setText(text);
-                      inputRef.current?.focus();
-                    }}>
-                    {text}
-                  </Button>
-                ))}
-              </div>
+
+              {/* Default messages desktop */}
+              {messages.length === 0 && (
+                <div className="mt-3 hidden space-x-2 overflow-x-auto whitespace-nowrap md:flex">
+                  {DEFAULT_MESSAGES.map(({ text, id }) => (
+                    <Button
+                      key={id}
+                      variant="outline"
+                      disabled={isSubmitting}
+                      className="rounded-md border border-gray-200 bg-transparent text-gray-600 hover:cursor-pointer"
+                      onClick={() => {
+                        setText(text);
+                        inputRef.current?.focus();
+                      }}>
+                      {text}
+                    </Button>
+                  ))}
+                </div>
+              )}
             </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <Button
+        variant="default"
+        onClick={() => setClosed((prev) => !prev)}
+        className="!m-0 flex h-12 items-center justify-center rounded-full bg-blue-500 px-4 font-semibold text-white shadow-md hover:bg-blue-500/80">
+        {closed ? (
+          <>
+            <span className="hidden lg:block">Ask HyperBot</span>
+            <span className="block lg:hidden">
+              <MessageCircle className="h-6 w-6" />
+            </span>
+          </>
+        ) : (
+          <X className="h-6 w-6" />
+        )}
+      </Button>
     </div>
   );
 }
 
-const MarkdownContent = ({
-  input,
-  className
-}: {
-  input: string;
-  className?: string;
-}) => {
-  return (
-    <div
-      className={cn(
-        "prose prose-ul:list-disc prose-ol:list-decimal prose-strong:font-semibold text-sm",
-        className
-      )}
-      dangerouslySetInnerHTML={{ __html: input }}
-    />
-  );
-};
+const MarkdownContent = ({ input }: { input: string }) => (
+  <div
+    className="prose prose-sm text-sm"
+    dangerouslySetInnerHTML={{ __html: input }}
+  />
+);

@@ -131,7 +131,7 @@ export const navInferenceai = (lang: SupportedLanguage) => {
   ];
 };
 
-export const navSolustions = (lang: SupportedLanguage, slug: string) => {
+export const navSolutions = (lang: SupportedLanguage, slug: string) => {
   const caseStudies = getCaseStudies(lang);
   const activeCase = caseStudies.find((c) => c.slug === slug);
 

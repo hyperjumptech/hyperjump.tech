@@ -16,6 +16,7 @@ import {
   DropdownMenuItem
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 export type Menu = {
   key: string;
@@ -47,28 +48,53 @@ export default function Nav({ lang, menus }: NavProps) {
       <div className={cn("w-full px-4 py-5 md:px-8", isOpen && "bg-white")}>
         <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between transition-all duration-300">
           {/* Logo */}
-          <Link href={`/${lang}/inferenceai`} className="flex items-center">
-            <Image
-              src="/images/inferenceai/inference-ai-white.svg"
-              alt="Inference AI Logo"
-              width={187}
-              height={32}
-              className={cn(
-                "h-8 group-data-[scroll='true']:hidden",
-                isOpen && "hidden"
-              )}
-            />
-            <Image
-              src="/images/inferenceai/inference-ai-black.svg"
-              alt="Inference AI Logo"
-              width={187}
-              height={32}
-              className={cn(
-                "hidden h-8 group-data-[scroll='true']:block",
-                isOpen && "block"
-              )}
-            />
-          </Link>
+          <div className="flex flex-row space-x-2 md:space-x-4">
+            <Link href={`/${lang}/inferenceai`} className="flex items-center">
+              <Image
+                src="/images/inferenceai/inference-ai-white.svg"
+                alt="Inference AI Logo"
+                width={146}
+                height={32}
+                className={cn(
+                  "h-6 w-28 group-data-[scroll='true']:hidden md:h-8 md:w-44",
+                  isOpen && "hidden"
+                )}
+              />
+              <Image
+                src="/images/inferenceai/inference-ai-black.svg"
+                alt="Inference AI Logo"
+                width={146}
+                height={32}
+                className={cn(
+                  "hidden h-6 w-28 group-data-[scroll='true']:block md:h-8 md:w-44",
+                  isOpen && "block"
+                )}
+              />
+            </Link>
+            <Separator className="group-data-[scroll='true']:bg-hyperjump-black h-8 w-[1px] group-data-[scroll='false']:bg-white md:h-10" />
+            <Link href={`/${lang}`} className="flex items-center">
+              <Image
+                src="/images/hyperjump-white.png"
+                alt="Hyperjump Logo"
+                width={188}
+                height={32}
+                className={cn(
+                  "h-7 w-36 group-data-[scroll='true']:hidden md:h-8 md:w-44",
+                  isOpen && "hidden"
+                )}
+              />
+              <Image
+                src="/images/hyperjump-black.png"
+                alt="Hyperjump Logo"
+                width={188}
+                height={32}
+                className={cn(
+                  "hidden h-7 w-36 group-data-[scroll='true']:block md:h-8 md:w-44",
+                  isOpen && "block"
+                )}
+              />
+            </Link>
+          </div>
 
           {/* Desktop Menu */}
           <nav className="hidden items-center justify-center space-x-8 xl:flex">

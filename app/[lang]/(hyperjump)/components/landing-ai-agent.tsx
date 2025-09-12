@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { MessageCircle, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -207,7 +206,7 @@ export default function LandingAIAgent() {
   };
 
   return (
-    <div className="fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3">
+    <div className="fixed right-4 bottom-16 z-50 flex flex-col items-end gap-3">
       {/* Chat window with animation */}
       <AnimatePresence>
         {!closed && (
@@ -216,7 +215,7 @@ export default function LandingAIAgent() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="w-[90vw] overflow-hidden rounded-md bg-white shadow-xl sm:w-[90vw] lg:max-w-md">
+            className="w-[90vw] overflow-hidden rounded-md bg-white shadow-xl sm:max-w-[70vw] lg:max-w-md">
             {/* Header */}
             <div className="bg-[#101330] px-4 py-5 text-white">
               <p className="text-lg font-bold">Hi there! 👋</p>
@@ -250,8 +249,6 @@ export default function LandingAIAgent() {
                 </div>
               ))}
             </div>
-
-            {/* <Separator /> */}
 
             {/* Input */}
             <div className="bg-[#f2f4f8] p-3 md:bg-white">
@@ -332,16 +329,16 @@ export default function LandingAIAgent() {
       <Button
         variant="default"
         onClick={() => setClosed((prev) => !prev)}
-        className="!m-0 flex h-12 items-center justify-center rounded-full bg-blue-500 px-4 font-semibold text-white shadow-md hover:bg-blue-500/80">
+        className="md:xp-6 !m-0 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 font-semibold text-white shadow-md hover:bg-blue-500/80 md:h-12 md:w-auto">
         {closed ? (
           <>
             <span className="hidden lg:block">Ask HyperBot</span>
             <span className="block lg:hidden">
-              <MessageCircle className="h-6 w-6" />
+              <MessageCircle className="h-10 w-10 md:h-6 md:w-6" />
             </span>
           </>
         ) : (
-          <X className="h-6 w-6" />
+          <X className="h-10 w-10 md:h-6 md:w-6" />
         )}
       </Button>
     </div>

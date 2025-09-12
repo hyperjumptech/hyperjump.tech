@@ -49,29 +49,6 @@ export default function Nav({ lang, menus }: NavProps) {
         <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between transition-all duration-300">
           {/* Logo */}
           <div className="flex flex-row space-x-2 md:space-x-4">
-            <Link href={`/${lang}/inferenceai`} className="flex items-center">
-              <Image
-                src="/images/inferenceai/inference-ai-white.svg"
-                alt="Inference AI Logo"
-                width={146}
-                height={32}
-                className={cn(
-                  "h-6 w-28 group-data-[scroll='true']:hidden md:h-8 md:w-44",
-                  isOpen && "hidden"
-                )}
-              />
-              <Image
-                src="/images/inferenceai/inference-ai-black.svg"
-                alt="Inference AI Logo"
-                width={146}
-                height={32}
-                className={cn(
-                  "hidden h-6 w-28 group-data-[scroll='true']:block md:h-8 md:w-44",
-                  isOpen && "block"
-                )}
-              />
-            </Link>
-            <Separator className="group-data-[scroll='true']:bg-hyperjump-black h-8 w-[1px] group-data-[scroll='false']:bg-white md:h-10" />
             <Link href={`/${lang}`} className="flex items-center">
               <Image
                 src="/images/hyperjump-white.png"
@@ -90,6 +67,28 @@ export default function Nav({ lang, menus }: NavProps) {
                 height={32}
                 className={cn(
                   "hidden h-7 w-36 group-data-[scroll='true']:block md:h-8 md:w-44",
+                  isOpen && "block"
+                )}
+              />
+            </Link>
+            <Link href={`/${lang}/inferenceai`} className="flex items-center">
+              <Image
+                src="/images/inferenceai/inference-ai-white.svg"
+                alt="Inference AI Logo"
+                width={146}
+                height={32}
+                className={cn(
+                  "h-6 w-28 group-data-[scroll='true']:hidden md:h-8 md:w-44",
+                  isOpen && "hidden"
+                )}
+              />
+              <Image
+                src="/images/inferenceai/inference-ai-black.svg"
+                alt="Inference AI Logo"
+                width={146}
+                height={32}
+                className={cn(
+                  "hidden h-6 w-28 group-data-[scroll='true']:block md:h-8 md:w-44",
                   isOpen && "block"
                 )}
               />

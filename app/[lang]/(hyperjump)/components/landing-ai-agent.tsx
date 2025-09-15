@@ -215,8 +215,7 @@ export default function LandingAIAgent() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="w-[90vw] overflow-hidden rounded-md bg-white shadow-xl sm:max-w-[70vw] lg:max-w-md">
-            {/* Header */}
+            className="w-[90vw] overflow-hidden rounded-md bg-white shadow-xl lg:max-w-md">
             <div className="bg-[#101330] px-4 py-5 text-white">
               <p className="text-lg font-bold">Hi there! 👋</p>
               <p className="text-sm">Start a chat. We are here to help 24/7.</p>

@@ -20,6 +20,32 @@ import {
 
 import { Clients } from "../components/clients";
 import { serviceBySlug, services, ServiceSlug } from "../data";
+import { Metadata } from "next";
+import { dynamicOpengraph } from "@/lib/default-metadata";
+
+export async function generateMetadata(props: {
+  params: Promise<{ lang: SupportedLanguage }>;
+}): Promise<Metadata> {
+  const { lang } = await props.params;
+
+  const meta: any = {
+    title: servicesHeroHeading(lang),
+    description: servicesHeroDesc(lang),
+    images: "https://hyperjump.tech/images/hyperjump-og.png ",
+    alternates: {
+      canonical: `https://hyperjump.tech/${lang}/services`,
+      languages: (supportedLanguages as SupportedLanguage[]).reduce(
+        (acc, l) => {
+          acc[l] = `https://hyperjump.tech/${l}/services`;
+          return acc;
+        },
+        {} as Record<string, string>
+      )
+    }
+  };
+
+  return dynamicOpengraph(meta);
+}
 
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));

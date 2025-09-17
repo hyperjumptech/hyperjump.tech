@@ -10,41 +10,11 @@ import { Toaster } from "@/components/ui/sonner";
 import { figtree, geistMono, geistSans, switzer } from "./fonts";
 
 import "./globals.css";
+import { DEFAULT_OPENGRAPH } from "@/lib/default-metadata";
 
-const { description, gaId, title, url } = data;
+const { gaId } = data;
 
-export const metadata: Metadata = {
-  title,
-  description,
-  authors: [
-    {
-      name: "Nico Prananta",
-      url: "https://nico.fyi"
-    }
-  ],
-  manifest: "/manifest.json",
-  icons: {
-    icon: "/icons/icon-192x192.png",
-    apple: "/icons/apple-touch-icon.png",
-    shortcut: "/icons/icon-192x192.png"
-  },
-  openGraph: {
-    title,
-    description,
-    type: "website",
-    url,
-    siteName: title,
-    images: [
-      {
-        url: "https://hyperjump.tech/images/hyperjump-og.png",
-        width: 1200,
-        height: 630,
-        alt: `${title} Logo`,
-        type: "image/png"
-      }
-    ]
-  }
-};
+export const metadata: Metadata = DEFAULT_OPENGRAPH;
 
 export default function RootLayout({
   children

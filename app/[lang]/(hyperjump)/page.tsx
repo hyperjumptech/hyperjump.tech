@@ -46,8 +46,34 @@ import {
   pageData,
   services
 } from "./data";
+import { Metadata } from "next";
+import { dynamicOpengraph } from "@/lib/default-metadata";
 
-const { github, socials, title, url } = data;
+const { github, socials, title, url, description } = data;
+
+export async function generateMetadata(props: {
+  params: Promise<{ lang: SupportedLanguage }>;
+}): Promise<Metadata> {
+  const { lang } = await props.params;
+
+  const meta: any = {
+    title: mainHeroHeading(lang),
+    description: mainHeroDesc(lang),
+    images: "https://hyperjump.tech/images/hyperjump-og.png ",
+    alternates: {
+      canonical: `https://hyperjump.tech/${lang}`,
+      languages: (supportedLanguages as SupportedLanguage[]).reduce(
+        (acc, l) => {
+          acc[l] = `https://hyperjump.tech/${l}`;
+          return acc;
+        },
+        {} as Record<string, string>
+      )
+    }
+  };
+
+  return dynamicOpengraph(meta);
+}
 
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));

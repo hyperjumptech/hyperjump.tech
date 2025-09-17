@@ -29,9 +29,8 @@ export async function generateMetadata(props: {
   const { lang } = await props.params;
 
   const meta: any = {
-    title: servicesHeroHeading(lang),
+    title: `Services - ${servicesHeroHeading(lang)}`,
     description: servicesHeroDesc(lang),
-    images: "https://hyperjump.tech/images/hyperjump-og.png ",
     alternates: {
       canonical: `https://hyperjump.tech/${lang}/services`,
       languages: (supportedLanguages as SupportedLanguage[]).reduce(

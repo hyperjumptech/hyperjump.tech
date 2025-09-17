@@ -11,6 +11,8 @@ import {
 import { getCaseStudies } from "./data";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Metadata } from "next";
+import { dynamicOpengraph } from "@/lib/default-metadata";
 
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
@@ -19,6 +21,29 @@ export const generateStaticParams = async () => {
 type CaseStudyProps = {
   params: Promise<{ lang: SupportedLanguage }>;
 };
+
+export async function generateMetadata(props: {
+  params: Promise<{ lang: SupportedLanguage }>;
+}): Promise<Metadata> {
+  const { lang } = await props.params;
+
+  const meta: any = {
+    title: `Case Studies - ${caseStudyHeroHeading(lang)}`,
+    description: caseStudyHeroDesc(lang),
+    alternates: {
+      canonical: `https://hyperjump.tech/${lang}/case-studies`,
+      languages: (supportedLanguages as SupportedLanguage[]).reduce(
+        (acc, l) => {
+          acc[l] = `https://hyperjump.tech/${l}/case-studies`;
+          return acc;
+        },
+        {} as Record<string, string>
+      )
+    }
+  };
+
+  return dynamicOpengraph(meta);
+}
 
 export default async function CaseStudiesPage({ params }: CaseStudyProps) {
   const { lang } = await params;

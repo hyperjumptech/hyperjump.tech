@@ -59,7 +59,6 @@ export async function generateMetadata(props: {
   const meta: any = {
     title: mainHeroHeading(lang),
     description: mainHeroDesc(lang),
-    images: "https://hyperjump.tech/images/hyperjump-og.png ",
     alternates: {
       canonical: `https://hyperjump.tech/${lang}`,
       languages: (supportedLanguages as SupportedLanguage[]).reduce(

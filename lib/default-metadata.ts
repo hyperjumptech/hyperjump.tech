@@ -5,8 +5,9 @@ import { supportedLanguages } from "@/locales/.generated/types";
 const { description, title, url } = data;
 
 const DEFAULT_BASE_URL = url || "https://hyperjump.tech";
-const DEFAULT_TITLE = title || "Hyperjump";
-const DEFAULT_DESCRIPTION = description || "We are a technology company.";
+const DEFAULT_TITLE = title || "Hyperjump Technology";
+const DEFAULT_DESCRIPTION =
+  description || "Your partner in building reliable, modern software.";
 const DEFAULT_IMAGE = `${DEFAULT_BASE_URL}/images/hyperjump-og.png`;
 
 const DEFAULT_ALTERNATES = {

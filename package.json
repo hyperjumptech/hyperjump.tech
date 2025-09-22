@@ -13,8 +13,9 @@
     "lint": "next lint",
     "check-format": "prettier --check .",
     "format": "prettier --write .",
-    "test:e2e": "playwright test",
-    "test:e2e:headed": "playwright test --headed",
+    "serve:out": "npx --yes serve@latest -s out -l 3000",
+    "test:e2e": "playwright test -c playwright.config.ts",
+    "test:e2e:headed": "playwright test --headed -c playwright.config.ts",
     "test:e2e:report": "playwright show-report"
   },
   "dependencies": {
@@ -53,7 +54,7 @@
     "unist-util-visit": "5.0.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.55.0",
+    "@playwright/test": "^1.47.2",
     "@tailwindcss/postcss": "^4.1.5",
     "@tailwindcss/typography": "^0.5.16",
     "@types/mdx": "^2.0.13",

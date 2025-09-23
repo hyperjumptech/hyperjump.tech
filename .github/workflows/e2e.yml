@@ -25,6 +25,15 @@ jobs:
       - name: Install Playwright browsers
         run: bunx playwright install --with-deps
 
+      - name: Build app
+        run: bun run build
+
+      - name: Start server
+        run: bun run start &
+
+      - name: Wait for server to be ready
+        run: npx wait-on http://localhost:3000 --timeout 60000
+
       - name: Run E2E tests (headless)
         env:
           CI: true

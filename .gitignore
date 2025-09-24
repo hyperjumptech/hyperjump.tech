@@ -37,3 +37,12 @@ yarn-error.log*
 next-env.d.ts
 
 locales/.generated
+
+# Playwright
+playwright-report/
+blob-report/
+playwright/.cache/
+.test-results/
+/test-results/
+**/test-results/
+.ms-playwright/

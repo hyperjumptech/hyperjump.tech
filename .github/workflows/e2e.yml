@@ -10,12 +10,12 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
@@ -28,7 +28,13 @@ jobs:
       - name: Build app
         run: bun run build
 
-      - name: Run Playwright E2E tests
+      - name: Start server
+        run: npx serve@latest out
+
+      - name: Wait for server to be ready
+        run: npx wait-on http://localhost:3000 --timeout 60000
+
+      - name: Run E2E tests (headless)
         env:
           CI: true
         run: bun run test:e2e

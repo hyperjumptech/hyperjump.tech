@@ -377,7 +377,7 @@ export type CaseStudy = {
   title: string;
   description: string;
   category: string;
-  basePath: string;
+  basePath?: string;
 };
 
 export type Service = {

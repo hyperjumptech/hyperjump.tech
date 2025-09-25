@@ -1,6 +1,48 @@
 import type { ReactNode } from "react";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
+  aiBestFor,
+  aiWhatIsDesc,
+  aiDescription,
+  aiHeroDesc,
+  aiHeroHeading,
+  aiHowItWorksDesc,
+  aiHowItWorksStep0Text,
+  aiHowItWorksStep0Title,
+  aiHowItWorksStep1Text,
+  aiHowItWorksStep1Title,
+  aiHowItWorksStep2Text,
+  aiHowItWorksStep2Title,
+  aiHowItWorksStep3Text,
+  aiHowItWorksStep3Title,
+  aiHowItWorksStep4Text,
+  aiHowItWorksStep4Title,
+  aiWhatIsHighlight,
+  aiWhatWeDeliverCard0Items0,
+  aiWhatWeDeliverCard0Items1,
+  aiWhatWeDeliverCard0Items2,
+  aiWhatWeDeliverCard0Text,
+  aiWhatWeDeliverCard1Items0,
+  aiWhatWeDeliverCard1Items1,
+  aiWhatWeDeliverCard1Items2,
+  aiWhatWeDeliverCard1Title,
+  aiWhatWeDeliverCard2Items0,
+  aiWhatWeDeliverCard2Items1,
+  aiWhatWeDeliverCard2Items2,
+  aiWhatWeDeliverCard2Title,
+  aiWhatWeDeliverDesc,
+  aiWhatYouGetDesc,
+  aiWhatYouGetItems0,
+  aiWhatYouGetItems1,
+  aiWhatYouGetItems2,
+  aiWhatYouGetItems3,
+  aiWhoIsItDesc,
+  aiWhoIsItTarget0,
+  aiWhoIsItTarget1,
+  aiWhyUsDesc,
+  aiWhyUsReasons0,
+  aiWhyUsReasons1,
+  aiWhyUsReasons2,
   caseStudyCtoaasMediaCategory,
   caseStudyCtoaasMediaDesc,
   caseStudyCtoaasMediaTitle,
@@ -217,7 +259,8 @@ import {
   tddWhyUsDesc,
   tddWhyUsReasons0,
   tddWhyUsReasons1,
-  tddWhyUsReasons2
+  tddWhyUsReasons2,
+  aiWhoIsItTarget2
 } from "@/locales/.generated/strings";
 
 export function getCaseStudies(lang: SupportedLanguage) {
@@ -348,6 +391,115 @@ export type Service = {
 
 export function services(lang: SupportedLanguage): Service[] {
   return [
+    {
+      bestFor: aiBestFor(lang),
+      content: {
+        what: `${aiWhatIsDesc(lang)}<br /><br />${aiWhatIsHighlight(lang)}`,
+        who: {
+          description: aiWhoIsItDesc(lang),
+          imageUrl: `/images/services/${ServiceSlug.InferenceAI}/who-is-it.svg`,
+          items: [
+            aiWhoIsItTarget0(lang),
+            aiWhoIsItTarget1(lang),
+            aiWhoIsItTarget2(lang)
+          ]
+        },
+        deliverables: {
+          description: aiWhatWeDeliverDesc(lang),
+          items: [
+            {
+              description: aiWhatWeDeliverCard0Text(lang),
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/what-we-deliver-icon-1.svg`,
+              items: [
+                aiWhatWeDeliverCard0Items0(lang),
+                aiWhatWeDeliverCard0Items1(lang),
+                aiWhatWeDeliverCard0Items2(lang)
+              ],
+              title: erpWhatWeDeliverCard0Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/what-we-deliver-icon-2.svg`,
+              title: aiWhatWeDeliverCard1Title(lang),
+              items: [
+                aiWhatWeDeliverCard1Items0(lang),
+                aiWhatWeDeliverCard1Items1(lang),
+                aiWhatWeDeliverCard1Items2(lang)
+              ],
+              description: erpWhatWeDeliverCard1Text(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/what-we-deliver-icon-3.svg`,
+              title: aiWhatWeDeliverCard2Title(lang),
+              items: [
+                aiWhatWeDeliverCard2Items0(lang),
+                aiWhatWeDeliverCard2Items1(lang),
+                aiWhatWeDeliverCard2Items2(lang)
+              ],
+              description: erpWhatWeDeliverCard2Text(lang)
+            }
+          ]
+        },
+        how: {
+          description: aiHowItWorksDesc(lang),
+          items: [
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/how-it-works-icon-1.svg`,
+              description: aiHowItWorksStep0Text(lang),
+              title: aiHowItWorksStep0Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/how-it-works-icon-2.svg`,
+              description: aiHowItWorksStep1Text(lang),
+              title: aiHowItWorksStep1Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/how-it-works-icon-3.svg`,
+              description: aiHowItWorksStep2Text(lang),
+              title: aiHowItWorksStep2Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/how-it-works-icon-4.svg`,
+              description: aiHowItWorksStep3Text(lang),
+              title: aiHowItWorksStep3Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/how-it-works-icon-5.svg`,
+              description: aiHowItWorksStep4Text(lang),
+              title: aiHowItWorksStep4Title(lang)
+            }
+          ]
+        },
+        whatYouGet: {
+          description: aiWhatYouGetDesc(lang),
+          imageUrl: `/images/services/${ServiceSlug.InferenceAI}/what-you-get.svg`,
+          items: [
+            aiWhatYouGetItems0(lang),
+            aiWhatYouGetItems1(lang),
+            aiWhatYouGetItems2(lang),
+            aiWhatYouGetItems3(lang)
+          ]
+        },
+        why: {
+          backgroundImageUrl: `/images/services/${ServiceSlug.InferenceAI}/why-us-bg.png`,
+          clients: [],
+          description: aiWhyUsDesc(lang),
+          imageUrl: `/images/services/${ServiceSlug.InferenceAI}/why-us.svg`,
+          items: [
+            aiWhyUsReasons0(lang),
+            aiWhyUsReasons1(lang),
+            aiWhyUsReasons2(lang)
+          ]
+        }
+      },
+      description: aiDescription(lang),
+      iconUrl: `/images/services/${ServiceSlug.InferenceAI}/icon.svg`,
+      imageIconUrl: `/images/services/${ServiceSlug.InferenceAI}/image-icon.svg`,
+      imageUrl: `/images/services/${ServiceSlug.InferenceAI}/image.webp`,
+      shortDescription: aiHeroDesc(lang),
+      slug: ServiceSlug.InferenceAI,
+      title: aiHeroHeading(lang),
+      caseStudies: []
+    },
     {
       bestFor: erpBestFor(lang),
       content: {

@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "heading": "Inference AI",
+    "desc": "Rancang, kembangkan, dan terapkan agen AI khusus"
+  },
+  "description": "Rancang, kembangkan, dan terapkan agen AI khusus yang menghemat waktu, menekan biaya, dan menskalakan operasi tanpa kerumitan teknis.",
+  "bestFor": ["Perusahaan", "Startup", "Automasi proses"],
+  "what_is": {
+    "desc": "Bangun agen cerdas dan otonom yang disesuaikan dengan domain Anda—tanpa harus merekrut tim AI lengkap.",
+    "highlight": "Tidak setiap bisnis perlu membangun infrastruktur AI dari nol. Dengan <span class=\"font-bold\">Inference AI</span>, Anda mendapatkan akses untuk merancang, membangun, dan memelihara agen AI yang mampu menalar, bertindak, dan beradaptasi—semua tanpa memerlukan tim AI internal."
+  },
+  "who_is_it": {
+    "desc": "Solusi kami ideal bagi bisnis yang ingin menskalakan secara efisien dan mengoptimalkan operasi.",
+    "target": {
+      "0": "<span class=\"font-bold\">Perusahaan</span> yang membutuhkan fitur otonom",
+      "1": "<span class=\"font-bold\">Startup</span> yang ingin menanamkan agen AI ke alur kerja produk atau proses internal",
+      "2": "<span class=\"font-bold\">Pendiri & Pemimpin Operasi</span> yang sedang mengeksplorasi generative AI, sistem multi-agen, atau otomatisasi pengambilan keputusan"
+    }
+  },
+  "what_we_deliver": {
+    "desc": "Kami bermitra dengan tim Anda untuk mengotomatiskan dan membangun agen AI yang dapat menskalakan bersama bisnis Anda. Dari perencanaan hingga pasca-implementasi, kami memberikan dukungan langsung di setiap tahap.",
+    "card_0": {
+      "title": "Integrasi & Orkestrasi",
+      "text": "Hubungkan agen ke sistem Anda:",
+      "items": {
+        "0": "Terhubung ke API, basis data, dan alat internal",
+        "1": "Mengorkestrasi tugas lintas layanan",
+        "2": "Webhook, pemicu peristiwa, dan alur kerja terkoordinasi"
+      }
+    },
+    "card_1": {
+      "title": "Pelatihan, Fine-Tuning & Rekayasa Prompt",
+      "text": "Kami menyesuaikan perilaku agen sesuai domain Anda:",
+      "items": {
+        "0": "Fine-tune model atau gunakan adaptor",
+        "1": "Rekayasa prompt, chaining, memory injection",
+        "2": "Kurat data khusus domain"
+      }
+    },
+    "card_2": {
+      "title": "Keamanan, Pemantauan & Guardrail",
+      "text": "Pastikan operasi yang andal dan aman:",
+      "items": {
+        "0": "Validasi input, logika fallback, human-in-the-loop",
+        "1": "Deteksi anomali, pencatatan, pemulihan kesalahan",
+        "2": "Kepatuhan etis dan regulasi"
+      }
+    },
+    "card_3": {
+      "title": "Penerapan & Operasi",
+      "text": "Kami memastikan sistem Anda memberikan nilai:",
+      "items": {
+        "0": "Dukungan stabilisasi",
+        "1": "Panduan manajemen perubahan",
+        "2": "Pelatihan bagi pengguna"
+      }
+    }
+  },
+  "how_it_works": {
+    "desc": "Temukan bagaimana kami mengubah ide menjadi dampak. Proses kami sederhana, transparan, dan berfokus pada hasil di setiap tahap.",
+    "step": {
+      "0": {
+        "title": "Discovery & Scoping",
+        "text": "Memahami domain, kasus penggunaan, dan batasan Anda."
+      },
+      "1": {
+        "title": "Desain & Prototipe Agen",
+        "text": "Menentukan logika, mengintegrasikan agen minimal yang layak."
+      },
+      "2": {
+        "title": "Uji Coba & Validasi",
+        "text": "Uji dengan pengguna atau lingkungan nyata, kumpulkan umpan balik."
+      },
+      "3": {
+        "title": "Skalakan & Perkuat",
+        "text": "Optimalkan kinerja, ketahanan, dan keamanan."
+      },
+      "4": {
+        "title": "Serah Terima atau Kepemilikan Bersama",
+        "text": "Alihkan kendali, pantau, dan lakukan iterasi bersama."
+      }
+    }
+  },
+  "what_you_get": {
+    "desc": "Kami menghadirkan agen AI kustom yang berfungsi dan disesuaikan dengan domain Anda, sistem yang beradaptasi dengan alur kerja serta berkembang bersama bisnis Anda.",
+    "items": {
+      "0": "Integrasi & Orkestrasi",
+      "1": "Pelatihan, Fine-Tuning & Rekayasa Prompt",
+      "2": "Keamanan, Pemantauan & Guardrail",
+      "3": "Penerapan & Pemeliharaan"
+    }
+  },
+  "why_us": {
+    "desc": "Kami tidak hanya membuat bot. Kami membangun agen yang dapat menalar, bertindak, dan berevolusi bersama bisnis Anda. Dengan kompetensi rekayasa yang mendalam, kami menjamin kinerja, keamanan, dan ketahanan sejak hari pertama.",
+    "reasons": {
+      "0": "Kami menggabungkan <span class=\"font-bold\">praktik rekayasa mendalam</span> dengan pengalaman produk AI.",
+      "1": "Kami tidak hanya memberi saran. Kami membangun, mengintegrasikan, dan mengoperasionalkan.",
+      "2": "Tim Anda pada akhirnya akan memiliki dan mengembangkan agen tersebut."
+    }
+  }
+}

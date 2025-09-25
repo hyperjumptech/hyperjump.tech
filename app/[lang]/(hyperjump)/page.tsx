@@ -151,7 +151,7 @@ function Services({ lang }: HomeParams) {
           icon: iconUrl,
           url: `/services/${slug}`
         }))}
-        columns={{ base: 1, sm: 2, lg: 4 }}
+        columns={{ base: 1, sm: 2, lg: 3 }}
         cardClassName="rounded"
         lang={lang}
       />

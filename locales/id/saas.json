@@ -3,11 +3,12 @@
     "heading": "Software sebagai Layanan (SaaS)",
     "desc": "Miliki Visi Produk. Biarkan Kami yang Bangun Mesinnya."
   },
+  "description": "Kami membangun dan mengelola solusi perangkat lunak yang disesuaikan dengan kebutuhan perusahaan Anda untuk kinerja dan pertumbuhan optimal.",
+  "bestFor": ["Startup & perusahaan tahap ekspansi"],
   "what_is_saas": {
     "desc": "Anda memiliki ide produk atau mungkin MVP yang perlu dikembangkan. Tapi mengelola tim internal memakan waktu, mahal, dan mengganggu fokus utama.",
     "highlight": "Dengan Hyperjump SaaS, Anda mendapatkan tim rekayasa produk yang berdedikasi, yang tidak hanya membangun tetapi juga terus menyempurnakan perangkat lunak Anda. Kami mengambil alih roadmap Anda dan menghadirkan peningkatan setiap bulan, sepenuhnya selaras dengan tujuan bisnis Anda."
   },
-
   "who_is_it": {
     "desc": "Layanan ini cocok bagi organisasi yang ingin tumbuh dengan cepat, berinovasi, dan melakukan modernisasi tanpa terbebani oleh manajemen harian.",
     "target": {

@@ -21,10 +21,10 @@ type CaseStudyProps = {
   params: Promise<Params>;
 };
 
-export async function generateMetadata(props: {
-  params: Promise<{ lang: SupportedLanguage; slug: string }>;
-}): Promise<Metadata> {
-  const { lang, slug } = await props.params;
+export async function generateMetadata({
+  params
+}: CaseStudyProps): Promise<Metadata> {
+  const { lang, slug } = await params;
   const caseStudies = caseStudyBy(slug, lang);
 
   const meta = {

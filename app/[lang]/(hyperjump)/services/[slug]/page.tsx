@@ -36,8 +36,8 @@ export async function generateMetadata(props: {
   const service = serviceBySlug({ lang, slug });
 
   const meta = {
-    title: `Services - ${service?.hero.heading ?? ""}`,
-    description: service?.hero.subheading ?? "",
+    title: `Services - ${service?.title ?? ""}`,
+    description: service?.description ?? "",
     alternates: {
       canonical: `https://hyperjump.tech/${lang}/services/${service?.slug}`,
       languages: (supportedLanguages as SupportedLanguage[]).reduce(
@@ -77,7 +77,9 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
 
   return (
     <>
-      <Hero hero={service.hero} />
+      <Hero
+        hero={{ heading: service.title, subheading: service.shortDescription }}
+      />
       <About service={service} />
       <WhoIsIt lang={lang} service={service} />
       <WhatWeDeliver lang={lang} service={service} />

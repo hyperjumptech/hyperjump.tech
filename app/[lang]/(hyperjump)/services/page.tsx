@@ -102,8 +102,16 @@ function Service({ lang, isReverseImagePosition = false, slug }: ServiceProps) {
     return null;
   }
 
-  const { bestFor, features, imageIconUrl, imageUrl, shortDescription, title } =
-    service;
+  const {
+    bestFor,
+    content: {
+      whatYouGet: { items }
+    },
+    imageIconUrl,
+    imageUrl,
+    shortDescription,
+    title
+  } = service;
 
   return (
     <div
@@ -143,7 +151,7 @@ function Service({ lang, isReverseImagePosition = false, slug }: ServiceProps) {
         </div>
 
         <ul className="list-none space-y-4 text-left text-base text-gray-700 md:text-lg [&_b]:mt-4 [&_b]:block">
-          {features.map((feature) => (
+          {items.map((feature) => (
             <li key={feature} className="flex items-center gap-2">
               <Image
                 src="/images/checklist.svg"

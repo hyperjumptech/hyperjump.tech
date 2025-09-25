@@ -3,6 +3,8 @@
     "heading": "CTO-as-a-Service",
     "desc": "Bangun Seperti Perusahaan Terbaik. Tanpa Perlu Merekrut CTO."
   },
+  "description": "Mencari, merekrut, mengelola, dan mempertahankan engineer perangkat lunak terbaik adalah proses yang kompleks dan memakan waktu. Serahkan semua itu kepada kami.",
+  "bestFor": ["Founder non-teknis", "startup tahap pertumbuhan"],
   "what_is_ctoaas": {
     "desc": "Tidak semua perusahaan membutuhkan CTO penuh waktu, tetapi setiap tim teknologi membutuhkan kepemimpinan yang kuat.",
     "highlight": "CTO-as-a-Service dari Hyperjump memberi Anda akses ke kepemimpinan teknis tingkat senior dan tim produk yang telah teruji. Kami membantu Anda <span class=\"font-bold\">membangun budaya rekayasa yang kuat, menghasilkan perangkat lunak yang lebih baik,</span> dan <span class=\"font-bold\">menskalakan organisasi produk Anda</span> tanpa harus membangunnya sendirian."

@@ -18,24 +18,11 @@
     "0_label": "Services",
     "1_label": "Case Studies",
     "2_label": "Open Source",
-    "3_label": "FAQ",
-    "4_label": "Inference AI"
+    "3_label": "FAQ"
   },
   "services": {
     "heading": "Services",
-    "desc": "We offer expert technology solutions to help businesses scale, enhance efficiency, optimize operations, and drive continuous innovation.",
-
-    "0_title": "CTO as a Service",
-    "0_text": "Finding, hiring, managing, and retaining top software engineers is complex and time-consuming. Let us handle it all for you.",
-
-    "1_title": "Software as a Service",
-    "1_text": "Deploy and scale software solutions tailored to your enterprise for optimal performance and growth.",
-
-    "2_title": "Tech Due Diligence",
-    "2_text": "We help verify and assess your company's ability to execute its roadmap and evaluate its current state.",
-
-    "3_title": "ERP Implementation",
-    "3_text": "Streamline operations with enterprise-grade ERP solutions, boosting efficiency and business intelligence."
+    "desc": "We offer expert technology solutions to help businesses scale, enhance efficiency, optimize operations, and drive continuous innovation."
   },
   "case_studies": {
     "heading": "Case Studies",

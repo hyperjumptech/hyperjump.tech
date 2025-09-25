@@ -13,46 +13,6 @@
   "what_you_get": "What You Get",
   "why_hyperjump": "Why Hyperjump?",
   "case_studies": "Case Studies from This Service",
-  "ctoaas": {
-    "title": "CTO-as-a-Service",
-    "text": "Build like the best, without hiring a CTO.",
-    "desc": ["Non-technical founders", "growth-stage startups"],
-    "items": {
-      "0": "Technical Leadership",
-      "1": "Team Structure & Process",
-      "2": "Engineering Culture"
-    }
-  },
-  "saas": {
-    "title": "Software-as-a-Service",
-    "text": "You own the product. We build the engine.",
-    "desc": ["Startups & scale-ups"],
-    "items": {
-      "0": "MVP to Scale",
-      "1": "Monthly Dev Squad",
-      "2": "CI/CD, QA, Roadmap Alignment"
-    }
-  },
-  "tech_due_diligence": {
-    "title": "Tech Due Diligence",
-    "text": "Identify risks. Unlock opportunities.",
-    "desc": ["Investors", "CTOs", "PE/VC firms"],
-    "items": {
-      "0": "Architecture & Code Audit",
-      "1": "KPI Benchmarking",
-      "2": "Actionable Risk Report"
-    }
-  },
-  "erp": {
-    "title": "ERP Implementation",
-    "text": "Streamline operations. Enable scale.",
-    "desc": ["Ops teams", "SMEs", "vertical industries"],
-    "items": {
-      "0": "Odoo & ERPNext Setup",
-      "1": "Custom Modules & Integration",
-      "2": "Post-Go-Live Support"
-    }
-  },
   "partners": {
     "Heading": "Trusted by Industry Leaders",
     "desc": "We're proud to be trusted by companies across industries. These are just a few of them, many more continue to grow with us behind the scenes."

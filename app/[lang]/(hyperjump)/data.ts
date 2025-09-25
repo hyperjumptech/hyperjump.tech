@@ -1,12 +1,56 @@
 import type { ReactNode } from "react";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
+  aiBestFor,
+  aiWhatIsDesc,
+  aiDescription,
+  aiHeroDesc,
+  aiHeroHeading,
+  aiHowItWorksDesc,
+  aiHowItWorksStep0Text,
+  aiHowItWorksStep0Title,
+  aiHowItWorksStep1Text,
+  aiHowItWorksStep1Title,
+  aiHowItWorksStep2Text,
+  aiHowItWorksStep2Title,
+  aiHowItWorksStep3Text,
+  aiHowItWorksStep3Title,
+  aiHowItWorksStep4Text,
+  aiHowItWorksStep4Title,
+  aiWhatIsHighlight,
+  aiWhatWeDeliverCard0Items0,
+  aiWhatWeDeliverCard0Items1,
+  aiWhatWeDeliverCard0Items2,
+  aiWhatWeDeliverCard0Text,
+  aiWhatWeDeliverCard1Items0,
+  aiWhatWeDeliverCard1Items1,
+  aiWhatWeDeliverCard1Items2,
+  aiWhatWeDeliverCard1Title,
+  aiWhatWeDeliverCard2Items0,
+  aiWhatWeDeliverCard2Items1,
+  aiWhatWeDeliverCard2Items2,
+  aiWhatWeDeliverCard2Title,
+  aiWhatWeDeliverDesc,
+  aiWhatYouGetDesc,
+  aiWhatYouGetItems0,
+  aiWhatYouGetItems1,
+  aiWhatYouGetItems2,
+  aiWhatYouGetItems3,
+  aiWhoIsItDesc,
+  aiWhoIsItTarget0,
+  aiWhoIsItTarget1,
+  aiWhyUsDesc,
+  aiWhyUsReasons0,
+  aiWhyUsReasons1,
+  aiWhyUsReasons2,
   caseStudyCtoaasMediaCategory,
   caseStudyCtoaasMediaDesc,
   caseStudyCtoaasMediaTitle,
   caseStudyErpFisheriesCategory,
   caseStudyErpFisheriesDesc,
   caseStudyErpFisheriesTitle,
+  ctoaasBestFor,
+  ctoaasDescription,
   ctoaasHeroDesc,
   ctoaasHeroHeading,
   ctoaasHowItWorksDesc,
@@ -53,6 +97,8 @@ import {
   ctoaasWhyUsReasons1,
   ctoaasWhyUsReasons2,
   ctoaasWhyUsReasons3,
+  erpBestFor,
+  erpDescription,
   erpHeroDesc,
   erpHeroHeading,
   erpHowItWorksDesc,
@@ -66,8 +112,8 @@ import {
   erpHowItWorksStep3Title,
   erpHowItWorksStep4Text,
   erpHowItWorksStep4Title,
-  erpWhatIsErpDesc,
-  erpWhatIsErpHighlight,
+  erpWhatIsDesc,
+  erpWhatIsHighlight,
   erpWhatWeDeliverCard0Items0,
   erpWhatWeDeliverCard0Items1,
   erpWhatWeDeliverCard0Items2,
@@ -121,10 +167,8 @@ import {
   mainProject1Title,
   mainProject2Text,
   mainProject2Title,
-  mainServices0Text,
-  mainServices1Text,
-  mainServices2Text,
-  mainServices3Text,
+  saasBestFor,
+  saasDescription,
   saasHeroDesc,
   saasHeroHeading,
   saasHowItWorksDesc,
@@ -168,30 +212,8 @@ import {
   saasWhyUsReasons0,
   saasWhyUsReasons1,
   saasWhyUsReasons2,
-  servicesCtoaasDesc,
-  servicesCtoaasItems0,
-  servicesCtoaasItems1,
-  servicesCtoaasItems2,
-  servicesCtoaasText,
-  servicesCtoaasTitle,
-  servicesErpDesc,
-  servicesErpItems0,
-  servicesErpItems1,
-  servicesErpItems2,
-  servicesErpText,
-  servicesErpTitle,
-  servicesSaasDesc,
-  servicesSaasItems0,
-  servicesSaasItems1,
-  servicesSaasItems2,
-  servicesSaasText,
-  servicesSaasTitle,
-  servicesTechDueDiligenceDesc,
-  servicesTechDueDiligenceItems0,
-  servicesTechDueDiligenceItems1,
-  servicesTechDueDiligenceItems2,
-  servicesTechDueDiligenceText,
-  servicesTechDueDiligenceTitle,
+  tddBestFor,
+  tddDescription,
   tddHeroDesc,
   tddHeroHeading,
   tddHowItWorksDesc,
@@ -237,7 +259,8 @@ import {
   tddWhyUsDesc,
   tddWhyUsReasons0,
   tddWhyUsReasons1,
-  tddWhyUsReasons2
+  tddWhyUsReasons2,
+  aiWhoIsItTarget2
 } from "@/locales/.generated/server";
 
 export function getCaseStudies(lang: SupportedLanguage) {
@@ -339,10 +362,11 @@ type Content = {
 };
 
 export enum ServiceSlug {
+  InferenceAI = "inference-ai",
+  ErpImplementation = "erp-implementation",
   CtoAsAService = "cto-as-a-service",
   SoftwareAsAService = "software-as-a-service",
-  TechDueDiligence = "tech-due-diligence",
-  ErpImplementation = "erp-implementation"
+  TechDueDiligence = "tech-due-diligence"
 }
 
 export type CaseStudy = {
@@ -357,8 +381,6 @@ export type Service = {
   caseStudies: CaseStudy[];
   content: Content;
   description: string;
-  features: string[];
-  hero: { heading: string; subheading: string };
   iconUrl: string;
   imageIconUrl: string;
   imageUrl: string;
@@ -370,7 +392,229 @@ export type Service = {
 export function services(lang: SupportedLanguage): Service[] {
   return [
     {
-      bestFor: servicesCtoaasDesc(lang),
+      bestFor: aiBestFor(lang),
+      content: {
+        what: `${aiWhatIsDesc(lang)}<br /><br />${aiWhatIsHighlight(lang)}`,
+        who: {
+          description: aiWhoIsItDesc(lang),
+          imageUrl: `/images/services/${ServiceSlug.InferenceAI}/who-is-it.svg`,
+          items: [
+            aiWhoIsItTarget0(lang),
+            aiWhoIsItTarget1(lang),
+            aiWhoIsItTarget2(lang)
+          ]
+        },
+        deliverables: {
+          description: aiWhatWeDeliverDesc(lang),
+          items: [
+            {
+              description: aiWhatWeDeliverCard0Text(lang),
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/what-we-deliver-icon-1.svg`,
+              items: [
+                aiWhatWeDeliverCard0Items0(lang),
+                aiWhatWeDeliverCard0Items1(lang),
+                aiWhatWeDeliverCard0Items2(lang)
+              ],
+              title: erpWhatWeDeliverCard0Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/what-we-deliver-icon-2.svg`,
+              title: aiWhatWeDeliverCard1Title(lang),
+              items: [
+                aiWhatWeDeliverCard1Items0(lang),
+                aiWhatWeDeliverCard1Items1(lang),
+                aiWhatWeDeliverCard1Items2(lang)
+              ],
+              description: erpWhatWeDeliverCard1Text(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/what-we-deliver-icon-3.svg`,
+              title: aiWhatWeDeliverCard2Title(lang),
+              items: [
+                aiWhatWeDeliverCard2Items0(lang),
+                aiWhatWeDeliverCard2Items1(lang),
+                aiWhatWeDeliverCard2Items2(lang)
+              ],
+              description: erpWhatWeDeliverCard2Text(lang)
+            }
+          ]
+        },
+        how: {
+          description: aiHowItWorksDesc(lang),
+          items: [
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/how-it-works-icon-1.svg`,
+              description: aiHowItWorksStep0Text(lang),
+              title: aiHowItWorksStep0Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/how-it-works-icon-2.svg`,
+              description: aiHowItWorksStep1Text(lang),
+              title: aiHowItWorksStep1Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/how-it-works-icon-3.svg`,
+              description: aiHowItWorksStep2Text(lang),
+              title: aiHowItWorksStep2Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/how-it-works-icon-4.svg`,
+              description: aiHowItWorksStep3Text(lang),
+              title: aiHowItWorksStep3Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.InferenceAI}/how-it-works-icon-5.svg`,
+              description: aiHowItWorksStep4Text(lang),
+              title: aiHowItWorksStep4Title(lang)
+            }
+          ]
+        },
+        whatYouGet: {
+          description: aiWhatYouGetDesc(lang),
+          imageUrl: `/images/services/${ServiceSlug.InferenceAI}/what-you-get.svg`,
+          items: [
+            aiWhatYouGetItems0(lang),
+            aiWhatYouGetItems1(lang),
+            aiWhatYouGetItems2(lang),
+            aiWhatYouGetItems3(lang)
+          ]
+        },
+        why: {
+          backgroundImageUrl: `/images/services/${ServiceSlug.InferenceAI}/why-us-bg.png`,
+          clients: [],
+          description: aiWhyUsDesc(lang),
+          imageUrl: `/images/services/${ServiceSlug.InferenceAI}/why-us.svg`,
+          items: [
+            aiWhyUsReasons0(lang),
+            aiWhyUsReasons1(lang),
+            aiWhyUsReasons2(lang)
+          ]
+        }
+      },
+      description: aiDescription(lang),
+      iconUrl: `/images/services/${ServiceSlug.InferenceAI}/icon.svg`,
+      imageIconUrl: `/images/services/${ServiceSlug.InferenceAI}/image-icon.svg`,
+      imageUrl: `/images/services/${ServiceSlug.InferenceAI}/image.webp`,
+      shortDescription: aiHeroDesc(lang),
+      slug: ServiceSlug.InferenceAI,
+      title: aiHeroHeading(lang),
+      caseStudies: []
+    },
+    {
+      bestFor: erpBestFor(lang),
+      content: {
+        what: `${erpWhatIsDesc(lang)}<br /><br />${erpWhatIsHighlight(lang)}`,
+        who: {
+          description: erpWhoIsItDesc(lang),
+          imageUrl: `/images/services/${ServiceSlug.ErpImplementation}/who-is-it.svg`,
+          items: [
+            erpWhoIsItTarget0(lang),
+            erpWhoIsItTarget1(lang),
+            erpWhoIsItTarget2(lang),
+            erpWhoIsItTarget3(lang)
+          ]
+        },
+        deliverables: {
+          description: erpWhatWeDeliverDesc(lang),
+          items: [
+            {
+              description: erpWhatWeDeliverCard0Text(lang),
+              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/what-we-deliver-icon-1.svg`,
+              items: [
+                erpWhatWeDeliverCard0Items0(lang),
+                erpWhatWeDeliverCard0Items1(lang),
+                erpWhatWeDeliverCard0Items2(lang),
+                erpWhatWeDeliverCard0Items3(lang)
+              ],
+              title: erpWhatWeDeliverCard0Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/what-we-deliver-icon-2.svg`,
+              title: erpWhatWeDeliverCard1Title(lang),
+              items: [
+                erpWhatWeDeliverCard1Items0(lang),
+                erpWhatWeDeliverCard1Items1(lang),
+                erpWhatWeDeliverCard1Items2(lang),
+                erpWhatWeDeliverCard1Items3(lang)
+              ],
+              description: erpWhatWeDeliverCard1Text(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/what-we-deliver-icon-3.svg`,
+              title: erpWhatWeDeliverCard2Title(lang),
+              items: [
+                erpWhatWeDeliverCard2Items0(lang),
+                erpWhatWeDeliverCard2Items1(lang),
+                erpWhatWeDeliverCard2Items2(lang),
+                erpWhatWeDeliverCard2Items3(lang)
+              ],
+              description: erpWhatWeDeliverCard2Text(lang)
+            }
+          ]
+        },
+        how: {
+          description: erpHowItWorksDesc(lang),
+          items: [
+            {
+              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/how-it-works-icon-1.svg`,
+              description: erpHowItWorksStep0Text(lang),
+              title: erpHowItWorksStep0Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/how-it-works-icon-2.svg`,
+              description: erpHowItWorksStep1Text(lang),
+              title: erpHowItWorksStep1Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/how-it-works-icon-3.svg`,
+              description: erpHowItWorksStep2Text(lang),
+              title: erpHowItWorksStep2Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/how-it-works-icon-4.svg`,
+              description: erpHowItWorksStep3Text(lang),
+              title: erpHowItWorksStep3Title(lang)
+            },
+            {
+              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/how-it-works-icon-5.svg`,
+              description: erpHowItWorksStep4Text(lang),
+              title: erpHowItWorksStep4Title(lang)
+            }
+          ]
+        },
+        whatYouGet: {
+          description: erpWhatYouGetDesc(lang),
+          imageUrl: `/images/services/${ServiceSlug.ErpImplementation}/what-you-get.svg`,
+          items: [
+            erpWhatYouGetItems0(lang),
+            erpWhatYouGetItems1(lang),
+            erpWhatYouGetItems2(lang),
+            erpWhatYouGetItems3(lang)
+          ]
+        },
+        why: {
+          backgroundImageUrl: `/images/services/${ServiceSlug.ErpImplementation}/why-us-bg.png`,
+          clients: [],
+          description: erpWhyUsDesc(lang),
+          imageUrl: `/images/services/${ServiceSlug.ErpImplementation}/why-us.svg`,
+          items: [
+            erpWhyUsReasons0(lang),
+            erpWhyUsReasons1(lang),
+            erpWhyUsReasons2(lang)
+          ]
+        }
+      },
+      description: erpDescription(lang),
+      iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/icon.svg`,
+      imageIconUrl: `/images/services/${ServiceSlug.ErpImplementation}/image-icon.svg`,
+      imageUrl: `/images/services/${ServiceSlug.ErpImplementation}/image.webp`,
+      shortDescription: erpHeroDesc(lang),
+      slug: ServiceSlug.ErpImplementation,
+      title: erpHeroHeading(lang),
+      caseStudies: []
+    },
+    {
+      bestFor: ctoaasBestFor(lang),
       content: {
         what: `${ctoaasWhatIsCtoaasDesc(lang)}<br /><br />${ctoaasWhatIsCtoaasHighlight(lang)}`,
         who: {
@@ -498,22 +742,13 @@ export function services(lang: SupportedLanguage): Service[] {
           ]
         }
       },
-      description: mainServices0Text(lang),
-      features: [
-        servicesCtoaasItems0(lang),
-        servicesCtoaasItems1(lang),
-        servicesCtoaasItems2(lang)
-      ],
-      hero: {
-        heading: ctoaasHeroHeading(lang),
-        subheading: ctoaasHeroDesc(lang)
-      },
+      description: ctoaasDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.CtoAsAService}/icon.svg`,
       imageIconUrl: `/images/services/${ServiceSlug.CtoAsAService}/image-icon.svg`,
       imageUrl: `/images/services/${ServiceSlug.CtoAsAService}/image.webp`,
-      shortDescription: servicesCtoaasText(lang),
+      shortDescription: ctoaasHeroDesc(lang),
       slug: ServiceSlug.CtoAsAService,
-      title: servicesCtoaasTitle(lang),
+      title: ctoaasHeroHeading(lang),
       caseStudies: [
         {
           slug: "erp-fisheries",
@@ -530,7 +765,7 @@ export function services(lang: SupportedLanguage): Service[] {
       ]
     },
     {
-      bestFor: servicesSaasDesc(lang),
+      bestFor: saasBestFor(lang),
       content: {
         what: `${saasWhatIsSaasDesc(lang)}<br /><br />${saasWhatIsSaasHighlight(lang)}`,
         who: {
@@ -625,26 +860,17 @@ export function services(lang: SupportedLanguage): Service[] {
           ]
         }
       },
-      description: mainServices1Text(lang),
-      features: [
-        servicesSaasItems0(lang),
-        servicesSaasItems1(lang),
-        servicesSaasItems2(lang)
-      ],
-      hero: {
-        heading: saasHeroHeading(lang),
-        subheading: saasHeroDesc(lang)
-      },
+      description: saasDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.SoftwareAsAService}/icon.svg`,
       imageIconUrl: `/images/services/${ServiceSlug.SoftwareAsAService}/image-icon.svg`,
       imageUrl: `/images/services/${ServiceSlug.SoftwareAsAService}/image.webp`,
-      shortDescription: servicesSaasText(lang),
+      shortDescription: saasHeroDesc(lang),
       slug: ServiceSlug.SoftwareAsAService,
-      title: servicesSaasTitle(lang),
+      title: saasHeroHeading(lang),
       caseStudies: []
     },
     {
-      bestFor: servicesTechDueDiligenceDesc(lang),
+      bestFor: tddBestFor(lang),
       content: {
         what: `${tddWhatIsTddDesc(lang)}<br /><br />${tddWhatIsTddHighlight(lang)}`,
         who: {
@@ -763,144 +989,13 @@ export function services(lang: SupportedLanguage): Service[] {
           ]
         }
       },
-      description: mainServices2Text(lang),
-      features: [
-        servicesTechDueDiligenceItems0(lang),
-        servicesTechDueDiligenceItems1(lang),
-        servicesTechDueDiligenceItems2(lang)
-      ],
-      hero: {
-        heading: tddHeroHeading(lang),
-        subheading: tddHeroDesc(lang)
-      },
+      description: tddDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.TechDueDiligence}/icon.svg`,
       imageIconUrl: `/images/services/${ServiceSlug.TechDueDiligence}/image-icon.svg`,
       imageUrl: `/images/services/${ServiceSlug.TechDueDiligence}/image.webp`,
-      shortDescription: servicesTechDueDiligenceText(lang),
+      shortDescription: tddHeroDesc(lang),
       slug: ServiceSlug.TechDueDiligence,
-      title: servicesTechDueDiligenceTitle(lang),
-      caseStudies: []
-    },
-    {
-      bestFor: servicesErpDesc(lang),
-      content: {
-        what: `${erpWhatIsErpDesc(lang)}<br /><br />${erpWhatIsErpHighlight(lang)}`,
-        who: {
-          description: erpWhoIsItDesc(lang),
-          imageUrl: `/images/services/${ServiceSlug.ErpImplementation}/who-is-it.svg`,
-          items: [
-            erpWhoIsItTarget0(lang),
-            erpWhoIsItTarget1(lang),
-            erpWhoIsItTarget2(lang),
-            erpWhoIsItTarget3(lang)
-          ]
-        },
-        deliverables: {
-          description: erpWhatWeDeliverDesc(lang),
-          items: [
-            {
-              description: erpWhatWeDeliverCard0Text(lang),
-              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/what-we-deliver-icon-1.svg`,
-              items: [
-                erpWhatWeDeliverCard0Items0(lang),
-                erpWhatWeDeliverCard0Items1(lang),
-                erpWhatWeDeliverCard0Items2(lang),
-                erpWhatWeDeliverCard0Items3(lang)
-              ],
-              title: erpWhatWeDeliverCard0Title(lang)
-            },
-            {
-              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/what-we-deliver-icon-2.svg`,
-              title: erpWhatWeDeliverCard1Title(lang),
-              items: [
-                erpWhatWeDeliverCard1Items0(lang),
-                erpWhatWeDeliverCard1Items1(lang),
-                erpWhatWeDeliverCard1Items2(lang),
-                erpWhatWeDeliverCard1Items3(lang)
-              ],
-              description: erpWhatWeDeliverCard1Text(lang)
-            },
-            {
-              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/what-we-deliver-icon-3.svg`,
-              title: erpWhatWeDeliverCard2Title(lang),
-              items: [
-                erpWhatWeDeliverCard2Items0(lang),
-                erpWhatWeDeliverCard2Items1(lang),
-                erpWhatWeDeliverCard2Items2(lang),
-                erpWhatWeDeliverCard2Items3(lang)
-              ],
-              description: erpWhatWeDeliverCard2Text(lang)
-            }
-          ]
-        },
-        how: {
-          description: erpHowItWorksDesc(lang),
-          items: [
-            {
-              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/how-it-works-icon-1.svg`,
-              description: erpHowItWorksStep0Text(lang),
-              title: erpHowItWorksStep0Title(lang)
-            },
-            {
-              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/how-it-works-icon-2.svg`,
-              description: erpHowItWorksStep1Text(lang),
-              title: erpHowItWorksStep1Title(lang)
-            },
-            {
-              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/how-it-works-icon-3.svg`,
-              description: erpHowItWorksStep2Text(lang),
-              title: erpHowItWorksStep2Title(lang)
-            },
-            {
-              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/how-it-works-icon-4.svg`,
-              description: erpHowItWorksStep3Text(lang),
-              title: erpHowItWorksStep3Title(lang)
-            },
-            {
-              iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/how-it-works-icon-5.svg`,
-              description: erpHowItWorksStep4Text(lang),
-              title: erpHowItWorksStep4Title(lang)
-            }
-          ]
-        },
-        whatYouGet: {
-          description: erpWhatYouGetDesc(lang),
-          imageUrl: `/images/services/${ServiceSlug.ErpImplementation}/what-you-get.svg`,
-          items: [
-            erpWhatYouGetItems0(lang),
-            erpWhatYouGetItems1(lang),
-            erpWhatYouGetItems2(lang),
-            erpWhatYouGetItems3(lang)
-          ]
-        },
-        why: {
-          backgroundImageUrl: `/images/services/${ServiceSlug.ErpImplementation}/why-us-bg.png`,
-          clients: [],
-          description: erpWhyUsDesc(lang),
-          imageUrl: `/images/services/${ServiceSlug.ErpImplementation}/why-us.svg`,
-          items: [
-            erpWhyUsReasons0(lang),
-            erpWhyUsReasons1(lang),
-            erpWhyUsReasons2(lang)
-          ]
-        }
-      },
-      description: mainServices3Text(lang),
-      features: [
-        servicesErpItems0(lang),
-        servicesErpItems1(lang),
-        servicesErpItems2(lang)
-      ],
-      hero: {
-        heading: erpHeroHeading(lang),
-        subheading: erpHeroDesc(lang)
-      },
-      iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/icon.svg`,
-      imageIconUrl: `/images/services/${ServiceSlug.ErpImplementation}/image-icon.svg`,
-      imageUrl: `/images/services/${ServiceSlug.ErpImplementation}/image.webp`,
-      shortDescription: servicesErpText(lang),
-      slug: ServiceSlug.ErpImplementation,
-      title: servicesErpTitle(lang),
+      title: tddHeroHeading(lang),
       caseStudies: []
     }
   ];

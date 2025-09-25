@@ -17,8 +17,7 @@ import {
   mainNavItems0Label,
   mainNavItems1Label,
   mainNavItems2Label,
-  mainNavItems3Label,
-  mainNavItems4Label
+  mainNavItems3Label
 } from "@/locales/.generated/server";
 import {
   type SupportedLanguage,
@@ -32,7 +31,7 @@ import WhiteLogo from "@/public/images/hyperjump-white.png";
 
 import ClientOnly from "../../../components/client-only";
 import StickyNavigationMain from "../../../components/sticky-nav-main";
-import { ServiceSlug } from "../data";
+import { services } from "../data";
 import { data } from "../jobs/data";
 import LogoWithContextMenu from "./logo-with-context-menu";
 
@@ -55,29 +54,14 @@ function menu(lang: SupportedLanguage) {
     {
       label: mainNavItems0Label(lang),
       href: `/${lang}/services`,
-      children: [
-        {
-          label: "CTO as a Service",
-          href: `/${lang}/services/${ServiceSlug.CtoAsAService}`
-        },
-        {
-          label: "Software as a Service",
-          href: `/${lang}/services/${ServiceSlug.SoftwareAsAService}`
-        },
-        {
-          label: "Tech Due Diligence",
-          href: `/${lang}/services/${ServiceSlug.TechDueDiligence}`
-        },
-        {
-          label: "ERP Implementation",
-          href: `/${lang}/services/${ServiceSlug.ErpImplementation}`
-        }
-      ]
+      children: services(lang).map(({ title, slug }) => ({
+        label: title,
+        href: `/${lang}/services/${slug}`
+      }))
     },
     { label: mainNavItems1Label(lang), href: `/${lang}/case-studies` },
     { label: mainNavItems2Label(lang), href: `/${lang}/#open-source` },
-    { label: mainNavItems3Label(lang), href: `/${lang}/#faqs` },
-    { label: mainNavItems4Label(lang), href: `/${lang}/inferenceai` }
+    { label: mainNavItems3Label(lang), href: `/${lang}/#faqs` }
   ];
 }
 

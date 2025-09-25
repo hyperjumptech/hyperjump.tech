@@ -18,24 +18,11 @@
     "0_label": "Layanan",
     "1_label": "Studi Kasus",
     "2_label": "Open Source",
-    "3_label": "FAQ",
-    "4_label": "Inference AI"
+    "3_label": "FAQ"
   },
   "services": {
     "heading": "Layanan",
-    "desc": "Kami menawarkan solusi teknologi ahli untuk membantu bisnis berkembang, meningkatkan efisiensi, mengoptimalkan operasional, dan mendorong inovasi berkelanjutan.",
-
-    "0_title": "CTO sebagai Layanan",
-    "0_text": "Mencari, merekrut, mengelola, dan mempertahankan engineer perangkat lunak terbaik adalah proses yang kompleks dan memakan waktu. Serahkan semua itu kepada kami.",
-
-    "1_title": "Perangkat Lunak sebagai Layanan",
-    "1_text": "Kami membangun dan mengelola solusi perangkat lunak yang disesuaikan dengan kebutuhan perusahaan Anda untuk kinerja dan pertumbuhan optimal.",
-
-    "2_title": "Uji Tuntas Teknologi",
-    "2_text": "Kami membantu memverifikasi dan menilai kemampuan perusahaan Anda dalam menjalankan roadmap serta mengevaluasi kondisi teknis saat ini.",
-
-    "3_title": "Implementasi ERP",
-    "3_text": "Tingkatkan efisiensi operasional Anda dengan solusi ERP tingkat enterprise, mempercepat proses bisnis dan meningkatkan kecerdasan operasional."
+    "desc": "Kami menawarkan solusi teknologi ahli untuk membantu bisnis berkembang, meningkatkan efisiensi, mengoptimalkan operasional, dan mendorong inovasi berkelanjutan."
   },
   "case_studies": {
     "heading": "Studi Kasus",

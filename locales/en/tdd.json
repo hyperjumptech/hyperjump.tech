@@ -3,7 +3,8 @@
     "heading": "Tech Due Diligence",
     "desc": "Identify Risks. Unlock Opportunities. Build with Confidence."
   },
-
+  "description": "Verify and assess your company's ability to execute its roadmap and evaluate its current state.",
+  "bestFor": ["Investors", "CTOs", "PE/VC firms"],
   "what_is_tdd": {
     "desc": "Tech Due Diligence is a structured evaluation of an organization's technology landscape. Designed to uncover hidden risks, assess readiness, and provide clarity for informed decisions.",
     "highlight": "Whether you're investing in a startup, preparing for a merger, or auditing internal capabilities, our TDD service delivers actionable insights to de-risk your tech journey."

@@ -13,46 +13,6 @@
   "what_you_get": "Apa yang Anda Dapatkan",
   "why_hyperjump": "Kenapa Hyperjump?",
   "case_studies": "Studi Kasus dari Layanan Ini",
-  "ctoaas": {
-    "title": "CTO-as-a-Service",
-    "text": "Bangun produk layaknya perusahaan terbaik, tanpa perlu merekrut CTO.",
-    "desc": ["Founder non-teknis", "startup tahap pertumbuhan"],
-    "items": {
-      "0": "Kepemimpinan Teknis",
-      "1": "Struktur & Proses Tim",
-      "2": "Budaya Rekayasa Perangkat Lunak"
-    }
-  },
-  "saas": {
-    "title": "Software-as-a-Service",
-    "text": "Produk milik Anda. Kami yang membangun mesinnya.",
-    "desc": ["Startup & perusahaan tahap ekspansi"],
-    "items": {
-      "0": "Dari MVP hingga Skalabilitas",
-      "1": "Tim Pengembang Bulanan",
-      "2": "CI/CD, QA, dan Penyesuaian Roadmap"
-    }
-  },
-  "tech_due_diligence": {
-    "title": "Tech Due Diligence",
-    "text": "Identifikasi risiko. Temukan peluang.",
-    "desc": ["Investor", "CTO", "perusahaan modal ventura"],
-    "items": {
-      "0": "Audit Arsitektur & Kode",
-      "1": "Benchmark KPI",
-      "2": "Laporan Risiko yang Dapat Ditindaklanjuti"
-    }
-  },
-  "erp": {
-    "title": "Implementasi ERP",
-    "text": "Tingkatkan efisiensi operasional. Siap untuk skala besar.",
-    "desc": ["Tim operasional", "UMKM", "industri vertikal"],
-    "items": {
-      "0": "Implementasi Odoo & ERPNext",
-      "1": "Modul Kustom & Integrasi",
-      "2": "Dukungan Pasca Implementasi"
-    }
-  },
   "partners": {
     "Heading": "Dipercaya oleh Industry Leaders",
     "desc": "Kami dipercaya oleh berbagai perusahaan lintas industri. Ini hanya sebagian, masih banyak lagi yang berkembang bersama kami di balik layar."

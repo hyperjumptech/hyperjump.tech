@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "heading": "Inference AI",
+    "desc": "Design, develop, and deploy purpose-built AI agents"
+  },
+  "description": "Design, develop, and deploy purpose-built AI agents that save time, cut costs, and scale operations. Without technical overwhelm.",
+  "bestFor": ["Enterprises", "Startups", "Process automation"],
+  "what_is": {
+    "desc": "Build smart, autonomous agents tailored to your domain — without hiring a full AI team.",
+    "highlight": "Not every business needs to build full AI infrastructure from scratch. With <span class=\"font-bold\">Inference AI</span>, you gain access to design, build, and maintain AI agents that reason, act, and adapt — all without needing an in-house AI team."
+  },
+  "who_is_it": {
+    "desc": "Our solutions are ideal for businesses seeking to scale efficiently and optimize operations.",
+    "target": {
+      "0": "<span class=\"font-bold\">Enterprises</span> that need autonomous features",
+      "1": "<span class=\"font-bold\">Startups</span> that want to embed AI agents into product workflows or internal processes",
+      "2": "<span class=\"font-bold\">Founders & Ops Leaders</span> that are exploring generative AI, multi-agent systems, or decision automation"
+    }
+  },
+  "what_we_deliver": {
+    "desc": "We partner with your team to automate and build AI agents that scale with your business. From planning to post-implementation, we deliver hands-on support every step of the way.",
+    "card_0": {
+      "title": "Integration & Orchestration",
+      "text": "Plug the agent into your systems:",
+      "items": {
+        "0": "Connect to APIs, databases, internal tools",
+        "1": "Orchestrate tasks across services",
+        "2": "Webhooks, event triggers, and coordinated workflows"
+      }
+    },
+    "card_1": {
+      "title": "Training, Fine-Tuning & Prompt Engineering",
+      "text": "We tailor the agent's behavior to your domain:",
+      "items": {
+        "0": "Fine-tune models or use adapters",
+        "1": "Prompt engineering, chaining, memory injection",
+        "2": "Domain-specific dataset curation"
+      }
+    },
+    "card_2": {
+      "title": "Safety, Monitoring & Guardrails",
+      "text": "Ensure reliable, safe operation:",
+      "items": {
+        "0": "Input validation, fallback logic, human-in-the-loop",
+        "1": "Anomaly detection, logging, error recovery",
+        "2": "Ethical & compliance constraints"
+      }
+    },
+    "card_3": {
+      "title": "Deployment & Operations",
+      "text": "We make sure your ERP delivers value:",
+      "items": {
+        "0": "Stabilization support",
+        "1": "Change management guidance",
+        "2": "Training for users"
+      }
+    }
+  },
+  "how_it_works": {
+    "desc": "Discover how we turn ideas into impact. Our process is built to be simple, transparent, and focused on results. Every step of the way.",
+    "step": {
+      "0": {
+        "title": "Discovery & scoping",
+        "text": "Understand your domain, use cases, constraints."
+      },
+      "1": {
+        "title": "Agent design & prototyping",
+        "text": "Define logic, integrate a minimal viable agent."
+      },
+      "2": {
+        "title": "Pilot & validation",
+        "text": "Test with real users or environments, gather feedback."
+      },
+      "3": {
+        "title": "Scale & harden",
+        "text": "Optimize performance, robustness, security."
+      },
+      "4": {
+        "title": "Handover or co-ownership",
+        "text": "Transfer control, monitor, iterate collaboratively."
+      }
+    }
+  },
+  "what_you_get": {
+    "desc": "We deliver a working custom AI agent tailored to your domain that adapts to your workflow and grows with your business.",
+    "items": {
+      "0": "Integration & Orchestration",
+      "1": "Training, Fine-Tuning & Prompt Engineering",
+      "2": "Safety, Monitoring & Guardrails",
+      "3": "Deployment & Maintenance"
+    }
+  },
+  "why_us": {
+    "desc": "We don't just build bots. We build agents that reason, act, and evolve with your business. With deep engineering competence, we ensure performance, security, and robustness from day one.",
+    "reasons": {
+      "0": "We combine <span class=\"font-bold\">deep engineering practices</span> with AI product experience.",
+      "1": "We don't just advise. We build, integrate, and operationalize.",
+      "2": "Your team will eventually own and evolve the agent."
+    }
+  }
+}

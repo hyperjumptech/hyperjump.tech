@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { andManyMore, trustedBy } from "@/locales/.generated/strings";
+import { andManyMore, trustedBy } from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
 export default function TrustedBy({ lang }: { lang: SupportedLanguage }) {

@@ -17,7 +17,7 @@ import { motion } from "framer-motion";
 import React, { Children, isValidElement, useEffect, useState } from "react";
 import { GitFork, Star } from "lucide-react";
 import type { SupportedLanguage } from "@/locales/.generated/types";
-import { mainCaseStudiesButton } from "@/locales/.generated/strings";
+import { mainCaseStudiesButton } from "@/locales/.generated/server";
 
 type GridItemsTitleProps = {
   id?: string;

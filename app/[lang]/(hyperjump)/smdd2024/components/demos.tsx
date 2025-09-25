@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { demosAndDocumentation } from "@/locales/.generated/strings";
+import { demosAndDocumentation } from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
 export default function DemosAndDocs({ lang }: { lang: SupportedLanguage }) {

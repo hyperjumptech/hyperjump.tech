@@ -261,7 +261,7 @@ import {
   tddWhyUsReasons1,
   tddWhyUsReasons2,
   aiWhoIsItTarget2
-} from "@/locales/.generated/strings";
+} from "@/locales/.generated/server";
 
 export function getCaseStudies(lang: SupportedLanguage) {
   return [

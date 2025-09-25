@@ -35,7 +35,7 @@ import {
   mainCaseStudiesCtaDesc,
   mainCaseStudiesCtaExploreOurCaseStudies,
   mainHeroHeading
-} from "@/locales/.generated/strings";
+} from "@/locales/.generated/server";
 
 import { Clients } from "./components/clients";
 import { Location } from "./components/location";

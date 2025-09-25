@@ -1,6 +1,6 @@
 "use client";
 
-import { caseStudies } from "@/locales/.generated/strings";
+import { caseStudies } from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import { getServices } from "./get-services";
 import { cn } from "@/lib/utils";

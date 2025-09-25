@@ -16,7 +16,7 @@ import {
   servicesWhyHyperjump,
   servicesCaseStudies,
   caseStudyButton
-} from "@/locales/.generated/strings";
+} from "@/locales/.generated/server";
 
 import type { CaseStudy, Service } from "../../data";
 import { serviceBySlug, ServiceSlug } from "../../data";

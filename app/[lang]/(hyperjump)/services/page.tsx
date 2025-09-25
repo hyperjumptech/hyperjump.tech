@@ -16,7 +16,7 @@ import {
   servicesBestFor,
   servicesHeroHeading,
   servicesHeroDesc
-} from "@/locales/.generated/strings";
+} from "@/locales/.generated/server";
 
 import { Clients } from "../components/clients";
 import { serviceBySlug, services, ServiceSlug } from "../data";

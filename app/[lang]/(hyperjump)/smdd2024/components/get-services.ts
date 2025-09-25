@@ -33,7 +33,7 @@ import {
   volunteeringPlatformDesc,
   volunteeringPlatformNarrative,
   volunteeringPlatformQuotes
-} from "@/locales/.generated/strings";
+} from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
 export const getServices = (lang: SupportedLanguage) => {

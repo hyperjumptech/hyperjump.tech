@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger
 } from "@/components/ui/accordion";
-import { ourServices } from "@/locales/.generated/strings";
+import { ourServices } from "@/locales/.generated/server";
 import { getServices } from "./get-services";
 
 export default function Services({ lang }: { lang: SupportedLanguage }) {

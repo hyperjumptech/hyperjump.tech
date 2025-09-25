@@ -7,7 +7,7 @@ import {
   caseStudyExplore,
   caseStudyHeroDesc,
   caseStudyHeroHeading
-} from "@/locales/.generated/strings";
+} from "@/locales/.generated/server";
 import { getCaseStudies } from "./data";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";

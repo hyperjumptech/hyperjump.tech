@@ -18,7 +18,7 @@ import {
   mainNavItems1Label,
   mainNavItems2Label,
   mainNavItems3Label
-} from "@/locales/.generated/strings";
+} from "@/locales/.generated/server";
 import {
   type SupportedLanguage,
   supportedLanguages

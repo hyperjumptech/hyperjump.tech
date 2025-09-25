@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import {
   mainOpenInGoogleMaps,
   mainOurLocation
-} from "@/locales/.generated/strings";
+} from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
 type Location = {

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { Separator } from "@/components/ui/separator";
 import type { SupportedLanguage } from "@/locales/.generated/types";
-import { copyright, inferenceaiFooter } from "@/locales/.generated/strings";
+import { copyright, inferenceaiFooter } from "@/locales/.generated/server";
 
 import { LanguagePicker } from "@/app/components/language-picker";
 import { getData } from "../data";

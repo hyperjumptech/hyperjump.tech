@@ -32,7 +32,7 @@ import {
   inferenceaiHeroDesc,
   inferenceaiHowItWorksHeading,
   inferenceaiHowItWorksDesc
-} from "@/locales/.generated/strings";
+} from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import InferenceAIAgent from "./components/chatbot-ui";
 import {

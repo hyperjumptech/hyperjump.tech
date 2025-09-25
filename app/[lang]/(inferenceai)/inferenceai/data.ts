@@ -79,7 +79,7 @@ import {
   dubsyKeyFeaturesHeading,
   dubsyHeroHeading,
   dubsyWhatIsIncludedHeading
-} from "@/locales/.generated/server";
+} from "@/locales/.generated/strings";
 
 import {
   getFaqsPresenton,

@@ -137,7 +137,7 @@ import {
   dubsyKeyFeaturesFeatures1Title,
   dubsyKeyFeaturesFeatures2Title,
   dubsyKeyFeaturesFeatures2Text
-} from "@/locales/.generated/server";
+} from "@/locales/.generated/strings";
 import {
   ChatBubbleIcon,
   ClockIcon,

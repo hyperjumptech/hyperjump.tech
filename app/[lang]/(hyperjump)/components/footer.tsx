@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import data from "@/data.json";
 import type { SupportedLanguage } from "@/locales/.generated/types";
-import { copyright, mainFooter } from "@/locales/.generated/server";
+import { copyright, mainFooter } from "@/locales/.generated/strings";
 import { LanguagePicker } from "../../../components/language-picker";
 
 type FooterProps = { lang: SupportedLanguage };
@@ -28,7 +28,7 @@ export default function Footer({ lang }: FooterProps) {
       <div className="relative z-20 container mx-auto px-4">
         <div className="flex flex-col space-y-6 md:items-center">
           <div className="flex items-center">
-            <Link href="/">
+            <Link href={`/${lang}`}>
               <Image
                 src="/images/hyperjump-white.png"
                 alt="Hyperjump Logo"

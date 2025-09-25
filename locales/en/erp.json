@@ -3,11 +3,12 @@
     "heading": "ERP Implementation",
     "desc": "Streamline Operations. Boost Visibility. Enable Scale."
   },
-  "what_is_erp": {
+  "description": "Streamline operations with enterprise-grade ERP solutions, boosting efficiency and business intelligence.",
+  "bestFor": ["Ops teams", "SMEs", "vertical industries"],
+  "what_is": {
     "desc": "Enterprise Resource Planning (ERP) systems connect your business processes. Finance, supply chain, inventory, sales into a single source of truth. But a great ERP isn't just software, it's about implementation that understands your operations.",
     "highlight": "We help organizations implement <span class=\"font-bold\">Odoo</span> and <span class=\"font-bold\">ERPNext</span>, tailored to their workflows, industry needs, and growth ambitions."
   },
-
   "who_is_it": {
     "desc": "Built for teams and businesses that are serious about operational excellence. Whether you're scaling fast, managing complexity, or streamlining chaos. We're here to help you gain clarity and control.",
     "target": {

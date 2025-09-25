@@ -3,7 +3,9 @@
     "heading": "Implementasi ERP",
     "desc": "Sederhanakan Operasi. Tingkatkan Visibilitas. Siap untuk Skalabilitas."
   },
-  "what_is_erp": {
+  "description": "Tingkatkan efisiensi operasional Anda dengan solusi ERP tingkat enterprise, mempercepat proses bisnis dan meningkatkan kecerdasan operasional.",
+  "bestFor": ["Tim operasional", "UMKM", "industri vertikal"],
+  "what_is": {
     "desc": "Sistem Enterprise Resource Planning (ERP) menghubungkan proses bisnis Anda. Keuangan, rantai pasok, inventaris, penjualan ke dalam satu sumber kebenaran. Namun, ERP yang hebat bukan hanya soal perangkat lunak, ini tentang implementasi yang memahami operasi bisnis Anda.",
     "highlight": "Kami membantu organisasi mengimplementasikan <span class=\"font-bold\">Odoo</span> dan <span class=\"font-bold\">ERPNext</span>, disesuaikan dengan alur kerja, kebutuhan industri, dan ambisi pertumbuhan mereka."
   },

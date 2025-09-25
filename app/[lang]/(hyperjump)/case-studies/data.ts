@@ -5,7 +5,7 @@ import {
   caseStudyErpFisheriesCategory,
   caseStudyErpFisheriesDesc,
   caseStudyErpFisheriesTitle
-} from "@/locales/.generated/server";
+} from "@/locales/.generated/strings";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
 export const getCaseStudies = (lang: SupportedLanguage) => {

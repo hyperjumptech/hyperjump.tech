@@ -4,7 +4,7 @@ import {
   inferenceaiHeroTextDemo,
   inferenceaiHeroUsername,
   inferenceaiHeroPassword
-} from "@/locales/.generated/server";
+} from "@/locales/.generated/strings";
 import Link from "next/link";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 

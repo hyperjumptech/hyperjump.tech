@@ -1,4 +1,4 @@
-import { intro, talkWithUs } from "@/locales/.generated/server";
+import { intro, talkWithUs } from "@/locales/.generated/strings";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
 export default function SmddHero({ lang }: { lang: SupportedLanguage }) {

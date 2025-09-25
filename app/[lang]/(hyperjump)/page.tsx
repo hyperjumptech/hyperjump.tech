@@ -35,7 +35,7 @@ import {
   mainCaseStudiesCtaDesc,
   mainCaseStudiesCtaExploreOurCaseStudies,
   mainHeroHeading
-} from "@/locales/.generated/server";
+} from "@/locales/.generated/strings";
 
 import { Clients } from "./components/clients";
 import { Location } from "./components/location";
@@ -160,7 +160,7 @@ function Services({ lang }: HomeParams) {
           variant="default"
           className="bg-hyperjump-blue hover:bg-hyperjump-blue/90"
           asChild>
-          <Link href="/services">{mainViewMore(lang)}</Link>
+          <Link href={`/${lang}/services`}>{mainViewMore(lang)}</Link>
         </Button>
       </div>
     </GridItemsContainer>
@@ -204,7 +204,7 @@ function CaseStudies({ lang }: HomeParams) {
             asChild
             variant="outline"
             className="mt-8 bg-transparent font-semibold text-white hover:bg-white">
-            <Link href="/case-studies">
+            <Link href={`${lang}/case-studies`}>
               {mainCaseStudiesCtaExploreOurCaseStudies(lang)}
             </Link>
           </Button>

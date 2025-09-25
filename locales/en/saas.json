@@ -3,11 +3,12 @@
     "heading": "Software as a Service",
     "desc": "Own the Product Vision. Let us Build the Engine."
   },
+  "description": "Deploy and scale software solutions tailored to your enterprise for optimal performance and growth.",
+  "bestFor": ["Startups & scale-ups"],
   "what_is_saas": {
     "desc": "You have a product idea or maybe an MVP that needs to scale. But managing an in-house team is time consuming, expensive, and distracting.",
     "highlight": "With Hyperjump SaaS, you get a dedicated product engineering team that not only builds but continuously improves your software. We take ownership of your roadmap and deliver month-by-month improvements, fully aligned with your business goals."
   },
-
   "who_is_it": {
     "desc": "This is for organizations looking to scale quickly, innovate, and modernize without the burden of daily management.",
     "target": {

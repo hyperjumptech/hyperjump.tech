@@ -12,7 +12,7 @@ import {
   talkIntro,
   talkPunchline,
   talkWithUs
-} from "@/locales/.generated/server";
+} from "@/locales/.generated/strings";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import { useState } from "react";
 import { data } from "../data";

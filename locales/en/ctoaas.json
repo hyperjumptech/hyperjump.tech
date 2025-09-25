@@ -3,11 +3,12 @@
     "heading": "CTO-as-a-Service",
     "desc": "Build Like the Best. Without Hiring a CTO."
   },
+  "description": "Finding, hiring, managing, and retaining top software engineers is complex and time-consuming. Let us handle it all for you.",
+  "bestFor": ["Non-technical founders", "growth-stage startups"],
   "what_is_ctoaas": {
     "desc": "Not every company needs a full-time CTO, but every tech team needs strong leadership.",
     "highlight": "CTO-as-a-Service by Hyperjump gives you access to senior-level engineering leadership and a battle-tested product team. We help you <span class=\"font-bold\">build a strong engineering culture, ship better software,</span> and <span class=\"font-bold\">scale your product organization</span> without the overhead of building it alone."
   },
-
   "who_is_it": {
     "desc": "Our solutions are ideal for businesses seeking to scale efficiently and optimize operations.",
     "target": {
@@ -17,7 +18,6 @@
       "3": "<span class=\"font-bold\">Scale-ups</span> preparing for growth, audits, or fundraising"
     }
   },
-
   "what_we_deliver": {
     "desc": "We provide tailored solutions to ensure your tech and operations are on the right track for sustainable growth.",
     "card_0": {

@@ -260,7 +260,10 @@ import {
   tddWhyUsReasons0,
   tddWhyUsReasons1,
   tddWhyUsReasons2,
-  aiWhoIsItTarget2
+  aiWhoIsItTarget2,
+  mediaPulseHeroHeading,
+  inferenceaiCaseStudies2Category,
+  startGptHeroDesc
 } from "@/locales/.generated/server";
 
 export function getCaseStudies(lang: SupportedLanguage) {
@@ -374,6 +377,7 @@ export type CaseStudy = {
   title: string;
   description: string;
   category: string;
+  basePath?: string;
 };
 
 export type Service = {
@@ -498,7 +502,22 @@ export function services(lang: SupportedLanguage): Service[] {
       shortDescription: aiHeroDesc(lang),
       slug: ServiceSlug.InferenceAI,
       title: aiHeroHeading(lang),
-      caseStudies: []
+      caseStudies: [
+        {
+          slug: "startgpt",
+          title: "StartGPT",
+          description: startGptHeroDesc(lang),
+          category: inferenceaiCaseStudies2Category(lang),
+          basePath: "inferenceai"
+        },
+        {
+          slug: "media-pulse",
+          title: "MediaPulse",
+          description: mediaPulseHeroHeading(lang),
+          category: inferenceaiCaseStudies2Category(lang),
+          basePath: "inferenceai"
+        }
+      ]
     },
     {
       bestFor: erpBestFor(lang),
@@ -754,13 +773,15 @@ export function services(lang: SupportedLanguage): Service[] {
           slug: "erp-fisheries",
           title: caseStudyErpFisheriesTitle(lang),
           description: caseStudyErpFisheriesDesc(lang),
-          category: caseStudyErpFisheriesCategory(lang)
+          category: caseStudyErpFisheriesCategory(lang),
+          basePath: "case-studies"
         },
         {
           slug: "ctoaas-media",
           title: caseStudyCtoaasMediaTitle(lang),
           description: caseStudyCtoaasMediaDesc(lang),
-          category: caseStudyCtoaasMediaCategory(lang)
+          category: caseStudyCtoaasMediaCategory(lang),
+          basePath: "case-studies"
         }
       ]
     },

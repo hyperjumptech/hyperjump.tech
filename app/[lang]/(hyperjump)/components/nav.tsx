@@ -97,13 +97,15 @@ export default function Nav({ lang }: NavProps) {
 
           <CenterNavItems>
             <NavigationMenu className="mx-8 xl:mx-0">
-              <NavigationMenuList className="flex gap-5">
+              <NavigationMenuList className="flex items-center space-x-8">
                 {menu(lang).map(({ href, label, children }) =>
                   children ? (
-                    <NavigationMenuItem key={label}>
+                    <NavigationMenuItem
+                      key={label}
+                      className="flex items-center">
                       <NavigationMenuTrigger
                         className={cn(
-                          "bg-transparent hover:!bg-transparent data-[active]:!bg-transparent data-[state=open]:!bg-transparent",
+                          "bg-transparent px-0 hover:!bg-transparent data-[active]:!bg-transparent data-[state=open]:!bg-transparent",
                           "group-data-[scroll=true]:text-hyperjump-black",
                           isTransparent
                             ? "hover:group-data-[scroll=true]:text-hyperjump-blue hover:group-data-[scroll=false]:text-white group-data-[scroll=false]:data-[state=open]:text-white"
@@ -129,7 +131,9 @@ export default function Nav({ lang }: NavProps) {
                       </NavigationMenuContent>
                     </NavigationMenuItem>
                   ) : (
-                    <NavigationMenuItem key={label}>
+                    <NavigationMenuItem
+                      key={label}
+                      className="flex items-center">
                       <Link
                         href={href}
                         className={cn(
@@ -190,12 +194,12 @@ export default function Nav({ lang }: NavProps) {
           <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-20 xl:px-0">
             {menu(lang).map(({ href, label, children }) =>
               children ? (
-                <div key={label} className="flex flex-col">
+                <div key={label} className="flex flex-col space-y-2">
                   <button
                     onClick={() =>
                       setOpenIndex(openIndex === label ? null : label)
                     }
-                    className="text-hyperjump-black flex w-full items-center justify-between py-2 text-2xl transition hover:text-gray-400">
+                    className="text-hyperjump-black flex w-full items-center justify-between text-2xl transition hover:text-gray-400">
                     {label}
                     <svg
                       className={cn(
@@ -220,7 +224,7 @@ export default function Nav({ lang }: NavProps) {
                         <Link
                           key={label}
                           href={href}
-                          className="text-hyperjump-black space-y-2 text-xl transition hover:text-gray-400"
+                          className="text-hyperjump-black text-xl transition hover:text-gray-400"
                           onClick={() => setIsOpen(false)}>
                           {label}
                         </Link>

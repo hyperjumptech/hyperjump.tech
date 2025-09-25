@@ -15,10 +15,11 @@ Your partner in building reliable, modern software. We help organizations delive
 
 We offer expert technology solutions to help businesses scale, enhance efficiency, optimize operations, and drive continuous innovation.
 
+- [Inference AI](https://hyperjump.tech/en/services/inference-ai): Design, develop, and deploy purpose-built AI agents that save time, cut costs, and scale operations.
+- [ERP Implementation](https://hyperjump.tech/en/services/erp-implementation): Streamline operations with enterprise-grade ERP solutions, boosting efficiency and business intelligence.
 - [CTO-as-a-Service](https://hyperjump.tech/en/services/cto-as-a-service): Finding, hiring, managing, and retaining top software engineers is complex and time-consuming. Let us handle it all for you.
 - [Software-as-a-Service](https://hyperjump.tech/en/services/software-as-a-service): Deploy and scale software solutions tailored to your enterprise for optimal performance and growth.
-- [Tech Due Diligence](https://hyperjump.tech/en/services/tech-due-diligence): We help verify and assess your company's ability to execute its roadmap and evaluate its current state.
-- [ERP Implementation](https://hyperjump.tech/en/services/erp-implementation): Streamline operations with enterprise-grade ERP solutions, boosting efficiency and business intelligence.
+- [Tech Due Diligence](https://hyperjump.tech/en/services/tech-due-diligence): Verify and assess your company's ability to execute its roadmap and evaluate its current state.
 
 ## Case studies
 

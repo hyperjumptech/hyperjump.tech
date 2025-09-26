@@ -206,7 +206,7 @@ export default function LandingAIAgent() {
   };
 
   return (
-    <div className="fixed right-4 bottom-16 z-50 flex flex-col items-end gap-3">
+    <div className="fixed right-6 bottom-16 z-50 flex flex-col items-end gap-3">
       {/* Chat window with animation */}
       <AnimatePresence>
         {!closed && (
@@ -236,6 +236,7 @@ export default function LandingAIAgent() {
                     <div className="max-w-[80%] self-start rounded-xl bg-white p-3">
                       {isSubmitting && i === messages.length - 1 ? (
                         <div className="flex gap-1">
+                          <span className="sr-only">Loading...</span>
                           <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.3s]" />
                           <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.15s]" />
                           <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500" />
@@ -269,7 +270,16 @@ export default function LandingAIAgent() {
                 </div>
               )}
 
-              <div className="relative flex w-full">
+              {isSubmitting && (
+                <div className="mt-3 mb-5 flex items-center gap-2 bg-transparent text-xs text-gray-500">
+                  <span className="sr-only">Loading...</span>
+                  <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.3s]" />
+                  <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.15s]" />
+                  <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500" />
+                </div>
+              )}
+
+              <div className="relative flex w-full items-center">
                 <input
                   ref={inputRef}
                   type="text"

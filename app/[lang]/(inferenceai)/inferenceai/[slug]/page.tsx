@@ -34,13 +34,13 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
 
   return (
     <>
-      <Hero caseStudy={caseStudy} lang={lang} />
+      <Hero caseStudy={caseStudy} />
       <KeyFeatures caseStudy={caseStudy} lang={lang} />
-      <HowItWorks caseStudy={caseStudy} lang={lang} />
+      <HowItWorks caseStudy={caseStudy} />
       {(caseStudy.whatsIncluded ?? []).length > 0 && (
-        <WhatIsIncluded caseStudy={caseStudy} lang={lang} />
+        <WhatIsIncluded caseStudy={caseStudy} />
       )}
-      <Faqs caseStudy={caseStudy} lang={lang} />
+      <Faqs caseStudy={caseStudy} />
     </>
   );
 }

@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import type { Item } from "@/app/components/grid-items";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
@@ -103,7 +105,12 @@ import {
   getKeyFeaturesDubsy,
   getWhatIsIncludedDubsy
 } from "./[slug]/data";
-import { getSolutionsMenu } from "./components/dropdown-menu";
+import StartGPT from "./[slug]/components/startgpt";
+import Presenton from "./[slug]/components/presenton";
+import Voxa from "./[slug]/components/voxa";
+import Dubsy from "./[slug]/components/dubsy";
+import { Menu } from "./components/nav";
+import { MediaPulse } from "./[slug]/components/media-pulse";
 
 export const navInferenceai = (lang: SupportedLanguage) => {
   return [
@@ -120,7 +127,7 @@ export const navInferenceai = (lang: SupportedLanguage) => {
     {
       key: "solutions",
       label: inferenceaiNavItems3Label(lang),
-      children: getSolutionsMenu(lang)
+      children: solutionsMenu(lang)
     },
     {
       key: "about-us",
@@ -130,6 +137,15 @@ export const navInferenceai = (lang: SupportedLanguage) => {
     { key: "faqs", label: inferenceaiNavItems5Label(lang), href: "#faqs" }
   ];
 };
+
+function solutionsMenu(lang: SupportedLanguage): Menu[] {
+  return getCaseStudies(lang).map(({ descUrl, name, slug }) => ({
+    key: slug,
+    label: name,
+    href: `/${lang}/inferenceai/${slug}`,
+    description: descUrl
+  }));
+}
 
 export const navSolutions = (lang: SupportedLanguage, slug: string) => {
   const caseStudies = getCaseStudies(lang);
@@ -154,7 +170,7 @@ export const navSolutions = (lang: SupportedLanguage, slug: string) => {
     {
       key: "solutions",
       label: inferenceaiNavSolutions3Label(lang),
-      children: getSolutionsMenu(lang)
+      children: solutionsMenu(lang)
     },
     { key: "faqs", label: inferenceaiNavSolutions4Label(lang), href: "#faqs" }
   ];
@@ -247,6 +263,7 @@ type Faq = {
 
 export type CaseStudy = {
   category: string;
+  demo: ReactNode | null;
   description: string;
   faqDesc: string;
   faqHeading: string;
@@ -259,17 +276,15 @@ export type CaseStudy = {
   title: string;
   whatsIncluded: WhatIsIncluded[];
   whatsIncludedHeading: string;
-  labelUrl?: string;
-  descUrl?: string;
-  demoUrl?: string;
-  username?: string;
-  password?: string;
+  name: string;
+  descUrl: string;
 };
 
 export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
   return [
     {
       category: inferenceaiCaseStudies2Category(lang),
+      demo: <MediaPulse />,
       description: mediaPulseHeroDesc(lang),
       faqDesc: mediaPulseFaqDesc(lang),
       faqHeading: mediaPulseFaqHeading(lang),
@@ -279,7 +294,7 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesMediaPulse(lang),
       keyFeaturesHeading: mediaPulseKeyFeaturesHeading(lang),
       slug: "media-pulse",
-      labelUrl: "Media Pulse",
+      name: "Media Pulse",
       descUrl: "Media monitoring",
       title: mediaPulseHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedMediaPulse(lang),
@@ -287,6 +302,15 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
     },
     {
       category: inferenceaiCaseStudies3Category(lang),
+      demo: (
+        <StartGPT
+          demoUrl="https://chatgpt.hyperjump.tech/"
+          lang={lang}
+          slug="startgpt"
+          username="demo@hyperjump.tech"
+          password="inference-ai-is-my-solution"
+        />
+      ),
       description: startGptHeroDesc(lang),
       faqDesc: startGptFaqDesc(lang),
       faqHeading: startGptFaqHeading(lang),
@@ -296,17 +320,23 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesStartGPT(lang),
       keyFeaturesHeading: startGptKeyFeaturesHeading(lang),
       slug: "startgpt",
-      labelUrl: "StartGPT",
+      name: "StartGPT",
       descUrl: "Enterprise AI assistant",
-      demoUrl: "https://chatgpt.hyperjump.tech/",
-      username: "demo@hyperjump.tech",
-      password: "inference-ai-is-my-solution",
       title: startGptHeroHeading(lang),
       whatsIncluded: [],
       whatsIncludedHeading: ""
     },
     {
       category: inferenceaiCaseStudies4Category(lang),
+      demo: (
+        <Presenton
+          demoUrl="https://presenton.hyperjump.tech/"
+          lang={lang}
+          slug="presenton"
+          username="hyperjump"
+          password="inference-ai-is-my-solution"
+        />
+      ),
       description: presentonHeroDesc(lang),
       faqDesc: presentonFaqDesc(lang),
       faqHeading: presentonFaqHeading(lang),
@@ -316,17 +346,15 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesPresenton(lang),
       keyFeaturesHeading: presentonKeyFeaturesHeading(lang),
       slug: "presenton",
-      labelUrl: "Presenton",
+      name: "Presenton",
       descUrl: "AI-Powered Presentation",
-      demoUrl: "https://presenton.hyperjump.tech/",
-      username: "hyperjump",
-      password: "inference-ai-is-my-solution",
       title: presentonHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedPresenton(lang),
       whatsIncludedHeading: presentonWhatIsIncludedHeading(lang)
     },
     {
       category: inferenceaiCaseStudies5Category(lang),
+      demo: <Voxa />,
       description: voxaHeroDesc(lang),
       faqDesc: voxaFaqDesc(lang),
       faqHeading: voxaFaqHeading(lang),
@@ -336,7 +364,7 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesVoxa(lang),
       keyFeaturesHeading: voxaKeyFeaturesHeading(lang),
       slug: "voxa",
-      labelUrl: "Voxa",
+      name: "Voxa",
       descUrl: "Phone cold outreach",
       title: voxaHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedVoxa(lang),
@@ -344,6 +372,7 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
     },
     {
       category: inferenceaiCaseStudies5Category(lang),
+      demo: <Dubsy />,
       description: dubsyHeroDesc(lang),
       faqDesc: dubsyFaqDesc(lang),
       faqHeading: dubsyFaqHeading(lang),
@@ -353,7 +382,7 @@ export const getCaseStudies = (lang: SupportedLanguage): CaseStudy[] => {
       keyFeatures: getKeyFeaturesDubsy(lang),
       keyFeaturesHeading: dubsyKeyFeaturesHeading(lang),
       slug: "dubsy",
-      labelUrl: "Dubsy",
+      name: "Dubsy",
       descUrl: "Turn videos into multilingual captions",
       title: dubsyHeroHeading(lang),
       whatsIncluded: getWhatIsIncludedDubsy(lang),

@@ -4,32 +4,24 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import {
+  GridItems,
+  GridItemsContainerBlack,
+  GridItemsTitleBlack
+} from "@/app/components/grid-items";
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import {
-  GridItems,
-  GridItemsContainerBlack,
-  GridItemsTitleBlack
-} from "@/app/components/grid-items";
-import type { SupportedLanguage } from "@/locales/.generated/types";
-import InferenceAIAgent from "../components/chatbot-ui";
-import { CaseStudy } from "../data";
-import Presenton from "./components/presenton";
-import StartGPT from "./components/startgpt";
-import Voxa from "./components/voxa";
 import { cn } from "@/lib/utils";
-import Dubsy from "./components/dubsy";
+import type { SupportedLanguage } from "@/locales/.generated/types";
+import { CaseStudy } from "../data";
 
-type HeroProps = { caseStudy: CaseStudy; lang: SupportedLanguage };
+type HeroProps = { caseStudy: CaseStudy };
 
-export function Hero({
-  caseStudy: { title, description, slug, demoUrl, username, password },
-  lang
-}: HeroProps) {
+export function Hero({ caseStudy: { title, demo, description } }: HeroProps) {
   return (
     <section
       id="hero"
@@ -49,7 +41,7 @@ export function Hero({
 
       {/* Overlay */}
       <div className="absolute inset-0 z-10 bg-linear-to-t from-black/70 to-transparent" />
-      <article className="relative z-20 mt-16 flex flex-col items-center justify-center px-4 md:mt-28 md:px-20">
+      <article className="relative z-20 my-16 flex flex-col items-center justify-center px-4 md:mt-28 md:px-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -72,26 +64,7 @@ export function Hero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
           className="mx-auto flex w-full flex-col items-center justify-center md:max-w-4xl">
-          {slug === "presenton" && (
-            <Presenton
-              demoUrl={demoUrl ?? ""}
-              lang={lang}
-              slug={slug}
-              username={username ?? ""}
-              password={password ?? ""}
-            />
-          )}
-          {slug === "startgpt" && (
-            <StartGPT
-              demoUrl={demoUrl ?? ""}
-              lang={lang}
-              slug={slug}
-              username={username ?? ""}
-              password={password ?? ""}
-            />
-          )}
-          {slug === "voxa" && <Voxa />}
-          {slug === "dubsy" && <Dubsy />}
+          {demo}
         </motion.div>
       </article>
 
@@ -99,7 +72,7 @@ export function Hero({
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 0.6, y: 0 }}
         transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
-        className="relative z-10 h-56 w-full md:h-[400px]">
+        className="absolute bottom-0 z-10 h-56 w-full md:h-[400px]">
         <Image
           src="/images/inferenceai/banner.png"
           alt="Banner Bottom"

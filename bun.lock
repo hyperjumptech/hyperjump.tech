@@ -23,6 +23,7 @@
         "clsx": "2.1.1",
         "framer-motion": "12.23.21",
         "lucide-react": "0.544.0",
+        "marked": "16.3.0",
         "next": "15.4.1",
         "next-themes": "0.4.6",
         "react": "19.1.1",
@@ -858,6 +859,8 @@
     "markdown-it": ["markdown-it@13.0.2", "", { "dependencies": { "argparse": "^2.0.1", "entities": "~3.0.1", "linkify-it": "^4.0.1", "mdurl": "^1.0.1", "uc.micro": "^1.0.5" }, "bin": { "markdown-it": "bin/markdown-it.js" } }, "sha512-FtwnEuuK+2yVU7goGn/MJ0WBZMM9ZPgU9spqlFs7/A/pDIUNSOQZhUgOqYCficIuR2QaFnrt8LHqBWsbTAoI5w=="],
 
     "markdown-it-link-attributes": ["markdown-it-link-attributes@4.0.1", "", {}, "sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ=="],
+
+    "marked": ["marked@16.3.0", "", { "bin": { "marked": "bin/marked.js" } }, "sha512-K3UxuKu6l6bmA5FUwYho8CfJBlsUWAooKtdGgMcERSpF7gcBUrCGsLH7wDaaNOzwq18JzSUDyoEb/YsrqMac3w=="],
 
     "math-intrinsics": ["math-intrinsics@1.1.0", "", {}, "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g=="],
 

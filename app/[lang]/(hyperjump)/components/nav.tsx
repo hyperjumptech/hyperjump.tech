@@ -53,11 +53,7 @@ function menu(lang: SupportedLanguage) {
   return [
     {
       label: mainNavItems0Label(lang),
-      href: `/${lang}/services`,
-      children: services(lang).map(({ title, slug }) => ({
-        label: title,
-        href: `/${lang}/services/${slug}`
-      }))
+      href: `/${lang}/services`
     },
     { label: mainNavItems1Label(lang), href: `/${lang}/case-studies` },
     { label: mainNavItems2Label(lang), href: `/${lang}/#open-source` },
@@ -98,55 +94,21 @@ export default function Nav({ lang }: NavProps) {
           <CenterNavItems>
             <NavigationMenu className="mx-8 xl:mx-0">
               <NavigationMenuList className="flex items-center space-x-8">
-                {menu(lang).map(({ href, label, children }) =>
-                  children ? (
-                    <NavigationMenuItem
-                      key={label}
-                      className="flex items-center">
-                      <NavigationMenuTrigger
-                        className={cn(
-                          "bg-transparent px-0 hover:!bg-transparent data-[active]:!bg-transparent data-[state=open]:!bg-transparent",
-                          "group-data-[scroll=true]:text-hyperjump-black",
-                          isTransparent
-                            ? "hover:group-data-[scroll=true]:text-hyperjump-blue hover:group-data-[scroll=false]:text-white group-data-[scroll=false]:data-[state=open]:text-white"
-                            : "text-hyperjump-black hover:text-hyperjump-blue data-[state=open]:text-hyperjump-blue"
-                        )}>
-                        <Link href={href} className="text-xl font-medium">
-                          {label}
-                        </Link>
-                      </NavigationMenuTrigger>
-
-                      <NavigationMenuContent className="min-w-52 rounded-md bg-white p-4 shadow-lg">
-                        <ul className="grid w-full gap-2">
-                          {children.map(({ href, label }) => (
-                            <li key={label}>
-                              <Link
-                                href={href}
-                                className="text-hyperjump-black hover:text-hyperjump-blue block transition">
-                                {label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  ) : (
-                    <NavigationMenuItem
-                      key={label}
-                      className="flex items-center">
-                      <Link
-                        href={href}
-                        className={cn(
-                          "text-xl font-medium transition duration-300",
-                          isTransparent
-                            ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
-                            : "text-hyperjump-black hover:text-hyperjump-blue"
-                        )}>
-                        {label}
-                      </Link>
-                    </NavigationMenuItem>
-                  )
-                )}
+                {menu(lang).map(({ href, label }) => (
+                  <NavigationMenuItem key={label} className="flex items-center">
+                    <Link
+                      href={href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "text-xl font-medium transition duration-300",
+                        isTransparent
+                          ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
+                          : "text-hyperjump-black hover:text-hyperjump-blue"
+                      )}>
+                      {label}
+                    </Link>
+                  </NavigationMenuItem>
+                ))}
               </NavigationMenuList>
             </NavigationMenu>
           </CenterNavItems>
@@ -192,56 +154,15 @@ export default function Nav({ lang }: NavProps) {
       {isOpen && (
         <div className="bg-white shadow-md lg:hidden">
           <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-20 xl:px-0">
-            {menu(lang).map(({ href, label, children }) =>
-              children ? (
-                <div key={label} className="flex flex-col space-y-2">
-                  <button
-                    onClick={() =>
-                      setOpenIndex(openIndex === label ? null : label)
-                    }
-                    className="text-hyperjump-black flex w-full items-center justify-between text-2xl transition hover:text-gray-400">
-                    {label}
-                    <svg
-                      className={cn(
-                        "h-5 w-5 transition-transform",
-                        openIndex === label && "rotate-180"
-                      )}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-
-                  {openIndex === label && (
-                    <div className="ml-4 flex flex-col space-y-2">
-                      {children.map(({ href, label }) => (
-                        <Link
-                          key={label}
-                          href={href}
-                          className="text-hyperjump-black text-xl transition hover:text-gray-400"
-                          onClick={() => setIsOpen(false)}>
-                          {label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  key={label}
-                  href={href}
-                  className="text-hyperjump-black text-2xl transition hover:text-gray-400"
-                  onClick={() => setIsOpen(false)}>
-                  {label}
-                </Link>
-              )
-            )}
+            {menu(lang).map(({ href, label }) => (
+              <Link
+                key={label}
+                href={href}
+                className="text-hyperjump-black text-2xl transition hover:text-gray-400"
+                onClick={() => setIsOpen(false)}>
+                {label}
+              </Link>
+            ))}
           </div>
         </div>
       )}

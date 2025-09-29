@@ -1,19 +1,18 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const PORT = parseInt(process.env.PORT || "3000", 10);
-const baseURL = process.env.E2E_BASE_URL || `http://localhost:${PORT}`;
+const languages = ["en", "id"];
+const PORT = 3001;
+
+const isProd = process.env.NODE_ENV === "production";
 
 export default defineConfig({
   testDir: "e2e",
   timeout: 30 * 1000,
-  expect: {
-    timeout: 5000
-  },
+  expect: { timeout: 5000 },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : undefined,
-  // Always produce an HTML report so `playwright show-report` works locally and in CI artifacts
   reporter: process.env.CI
     ? [
         ["github"],
@@ -24,32 +23,48 @@ export default defineConfig({
         ["html", { outputFolder: "playwright-report", open: "never" }]
       ],
   use: {
-    baseURL,
     headless: true,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "retain-on-failure"
   },
-  webServer: {
-    // Build the static export, run postbuild tasks, then serve the 'out' directory
-    // Use npx (Node) instead of bunx to avoid ESM default export issues in Bun with serve
-    command: `bash -c 'bun run build && bun run postbuild && npx --yes serve@latest -s out -l ${PORT}'`,
-    url: baseURL,
-    reuseExistingServer: !process.env.CI,
-    timeout: 2 * 60 * 1000
-  },
-  projects: [
+
+  webServer: isProd
+    ? undefined
+    : {
+        command: `bun run build && npx serve@latest out -l ${PORT}`,
+        url: `http://localhost:${PORT}`,
+        reuseExistingServer: true,
+        timeout: 60 * 1000
+      },
+
+  projects: languages.flatMap((lang) => [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] }
+      name: `chromium-${lang}`,
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: isProd
+          ? `https://hyperjump.tech/${lang}`
+          : `http://localhost:${PORT}/${lang}`
+      }
     },
     {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] }
+      name: `firefox-${lang}`,
+      use: {
+        ...devices["Desktop Firefox"],
+        baseURL: isProd
+          ? `https://hyperjump.tech/${lang}`
+          : `http://localhost:${PORT}/${lang}`
+      }
     },
     {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] }
+      name: `webkit-${lang}`,
+      use: {
+        ...devices["Desktop Safari"],
+        baseURL: isProd
+          ? `https://hyperjump.tech/${lang}`
+          : `http://localhost:${PORT}/${lang}`
+      }
     }
-  ]
+  ])
 });

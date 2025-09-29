@@ -9,7 +9,8 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,18 +30,18 @@ jobs:
         run: bun run build
 
       - name: Start server
-        run: npx serve@latest out &
+        run: npx serve@latest out -l 3001 &
         shell: bash
 
       - name: Wait for server to be ready
-        run: npx wait-on http://localhost:3000 --timeout 60000
+        run: npx wait-on http://localhost:3001 --timeout 60000
 
       - name: Run E2E tests (headless)
         env:
           CI: true
         run: bun run test:e2e
 
-      - name: Upload Playwright HTML report (always)
+      - name: Upload Playwright HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:

@@ -487,7 +487,7 @@ export function services(lang: SupportedLanguage): Service[] {
           ]
         },
         why: {
-          backgroundImageUrl: `/images/services/${ServiceSlug.InferenceAI}/why-us-bg.png`,
+          backgroundImageUrl: `/images/services/${ServiceSlug.InferenceAI}/why-us-bg.jpg`,
           clients: [],
           description: aiWhyUsDesc(lang),
           imageUrl: `/images/services/${ServiceSlug.InferenceAI}/why-us.svg`,

@@ -263,7 +263,10 @@ import {
   aiWhoIsItTarget2,
   mediaPulseHeroHeading,
   inferenceaiCaseStudies2Category,
-  startGptHeroDesc
+  startGptHeroDesc,
+  aiWhatWeDeliverCard0Title,
+  aiWhatWeDeliverCard1Text,
+  aiWhatWeDeliverCard2Text
 } from "@/locales/.generated/server";
 
 export function getCaseStudies(lang: SupportedLanguage) {
@@ -419,7 +422,7 @@ export function services(lang: SupportedLanguage): Service[] {
                 aiWhatWeDeliverCard0Items1(lang),
                 aiWhatWeDeliverCard0Items2(lang)
               ],
-              title: erpWhatWeDeliverCard0Title(lang)
+              title: aiWhatWeDeliverCard0Title(lang)
             },
             {
               iconUrl: `/images/services/${ServiceSlug.InferenceAI}/what-we-deliver-icon-2.svg`,
@@ -429,7 +432,7 @@ export function services(lang: SupportedLanguage): Service[] {
                 aiWhatWeDeliverCard1Items1(lang),
                 aiWhatWeDeliverCard1Items2(lang)
               ],
-              description: erpWhatWeDeliverCard1Text(lang)
+              description: aiWhatWeDeliverCard1Text(lang)
             },
             {
               iconUrl: `/images/services/${ServiceSlug.InferenceAI}/what-we-deliver-icon-3.svg`,
@@ -439,7 +442,7 @@ export function services(lang: SupportedLanguage): Service[] {
                 aiWhatWeDeliverCard2Items1(lang),
                 aiWhatWeDeliverCard2Items2(lang)
               ],
-              description: erpWhatWeDeliverCard2Text(lang)
+              description: aiWhatWeDeliverCard2Text(lang)
             }
           ]
         },

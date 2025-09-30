@@ -17,7 +17,10 @@ import { motion } from "framer-motion";
 import React, { Children, isValidElement, useEffect, useState } from "react";
 import { GitFork, Star } from "lucide-react";
 import type { SupportedLanguage } from "@/locales/.generated/types";
-import { mainCaseStudiesButton } from "@/locales/.generated/server";
+import {
+  mainCaseStudiesButton,
+  mainSeeMore
+} from "@/locales/.generated/server";
 
 type GridItemsTitleProps = {
   id?: string;
@@ -81,6 +84,7 @@ export type Item = {
   button?: boolean;
   repo?: string;
   urlCaseStudy?: string;
+  urlSeeMore?: string;
 };
 
 export function GridItems({
@@ -180,7 +184,8 @@ export function GridItems({
           category,
           icon,
           button,
-          urlCaseStudy
+          urlCaseStudy,
+          urlSeeMore
         } = item;
         const stats = repoStats[idx] || { stars: 0, forks: 0 };
         const isReactIcon = isValidElement(icon);
@@ -259,6 +264,15 @@ export function GridItems({
                   variant="outline"
                   className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
                   <Link href={urlCaseStudy}>{mainCaseStudiesButton(lang)}</Link>
+                </Button>
+              )}
+
+              {urlSeeMore && (
+                <Button
+                  asChild
+                  variant="outline"
+                  className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
+                  <Link href={urlSeeMore}>{mainSeeMore(lang)}</Link>
                 </Button>
               )}
 

@@ -149,7 +149,7 @@ function Services({ lang }: HomeParams) {
           title,
           description,
           icon: iconUrl,
-          url: `/services/${slug}`
+          urlSeeMore: `/${lang}/services/${slug}`
         }))}
         columns={{ base: 1, sm: 2, lg: 3 }}
         cardClassName="rounded"

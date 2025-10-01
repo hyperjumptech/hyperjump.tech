@@ -8,9 +8,7 @@ import { type ReactNode, useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuContent
+  NavigationMenuList
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import {
@@ -31,7 +29,6 @@ import WhiteLogo from "@/public/images/hyperjump-white.png";
 
 import ClientOnly from "../../../components/client-only";
 import StickyNavigationMain from "../../../components/sticky-nav-main";
-import { services } from "../data";
 import { data } from "../jobs/data";
 import LogoWithContextMenu from "./logo-with-context-menu";
 
@@ -67,7 +64,6 @@ type NavProps = {
 
 export default function Nav({ lang }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [openIndex, setOpenIndex] = useState<string | null>(null);
   const pathname = usePathname();
   const isTransparent = Boolean(
     !SOLID_NAV_PATHS_WITH_LOCALE.find((path) => path === pathname)
@@ -84,13 +80,11 @@ export default function Nav({ lang }: NavProps) {
           isOpen && "bg-white"
         )}>
         <div className="mx-auto flex w-5xl items-center justify-between px-4 md:px-20 xl:px-0">
-          <HyperjumpLogo
-            isTransparent={isTransparent}
-            isOpen={isOpen}
-            lang={lang}
-            onClose={() => setIsOpen(!isOpen)}
-          />
-
+          <Link
+            className="text-2xl font-bold no-underline transition hover:no-underline lg:text-4xl"
+            href={`/${lang}`}>
+            <Logo isTransparent={isTransparent} isOpen={isOpen} />
+          </Link>
           <CenterNavItems>
             <NavigationMenu className="mx-8 xl:mx-0">
               <NavigationMenuList className="flex items-center space-x-8">
@@ -203,7 +197,7 @@ type HyperjumpLogoProps = {
   onClose?: () => void;
 };
 
-function HyperjumpLogo({
+export function HyperjumpLogo({
   isOpen,
   isTransparent,
   lang,

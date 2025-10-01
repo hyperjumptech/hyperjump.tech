@@ -190,57 +190,6 @@ function CenterNavItems({ children }: { children: React.ReactNode }) {
   );
 }
 
-type HyperjumpLogoProps = {
-  isOpen: boolean;
-  isTransparent: boolean;
-  lang: SupportedLanguage;
-  onClose?: () => void;
-};
-
-export function HyperjumpLogo({
-  isOpen,
-  isTransparent,
-  lang,
-  onClose
-}: HyperjumpLogoProps) {
-  return (
-    <div className="flex items-center">
-      <Link
-        className="toggleColour text-2xl font-bold no-underline transition hover:no-underline lg:text-4xl"
-        href={`/${lang}`}
-        {...(isOpen ? { onClick: onClose } : {})}>
-        <ClientOnly>
-          <LogoWithContextMenu
-            downloadables={[
-              {
-                text: "Download colored logo",
-                url: ColoredLogo.src,
-                fileName: "hyperjump-logo-colored.png"
-              },
-              {
-                text: "Download Black and White logo",
-                url: BlackLogo.src,
-                fileName: "hyperjump-logo-bw.png"
-              },
-              {
-                text: "Download icon",
-                url: IconOnlyLogo.src,
-                fileName: "hyperjump-icon-only.png"
-              },
-              {
-                text: "Download SVG logo",
-                url: SVGLogo.src,
-                fileName: "hyperjump-svg.svg"
-              }
-            ]}>
-            <Logo isOpen={isOpen} isTransparent={isTransparent} />
-          </LogoWithContextMenu>
-        </ClientOnly>
-      </Link>
-    </div>
-  );
-}
-
 type LogoProps = {
   isOpen: boolean;
   isTransparent: boolean;

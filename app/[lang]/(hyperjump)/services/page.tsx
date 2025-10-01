@@ -60,8 +60,8 @@ export default async function Services({ params }: ServicesProps) {
   return (
     <main className="bg-white">
       <Hero lang={lang} />
-      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 py-8 text-center md:px-20 xl:px-0">
-        <h3 className="text-hyperjump-black mb-14 text-[34px] font-medium md:text-[40px]">
+      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 pb-15 text-center md:px-20 xl:px-0">
+        <h3 className="text-hyperjump-black md:mb-14 mb-8 text-[28px] font-medium md:text-[40px]">
           {servicesHeading(lang)}
         </h3>
         <section className="space-y-16">
@@ -127,7 +127,7 @@ function Service({ lang, isReverseImagePosition = false, slug }: ServiceProps) {
           width={660}
           height={400}
         />
-        <div className="absolute -bottom-1 left-1 rounded-md">
+        <div className="absolute -bottom-1 right-1 rounded-md">
           <Image
             className="h-20 w-20"
             src={imageIconUrl}
@@ -185,10 +185,10 @@ function Hero({ lang }: { lang: SupportedLanguage }) {
       id="hero"
       className="bg-services-hero text-hyperjump-black relative h-[415px] w-full px-4 text-center">
       <div className="mx-auto flex h-full max-w-3xl flex-col items-center justify-center pt-16">
-        <h1 className="text-hyperjump-black mb-4 text-2xl font-medium sm:text-4xl md:text-[40px]">
+        <h1 className="text-hyperjump-black mb-4 font-medium text-4xl md:text-[40px]">
           {servicesHeroHeading(lang)}
         </h1>
-        <p className="text-hyperjump-gray text-base sm:text-lg">
+        <p className="text-hyperjump-gray text-lg">
           {servicesHeroDesc(lang)}
         </p>
       </div>

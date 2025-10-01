@@ -60,7 +60,7 @@ export default async function Services({ params }: ServicesProps) {
   return (
     <main className="bg-white">
       <Hero lang={lang} />
-      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 py-12 text-center md:px-20 xl:px-0">
+      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 py-8 text-center md:px-20 xl:px-0">
         <h3 className="text-hyperjump-black mb-14 text-[34px] font-medium md:text-[40px]">
           {servicesHeading(lang)}
         </h3>
@@ -75,7 +75,7 @@ export default async function Services({ params }: ServicesProps) {
           ))}
         </section>
 
-        <section className="relative w-full pt-16">
+        <section className="relative w-full pt-8">
           <h3 className="text-hyperjump-black mb-4 text-[28px] font-medium md:text-4xl">
             {servicesPartnersHeading(lang)}
           </h3>

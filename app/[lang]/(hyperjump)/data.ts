@@ -364,11 +364,11 @@ type Content = {
     backgroundImageUrl: string;
     clients: { imageUrl: string; name: string }[];
   } & ListSection;
-  ourProduct?: {
+  ourProduct: {
     slug: string;
     title: string;
     description: string;
-    basePath?: string;
+    basePath: string;
   }[];
 };
 
@@ -628,7 +628,8 @@ export function services(lang: SupportedLanguage): Service[] {
             erpWhyUsReasons1(lang),
             erpWhyUsReasons2(lang)
           ]
-        }
+        },
+        ourProduct: []
       },
       description: erpDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/icon.svg`,
@@ -766,7 +767,8 @@ export function services(lang: SupportedLanguage): Service[] {
             ctoaasWhyUsReasons2(lang),
             ctoaasWhyUsReasons3(lang)
           ]
-        }
+        },
+        ourProduct: []
       },
       description: ctoaasDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.CtoAsAService}/icon.svg`,
@@ -886,7 +888,8 @@ export function services(lang: SupportedLanguage): Service[] {
             saasWhyUsReasons1(lang),
             saasWhyUsReasons2(lang)
           ]
-        }
+        },
+        ourProduct: []
       },
       description: saasDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.SoftwareAsAService}/icon.svg`,
@@ -1015,7 +1018,8 @@ export function services(lang: SupportedLanguage): Service[] {
             tddWhyUsReasons1(lang),
             tddWhyUsReasons2(lang)
           ]
-        }
+        },
+        ourProduct: []
       },
       description: tddDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.TechDueDiligence}/icon.svg`,

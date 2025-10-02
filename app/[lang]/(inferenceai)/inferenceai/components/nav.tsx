@@ -51,7 +51,7 @@ export default function Nav({ lang, menus }: NavProps) {
           <div className="flex flex-row space-x-2 md:space-x-4">
             <Link href={`/${lang}`} className="flex items-center">
               <Image
-                src="/images/hyperjump-white.png"
+                src="/images/hyperjump-white-colored.png"
                 alt="Hyperjump Logo"
                 width={188}
                 height={32}
@@ -61,7 +61,7 @@ export default function Nav({ lang, menus }: NavProps) {
                 )}
               />
               <Image
-                src="/images/hyperjump-black.png"
+                src="/images/hyperjump-colored.png"
                 alt="Hyperjump Logo"
                 width={188}
                 height={32}

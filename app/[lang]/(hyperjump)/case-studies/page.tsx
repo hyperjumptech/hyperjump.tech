@@ -51,8 +51,8 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
   return (
     <main className="bg-white">
       <Hero lang={lang} />
-      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 text-center md:px-20 md:py-8 xl:px-0">
-        <h3 className="text-hyperjump-black w-72 text-[34px] font-medium md:w-full md:text-[40px]">
+      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 pb-6 text-center md:px-20 xl:px-0">
+        <h3 className="text-hyperjump-black w-72 text-[28px] font-medium md:w-full md:text-[40px]">
           {caseStudyExplore(lang)}
         </h3>
         <CaseStudies lang={lang} />
@@ -65,7 +65,7 @@ function Hero({ lang }: { lang: SupportedLanguage }) {
   return (
     <section
       id="hero"
-      className="bg-services-hero text-hyperjump-black relative h-[415px] w-full px-4 text-center">
+      className="bg-services-hero text-hyperjump-black relative h-[451px] w-full px-4 text-center">
       <div className="mx-auto flex h-full max-w-3xl flex-col items-center justify-center pt-12">
         <div
           className="text-hyperjump-black mb-4 text-3xl font-medium sm:text-4xl md:text-[40px]"
@@ -83,7 +83,7 @@ function Hero({ lang }: { lang: SupportedLanguage }) {
 
 function CaseStudies({ lang }: { lang: SupportedLanguage }) {
   return (
-    <section className="bg-white py-10">
+    <section className="bg-white pt-5 pb-10">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-6 md:grid-cols-2">
           {getCaseStudies(lang).map(

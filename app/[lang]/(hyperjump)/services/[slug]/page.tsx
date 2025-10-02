@@ -15,7 +15,10 @@ import {
   servicesWhatYouGet,
   servicesWhyHyperjump,
   servicesCaseStudies,
-  caseStudyButton
+  caseStudyButton,
+  aiLearnMore,
+  aiOurProductsTitle,
+  aiOurProductsDescription
 } from "@/locales/.generated/server";
 
 import type { CaseStudy, Service } from "../../data";
@@ -83,6 +86,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
       <About service={service} />
       <WhoIsIt lang={lang} service={service} />
       <WhatWeDeliver lang={lang} service={service} />
+      <OurProduct lang={lang} service={service} />
       <HowItWorks lang={lang} service={service} />
       <WhatYouGet lang={lang} service={service} />
       <WhyUs lang={lang} service={service} />
@@ -213,8 +217,8 @@ function WhatWeDeliver({ lang, service }: LangProps & ServiceProps) {
   } = service;
 
   return (
-    <section className="bg-white py-16">
-      <div className="text-hyperjump-black xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-4 py-8 text-center md:px-20 md:py-16 xl:px-0">
+    <section className="bg-white py-8 md:py-16">
+      <div className="text-hyperjump-black xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-4 text-center md:px-20 xl:px-0">
         <h3 className="mb-5 text-[34px] font-medium md:text-4xl">
           {servicesWhatWeDeliver(lang)}
         </h3>
@@ -254,7 +258,7 @@ function HowItWorks({ lang, service }: LangProps & ServiceProps) {
   } = service;
 
   return (
-    <section className="bg-[#F6F8F9] py-16">
+    <section className="bg-[#F6F8F9 py-8 md:py-16">
       <div className="text-hyperjump-black xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-col items-center px-4 text-center">
         <h2 className="mb-5 text-[34px] font-medium md:text-4xl">
           {servicesHowItWorks(lang)}
@@ -435,6 +439,52 @@ function Recommendation({ caseStudies, lang }: RecommendationProps) {
                   className="text-hyperjump-blue hover:bg-hyperjump-blue mt-4 w-full border-gray-300 hover:text-white">
                   <Link href={`/${lang}/${basePath}/${slug}`}>
                     {caseStudyButton(lang)}
+                  </Link>
+                </Button>
+              </div>
+            )
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OurProduct({ lang, service }: LangProps & ServiceProps) {
+  if (!service.content?.ourProduct || service.content.ourProduct.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="flex bg-white px-4 py-8 md:px-20 md:py-16">
+      <div className="mx-auto flex w-full flex-col items-center md:max-w-4xl">
+        <h2 className="text-hyperjump-black max-w-3/4 text-center text-[34px] font-medium md:text-[40px]">
+          {aiOurProductsTitle(lang)}
+        </h2>
+        <p
+          className="text-hyperjump-gray mt-2 mb-10 text-center md:max-w-xl"
+          dangerouslySetInnerHTML={{ __html: aiOurProductsDescription(lang) }}
+        />
+        <div className="mt-5 grid gap-6 md:grid-cols-2">
+          {service.content.ourProduct.map(
+            ({ description, slug, title, basePath }) => (
+              <div
+                key={slug}
+                className="flex h-full flex-col justify-between rounded-xl border border-gray-200 p-6 text-left shadow-sm transition duration-300 hover:shadow-md">
+                <div>
+                  <h3 className="text-hyperjump-black mb-2 text-lg font-semibold md:text-[22px]">
+                    {title}
+                  </h3>
+                  <p className="text-hyperjump-gray mb-4 text-sm md:text-base">
+                    {description}
+                  </p>
+                </div>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="text-hyperjump-blue hover:bg-hyperjump-blue mt-4 w-full border-gray-300 hover:text-white">
+                  <Link href={`/${lang}/${basePath}/${slug}`}>
+                    {aiLearnMore(lang)}
                   </Link>
                 </Button>
               </div>

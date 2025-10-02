@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Deploy Asisten AI Enterprise Anda Sendiri",
-    "desc": "Deploy asisten pribadi seperti ChatGPT yang mendukung model Anda sendiri, baik proprietary maupun open source, di lingkungan cloud maupun on-premises. Nikmati kontrol tingkat enterprise atas data, keamanan, dan biaya dengan opsi integrasi untuk LLM open-source teratas seperti GPT-5, Claude Sonnet 4, Qwen3, dan Gemini 2.5 Pro."
+    "desc": "Deploy asisten pribadi seperti ChatGPT yang mendukung model Anda sendiri, baik proprietary maupun open source, di lingkungan cloud maupun on-premises."
   },
   "key_features": {
     "heading": "Asisten AI yang Fleksibel, Terintegrasi, dan Aman",

@@ -261,12 +261,11 @@ import {
   tddWhyUsReasons1,
   tddWhyUsReasons2,
   aiWhoIsItTarget2,
-  mediaPulseHeroHeading,
-  inferenceaiCaseStudies2Category,
   startGptHeroDesc,
   aiWhatWeDeliverCard0Title,
   aiWhatWeDeliverCard1Text,
-  aiWhatWeDeliverCard2Text
+  aiWhatWeDeliverCard2Text,
+  mediaPulseHeroDesc
 } from "@/locales/.generated/server";
 
 export function getCaseStudies(lang: SupportedLanguage) {
@@ -365,6 +364,12 @@ type Content = {
     backgroundImageUrl: string;
     clients: { imageUrl: string; name: string }[];
   } & ListSection;
+  ourProduct?: {
+    slug: string;
+    title: string;
+    description: string;
+    basePath?: string;
+  }[];
 };
 
 export enum ServiceSlug {
@@ -496,7 +501,21 @@ export function services(lang: SupportedLanguage): Service[] {
             aiWhyUsReasons1(lang),
             aiWhyUsReasons2(lang)
           ]
-        }
+        },
+        ourProduct: [
+          {
+            slug: "startgpt",
+            title: "StartGPT",
+            description: startGptHeroDesc(lang),
+            basePath: "inferenceai"
+          },
+          {
+            slug: "media-pulse",
+            title: "MediaPulse",
+            description: mediaPulseHeroDesc(lang),
+            basePath: "inferenceai"
+          }
+        ]
       },
       description: aiDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.InferenceAI}/icon.svg`,
@@ -505,22 +524,7 @@ export function services(lang: SupportedLanguage): Service[] {
       shortDescription: aiHeroDesc(lang),
       slug: ServiceSlug.InferenceAI,
       title: aiHeroHeading(lang),
-      caseStudies: [
-        {
-          slug: "startgpt",
-          title: "StartGPT",
-          description: startGptHeroDesc(lang),
-          category: inferenceaiCaseStudies2Category(lang),
-          basePath: "inferenceai"
-        },
-        {
-          slug: "media-pulse",
-          title: "MediaPulse",
-          description: mediaPulseHeroHeading(lang),
-          category: inferenceaiCaseStudies2Category(lang),
-          basePath: "inferenceai"
-        }
-      ]
+      caseStudies: []
     },
     {
       bestFor: erpBestFor(lang),

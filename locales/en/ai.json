@@ -97,5 +97,10 @@
       "1": "We don't just advise. We build, integrate, and operationalize.",
       "2": "Your team will eventually own and evolve the agent."
     }
+  },
+  "learn_more": "Learn More",
+  "our_products": {
+    "title": "Our Products",
+    "description": "Innovative products tailored to support your goals and scale with your needs."
   }
 }

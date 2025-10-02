@@ -21,16 +21,10 @@ import {
   type SupportedLanguage,
   supportedLanguages
 } from "@/locales/.generated/types";
-import BlackLogo from "@/public/images/hyperjump-black.png";
 import ColoredLogo from "@/public/images/hyperjump-colored.png";
-import IconOnlyLogo from "@/public/images/hyperjump-icon-only.png";
-import SVGLogo from "@/public/images/hyperjump-svg.svg";
-import WhiteLogo from "@/public/images/hyperjump-white.png";
-
-import ClientOnly from "../../../components/client-only";
+import WhiteColoredLogo from "@/public/images/hyperjump-white-colored.png";
 import StickyNavigationMain from "../../../components/sticky-nav-main";
 import { data } from "../jobs/data";
-import LogoWithContextMenu from "./logo-with-context-menu";
 
 const SOLID_NAV_PATHS = [
   "/case-studies",
@@ -196,7 +190,7 @@ type LogoProps = {
 };
 
 function Logo({ isOpen, isTransparent }: LogoProps) {
-  const logos = isTransparent ? [ColoredLogo, WhiteLogo] : [ColoredLogo];
+  const logos = isTransparent ? [ColoredLogo, WhiteColoredLogo] : [ColoredLogo];
 
   return logos.map((image) => {
     const { src } = image;

@@ -32,9 +32,9 @@ Discover how we successfully transform challenges into opportunities with real-w
 
 Explore our open-source projects and see how we innovate, collaborate, and build solutions that drive real impact. Join our community and contribute to cutting-edge technology.
 
-- [Grule](https://hyperjump.tech/enhttps://github.com/hyperjumptech/grule-rule-engine): Grule is a powerful open-source rule engine for Go that lets you define business rules in a human-readable format—making your app more flexible and maintainable.
-- [Monika](https://hyperjump.tech/enhttps://github.com/hyperjumptech/monika): Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.
-- [WhatsApp Chatbot Connector](https://hyperjump.tech/enhttps://github.com/hyperjumptech/whatsapp-chatbot-connector): WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa.
+- [Grule](https://github.com/hyperjumptech/grule-rule-engine): Grule is a powerful open-source rule engine for Go that lets you define business rules in a human-readable format—making your app more flexible and maintainable.
+- [Monika](https://github.com/hyperjumptech/monika): Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.
+- [WhatsApp Chatbot Connector](https://github.com/hyperjumptech/whatsapp-chatbot-connector): WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa.
 
 ## Frequently asked questions
 

@@ -313,6 +313,7 @@ export function getProject(lang: SupportedLanguage) {
       description: mainProject0Text(lang),
       image: "/images/open-source/grule.svg",
       url: "https://github.com/hyperjumptech/grule-rule-engine",
+      repoUrl: "https://github.com/hyperjumptech/grule-rule-engine",
       button: true,
       repo: "grule-rule-engine"
     },
@@ -320,7 +321,8 @@ export function getProject(lang: SupportedLanguage) {
       title: mainProject1Title(lang),
       description: mainProject1Text(lang),
       image: "/images/open-source/monika.svg",
-      url: "https://github.com/hyperjumptech/monika",
+      url: "https://monika.hyperjump.tech/",
+      repoUrl: "https://github.com/hyperjumptech/monika",
       button: true,
       repo: "monika"
     },
@@ -330,6 +332,7 @@ export function getProject(lang: SupportedLanguage) {
 
       image: "/images/open-source/whatsapp-chatbot-connector.svg",
       url: "https://github.com/hyperjumptech/whatsapp-chatbot-connector",
+      repoUrl: "https://github.com/hyperjumptech/whatsapp-chatbot-connector",
       button: true,
       repo: "whatsapp-chatbot-connector"
     }

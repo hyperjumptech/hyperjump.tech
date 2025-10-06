@@ -502,20 +502,7 @@ export function services(lang: SupportedLanguage): Service[] {
             aiWhyUsReasons2(lang)
           ]
         },
-        ourProduct: [
-          {
-            slug: "startgpt",
-            title: "StartGPT",
-            description: startGptHeroDesc(lang),
-            basePath: "inferenceai"
-          },
-          {
-            slug: "media-pulse",
-            title: "MediaPulse",
-            description: mediaPulseHeroDesc(lang),
-            basePath: "inferenceai"
-          }
-        ]
+        ourProduct: []
       },
       description: aiDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.InferenceAI}/icon.svg`,

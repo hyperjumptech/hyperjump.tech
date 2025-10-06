@@ -85,6 +85,7 @@ export type Item = {
   repo?: string;
   urlCaseStudy?: string;
   urlSeeMore?: string;
+  repoUrl?: string;
 };
 
 export function GridItems({
@@ -185,7 +186,8 @@ export function GridItems({
           icon,
           button,
           urlCaseStudy,
-          urlSeeMore
+          urlSeeMore,
+          repoUrl
         } = item;
         const stats = repoStats[idx] || { stars: 0, forks: 0 };
         const isReactIcon = isValidElement(icon);
@@ -231,9 +233,7 @@ export function GridItems({
                 </p>
               )}
               {url ? (
-                <Link
-                  href={`/${lang}${url}`}
-                  className="transition hover:underline">
+                <Link href={url} className="transition hover:underline">
                   <CardTitle
                     className={cn(
                       "text-xl font-semibold md:text-[22px]",
@@ -276,13 +276,16 @@ export function GridItems({
                 </Button>
               )}
 
-              {url && button ? (
+              {repoUrl && button ? (
                 <div className="mx-auto flex w-full flex-row gap-2 md:flex-col md:gap-4 xl:flex-row xl:justify-between">
                   <Button
                     asChild
                     variant="outline"
                     className="border-hyperjump-blue text-hyperjump-blue hover:bg-hyperjump-blue w-full hover:text-white">
-                    <Link href={url} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer">
                       <Star className="h-4 w-4" />
                       <span>Star ({stats.stars})</span>
                     </Link>
@@ -293,7 +296,7 @@ export function GridItems({
                     variant="outline"
                     className="border-hyperjump-blue text-hyperjump-blue hover:bg-hyperjump-blue w-full hover:text-white">
                     <Link
-                      href={`${url}/fork`}
+                      href={`${repoUrl}/fork`}
                       target="_blank"
                       rel="noopener noreferrer">
                       <GitFork className="h-4 w-4" />

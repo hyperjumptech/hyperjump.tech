@@ -1,30 +1,29 @@
 import { test, expect, Page } from "@playwright/test";
 
-const BASE_URL = "https://hyperjump.tech/en";
-
 test.describe("Navigation & Links", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto(BASE_URL);
+    await page.goto("/");
   });
 
-  const navLinks: { name: string; expected: string }[] = [
-    { name: "Our Services", expected: "/en/services" },
-    { name: "Case Studies", expected: "/en/case-studies" },
-    { name: "Open Source", expected: "/en#open-source" },
-    { name: "FAQ", expected: "/en#faqs" }
+  const navLinks: { name: string; expected: RegExp }[] = [
+    { name: "Our Services", expected: /\/(en|id)\/services(\/|$)/ },
+    { name: "Case Studies", expected: /\/(en|id)\/case-studies(\/|$)/ },
+    { name: "Open Source", expected: /#open-source/ },
+    { name: "FAQ", expected: /#faqs/ }
   ];
 
   for (const { name, expected } of navLinks) {
     test(`Navbar: should navigate correctly when clicking "${name}"`, async ({
       page
     }) => {
-      const link = page.getByRole("link", { name, exact: false });
+      const nav = page.getByRole("navigation");
+      const link = nav.getByRole("link", { name, exact: false });
       await expect(link).toBeVisible();
 
       await link.first().click();
       await page.waitForTimeout(3000);
 
-      await expect(page).toHaveURL(new RegExp(expected));
+      await expect(page).toHaveURL(expected);
     });
   }
 

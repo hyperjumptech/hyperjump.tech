@@ -26,7 +26,7 @@ export function Location({ lang, location }: LocationProps) {
   const { address, duns, email, imageUrl, mapsUrl, title } = location;
 
   return (
-    <GridItemsContainer>
+    <GridItemsContainer id="location">
       <GridItemsTitle title={mainOurLocation(lang)} layout="vertical" />
       <div className="mt-8 mb-6 grid w-full grid-cols-1 overflow-hidden rounded shadow-lg lg:grid-cols-4">
         <div className="relative col-span-1 overflow-hidden p-6 text-white">

@@ -16,6 +16,7 @@
     "serve:out": "npx --yes serve@latest -s out -l 3000",
     "test:e2e": "playwright test -c playwright.config.ts",
     "test:e2e:headed": "playwright test --headed -c playwright.config.ts",
+    "test:e2e:ui": "playwright test --ui -c playwright.config.ts",
     "test:e2e:report": "playwright show-report"
   },
   "dependencies": {

@@ -1,16 +1,14 @@
-import { test, expect, Page } from "@playwright/test";
-
-const BASE_URL = "https://hyperjump.tech/en";
+import { test, expect } from "@playwright/test";
 
 test.describe("UI Regression Suite", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto(BASE_URL);
+    await page.goto("/");
   });
 
   test("Branding: Company logo should be visible in header and footer", async ({
     page
   }) => {
-    await page.goto("https://hyperjump.tech/en");
+    await page.goto("/");
 
     const headerLogo = page
       .getByRole("link", { name: "Hyperjump Logo" })
@@ -45,42 +43,6 @@ test.describe("UI Regression Suite", () => {
     });
   });
 
-  //  Images
-  // test("Images: all images should load correctly", async ({ page }) => {
-  //   const images = page.locator("img");
-  //   const count = await images.count();
-
-  //   for (let i = 0; i < count; i++) {
-  //     const img = images.nth(i);
-  //     const src = await img.getAttribute("src");
-  //     if (!src) continue;
-
-  //     const loaded = await img.evaluate(
-  //       (img: HTMLImageElement) => img.complete && img.naturalWidth > 0
-  //     );
-  //     expect(loaded, `Image failed to load: ${src}`).toBeTruthy();
-  //   }
-  // });
-
-  // Text & Content
-  // test("Text & Content: key elements and section titles should be visible", async ({
-  //   page
-  // }) => {
-  //   const expectedTexts = [
-  //     "Our Services",
-  //     "Case Studies",
-  //     "Open Source",
-  //     "FAQ",
-  //     "Empowering Your Digital Transformation",
-  //     "Contact"
-  //   ];
-
-  //   for (const text of expectedTexts) {
-  //     await expect(page.getByText(text, { exact: false })).toBeVisible();
-  //   }
-  // });
-
-  // SEO & Metadata
   test("SEO: meta title and description should exist and match expected content", async ({
     page
   }) => {
@@ -93,7 +55,7 @@ test.describe("UI Regression Suite", () => {
     expect(description?.length).toBeGreaterThan(20);
   });
 
-  // 7. Test Structure - Section Visibility
+  // Test Structure - Section Visibility
   const sections = [
     { name: "Hero Section", selector: "section:has(h1)" },
     { name: "Services", selector: "#services, section:has-text('Services')" },
@@ -123,105 +85,6 @@ test.describe("UI Regression Suite", () => {
     });
   }
 
-  // async function scrollToAndScreenshot(
-  //   page: Page,
-  //   selector: string,
-  //   sectionName: string
-  // ): Promise<void> {
-  //   const element = page.locator(selector).first();
-  //   await element.scrollIntoViewIfNeeded();
-  //   await page.waitForTimeout(800);
-  //   await expect(element).toBeVisible();
-
-  //   await page.screenshot({
-  //     path: `screenshots/sections-${sectionName.toLowerCase().replace(/\s+/g, "-")}.png`,
-  //     fullPage: false
-  //   });
-  // }
-
-  // test.describe("UI Sections Visibility & Content", () => {
-  //   test.beforeEach(async ({ page }) => {
-  //     await page.goto(BASE_URL, { waitUntil: "domcontentloaded" });
-  //   });
-
-  //   test.describe("Hero Section", () => {
-  //     test.beforeEach(async ({ page }) => {
-  //       await page.goto(BASE_URL);
-  //     });
-
-  //     test("should display hero section with heading, description, and client logos", async ({
-  //       page
-  //     }) => {
-
-  //       const heroSection = page.locator("#hero");
-  //       await heroSection.scrollIntoViewIfNeeded();
-  //       await expect(heroSection).toBeVisible();
-
-  //       const backgroundImage = heroSection.locator(
-  //         'img[alt="Hero background"]'
-  //       );
-  //       await expect(backgroundImage).toBeVisible();
-
-  //       const heading = heroSection.locator("h1");
-  //       await expect(heading).toBeVisible();
-  //       await expect(await heading.textContent()).not.toBeNull();
-
-  //       const description = heroSection.locator("p");
-  //       await expect(description).toBeVisible();
-  //       await expect(await description.textContent()).not.toBeNull();
-
-  //       const clients = heroSection.locator("div >> nth=2 img"); // atau bisa pakai selector lebih spesifik jika ada class di Clients
-  //       await expect(clients.first()).toBeVisible();
-  //     });
-  //   });
-
-  //   test("Services: should display title and multiple service cards", async ({
-  //     page
-  //   }) => {
-  //     const servicesSelector = "#services, section:has-text('Services')";
-  //     await scrollToAndScreenshot(page, servicesSelector, "Services");
-
-  //     const title = page.locator(
-  //       `${servicesSelector} h2, ${servicesSelector} h3`
-  //     );
-  //     await expect(title).toBeVisible();
-  //   });
-
-  //   test("Case Studies: should display section and at least one case study item", async ({
-  //     page
-  //   }) => {
-  //     const caseStudiesSelector =
-  //       "#case-studies, section:has-text('Case Studies')";
-  //     await scrollToAndScreenshot(page, caseStudiesSelector, "Case Studies");
-
-  //     const items = page.locator(
-  //       `${caseStudiesSelector} a, ${caseStudiesSelector} article, ${caseStudiesSelector} div:has(img)`
-  //     );
-  //     await expect(items.first()).toBeVisible();
-  //   });
-
-  //   test("Open Source: should be visible and show repository/project links", async ({
-  //     page
-  //   }) => {
-  //     const openSourceSelector =
-  //       "#open-source, section:has-text('Open Source')";
-  //     await scrollToAndScreenshot(page, openSourceSelector, "Open Source");
-
-  //     const repos = page.locator(`${openSourceSelector} a[href*='github.com']`);
-  //     await expect(repos.first()).toBeVisible();
-  //   });
-
-  //   test("Footer: should be visible and contain company info", async ({
-  //     page
-  //   }) => {
-  //     const footerSelector = "footer";
-  //     await scrollToAndScreenshot(page, footerSelector, "Footer");
-
-  //     const footerText = page.locator(`${footerSelector} >> text=Hyperjump`);
-  //     await expect(footerText).toBeVisible();
-  //   });
-  // });
-
   //  Responsive Design
   const devices = [
     { name: "Mobile", width: 375, height: 812 },
@@ -240,7 +103,7 @@ test.describe("UI Regression Suite", () => {
         });
         const page = await context.newPage();
 
-        await page.goto(BASE_URL, { waitUntil: "domcontentloaded" });
+        await page.goto("/", { waitUntil: "domcontentloaded" });
 
         const hero = page.locator("#hero");
         const services = page.locator("#services");

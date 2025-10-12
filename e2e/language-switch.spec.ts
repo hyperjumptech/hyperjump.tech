@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Footer - Language Picker", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/");
+    await page.goto("http://localhost:3000");
   });
 
   test("should switch from EN to ID with smooth scroll and visible cursor", async ({

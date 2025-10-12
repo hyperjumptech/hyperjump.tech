@@ -1,51 +1,133 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("UI Regression Suite", () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto("/");
-  });
+const URL = "http://localhost:3000";
 
-  test("Branding: Company logo should be visible in header and footer", async ({
+test.describe("Homepage", () => {
+  test("Branding: should display hyperjump logo correctly in navbar and footer", async ({
     page
   }) => {
-    await page.goto("/");
+    await page.goto(URL);
 
-    const headerLogo = page
+    const navbarLogo = page
       .getByRole("link", { name: "Hyperjump Logo" })
       .first();
-    await expect(headerLogo).toBeVisible();
+    await expect(navbarLogo).toBeVisible();
+    await navbarLogo.click();
+    await expect(page).toHaveURL(/\/(en|id)?\/?$/);
 
-    await page.evaluate(async () => {
-      await new Promise<void>((resolve) => {
-        const totalHeight = document.body.scrollHeight;
-        let currentScroll = 0;
-        const step = 200;
-        const interval = setInterval(() => {
-          window.scrollBy(0, step);
-          currentScroll += step;
-          if (currentScroll >= totalHeight) {
-            clearInterval(interval);
-            resolve();
-          }
-        }, 40);
-      });
-    });
-
+    // Footer
     const footerLogo = page
       .getByRole("contentinfo")
       .getByRole("link", { name: "Hyperjump Logo" });
-
     await expect(footerLogo).toBeVisible();
+    await footerLogo.click();
+    await expect(page).toHaveURL(/\/(en|id)?\/?$/);
+  });
 
-    await page.screenshot({
-      path: "screenshots/branding-logo-header-footer.png",
-      fullPage: true
+  test("Content: should validate text accuracy and proper localization in all sections", async ({
+    page
+  }) => {
+    await page.goto(URL);
+
+    // === Hero Section ===
+    const heroHeading = page.getByRole("heading", {
+      name: "Your partner in building"
     });
+    await expect(heroHeading).toBeVisible();
+    await expect(page.getByText("We help organizations deliver")).toBeVisible();
+
+    await page.waitForTimeout(1000);
+    await page.locator(".relative.px-8").click();
+
+    // Verify partner logos
+    const partners = [
+      "Amman Mineral Internasional",
+      "Bank Tabungan Negara",
+      "Eka Mas Republik",
+      "Sinar Mas Digital Day",
+      "Smartfren"
+    ];
+
+    for (const partner of partners) {
+      const logo = page.getByRole("img", { name: partner });
+      await expect(logo).toBeVisible();
+    }
+
+    // === Services Section ===
+    await page.locator("#services").click();
+    await page.waitForTimeout(1000);
+
+    const servicesHeading = page.getByRole("heading", {
+      name: "Services",
+      exact: true
+    });
+    await expect(servicesHeading).toBeVisible();
+    await expect(page.getByText("We offer expert technology")).toBeVisible();
+
+    // === Case Studies Section ===
+    await page.locator("#case-studies").click();
+    await page.waitForTimeout(200);
+
+    const caseHeading = page.getByRole("heading", { name: "Case Studies" });
+    await expect(caseHeading).toBeVisible();
+    await expect(page.getByText("Discover how we successfully")).toBeVisible();
+
+    // === Case Studies CTA ===
+    await page.waitForTimeout(1000);
+    const caseCtaHeading = page.getByRole("heading", {
+      name: "Solve What's Holding You Back"
+    });
+    await expect(caseCtaHeading).toBeVisible();
+    await expect(page.getByText("Whether you're dealing with")).toBeVisible();
+
+    // === Open Source Section ===
+    await page.locator("#open-source").scrollIntoViewIfNeeded();
+    const byRole = page.getByRole("heading", { name: "Open Source Product" });
+
+    try {
+      await expect(byRole).toBeVisible({ timeout: 3000 });
+    } catch {
+      const cssHeading = page
+        .locator(
+          'h1:has-text("Open Source Product"), h2:has-text("Open Source Product"), h3:has-text("Open Source Product")'
+        )
+        .first();
+      await cssHeading.scrollIntoViewIfNeeded();
+      await expect(cssHeading).toBeVisible({ timeout: 10000 });
+    }
+
+    // === FAQs Section ===
+    await page.locator("#faqs").click();
+    await page.waitForTimeout(1000);
+
+    const faqHeading = page.getByRole("heading", {
+      name: "Frequently asked questions"
+    });
+    await expect(faqHeading).toBeVisible();
+    await expect(page.getByText("Find answers to commonly")).toBeVisible();
+
+    // === Location Section ===
+    await page.locator("#location").click();
+    const locationHeading = page.getByRole("heading", { name: "Our Location" });
+    await expect(locationHeading).toBeVisible();
+
+    await expect(
+      page.getByRole("heading", { name: "D.Lab Building (6th floor)" })
+    ).toBeVisible();
+    await expect(page.getByText("Jl. Riau No. 1, Gondangdia,")).toBeVisible();
+    await expect(page.getByText("Jakarta Pusat -")).toBeVisible();
+    await expect(page.getByText("Indonesia", { exact: true })).toBeVisible();
+    await expect(
+      page.getByText("Email: solution@hyperjump.tech")
+    ).toBeVisible();
+    await expect(page.getByText(/D&B D-U-N-S:/)).toBeVisible();
   });
 
   test("SEO: meta title and description should exist and match expected content", async ({
     page
   }) => {
+    await page.goto(URL);
+
     const title = await page.title();
     const description = await page
       .locator('meta[name="description"]')
@@ -55,35 +137,114 @@ test.describe("UI Regression Suite", () => {
     expect(description?.length).toBeGreaterThan(20);
   });
 
-  // Test Structure - Section Visibility
-  const sections = [
-    { name: "Hero Section", selector: "section:has(h1)" },
-    { name: "Services", selector: "#services, section:has-text('Services')" },
-    {
-      name: "Case Studies",
-      selector: "#case-studies, section:has-text('Case Studies')"
-    },
-    {
-      name: "Open Source Product",
-      selector: "#open-source, section:has-text('Open Source Product')"
-    },
-    {
-      name: "FAQ",
-      selector: "#faqs, section:has-text('Frequently asked questions')"
-    },
-    {
-      name: "Our Location",
-      selector: "#location, section:has-text('Our Location')"
-    },
-    { name: "Footer", selector: "footer" }
-  ];
+  // Test Structure / UI Sections
+  test("Hero Section: should display hero title, subtitle, and CTA button correctly", async ({
+    page
+  }) => {
+    await page.goto(URL);
 
-  for (const { name, selector } of sections) {
-    test(`${name}: should be visible and rendered`, async ({ page }) => {
-      const el = page.locator(selector).first();
-      await expect(el).toBeVisible();
+    // Hero title and subtitle
+    const heroHeading = page.getByRole("heading", {
+      name: "Your partner in building"
     });
-  }
+    await expect(heroHeading).toBeVisible();
+
+    const heroSubtitle = page.getByText("We help organizations deliver");
+    await expect(heroSubtitle).toBeVisible();
+
+    // Partner logos
+    const partnerLogos = [
+      "Amman Mineral Internasional",
+      "Bank Tabungan Negara",
+      "Eka Mas Republik",
+      "Sinar Mas Digital Day",
+      "Smartfren"
+    ];
+
+    for (const name of partnerLogos) {
+      const logo = page.getByRole("img", { name });
+      await expect(logo).toBeVisible();
+    }
+  });
+
+  test("Services Section: should display all service cards and links correctly", async ({
+    page
+  }) => {
+    await page.goto(URL);
+
+    const servicesHeading = page.getByRole("heading", {
+      name: "Services",
+      exact: true
+    });
+    await expect(servicesHeading).toBeVisible();
+    await expect(page.getByText("We offer expert technology")).toBeVisible();
+
+    // Service cards
+    const services = [
+      { title: "Inference AI", desc: "Inference AIDesign, develop," },
+      { title: "ERP Implementation", desc: "ERP ImplementationStreamline" },
+      { title: "CTO-as-a-Service", desc: "CTO-as-a-ServiceFinding," },
+      { title: "Software as a Service", desc: "Software as a ServiceDeploy" },
+      { title: "Tech Due Diligence", desc: "Tech Due DiligenceVerify and" }
+    ];
+
+    for (const s of services) {
+      await expect(page.getByText(s.desc)).toBeVisible();
+      await expect(page.getByRole("img", { name: s.title })).toBeVisible();
+      await expect(page.getByText(s.title, { exact: true })).toBeVisible();
+    }
+
+    // View more link
+    const viewMore = page
+      .locator("#services")
+      .getByRole("link", { name: "View More" });
+    await expect(viewMore).toBeVisible();
+    await expect(viewMore).toHaveAttribute("href", /services/i);
+  });
+
+  test("Case Studies Section: should display case study items and links correctly", async ({
+    page
+  }) => {
+    await page.goto(URL);
+
+    await page.locator("#case-studies").click();
+
+    const caseHeading = page.getByRole("heading", { name: "Case Studies" });
+    await expect(caseHeading).toBeVisible();
+    await expect(page.getByText("Discover how we successfully")).toBeVisible();
+
+    await expect(page.getByText("Transforming a Fisheries Tech")).toBeVisible();
+    await expect(page.getByText("Elevating a Media-Tech")).toBeVisible();
+  });
+
+  test("FAQ Section: should toggle FAQ items correctly on click", async ({
+    page
+  }) => {
+    await page.goto(URL);
+
+    await page.locator("#faqs").click();
+
+    const faqHeading = page.getByRole("heading", {
+      name: "Frequently asked questions"
+    });
+    await expect(faqHeading).toBeVisible();
+    await expect(page.getByText("Find answers to commonly")).toBeVisible();
+
+    const faqQuestions = [
+      "What is CTO as a Service (",
+      "How do you approach ERP",
+      "What does your tech due",
+      "Why should we choose your"
+    ];
+
+    for (const question of faqQuestions) {
+      const btn = page.getByRole("button", { name: question });
+      await expect(btn).toBeVisible();
+      await btn.click();
+    }
+
+    await expect(page.getByText("We offer specialized")).toBeVisible();
+  });
 
   //  Responsive Design
   const devices = [
@@ -103,7 +264,9 @@ test.describe("UI Regression Suite", () => {
         });
         const page = await context.newPage();
 
-        await page.goto("/", { waitUntil: "domcontentloaded" });
+        await page.goto(URL, {
+          waitUntil: "domcontentloaded"
+        });
 
         const hero = page.locator("#hero");
         const services = page.locator("#services");

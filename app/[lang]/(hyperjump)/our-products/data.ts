@@ -19,20 +19,17 @@ export function getCommercialProduct(lang: SupportedLanguage) {
     {
       title: ourProductsCommercialData1Title(lang),
       description: ourProductsCommercialData1Text(lang),
-      image: "/images/our-products/startGPT.svg",
-      urlLearnMore: `/${lang}/inferenceai/startgpt`
+      image: "/images/our-products/startGPT.svg"
     },
     {
       title: ourProductsCommercialData2Title(lang),
       description: ourProductsCommercialData2Text(lang),
-      image: "/images/our-products/media-pulse.svg",
-      urlLearnMore: `/${lang}/inferenceai/media-pulse`
+      image: "/images/our-products/media-pulse.svg"
     },
     {
       title: ourProductsCommercialData3Title(lang),
       description: ourProductsCommercialData3Text(lang),
-      image: "/images/open-source/monika.svg",
-      urlLearnMore: "https://monika.hyperjump.tech/"
+      image: "/images/open-source/monika.svg"
     }
   ];
 }

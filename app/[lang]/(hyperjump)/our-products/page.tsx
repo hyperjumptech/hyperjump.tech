@@ -93,6 +93,7 @@ function ProductCommercial({ lang }: { lang: SupportedLanguage }) {
     <GridItemsContainer id="commercial-product">
       <GridItemsTitle
         layout="vertical"
+        className="-mt-10"
         title={ourProductsCommercialHeading(lang)}
         description={ourProductsCommercialDescription(lang)}
       />

@@ -19,7 +19,8 @@ import { GitFork, Star } from "lucide-react";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   mainCaseStudiesButton,
-  mainSeeMore
+  mainSeeMore,
+  ourProductsLearnMore
 } from "@/locales/.generated/server";
 
 type GridItemsTitleProps = {
@@ -42,7 +43,7 @@ export function GridItemsTitle({
   const isHorizontal = layout === "horizontal";
 
   return !description ? (
-    <h1 className="font-menium text-hyperjump-black my-2 w-full text-center text-4xl leading-tight">
+    <h1 className="font-menium text-hyperjump-black my-2 w-full text-center text-3xl leading-tight md:text-4xl">
       {title}
     </h1>
   ) : (
@@ -56,7 +57,7 @@ export function GridItemsTitle({
       )}>
       <h2
         className={cn(
-          "text-hyperjump-black text-4xl font-medium",
+          "text-hyperjump-black text-3xl font-medium md:text-4xl",
           isHorizontal ? "mb-0 text-left" : "mb-6"
         )}>
         {title}
@@ -85,6 +86,7 @@ export type Item = {
   repo?: string;
   urlCaseStudy?: string;
   urlSeeMore?: string;
+  urlLearnMore?: string;
   repoUrl?: string;
 };
 
@@ -187,6 +189,7 @@ export function GridItems({
           button,
           urlCaseStudy,
           urlSeeMore,
+          urlLearnMore,
           repoUrl
         } = item;
         const stats = repoStats[idx] || { stars: 0, forks: 0 };
@@ -273,6 +276,15 @@ export function GridItems({
                   variant="outline"
                   className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
                   <Link href={urlSeeMore}>{mainSeeMore(lang)}</Link>
+                </Button>
+              )}
+
+              {urlLearnMore && (
+                <Button
+                  asChild
+                  variant="outline"
+                  className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
+                  <Link href={urlLearnMore}>{ourProductsLearnMore(lang)}</Link>
                 </Button>
               )}
 

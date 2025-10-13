@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "heading": "The Hyperjump Product Stack",
+    "desc": "Private AI assistants, real-time media insights, and monitoring tools. Everything your engineering team needs to ship with confidence."
+  },
+  "commercial": {
+    "heading": "Commercial Products",
+    "description": "Innovative products tailored to support your goals and scale with your needs.",
+    "data": {
+      "1": {
+        "title": "StartGPT",
+        "text": "Deploy a private, ChatGPT-like assistant that supports your own model, whether proprietary or our products, in both cloud and on-premises environments."
+      },
+      "2": {
+        "title": "MediaPulse",
+        "text": "MediaPulse is your always-on AI analyst — cutting through market noise to give you clarity, context, and confidence. Stay informed. Stay ahead."
+      },
+      "3": {
+        "title": "Monika",
+        "text": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow."
+      }
+    }
+  },
+  "open_source": {
+    "heading": "Open Source  Products",
+    "description": "Explore our open-source projects and see how we innovate, collaborate, and build solutions that drive real impact. Join our community and contribute to cutting-edge technology.",
+    "data": {
+      "1": {
+        "title": "Monika",
+        "text": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow."
+      },
+      "2": {
+        "title": "Grule",
+        "text": "Grule is a powerful open-source rule engine for Go that lets you define business rules in a human-readable format—making your app more flexible and maintainable."
+      },
+      "3": {
+        "title": "WhatsApp Chatbot Connector",
+        "text": "WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various Al platforms such as Dify and Rasa."
+      }
+    }
+  },
+  "learn_more": "Learn More"
+}

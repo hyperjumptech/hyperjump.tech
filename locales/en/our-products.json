@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "The Hyperjump Product Stack",
-    "desc": "Private AI assistants, real-time media insight, and OSS utilities for monitoring and automation —everything engineering teams need to ship with confidence."
+    "desc": "Private AI assistants, real-time media insights, and monitoring tools. Everything your engineering team needs to ship with confidence."
   },
   "commercial": {
     "heading": "Commercial Products",
@@ -13,7 +13,7 @@
       },
       "2": {
         "title": "MediaPulse",
-        "text": "Track public sentiment, competitors, and brand mentions in real-time. Automated insights to email or WhatsApp."
+        "text": "MediaPulse is your always-on AI analyst — cutting through market noise to give you clarity, context, and confidence. Stay informed. Stay ahead."
       },
       "3": {
         "title": "Monika",

@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Rangkaian Produk Hyperjump",
-    "desc": "Asisten AI pribadi, wawasan media secara real-time, dan utilitas open source untuk pemantauan serta otomatisasi — semua yang dibutuhkan tim engineering untuk berinovasi dengan percaya diri."
+    "desc": "Asisten AI pribadi, wawasan media secara real-time, dan alat pemantauan. Semua yang dibutuhkan tim engineering Anda untuk mengirimkan produk dengan percaya diri."
   },
   "commercial": {
     "heading": "Produk Komersial",
@@ -13,7 +13,7 @@
       },
       "2": {
         "title": "MediaPulse",
-        "text": "Pantau sentimen publik, pesaing, dan sebutan merek secara real-time. Dapatkan insight otomatis melalui email atau WhatsApp."
+        "text": "MediaPulse adalah analis AI Anda yang selalu aktif — memotong kebisingan pasar untuk memberi Anda kejelasan, konteks, dan kepercayaan diri. Tetap terinformasi. Tetap unggul."
       },
       "3": {
         "title": "Monika",

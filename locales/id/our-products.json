@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "heading": "Rangkaian Produk Hyperjump",
+    "desc": "Asisten AI pribadi, wawasan media secara real-time, dan utilitas open source untuk pemantauan serta otomatisasi — semua yang dibutuhkan tim engineering untuk berinovasi dengan percaya diri."
+  },
+  "commercial": {
+    "heading": "Produk Komersial",
+    "description": "Produk inovatif yang dirancang untuk mendukung tujuan Anda dan berkembang seiring kebutuhan bisnis Anda.",
+    "data": {
+      "1": {
+        "title": "StartGPT",
+        "text": "Gunakan asisten pribadi mirip ChatGPT yang mendukung model Anda sendiri, baik proprietary maupun produk kami, di lingkungan cloud maupun on-premises."
+      },
+      "2": {
+        "title": "MediaPulse",
+        "text": "Pantau sentimen publik, pesaing, dan sebutan merek secara real-time. Dapatkan insight otomatis melalui email atau WhatsApp."
+      },
+      "3": {
+        "title": "Monika",
+        "text": "Monika adalah aplikasi command line untuk memantau setiap bagian dari web app Anda menggunakan konfigurasi JSON sederhana. Dapatkan peringatan tidak hanya saat situs Anda down tetapi juga saat lambat."
+      }
+    }
+  },
+  "open_source": {
+    "heading": "Produk Open Source",
+    "description": "Jelajahi proyek open source kami dan lihat bagaimana kami berinovasi, berkolaborasi, serta membangun solusi yang memberikan dampak nyata. Bergabunglah dengan komunitas kami dan berkontribusilah dalam pengembangan teknologi mutakhir.",
+    "data": {
+      "1": {
+        "title": "Monika",
+        "text": "Monika adalah aplikasi command line untuk memantau setiap bagian dari web app Anda menggunakan file konfigurasi JSON sederhana. Dapatkan peringatan tidak hanya saat situs Anda down tetapi juga saat lambat."
+      },
+      "2": {
+        "title": "Grule",
+        "text": "Grule adalah engine aturan open-source untuk Go yang memungkinkan Anda mendefinisikan aturan bisnis dalam format yang mudah dibaca manusia—membuat aplikasi lebih fleksibel dan mudah dipelihara."
+      },
+      "3": {
+        "title": "WhatsApp Chatbot Connector",
+        "text": "Backend WhatsApp Chatbot Connector dibangun menggunakan Express.js. Dirancang untuk terintegrasi dengan WhatsApp Business API dan mendukung berbagai platform AI seperti Dify dan Rasa."
+      }
+    }
+  },
+  "learn_more": "Pelajari Lebih Lanjut"
+}

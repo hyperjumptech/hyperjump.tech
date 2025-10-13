@@ -46,8 +46,8 @@ function menu(lang: SupportedLanguage) {
       label: mainNavItems0Label(lang),
       href: `/${lang}/services`
     },
+    { label: mainNavItems2Label(lang), href: `/${lang}/our-products` },
     { label: mainNavItems1Label(lang), href: `/${lang}/case-studies` },
-    { label: mainNavItems2Label(lang), href: `/${lang}/#open-source` },
     { label: mainNavItems3Label(lang), href: `/${lang}/#faqs` }
   ];
 }

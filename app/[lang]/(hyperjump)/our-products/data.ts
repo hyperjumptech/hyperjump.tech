@@ -29,7 +29,8 @@ export function getCommercialProduct(lang: SupportedLanguage) {
     {
       title: ourProductsCommercialData3Title(lang),
       description: ourProductsCommercialData3Text(lang),
-      image: "/images/open-source/monika.svg"
+      image: "/images/open-source/monika.svg",
+      url: "https://monika.hyperjump.tech/"
     }
   ];
 }
@@ -40,7 +41,7 @@ export function getOpenSource(lang: SupportedLanguage) {
       title: mainProject1Title(lang),
       description: mainProject1Text(lang),
       image: "/images/open-source/monika.svg",
-      url: "https://monika.hyperjump.tech/",
+      url: "https://github.com/hyperjumptech/monika",
       repoUrl: "https://github.com/hyperjumptech/monika",
       button: true,
       repo: "monika"

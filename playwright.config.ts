@@ -1,70 +1,40 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const languages = ["en", "id"];
-const PORT = 3001;
+const PORT = 3000;
 
-const isProd = process.env.NODE_ENV === "production";
-
+/**
+ * See https://playwright.dev/docs/test-configuration.
+ */
 export default defineConfig({
-  testDir: "e2e",
-  timeout: 30 * 1000,
-  expect: { timeout: 5000 },
+  testDir: "./e2e",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 2 : undefined,
-  reporter: process.env.CI
-    ? [
-        ["github"],
-        ["html", { outputFolder: "playwright-report", open: "never" }]
-      ]
-    : [
-        ["list"],
-        ["html", { outputFolder: "playwright-report", open: "never" }]
-      ],
+  workers: process.env.CI ? 1 : undefined,
+  reporter: "html",
   use: {
     headless: true,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "retain-on-failure"
   },
-
-  webServer: isProd
-    ? undefined
-    : {
-        command: `bun run build && npx serve@latest out -l ${PORT}`,
-        url: `http://localhost:${PORT}`,
-        reuseExistingServer: true,
-        timeout: 60 * 1000
-      },
-
-  projects: languages.flatMap((lang) => [
+  projects: [
     {
-      name: `chromium-${lang}`,
-      use: {
-        ...devices["Desktop Chrome"],
-        baseURL: isProd
-          ? `https://hyperjump.tech/${lang}`
-          : `http://localhost:${PORT}/${lang}`
-      }
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] }
     },
     {
-      name: `firefox-${lang}`,
-      use: {
-        ...devices["Desktop Firefox"],
-        baseURL: isProd
-          ? `https://hyperjump.tech/${lang}`
-          : `http://localhost:${PORT}/${lang}`
-      }
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] }
     },
     {
-      name: `webkit-${lang}`,
-      use: {
-        ...devices["Desktop Safari"],
-        baseURL: isProd
-          ? `https://hyperjump.tech/${lang}`
-          : `http://localhost:${PORT}/${lang}`
-      }
+      name: "webkit",
+      use: { ...devices["Desktop Safari"] }
     }
-  ])
+  ],
+  webServer: {
+    command: `bun run build && npx serve@latest out -l ${PORT}`,
+    url: `http://localhost:${PORT}`,
+    reuseExistingServer: !process.env.CI
+  }
 });

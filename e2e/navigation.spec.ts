@@ -2,7 +2,7 @@ import { test, expect, Page, Locator } from "@playwright/test";
 
 const navLinks: { name: string; expected: RegExp }[] = [
   { name: "Our Services", expected: /\/(en|id)\/services(\/|$)/ },
-  { name: "Our Products", expected: /\/(en|id)\/our-products(\/|$)/ },
+  { name: "Our Products", expected: /\/(en|id)\/products(\/|$)/ },
   { name: "Case Studies", expected: /\/(en|id)\/case-studies(\/|$)/ },
   { name: "FAQ", expected: /#faqs/ }
 ];

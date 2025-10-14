@@ -33,10 +33,10 @@ export async function generateMetadata({
     title: `Our Products - ${ourProductsHeroHeading(lang)}`,
     description: ourProductsHeroDesc(lang),
     alternates: {
-      canonical: `https://hyperjump.tech/${lang}/our-products`,
+      canonical: `https://hyperjump.tech/${lang}/products`,
       languages: supportedLanguages.reduce(
         (acc, l) => {
-          acc[l] = `https://hyperjump.tech/${l}/our-products`;
+          acc[l] = `https://hyperjump.tech/${l}/products`;
           return acc;
         },
         {} as Record<string, string>

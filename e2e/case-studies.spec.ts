@@ -69,7 +69,7 @@ async function gotoAndWait(page: import("@playwright/test").Page, url: string) {
 // Shared assertions for header nav links based on code in app/[lang]/(hyperjump)/components/nav.tsx
 const expectedMenuPaths = (locale: string) => [
   `/${locale}/services`,
-  `/${locale}/our-products`,
+  `/${locale}/products`,
   `/${locale}/case-studies`,
   `/${locale}#faqs`
 ];

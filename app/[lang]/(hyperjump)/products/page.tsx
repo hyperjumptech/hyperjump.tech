@@ -4,19 +4,14 @@ import {
 } from "@/locales/.generated/types";
 import {
   mainViewMore,
-  ourProductsCommercialDescription,
-  ourProductsCommercialHeading,
   ourProductsHeroDesc,
-  ourProductsHeroHeading,
-  ourProductsOpenSourceDescription,
-  ourProductsOpenSourceHeading
+  ourProductsHeroHeading
 } from "@/locales/.generated/server";
 import { Metadata } from "next";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import GridItemsContainer, {
   GridItems,
-  GridItemsMoreButton,
-  GridItemsTitle
+  GridItemsMoreButton
 } from "@/app/components/grid-items";
 import { getCommercialProduct, getOpenSource } from "./data";
 import data from "@/data.json";
@@ -91,11 +86,6 @@ function ProductCommercial({ lang }: { lang: SupportedLanguage }) {
 
   return (
     <GridItemsContainer id="commercial-product">
-      <GridItemsTitle
-        layout="vertical"
-        title={ourProductsCommercialHeading(lang)}
-        description={ourProductsCommercialDescription(lang)}
-      />
       <GridItems
         items={projects}
         columns={{ base: 1, sm: 2, lg: 3 }}
@@ -111,21 +101,11 @@ function OpenSourceProducts({ lang }: { lang: SupportedLanguage }) {
 
   return (
     <GridItemsContainer id="open-source">
-      <GridItemsTitle
-        layout="vertical"
-        title={ourProductsOpenSourceHeading(lang)}
-        description={ourProductsOpenSourceDescription(lang)}
-      />
       <GridItems
         items={projects}
         columns={{ base: 1, sm: 2, lg: 3 }}
         cardClassName="rounded"
         lang={lang}
-      />
-      <GridItemsMoreButton
-        text={mainViewMore(lang)}
-        variant="outline"
-        href={data.github}
       />
     </GridItemsContainer>
   );

@@ -37,17 +37,9 @@ test.describe("Navigation & Links", () => {
   for (const { name, expected } of footerLinks) {
     test(`Footer: Should open "${name}" link correctly`, async ({ page }) => {
       const link = page.getByRole("link", { name, exact: false });
-      await expect(link).toBeVisible();
-
-      const popupPromise = page.waitForEvent("popup").catch(() => null);
-      await link.click();
-
-      const popup = await popupPromise;
-      const target: Page = popup || page;
-
-      await page.waitForTimeout(1000);
-
-      await expect(target).toHaveURL(new RegExp(expected));
+      const popupPage = await openLinkAndReturnPage(page, link);
+      await expect(popupPage).toHaveURL(new RegExp(expected));
+      await popupPage.close();
     });
   }
 

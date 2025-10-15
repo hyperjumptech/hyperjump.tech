@@ -1,8 +1,6 @@
 import {
   mainProject0Text,
   mainProject0Title,
-  mainProject1Text,
-  mainProject1Title,
   mainProject2Text,
   mainProject2Title,
   ourProductsCommercialData1Text,
@@ -17,14 +15,14 @@ import type { SupportedLanguage } from "@/locales/.generated/types";
 export function getCommercialProduct(lang: SupportedLanguage) {
   return [
     {
-      title: ourProductsCommercialData1Title(lang),
-      description: ourProductsCommercialData1Text(lang),
-      image: "/images/products/startGPT.svg"
-    },
-    {
       title: ourProductsCommercialData2Title(lang),
       description: ourProductsCommercialData2Text(lang),
       image: "/images/products/media-pulse.svg"
+    },
+    {
+      title: ourProductsCommercialData1Title(lang),
+      description: ourProductsCommercialData1Text(lang),
+      image: "/images/products/startGPT.svg"
     },
     {
       title: ourProductsCommercialData3Title(lang),

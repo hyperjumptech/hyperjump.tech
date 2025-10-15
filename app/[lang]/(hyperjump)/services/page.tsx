@@ -9,7 +9,6 @@ import {
   type SupportedLanguage
 } from "@/locales/.generated/types";
 import {
-  servicesHeading,
   servicesPartnersHeading,
   servicesPartnersDesc,
   servicesSeeMore,
@@ -61,9 +60,6 @@ export default async function Services({ params }: ServicesProps) {
     <main className="bg-white">
       <Hero lang={lang} />
       <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 pb-15 text-center md:px-20 xl:px-0">
-        <h3 className="text-hyperjump-black mb-8 text-[28px] font-medium md:mb-14 md:text-[40px]">
-          {servicesHeading(lang)}
-        </h3>
         <section className="space-y-16">
           {services(lang).map(({ slug }, index) => (
             <Service

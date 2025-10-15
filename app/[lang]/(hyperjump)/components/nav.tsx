@@ -30,6 +30,7 @@ const SOLID_NAV_PATHS = [
   "/case-studies",
   "/jobs",
   "/services",
+  "/products",
   ...data.jobs.map(({ id }) => `/jobs/${id}`)
 ];
 const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(
@@ -46,7 +47,7 @@ function menu(lang: SupportedLanguage) {
       label: mainNavItems0Label(lang),
       href: `/${lang}/services`
     },
-    { label: mainNavItems2Label(lang), href: `/${lang}/our-products` },
+    { label: mainNavItems2Label(lang), href: `/${lang}/products` },
     { label: mainNavItems1Label(lang), href: `/${lang}/case-studies` },
     { label: mainNavItems3Label(lang), href: `/${lang}/#faqs` }
   ];

@@ -293,10 +293,11 @@ function JsonLdOrganization() {
     logo: "https://hyperjump.tech/images/hyperjump-colored.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "D.Lab Building (6th floor), Jl. Riau No. 1",
-      addressLocality: "Gondangdia, Menteng, Jakarta Pusat",
+      streetAddress:
+        "Sinar Mas MSIG Tower lt. 34, Jl. Jenderal Sudirman Kav. 21",
+      addressLocality: "Jakarta Selatan",
       addressRegion: "DKI Jakarta",
-      postalCode: "10350",
+      postalCode: "12920",
       addressCountry: "ID"
     },
     contactPoint: {

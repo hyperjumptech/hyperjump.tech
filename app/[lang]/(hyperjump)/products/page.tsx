@@ -3,18 +3,13 @@ import {
   type SupportedLanguage
 } from "@/locales/.generated/types";
 import {
-  mainViewMore,
   ourProductsHeroDesc,
   ourProductsHeroHeading
 } from "@/locales/.generated/server";
 import { Metadata } from "next";
 import { dynamicOpengraph } from "@/lib/default-metadata";
-import GridItemsContainer, {
-  GridItems,
-  GridItemsMoreButton
-} from "@/app/components/grid-items";
+import GridItemsContainer, { GridItems } from "@/app/components/grid-items";
 import { getCommercialProduct, getOpenSource } from "./data";
-import data from "@/data.json";
 
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
@@ -53,7 +48,7 @@ export default async function OurProductsPage({ params }: OurProductsProps) {
   return (
     <main className="bg-white">
       <Hero lang={lang} />
-      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 pb-6 md:px-20 xl:px-0">
+      <div className="xxl:max-w-7xl mx-auto -mt-10 flex w-full max-w-6xl flex-wrap items-center justify-center px-2 pb-6 md:px-20 xl:px-0">
         <ProductCommercial lang={lang} />
         <OpenSourceProducts lang={lang} />
       </div>
@@ -65,7 +60,7 @@ function Hero({ lang }: { lang: SupportedLanguage }) {
   return (
     <section
       id="hero"
-      className="bg-services-hero text-hyperjump-black relative h-[451px] w-full px-4 text-center">
+      className="bg-services-hero text-hyperjump-black relative h-[415px] w-full px-4 text-center">
       <div className="mx-auto flex h-full max-w-3xl flex-col items-center justify-center pt-12">
         <h1
           className="text-hyperjump-black mb-4 text-3xl font-medium sm:text-4xl md:text-[40px]"

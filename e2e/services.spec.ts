@@ -115,7 +115,6 @@ for (const { code: locale, path } of locales) {
           for (const href of expected) {
             menuNav.locator(`a[href='${href}']`).first().click();
             await expect(page).toHaveURL(`${baseURL}${href}`);
-            // Go back to subject page
             if (href !== `/${locale}/services`) {
               await page.goBack();
               await expect(page).toHaveURL(`${baseURL}${path}`);

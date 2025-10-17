@@ -30,11 +30,11 @@ jobs:
         run: bun run build
 
       - name: Start server
-        run: npx serve@latest out -l 3000 &
+        run: npx serve@latest out -l 3001 &
         shell: bash
 
       - name: Wait for server to be ready
-        run: npx wait-on http://localhost:3000 --timeout 60000
+        run: npx wait-on http://localhost:3001 --timeout 60000
 
       - name: Run E2E tests (headless)
         env:

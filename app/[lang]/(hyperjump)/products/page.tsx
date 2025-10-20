@@ -3,8 +3,8 @@ import {
   type SupportedLanguage
 } from "@/locales/.generated/types";
 import {
-  ourProductsHeroDesc,
-  ourProductsHeroHeading
+  productsHeroDesc,
+  productsHeroHeading
 } from "@/locales/.generated/server";
 import { Metadata } from "next";
 import { dynamicOpengraph } from "@/lib/default-metadata";
@@ -15,18 +15,18 @@ export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
 };
 
-type OurProductsProps = {
+type productsProps = {
   params: Promise<{ lang: SupportedLanguage }>;
 };
 
 export async function generateMetadata({
   params
-}: OurProductsProps): Promise<Metadata> {
+}: productsProps): Promise<Metadata> {
   const { lang } = await params;
 
   const meta = {
-    title: `Our Products - ${ourProductsHeroHeading(lang)}`,
-    description: ourProductsHeroDesc(lang),
+    title: `Our Products - ${productsHeroHeading(lang)}`,
+    description: productsHeroDesc(lang),
     alternates: {
       canonical: `https://hyperjump.tech/${lang}/products`,
       languages: supportedLanguages.reduce(
@@ -42,7 +42,7 @@ export async function generateMetadata({
   return dynamicOpengraph(meta);
 }
 
-export default async function OurProductsPage({ params }: OurProductsProps) {
+export default async function productsPage({ params }: productsProps) {
   const { lang } = await params;
 
   return (
@@ -65,11 +65,11 @@ function Hero({ lang }: { lang: SupportedLanguage }) {
         <h1
           className="text-hyperjump-black mb-4 text-3xl font-medium sm:text-4xl md:text-[40px]"
           dangerouslySetInnerHTML={{
-            __html: ourProductsHeroHeading(lang)
+            __html: productsHeroHeading(lang)
           }}
         />
         <p className="text-hyperjump-gray text-base sm:text-lg">
-          {ourProductsHeroDesc(lang)}
+          {productsHeroDesc(lang)}
         </p>
       </div>
     </section>

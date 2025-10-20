@@ -50,8 +50,11 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
 
   return (
     <main className="bg-white">
-      <Hero lang={lang} />
-      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 pb-6 text-center md:px-20 xl:px-0">
+      <Hero
+        title={caseStudyHeroHeading(lang)}
+        subtitle={caseStudyHeroDesc(lang)}
+      />
+      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 py-6 text-center md:px-20 xl:px-0">
         <h3 className="text-hyperjump-black w-72 text-[28px] font-medium md:w-full md:text-[40px]">
           {caseStudyExplore(lang)}
         </h3>
@@ -61,21 +64,21 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
   );
 }
 
-function Hero({ lang }: { lang: SupportedLanguage }) {
+type HeroProps = { subtitle: string; title: string };
+
+export function Hero({ subtitle, title }: HeroProps) {
   return (
     <section
       id="hero"
-      className="bg-services-hero text-hyperjump-black relative h-[451px] w-full px-4 text-center">
+      className="bg-services-hero text-hyperjump-black relative w-full px-4 py-10 text-center md:py-16">
       <div className="mx-auto flex h-full max-w-3xl flex-col items-center justify-center pt-12">
         <div
           className="text-hyperjump-black mb-4 text-3xl font-medium sm:text-4xl md:text-[40px]"
           dangerouslySetInnerHTML={{
-            __html: caseStudyHeroHeading(lang)
+            __html: title
           }}
         />
-        <p className="text-hyperjump-gray text-base sm:text-lg">
-          {caseStudyHeroDesc(lang)}
-        </p>
+        <p className="text-hyperjump-gray text-base sm:text-lg">{subtitle}</p>
       </div>
     </section>
   );

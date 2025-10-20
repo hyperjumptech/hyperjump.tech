@@ -4,7 +4,7 @@
     "desc": "Visi Anda. Solusi AI kami. Hasil yang tak terbendung"
   },
   "description": "Rancang, kembangkan, dan terapkan agen AI khusus yang menghemat waktu, menekan biaya, dan menskalakan operasi tanpa kerumitan teknis.",
-  "bestFor": ["Perusahaan", "Startup", "Automasi proses"],
+  "bestFor": ["Perusahaan", "startup", "automasi proses"],
   "what_is": {
     "desc": "Bangun agen cerdas dan otonom yang disesuaikan dengan domain Anda—tanpa harus merekrut tim AI lengkap.",
     "highlight": "Tidak setiap bisnis perlu membangun infrastruktur AI dari nol. Dengan <span class=\"font-bold\">Inference AI</span>, Anda mendapatkan akses untuk merancang, membangun, dan memelihara agen AI yang mampu menalar, bertindak, dan beradaptasi—semua tanpa memerlukan tim AI internal."
@@ -20,7 +20,7 @@
   "what_we_deliver": {
     "desc": "Kami bermitra dengan tim Anda untuk mengotomatiskan dan membangun agen AI yang dapat menskalakan bersama bisnis Anda. Dari perencanaan hingga pasca-implementasi, kami memberikan dukungan langsung di setiap tahap.",
     "card_0": {
-      "title": "Integrasi & Orkestrasi",
+      "title": "Integrasi & orkestrasi",
       "text": "Hubungkan agen ke sistem Anda:",
       "items": {
         "0": "Terhubung ke API, basis data, dan alat internal",
@@ -29,7 +29,7 @@
       }
     },
     "card_1": {
-      "title": "Pelatihan, Fine-Tuning & Rekayasa Prompt",
+      "title": "Pelatihan, fine-Tuning & rekayasa prompt",
       "text": "Kami menyesuaikan perilaku agen sesuai domain Anda:",
       "items": {
         "0": "Fine-tune model atau gunakan adaptor",
@@ -38,7 +38,7 @@
       }
     },
     "card_2": {
-      "title": "Keamanan, Pemantauan & Guardrail",
+      "title": "Keamanan, pemantauan & guardrail",
       "text": "Pastikan operasi yang andal dan aman:",
       "items": {
         "0": "Validasi input, logika fallback, human-in-the-loop",
@@ -47,7 +47,7 @@
       }
     },
     "card_3": {
-      "title": "Penerapan & Operasi",
+      "title": "Penerapan & operasi",
       "text": "Kami memastikan sistem Anda memberikan nilai:",
       "items": {
         "0": "Dukungan stabilisasi",
@@ -60,23 +60,23 @@
     "desc": "Temukan bagaimana kami mengubah ide menjadi dampak. Proses kami sederhana, transparan, dan berfokus pada hasil di setiap tahap.",
     "step": {
       "0": {
-        "title": "Discovery & Scoping",
+        "title": "Discovery & scoping",
         "text": "Memahami domain, kasus penggunaan, dan batasan Anda."
       },
       "1": {
-        "title": "Desain & Prototipe Agen",
+        "title": "Desain & prototipe agen",
         "text": "Menentukan logika, mengintegrasikan agen minimal yang layak."
       },
       "2": {
-        "title": "Uji Coba & Validasi",
+        "title": "Uji coba & validasi",
         "text": "Uji dengan pengguna atau lingkungan nyata, kumpulkan umpan balik."
       },
       "3": {
-        "title": "Skalakan & Perkuat",
+        "title": "Skalakan & perkuat",
         "text": "Optimalkan kinerja, ketahanan, dan keamanan."
       },
       "4": {
-        "title": "Serah Terima atau Kepemilikan Bersama",
+        "title": "Serah terima atau kepemilikan bersama",
         "text": "Alihkan kendali, pantau, dan lakukan iterasi bersama."
       }
     }
@@ -84,10 +84,10 @@
   "what_you_get": {
     "desc": "Kami menghadirkan agen AI kustom yang berfungsi dan disesuaikan dengan domain Anda, sistem yang beradaptasi dengan alur kerja serta berkembang bersama bisnis Anda.",
     "items": {
-      "0": "Integrasi & Orkestrasi",
-      "1": "Pelatihan, Fine-Tuning & Rekayasa Prompt",
-      "2": "Keamanan, Pemantauan & Guardrail",
-      "3": "Penerapan & Pemeliharaan"
+      "0": "Integrasi & orkestrasi",
+      "1": "Pelatihan, fine-Tuning & rekayasa prompt",
+      "2": "Keamanan, pemantauan & guardrail",
+      "3": "Penerapan & pemeliharaan"
     }
   },
   "why_us": {

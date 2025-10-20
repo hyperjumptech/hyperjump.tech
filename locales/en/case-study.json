@@ -1,24 +1,24 @@
 {
   "hero": {
-    "heading": "From Chaos to Clarity: Real Stories of <span class=\"text-[#3276F5]\">Engineering Transformation</span>",
+    "heading": "From chaos to clarity: real stories of <span class=\"text-[#3276F5]\">engineering transformation</span>",
     "desc": "At Hyperjump, we don't just improve engineering teams. We help reshape how tech organizations think, operate, and grow. Explore how we've partnered with fast-growing companies to unlock their full potential through hands-on leadership, scalable systems, and deep technical coaching."
   },
-  "title": "From Chaos to Clarity: Real Stories of Engineering Transformation",
+  "title": "From chaos to clarity: real stories of engineering transformation",
   "cta": {
     "heading": "Not sure where to start?",
     "desc": "Let's talk about your tech goals and point you in the right direction.",
     "label": "Talk to us"
   },
-  "explore": "Explore Our Case Studies",
-  "button": "Read Case Study",
-  "more": "More Case Studies",
+  "explore": "Explore our case studies",
+  "button": "Read case study",
+  "more": "More case studies",
   "erp_fisheries": {
-    "title": "Transforming a Fisheries Tech Team into a Scalable Product Engine",
+    "title": "Transforming a fisheries tech team into a scalable product engine",
     "desc": "A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.",
     "category": "CTO as a Service"
   },
   "ctoaas_media": {
-    "title": "Elevating a Media-Tech Engineering Team from Feature Factory to Innovation Powerhouse",
+    "title": "Elevating a media tech engineering team from feature factory to innovation powerhouse",
     "desc": "When rapid growth outpaced engineering maturity, this team needed more than features, they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.",
     "category": "CTO as a Service"
   }

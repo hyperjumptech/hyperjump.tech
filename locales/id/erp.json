@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Implementasi ERP",
-    "desc": "Sederhanakan Operasi. Tingkatkan Visibilitas. Siap untuk Skalabilitas."
+    "desc": "Sederhanakan operasional. Tingkatkan visibilitas. Siap untuk skalabilitas."
   },
   "description": "Tingkatkan efisiensi operasional Anda dengan solusi ERP tingkat enterprise, mempercepat proses bisnis dan meningkatkan kecerdasan operasional.",
   "bestFor": ["Tim operasional", "UMKM", "industri vertikal"],
@@ -21,7 +21,7 @@
   "what_we_deliver": {
     "desc": "Kami bermitra dengan tim Anda untuk menyederhanakan operasi dan membangun sistem yang dapat berkembang seiring bisnis Anda. Dari perencanaan hingga pasca-implementasi, kami memberikan dukungan langsung di setiap tahap.",
     "card_0": {
-      "title": "Pemetaan & Desain Proses",
+      "title": "Pemetaan & desain [roses",
       "text": "Kami menyelaraskan fitur ERP dengan realitas bisnis Anda:",
       "items": {
         "0": "Alur kerja antar departemen (Keuangan, Operasional, SDM, dll.)",
@@ -31,7 +31,7 @@
       }
     },
     "card_1": {
-      "title": "Implementasi Sistem ERP",
+      "title": "Implementasi sistem ERP",
       "text": "Kami mengatur, menyesuaikan, dan menjalankan ERP Anda:",
       "items": {
         "0": "Setup Odoo atau ERPNext",
@@ -41,7 +41,7 @@
       }
     },
     "card_2": {
-      "title": "Dukungan Pasca Go-Live",
+      "title": "Dukungan pasca Go-Live",
       "text": "Kami memastikan ERP Anda memberikan nilai:",
       "items": {
         "0": "Dukungan stabilisasi",
@@ -55,23 +55,23 @@
     "desc": "Pelajari bagaimana kami mengubah ide menjadi dampak nyata. Proses kami dibuat sederhana, transparan, dan fokus pada hasil di setiap tahapnya.",
     "step": {
       "0": {
-        "title": "Discovery & Audit Proses Bisnis",
+        "title": "Discovery & audit proses bisnis",
         "text": "Eksplorasi mendalam terhadap operasi Anda untuk memetakan alur kerja utama dan titik masalah."
       },
       "1": {
-        "title": "Perancangan Solusi",
+        "title": "Perancangan solusi",
         "text": "Modul dan konfigurasi ERP disesuaikan dengan alur bisnis Anda."
       },
       "2": {
-        "title": "Pengembangan & Kustomisasi",
+        "title": "Pengembangan & kustomisasi",
         "text": "Membangun fitur, integrasi, atau dukungan lokalisasi yang diperlukan."
       },
       "3": {
-        "title": "Pengujian & Peluncuran",
+        "title": "Pengujian & peluncuran",
         "text": "Kami menjalankan uji coba, melatih tim Anda, dan mendampingi peluncuran sistem."
       },
       "4": {
-        "title": "Dukungan Berkelanjutan",
+        "title": "Dukungan berkelanjutan",
         "text": "Kami tetap tersedia selama masa stabilisasi untuk memastikan adopsi dan efektivitas."
       }
     }
@@ -79,10 +79,10 @@
   "what_you_get": {
     "desc": "Dari modul ERP yang disesuaikan hingga alat pelaporan yang kuat, kami menghadirkan sistem yang beradaptasi dengan alur kerja Anda dan tumbuh bersama bisnis Anda.",
     "items": {
-      "0": "Implementasi ERP End-to-End",
-      "1": "Modul Kustom Sesuai Kebutuhan Anda",
-      "2": "Pelaporan & Visibilitas Data Real-Time",
-      "3": "Fondasi Skalabel untuk Pertumbuhan Bisnis"
+      "0": "Implementasi ERP end-to-End",
+      "1": "Modul kustom sesuai kebutuhan Anda",
+      "2": "Pelaporan & visibilitas data real-Time",
+      "3": "Fondasi skalabel untuk pertumbuhan bisnis"
     }
   },
   "why_us": {

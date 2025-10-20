@@ -1,11 +1,9 @@
 {
   "hero": {
-    "heading": "Inovasi Cerdas. Dampak Nyata.",
+    "heading": "Produk buatan Hyperjump",
     "desc": "Temukan berbagai produk yang menjadi penggerak solusi digital masa depan."
   },
   "commercial": {
-    "heading": "Produk Komersial",
-    "description": "Produk inovatif yang dirancang untuk mendukung tujuan Anda dan berkembang seiring kebutuhan bisnis Anda.",
     "data": {
       "1": {
         "title": "StartGPT",
@@ -22,8 +20,6 @@
     }
   },
   "open_source": {
-    "heading": "Produk Open Source",
-    "description": "Jelajahi proyek open source kami dan lihat bagaimana kami berinovasi, berkolaborasi, serta membangun solusi yang memberikan dampak nyata. Bergabunglah dengan komunitas kami dan berkontribusilah dalam pengembangan teknologi mutakhir.",
     "data": {
       "1": {
         "title": "Monika",

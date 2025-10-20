@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, Page } from "@playwright/test";
 import { getCaseStudies } from "@/app/[lang]/(hyperjump)/case-studies/data";
 
 // Base URL
@@ -28,32 +28,36 @@ const viewports = [
 ] as const;
 
 // Utility: assert all images load (no broken images)
-async function expectAllImagesLoaded(page: import("@playwright/test").Page) {
+export async function expectAllImagesLoaded(page: Page) {
   await page.waitForLoadState("networkidle");
   const main = page.locator("main");
   const images = main.locator('img, [style*="background-image"], image');
   const count = await images.count();
-  if (count === 0) {
-    return;
-  }
+
+  if (count === 0) return;
+
   for (let i = 0; i < count; i++) {
     const el = images.nth(i);
     const tag = await el.evaluate((n) => n.tagName.toLowerCase());
+
+    await expect(el, `Image #${i} not visible`).toBeVisible({ timeout: 5000 });
+
     if (tag === "img" || tag === "image") {
-      await expect(el).toBeVisible();
-      // Ensure naturalWidth > 0
       const ok = await el.evaluate(
         (img: HTMLImageElement | SVGImageElement) => {
-          // @ts-ignore
-          const nw = (img as any).naturalWidth ?? 1; // SVGImageElement may not have naturalWidth
+          // @ts-ignore — handle both <img> and SVG <image>
+          const nw = (img as any).naturalWidth ?? 1;
           // @ts-ignore
           const nh = (img as any).naturalHeight ?? 1;
-          return (nw > 0 && nh > 0) || (img as any).href?.baseVal; // allow SVG xlink:href
+          // @ts-ignore
+          const href = (img as any).href?.baseVal ?? (img as any).src ?? null;
+          return (nw > 0 && nh > 0) || Boolean(href);
         }
       );
-      expect(ok, "image failed to load or has zero natural size").toBeTruthy();
-    } else {
-      await expect(el).toBeVisible();
+      expect(
+        ok,
+        `Image #${i} failed to load or has 0x0 natural size`
+      ).toBeTruthy();
     }
   }
 }

@@ -1043,6 +1043,6 @@ export const pageData = {
     email: "solution@hyperjump.tech",
     duns: "65-975-4901",
     mapsUrl: "https://maps.app.goo.gl/Dew762WwKLruRYGC9",
-    imageUrl: "/images/location.jpeg"
+    imageUrl: "/images/location.webp"
   }
 };

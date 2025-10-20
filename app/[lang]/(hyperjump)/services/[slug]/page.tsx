@@ -17,8 +17,8 @@ import {
   servicesCaseStudies,
   caseStudyButton,
   aiLearnMore,
-  aiOurProductsTitle,
-  aiOurProductsDescription
+  aiProductsTitle,
+  aiProductsDescription
 } from "@/locales/.generated/server";
 
 import type { CaseStudy, Service } from "../../data";
@@ -86,7 +86,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
       <About service={service} />
       <WhoIsIt lang={lang} service={service} />
       <WhatWeDeliver lang={lang} service={service} />
-      <OurProduct lang={lang} service={service} />
+      <Product lang={lang} service={service} />
       <HowItWorks lang={lang} service={service} />
       <WhatYouGet lang={lang} service={service} />
       <WhyUs lang={lang} service={service} />
@@ -450,8 +450,8 @@ function Recommendation({ caseStudies, lang }: RecommendationProps) {
   );
 }
 
-function OurProduct({ lang, service }: LangProps & ServiceProps) {
-  if (!service.content?.ourProduct || service.content.ourProduct.length === 0) {
+function Product({ lang, service }: LangProps & ServiceProps) {
+  if (!service.content?.products || service.content.products.length === 0) {
     return null;
   }
 
@@ -459,14 +459,14 @@ function OurProduct({ lang, service }: LangProps & ServiceProps) {
     <section className="flex bg-white px-4 py-8 md:px-20 md:py-16">
       <div className="mx-auto flex w-full flex-col items-center md:max-w-4xl">
         <h2 className="text-hyperjump-black max-w-3/4 text-center text-[34px] font-medium md:text-[40px]">
-          {aiOurProductsTitle(lang)}
+          {aiProductsTitle(lang)}
         </h2>
         <p
           className="text-hyperjump-gray mt-2 mb-10 text-center md:max-w-xl"
-          dangerouslySetInnerHTML={{ __html: aiOurProductsDescription(lang) }}
+          dangerouslySetInnerHTML={{ __html: aiProductsDescription(lang) }}
         />
         <div className="mt-5 grid gap-6 md:grid-cols-2">
-          {service.content.ourProduct.map(
+          {service.content.products.map(
             ({ description, slug, title, basePath }) => (
               <div
                 key={slug}

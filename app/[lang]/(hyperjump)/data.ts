@@ -367,7 +367,7 @@ type Content = {
     backgroundImageUrl: string;
     clients: { imageUrl: string; name: string }[];
   } & ListSection;
-  ourProduct: {
+  products: {
     slug: string;
     title: string;
     description: string;
@@ -505,7 +505,7 @@ export function services(lang: SupportedLanguage): Service[] {
             aiWhyUsReasons2(lang)
           ]
         },
-        ourProduct: []
+        products: []
       },
       description: aiDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.InferenceAI}/icon.svg`,
@@ -619,7 +619,7 @@ export function services(lang: SupportedLanguage): Service[] {
             erpWhyUsReasons2(lang)
           ]
         },
-        ourProduct: []
+        products: []
       },
       description: erpDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/icon.svg`,
@@ -758,7 +758,7 @@ export function services(lang: SupportedLanguage): Service[] {
             ctoaasWhyUsReasons3(lang)
           ]
         },
-        ourProduct: []
+        products: []
       },
       description: ctoaasDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.CtoAsAService}/icon.svg`,
@@ -879,7 +879,7 @@ export function services(lang: SupportedLanguage): Service[] {
             saasWhyUsReasons2(lang)
           ]
         },
-        ourProduct: []
+        products: []
       },
       description: saasDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.SoftwareAsAService}/icon.svg`,
@@ -1009,7 +1009,7 @@ export function services(lang: SupportedLanguage): Service[] {
             tddWhyUsReasons2(lang)
           ]
         },
-        ourProduct: []
+        products: []
       },
       description: tddDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.TechDueDiligence}/icon.svg`,

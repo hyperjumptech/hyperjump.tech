@@ -1,37 +1,36 @@
 import {
-  mainProject0Text,
-  mainProject0Title,
-  mainProject2Text,
-  mainProject2Title,
-  ourProductsCommercialData1Text,
-  ourProductsCommercialData1Title,
-  ourProductsCommercialData2Text,
-  ourProductsCommercialData2Title,
-  ourProductsCommercialData3Text,
-  ourProductsCommercialData3Title
+  productsOpenSourceData1Text,
+  productsOpenSourceData1Title,
+  productsOpenSourceData2Text,
+  productsOpenSourceData2Title,
+  productsOpenSourceData3Title,
+  productsOpenSourceData3Text,
+  productsCommercialData1Text,
+  productsCommercialData1Title,
+  productsCommercialData2Text,
+  productsCommercialData2Title,
+  productsCommercialData3Text,
+  productsCommercialData3Title
 } from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
 export function getCommercialProduct(lang: SupportedLanguage) {
   return [
     {
-      title: ourProductsCommercialData2Title(lang),
-      description: ourProductsCommercialData2Text(lang),
+      title: productsCommercialData2Title(lang),
+      description: productsCommercialData2Text(lang),
       image: "/images/products/media-pulse.svg"
     },
     {
-      title: ourProductsCommercialData1Title(lang),
-      description: ourProductsCommercialData1Text(lang),
+      title: productsCommercialData1Title(lang),
+      description: productsCommercialData1Text(lang),
       image: "/images/products/startGPT.svg"
     },
+
     {
-      title: ourProductsCommercialData3Title(lang),
-      description: ourProductsCommercialData3Text(lang),
-      image: "/images/open-source/monika.svg",
-      url: "https://monika.hyperjump.tech/",
-      repoUrl: "https://github.com/hyperjumptech/monika",
-      button: true,
-      repo: "monika"
+      title: productsCommercialData3Title(lang),
+      description: productsCommercialData3Text(lang),
+      image: "/images/products/voxa.svg"
     }
   ];
 }
@@ -39,8 +38,17 @@ export function getCommercialProduct(lang: SupportedLanguage) {
 export function getOpenSource(lang: SupportedLanguage) {
   return [
     {
-      title: mainProject0Title(lang),
-      description: mainProject0Text(lang),
+      title: productsOpenSourceData1Title(lang),
+      description: productsOpenSourceData1Text(lang),
+      image: "/images/open-source/monika.svg",
+      url: "https://monika.hyperjump.tech/",
+      repoUrl: "https://github.com/hyperjumptech/monika",
+      button: true,
+      repo: "monika"
+    },
+    {
+      title: productsOpenSourceData2Title(lang),
+      description: productsOpenSourceData2Text(lang),
       image: "/images/open-source/grule.svg",
       url: "https://github.com/hyperjumptech/grule-rule-engine",
       repoUrl: "https://github.com/hyperjumptech/grule-rule-engine",
@@ -48,8 +56,8 @@ export function getOpenSource(lang: SupportedLanguage) {
       repo: "grule-rule-engine"
     },
     {
-      title: mainProject2Title(lang),
-      description: mainProject2Text(lang),
+      title: productsOpenSourceData3Title(lang),
+      description: productsOpenSourceData3Text(lang),
       image: "/images/open-source/whatsapp-chatbot-connector.svg",
       url: "https://github.com/hyperjumptech/whatsapp-chatbot-connector",
       repoUrl: "https://github.com/hyperjumptech/whatsapp-chatbot-connector",

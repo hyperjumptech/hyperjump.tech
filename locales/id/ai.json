@@ -29,7 +29,7 @@
       }
     },
     "card_1": {
-      "title": "Pelatihan, fine-Tuning & rekayasa prompt",
+      "title": "Pelatihan, fine-tuning & rekayasa prompt",
       "text": "Kami menyesuaikan perilaku agen sesuai domain Anda:",
       "items": {
         "0": "Fine-tune model atau gunakan adaptor",
@@ -85,7 +85,7 @@
     "desc": "Kami menghadirkan agen AI kustom yang berfungsi dan disesuaikan dengan domain Anda, sistem yang beradaptasi dengan alur kerja serta berkembang bersama bisnis Anda.",
     "items": {
       "0": "Integrasi & orkestrasi",
-      "1": "Pelatihan, fine-Tuning & rekayasa prompt",
+      "1": "Pelatihan, fine-tuning & rekayasa prompt",
       "2": "Keamanan, pemantauan & guardrail",
       "3": "Penerapan & pemeliharaan"
     }

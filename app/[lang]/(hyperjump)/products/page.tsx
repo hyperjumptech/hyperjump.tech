@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import GridItemsContainer, { GridItems } from "@/app/components/grid-items";
+import { GridItems } from "@/app/components/grid-items";
 import { Hero } from "@/app/components/hero";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
@@ -49,21 +49,21 @@ export default async function productsPage({ params }: ProductsProps) {
   const { lang } = await params;
 
   return (
-    <main className="bg-white">
+    <main className="pb-10">
       <Hero
         subtitle={productsHeroDesc(lang)}
         title={productsHeroHeading(lang)}
       />
-      <div className="xxl:max-w-7xl mx-auto -mt-10 flex w-full max-w-6xl flex-wrap items-center justify-center px-2 py-6 md:-mt-24 md:px-20 xl:px-0">
-        <GridItemsContainer id="commercial-product">
-          <GridItems
-            items={[...getCommercialProduct(lang), ...getOpenSource(lang)]}
-            columns={{ base: 1, sm: 2, lg: 3 }}
-            cardClassName="rounded"
-            lang={lang}
-          />
-        </GridItemsContainer>
-      </div>
+      <section
+        id="commercial-product"
+        className="mx-auto max-w-5xl px-4 md:-mt-5 md:px-20 xl:px-0">
+        <GridItems
+          items={[...getCommercialProduct(lang), ...getOpenSource(lang)]}
+          columns={{ base: 1, sm: 2, md: 2, lg: 3 }}
+          cardClassName="rounded"
+          lang={lang}
+        />
+      </section>
     </main>
   );
 }

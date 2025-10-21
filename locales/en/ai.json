@@ -29,7 +29,7 @@
       }
     },
     "card_1": {
-      "title": "Training, fine-Tuning & prompt Engineering",
+      "title": "Training, fine-tuning & prompt engineering",
       "text": "We tailor the agent's behavior to your domain:",
       "items": {
         "0": "Fine-tune models or use adapters",
@@ -85,7 +85,7 @@
     "desc": "We deliver a working custom AI agent tailored to your domain that adapts to your workflow and grows with your business.",
     "items": {
       "0": "Integration & orchestration",
-      "1": "Training, fine-Tuning & prompt Engineering",
+      "1": "Training, fine-tuning & prompt engineering",
       "2": "Safety, monitoring & guardrails",
       "3": "Deployment & maintenance"
     }

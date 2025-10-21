@@ -63,7 +63,7 @@ export default async function Services({ params }: ServicesProps) {
         subtitle={servicesHeroDesc(lang)}
         title={servicesHeroHeading(lang)}
       />
-      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 pb-15 text-center md:px-20 xl:px-0">
+      <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-center px-4 pb-15 text-center md:px-20 xl:px-0">
         <section className="space-y-16">
           {services(lang).map(({ slug }, index) => (
             <Service

@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Tech Due Diligence",
-    "desc": "Identifikasi Risiko. Temukan Peluang. Bangun dengan Keyakinan."
+    "desc": "Identifikasi risiko. Temukan peluang. Bangun dengan keyakinan."
   },
   "description": "Verifikasi dan nilai kemampuan perusahaan Anda dalam menjalankan roadmap serta mengevaluasi kondisi teknis saat ini.",
   "bestFor": ["Investor", "Direktur teknologi", "perusahaan modal ventura"],
@@ -23,7 +23,7 @@
   "what_we_deliver": {
     "desc": "Mulai dari audit mendalam hingga sistem yang dapat diskalakan, kami memberikan kejelasan, kecepatan, dan hasil. Disesuaikan dengan tahap pertumbuhan Anda.",
     "card_0": {
-      "title": "Performa Pengiriman Perangkat Lunak",
+      "title": "Performa pengiriman perangkat lunak",
       "text": "Kami menilai seberapa efisien tim Anda dalam merilis perangkat lunak:",
       "items": {
         "0": "Frekuensi deployment",
@@ -33,7 +33,7 @@
       }
     },
     "card_1": {
-      "title": "Arsitektur Aplikasi & Kemudahan Pemeliharaan",
+      "title": "Arsitektur aplikasi & kemudahan pemeliharaan",
       "text": "Kami menganalisis kode dan infrastruktur Anda saat ini:",
       "items": {
         "0": "Skalabilitas & toleransi terhadap kegagalan",
@@ -43,7 +43,7 @@
       }
     },
     "card_2": {
-      "title": "Biaya Infrastruktur TI & Optimalisasi",
+      "title": "Biaya infrastruktur TI & optimalisasi",
       "text": "Kami bantu Anda menjawab: Apakah Anda membayar mahal untuk sistem yang jarang digunakan?",
       "items": {
         "0": "Audit penggunaan cloud",
@@ -58,19 +58,19 @@
     "desc": "Lihat bagaimana kami mengubah wawasan menjadi dampak. Proses kami dirancang agar sederhana, transparan, dan fokus pada hasil di setiap langkahnya.",
     "step": {
       "0": {
-        "title": "Discovery & Wawancara",
+        "title": "Discovery & wawancara",
         "text": "Kami berdiskusi dengan tim engineering, produk, dan bisnis untuk memahami tujuan dan konteks."
       },
       "1": {
-        "title": "Audit Mendalam",
+        "title": "Audit mendalam",
         "text": "Kami meninjau repositori, pipeline CI/CD, infrastruktur cloud, dan dokumentasi Anda secara langsung."
       },
       "2": {
-        "title": "Laporan & Rekomendasi",
+        "title": "Laporan & rekomendasi",
         "text": "Anda akan menerima laporan komprehensif yang merinci kekuatan, risiko, dan langkah-langkah yang dapat diambil. Lengkap dengan tingkat keparahan dan saran roadmap."
       },
       "3": {
-        "title": "Dukungan Implementasi Pasca Audit (Opsional)",
+        "title": "Dukungan implementasi pasca audit (opsional)",
         "text": "Butuh bantuan menindaklanjuti hasil audit? Tim engineer kami siap membantu menutup celah yang ditemukan."
       }
     }
@@ -80,9 +80,9 @@
     "desc": "Semua yang Anda butuhkan untuk mengevaluasi, meningkatkan, dan menskalakan. Disajikan dalam format yang mudah dipahami baik oleh pengambil keputusan teknis maupun bisnis.",
     "items": {
       "0": "Ringkasan eksekutif untuk C-Level & investor",
-      "1": "Laporan Audit Teknis (kualitas kode, arsitektur, infrastruktur)",
-      "2": "Benchmark KPI & Rekomendasi",
-      "3": "Rencana Aksi (Quick Wins + Strategi Jangka Panjang)"
+      "1": "Laporan audit teknis (kualitas kode, arsitektur, infrastruktur)",
+      "2": "Benchmark KPI & rekomendasi",
+      "3": "Rencana aksi (quick wins + strategi jangka panjang)"
     }
   },
 

@@ -143,7 +143,7 @@ function About({ service }: ServiceProps) {
 
   return (
     <section className="bg-[#F6F8F9] py-8 md:py-16">
-      <div className="text-hyperjump-black mx-auto flex w-full max-w-4xl flex-wrap items-center px-4 py-10 md:px-16 md:py-20 xl:px-0">
+      <div className="text-hyperjump-black mx-auto flex w-full max-w-4xl flex-wrap items-center px-4 py-10 md:px-20 md:py-20 xl:px-0">
         <h2 className="mb-5 text-[34px] font-medium md:text-4xl">{title}</h2>
         <p
           className="text-xl leading-relaxed"
@@ -165,7 +165,7 @@ function WhoIsIt({ lang, service }: LangProps & ServiceProps) {
 
   return (
     <section className="flex bg-white px-4 py-8 md:px-20 md:py-16">
-      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-col items-center gap-6 md:flex-row">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-6 md:flex-row">
         <div className="relative w-full xl:w-1/2">
           <Image
             src="/images/services/background.webp"
@@ -218,12 +218,12 @@ function WhatWeDeliver({ lang, service }: LangProps & ServiceProps) {
 
   return (
     <section className="bg-white py-8 md:py-16">
-      <div className="text-hyperjump-black xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-4 text-center md:px-20 xl:px-0">
+      <div className="text-hyperjump-black mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-4 text-center md:px-20 xl:px-0">
         <h3 className="mb-5 text-[34px] font-medium md:text-4xl">
           {servicesWhatWeDeliver(lang)}
         </h3>
         <p className="text-hyperjump-gray mt-2 max-w-lg">{description}</p>
-        <div className="mt-6 grid w-full grid-cols-1 gap-6 md:mt-12 md:grid-cols-3 xl:grid-cols-3">
+        <div className="mt-6 grid w-full grid-cols-1 gap-6 md:mt-12 xl:grid-cols-3">
           {items.map(({ description, iconUrl, items, title }) => (
             <div
               key={title}
@@ -259,7 +259,7 @@ function HowItWorks({ lang, service }: LangProps & ServiceProps) {
 
   return (
     <section className="bg-[#F6F8F9 py-8 md:py-16">
-      <div className="text-hyperjump-black xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-col items-center px-4 text-center">
+      <div className="text-hyperjump-black mx-auto flex w-full max-w-5xl flex-col items-center px-4 text-center md:px-20 xl:px-0">
         <h2 className="mb-5 text-[34px] font-medium md:text-4xl">
           {servicesHowItWorks(lang)}
         </h2>
@@ -305,7 +305,7 @@ function WhatYouGet({ lang, service }: LangProps & ServiceProps) {
 
   return (
     <section className="flex bg-white px-4 py-8 md:px-20 md:py-16">
-      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-col items-center gap-6 md:flex-row-reverse">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-6 md:flex-row-reverse">
         <div className="relative w-full xl:w-1/2">
           <Image
             src={imageUrl}
@@ -347,7 +347,7 @@ function WhyUs({ lang, service }: LangProps & ServiceProps) {
   } = service;
   return (
     <section className="flex bg-white px-4 py-8 md:px-20 md:py-16">
-      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-col items-center gap-6 md:flex-row">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-6 md:flex-row">
         <div className="relative w-full xl:w-1/2">
           <Image
             src={backgroundImageUrl}
@@ -411,9 +411,9 @@ function Recommendation({ caseStudies, lang }: RecommendationProps) {
   if (caseStudies.length === 0) return null;
 
   return (
-    <section className="flex bg-white px-4 py-8 md:px-20 md:py-16">
-      <div className="mx-auto flex w-full flex-col items-center md:max-w-4xl">
-        <h2 className="text-hyperjump-black mb-5 max-w-3/4 text-center text-[34px] font-medium md:text-[40px]">
+    <section className="flex bg-white py-8">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center px-4 md:px-20 xl:px-0">
+        <h2 className="text-hyperjump-black mb-5 max-w-3/4 text-center text-3xl font-medium md:text-4xl">
           {servicesCaseStudies(lang)}
         </h2>
         <div className="grid gap-6 md:grid-cols-2">

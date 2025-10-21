@@ -114,8 +114,8 @@ test.describe("Homepage", () => {
     await expect(caseHeading).toBeVisible();
     await expect(page.getByText("Discover how we successfully")).toBeVisible();
 
-    await expect(page.getByText("Transforming a Fisheries Tech")).toBeVisible();
-    await expect(page.getByText("Elevating a Media-Tech")).toBeVisible();
+    await expect(page.getByText("Transforming a fisheries tech")).toBeVisible();
+    await expect(page.getByText("Elevating a media-tech")).toBeVisible();
   });
 
   test("FAQ Section: should toggle FAQ items correctly on click", async ({

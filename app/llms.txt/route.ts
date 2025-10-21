@@ -30,8 +30,8 @@ We offer expert technology solutions to help businesses scale, enhance efficienc
 
 Discover how we successfully transform challenges into opportunities with real-world solutions that drive lasting impact and business growth.
 
-- [Transforming a Fisheries Tech Team into a Scalable Product Engine](https://hyperjump.tech/case-studies/erp-fisheries): A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.
-- [Elevating a Media-Tech Engineering Team from Feature Factory to Innovation Powerhouse](https://hyperjump.tech/case-studies/ctoaas-media): When rapid growth outpaced engineering maturity, this team needed more than features, they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.
+- [Transforming a fisheries tech team into a scalable product engine](https://hyperjump.tech/case-studies/erp-fisheries): A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.
+- [Elevating a media-tech engineering team from feature factory to innovation powerhouse](https://hyperjump.tech/case-studies/ctoaas-media): When rapid growth outpaced engineering maturity, this team needed more than features, they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.
 
 ## Open source product
 

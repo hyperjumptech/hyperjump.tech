@@ -145,13 +145,13 @@ test.describe("Text and Content", () => {
     await expect(locationHeading).toBeVisible({ timeout: 10_000 });
 
     await expect(
-      page.getByRole("heading", { name: "D.Lab Building (6th floor)" })
+      page.getByRole("heading", { name: "Sinar Mas MSIG Tower (34th floor)" })
     ).toBeVisible({ timeout: 10_000 });
     await expect(
-      page.getByText("Jl. Riau No. 1, Gondangdia,", { exact: false })
+      page.getByText("Jl. Jenderal Sudirman Kav. 21", { exact: false })
     ).toBeVisible({ timeout: 10_000 });
     await expect(
-      page.getByText("Jakarta Pusat -", { exact: false })
+      page.getByText("Jakarta Selatan - 12920", { exact: false })
     ).toBeVisible({ timeout: 10_000 });
     await expect(page.getByText("Indonesia", { exact: true })).toBeVisible({
       timeout: 10_000

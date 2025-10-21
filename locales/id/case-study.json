@@ -1,24 +1,24 @@
 {
   "hero": {
-    "heading": "Dari Kekacauan ke Kejelasan: Kisah Nyata Transformasi Tim Engineering",
+    "heading": "Dari kacau menjadi jelas: kisah nyata transformasi tim engineering",
     "desc": "Di Hyperjump, kami tidak sekadar meningkatkan performa tim engineering, kami membantu membentuk ulang cara organisasi teknologi berpikir, bekerja, dan berkembang. Telusuri bagaimana kami bermitra dengan perusahaan-perusahaan yang berkembang pesat untuk membuka potensi mereka melalui kepemimpinan yang aktif, sistem yang skalabel, dan pembinaan teknis yang mendalam."
   },
-  "title": "Dari Kekacauan ke Kejelasan: Kisah Nyata Transformasi Tim Engineering",
+  "title": "Dari kacau manjadi jelas: kisah nyata transformasi tim engineering",
   "cta": {
     "heading": "Bingung harus mulai dari mana?",
     "desc": "Mari bicara tentang tujuan teknologi Anda dan kami akan bantu arahkan langkah awalnya.",
-    "label": "Hubungi Kami"
+    "label": "Hubungi kami"
   },
-  "explore": "Jelajahi Studi Kasus Kami",
-  "button": "Baca Studi Kasus",
-  "more": "Studi Kasus Lainnya",
+  "explore": "Jelajahi studi kasus kami",
+  "button": "Baca studi kasus",
+  "more": "Studi kasus lainnya",
   "erp_fisheries": {
-    "title": "Mengubah Tim Teknologi Perikanan Menjadi Mesin Produk yang Skalabel",
+    "title": "Mengubah tim teknologi perikanan menjadi mesin produk yang skalabel",
     "desc": "Tim teknologi yang masih junior namun penuh semangat. Tidak ada produk yang berjalan. Taruhan dampak besar. Kami terjun langsung mendampingi tim mereka untuk membangun struktur, meningkatkan kepercayaan diri, dan meluncurkan MVP yang fungsional dalam 3 bulan. Lewat praktik agile yang ketat dan peluncuran sistem penuh, kami bantu mengubah organisasi teknologi yang rapuh menjadi mesin produk yang andal.",
     "category": "CTO as a Service"
   },
   "ctoaas_media": {
-    "title": "Meningkatkan Tim Engineering Media-Tech dari Feature Factory ke Pusat Inovasi",
+    "title": "Meningkatkan tim engineering media dari pabrik fitur menjadi pusat inovasi",
     "desc": "Ketika pertumbuhan cepat melampaui kematangan engineering, tim ini butuh lebih dari sekadar fitur, mereka butuh transformasi. Kami restrukturisasi praktik agile mereka, otomatisasi DevOps, tetapkan KPI terukur, dan bantu mereka beralih dari eksekutor tugas ke pemilik produk sejati yang inovatif.",
     "category": "CTO as a Service"
   }

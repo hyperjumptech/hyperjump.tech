@@ -1,11 +1,9 @@
 {
   "hero": {
-    "heading": "Smart Tech. Real Impact.",
-    "desc": "Explore the products that power tomorrow’s digital solutions."
+    "heading": "Products by Hyperjump",
+    "desc": "Explore the products that power tomorrow's digital solutions."
   },
   "commercial": {
-    "heading": "Commercial Products",
-    "description": "Innovative products tailored to support your goals and scale with your needs.",
     "data": {
       "1": {
         "title": "StartGPT",
@@ -22,8 +20,6 @@
     }
   },
   "open_source": {
-    "heading": "Open Source  Products",
-    "description": "Explore our open-source projects and see how we innovate, collaborate, and build solutions that drive real impact. Join our community and contribute to cutting-edge technology.",
     "data": {
       "1": {
         "title": "Monika",

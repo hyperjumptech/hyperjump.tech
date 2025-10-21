@@ -1,8 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
+import { Hero } from "@/app/components/hero";
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
+import { dynamicOpengraph } from "@/lib/default-metadata";
 import { cn } from "@/lib/utils";
 import {
   supportedLanguages,
@@ -19,8 +22,6 @@ import {
 
 import { Clients } from "../components/clients";
 import { serviceBySlug, services, ServiceSlug } from "../data";
-import { Metadata } from "next";
-import { dynamicOpengraph } from "@/lib/default-metadata";
 
 export async function generateMetadata(props: {
   params: Promise<{ lang: SupportedLanguage }>;
@@ -58,7 +59,10 @@ export default async function Services({ params }: ServicesProps) {
 
   return (
     <main className="bg-white">
-      <Hero lang={lang} />
+      <Hero
+        subtitle={servicesHeroDesc(lang)}
+        title={servicesHeroHeading(lang)}
+      />
       <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 pb-15 text-center md:px-20 xl:px-0">
         <section className="space-y-16">
           {services(lang).map(({ slug }, index) => (
@@ -112,7 +116,7 @@ function Service({ lang, isReverseImagePosition = false, slug }: ServiceProps) {
   return (
     <div
       className={cn(
-        "flex flex-col items-center gap-6 border-b border-gray-200 pb-7 md:flex-row md:pb-14",
+        "flex flex-col items-start gap-6 border-b border-gray-200 pb-7 md:flex-row md:pb-14",
         isReverseImagePosition && "md:flex-row-reverse"
       )}>
       <div className="relative w-full xl:w-1/2">
@@ -172,20 +176,5 @@ function Service({ lang, isReverseImagePosition = false, slug }: ServiceProps) {
         </div>
       </div>
     </div>
-  );
-}
-
-function Hero({ lang }: { lang: SupportedLanguage }) {
-  return (
-    <section
-      id="hero"
-      className="bg-services-hero text-hyperjump-black relative h-[415px] w-full px-4 text-center">
-      <div className="mx-auto flex h-full max-w-3xl flex-col items-center justify-center pt-16">
-        <h1 className="text-hyperjump-black mb-4 text-4xl font-medium md:text-[40px]">
-          {servicesHeroHeading(lang)}
-        </h1>
-        <p className="text-hyperjump-gray text-lg">{servicesHeroDesc(lang)}</p>
-      </div>
-    </section>
   );
 }

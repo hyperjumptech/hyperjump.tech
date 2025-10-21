@@ -1,3 +1,9 @@
+import Link from "next/link";
+import { Metadata } from "next";
+
+import { Hero } from "@/app/components/hero";
+import { Button } from "@/components/ui/button";
+import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
   supportedLanguages,
   type SupportedLanguage
@@ -8,11 +14,8 @@ import {
   caseStudyHeroDesc,
   caseStudyHeroHeading
 } from "@/locales/.generated/server";
+
 import { getCaseStudies } from "./data";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Metadata } from "next";
-import { dynamicOpengraph } from "@/lib/default-metadata";
 
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
@@ -50,34 +53,17 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
 
   return (
     <main className="bg-white">
-      <Hero lang={lang} />
-      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 pb-6 text-center md:px-20 xl:px-0">
+      <Hero
+        title={caseStudyHeroHeading(lang)}
+        subtitle={caseStudyHeroDesc(lang)}
+      />
+      <div className="xxl:max-w-7xl mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center px-4 py-6 text-center md:px-20 xl:px-0">
         <h3 className="text-hyperjump-black w-72 text-[28px] font-medium md:w-full md:text-[40px]">
           {caseStudyExplore(lang)}
         </h3>
         <CaseStudies lang={lang} />
       </div>
     </main>
-  );
-}
-
-function Hero({ lang }: { lang: SupportedLanguage }) {
-  return (
-    <section
-      id="hero"
-      className="bg-services-hero text-hyperjump-black relative h-[451px] w-full px-4 text-center">
-      <div className="mx-auto flex h-full max-w-3xl flex-col items-center justify-center pt-12">
-        <div
-          className="text-hyperjump-black mb-4 text-3xl font-medium sm:text-4xl md:text-[40px]"
-          dangerouslySetInnerHTML={{
-            __html: caseStudyHeroHeading(lang)
-          }}
-        />
-        <p className="text-hyperjump-gray text-base sm:text-lg">
-          {caseStudyHeroDesc(lang)}
-        </p>
-      </div>
-    </section>
   );
 }
 

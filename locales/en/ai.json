@@ -4,7 +4,7 @@
     "desc": "Your vision. Our AI solutions. Unstoppable results"
   },
   "description": "Design, develop, and deploy purpose-built AI agents that save time, cut costs, and scale operations. Without technical overwhelm.",
-  "bestFor": ["Enterprises", "Startups", "Process automation"],
+  "bestFor": ["Enterprises", "startups", "process automation"],
   "what_is": {
     "desc": "Build smart, autonomous agents tailored to your domain — without hiring a full AI team.",
     "highlight": "Not every business needs to build full AI infrastructure from scratch. With <span class=\"font-bold\">Inference AI</span>, you gain access to design, build, and maintain AI agents that reason, act, and adapt — all without needing an in-house AI team."
@@ -20,7 +20,7 @@
   "what_we_deliver": {
     "desc": "We partner with your team to automate and build AI agents that scale with your business. From planning to post-implementation, we deliver hands-on support every step of the way.",
     "card_0": {
-      "title": "Integration & Orchestration",
+      "title": "Integration & orchestration",
       "text": "Plug the agent into your systems:",
       "items": {
         "0": "Connect to APIs, databases, internal tools",
@@ -29,7 +29,7 @@
       }
     },
     "card_1": {
-      "title": "Training, Fine-Tuning & Prompt Engineering",
+      "title": "Training, fine-Tuning & prompt Engineering",
       "text": "We tailor the agent's behavior to your domain:",
       "items": {
         "0": "Fine-tune models or use adapters",
@@ -38,7 +38,7 @@
       }
     },
     "card_2": {
-      "title": "Safety, Monitoring & Guardrails",
+      "title": "Safety, monitoring & guardrails",
       "text": "Ensure reliable, safe operation:",
       "items": {
         "0": "Input validation, fallback logic, human-in-the-loop",
@@ -47,7 +47,7 @@
       }
     },
     "card_3": {
-      "title": "Deployment & Operations",
+      "title": "Deployment & operations",
       "text": "We make sure your ERP delivers value:",
       "items": {
         "0": "Stabilization support",
@@ -84,10 +84,10 @@
   "what_you_get": {
     "desc": "We deliver a working custom AI agent tailored to your domain that adapts to your workflow and grows with your business.",
     "items": {
-      "0": "Integration & Orchestration",
-      "1": "Training, Fine-Tuning & Prompt Engineering",
-      "2": "Safety, Monitoring & Guardrails",
-      "3": "Deployment & Maintenance"
+      "0": "Integration & orchestration",
+      "1": "Training, fine-Tuning & prompt Engineering",
+      "2": "Safety, monitoring & guardrails",
+      "3": "Deployment & maintenance"
     }
   },
   "why_us": {

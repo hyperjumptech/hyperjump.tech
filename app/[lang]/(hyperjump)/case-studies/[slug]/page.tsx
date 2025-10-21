@@ -103,7 +103,7 @@ function Hero({ heading }: { heading: string }) {
 
       <div className="relative z-10 mt-10 flex h-[351px] items-center justify-center">
         <h1
-          className="mb-4 max-w-3xl px-4 text-center text-2xl font-medium text-white sm:text-4xl md:px-20 md:text-[40px]"
+          className="mb-4 max-w-3xl px-4 text-center text-2xl font-medium text-white sm:text-4xl md:px-20 md:text-4xl"
           dangerouslySetInnerHTML={{
             __html: heading
           }}
@@ -121,8 +121,8 @@ type RecommendationProps = {
 function Recommendation({ caseStudies, lang }: RecommendationProps) {
   return (
     <section className="bg-white py-10">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="text-hyperjump-black mb-5 text-2xl font-semibold capitalize md:text-4xl">
+      <div className="mx-auto max-w-5xl">
+        <h2 className="text-hyperjump-black mb-5 text-2xl font-semibold md:text-4xl">
           {caseStudyMore(lang)}
         </h2>
         <div className="grid gap-6 md:grid-cols-2">

@@ -10,7 +10,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 0,
   reporter: "html",
   use: {
     headless: true,
@@ -33,8 +33,7 @@ export default defineConfig({
     }
   ],
   webServer: {
-    command: `bun run build && npx serve@latest out -l ${PORT}`,
-    url: `http://localhost:${PORT}`,
-    reuseExistingServer: !process.env.CI
+    command: "bun run build && bun run start",
+    url: `http://localhost:${PORT}`
   }
 });

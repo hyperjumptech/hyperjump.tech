@@ -1,3 +1,9 @@
+import Link from "next/link";
+import { Metadata } from "next";
+
+import { Hero } from "@/app/components/hero";
+import { Button } from "@/components/ui/button";
+import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
   supportedLanguages,
   type SupportedLanguage
@@ -8,11 +14,8 @@ import {
   caseStudyHeroDesc,
   caseStudyHeroHeading
 } from "@/locales/.generated/server";
+
 import { getCaseStudies } from "./data";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Metadata } from "next";
-import { dynamicOpengraph } from "@/lib/default-metadata";
 
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
@@ -61,26 +64,6 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
         <CaseStudies lang={lang} />
       </div>
     </main>
-  );
-}
-
-type HeroProps = { subtitle: string; title: string };
-
-export function Hero({ subtitle, title }: HeroProps) {
-  return (
-    <section
-      id="hero"
-      className="bg-services-hero text-hyperjump-black relative w-full px-4 py-10 text-center md:py-16">
-      <div className="mx-auto flex h-full max-w-3xl flex-col items-center justify-center pt-12">
-        <div
-          className="text-hyperjump-black mb-4 text-3xl font-medium sm:text-4xl md:text-[40px]"
-          dangerouslySetInnerHTML={{
-            __html: title
-          }}
-        />
-        <p className="text-hyperjump-gray text-base sm:text-lg">{subtitle}</p>
-      </div>
-    </section>
   );
 }
 

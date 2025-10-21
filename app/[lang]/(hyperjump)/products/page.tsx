@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import GridItemsContainer, { GridItems } from "@/app/components/grid-items";
+import { Hero } from "@/app/components/hero";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
   supportedLanguages,
@@ -11,7 +12,6 @@ import {
   productsHeroHeading
 } from "@/locales/.generated/server";
 
-import { Hero } from "../case-studies/page";
 import { getCommercialProduct, getOpenSource } from "./data";
 
 export const generateStaticParams = async () => {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
+import { Hero } from "@/app/components/hero";
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
@@ -19,7 +20,6 @@ import {
   servicesHeroDesc
 } from "@/locales/.generated/server";
 
-import { Hero } from "../case-studies/page";
 import { Clients } from "../components/clients";
 import { serviceBySlug, services, ServiceSlug } from "../data";
 

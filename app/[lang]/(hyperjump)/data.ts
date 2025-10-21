@@ -367,7 +367,7 @@ type Content = {
     backgroundImageUrl: string;
     clients: { imageUrl: string; name: string }[];
   } & ListSection;
-  ourProduct: {
+  products: {
     slug: string;
     title: string;
     description: string;
@@ -505,7 +505,7 @@ export function services(lang: SupportedLanguage): Service[] {
             aiWhyUsReasons2(lang)
           ]
         },
-        ourProduct: []
+        products: []
       },
       description: aiDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.InferenceAI}/icon.svg`,
@@ -619,7 +619,7 @@ export function services(lang: SupportedLanguage): Service[] {
             erpWhyUsReasons2(lang)
           ]
         },
-        ourProduct: []
+        products: []
       },
       description: erpDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.ErpImplementation}/icon.svg`,
@@ -758,7 +758,7 @@ export function services(lang: SupportedLanguage): Service[] {
             ctoaasWhyUsReasons3(lang)
           ]
         },
-        ourProduct: []
+        products: []
       },
       description: ctoaasDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.CtoAsAService}/icon.svg`,
@@ -879,7 +879,7 @@ export function services(lang: SupportedLanguage): Service[] {
             saasWhyUsReasons2(lang)
           ]
         },
-        ourProduct: []
+        products: []
       },
       description: saasDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.SoftwareAsAService}/icon.svg`,
@@ -1009,7 +1009,7 @@ export function services(lang: SupportedLanguage): Service[] {
             tddWhyUsReasons2(lang)
           ]
         },
-        ourProduct: []
+        products: []
       },
       description: tddDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.TechDueDiligence}/icon.svg`,
@@ -1034,16 +1034,15 @@ export function serviceBySlug({ lang, slug }: ServiceBySlugParameters) {
 
 export const pageData = {
   location: {
-    title: "D.Lab Building (6th floor)",
+    title: "Sinar Mas MSIG Tower (34th floor)",
     address: [
-      "Jl. Riau No. 1, Gondangdia, Menteng,",
-      "Jakarta Pusat - 10350",
+      "Jl. Jenderal Sudirman Kav. 21",
+      "Jakarta Selatan - 12920",
       "Indonesia"
     ],
     email: "solution@hyperjump.tech",
     duns: "65-975-4901",
-    mapsUrl:
-      "https://www.google.com/maps/place/DLab+SMD/@-6.1907514,106.8219552,17z/data=!4m15!1m8!3m7!1s0x2e69f42410acef4f:0x2ebaeebb8f5fafbb!2sJl.+Riau+No.1,+RT.9%2FRW.5,+Gondangdia,+Kec.+Menteng,+Kota+Jakarta+Pusat,+Daerah+Khusus+Ibukota+Jakarta+10350!3b1!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11c5lcsgsq!3m5!1s0x2e69f5e04c659f97:0xd2f4629d7651d317!8m2!3d-6.1907514!4d106.8245301!16s%2Fg%2F11kb72cx9p?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D",
-    imageUrl: "/images/location-2.webp"
+    mapsUrl: "https://maps.app.goo.gl/Dew762WwKLruRYGC9",
+    imageUrl: "/images/location.webp"
   }
 };

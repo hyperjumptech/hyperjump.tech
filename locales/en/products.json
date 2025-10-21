@@ -1,11 +1,9 @@
 {
   "hero": {
-    "heading": "Smart Tech. Real Impact.",
-    "desc": "Explore the products that power tomorrow’s digital solutions."
+    "heading": "Products by Hyperjump",
+    "desc": "Explore the products that power tomorrow's digital solutions."
   },
   "commercial": {
-    "heading": "Commercial Products",
-    "description": "Innovative products tailored to support your goals and scale with your needs.",
     "data": {
       "1": {
         "title": "StartGPT",
@@ -16,14 +14,12 @@
         "text": "MediaPulse is your always-on AI analyst — cutting through market noise to give you clarity, context, and confidence. Stay informed. Stay ahead."
       },
       "3": {
-        "title": "Monika",
-        "text": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow."
+        "title": "Voxa",
+        "text": "Voxa helps you reach prospects over the phone with natural AI voices, smart lead targeting, and automated call flows."
       }
     }
   },
   "open_source": {
-    "heading": "Open Source  Products",
-    "description": "Explore our open-source projects and see how we innovate, collaborate, and build solutions that drive real impact. Join our community and contribute to cutting-edge technology.",
     "data": {
       "1": {
         "title": "Monika",

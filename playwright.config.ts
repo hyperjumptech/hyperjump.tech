@@ -33,8 +33,7 @@ export default defineConfig({
     }
   ],
   webServer: {
-    command: `bun run build && npx serve@latest out -l ${PORT}`,
-    url: `http://localhost:${PORT}`,
-    reuseExistingServer: !process.env.CI
+    command: "bun run build && bun run start",
+    url: `http://localhost:${PORT}`
   }
 });

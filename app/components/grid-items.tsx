@@ -20,7 +20,7 @@ import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   mainCaseStudiesButton,
   mainSeeMore,
-  ourProductsLearnMore
+  productsLearnMore
 } from "@/locales/.generated/server";
 
 type GridItemsTitleProps = {
@@ -284,7 +284,7 @@ export function GridItems({
                   asChild
                   variant="outline"
                   className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
-                  <Link href={urlLearnMore}>{ourProductsLearnMore(lang)}</Link>
+                  <Link href={urlLearnMore}>{productsLearnMore(lang)}</Link>
                 </Button>
               )}
 

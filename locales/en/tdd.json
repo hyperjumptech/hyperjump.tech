@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Tech Due Diligence",
-    "desc": "Identify Risks. Unlock Opportunities. Build with Confidence."
+    "desc": "Identify risks. Unlock opportunities. Build with confidence."
   },
   "description": "Verify and assess your company's ability to execute its roadmap and evaluate its current state.",
   "bestFor": ["Investors", "CTOs", "PE/VC firms"],
@@ -23,7 +23,7 @@
   "what_we_deliver": {
     "desc": "From deep-dive audits to scalable systems, we deliver clarity, speed, and results. Tailored to your growth stage.",
     "card_0": {
-      "title": "Software Delivery Performance",
+      "title": "Software delivery performance",
       "text": "We evaluate how efficiently your team ships software:",
       "items": {
         "0": "Deployment frequency",
@@ -33,7 +33,7 @@
       }
     },
     "card_1": {
-      "title": "Application Architecture & Maintainability",
+      "title": "Application architecture & maintainability",
       "text": "We analyze the current codebase and infrastructure:",
       "items": {
         "0": "Scalability & fault tolerance",
@@ -43,7 +43,7 @@
       }
     },
     "card_2": {
-      "title": "IT Infrastructure Cost & Optimization",
+      "title": "IT infrastructure cost & optimization",
       "text": "We help you answer: Are you overpaying for underused systems?",
       "items": {
         "0": "Cloud usage audit",
@@ -58,19 +58,19 @@
     "desc": "Discover how we turn ideas into impact. Our process is built to be simple, transparent, and focused on results. Every step of the way.",
     "step": {
       "0": {
-        "title": "Discovery & Interviews",
+        "title": "Discovery & interviews",
         "text": "We talk to engineering, product, and business teams to understand goals and context."
       },
       "1": {
-        "title": "Hands-On Audit",
+        "title": "Hands-On audit",
         "text": "We dive into your repositories, CI/CD pipelines, cloud infra, and documentation."
       },
       "2": {
-        "title": "Report & Recommendations",
+        "title": "Report & recommendations",
         "text": "You'll receive a comprehensive report detailing strengths, risks, and actionable next steps. With severity levels and roadmap suggestions."
       },
       "3": {
-        "title": "Post-Audit Implementation Support (Optional)",
+        "title": "Post-Audit implementation support (optional)",
         "text": "Need help fixing what we found? Our engineering teams can jump in and help you close the gaps."
       }
     }
@@ -80,9 +80,9 @@
     "desc": "Everything you need to evaluate, improve, and scale. Delivered in a format that speaks to both business and technical decision-makers.",
     "items": {
       "0": "Executive summary for C-Level & investors",
-      "1": "Technical Audit Report (code quality, architecture, infra)",
-      "2": "KPI Benchmarking & Recommendations",
-      "3": "Action Plan (Quick Wins + Long-Term Strategy)"
+      "1": "Technical audit report (code quality, architecture, infra)",
+      "2": "KPI benchmarking & recommendations",
+      "3": "Action plan (quick wins + long-term strategy)"
     }
   },
 

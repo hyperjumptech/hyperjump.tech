@@ -29,13 +29,6 @@ jobs:
       - name: Build app
         run: bun run build
 
-      - name: Start server
-        run: npx serve@latest out -l 3001 &
-        shell: bash
-
-      - name: Wait for server to be ready
-        run: npx wait-on http://localhost:3001 --timeout 60000
-
       - name: Run E2E tests (headless)
         env:
           CI: true

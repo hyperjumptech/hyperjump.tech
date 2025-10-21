@@ -1,10 +1,10 @@
 {
   "hero": {
     "heading": "ERP Implementation",
-    "desc": "Streamline Operations. Boost Visibility. Enable Scale."
+    "desc": "Streamline operations. Boost visibility. Enable scale."
   },
   "description": "Streamline operations with enterprise-grade ERP solutions, boosting efficiency and business intelligence.",
-  "bestFor": ["Ops teams", "SMEs", "Vertical industries"],
+  "bestFor": ["Ops teams", "SMEs", "vertical industries"],
   "what_is": {
     "desc": "Enterprise Resource Planning (ERP) systems connect your business processes. Finance, supply chain, inventory, sales into a single source of truth. But a great ERP isn't just software, it's about implementation that understands your operations.",
     "highlight": "We help organizations implement <span class=\"font-bold\">Odoo</span> and <span class=\"font-bold\">ERPNext</span>, tailored to their workflows, industry needs, and growth ambitions."
@@ -21,7 +21,7 @@
   "what_we_deliver": {
     "desc": "We partner with your team to streamline operations and build a system that scales with your business. From planning to post-implementation, we deliver hands-on support every step of the way.",
     "card_0": {
-      "title": "Process Mapping & Design",
+      "title": "Process mapping & design",
       "text": "We align ERP features with your business reality:",
       "items": {
         "0": "Department workflows (Finance, Ops, HR, etc.)",
@@ -31,7 +31,7 @@
       }
     },
     "card_1": {
-      "title": "ERP System Implementation",
+      "title": "ERP system implementation",
       "text": "We configure, customize, and deploy your ERP:",
       "items": {
         "0": "Odoo or ERPNext setup",
@@ -41,7 +41,7 @@
       }
     },
     "card_2": {
-      "title": "Post-Go-Live Support",
+      "title": "Post-Go-Live support",
       "text": "We make sure your ERP delivers value:",
       "items": {
         "0": "Stabilization support",
@@ -55,23 +55,23 @@
     "desc": "Discover how we turn ideas into impact. Our process is built to be simple, transparent, and focused on results. Every step of the way.",
     "step": {
       "0": {
-        "title": "Discovery & Business Process Audit",
+        "title": "Discovery & business process audit",
         "text": "Deep-dive into your operations to map key workflows and pain points."
       },
       "1": {
-        "title": "Solution Design",
+        "title": "Solution design",
         "text": "ERP modules and configurations mapped to your business flow."
       },
       "2": {
-        "title": "Development & Customization",
+        "title": "Development & customization",
         "text": "Build any required features, integrations, or localization support."
       },
       "3": {
-        "title": "Testing & Rollout",
+        "title": "Testing & rollout",
         "text": "We run test cycles, train your team, and support go-live execution."
       },
       "4": {
-        "title": "Ongoing Support",
+        "title": "Ongoing support",
         "text": "We stay available during stabilization to ensure adoption and effectiveness."
       }
     }
@@ -79,10 +79,10 @@
   "what_you_get": {
     "desc": "From tailored ERP modules to powerful reporting tools, we deliver a system that adapts to your workflow and grows with your business.",
     "items": {
-      "0": "End-to-End ERP Deployment",
-      "1": "Custom Modules Tailored to Your Needs",
-      "2": "Reporting & Real-Time Data Visibility",
-      "3": "A Scalable Backbone for Business Growth"
+      "0": "End-to-End ERP deployment",
+      "1": "Custom modules tailored to your needs",
+      "2": "Reporting & real-time data visibility",
+      "3": "A scalable backbone for business growth"
     }
   },
   "why_us": {

@@ -83,21 +83,34 @@ export default function Nav({ lang }: NavProps) {
           <CenterNavItems>
             <NavigationMenu className="mx-8 xl:mx-0">
               <NavigationMenuList className="flex items-center space-x-8">
-                {menu(lang).map(({ href, label }) => (
-                  <NavigationMenuItem key={label} className="flex items-center">
-                    <Link
-                      href={href}
-                      onClick={() => setIsOpen(false)}
-                      className={cn(
-                        "text-xl font-medium transition duration-300",
-                        isTransparent
-                          ? "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2"
-                          : "text-hyperjump-black hover:text-hyperjump-blue"
-                      )}>
-                      {label}
-                    </Link>
-                  </NavigationMenuItem>
-                ))}
+                {menu(lang).map(({ href, label }) => {
+                  const isActive = pathname.startsWith(href);
+
+                  return (
+                    <NavigationMenuItem
+                      key={label}
+                      className="flex items-center">
+                      <Link
+                        href={href}
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "text-xl font-medium transition duration-300",
+                          isTransparent &&
+                            isActive &&
+                            "group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:border-b-2",
+                          isTransparent &&
+                            !isActive &&
+                            "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2",
+                          !isTransparent && isActive && "text-hyperjump-blue",
+                          !isTransparent &&
+                            !isActive &&
+                            "text-hyperjump-black hover:text-hyperjump-blue"
+                        )}>
+                        {label}
+                      </Link>
+                    </NavigationMenuItem>
+                  );
+                })}
               </NavigationMenuList>
             </NavigationMenu>
           </CenterNavItems>
@@ -143,15 +156,21 @@ export default function Nav({ lang }: NavProps) {
       {isOpen && (
         <div className="bg-white shadow-md lg:hidden">
           <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-20 xl:px-0">
-            {menu(lang).map(({ href, label }) => (
-              <Link
-                key={label}
-                href={href}
-                className="text-hyperjump-black text-2xl transition hover:text-gray-400"
-                onClick={() => setIsOpen(false)}>
-                {label}
-              </Link>
-            ))}
+            {menu(lang).map(({ href, label }) => {
+              const isActive = pathname.startsWith(href);
+              return (
+                <Link
+                  key={label}
+                  href={href}
+                  className={cn(
+                    "text-2xl transition hover:text-gray-400",
+                    isActive ? "text-hyperjump-blue" : "text-hyperjump-black"
+                  )}
+                  onClick={() => setIsOpen(false)}>
+                  {label}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}

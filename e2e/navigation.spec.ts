@@ -45,8 +45,6 @@ test.describe("Navigation & Links", () => {
       const popup = await popupPromise;
       const target: Page = popup || page;
 
-      await page.waitForTimeout(1000);
-
       await expect(target).toHaveURL(new RegExp(expected));
     });
   }

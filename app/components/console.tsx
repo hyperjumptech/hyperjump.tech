@@ -1,5 +1,6 @@
 "use client";
 
+import data from "@/data.json";
 import ClientOnly from "./client-only";
 
 const messages = [
@@ -7,7 +8,7 @@ const messages = [
   "🏃‍♂️‍➡️ Pengen maju bersama tukang coding yang menggandrungi dunia open-source?",
   "👨‍🔬 Ingin eksplorasi teknologi keren kayak CI/CD, Docker, microservice, dkk?",
   "✅ UDAH DEH: Gabung kita aja",
-  "👉 https://hyperjump.tech/jobs"
+  `👉 ${data.url}/jobs`
 ];
 
 export default function Console() {

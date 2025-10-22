@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import data from "@/data.json";
 import {
   supportedLanguages,
   type SupportedLanguage
@@ -23,7 +25,6 @@ import {
 
 import type { CaseStudy, Service } from "../../data";
 import { serviceBySlug, ServiceSlug } from "../../data";
-import { Metadata } from "next";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 
 type LangProps = {
@@ -36,16 +37,16 @@ export async function generateMetadata(props: {
   params: Promise<{ lang: SupportedLanguage; slug: ServiceSlug }>;
 }): Promise<Metadata> {
   const { lang, slug } = await props.params;
+  const { url } = data;
   const service = serviceBySlug({ lang, slug });
-
-  const meta = {
+  const meta: Metadata = {
     title: `Services - ${service?.title ?? ""}`,
     description: service?.description ?? "",
     alternates: {
-      canonical: `https://hyperjump.tech/${lang}/services/${service?.slug}`,
+      canonical: `${url}/${lang}/services/${service?.slug}`,
       languages: (supportedLanguages as SupportedLanguage[]).reduce(
         (acc, l) => {
-          acc[l] = `https://hyperjump.tech/${l}/services/${service?.slug}`;
+          acc[l] = `${url}/${l}/services/${service?.slug}`;
           return acc;
         },
         {} as Record<string, string>

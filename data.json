@@ -1,5 +1,4 @@
 {
-  "description": "Open source first. Cloud native. DevOps excellence.",
   "clients": [
     {
       "name": "Amman Mineral Internasional",
@@ -26,6 +25,7 @@
       "imageUrl": "/images/clients/smartfren.svg"
     }
   ],
+  "description": "Your partner in building reliable, modern software.",
   "github": "https://github.com/hyperjumptech",
   "gaId": "G-L825T5QT2S",
   "socials": [

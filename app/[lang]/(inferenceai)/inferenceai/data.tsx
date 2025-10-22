@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 import type { Item } from "@/app/components/grid-items";
+import data from "@/data.json";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   inferenceaiNavItems0Label,
@@ -422,7 +423,7 @@ export const getFaqs = (lang: SupportedLanguage): Faq[] => {
 
 export const getData = (lang: SupportedLanguage) => ({
   name: "Inference AI",
-  baseUrl: `https://hyperjump.tech/${lang}/inferenceai`,
+  baseUrl: `${data.url}/${lang}/inferenceai`,
   socials: [
     {
       platform: "GitHub",

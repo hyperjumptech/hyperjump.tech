@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { GridItems } from "@/app/components/grid-items";
 import { Hero } from "@/app/components/hero";
+import data from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
   supportedLanguages,
@@ -26,15 +27,15 @@ export async function generateMetadata({
   params
 }: ProductsProps): Promise<Metadata> {
   const { lang } = await params;
-
-  const meta = {
+  const { url } = data;
+  const meta: Metadata = {
     title: productsHeroHeading(lang),
     description: productsHeroDesc(lang),
     alternates: {
-      canonical: `https://hyperjump.tech/${lang}/products`,
+      canonical: `${url}/${lang}/products`,
       languages: supportedLanguages.reduce(
         (acc, l) => {
-          acc[l] = `https://hyperjump.tech/${l}/products`;
+          acc[l] = `https${url}${l}/products`;
           return acc;
         },
         {} as Record<string, string>

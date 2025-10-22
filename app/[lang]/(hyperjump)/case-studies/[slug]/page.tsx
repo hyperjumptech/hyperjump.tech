@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
+import data from "@/data.json";
 import { caseStudyButton, caseStudyMore } from "@/locales/.generated/server";
 import {
   supportedLanguages,
@@ -12,7 +14,6 @@ import {
 import type { CaseStudy } from "../../data";
 import { caseStudyBy, getCaseStudies } from "../data";
 import { Content } from "./components/content";
-import { Metadata } from "next";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 
 type Params = { lang: SupportedLanguage; slug: string };
@@ -25,17 +26,16 @@ export async function generateMetadata({
   params
 }: CaseStudyProps): Promise<Metadata> {
   const { lang, slug } = await params;
+  const { url } = data;
   const caseStudies = caseStudyBy(slug, lang);
-
-  const meta = {
+  const meta: Metadata = {
     title: `Case-Studies - ${caseStudies?.title ?? ""}`,
     description: caseStudies?.description ?? "",
     alternates: {
-      canonical: `https://hyperjump.tech/${lang}/case-studies/${caseStudies?.slug}`,
+      canonical: `${url}/${lang}/case-studies/${caseStudies?.slug}`,
       languages: (supportedLanguages as SupportedLanguage[]).reduce(
         (acc, l) => {
-          acc[l] =
-            `https://hyperjump.tech/${l}/case-studies/${caseStudies?.slug}`;
+          acc[l] = `${url}/${l}/case-studies/${caseStudies?.slug}`;
           return acc;
         },
         {} as Record<string, string>

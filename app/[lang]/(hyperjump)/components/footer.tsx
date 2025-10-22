@@ -11,7 +11,7 @@ type FooterProps = { lang: SupportedLanguage };
 
 export default function Footer({ lang }: FooterProps) {
   return (
-    <footer className="relative overflow-hidden px-4 py-10 text-white md:px-20 md:py-14 xl:px-0">
+    <footer className="relative overflow-hidden px-4 py-14 text-white md:px-20 md:py-10 xl:px-0">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/swatch.svg"
@@ -25,36 +25,39 @@ export default function Footer({ lang }: FooterProps) {
         />
       </div>
 
-      <div className="relative z-20 container mx-auto px-4">
-        <div className="flex flex-col space-y-6 md:items-center">
-          <div className="flex items-center">
-            <Link href={`/${lang}`}>
-              <Image
-                src="/images/hyperjump-white.png"
-                alt="Hyperjump Logo"
-                width={187}
-                height={32}
-                className="h-8 w-auto"
-              />
-            </Link>
-          </div>
+      <div className="relative z-20 mx-auto md:max-w-5xl">
+        <div className="flex flex-col space-y-6">
+          <div className="flex flex-col items-start justify-between space-y-4 md:flex-row md:items-center md:space-y-0">
+            <div className="flex flex-col space-y-6">
+              <Link href={`/${lang}`}>
+                <Image
+                  src="/images/hyperjump-white.png"
+                  alt="Hyperjump Logo"
+                  width={187}
+                  height={32}
+                  className="h-8 w-auto"
+                />
+              </Link>
+              <p className="max-w-md text-sm text-[#C7CDCD] md:max-w-xs">
+                {mainFooter(lang)}
+              </p>
+            </div>
 
-          <p className="max-w-md text-sm text-[#C7CDCD]">{mainFooter(lang)}</p>
-
-          <div className="flex space-x-3">
-            {data.socials.map(({ icon, platform, url }) => (
-              <a
-                key={platform}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:bg-hyperjump-blue flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition"
-                aria-label={platform}>
-                <i className={icon} aria-hidden="true"></i>
-              </a>
-            ))}
+            <div className="flex space-x-3">
+              {data.socials.map(({ icon, platform, url }) => (
+                <a
+                  key={platform}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:bg-hyperjump-blue flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition"
+                  aria-label={platform}>
+                  <i className={icon} aria-hidden="true"></i>
+                </a>
+              ))}
+            </div>
+            <LanguagePicker lang={lang} />
           </div>
-          <LanguagePicker lang={lang} />
 
           <Separator className="w-full max-w-5xl bg-[#2D364A]" />
 

@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { Hero } from "@/app/components/hero";
 import { Button } from "@/components/ui/button";
+import data from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
   supportedLanguages,
@@ -29,15 +30,15 @@ export async function generateMetadata(props: {
   params: Promise<{ lang: SupportedLanguage }>;
 }): Promise<Metadata> {
   const { lang } = await props.params;
-
-  const meta: any = {
+  const { url } = data;
+  const meta: Metadata = {
     title: `Case Studies - ${caseStudyHeroHeading(lang)}`,
     description: caseStudyHeroDesc(lang),
     alternates: {
-      canonical: `https://hyperjump.tech/${lang}/case-studies`,
+      canonical: `${url}/${lang}/case-studies`,
       languages: (supportedLanguages as SupportedLanguage[]).reduce(
         (acc, l) => {
-          acc[l] = `https://hyperjump.tech/${l}/case-studies`;
+          acc[l] = `${url}/${l}/case-studies`;
           return acc;
         },
         {} as Record<string, string>
@@ -70,7 +71,7 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
 function CaseStudies({ lang }: { lang: SupportedLanguage }) {
   return (
     <section className="bg-white pt-5 pb-10">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-5xl">
         <div className="grid gap-6 md:grid-cols-2">
           {getCaseStudies(lang).map(
             ({ category, description, slug, title }) => (

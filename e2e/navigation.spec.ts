@@ -10,8 +10,7 @@ const navLinks: { name: string; expected: RegExp }[] = [
 const footerLinks: { name: string; expected: string }[] = [
   { name: "LinkedIn", expected: "linkedin" },
   { name: "GitHub", expected: "github" },
-  { name: "Medium", expected: "medium" },
-  { name: "Substack", expected: "substack" }
+  { name: "Medium", expected: "medium" }
 ];
 
 test.describe("Navigation & Links", () => {

@@ -43,11 +43,6 @@
       "platform": "Medium",
       "url": "https://medium.com/hyperjump-tech",
       "icon": "fab fa-medium-m"
-    },
-    {
-      "platform": "Substack",
-      "url": "https://hyperjump.substack.com",
-      "icon": "fa fa-newspaper"
     }
   ],
   "title": "Hyperjump Technology",

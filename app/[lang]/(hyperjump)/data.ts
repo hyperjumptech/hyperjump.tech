@@ -495,7 +495,7 @@ export function services(lang: SupportedLanguage): Service[] {
           ]
         },
         why: {
-          backgroundImageUrl: `/images/services/${ServiceSlug.InferenceAI}/why-us-bg.jpg`,
+          backgroundImageUrl: `/images/services/${ServiceSlug.InferenceAI}/why-us-bg.webp`,
           clients: [],
           description: aiWhyUsDesc(lang),
           imageUrl: `/images/services/${ServiceSlug.InferenceAI}/why-us.svg`,
@@ -510,7 +510,7 @@ export function services(lang: SupportedLanguage): Service[] {
       description: aiDescription(lang),
       iconUrl: `/images/services/${ServiceSlug.InferenceAI}/icon.svg`,
       imageIconUrl: `/images/services/${ServiceSlug.InferenceAI}/image-icon.svg`,
-      imageUrl: `/images/services/${ServiceSlug.InferenceAI}/image.jpg`,
+      imageUrl: `/images/services/${ServiceSlug.InferenceAI}/image.webp`,
       shortDescription: aiHeroDesc(lang),
       slug: ServiceSlug.InferenceAI,
       title: aiHeroHeading(lang),

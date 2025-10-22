@@ -11,7 +11,7 @@ type FooterProps = { lang: SupportedLanguage };
 
 export default function Footer({ lang }: FooterProps) {
   return (
-    <footer className="relative overflow-hidden px-4 py-10 text-white md:px-20 md:py-14 xl:px-0">
+    <footer className="relative overflow-hidden px-4 text-white md:px-20 md:py-14 xl:px-0">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/swatch.svg"

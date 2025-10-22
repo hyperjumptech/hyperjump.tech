@@ -23,19 +23,20 @@ import {
 import { Clients } from "../components/clients";
 import { serviceBySlug, services, ServiceSlug } from "../data";
 
+const { clients, url } = data;
+
 export async function generateMetadata(props: {
   params: Promise<{ lang: SupportedLanguage }>;
 }): Promise<Metadata> {
   const { lang } = await props.params;
-
-  const meta: any = {
+  const meta: Metadata = {
     title: `Services - ${servicesHeroHeading(lang)}`,
     description: servicesHeroDesc(lang),
     alternates: {
-      canonical: `https://hyperjump.tech/${lang}/services`,
+      canonical: `${url}/${lang}/services`,
       languages: (supportedLanguages as SupportedLanguage[]).reduce(
         (acc, l) => {
-          acc[l] = `https://hyperjump.tech/${l}/services`;
+          acc[l] = `${url}/${l}/services`;
           return acc;
         },
         {} as Record<string, string>
@@ -82,7 +83,7 @@ export default async function Services({ params }: ServicesProps) {
           <p className="text-hyperjump-gray mx-auto mb-8 w-full max-w-3xl text-center text-base md:text-lg">
             {servicesPartnersDesc(lang)}
           </p>
-          <Clients clients={data.clients} />
+          <Clients clients={clients} />
         </section>
       </div>
     </main>

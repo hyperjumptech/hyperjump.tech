@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { Organization, WebPage, WithContext } from "schema-dts";
@@ -46,24 +47,22 @@ import {
   pageData,
   services
 } from "./data";
-import { Metadata } from "next";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 
-const { github, socials, title, url, description } = data;
+const { github, socials, title, url } = data;
 
 export async function generateMetadata(props: {
   params: Promise<{ lang: SupportedLanguage }>;
 }): Promise<Metadata> {
   const { lang } = await props.params;
-
-  const meta: any = {
+  const meta: Metadata = {
     title: mainHeroHeading(lang),
     description: mainHeroDesc(lang),
     alternates: {
-      canonical: `https://hyperjump.tech/${lang}`,
+      canonical: `${url}/${lang}`,
       languages: (supportedLanguages as SupportedLanguage[]).reduce(
         (acc, l) => {
-          acc[l] = `https://hyperjump.tech/${l}`;
+          acc[l] = `${url}/${l}`;
           return acc;
         },
         {} as Record<string, string>
@@ -290,7 +289,7 @@ function JsonLdOrganization() {
     "@type": "Organization",
     name: title,
     url,
-    logo: "https://hyperjump.tech/images/hyperjump-colored.png",
+    logo: `${url}/images/hyperjump-colored.png`,
     address: {
       "@type": "PostalAddress",
       streetAddress:

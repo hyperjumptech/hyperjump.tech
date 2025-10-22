@@ -8,7 +8,7 @@
   "see_less": "See less",
   "our_location": "Our location",
   "open_in_google_maps": "Open in Google Maps",
-  "footer": " Accelerating business growth with cutting-Edge technology solutions",
+  "footer": "Accelerating business growth with cutting-edge technology solutions",
   "case_studies_cta": {
     "heading": "Solve what's holding you back",
     "desc": "Whether you're dealing with legacy systems, operational bottlenecks, or scaling pains. We're here to help you untangle the mess and build what's next.",
@@ -32,7 +32,7 @@
     "0_text": "A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.",
     "0_category": "CTO as a Service",
 
-    "1_title": "Elevating a media-tech Engineering team from feature factory to innovation powerhouse",
+    "1_title": "Elevating a media-tech engineering team from feature factory to innovation powerhouse",
     "1_text": "When rapid growth outpaced engineering maturity, this team needed more than features, they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.",
     "1_category": "CTO as a Service"
   },

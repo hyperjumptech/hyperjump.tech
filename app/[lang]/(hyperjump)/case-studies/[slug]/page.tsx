@@ -92,12 +92,12 @@ function Hero({ heading }: { heading: string }) {
       <div className="absolute inset-0 z-0">
         <Image
           alt="Hero background"
-          blurDataURL="/images/case-studies/banner.jpg"
+          blurDataURL="/images/case-studies/banner.webp"
           className="object-cover object-center"
           fill
           placeholder="blur"
           priority
-          src="/images/case-studies/banner.jpg"
+          src="/images/case-studies/banner.webp"
         />
       </div>
 

@@ -26,45 +26,46 @@ export default function Footer({ lang }: FooterProps) {
       </div>
 
       <div className="relative z-20 mx-auto md:max-w-5xl">
-        <div className="flex flex-col space-y-6">
-          <div className="flex flex-col items-start justify-between space-y-4 md:flex-row md:items-center md:space-y-0">
-            <div className="flex flex-col space-y-6">
-              <Link href={`/${lang}`}>
-                <Image
-                  src="/images/hyperjump-white.png"
-                  alt="Hyperjump Logo"
-                  width={187}
-                  height={32}
-                  className="h-8 w-auto"
-                />
-              </Link>
-              <p className="max-w-md text-sm text-[#C7CDCD] md:max-w-xs">
-                {mainFooter(lang)}
-              </p>
-            </div>
-
-            <div className="flex space-x-3">
-              {data.socials.map(({ icon, platform, url }) => (
-                <a
-                  key={platform}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:bg-hyperjump-blue flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition"
-                  aria-label={platform}>
-                  <i className={icon} aria-hidden="true"></i>
-                </a>
-              ))}
-            </div>
-            <LanguagePicker lang={lang} />
+        <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-3">
+          <div className="flex flex-col items-start space-y-6 md:items-start">
+            <Link href={`/${lang}`}>
+              <Image
+                src="/images/hyperjump-white.png"
+                alt="Hyperjump Logo"
+                width={187}
+                height={32}
+                className="h-8 w-auto"
+              />
+            </Link>
+            <p className="max-w-md text-sm text-[#C7CDCD] md:max-w-xs">
+              {mainFooter(lang)}
+            </p>
           </div>
 
-          <Separator className="w-full max-w-5xl bg-[#2D364A]" />
+          <div className="flex justify-start space-x-3 md:justify-center">
+            {data.socials.map(({ icon, platform, url }) => (
+              <a
+                key={platform}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:bg-hyperjump-blue flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition"
+                aria-label={platform}>
+                <i className={icon} aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
 
-          <p className="text-center text-sm text-[#C7CDCD]">
-            {copyright(lang)}
-          </p>
+          <div className="flex justify-start md:justify-end">
+            <LanguagePicker lang={lang} />
+          </div>
         </div>
+
+        <Separator className="mt-6 w-full bg-[#2D364A]" />
+
+        <p className="mt-4 text-center text-sm text-[#C7CDCD]">
+          {copyright(lang)}
+        </p>
       </div>
     </footer>
   );

@@ -19,9 +19,7 @@ export function getCommercialProduct(lang: SupportedLanguage) {
     {
       title: productsCommercialData2Title(lang),
       description: productsCommercialData2Text(lang),
-      image: "/images/products/media-pulse.svg",
-      urlLearnMore: "https://mediapulse.hyperjump.tech/",
-      url: "https://mediapulse.hyperjump.tech/"
+      image: "/images/products/media-pulse.svg"
     },
     {
       title: productsCommercialData1Title(lang),

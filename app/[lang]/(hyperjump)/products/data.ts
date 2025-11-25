@@ -25,7 +25,7 @@ export function getCommercialProduct(lang: SupportedLanguage) {
       title: productsCommercialData1Title(lang),
       description: productsCommercialData1Text(lang),
       image: "/images/products/startGPT.svg",
-      urlSeeMore: "https://startgpt.hyperjump.tech/",
+      urlLearnMore: "https://startgpt.hyperjump.tech/",
       url: "https://startgpt.hyperjump.tech/"
     },
 

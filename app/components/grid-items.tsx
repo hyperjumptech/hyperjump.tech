@@ -275,12 +275,7 @@ export function GridItems({
                   asChild
                   variant="outline"
                   className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
-                  <Link
-                    href={urlSeeMore}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    {mainSeeMore(lang)}
-                  </Link>
+                  <Link href={urlSeeMore}>{mainSeeMore(lang)}</Link>
                 </Button>
               )}
 

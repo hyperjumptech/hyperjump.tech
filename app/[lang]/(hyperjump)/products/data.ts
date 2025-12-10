@@ -20,15 +20,16 @@ export function getCommercialProduct(lang: SupportedLanguage) {
       title: productsCommercialData2Title(lang),
       description: productsCommercialData2Text(lang),
       image: "/images/products/media-pulse.svg"
+      // urlLearnMore: "https://mediapulse.hyperjump.tech/",
+      // url: "https://mediapulse.hyperjump.tech/"
     },
     {
       title: productsCommercialData1Title(lang),
       description: productsCommercialData1Text(lang),
-      image: "/images/products/startGPT.svg",
-      urlLearnMore: "https://startgpt.hyperjump.tech/",
-      url: "https://startgpt.hyperjump.tech/"
+      image: "/images/products/startGPT.svg"
+      // urlLearnMore: "https://startgpt.hyperjump.tech/",
+      // url: "https://startgpt.hyperjump.tech/"
     },
-
     {
       title: productsCommercialData3Title(lang),
       description: productsCommercialData3Text(lang),

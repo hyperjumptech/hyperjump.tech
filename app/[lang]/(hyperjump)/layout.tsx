@@ -1,12 +1,15 @@
 import ScrollObserver from "@/app/components/scroll-observer";
-import type { SupportedLanguage } from "@/locales/.generated/types";
+import {
+  supportedLanguages,
+  type SupportedLanguage
+} from "@/locales/.generated/types";
 import Footer from "./components/footer";
 import LandingAIAgent from "./components/landing-ai-agent";
 import Nav from "./components/nav";
 
 type MainLangLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<{ lang: string }>;
 };
 
 export default async function MainLangLayout({
@@ -14,15 +17,18 @@ export default async function MainLangLayout({
   params
 }: MainLangLayoutProps) {
   const { lang } = await params;
+  const supportedLang = supportedLanguages.includes(lang as SupportedLanguage)
+    ? (lang as SupportedLanguage)
+    : "en";
 
   return (
     <>
       <ScrollObserver />
       <div className="relative min-h-screen bg-white">
-        <Nav lang={lang} />
+        <Nav lang={supportedLang} />
         {children}
         <LandingAIAgent />
-        <Footer lang={lang} />
+        <Footer lang={supportedLang} />
       </div>
     </>
   );

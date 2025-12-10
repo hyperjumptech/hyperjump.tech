@@ -14,11 +14,11 @@ type CaseStudyProps = {
   params: Promise<Params>;
 };
 
-export const generateStaticParams = async ({ params }: CaseStudyProps) => {
-  return getCaseStudies((await params).lang).reduce<Params[]>(
-    (acc, { slug }) => [
+export const generateStaticParams = async (): Promise<Params[]> => {
+  return supportedLanguages.reduce<Params[]>(
+    (acc, lang) => [
       ...acc,
-      ...supportedLanguages.map((lang) => ({ slug, lang }))
+      ...getCaseStudies(lang).map(({ slug }) => ({ slug, lang }))
     ],
     []
   );

@@ -46,15 +46,14 @@ export async function generateMetadata({
   return dynamicOpengraph(meta);
 }
 
-export const generateStaticParams = async ({ params }: CaseStudyProps) => {
-  return getCaseStudies((await params).lang).reduce<Params[]>(
-    (acc, { slug }) => [
+export async function generateStaticParams(): Promise<Params[]> {
+  return supportedLanguages.reduce<Params[]>((acc, lang) => {
+    return [
       ...acc,
-      ...supportedLanguages.map((lang) => ({ slug, lang }))
-    ],
-    []
-  );
-};
+      ...getCaseStudies(lang).map(({ slug }) => ({ slug, lang }))
+    ];
+  }, []);
+}
 
 export default async function CaseStudy({ params }: CaseStudyProps) {
   const { lang, slug } = await params;

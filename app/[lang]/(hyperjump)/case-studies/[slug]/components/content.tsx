@@ -11,7 +11,7 @@ type ContentProps = {
 function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
   if (lang === "id") {
     return (
-      <article className="prose prose-neutral max-w-none dark:prose-invert">
+      <article className="prose prose-neutral dark:prose-invert max-w-none">
         <h2>Gambaran Umum</h2>
         <p>
           Sebuah startup perikanan yang berkembang menghadapi tantangan umum:
@@ -28,8 +28,14 @@ function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
 
         <h2>Tantangan</h2>
         <ul>
-          <li>Tim teknologi belum memiliki perangkat lunak yang berjalan di produksi</li>
-          <li>Kepemilikan produk tersebar, dan ritual sprint tidak dijalankan secara bermakna</li>
+          <li>
+            Tim teknologi belum memiliki perangkat lunak yang berjalan di
+            produksi
+          </li>
+          <li>
+            Kepemilikan produk tersebar, dan ritual sprint tidak dijalankan
+            secara bermakna
+          </li>
           <li>
             Tidak ada roadmap yang jelas, infrastruktur belum skalabel, dan
             kepemimpinan teknis senior sangat minim
@@ -69,20 +75,25 @@ function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
 
         <h3>Meningkatkan Kematangan Engineering</h3>
         <ul>
-          <li>Menerapkan unit testing, cakupan kode (70%+), dan pipeline CI via GitLab</li>
           <li>
-            Menyatukan version control menjadi strategi Git trunk tunggal
-            dengan proteksi cabang dan konvensi penamaan yang terstruktur
+            Menerapkan unit testing, cakupan kode (70%+), dan pipeline CI via
+            GitLab
           </li>
-          <li>Pengiriman produksi harian untuk Web, Android, dan backend ERP</li>
+          <li>
+            Menyatukan version control menjadi strategi Git trunk tunggal dengan
+            proteksi cabang dan konvensi penamaan yang terstruktur
+          </li>
+          <li>
+            Pengiriman produksi harian untuk Web, Android, dan backend ERP
+          </li>
         </ul>
 
         <h3>Peluncuran Sistem Penuh</h3>
         <ul>
           <li>
-            Mendukung berbagai Go-Live ERP di beberapa wilayah, dengan
-            integrasi backend (Odoo) dan sistem mobile untuk pelacakan
-            penjualan, inventaris, dan pengeluaran
+            Mendukung berbagai Go-Live ERP di beberapa wilayah, dengan integrasi
+            backend (Odoo) dan sistem mobile untuk pelacakan penjualan,
+            inventaris, dan pengeluaran
           </li>
           <li>
             Menerapkan sistem inquiry dengan fitur pencarian untuk pembeli
@@ -93,13 +104,13 @@ function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
         <h2>Pembelajaran Utama</h2>
         <ul>
           <li>
-            Proses yang kuat lebih penting daripada individu kuat di awal. Dengan
-            ritual yang tepat, bahkan tim junior pun bisa meluncurkan perangkat
-            lunak dengan serius
+            Proses yang kuat lebih penting daripada individu kuat di awal.
+            Dengan ritual yang tepat, bahkan tim junior pun bisa meluncurkan
+            perangkat lunak dengan serius
           </li>
           <li>
-            Tech debt tidak bisa dihindari, tapi harus dikendalikan. Identifikasi
-            awal mencegah akumulasi kerja ulang yang membebani
+            Tech debt tidak bisa dihindari, tapi harus dikendalikan.
+            Identifikasi awal mencegah akumulasi kerja ulang yang membebani
           </li>
           <li>
             QA bukan departemen, tapi budaya. Komitmen bersama terhadap kualitas
@@ -132,15 +143,15 @@ function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
         <h2>What&apos;s Next</h2>
         <p>
           Tim kini stabil dan mandiri. Tantangan berikutnya? Memperkuat
-          kepemimpinan internal dan menyusun roadmap produk jangka panjang
-          untuk mempertahankan pencapaian yang ada.
+          kepemimpinan internal dan menyusun roadmap produk jangka panjang untuk
+          mempertahankan pencapaian yang ada.
         </p>
       </article>
     );
   }
 
   return (
-    <article className="prose prose-neutral max-w-none dark:prose-invert">
+    <article className="prose prose-neutral dark:prose-invert max-w-none">
       <h2>Overview</h2>
       <p>
         A growing fisheries startup faced a familiar challenge: a passionate but
@@ -165,7 +176,9 @@ function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
           There was no clear roadmap, no scalable infrastructure, and major gaps
           in senior technical leadership
         </li>
-        <li>Cross-functional collaboration and quality control were inconsistent</li>
+        <li>
+          Cross-functional collaboration and quality control were inconsistent
+        </li>
       </ul>
 
       <h2>Our Approach</h2>
@@ -177,8 +190,8 @@ function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
       <h3>Agile Overhaul</h3>
       <ul>
         <li>
-          Implemented real Scrum discipline, clear Definition of Done, structured
-          grooming, and meaningful retrospectives
+          Implemented real Scrum discipline, clear Definition of Done,
+          structured grooming, and meaningful retrospectives
         </li>
         <li>
           Introduced Fibonacci-based story point estimations and velocity
@@ -200,22 +213,26 @@ function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
 
       <h3>Engineering Maturity</h3>
       <ul>
-        <li>Introduced unit testing, 70%+ code coverage, and CI pipelines via GitLab</li>
+        <li>
+          Introduced unit testing, 70%+ code coverage, and CI pipelines via
+          GitLab
+        </li>
         <li>
           Consolidated version control into a single-trunk Git strategy with
           branch protections and structured naming conventions
         </li>
         <li>
-          Enabled daily production-ready deployments across Web, Android, and ERP
-          backends
+          Enabled daily production-ready deployments across Web, Android, and
+          ERP backends
         </li>
       </ul>
 
       <h3>Full-System Rollouts</h3>
       <ul>
         <li>
-          Supported multiple ERP go-lives across regions, with integrated backend
-          (Odoo) and mobile systems for tracking sales, inventory, and expenses
+          Supported multiple ERP go-lives across regions, with integrated
+          backend (Odoo) and mobile systems for tracking sales, inventory, and
+          expenses
         </li>
         <li>
           Deployed a search-enhanced inquiry system tailored for multilingual
@@ -246,11 +263,11 @@ function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
       <h2>Results</h2>
       <p>
         The team is now stable and self-sufficient. The next challenge?
-        Strengthen internal leadership and establish a long-term product
-        roadmap to keep delivering value at scale. We&apos;re proud to have
-        played a part in helping this fisheries company build not just software,
-        but a high-performing tech organization that&apos;s ready to transform
-        the industry.
+        Strengthen internal leadership and establish a long-term product roadmap
+        to keep delivering value at scale. We&apos;re proud to have played a
+        part in helping this fisheries company build not just software, but a
+        high-performing tech organization that&apos;s ready to transform the
+        industry.
       </p>
 
       <Image
@@ -264,8 +281,8 @@ function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
       <h2>What&apos;s Next</h2>
       <p>
         The team is now stable and self-sufficient. The next challenge?
-        Strengthen internal leadership and establish a long-term product
-        roadmap to keep delivering value at scale.
+        Strengthen internal leadership and establish a long-term product roadmap
+        to keep delivering value at scale.
       </p>
     </article>
   );
@@ -274,7 +291,7 @@ function FisheriesCaseStudy({ lang }: { lang: SupportedLanguage }) {
 function MediaCaseStudy({ lang }: { lang: SupportedLanguage }) {
   if (lang === "id") {
     return (
-      <article className="prose prose-neutral max-w-none dark:prose-invert">
+      <article className="prose prose-neutral dark:prose-invert max-w-none">
         <h2>Gambaran Umum</h2>
         <p>
           Sebuah platform media digital yang populer di kalangan Milenial dan
@@ -289,8 +306,8 @@ function MediaCaseStudy({ lang }: { lang: SupportedLanguage }) {
         <ul>
           <li>
             Tim engineering berfungsi seperti agensi internal, mengerjakan
-            permintaan fitur dari unit bisnis tanpa struktur atau pelacakan
-            yang jelas
+            permintaan fitur dari unit bisnis tanpa struktur atau pelacakan yang
+            jelas
           </li>
           <li>Tidak ada sistem manajemen tugas atau ticketing</li>
           <li>Permintaan fitur langsung ke developer tanpa perantara</li>
@@ -353,8 +370,8 @@ function MediaCaseStudy({ lang }: { lang: SupportedLanguage }) {
         <h3>Pertumbuhan Berbasis KPI</h3>
         <ul>
           <li>
-            Menetapkan metrik kualitas internal (bug saat QA, cakupan unit
-            test) untuk menjaga maintainability dan mengurangi utang teknis
+            Menetapkan metrik kualitas internal (bug saat QA, cakupan unit test)
+            untuk menjaga maintainability dan mengurangi utang teknis
           </li>
           <li>
             Melacak metrik kualitas eksternal (bug produksi) untuk percepatan
@@ -430,7 +447,7 @@ function MediaCaseStudy({ lang }: { lang: SupportedLanguage }) {
   }
 
   return (
-    <article className="prose prose-neutral max-w-none dark:prose-invert">
+    <article className="prose prose-neutral dark:prose-invert max-w-none">
       <h2>Overview</h2>
       <p>
         A prominent digital media platform catering to Millennials and Gen Z was
@@ -475,7 +492,10 @@ function MediaCaseStudy({ lang }: { lang: SupportedLanguage }) {
           better user stories, bridging communication gaps between product,
           design, and development
         </li>
-        <li>Tracked team velocity to create predictable, measurable delivery cycles</li>
+        <li>
+          Tracked team velocity to create predictable, measurable delivery
+          cycles
+        </li>
       </ul>
 
       <h3>CI/CD Transformation</h3>

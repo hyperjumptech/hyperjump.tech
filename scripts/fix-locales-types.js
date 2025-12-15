@@ -1,16 +1,11 @@
 import fs from "fs";
 import path from "path";
 
-const filePath = path.join(
-  process.cwd(),
-  "locales",
-  ".generated",
-  "types.ts",
-);
+const filePath = path.join(process.cwd(), "locales", ".generated", "types.ts");
 
 if (!fs.existsSync(filePath)) {
   console.warn(
-    `[fix-locales-types] File not found at ${filePath}, skipping patch.`,
+    `[fix-locales-types] File not found at ${filePath}, skipping patch.`
   );
   process.exit(0);
 }
@@ -25,6 +20,6 @@ if (content.includes("ArgsProps")) {
 const patched = `${content.trimEnd()}\n\nexport type ArgsProps = Record<string, string>;\n`;
 
 fs.writeFileSync(filePath, patched, "utf8");
-console.log("[fix-locales-types] Added ArgsProps type to locales .generated types.");
-
-
+console.log(
+  "[fix-locales-types] Added ArgsProps type to locales .generated types."
+);

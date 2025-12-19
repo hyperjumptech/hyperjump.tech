@@ -6,7 +6,7 @@ import Nav from "./components/nav";
 
 type MainLangLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<{ lang: string }>;
 };
 
 export default async function MainLangLayout({
@@ -19,10 +19,10 @@ export default async function MainLangLayout({
     <>
       <ScrollObserver />
       <div className="relative min-h-screen bg-white">
-        <Nav lang={lang} />
+        <Nav lang={lang as SupportedLanguage} />
         {children}
         <LandingAIAgent />
-        <Footer lang={lang} />
+        <Footer lang={lang as SupportedLanguage} />
       </div>
     </>
   );

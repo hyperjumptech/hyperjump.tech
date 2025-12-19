@@ -5,7 +5,7 @@ import { Footer } from "./components/footer";
 
 type MainLangLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<{ lang: string }>;
 };
 
 export default async function MainLangLayout({
@@ -18,9 +18,9 @@ export default async function MainLangLayout({
     <>
       <ScrollObserver />
       <div className="relative min-h-screen bg-transparent">
-        <ClientWrapper lang={lang} />
+        <ClientWrapper lang={lang as SupportedLanguage} />
         {children}
-        <Footer lang={lang} />
+        <Footer lang={lang as SupportedLanguage} />
       </div>
     </>
   );

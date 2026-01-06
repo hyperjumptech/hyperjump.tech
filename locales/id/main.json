@@ -31,7 +31,6 @@
     "0_title": "Mengubah tim teknologi perikanan menjadi mesin produk yang skalabel",
     "0_text": "Sebuah tim teknologi junior namun penuh semangat. Tidak ada produk yang sudah berjalan. Taruhannya besar. Kami terlibat secara mendalam dengan tim mereka untuk memperkenalkan struktur, membangun kepercayaan diri, dan merilis MVP yang berfungsi dalam 3 bulan. Melalui praktik agile yang ketat dan peluncuran sistem menyeluruh, kami membantu mengubah organisasi teknologi yang rapuh menjadi mesin produk yang andal.",
     "0_category": "CTO as a Service",
-
     "1_title": "Meningkatkan tim rekayasa media dari pabrik fitur menjadi pusat inovasi",
     "1_text": "Ketika pertumbuhan pesat melampaui kematangan tim, tim ini membutuhkan lebih dari sekadar fitur, mereka membutuhkan transformasi. Kami merestrukturisasi praktik agile mereka, mengotomatisasi DevOps, menetapkan KPI yang terukur, dan membantu mereka beralih dari sekadar mengeksekusi tugas menjadi pemilik produk sejati yang mampu berinovasi.",
     "1_category": "CTO as a Service"
@@ -39,30 +38,25 @@
   "project": {
     "heading": "Produk sumber terbuka",
     "desc": "Jelajahi proyek open-source kami dan lihat bagaimana kami berinovasi, berkolaborasi, dan membangun solusi berdampak nyata. Bergabunglah dengan komunitas kami dan berkontribusi dalam pengembangan teknologi mutakhir.",
-
     "0_title": "Grule",
     "0_text": "Grule adalah mesin aturan (rule engine) open-source yang kuat untuk Go, yang memungkinkan Anda mendefinisikan aturan bisnis dalam format yang mudah dibaca manusia—membuat aplikasi Anda lebih fleksibel dan mudah dipelihara.",
-
     "1_title": "Monika",
     "1_text": "Monika adalah aplikasi baris perintah untuk memantau berbagai komponen aplikasi web Anda menggunakan konfigurasi sederhana berbasis JSON. Dapatkan notifikasi tidak hanya saat situs Anda down, tetapi juga ketika performanya melambat.",
-
     "2_title": "Konektor Chatbot WhatsApp",
     "2_text": "Backend Konektor Chatbot WhatsApp dibangun menggunakan Express.js. Dirancang untuk terintegrasi dengan WhatsApp Business API dan mendukung berbagai platform AI seperti Dify dan Rasa."
   },
   "faq": {
     "heading": "Pertanyaan yang sering diajukan",
     "desc": "Temukan jawaban atas pertanyaan yang sering diajukan. Jika membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.",
-
     "0_question": "Apa itu CTO sebagai Layanan (CTOaaS), dan bagaimana manfaatnya bagi perusahaan saya?",
     "0_answer": "CTOaaS memberikan akses fleksibel ke kepemimpinan teknologi berpengalaman tanpa biaya eksekutif penuh waktu. Layanan ini membantu perusahaan dalam perencanaan strategis TI, transformasi digital, dan pengambilan keputusan teknis untuk mendukung pertumbuhan secara efisien.",
-
     "1_question": "Bagaimana pendekatan Anda dalam implementasi ERP untuk perusahaan?",
     "1_answer": "Kami mengikuti proses terstruktur yang mencakup analisis bisnis, pemilihan sistem, kustomisasi, integrasi, pelatihan, dan dukungan pasca implementasi untuk memastikan adopsi yang lancar dan keberhasilan jangka panjang.",
-
     "2_question": "Apa saja yang dicakup dalam layanan uji tuntas teknologi Anda?",
     "2_answer": "Uji tuntas teknologi kami mencakup review kode, evaluasi keamanan, analisis skalabilitas, penilaian infrastruktur, dan pemeriksaan kepatuhan untuk memastikan investasi teknologi Anda aman dan bernilai tinggi.",
-
     "3_question": "Mengapa kami harus memilih layanan konsultasi Anda dibandingkan membangun tim internal?",
-    "3_answer": "Kami menawarkan keahlian khusus, fleksibilitas, dan solusi yang hemat biaya tanpa beban karyawan tetap. Tim kami memiliki pengalaman bertahun-tahun dalam TI enterprise, memastikan implementasi lebih cepat dan ROI yang lebih tinggi."
+    "3_answer": "Kami menawarkan keahlian khusus, fleksibilitas, dan solusi yang hemat biaya tanpa beban karyawan tetap. Tim kami memiliki pengalaman bertahun-tahun dalam TI enterprise, memastikan implementasi lebih cepat dan ROI yang lebih tinggi.",
+    "learn_more": "Pelajari lebih lanjut",
+    "learn_more_chatbot_message": "Saya ingin mempelajari lebih lanjut tentang"
   }
 }

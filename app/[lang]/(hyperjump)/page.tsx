@@ -41,8 +41,7 @@ import {
   mainCaseStudiesCtaDesc,
   mainCaseStudiesCtaExploreOurCaseStudies,
   mainHeroHeading,
-  mainFaqLearnMore,
-  mainFaqLearnMoreChatbotMessage
+  mainFaqLearnMore
 } from "@/locales/.generated/server";
 
 import { Clients } from "./components/clients";
@@ -56,7 +55,6 @@ import {
 } from "./data";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import { ArrowRightIcon } from "lucide-react";
-import FaqLearnMore from "./components/faq-learn-more";
 
 const { github, socials, title, url } = data;
 

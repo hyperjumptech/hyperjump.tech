@@ -31,7 +31,6 @@
     "0_title": "Transforming a fisheries tech team into a scalable product engine",
     "0_text": "A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.",
     "0_category": "CTO as a Service",
-
     "1_title": "Elevating a media-tech engineering team from feature factory to innovation powerhouse",
     "1_text": "When rapid growth outpaced engineering maturity, this team needed more than features, they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.",
     "1_category": "CTO as a Service"
@@ -39,30 +38,25 @@
   "project": {
     "heading": "Open source product",
     "desc": "Explore our open-source projects and see how we innovate, collaborate, and build solutions that drive real impact. Join our community and contribute to cutting-edge technology.",
-
     "0_title": "Grule",
     "0_text": "Grule is a powerful open-source rule engine for Go that lets you define business rules in a human-readable format—making your app more flexible and maintainable.",
-
     "1_title": "Monika",
     "1_text": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.",
-
     "2_title": "WhatsApp Chatbot Connector",
     "2_text": "WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa."
   },
   "faq": {
     "heading": "Frequently asked questions",
     "desc": "Find answers to commonly asked questions. If you need further assistance, feel free to reach out to us.",
-
     "0_question": "What is CTO as a Service (CTOaaS), and how can it benefit my company?",
     "0_answer": "CTOaaS provides on-demand access to experienced technology leadership without the cost of a full-time executive. It helps enterprises with strategic IT planning, digital transformation, and technical decision-making to scale efficiently.",
-
     "1_question": "How do you approach ERP implementation for enterprises?",
     "1_answer": "We follow a structured process that includes business analysis, system selection, customization, integration, training, and post-implementation support to ensure seamless adoption and long-term success.",
-
     "2_question": "What does your tech due diligence service cover?",
     "2_answer": "Our tech due diligence includes codebase reviews, security assessments, scalability analysis, infrastructure evaluation, and compliance checks to ensure that your technology investments are low-risk and high-value.",
-
     "3_question": "Why should we choose your consulting services over hiring an in-house team?",
-    "3_answer": "We offer specialized expertise, flexibility, and cost-effective solutions without the overhead of full-time employees. Our team brings years of experience in enterprise IT, ensuring faster implementation and better ROI."
+    "3_answer": "We offer specialized expertise, flexibility, and cost-effective solutions without the overhead of full-time employees. Our team brings years of experience in enterprise IT, ensuring faster implementation and better ROI.",
+    "learn_more": "Learn more",
+    "learn_more_chatbot_message": "I want to learn more about"
   }
 }

@@ -7,6 +7,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 import { v4 as uuid } from "uuid";
+import { sendGAEvent } from "@next/third-parties/google";
 
 // Types
 type PrefillAIAgentEvent = CustomEvent<{ message: string }>;
@@ -108,8 +109,18 @@ function getCookie(cname: string) {
   return "";
 }
 
+type GAEvent = {
+  event: string;
+  category: string;
+  label: string;
+};
+
+interface HyperBotToggleProps {
+  gaEvent?: GAEvent;
+}
+
 // Main component
-export default function LandingAIAgent() {
+export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
   const [sessionId, setSessionId] = useState<string | undefined>(undefined);
   const [messages, setMessages] = useState<TMessage[]>([]);
   const [text, setText] = useState<string>("");
@@ -396,8 +407,18 @@ export default function LandingAIAgent() {
       {/* Desktop/Tablet button */}
       <Button
         variant="default"
-        onClick={() => setClosed((prev) => !prev)}
-        className="md:xp-6 fixed right-6 bottom-16 z-50 !m-0 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 font-semibold text-white shadow-md hover:bg-blue-500/80 max-[720px]:hidden md:h-12 md:w-auto">
+        className="md:xp-6 fixed right-6 bottom-16 z-50 !m-0 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 font-semibold text-white shadow-md hover:bg-blue-500/80 max-[720px]:hidden md:h-12 md:w-auto"
+        onClick={() => {
+          setClosed((prev) => {
+            const nextState = !prev;
+
+            if (nextState === false && gaEvent) {
+              sendGAEvent(gaEvent);
+            }
+
+            return nextState;
+          });
+        }}>
         {closed ? (
           <>
             <span className="hidden lg:block">Ask HyperBot</span>

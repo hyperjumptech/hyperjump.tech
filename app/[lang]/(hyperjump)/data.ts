@@ -289,15 +289,18 @@ export function getFaqs(lang: SupportedLanguage) {
   return [
     {
       question: mainFaq0Question(lang),
-      answer: mainFaq0Answer(lang)
+      answer: mainFaq0Answer(lang),
+      url: `/${lang}/services/cto-as-a-service`
     },
     {
       question: mainFaq1Question(lang),
-      answer: mainFaq1Answer(lang)
+      answer: mainFaq1Answer(lang),
+      url: `/${lang}/services/erp-implementation`
     },
     {
       question: mainFaq2Question(lang),
-      answer: mainFaq2Answer(lang)
+      answer: mainFaq2Answer(lang),
+      url: `/${lang}/services/tech-due-diligence`
     },
     {
       question: mainFaq3Question(lang),

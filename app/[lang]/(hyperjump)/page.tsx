@@ -41,8 +41,7 @@ import {
   mainCaseStudiesCtaDesc,
   mainCaseStudiesCtaExploreOurCaseStudies,
   mainHeroHeading,
-  mainFaqLearnMore,
-  mainFaqLearnMoreChatbotMessage
+  mainFaqLearnMore
 } from "@/locales/.generated/server";
 
 import { Clients } from "./components/clients";
@@ -56,7 +55,6 @@ import {
 } from "./data";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import { ArrowRightIcon } from "lucide-react";
-import FaqLearnMore from "./components/faq-learn-more";
 
 const { github, socials, title, url } = data;
 
@@ -272,15 +270,18 @@ function Faqs({ lang }: HomeParams) {
                     <CardContent className="flex flex-col gap-4 px-4 pt-0 pb-4 text-base text-[#61656E] lg:text-lg">
                       {item.answer}
                     </CardContent>
-                    <CardFooter className="p-0 px-4">
-                      <FaqLearnMore
-                        index={i}
-                        learnMoreChatbotMessage={mainFaqLearnMoreChatbotMessage(
-                          lang
-                        )}>
-                        {mainFaqLearnMore(lang)}
-                      </FaqLearnMore>
-                    </CardFooter>
+                    {item?.url && (
+                      <CardFooter className="p-0 px-4">
+                        <Link
+                          href={item?.url}
+                          className="flex w-max cursor-pointer flex-row items-center justify-center gap-1 rounded-none border-b border-black px-0 text-black hover:no-underline lg:text-lg">
+                          {mainFaqLearnMore(lang)}
+                          <span>
+                            <ArrowRightIcon className="h-4 w-4" />
+                          </span>
+                        </Link>
+                      </CardFooter>
+                    )}
                   </AccordionContent>
                 </Card>
               </AccordionItem>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
+import markdownit from "markdown-it";
 
 // Types
 type PrefillAIAgentEvent = CustomEvent<{ message: string }>;
@@ -26,6 +27,7 @@ const DEFAULT_MESSAGES = [
   { id: 2, text: "Show me examples of past projects" },
   { id: 3, text: "Schedule a free consultation" }
 ];
+const ENABLE_STREAMING = true;
 
 // Functions
 // APIs
@@ -79,6 +81,74 @@ const fetchAsk = async (payload: {
 
   const data = await response.json();
   return data;
+};
+
+const fetchAskStream = async (
+  payload: {
+    chatInput: string;
+    sessionId: string;
+  },
+  onChunk: (chunk: string) => void
+): Promise<void> => {
+  const { chatInput, sessionId } = payload;
+  const url = new URL(
+    String(process.env.NEXT_PUBLIC_LANDING_POST_CHATS_WEBHOOK)
+  );
+  url.searchParams.set("stream", "true");
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      chatInput,
+      sessionId
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to ask question");
+  }
+
+  const reader = response.body?.getReader();
+  const decoder = new TextDecoder();
+
+  if (!reader) {
+    throw new Error("No response body");
+  }
+
+  let buffer = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const lines = buffer.split("\n");
+
+    // Keep the last incomplete line in the buffer
+    buffer = lines.pop() || "";
+
+    for (const line of lines) {
+      if (line.startsWith("data: ")) {
+        try {
+          const jsonStr = line.slice(6); // Remove "data: " prefix
+          const data = JSON.parse(jsonStr) as { chunk: string; done: boolean };
+
+          if (data.chunk) {
+            onChunk(data.chunk);
+          }
+
+          if (data.done) {
+            return;
+          }
+        } catch (error) {
+          console.error("Failed to parse SSE data:", error);
+        }
+      }
+    }
+  }
 };
 
 // Cookies
@@ -176,7 +246,7 @@ export default function LandingAIAgent() {
 
   // Function to handle form submission
   const handleSubmit = useCallback(
-    async (text: string) => {
+    async (text: string, useStreaming: boolean = true) => {
       if (!text.length) return;
       if (!text.length || !inputRef.current) return;
 
@@ -192,16 +262,36 @@ export default function LandingAIAgent() {
         const prevMessages = messages;
         const newMessages = [...prevMessages, { human: chatInput, ai: "" }];
         setMessages(newMessages);
-        const { output } = await fetchAsk({
-          chatInput,
-          sessionId: sessionId as string
-        });
 
-        const newMessagesFromAI = [
-          ...prevMessages,
-          { human: chatInput, ai: output }
-        ];
-        setMessages(newMessagesFromAI);
+        if (useStreaming) {
+          let accumulatedOutput = "";
+
+          await fetchAskStream(
+            {
+              chatInput,
+              sessionId: sessionId as string
+            },
+            (chunk) => {
+              accumulatedOutput += chunk;
+              const updatedMessages = [
+                ...prevMessages,
+                { human: chatInput, ai: accumulatedOutput }
+              ];
+              setMessages(updatedMessages);
+            }
+          );
+        } else {
+          const { output } = await fetchAsk({
+            chatInput,
+            sessionId: sessionId as string
+          });
+
+          const newMessagesFromAI = [
+            ...prevMessages,
+            { human: chatInput, ai: output }
+          ];
+          setMessages(newMessagesFromAI);
+        }
 
         scrollToBottom();
       } catch (error) {
@@ -223,7 +313,7 @@ export default function LandingAIAgent() {
 
       // Wait for the chat to open and then submit
       setTimeout(() => {
-        handleSubmit(message);
+        handleSubmit(message, ENABLE_STREAMING);
       }, 300);
     };
 
@@ -263,16 +353,17 @@ export default function LandingAIAgent() {
                   )}
                   {m.ai && (
                     <div className="max-w-[80%] self-start rounded-xl bg-white p-3">
-                      {isSubmitting && i === messages.length - 1 ? (
-                        <div className="flex gap-1">
-                          <span className="sr-only">Loading...</span>
-                          <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.3s]" />
-                          <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.15s]" />
-                          <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500" />
-                        </div>
-                      ) : (
-                        <MarkdownContent input={m.ai} />
-                      )}
+                      <MarkdownContent input={m.ai} />
+                    </div>
+                  )}
+                  {!m.ai && isSubmitting && i === messages.length - 1 && (
+                    <div className="max-w-[80%] self-start rounded-xl bg-white p-3">
+                      <div className="flex gap-1">
+                        <span className="sr-only">Loading...</span>
+                        <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.3s]" />
+                        <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.15s]" />
+                        <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500" />
+                      </div>
                     </div>
                   )}
                 </div>
@@ -299,15 +390,6 @@ export default function LandingAIAgent() {
                 </div>
               )}
 
-              {isSubmitting && (
-                <div className="mt-3 mb-5 flex items-center gap-2 bg-transparent text-xs text-gray-500">
-                  <span className="sr-only">Loading...</span>
-                  <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.3s]" />
-                  <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.15s]" />
-                  <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500" />
-                </div>
-              )}
-
               <div className="relative flex w-full items-center">
                 <input
                   ref={inputRef}
@@ -319,7 +401,7 @@ export default function LandingAIAgent() {
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey) {
                       e.preventDefault();
-                      handleSubmit(text);
+                      handleSubmit(text, ENABLE_STREAMING);
                     }
                   }}
                   placeholder="Ask me about services, success stories, or your challenges"
@@ -330,7 +412,7 @@ export default function LandingAIAgent() {
                   variant="default"
                   disabled={isSubmitting}
                   onClick={() => {
-                    handleSubmit(text);
+                    handleSubmit(text, ENABLE_STREAMING);
                   }}>
                   <Image
                     alt="Send message to AI"
@@ -386,6 +468,8 @@ export default function LandingAIAgent() {
 const MarkdownContent = ({ input }: { input: string }) => (
   <div
     className="prose prose-sm text-sm"
-    dangerouslySetInnerHTML={{ __html: input }}
+    dangerouslySetInnerHTML={{
+      __html: markdownit({ html: true }).render(input)
+    }}
   />
 );

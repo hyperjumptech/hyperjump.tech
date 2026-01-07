@@ -3,11 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Types
+type PrefillAIAgentEvent = CustomEvent<{ message: string }>;
+
 type TMessageResponse = {
   messages: TMessage[];
   messageCount: number;
@@ -173,37 +175,64 @@ export default function LandingAIAgent() {
   }, [messages]);
 
   // Function to handle form submission
-  const handleSubmit = async (text: string) => {
-    if (!text.length || !inputRef.current) return;
+  const handleSubmit = useCallback(
+    async (text: string) => {
+      if (!text.length) return;
+      if (!text.length || !inputRef.current) return;
 
-    // Set chat input and clear input field
-    const chatInput = text.trim();
-    setText("");
-    inputRef.current.value = "";
+      // Set chat input and clear input field
+      const chatInput = text.trim();
+      setText("");
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
 
-    setIsSubmitting(true);
-    try {
-      const prevMessages = messages;
-      const newMessages = [...prevMessages, { human: chatInput, ai: "" }];
-      setMessages(newMessages);
-      const { output } = await fetchAsk({
-        chatInput,
-        sessionId: sessionId as string
-      });
+      setIsSubmitting(true);
+      try {
+        const prevMessages = messages;
+        const newMessages = [...prevMessages, { human: chatInput, ai: "" }];
+        setMessages(newMessages);
+        const { output } = await fetchAsk({
+          chatInput,
+          sessionId: sessionId as string
+        });
 
-      const newMessagesFromAI = [
-        ...prevMessages,
-        { human: chatInput, ai: output }
-      ];
-      setMessages(newMessagesFromAI);
+        const newMessagesFromAI = [
+          ...prevMessages,
+          { human: chatInput, ai: output }
+        ];
+        setMessages(newMessagesFromAI);
 
-      scrollToBottom();
-    } catch (error) {
-      toast("Failed to ask question. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+        scrollToBottom();
+      } catch (error) {
+        toast("Failed to ask question. Please try again later.");
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [messages, sessionId]
+  );
+
+  // Listen for custom event to prefill and submit
+  useEffect(() => {
+    const handlePrefillAndSubmit = (event: Event) => {
+      const customEvent = event as PrefillAIAgentEvent;
+      const { message } = customEvent.detail;
+      setClosed(false);
+      setText(message);
+
+      // Wait for the chat to open and then submit
+      setTimeout(() => {
+        handleSubmit(message);
+      }, 300);
+    };
+
+    window.addEventListener("prefillAIAgent", handlePrefillAndSubmit);
+
+    return () => {
+      window.removeEventListener("prefillAIAgent", handlePrefillAndSubmit);
+    };
+  }, [handleSubmit]);
 
   return (
     <div className="fixed right-6 bottom-16 z-50 flex flex-col items-end gap-3">

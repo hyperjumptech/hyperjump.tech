@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
+import { v4 as uuid } from "uuid";
 
 // Types
 type PrefillAIAgentEvent = CustomEvent<{ message: string }>;
@@ -47,7 +48,10 @@ const fetchPreviousMessages = async (
 
   const data = await response.json();
 
-  return data;
+  return {
+    messages: data.messages || [],
+    messageCount: data.messageCount || 0
+  };
 };
 
 const fetchAsk = async (payload: {
@@ -127,7 +131,7 @@ export default function LandingAIAgent() {
   };
 
   const generateNewSessionId = () => {
-    const newSessionId = crypto.randomUUID();
+    const newSessionId = uuid();
     setSessionId(newSessionId);
     setCookie("LANDING_PAGE_SESSION_ID", newSessionId, 3);
   };
@@ -173,6 +177,25 @@ export default function LandingAIAgent() {
 
     scrollToBottom();
   }, [messages]);
+
+  // Effect to lock body scroll on mobile when chat is open
+  useEffect(() => {
+    // Only apply on mobile (< 720px)
+    const isMobile = window.innerWidth < 720;
+
+    if (!closed && isMobile) {
+      // Lock body scroll
+      document.body.style.overflow = "hidden";
+    } else {
+      // Unlock body scroll
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [closed]);
 
   // Function to handle form submission
   const handleSubmit = useCallback(
@@ -235,7 +258,7 @@ export default function LandingAIAgent() {
   }, [handleSubmit]);
 
   return (
-    <div className="fixed right-6 bottom-16 z-50 flex flex-col items-end gap-3">
+    <>
       {/* Chat window with animation */}
       <AnimatePresence>
         {!closed && (
@@ -244,8 +267,14 @@ export default function LandingAIAgent() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="w-[90vw] overflow-hidden rounded-md bg-white shadow-xl lg:max-w-md">
-            <div className="bg-[#101330] px-4 py-5 text-white">
+            className="fixed right-6 bottom-32 z-[60] flex w-full flex-col overflow-hidden rounded-md bg-white shadow-xl max-[720px]:inset-0 max-[720px]:bottom-0 max-[720px]:h-full max-[720px]:w-full max-[720px]:rounded-none md:max-w-sm lg:max-w-sm xl:max-w-md">
+            <div className="relative flex-shrink-0 bg-[#101330] px-4 py-5 text-white">
+              <button
+                onClick={() => setClosed(true)}
+                className="absolute top-4 right-4 min-[720px]:hidden"
+                aria-label="Close chat">
+                <X className="h-6 w-6" />
+              </button>
               <p className="text-lg font-bold">Hi there! 👋</p>
               <p className="text-sm">Start a chat. We are here to help 24/7.</p>
             </div>
@@ -253,7 +282,7 @@ export default function LandingAIAgent() {
             {/* Messages */}
             <div
               ref={chatContainerRef}
-              className="flex h-60 flex-col gap-4 overflow-y-auto bg-[#f2f4f8] p-4 md:h-72">
+              className="flex h-60 flex-col gap-4 overflow-y-auto bg-[#f2f4f8] p-4 max-[720px]:flex-1 md:h-72">
               {messages.map((m, i) => (
                 <div key={i} className="flex flex-col gap-2">
                   {m.human && (
@@ -280,7 +309,7 @@ export default function LandingAIAgent() {
             </div>
 
             {/* Input */}
-            <div className="bg-[#f2f4f8] p-3 md:bg-white">
+            <div className="flex-shrink-0 bg-[#f2f4f8] p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:bg-white">
               {messages.length === 0 && (
                 <div className="mb-3 flex flex-wrap gap-2 md:hidden">
                   {DEFAULT_MESSAGES.map(({ text, id }) => (
@@ -364,10 +393,11 @@ export default function LandingAIAgent() {
         )}
       </AnimatePresence>
 
+      {/* Desktop/Tablet button */}
       <Button
         variant="default"
         onClick={() => setClosed((prev) => !prev)}
-        className="md:xp-6 !m-0 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 font-semibold text-white shadow-md hover:bg-blue-500/80 md:h-12 md:w-auto">
+        className="md:xp-6 fixed right-6 bottom-16 z-50 !m-0 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 font-semibold text-white shadow-md hover:bg-blue-500/80 max-[720px]:hidden md:h-12 md:w-auto">
         {closed ? (
           <>
             <span className="hidden lg:block">Ask HyperBot</span>
@@ -379,7 +409,17 @@ export default function LandingAIAgent() {
           <X className="h-10 w-10 md:h-6 md:w-6" />
         )}
       </Button>
-    </div>
+
+      {/* Mobile-only button */}
+      {closed && (
+        <Button
+          variant="default"
+          onClick={() => setClosed(false)}
+          className="fixed right-6 bottom-16 z-50 !m-0 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 font-semibold text-white shadow-md hover:bg-blue-500/80 min-[720px]:hidden">
+          <MessageCircle className="h-10 w-10" />
+        </Button>
+      )}
+    </>
   );
 }
 

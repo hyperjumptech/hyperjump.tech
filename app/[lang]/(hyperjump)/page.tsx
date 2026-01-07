@@ -10,7 +10,12 @@ import {
   AccordionTrigger
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader
+} from "@/components/ui/card";
 import GridItemsContainer, {
   GridItems,
   GridItemsMoreButton,
@@ -35,7 +40,9 @@ import {
   mainCaseStudiesCtaHeading,
   mainCaseStudiesCtaDesc,
   mainCaseStudiesCtaExploreOurCaseStudies,
-  mainHeroHeading
+  mainHeroHeading,
+  mainFaqLearnMore,
+  mainFaqLearnMoreChatbotMessage
 } from "@/locales/.generated/server";
 
 import { Clients } from "./components/clients";
@@ -48,6 +55,8 @@ import {
   services
 } from "./data";
 import { dynamicOpengraph } from "@/lib/default-metadata";
+import { ArrowRightIcon } from "lucide-react";
+import FaqLearnMore from "./components/faq-learn-more";
 
 const { github, socials, title, url } = data;
 
@@ -260,9 +269,18 @@ function Faqs({ lang }: HomeParams) {
                     </AccordionTrigger>
                   </CardHeader>
                   <AccordionContent asChild>
-                    <CardContent className="px-4 pt-0 pb-4 text-base text-[#61656E] lg:text-lg">
+                    <CardContent className="flex flex-col gap-4 px-4 pt-0 pb-4 text-base text-[#61656E] lg:text-lg">
                       {item.answer}
                     </CardContent>
+                    <CardFooter className="p-0 px-4">
+                      <FaqLearnMore
+                        index={i}
+                        learnMoreChatbotMessage={mainFaqLearnMoreChatbotMessage(
+                          lang
+                        )}>
+                        {mainFaqLearnMore(lang)}
+                      </FaqLearnMore>
+                    </CardFooter>
                   </AccordionContent>
                 </Card>
               </AccordionItem>

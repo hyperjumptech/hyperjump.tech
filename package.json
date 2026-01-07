@@ -54,7 +54,8 @@
     "sonner": "2.0.7",
     "tailwindcss-animate": "1.0.7",
     "unified": "11.0.5",
-    "unist-util-visit": "5.0.0"
+    "unist-util-visit": "5.0.0",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.47.2",

@@ -21,7 +21,13 @@ export default async function MainLangLayout({
       <div className="relative min-h-screen bg-white">
         <Nav lang={lang as SupportedLanguage} />
         {children}
-        <LandingAIAgent />
+        <LandingAIAgent
+          gaEvent={{
+            event: "hyperbot_open",
+            category: "engagement",
+            label: "hyperjump_chat"
+          }}
+        />
         <Footer lang={lang as SupportedLanguage} />
       </div>
     </>

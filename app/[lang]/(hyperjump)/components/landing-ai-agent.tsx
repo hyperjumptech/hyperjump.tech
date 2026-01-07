@@ -178,6 +178,25 @@ export default function LandingAIAgent() {
     scrollToBottom();
   }, [messages]);
 
+  // Effect to lock body scroll on mobile when chat is open
+  useEffect(() => {
+    // Only apply on mobile (< 720px)
+    const isMobile = window.innerWidth < 720;
+
+    if (!closed && isMobile) {
+      // Lock body scroll
+      document.body.style.overflow = "hidden";
+    } else {
+      // Unlock body scroll
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [closed]);
+
   // Function to handle form submission
   const handleSubmit = useCallback(
     async (text: string) => {

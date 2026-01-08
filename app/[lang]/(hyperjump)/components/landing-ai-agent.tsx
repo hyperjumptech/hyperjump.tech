@@ -12,6 +12,7 @@ import { sendGAEvent } from "@next/third-parties/google";
 
 // Types
 type PrefillAIAgentEvent = CustomEvent<{ message: string }>;
+type ShowFollowUpMessagesEvent = CustomEvent<{ sessionId: string }>;
 
 type TMessageResponse = {
   messages: TMessage[];
@@ -156,6 +157,27 @@ const fetchAskStream = async (
   }
 };
 
+const fetchFollowUpMessages = async (sessionId: string): Promise<string[]> => {
+  const url = new URL(
+    `${String(process.env.NEXT_PUBLIC_LANDING_GET_FOLLOWUP_WEBHOOK)}`
+  );
+  url.searchParams.set("sessionId", sessionId);
+
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+
+  if (!response.ok) {
+    return [];
+  }
+
+  const data = await response.json();
+  return data.data;
+};
+
 // Cookies
 function setCookie(cname: string, cvalue: string, exdays: number) {
   const d = new Date();
@@ -193,6 +215,7 @@ interface HyperBotToggleProps {
 export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
   const [sessionId, setSessionId] = useState<string | undefined>(undefined);
   const [messages, setMessages] = useState<TMessage[]>([]);
+  const [followUpMessages, setFollowUpMessages] = useState<string[]>([]);
   const [text, setText] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
@@ -259,6 +282,17 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
     scrollToBottom();
   }, [messages]);
 
+  // Effect to scroll to bottom when follow-up messages are loaded
+  useEffect(() => {
+    if (!chatContainerRef.current) return;
+    if (followUpMessages.length === 0) return;
+
+    // Use requestAnimationFrame to ensure DOM has updated
+    requestAnimationFrame(() => {
+      scrollToBottom();
+    });
+  }, [followUpMessages]);
+
   // Effect to lock body scroll on mobile when chat is open
   useEffect(() => {
     // Only apply on mobile (< 720px)
@@ -290,6 +324,10 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
       if (inputRef.current) {
         inputRef.current.value = "";
       }
+
+      // Set follow up messages to be empty
+      // as it will be populated again when the AI agent responds
+      setFollowUpMessages([]);
 
       setIsSubmitting(true);
       try {
@@ -332,6 +370,9 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
         toast("Failed to ask question. Please try again later.");
       } finally {
         setIsSubmitting(false);
+        window.dispatchEvent(
+          new CustomEvent("showFollowUpMessages", { detail: { sessionId } })
+        );
       }
     },
     [messages, sessionId]
@@ -357,6 +398,33 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
       window.removeEventListener("prefillAIAgent", handlePrefillAndSubmit);
     };
   }, [handleSubmit]);
+
+  // Listen for custom event to show follow up messages
+  useEffect(() => {
+    const handleShowFollowUpMessages = (event: Event) => {
+      const customEvent = event as ShowFollowUpMessagesEvent;
+      const { sessionId } = customEvent.detail;
+
+      if (sessionId) {
+        fetchFollowUpMessages(sessionId)
+          .then((followUpMessages) => {
+            setFollowUpMessages(followUpMessages);
+          })
+          .catch(() => {
+            setFollowUpMessages([]);
+          });
+      }
+    };
+
+    window.addEventListener("showFollowUpMessages", handleShowFollowUpMessages);
+
+    return () => {
+      window.removeEventListener(
+        "showFollowUpMessages",
+        handleShowFollowUpMessages
+      );
+    };
+  }, [sessionId]);
 
   return (
     <>
@@ -408,6 +476,28 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
                   )}
                 </div>
               ))}
+
+              {/* Follow up messages */}
+              {followUpMessages.length > 0 && !isSubmitting && (
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm font-medium text-gray-800">Follow up</p>
+                  {followUpMessages.map((text, id) => (
+                    <button
+                      key={id}
+                      type="button"
+                      className="cursor-pointer text-left text-sm whitespace-normal text-gray-600 hover:underline"
+                      onClick={() => {
+                        window.dispatchEvent(
+                          new CustomEvent("prefillAIAgent", {
+                            detail: { message: text }
+                          })
+                        );
+                      }}>
+                      {text}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Input */}
@@ -421,8 +511,11 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
                       disabled={isSubmitting}
                       className="rounded-md border border-gray-400 bg-transparent text-gray-600 hover:cursor-pointer"
                       onClick={() => {
-                        setText(text);
-                        inputRef.current?.focus();
+                        window.dispatchEvent(
+                          new CustomEvent("prefillAIAgent", {
+                            detail: { message: text }
+                          })
+                        );
                       }}>
                       {text}
                     </Button>
@@ -473,8 +566,11 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
                       disabled={isSubmitting}
                       className="rounded-md border border-gray-200 bg-transparent text-gray-600 hover:cursor-pointer"
                       onClick={() => {
-                        setText(text);
-                        inputRef.current?.focus();
+                        window.dispatchEvent(
+                          new CustomEvent("prefillAIAgent", {
+                            detail: { message: text }
+                          })
+                        );
                       }}>
                       {text}
                     </Button>

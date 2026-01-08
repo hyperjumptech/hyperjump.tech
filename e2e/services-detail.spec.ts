@@ -166,6 +166,13 @@ for (const { code: locale, path, title, slug } of locales) {
           const n = await cardLinks.count();
           for (let i = 0; i < n; i++) {
             const link = cardLinks.nth(i);
+
+            if (
+              (await link.getAttribute("data-testid")) === "request-demo-button"
+            ) {
+              continue;
+            }
+
             await expect(link).toBeVisible();
             const href = await link.getAttribute("href");
             expect(href).toBeTruthy();

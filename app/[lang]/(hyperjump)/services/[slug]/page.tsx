@@ -26,6 +26,7 @@ import {
 import type { CaseStudy, Service } from "../../data";
 import { serviceBySlug, ServiceSlug } from "../../data";
 import { dynamicOpengraph } from "@/lib/default-metadata";
+import RequestDemoButton from "./components/request-demo-button";
 
 type LangProps = {
   lang: SupportedLanguage;
@@ -84,7 +85,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
       <Hero
         hero={{ heading: service.title, subheading: service.shortDescription }}
       />
-      <About service={service} />
+      <About lang={lang} service={service} />
       <WhoIsIt lang={lang} service={service} />
       <WhatWeDeliver lang={lang} service={service} />
       <Product lang={lang} service={service} />
@@ -92,6 +93,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
       <WhatYouGet lang={lang} service={service} />
       <WhyUs lang={lang} service={service} />
       <Recommendation caseStudies={service.caseStudies} lang={lang} />
+      <CallToAction lang={lang} service={service} />
     </>
   );
 }
@@ -134,9 +136,10 @@ function Hero({ hero: { heading, subheading } }: HeroProps) {
 
 type ServiceProps = {
   service: Service;
+  lang: SupportedLanguage;
 };
 
-function About({ service }: ServiceProps) {
+function About({ lang, service }: LangProps & ServiceProps) {
   const {
     content: { what },
     title
@@ -144,14 +147,17 @@ function About({ service }: ServiceProps) {
 
   return (
     <section className="bg-[#F6F8F9] py-8 md:py-16">
-      <div className="text-hyperjump-black mx-auto flex w-full max-w-4xl flex-wrap items-center px-4 py-10 md:px-20 md:py-20 xl:px-0">
-        <h2 className="mb-5 text-[34px] font-medium md:text-4xl">{title}</h2>
+      <div className="text-hyperjump-black mx-auto flex w-full max-w-4xl flex-col flex-wrap items-center gap-5 px-4 py-10 md:px-20 md:py-20 xl:px-0">
+        <h2 className="self-start text-[34px] font-medium md:text-4xl">
+          {title}
+        </h2>
         <p
           className="text-xl leading-relaxed"
           dangerouslySetInnerHTML={{
             __html: `${what}`
           }}
         />
+        <RequestDemoButton lang={lang} service={title} />
       </div>
     </section>
   );
@@ -493,6 +499,14 @@ function Product({ lang, service }: LangProps & ServiceProps) {
           )}
         </div>
       </div>
+    </section>
+  );
+}
+
+function CallToAction({ lang, service }: LangProps & ServiceProps) {
+  return (
+    <section className="flex items-center justify-center bg-white px-4 pb-8 md:px-20 md:pb-16">
+      <RequestDemoButton lang={lang} service={service.title} />
     </section>
   );
 }

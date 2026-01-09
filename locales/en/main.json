@@ -18,7 +18,8 @@
     "0_label": "Our Services",
     "1_label": "Case Studies",
     "2_label": "Our Products",
-    "3_label": "FAQ"
+    "3_label": "FAQ",
+    "4_label": "Team"
   },
   "services": {
     "heading": "Services",
@@ -58,5 +59,9 @@
     "3_answer": "We offer specialized expertise, flexibility, and cost-effective solutions without the overhead of full-time employees. Our team brings years of experience in enterprise IT, ensuring faster implementation and better ROI.",
     "learn_more": "Learn more",
     "learn_more_chatbot_message": "I want to learn more about"
+  },
+  "team": {
+    "heading": "Meet our team",
+    "desc": "Our team consists of highly skilled professionals dedicated to delivering exceptional results."
   }
 }

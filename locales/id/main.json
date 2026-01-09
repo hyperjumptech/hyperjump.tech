@@ -18,7 +18,8 @@
     "0_label": "Layanan Kami",
     "1_label": "Studi Kasus",
     "2_label": "Produk Kami",
-    "3_label": "FAQ"
+    "3_label": "FAQ",
+    "4_label": "Tim"
   },
   "services": {
     "heading": "Layanan",
@@ -58,5 +59,9 @@
     "3_answer": "Kami menawarkan keahlian khusus, fleksibilitas, dan solusi yang hemat biaya tanpa beban karyawan tetap. Tim kami memiliki pengalaman bertahun-tahun dalam TI enterprise, memastikan implementasi lebih cepat dan ROI yang lebih tinggi.",
     "learn_more": "Pelajari lebih lanjut",
     "learn_more_chatbot_message": "Saya ingin mempelajari lebih lanjut tentang"
+  },
+  "team": {
+    "heading": "Kenalan dengan tim kami",
+    "desc": "Tim kami terdiri dari para profesional berpengalaman yang siap memberikan hasil terbaik."
   }
 }

@@ -130,7 +130,7 @@ test.describe("Navigation & Links", () => {
   test.setTimeout(60_000);
 
   async function expectGithubURL(p: Page, repoSlug: string) {
-    const url = await p.url();
+    const url = p.url();
     const isRepo =
       url.includes(`github.com/hyperjumptech/${repoSlug}`) ||
       url.includes(

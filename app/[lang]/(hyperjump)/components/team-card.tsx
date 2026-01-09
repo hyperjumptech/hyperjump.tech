@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Linkedin } from "lucide-react";
 
 interface TeamCardProps {
   variant?: "featured" | "compact";
@@ -10,12 +9,10 @@ interface TeamCardProps {
   linkedIn?: string;
 }
 
-const FALLBACK_IMAGE = "/team/placeholder.jpg";
-const FEATURED_CARD_HEIGHT = 700;
-const COMPACT_CARD_HEIGHT = 560;
+const FALLBACK_IMAGE = "/images/no-user-image.webp";
 
-const FEATURED_IMAGE_HEIGHT = 520;
-const COMPACT_IMAGE_HEIGHT = 290;
+const FEATURED_CARD_HEIGHT = 640;
+const COMPACT_CARD_HEIGHT = 520;
 
 export function TeamCard({
   variant = "compact",
@@ -29,18 +26,16 @@ export function TeamCard({
   const imageSrc = image && image.trim() !== "" ? image : FALLBACK_IMAGE;
 
   return (
-    <div>
+    <div className="h-full">
       <div
-        className="flex flex-col rounded-xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg"
+        className="flex h-full flex-col rounded-xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg"
         style={{
-          width: isFeatured ? 620 : 290,
-          height: isFeatured ? FEATURED_CARD_HEIGHT : COMPACT_CARD_HEIGHT,
-          opacity: 1
+          height: isFeatured ? FEATURED_CARD_HEIGHT : COMPACT_CARD_HEIGHT
         }}>
         <div
           className="relative w-full overflow-hidden rounded-t-xl bg-gray-100"
           style={{
-            height: isFeatured ? FEATURED_IMAGE_HEIGHT : COMPACT_IMAGE_HEIGHT
+            height: isFeatured ? 420 : 290
           }}>
           <Image
             src={imageSrc}
@@ -51,13 +46,12 @@ export function TeamCard({
           />
         </div>
 
-        <div
-          className={`flex flex-1 flex-col ${isFeatured ? "space-y-3 p-6" : "space-y-2 p-4"} `}>
-          <h3 className="text-base font-semibold text-[#1F2328]">{name}</h3>
+        <div className={`flex flex-1 flex-col ${isFeatured ? "p-6" : "p-4"} `}>
+          <h3 className="text-base font-semibold text-[#020F15]">{name}</h3>
 
-          <p className="text-sm text-[#646D82]">{role}</p>
+          <p className="text-sm text-[#73767E]">{role}</p>
 
-          <p className="flex-1 text-sm leading-relaxed text-[#646D82]">
+          <p className="mt-2 flex-1 text-sm leading-relaxed text-[#73767E]">
             {description}
           </p>
 
@@ -66,9 +60,14 @@ export function TeamCard({
               href={linkedIn}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm text-[#646D82] transition-colors hover:text-[#0A66C2]">
-              <Linkedin className="h-4 w-4" />
-              LinkedIn
+              className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#73767E] text-[#73767E] transition-colors hover:border-[#a1cfff] hover:bg-[#a1cfff]">
+              <Image
+                src="/images/linkedIn.svg"
+                alt="LinkedIn"
+                width={16}
+                height={16}
+                className="h-4 w-4"
+              />
             </a>
           )}
         </div>

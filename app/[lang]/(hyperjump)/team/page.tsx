@@ -36,12 +36,12 @@ export default async function TeamSection({ params }: TeamsProps) {
 
   return (
     <section className="py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-4">
+      <section className="mx-auto max-w-5xl px-4 md:-mt-5 md:px-20 xl:px-0">
         <div className="mb-20 text-center">
-          <h2 className="mb-4 text-3xl font-semibold text-[#1F2328] md:text-4xl">
+          <h2 className="mb-4 text-3xl font-medium text-[#020F15] md:text-4xl">
             {mainTeamHeading(lang)}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-[#646D82]">
+          <p className="mx-auto max-w-2xl text-lg text-[#73767E]">
             {mainTeamDesc(lang)}
           </p>
         </div>
@@ -52,12 +52,12 @@ export default async function TeamSection({ params }: TeamsProps) {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 items-start gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-4">
           {otherTeams.map((member, i) => (
             <TeamCard key={member.name ?? i} variant="compact" {...member} />
           ))}
         </div>
-      </div>
+      </section>
     </section>
   );
 }

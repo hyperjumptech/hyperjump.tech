@@ -11,8 +11,8 @@ interface TeamCardProps {
 
 const FALLBACK_IMAGE = "/images/no-user-image.webp";
 
-const FEATURED_CARD_HEIGHT = 640;
-const COMPACT_CARD_HEIGHT = 520;
+const CARD_HEIGHT_FEATURED = 680;
+const CARD_HEIGHT_COMPACT = 640;
 
 export function TeamCard({
   variant = "compact",
@@ -26,34 +26,37 @@ export function TeamCard({
   const imageSrc = image && image.trim() !== "" ? image : FALLBACK_IMAGE;
 
   return (
-    <div className="h-full">
+    <div>
       <div
-        className="flex h-full flex-col rounded-xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg"
-        style={{
-          height: isFeatured ? FEATURED_CARD_HEIGHT : COMPACT_CARD_HEIGHT
-        }}>
+        className={`flex flex-col rounded-xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg ${isFeatured ? "h-auto md:h-[680px]" : "h-auto md:h-[640px]"} `}>
         <div
-          className="relative w-full overflow-hidden rounded-t-xl bg-gray-100"
-          style={{
-            height: isFeatured ? 420 : 290
-          }}>
+          className={`relative w-full overflow-hidden rounded-t-xl bg-gray-100 ${
+            isFeatured ? "h-[400px] md:h-[440px]" : "h-[400px] md:h-[320px]"
+          }`}>
           <Image
-            src={imageSrc}
+            src={`/images/teams/${imageSrc}`}
             alt={name}
             fill
-            sizes={isFeatured ? "620px" : "290px"}
+            sizes={
+              isFeatured
+                ? "(min-width: 768px) 50vw, 100vw"
+                : "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+            }
             className="object-cover grayscale"
           />
         </div>
 
-        <div className={`flex flex-1 flex-col ${isFeatured ? "p-6" : "p-4"} `}>
-          <h3 className="text-base font-semibold text-[#020F15]">{name}</h3>
-
-          <p className="text-sm text-[#73767E]">{role}</p>
-
-          <p className="mt-2 flex-1 text-sm leading-relaxed text-[#73767E]">
-            {description}
-          </p>
+        <div
+          className={`flex flex-1 flex-col justify-between ${
+            isFeatured ? "p-6" : "p-4"
+          }`}>
+          <div>
+            <h3 className="text-base font-semibold text-[#020F15]">{name}</h3>
+            <p className="text-sm text-[#73767E]">{role}</p>
+            <p className="mt-2 text-sm leading-relaxed text-[#73767E]">
+              {description}
+            </p>
+          </div>
 
           {linkedIn && (
             <a
@@ -66,7 +69,6 @@ export function TeamCard({
                 alt="LinkedIn"
                 width={16}
                 height={16}
-                className="h-4 w-4"
               />
             </a>
           )}

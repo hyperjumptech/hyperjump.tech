@@ -36,7 +36,7 @@ export default async function TeamSection({ params }: TeamsProps) {
 
   return (
     <section className="py-24 md:py-32">
-      <section className="mx-auto max-w-5xl px-4 md:-mt-5 md:px-20 xl:px-0">
+      <section className="mx-auto max-w-6xl px-4 md:-mt-5 md:px-20 xl:px-0">
         <div className="mb-20 text-center">
           <h2 className="mb-4 text-3xl font-medium text-[#020F15] md:text-4xl">
             {mainTeamHeading(lang)}
@@ -46,13 +46,13 @@ export default async function TeamSection({ params }: TeamsProps) {
           </p>
         </div>
 
-        <div className="mb-16 grid grid-cols-1 items-start gap-8 md:grid-cols-2">
+        <div className="mb-16 grid grid-cols-1 items-stretch gap-8 md:grid-cols-2">
           {featuredTeams.map((member, i) => (
             <TeamCard key={member.name ?? i} variant="featured" {...member} />
           ))}
         </div>
 
-        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-4">
           {otherTeams.map((member, i) => (
             <TeamCard key={member.name ?? i} variant="compact" {...member} />
           ))}

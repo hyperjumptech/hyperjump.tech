@@ -101,9 +101,9 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
       <HowItWorks lang={lang} service={service} />
       <WhatYouGet lang={lang} service={service} />
       <WhyUs lang={lang} service={service} />
+      <Faqs lang={lang} service={service} />
       <Recommendation caseStudies={service.caseStudies} lang={lang} />
       <CallToAction lang={lang} service={service} />
-      <Faqs lang={lang} service={service} />
     </>
   );
 }

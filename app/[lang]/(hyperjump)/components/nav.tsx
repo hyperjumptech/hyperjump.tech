@@ -15,7 +15,8 @@ import {
   mainNavItems0Label,
   mainNavItems1Label,
   mainNavItems2Label,
-  mainNavItems3Label
+  mainNavItems3Label,
+  mainNavItems4Label
 } from "@/locales/.generated/server";
 import {
   type SupportedLanguage,
@@ -31,6 +32,7 @@ const SOLID_NAV_PATHS = [
   "/jobs",
   "/services",
   "/products",
+  "/team",
   ...data.jobs.map(({ id }) => `/jobs/${id}`)
 ];
 const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(
@@ -49,6 +51,7 @@ function menu(lang: SupportedLanguage) {
     },
     { label: mainNavItems2Label(lang), href: `/${lang}/products` },
     { label: mainNavItems1Label(lang), href: `/${lang}/case-studies` },
+    { label: mainNavItems4Label(lang), href: `/${lang}/team` },
     { label: mainNavItems3Label(lang), href: `/${lang}/#faqs` }
   ];
 }

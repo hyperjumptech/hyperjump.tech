@@ -49,9 +49,9 @@ export default function Footer({ lang }: FooterProps) {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:bg-hyperjump-blue flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition"
-                aria-label={platform}>
-                <i className={icon} aria-hidden="true"></i>
+                aria-label={platform}
+                className="hover:bg-hyperjump-blue flex h-10 w-10 items-center justify-center rounded-full border border-[#2D364A] text-white transition">
+                <Image src={icon} alt={platform} width={20} height={20} />
               </a>
             ))}
           </div>

@@ -57,10 +57,27 @@ export async function generateStaticParams(): Promise<Params[]> {
 
 export default async function CaseStudy({ params }: CaseStudyProps) {
   const { lang, slug } = await params;
+  const { email } = data;
   const caseStudy = caseStudyBy(slug, lang);
   if (!caseStudy) {
     notFound();
   }
+
+  const isMedia = slug === "erp-fisheries";
+
+  const cta = isMedia
+    ? {
+        heading:
+          "Ready to build your future? Let's discuss your transformation",
+        href: `mailto:${email}?subject=Media Transformation`,
+        label: "Get In Touch"
+      }
+    : {
+        heading:
+          "Ready to transform your tech team? Let's talk about CTO-as-a-Service",
+        href: `mailto:${email}?subject=CTO as a Service`,
+        label: "Get In Touch"
+      };
 
   return (
     <main className="bg-white">
@@ -69,6 +86,22 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
         <article className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-md dark:prose-headings:text-white text-left">
           <Content slug={slug} lang={lang} />
         </article>
+
+        <div className="mt-12 flex flex-col items-center gap-4 text-center">
+          <h3 className="text-hyperjump-black max-w-xl text-xl font-semibold md:text-2xl">
+            {cta.heading}
+          </h3>
+
+          <Button
+            variant="default"
+            size="lg"
+            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-3/4 md:w-auto"
+            asChild>
+            <a href={cta.href} target="_blank" rel="noopener noreferrer">
+              {cta.label}
+            </a>
+          </Button>
+        </div>
       </section>
 
       <section className="mt-5 px-4 md:px-20">

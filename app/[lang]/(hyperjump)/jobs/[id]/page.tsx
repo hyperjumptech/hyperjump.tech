@@ -25,7 +25,7 @@ export default async function JobDetail({ params }: JobDetailProps) {
 
   return (
     <section className="container mx-auto max-w-5xl border-b px-4 py-8 pt-20 text-black md:px-20 xl:px-0">
-      <div className="flex flex-col space-y-8 py-12">
+      <div className="flex flex-col space-y-8 py-12" data-testid="job-detail">
         <div>
           <p className="text-gray-500">{job.category}</p>
           <h1 className="text-5xl font-bold text-gray-800">{job.title}</h1>

@@ -25,6 +25,20 @@ export const getCaseStudies = (lang: SupportedLanguage) => {
   ];
 };
 
+export const caseStudyCta = {
+  media: {
+    heading: "Ready to build your future? Let's discuss your transformation",
+    subject: "Media Transformation",
+    label: "Get In Touch"
+  },
+  default: {
+    heading:
+      "Ready to transform your tech team? Let's talk about CTO-as-a-Service",
+    subject: "CTO as a Service",
+    label: "Get In Touch"
+  }
+} as const;
+
 export function caseStudyBy(slug: string, lang: SupportedLanguage) {
   return getCaseStudies(lang).find((cs) => cs.slug === slug);
 }

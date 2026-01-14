@@ -12,9 +12,10 @@ import {
 } from "@/locales/.generated/types";
 
 import type { CaseStudy } from "../../data";
-import { caseStudyBy, getCaseStudies } from "../data";
+import { caseStudyBy, caseStudyCta, getCaseStudies } from "../data";
 import { Content } from "./components/content";
 import { dynamicOpengraph } from "@/lib/default-metadata";
+import ButtonGetInTouch from "./components/button-get-in-touch";
 
 type Params = { lang: SupportedLanguage; slug: string };
 
@@ -57,7 +58,6 @@ export async function generateStaticParams(): Promise<Params[]> {
 
 export default async function CaseStudy({ params }: CaseStudyProps) {
   const { lang, slug } = await params;
-  const { email } = data;
   const caseStudy = caseStudyBy(slug, lang);
   if (!caseStudy) {
     notFound();
@@ -65,19 +65,7 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
 
   const isMedia = slug === "erp-fisheries";
 
-  const cta = isMedia
-    ? {
-        heading:
-          "Ready to build your future? Let's discuss your transformation",
-        href: `mailto:${email}?subject=Media Transformation`,
-        label: "Get In Touch"
-      }
-    : {
-        heading:
-          "Ready to transform your tech team? Let's talk about CTO-as-a-Service",
-        href: `mailto:${email}?subject=CTO as a Service`,
-        label: "Get In Touch"
-      };
+  const cta = isMedia ? caseStudyCta.media : caseStudyCta.default;
 
   return (
     <main className="bg-white">
@@ -92,15 +80,9 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
             {cta.heading}
           </h3>
 
-          <Button
-            variant="default"
-            size="lg"
-            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-3/4 md:w-auto"
-            asChild>
-            <a href={cta.href} target="_blank" rel="noopener noreferrer">
-              {cta.label}
-            </a>
-          </Button>
+          <ButtonGetInTouch index={slug} buttonChatbotMessage={caseStudy.title}>
+            {cta.label}
+          </ButtonGetInTouch>
         </div>
       </section>
 

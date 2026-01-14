@@ -39,6 +39,7 @@ for (const locale of supportedLanguages) {
           test(`Job ${title} (${category}) should be visible and link to detail page`, async ({
             page
           }) => {
+            // job list page
             await expect(
               page
                 .getByTestId(`job-card-${id}`)
@@ -49,12 +50,15 @@ for (const locale of supportedLanguages) {
                 .getByTestId(`job-card-${id}`)
                 .getByText(description, { exact: true })
             ).toBeVisible();
+
+            // click on the job link
             await page
               .getByTestId(`job-card-${id}`)
               .getByRole("link", { name: title })
               .click();
             await page.waitForURL(new RegExp(`${path}/${id}`));
 
+            // job detail page
             await expect(
               page
                 .getByTestId("job-detail")

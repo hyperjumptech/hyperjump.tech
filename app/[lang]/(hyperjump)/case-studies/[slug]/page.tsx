@@ -12,7 +12,7 @@ import {
 } from "@/locales/.generated/types";
 
 import type { CaseStudy } from "../../data";
-import { caseStudyBy, caseStudyCta, getCaseStudies } from "../data";
+import { caseStudyBy, getCaseStudies } from "../data";
 import { Content } from "./components/content";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import ButtonGetInTouch from "./components/button-get-in-touch";
@@ -63,9 +63,7 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
     notFound();
   }
 
-  const isMedia = slug === "erp-fisheries";
-
-  const cta = isMedia ? caseStudyCta.media : caseStudyCta.default;
+  const cta = caseStudy.cta;
 
   return (
     <main className="bg-white">
@@ -88,9 +86,7 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
 
       <section className="mt-5 px-4 md:px-20">
         <Recommendation
-          caseStudies={getCaseStudies(lang).filter(
-            (caseStudy) => caseStudy.slug !== slug
-          )}
+          caseStudies={getCaseStudies(lang).filter((cs) => cs.slug !== slug)}
           lang={lang}
         />
       </section>

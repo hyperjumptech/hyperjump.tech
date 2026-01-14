@@ -62,8 +62,7 @@ test.describe("Navigation & Links", () => {
       .all();
     expect(seeMoreLinks.length).toBeGreaterThan(0);
 
-    for (const [index, link] of seeMoreLinks.entries()) {
-      console.log(`Clicking Service link ${index + 1}...`);
+    for (const [_, link] of seeMoreLinks.entries()) {
       await link.scrollIntoViewIfNeeded();
       await expect(link).toBeVisible({ timeout: 5000 });
       await expect(link).toBeEnabled();
@@ -98,7 +97,6 @@ test.describe("Navigation & Links", () => {
     expect(readCaseStudyLinks.length).toBeGreaterThan(0);
 
     for (const [index, link] of readCaseStudyLinks.entries()) {
-      console.log(`Clicking Case Study link ${index + 1}...`);
       await link.scrollIntoViewIfNeeded();
       await expect(link).toBeVisible({ timeout: 5000 });
       await expect(link).toBeEnabled();

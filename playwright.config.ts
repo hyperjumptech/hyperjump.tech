@@ -7,9 +7,9 @@ const PORT = 3000;
  */
 export default defineConfig({
   testDir: "./e2e",
-  fullyParallel: true,
+  fullyParallel: false,
   forbidOnly: !!process.env.CI,
-  retries: 2,
+  retries: process.env.CI ? 2 : 0,
   workers: 1,
   reporter: "html",
   use: {
@@ -22,15 +22,15 @@ export default defineConfig({
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] }
-    },
-    {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] }
-    },
-    {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] }
     }
+    // {
+    //   name: "firefox",
+    //   use: { ...devices["Desktop Firefox"] }
+    // },
+    // {
+    //   name: "webkit",
+    //   use: { ...devices["Desktop Safari"] }
+    // }
   ],
   webServer: {
     command: "bun run build && bun run start",

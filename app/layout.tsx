@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-import data from "@/data.json";
 import { cn } from "@/lib/utils";
 import { supportedLanguages } from "@/locales/.generated/types";
 import Console from "@/app/components/console";
@@ -11,8 +10,6 @@ import { figtree, geistMono, geistSans, switzer } from "./fonts";
 import "./globals.css";
 import { DEFAULT_OPENGRAPH } from "@/lib/default-metadata";
 
-const { gaId } = data;
-
 export const metadata: Metadata = DEFAULT_OPENGRAPH;
 
 export default function RootLayout({
@@ -20,6 +17,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const GA_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
+
   return (
     <html lang={supportedLanguages[0]}>
       <head>
@@ -30,7 +29,7 @@ export default function RootLayout({
           name="format-detection"
           content="telephone=no, date=no, email=no, address=no"
         />
-        <GoogleAnalytics gaId={gaId} />
+        {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
       </head>
       <body
         data-scroll="false"

@@ -102,5 +102,20 @@
   "products": {
     "title": "Produk Kami",
     "description": "Produk inovatif yang dirancang untuk mendukung tujuan Anda dan berkembang sesuai kebutuhan Anda."
+  },
+  "faq": {
+    "heading": "Pertanyaan yang Sering Diajukan",
+    "desc": "Segala hal yang Anda butuhkan untuk mewujudkan agen AI dari konsep hingga implementasi penuh dikerjakan secara menyeluruh oleh kami.",
+
+    "0_question": "Masalah apa saja yang bisa diselesaikan agen AI kustom?",
+    "0_answer": "Agen AI dapat menangani berbagai hal mulai dari menjawab pertanyaan pelanggan, mengelola alur kerja internal, mengekstraksi wawasan dari dokumen, hingga mengotomatisasi tugas antar aplikasi seperti Slack, CRM, dan basis data. Jika itu repetitif, memakan waktu, atau berbasis data agen AI bisa membantu.",
+    "1_question": "Berapa lama prosesnya?",
+    "1_answer": "Sebagian besar klien kami menjalani proses dari strategi hingga peluncuran dalam 10-14 hari kerja.",
+    "2_question": "Apakah saya harus memahami AI?",
+    "2_answer": "Tidak perlu. Kami menangani seluruh aspek teknisnya Anda cukup menjelaskan apa yang ingin dilakukan oleh agen tersebut.",
+    "3_question": "Alat apa saja yang bisa diintegrasikan?",
+    "3_answer": "Slack, Notion, Google Workspace, CRM, Zapier, API, basis data internal apa pun bisa diintegrasikan.",
+    "4_question": "Apakah AI bisa menggunakan data internal kami?",
+    "4_answer": "Bisa. Kami menggunakan Retrieval-Augmented Generation (RAG) agar agen Anda dapat mengakses dan memahami dokumen internal, basis pengetahuan, dan sistem Anda secara aman dan kontekstual."
   }
 }

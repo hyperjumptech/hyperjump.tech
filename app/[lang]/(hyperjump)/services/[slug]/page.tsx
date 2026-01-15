@@ -20,13 +20,23 @@ import {
   caseStudyButton,
   aiLearnMore,
   aiProductsTitle,
-  aiProductsDescription
+  aiProductsDescription,
+  aiFaqDesc,
+  aiFaqHeading
 } from "@/locales/.generated/server";
 
 import type { CaseStudy, Service } from "../../data";
 import { serviceBySlug, ServiceSlug } from "../../data";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import RequestDemoButton from "./components/request-demo-button";
+import { GridItemsTitle } from "@/app/components/grid-items";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/components/ui/accordion";
+import { CardContent, CardHeader } from "@/components/ui/card";
 
 type LangProps = {
   lang: SupportedLanguage;
@@ -92,6 +102,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
       <HowItWorks lang={lang} service={service} />
       <WhatYouGet lang={lang} service={service} />
       <WhyUs lang={lang} service={service} />
+      <Faqs lang={lang} service={service} />
       <Recommendation caseStudies={service.caseStudies} lang={lang} />
       <CallToAction lang={lang} service={service} />
     </>
@@ -507,6 +518,48 @@ function CallToAction({ lang, service }: LangProps & ServiceProps) {
   return (
     <section className="flex items-center justify-center bg-white px-4 pb-8 md:px-20 md:pb-16">
       <RequestDemoButton lang={lang} service={service.title} />
+    </section>
+  );
+}
+
+function Faqs({ lang, service }: LangProps & ServiceProps) {
+  const { faqs } = service;
+
+  if (faqs.length === 0) return null;
+
+  return (
+    <section id="faqs" className="flex bg-white px-4 py-8 md:px-20 md:py-16">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-6 md:flex-row-reverse">
+        <div className="w-full">
+          <GridItemsTitle
+            title={aiFaqHeading(lang)}
+            description={aiFaqDesc(lang)}
+            layout="vertical"
+            descriptionClassname="w-full md:max-w-2xl"
+          />
+          <Accordion
+            type="single"
+            collapsible
+            className="mx-auto w-full max-w-5xl space-y-4">
+            {faqs?.map((item, i) => (
+              <AccordionItem key={i} value={`faq-${i}`} asChild>
+                <CardContent className="w-full rounded-2xl border border-gray-200 bg-white shadow-xs transition-all duration-300">
+                  <CardHeader className="px-2 py-1">
+                    <AccordionTrigger className="flex w-full items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline">
+                      {item.question}
+                    </AccordionTrigger>
+                  </CardHeader>
+                  <AccordionContent asChild>
+                    <CardContent className="flex flex-col gap-4 px-2 text-base text-[#61656E] lg:text-lg">
+                      {item.answer}
+                    </CardContent>
+                  </AccordionContent>
+                </CardContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </div>
     </section>
   );
 }

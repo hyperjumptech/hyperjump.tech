@@ -9,8 +9,6 @@ import {
   productsCommercialData1Title,
   productsCommercialData2Text,
   productsCommercialData2Title,
-  productsCommercialData3Text,
-  productsCommercialData3Title
 } from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 

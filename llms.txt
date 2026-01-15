@@ -34,7 +34,6 @@ Explore the products that power tomorrow's digital solutions.
 
 - MediaPulse: MediaPulse is your always-on AI analyst — cutting through market noise to give you clarity, context, and confidence. Stay informed. Stay ahead.
 - StartGPT: Deploy a private, ChatGPT-like assistant that supports your own model, whether proprietary or our products, in both cloud and on-premises environments.
-- Voxa: Voxa helps you reach prospects over the phone with natural AI voices, smart lead targeting, and automated call flows.
 
 ## Open source product
 

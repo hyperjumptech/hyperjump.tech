@@ -1,4 +1,14 @@
-export const data = {
+export type Job = {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+  deliverables: string[];
+};
+
+export const data: { jobs: Job[] } = {
   jobs: [
     {
       id: "se-frontend",

@@ -29,11 +29,6 @@ export function getCommercialProduct(lang: SupportedLanguage) {
       image: "/images/products/startGPT.svg"
       // urlLearnMore: "https://startgpt.hyperjump.tech/",
       // url: "https://startgpt.hyperjump.tech/"
-    },
-    {
-      title: productsCommercialData3Title(lang),
-      description: productsCommercialData3Text(lang),
-      image: "/images/products/voxa.svg"
     }
   ];
 }

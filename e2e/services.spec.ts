@@ -290,6 +290,42 @@ for (const { code: locale, path } of locales) {
           await expect(section).toBeVisible();
         });
 
+        test("FAQ Section: should toggle FAQ items correctly on click", async ({
+          page
+        }) => {
+          const faqHeadingRegex =
+            locale === "en"
+              ? /Frequently asked questions/i
+              : /Pertanyaan yang Sering Diajukan/i;
+
+          const faqHeading = page.getByRole("heading", {
+            name: faqHeadingRegex
+          });
+
+          await expect(faqHeading).toBeVisible();
+
+          await faqHeading.scrollIntoViewIfNeeded();
+
+          const faqButtons = page.getByRole("button");
+          const count = await faqButtons.count();
+
+          expect(count).toBeGreaterThan(0);
+
+          for (let i = 0; i < count; i++) {
+            const btn = faqButtons.nth(i);
+            await expect(btn).toBeVisible();
+
+            await btn.click();
+
+            const answer = btn.locator(
+              "xpath=ancestor::*[contains(@class,'border')]"
+            );
+            await expect(answer).toBeVisible();
+
+            await btn.click();
+          }
+        });
+
         test("Footer", async ({ page }) => {
           const footer = getFooter(page);
           await expect(footer).toBeVisible();

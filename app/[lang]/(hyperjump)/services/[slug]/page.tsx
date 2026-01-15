@@ -535,7 +535,7 @@ function Faqs({ lang, service }: LangProps & ServiceProps) {
   if (faqs.length === 0) return null;
 
   return (
-    <section className="flex bg-white px-4 py-8 md:px-20 md:py-16">
+    <section id="faqs" className="flex bg-white px-4 py-8 md:px-20 md:py-16">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-6 md:flex-row-reverse">
         <div className="w-full">
           <GridItemsTitle

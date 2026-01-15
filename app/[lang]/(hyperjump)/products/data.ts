@@ -8,9 +8,7 @@ import {
   productsCommercialData1Text,
   productsCommercialData1Title,
   productsCommercialData2Text,
-  productsCommercialData2Title,
-  productsCommercialData3Text,
-  productsCommercialData3Title
+  productsCommercialData2Title
 } from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
@@ -26,9 +24,8 @@ export function getCommercialProduct(lang: SupportedLanguage) {
     {
       title: productsCommercialData1Title(lang),
       description: productsCommercialData1Text(lang),
-      image: "/images/products/startGPT.svg"
-      // urlLearnMore: "https://startgpt.hyperjump.tech/",
-      // url: "https://startgpt.hyperjump.tech/"
+      image: "/images/products/startGPT.svg",
+      urlLearnMore: "https://startgpt.hyperjump.tech/"
     }
   ];
 }

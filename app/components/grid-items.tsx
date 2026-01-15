@@ -283,7 +283,7 @@ export function GridItems({
                   <Button
                     asChild
                     variant="outline"
-                    className="border-hyperjump-blue text-hyperjump-blue hover:bg-hyperjump-blue w-full hover:text-white">
+                    className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
                     <Link
                       href={repoUrl}
                       target="_blank"
@@ -296,7 +296,7 @@ export function GridItems({
                   <Button
                     asChild
                     variant="outline"
-                    className="border-hyperjump-blue text-hyperjump-blue hover:bg-hyperjump-blue w-full hover:text-white">
+                    className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
                     <Link
                       href={`${repoUrl}/fork`}
                       target="_blank"

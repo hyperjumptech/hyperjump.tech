@@ -90,6 +90,14 @@ export type Item = {
   repoUrl?: string;
 };
 
+type Column = {
+  base?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+};
+
 export function GridItems({
   items,
   columns = { base: 1, md: 2, xl: 3 },
@@ -102,13 +110,7 @@ export function GridItems({
 }: {
   items: Item[];
   cardClassName?: string;
-  columns?: {
-    base?: number;
-    sm?: number;
-    md?: number;
-    lg?: number;
-    xl?: number;
-  };
+  columns?: Column;
   withCard?: boolean;
   borderClassName?: string;
   categoryClassName?: string;
@@ -160,24 +162,12 @@ export function GridItems({
     fetchRepoStats();
   }, [items]);
 
-  const getColumnClass = (prefix: string, count?: number) =>
-    count ? `${prefix}grid-cols-${count}` : "";
-
-  const columnClasses = cn(
-    "grid gap-6",
-    getColumnClass("", columns.base),
-    getColumnClass("sm:", columns.sm),
-    getColumnClass("md:", columns.md),
-    getColumnClass("lg:", columns.lg),
-    getColumnClass("xl:", columns.xl)
-  );
-
   const CardWrapper = withCard
     ? Card
     : ({ children }: { children: React.ReactNode }) => <div>{children}</div>;
 
   return (
-    <div className={columnClasses}>
+    <div className={cn("grid gap-6", columnClass(columns))}>
       {items.map((item, idx) => {
         const {
           image,
@@ -204,7 +194,7 @@ export function GridItems({
               borderClassName
             )}>
             {image && (
-              <div className="relative aspect-22/9 w-full md:aspect-16/9">
+              <div className="relative aspect-22/9 w-full md:aspect-video">
                 <Image
                   src={image}
                   alt={title}
@@ -325,6 +315,41 @@ export function GridItems({
   );
 }
 
+function columnClass(columns: Column) {
+  return {
+    "grid-cols-1": columns.base === 1,
+    "grid-cols-2": columns.base === 2,
+    "grid-cols-3": columns.base === 3,
+    "grid-cols-4": columns.base === 4,
+    "grid-cols-5": columns.base === 5,
+    "grid-cols-6": columns.base === 6,
+    "sm:grid-cols-1": columns.sm === 1,
+    "sm:grid-cols-2": columns.sm === 2,
+    "sm:grid-cols-3": columns.sm === 3,
+    "sm:grid-cols-4": columns.sm === 4,
+    "sm:grid-cols-5": columns.sm === 5,
+    "sm:grid-cols-6": columns.sm === 6,
+    "md:grid-cols-1": columns.md === 1,
+    "md:grid-cols-2": columns.md === 2,
+    "md:grid-cols-3": columns.md === 3,
+    "md:grid-cols-4": columns.md === 4,
+    "md:grid-cols-5": columns.md === 5,
+    "md:grid-cols-6": columns.md === 6,
+    "lg:grid-cols-1": columns.lg === 1,
+    "lg:grid-cols-2": columns.lg === 2,
+    "lg:grid-cols-3": columns.lg === 3,
+    "lg:grid-cols-4": columns.lg === 4,
+    "lg:grid-cols-5": columns.lg === 5,
+    "lg:grid-cols-6": columns.lg === 6,
+    "xl:grid-cols-1": columns.xl === 1,
+    "xl:grid-cols-2": columns.xl === 2,
+    "xl:grid-cols-3": columns.xl === 3,
+    "xl:grid-cols-4": columns.xl === 4,
+    "xl:grid-cols-5": columns.xl === 5,
+    "xl:grid-cols-6": columns.xl === 6
+  };
+}
+
 type GAEvent = {
   event: string;
   category: string;
@@ -437,7 +462,7 @@ export const GridItemsContainerBlack = ({
         bgClassName
       )}>
       <motion.div
-        className={cn(className, "px-4 py-7 md:px-6 md:py-[60px]")}
+        className={cn(className, "px-4 py-7 md:px-6 md:py-15")}
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

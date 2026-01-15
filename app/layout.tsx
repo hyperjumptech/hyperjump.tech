@@ -5,7 +5,6 @@ import data from "@/data.json";
 import { cn } from "@/lib/utils";
 import { supportedLanguages } from "@/locales/.generated/types";
 import Console from "@/app/components/console";
-import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
 import { figtree, geistMono, geistSans, switzer } from "./fonts";
 
@@ -43,7 +42,6 @@ export default function RootLayout({
         {children}
         <Console />
         <Toaster />
-        <Script src="https://kit.fontawesome.com/f6999a3218.js" />
       </body>
     </html>
   );

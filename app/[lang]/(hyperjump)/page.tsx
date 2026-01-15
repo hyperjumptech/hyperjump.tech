@@ -113,7 +113,7 @@ function Hero({ lang }: HeroProps) {
   return (
     <section
       id="hero"
-      className="bg-hyperjump-black relative h-[648px] overflow-hidden px-4 text-white md:px-20">
+      className="bg-hyperjump-black relative h-162 overflow-hidden px-4 text-white md:px-20">
       <div className="absolute inset-0 z-0">
         <Image
           alt="Hero background"
@@ -126,7 +126,7 @@ function Hero({ lang }: HeroProps) {
         />
       </div>
 
-      <div className="relative z-10 flex h-[648px] flex-col items-center justify-center">
+      <div className="relative z-10 flex h-162 flex-col items-center justify-center">
         <div className="max-w-5xl text-center">
           <h1 className="mb-4 text-4xl font-medium sm:text-5xl md:mb-6 md:text-6xl">
             {mainHeroHeading(lang)}
@@ -262,7 +262,7 @@ function Faqs({ lang }: HomeParams) {
               <AccordionItem key={i} value={`faq-${i}`} asChild>
                 <Card className="w-full border border-gray-200 bg-white shadow-xs transition-all duration-300">
                   <CardHeader className="px-4 py-2">
-                    <AccordionTrigger className="flex w-full items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline">
+                    <AccordionTrigger className="flex w-full cursor-pointer items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline">
                       {item.question}
                     </AccordionTrigger>
                   </CardHeader>

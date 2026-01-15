@@ -15,6 +15,7 @@ import type { CaseStudy } from "../../data";
 import { caseStudyBy, getCaseStudies } from "../data";
 import { Content } from "./components/content";
 import { dynamicOpengraph } from "@/lib/default-metadata";
+import ButtonGetInTouch from "./components/button-get-in-touch";
 
 type Params = { lang: SupportedLanguage; slug: string };
 
@@ -62,6 +63,8 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
     notFound();
   }
 
+  const cta = caseStudy.cta;
+
   return (
     <main className="bg-white">
       <Hero heading={caseStudy.title} />
@@ -69,13 +72,21 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
         <article className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-md dark:prose-headings:text-white text-left">
           <Content slug={slug} lang={lang} />
         </article>
+
+        <div className="mt-12 flex flex-col items-center gap-4 text-center">
+          <h3 className="text-hyperjump-black max-w-xl text-xl font-semibold md:text-2xl">
+            {cta.heading}
+          </h3>
+
+          <ButtonGetInTouch index={slug} buttonChatbotMessage={caseStudy.title}>
+            {cta.label}
+          </ButtonGetInTouch>
+        </div>
       </section>
 
       <section className="mt-5 px-4 md:px-20">
         <Recommendation
-          caseStudies={getCaseStudies(lang).filter(
-            (caseStudy) => caseStudy.slug !== slug
-          )}
+          caseStudies={getCaseStudies(lang).filter((cs) => cs.slug !== slug)}
           lang={lang}
         />
       </section>

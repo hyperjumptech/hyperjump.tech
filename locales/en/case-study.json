@@ -15,11 +15,21 @@
   "erp_fisheries": {
     "title": "Transforming a fisheries tech team into a scalable product engine",
     "desc": "A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.",
-    "category": "CTO as a Service"
+    "category": "CTO as a Service",
+    "cta": {
+      "heading": "Ready to build your future? Let's discuss your transformation",
+      "subject": "Media Transformation",
+      "label": "Get In Touch"
+    }
   },
   "ctoaas_media": {
     "title": "Elevating a media-tech engineering team from feature factory to innovation powerhouse",
     "desc": "When rapid growth outpaced engineering maturity, this team needed more than features, they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.",
-    "category": "CTO as a Service"
+    "category": "CTO as a Service",
+    "cta": {
+      "heading": "Ready to transform your tech team? Let's talk about CTO-as-a-Service",
+      "subject": "CTO as a Service",
+      "label": "Get In Touch"
+    }
   }
 }

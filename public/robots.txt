@@ -1,0 +1,11 @@
+# robots.txt for hyperjump.tech
+# Allow all crawlers to index the landing site. Adjust for preview/staging as needed.
+
+User-agent: *
+Allow: /
+
+# Sitemap (update if you host it at a different path)
+Sitemap: https://hyperjump.tech/sitemap.xml
+
+# Preferred host
+Host: hyperjump.tech

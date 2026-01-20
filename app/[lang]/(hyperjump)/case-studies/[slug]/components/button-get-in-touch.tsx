@@ -1,29 +1,23 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 
 type GetInTouchButtonProps = {
-  index: string;
-  buttonChatbotMessage: string;
   children: React.ReactNode;
 };
 
-function getTopic(index: string): string {
-  switch (index) {
-    case "erp-fisheries":
-      return "Transforming a fisheries tech team into a scalable product engine";
-    case "ctoaas-media":
-      return "Elevating a media-tech engineering team from feature factory to innovation powerhouse";
-    default:
-      return "";
-  }
+function getTopic(pathname: string): string {
+  const isBahasa = pathname.startsWith("/id");
+
+  return isBahasa
+    ? "Saya ingin mengajukan permintaan demo untuk layanan CTO-as-a-Service."
+    : "I want to request a demo for CTO-as-a-Service.";
 }
 
-export default function ButtonGetInTouch({
-  index,
-  buttonChatbotMessage,
-  children
-}: GetInTouchButtonProps) {
+export default function ButtonGetInTouch({ children }: GetInTouchButtonProps) {
+  const pathname = usePathname();
+
   return (
     <Button
       variant="default"
@@ -33,7 +27,7 @@ export default function ButtonGetInTouch({
         window.dispatchEvent(
           new CustomEvent("prefillAIAgent", {
             detail: {
-              message: `${buttonChatbotMessage} ${getTopic(index)}`
+              message: getTopic(pathname)
             }
           })
         );

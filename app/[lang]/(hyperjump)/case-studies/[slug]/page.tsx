@@ -78,9 +78,7 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
             {cta.heading}
           </h3>
 
-          <ButtonGetInTouch index={slug} buttonChatbotMessage={caseStudy.title}>
-            {cta.label}
-          </ButtonGetInTouch>
+          <ButtonGetInTouch>{cta.label}</ButtonGetInTouch>
         </div>
       </section>
 

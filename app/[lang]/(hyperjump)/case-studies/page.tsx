@@ -13,8 +13,9 @@ import {
   caseStudyButton,
   caseStudyExplore,
   caseStudyHeroDesc,
-  caseStudyHeroHeading
-} from "@/locales/.generated/server";
+  caseStudyHeroHeading,
+  caseStudyTitle
+} from "@/locales/.generated/strings";
 
 import { getCaseStudies } from "./data";
 
@@ -32,7 +33,7 @@ export async function generateMetadata(props: {
   const { lang } = await props.params;
   const { url } = data;
   const meta: Metadata = {
-    title: `Case Studies - ${caseStudyHeroHeading(lang)}`,
+    title: `Case Studies - ${caseStudyTitle(lang)}`,
     description: caseStudyHeroDesc(lang),
     alternates: {
       canonical: `${url}/${lang}/case-studies`,

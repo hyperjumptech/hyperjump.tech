@@ -15,11 +15,21 @@
   "erp_fisheries": {
     "title": "Mengubah tim teknologi perikanan menjadi mesin produk yang skalabel",
     "desc": "Tim teknologi yang masih junior namun penuh semangat. Tidak ada produk yang berjalan. Taruhan dampak besar. Kami terjun langsung mendampingi tim mereka untuk membangun struktur, meningkatkan kepercayaan diri, dan meluncurkan MVP yang fungsional dalam 3 bulan. Lewat praktik agile yang ketat dan peluncuran sistem penuh, kami bantu mengubah organisasi teknologi yang rapuh menjadi mesin produk yang andal.",
-    "category": "CTO as a Service"
+    "category": "CTO as a Service",
+    "cta": {
+      "heading": "Siap membangun masa depan Anda? Mari diskusikan transformasi Anda",
+      "subject": "Transformasi Media",
+      "label": "Hubungi Kami"
+    }
   },
   "ctoaas_media": {
     "title": "Meningkatkan tim engineering media dari pabrik fitur menjadi pusat inovasi",
     "desc": "Ketika pertumbuhan cepat melampaui kematangan engineering, tim ini butuh lebih dari sekadar fitur, mereka butuh transformasi. Kami restrukturisasi praktik agile mereka, otomatisasi DevOps, tetapkan KPI terukur, dan bantu mereka beralih dari eksekutor tugas ke pemilik produk sejati yang inovatif.",
-    "category": "CTO as a Service"
+    "category": "CTO as a Service",
+    "cta": {
+      "heading": "Siap mentransformasi tim teknologi Anda? Mari berdiskusi tentang CTO-as-a-Service",
+      "subject": "CTO sebagai Layanan",
+      "label": "Hubungi Kami"
+    }
   }
 }

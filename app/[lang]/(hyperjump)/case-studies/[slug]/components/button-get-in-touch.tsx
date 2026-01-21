@@ -1,28 +1,17 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { caseStudyQuestion } from "@/locales/.generated/server";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
 type GetInTouchButtonProps = {
-  index: string;
-  buttonChatbotMessage: string;
   children: React.ReactNode;
+  lang: SupportedLanguage;
 };
 
-function getTopic(index: string): string {
-  switch (index) {
-    case "erp-fisheries":
-      return "Transforming a fisheries tech team into a scalable product engine";
-    case "ctoaas-media":
-      return "Elevating a media-tech engineering team from feature factory to innovation powerhouse";
-    default:
-      return "";
-  }
-}
-
 export default function ButtonGetInTouch({
-  index,
-  buttonChatbotMessage,
-  children
+  children,
+  lang
 }: GetInTouchButtonProps) {
   return (
     <Button
@@ -33,7 +22,7 @@ export default function ButtonGetInTouch({
         window.dispatchEvent(
           new CustomEvent("prefillAIAgent", {
             detail: {
-              message: `${buttonChatbotMessage} ${getTopic(index)}`
+              message: caseStudyQuestion(lang)
             }
           })
         );

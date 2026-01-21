@@ -78,7 +78,7 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
             {cta.heading}
           </h3>
 
-          <ButtonGetInTouch>{cta.label}</ButtonGetInTouch>
+          <ButtonGetInTouch lang={lang}>{cta.label}</ButtonGetInTouch>
         </div>
       </section>
 

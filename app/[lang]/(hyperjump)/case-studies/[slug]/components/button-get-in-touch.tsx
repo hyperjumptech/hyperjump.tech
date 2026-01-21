@@ -1,23 +1,18 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { usePathname } from "next/navigation";
+import { caseStudyQuestion } from "@/locales/.generated/server";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
 type GetInTouchButtonProps = {
   children: React.ReactNode;
+  lang: SupportedLanguage;
 };
 
-function getTopic(pathname: string): string {
-  const isBahasa = pathname.startsWith("/id");
-
-  return isBahasa
-    ? "Saya ingin mengajukan permintaan demo untuk layanan CTO-as-a-Service."
-    : "I want to request a demo for CTO-as-a-Service.";
-}
-
-export default function ButtonGetInTouch({ children }: GetInTouchButtonProps) {
-  const pathname = usePathname();
-
+export default function ButtonGetInTouch({
+  children,
+  lang
+}: GetInTouchButtonProps) {
   return (
     <Button
       variant="default"
@@ -27,7 +22,7 @@ export default function ButtonGetInTouch({ children }: GetInTouchButtonProps) {
         window.dispatchEvent(
           new CustomEvent("prefillAIAgent", {
             detail: {
-              message: getTopic(pathname)
+              message: caseStudyQuestion(lang)
             }
           })
         );

@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Inference AI",
-    "desc": "Visi Anda. Solusi AI kami. Hasil yang tak terbendung"
+    "desc": "Kami menyelesaikan masalah Anda dengan solusi berbasis AI."
   },
   "description": "Rancang, kembangkan, dan terapkan agen AI khusus yang menghemat waktu, menekan biaya, dan menskalakan operasi tanpa kerumitan teknis.",
   "bestFor": ["Perusahaan", "startup", "automasi proses"],
@@ -20,7 +20,7 @@
   "what_we_deliver": {
     "desc": "Kami bermitra dengan tim Anda untuk mengotomatiskan dan membangun agen AI yang dapat menskalakan bersama bisnis Anda. Dari perencanaan hingga pasca-implementasi, kami memberikan dukungan langsung di setiap tahap.",
     "card_0": {
-      "title": "Integrasi & orkestrasi",
+      "title": "Integrasi dan pengelolaan agen AI secara terpusat",
       "text": "Hubungkan agen ke sistem Anda:",
       "items": {
         "0": "Terhubung ke API, basis data, dan alat internal",

@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Inference AI",
-    "desc": "Your vision. Our AI solutions. Unstoppable results"
+    "desc": "We solve your problems with AI solutions."
   },
   "description": "Design, develop, and deploy purpose-built AI agents that save time, cut costs, and scale operations. Without technical overwhelm.",
   "bestFor": ["Enterprises", "startups", "process automation"],
@@ -20,7 +20,7 @@
   "what_we_deliver": {
     "desc": "We partner with your team to automate and build AI agents that scale with your business. From planning to post-implementation, we deliver hands-on support every step of the way.",
     "card_0": {
-      "title": "Integration & orchestration",
+      "title": "Integration & orchestration of AI agents",
       "text": "Plug the agent into your systems:",
       "items": {
         "0": "Connect to APIs, databases, internal tools",

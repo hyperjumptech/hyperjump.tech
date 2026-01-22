@@ -14,10 +14,10 @@ import {
 import {
   servicesPartnersHeading,
   servicesPartnersDesc,
-  servicesSeeMore,
   servicesBestFor,
   servicesHeroHeading,
-  servicesHeroDesc
+  servicesHeroDesc,
+  servicesReadMore
 } from "@/locales/.generated/server";
 
 import { Clients } from "../components/clients";
@@ -169,9 +169,9 @@ function Service({ lang, isReverseImagePosition = false, slug }: ServiceProps) {
           <Button
             asChild
             size="lg"
-            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-full text-base font-semibold text-white md:w-44">
+            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-full text-base font-semibold text-white md:w-48">
             <Link href={`/${lang}/services/${slug}`}>
-              {servicesSeeMore(lang)}
+              {servicesReadMore(lang)}
             </Link>
           </Button>
         </div>

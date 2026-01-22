@@ -20,7 +20,7 @@
   "what_we_deliver": {
     "desc": "Kami bermitra dengan tim Anda untuk mengotomatiskan dan membangun agen AI yang dapat menskalakan bersama bisnis Anda. Dari perencanaan hingga pasca-implementasi, kami memberikan dukungan langsung di setiap tahap.",
     "card_0": {
-      "title": "Integrasi dan pengelolaan agen AI secara terpusat",
+      "title": "Integrasi & orkestrasi",
       "text": "Hubungkan agen ke sistem Anda:",
       "items": {
         "0": "Terhubung ke API, basis data, dan alat internal",
@@ -84,7 +84,7 @@
   "what_you_get": {
     "desc": "Kami menghadirkan agen AI kustom yang berfungsi dan disesuaikan dengan domain Anda, sistem yang beradaptasi dengan alur kerja serta berkembang bersama bisnis Anda.",
     "items": {
-      "0": "Integrasi & orkestrasi",
+      "0": "Integrasi dan pengelolaan agen AI secara terpusat",
       "1": "Pelatihan, fine-tuning & rekayasa prompt",
       "2": "Keamanan, pemantauan & guardrail",
       "3": "Penerapan & pemeliharaan"

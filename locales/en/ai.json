@@ -20,7 +20,7 @@
   "what_we_deliver": {
     "desc": "We partner with your team to automate and build AI agents that scale with your business. From planning to post-implementation, we deliver hands-on support every step of the way.",
     "card_0": {
-      "title": "Integration & orchestration of AI agents",
+      "title": "Integration & orchestration",
       "text": "Plug the agent into your systems:",
       "items": {
         "0": "Connect to APIs, databases, internal tools",
@@ -84,7 +84,7 @@
   "what_you_get": {
     "desc": "We deliver a working custom AI agent tailored to your domain that adapts to your workflow and grows with your business.",
     "items": {
-      "0": "Integration & orchestration",
+      "0": "Integration & orchestration of AI agents",
       "1": "Training, fine-tuning & prompt engineering",
       "2": "Safety, monitoring & guardrails",
       "3": "Deployment & maintenance"

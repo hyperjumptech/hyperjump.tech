@@ -19,7 +19,7 @@ await (async function generateSitemap() {
     .filter((path) => !EXCLUDED_PAGES.includes(path))
     .filter(removePathWithLocale)
     .sort()
-    .map((path) => generateSitemapURL(path).join("\n"));
+    .map((path) => generateSitemapURL(path).join("\n  "));
 
   await writeFile(
     join(OUTPUT_DIR, "sitemap.xml"),
@@ -39,14 +39,13 @@ function removePathWithLocale(path) {
 }
 
 function generateSitemapURL(path) {
-  return LOCALES.map((locale) =>
-    `
-  <url>
+  return LOCALES.map(
+    (locale) =>
+      `  <url>
     <loc>${BASE_URL}/${locale}${clean(path)}</loc>
     ${alternateLinks(path).join("\n    ")}
     <lastmod>${new Date().toISOString()}</lastmod>
-  </url>
-`.trim()
+  </url>`
   );
 }
 
@@ -63,6 +62,6 @@ function alternateLinks(path) {
 function sitemap(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  ${urls.join("\n")}
+${urls.join("\n")}
 </urlset>`.trim();
 }

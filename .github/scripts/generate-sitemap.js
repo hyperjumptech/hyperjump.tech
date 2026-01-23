@@ -1,6 +1,7 @@
 const { existsSync } = require("fs");
 const { writeFile } = require("fs/promises");
 const { join } = require("path");
+const { format } = require("prettier");
 const { findAllPages } = require("./find-all-pages");
 
 const BASE_URL = "https://hyperjump.tech";
@@ -23,7 +24,9 @@ await (async function generateSitemap() {
 
   await writeFile(
     join(OUTPUT_DIR, "sitemap.xml"),
-    sitemap(sitemapUrls),
+    await format(sitemap(sitemapUrls), {
+      parser: "html"
+    }),
     "utf8"
   );
   console.log("✅ Sitemap generated");

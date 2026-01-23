@@ -2,13 +2,17 @@ const { existsSync } = require("fs");
 const { writeFile } = require("fs/promises");
 const { join } = require("path");
 const { format } = require("prettier");
-const { findAllPages } = require("./find-all-pages");
+const {
+  clean,
+  EXCLUDED_PAGES,
+  findAllPages,
+  LOCALES,
+  pathWithoutLocaleReducer
+} = require("./find-all-pages");
 
 const BASE_URL = "https://hyperjump.tech";
 // Next.js export directory
 const OUTPUT_DIR = join(process.cwd(), "out");
-const LOCALES = ["en", "id"];
-const EXCLUDED_PAGES = ["_not-found", "404"];
 
 await (async function generateSitemap() {
   if (!existsSync(OUTPUT_DIR)) {
@@ -16,11 +20,13 @@ await (async function generateSitemap() {
     return;
   }
 
-  const sitemapUrls = findAllPages(OUTPUT_DIR)
+  const paths = findAllPages(OUTPUT_DIR)
     .filter((path) => !EXCLUDED_PAGES.includes(path))
-    .filter(removePathWithLocale)
-    .sort()
-    .map((path) => generateSitemapURL(path).join("\n  "));
+    .reduce(pathWithoutLocaleReducer, [])
+    .sort();
+  const sitemapUrls = paths.map((path) =>
+    generateSitemapURL(path).join("\n  ")
+  );
 
   await writeFile(
     join(OUTPUT_DIR, "sitemap.xml"),
@@ -29,17 +35,12 @@ await (async function generateSitemap() {
     }),
     "utf8"
   );
-  console.log("✅ Sitemap generated");
-})();
 
-function removePathWithLocale(path) {
-  for (const locale of LOCALES) {
-    if (path.startsWith(locale)) {
-      return false;
-    }
+  for (const path of paths) {
+    console.info(`Generated sitemap: /${path}`);
   }
-  return true;
-}
+  console.info("✅ Sitemap generated");
+})();
 
 function generateSitemapURL(path) {
   return LOCALES.map(
@@ -50,10 +51,6 @@ function generateSitemapURL(path) {
     <lastmod>${new Date().toISOString()}</lastmod>
   </url>`
   );
-}
-
-function clean(path) {
-  return path ? `/${path}` : "";
 }
 
 function alternateLinks(path) {

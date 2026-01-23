@@ -1,7 +1,12 @@
 const { existsSync } = require("fs");
 const { writeFile, mkdir } = require("fs/promises");
 const { join } = require("path");
-const { findAllPages } = require("./find-all-pages");
+const {
+  clean,
+  EXCLUDED_PAGES,
+  findAllPages,
+  pathWithoutLocaleReducer
+} = require("./find-all-pages");
 
 // Next.js export directory
 const OUTPUT_DIR = join(process.cwd(), "out");
@@ -14,23 +19,19 @@ await (async function generateSitemap() {
   }
 
   const pages = findAllPages(OUTPUT_DIR)
-    // exclude preserved paths
-    .filter((page) => !["en", "id", "404"].includes(page))
-    // remove duplication
-    .filter((page) => page.startsWith(`${DEFAULT_LOCALE}/`))
-    // remove locale
-    .map((page) => page.replace(`${DEFAULT_LOCALE}/`, ""));
-  const pagesWithRootPage = ["", ...pages];
+    .filter((page) => !["", ...EXCLUDED_PAGES].includes(page))
+    .reduce(pathWithoutLocaleReducer, []);
 
-  await Promise.all(
-    pagesWithRootPage.map(
+  const redirects = await Promise.all(
+    pages.map(
       async (page) =>
-        await createRedirectPage(
-          page,
-          page ? `/${DEFAULT_LOCALE}/${page}` : `/${DEFAULT_LOCALE}`
-        )
+        await createRedirectPage(page, `/${DEFAULT_LOCALE}${clean(page)}`)
     )
   );
+  for (const { fromPath, toPath } of redirects.sort()) {
+    console.info(`Generated redirect: /${fromPath} -> ${toPath}`);
+  }
+  console.info("✅ Redirects generated");
 })();
 
 async function createRedirectPage(fromPath, toPath) {
@@ -51,5 +52,5 @@ async function createRedirectPage(fromPath, toPath) {
 `;
 
   await writeFile(join(dir, "index.html"), html.trim(), "utf8");
-  console.log(`Generated redirect: ${fromPath} -> ${toPath}`);
+  return { fromPath, toPath };
 }

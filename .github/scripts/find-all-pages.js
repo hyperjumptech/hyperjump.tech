@@ -41,3 +41,27 @@ function pageFrom(htmlFile) {
 
   return htmlFile.replace(".html", "");
 }
+
+export const LOCALES = ["en", "id"];
+export const EXCLUDED_PAGES = [...LOCALES, "404", "_not-found"];
+
+export function pathWithoutLocaleReducer(acc, path) {
+  for (const locale of LOCALES) {
+    if (path.startsWith(`${locale}/`)) {
+      return mergePaths(acc, path.replace(`${locale}/`, ""));
+    }
+  }
+
+  return mergePaths(acc, path);
+}
+
+function mergePaths(paths, path) {
+  if (!paths.includes(path)) {
+    return [...paths, path];
+  }
+  return paths;
+}
+
+export function clean(path) {
+  return path ? `/${path}` : "";
+}

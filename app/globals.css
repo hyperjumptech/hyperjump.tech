@@ -183,3 +183,24 @@
       rgba(21, 19, 55, 0) 23.58%
     );
 }
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee__track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}

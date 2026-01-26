@@ -9,7 +9,7 @@
       "imageUrl": "/images/clients/bank-tabungan-negara.svg"
     },
     {
-      "name": "Eka Mas Republik",
+      "name": "Eka Mas Republik (MyRepublic)",
       "imageUrl": "/images/clients/my-republic.svg"
     },
     {
@@ -23,6 +23,43 @@
     {
       "name": "Smartfren",
       "imageUrl": "/images/clients/smartfren.svg"
+    },
+
+    {
+      "name": "IDN Media",
+      "imageUrl": "/images/clients/idn-media.svg"
+    },
+    {
+      "name": "Ismaya Group",
+      "imageUrl": "/images/clients/ismaya.svg"
+    },
+    {
+      "name": "Aruna",
+      "imageUrl": "/images/clients/aruna.svg"
+    },
+    {
+      "name": "Cashbac",
+      "imageUrl": "/images/clients/cashbac.svg"
+    },
+    {
+      "name": "Ausvet",
+      "imageUrl": "/images/clients/ausvet.svg"
+    },
+    {
+      "name": "CoHive",
+      "imageUrl": "/images/clients/cohive.svg"
+    },
+    {
+      "name": "Trimegah Sekuritas",
+      "imageUrl": "/images/clients/trimegah.svg"
+    },
+    {
+      "name": "Bali United",
+      "imageUrl": "/images/clients/bali-united.svg"
+    },
+    {
+      "name": "1Engage",
+      "imageUrl": "/images/clients/1engage.svg"
     }
   ],
   "description": "Your partner in building reliable, modern software.",

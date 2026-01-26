@@ -599,7 +599,7 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
         }}>
         {closed ? (
           <>
-            <span className="hidden lg:block">Ask HyperBot</span>
+            <span className="hidden cursor-pointer lg:block">Ask HyperBot</span>
             <span className="block lg:hidden">
               <MessageCircle className="h-10 w-10 md:h-6 md:w-6" />
             </span>

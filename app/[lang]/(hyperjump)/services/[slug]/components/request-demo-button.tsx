@@ -23,7 +23,7 @@ export default function RequestDemoButton({
       <Button
         variant="default"
         size="lg"
-        className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 text-md w-full max-w-sm"
+        className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 text-md w-full max-w-sm cursor-pointer"
         data-testid="request-demo-button"
         onClick={handleChatbot}>
         {servicesRequestDemo(lang)}

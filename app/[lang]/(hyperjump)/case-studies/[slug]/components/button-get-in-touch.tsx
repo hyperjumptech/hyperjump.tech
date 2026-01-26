@@ -17,7 +17,7 @@ export default function ButtonGetInTouch({
     <Button
       variant="default"
       size="lg"
-      className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-3/4 md:w-auto"
+      className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 w-3/4 cursor-pointer md:w-auto"
       onClick={() => {
         window.dispatchEvent(
           new CustomEvent("prefillAIAgent", {

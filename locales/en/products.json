@@ -16,6 +16,14 @@
       "3": {
         "title": "Voxa",
         "text": "Voxa helps you reach prospects over the phone with natural AI voices, smart lead targeting, and automated call flows."
+      },
+      "4": {
+        "title": "NEO Sense",
+        "text": "NEO Sense is a customer-facing monitoring product developed as a <b>white-label implementation of Symon</b>, Hyperjump’s synthetic monitoring platform. It is delivered in collaboration with <b>Biznet Gio</b>, with Symon itself being the user-friendly evolution of <b>Monika</b>."
+      },
+      "5": {
+        "title": "Monitime",
+        "text": "Monitime is a customer-facing monitoring product built as a  <b>white-label implementation of Symon</b>, Hyperjump’s synthetic monitoring platform. It is delivered in collaboration with  <b>Qwords</b>, with Symon designed as a more user-friendly version of <b>Monika</b>."
       }
     }
   },

@@ -8,7 +8,11 @@ import {
   productsCommercialData1Text,
   productsCommercialData1Title,
   productsCommercialData2Text,
-  productsCommercialData2Title
+  productsCommercialData2Title,
+  productsCommercialData4Text,
+  productsCommercialData4Title,
+  productsCommercialData5Text,
+  productsCommercialData5Title
 } from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
@@ -26,6 +30,19 @@ export function getCommercialProduct(lang: SupportedLanguage) {
       description: productsCommercialData1Text(lang),
       image: "/images/products/startGPT.svg",
       urlLearnMore: "https://startgpt.hyperjump.tech/"
+    },
+    {
+      title: productsCommercialData4Title(lang),
+      description: productsCommercialData4Text(lang),
+      image: "/images/products/neosense.svg",
+      urlLearnMore: "https://www.biznetgio.com/product/neo-sense"
+    },
+    {
+      title: productsCommercialData5Title(lang),
+      description: productsCommercialData5Text(lang),
+      image: "/images/products/monitime.svg",
+      urlLearnMore:
+        "https://monitime.qwords.com/?_gl=1*fc90su*_gcl_au*MTMzOTk4Njk4MC4xNzY5Mzk5NjQx"
     }
   ];
 }

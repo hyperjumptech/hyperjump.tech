@@ -105,7 +105,8 @@ const selectors = {
   heroDesc: "#hero p",
   cardsSection: "section div.grid",
   card: "div.grid > div, div.grid > article, div.grid > li",
-  cardButton: "section > div a, section > div button"
+  cardButton: "section > div a, section > div button",
+  faq: "section.space-y-16 > div"
 };
 
 for (const { code: locale, path, title, slug } of locales) {
@@ -337,6 +338,11 @@ for (const { code: locale, path, title, slug } of locales) {
             .locator("div, article, li")
             .count();
           expect(itemCount).toBeGreaterThan(0);
+        });
+
+        test("Faqs Section", async ({ page }) => {
+          const faq = page.locator(selectors.faq);
+          await expect(faq).toBeVisible();
         });
 
         test("Footer", async ({ page }) => {

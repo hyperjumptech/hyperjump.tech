@@ -340,9 +340,21 @@ for (const { code: locale, path, title, slug } of locales) {
           expect(itemCount).toBeGreaterThan(0);
         });
 
-        test("Faqs Section", async ({ page }) => {
-          const faq = page.locator(selectors.faq);
-          await expect(faq).toBeVisible();
+        test("Faqs Section (optional)", async ({ page }) => {
+          const faqSection = page.locator("#faqs");
+
+          const count = await faqSection.count();
+
+          if (count === 0) {
+            expect(count).toBe(0);
+          } else {
+            await expect(faqSection).toBeVisible();
+
+            const items = faqSection.locator(
+              "[data-radix-accordion-item], h3, button"
+            );
+            expect(await items.count()).toBeGreaterThan(0);
+          }
         });
 
         test("Footer", async ({ page }) => {

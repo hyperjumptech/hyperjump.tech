@@ -436,8 +436,8 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed right-6 bottom-32 z-[60] flex w-full flex-col overflow-hidden rounded-md bg-white shadow-xl max-[720px]:inset-0 max-[720px]:bottom-0 max-[720px]:h-full max-[720px]:w-full max-[720px]:rounded-none md:max-w-sm lg:max-w-sm xl:max-w-md">
-            <div className="relative flex-shrink-0 bg-[#101330] px-4 py-5 text-white">
+            className="fixed right-6 bottom-32 z-60 flex w-full flex-col overflow-hidden rounded-md bg-white shadow-xl max-[720px]:inset-0 max-[720px]:bottom-0 max-[720px]:h-full max-[720px]:w-full max-[720px]:rounded-none md:max-w-sm lg:max-w-sm xl:max-w-md">
+            <div className="relative shrink-0 bg-[#101330] px-4 py-5 text-white">
               <button
                 onClick={() => setClosed(true)}
                 className="absolute top-4 right-4 min-[720px]:hidden"
@@ -501,7 +501,7 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
             </div>
 
             {/* Input */}
-            <div className="flex-shrink-0 bg-[#f2f4f8] p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:bg-white">
+            <div className="shrink-0 bg-[#f2f4f8] p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:bg-white">
               {messages.length === 0 && (
                 <div className="mb-3 flex flex-wrap gap-2 md:hidden">
                   {DEFAULT_MESSAGES.map(({ text, id }) => (
@@ -509,7 +509,7 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
                       key={id}
                       variant="outline"
                       disabled={isSubmitting}
-                      className="rounded-md border border-gray-400 bg-transparent text-gray-600 hover:cursor-pointer"
+                      className="rounded-md border border-gray-400 bg-transparent text-gray-600"
                       onClick={() => {
                         window.dispatchEvent(
                           new CustomEvent("prefillAIAgent", {
@@ -564,7 +564,7 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
                       key={id}
                       variant="outline"
                       disabled={isSubmitting}
-                      className="rounded-md border border-gray-200 bg-transparent text-gray-600 hover:cursor-pointer"
+                      className="rounded-md border border-gray-200 bg-transparent text-gray-600"
                       onClick={() => {
                         window.dispatchEvent(
                           new CustomEvent("prefillAIAgent", {
@@ -585,7 +585,7 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
       {/* Desktop/Tablet button */}
       <Button
         variant="default"
-        className="md:xp-6 fixed right-6 bottom-16 z-50 !m-0 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 font-semibold text-white shadow-md hover:bg-blue-500/80 max-[720px]:hidden md:h-12 md:w-auto"
+        className="md:xp-6 fixed right-6 bottom-16 z-50 m-0 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 font-semibold text-white shadow-md hover:bg-blue-500/80 max-[720px]:hidden md:h-12 md:w-auto"
         onClick={() => {
           setClosed((prev) => {
             const nextState = !prev;
@@ -599,7 +599,7 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
         }}>
         {closed ? (
           <>
-            <span className="hidden cursor-pointer lg:block">Ask HyperBot</span>
+            <span className="hidden lg:block">Ask HyperBot</span>
             <span className="block lg:hidden">
               <MessageCircle className="h-10 w-10 md:h-6 md:w-6" />
             </span>
@@ -614,7 +614,7 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
         <Button
           variant="default"
           onClick={() => setClosed(false)}
-          className="fixed right-6 bottom-16 z-50 !m-0 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 font-semibold text-white shadow-md hover:bg-blue-500/80 min-[720px]:hidden">
+          className="fixed right-6 bottom-16 z-50 m-0 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 font-semibold text-white shadow-md hover:bg-blue-500/80 min-[720px]:hidden">
           <MessageCircle className="h-10 w-10" />
         </Button>
       )}

@@ -3,19 +3,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import ButtonCTA from "@/app/components/cta-button";
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
-import { caseStudyButton, caseStudyMore } from "@/locales/.generated/server";
+import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
-  supportedLanguages,
-  type SupportedLanguage
-} from "@/locales/.generated/types";
+  caseStudyButton,
+  caseStudyMore,
+  caseStudyQuestion
+} from "@/locales/.generated/strings";
+import type { SupportedLanguage } from "@/locales/.generated/types";
+import { supportedLanguages } from "@/locales/.generated/types";
 
 import type { CaseStudy } from "../../data";
 import { caseStudyBy, getCaseStudies } from "../data";
 import { Content } from "./components/content";
-import { dynamicOpengraph } from "@/lib/default-metadata";
-import ButtonGetInTouch from "./components/button-get-in-touch";
 
 type Params = { lang: SupportedLanguage; slug: string };
 
@@ -63,11 +65,14 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
     notFound();
   }
 
-  const cta = caseStudy.cta;
+  const {
+    cta: { heading, label },
+    title
+  } = caseStudy;
 
   return (
     <main className="bg-white">
-      <Hero heading={caseStudy.title} />
+      <Hero heading={title} />
       <section className="mx-auto max-w-3xl px-4 md:px-20">
         <article className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-md dark:prose-headings:text-white text-left">
           <Content slug={slug} lang={lang} />
@@ -75,10 +80,11 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
 
         <div className="mt-12 flex flex-col items-center gap-4 text-center">
           <h3 className="text-hyperjump-black max-w-xl text-xl font-semibold md:text-2xl">
-            {cta.heading}
+            {heading}
           </h3>
-
-          <ButtonGetInTouch lang={lang}>{cta.label}</ButtonGetInTouch>
+          <div className="w-full md:w-auto">
+            <ButtonCTA message={caseStudyQuestion(lang)}>{label}</ButtonCTA>
+          </div>
         </div>
       </section>
 
@@ -96,7 +102,7 @@ function Hero({ heading }: { heading: string }) {
   return (
     <section
       id="hero"
-      className="bg-hyperjump-black relative h-[351px] overflow-hidden text-white">
+      className="bg-hyperjump-black relative h-87.75 overflow-hidden text-white">
       <div className="absolute inset-0 z-0">
         <Image
           alt="Hero background"
@@ -109,7 +115,7 @@ function Hero({ heading }: { heading: string }) {
         />
       </div>
 
-      <div className="relative z-10 mt-10 flex h-[351px] items-center justify-center">
+      <div className="relative z-10 mt-10 flex h-87.75 items-center justify-center">
         <h1
           className="mb-4 max-w-3xl px-4 text-center text-2xl font-medium text-white sm:text-4xl md:px-20 md:text-4xl"
           dangerouslySetInnerHTML={{

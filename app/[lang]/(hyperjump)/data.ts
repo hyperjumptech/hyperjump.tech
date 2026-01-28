@@ -2,8 +2,17 @@ import type { ReactNode } from "react";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   aiBestFor,
-  aiWhatIsDesc,
   aiDescription,
+  aiFaq0Answer,
+  aiFaq0Question,
+  aiFaq1Answer,
+  aiFaq1Question,
+  aiFaq2Answer,
+  aiFaq2Question,
+  aiFaq3Answer,
+  aiFaq3Question,
+  aiFaq5Answer,
+  aiFaq5Question,
   aiHeroDesc,
   aiHeroHeading,
   aiHowItWorksDesc,
@@ -17,18 +26,22 @@ import {
   aiHowItWorksStep3Title,
   aiHowItWorksStep4Text,
   aiHowItWorksStep4Title,
+  aiWhatIsDesc,
   aiWhatIsHighlight,
   aiWhatWeDeliverCard0Items0,
   aiWhatWeDeliverCard0Items1,
   aiWhatWeDeliverCard0Items2,
   aiWhatWeDeliverCard0Text,
+  aiWhatWeDeliverCard0Title,
   aiWhatWeDeliverCard1Items0,
   aiWhatWeDeliverCard1Items1,
   aiWhatWeDeliverCard1Items2,
+  aiWhatWeDeliverCard1Text,
   aiWhatWeDeliverCard1Title,
   aiWhatWeDeliverCard2Items0,
   aiWhatWeDeliverCard2Items1,
   aiWhatWeDeliverCard2Items2,
+  aiWhatWeDeliverCard2Text,
   aiWhatWeDeliverCard2Title,
   aiWhatWeDeliverDesc,
   aiWhatYouGetDesc,
@@ -39,6 +52,7 @@ import {
   aiWhoIsItDesc,
   aiWhoIsItTarget0,
   aiWhoIsItTarget1,
+  aiWhoIsItTarget2,
   aiWhyUsDesc,
   aiWhyUsReasons0,
   aiWhyUsReasons1,
@@ -259,23 +273,7 @@ import {
   tddWhyUsDesc,
   tddWhyUsReasons0,
   tddWhyUsReasons1,
-  tddWhyUsReasons2,
-  aiWhoIsItTarget2,
-  aiWhatWeDeliverCard0Title,
-  aiWhatWeDeliverCard1Text,
-  aiWhatWeDeliverCard2Text
-} from "@/locales/.generated/server";
-import {
-  aiFaq0Answer,
-  aiFaq0Question,
-  aiFaq1Answer,
-  aiFaq1Question,
-  aiFaq2Answer,
-  aiFaq2Question,
-  aiFaq3Answer,
-  aiFaq3Question,
-  aiFaq4Answer,
-  aiFaq4Question
+  tddWhyUsReasons2
 } from "@/locales/.generated/strings";
 
 export function getCaseStudies(lang: SupportedLanguage) {
@@ -534,7 +532,7 @@ export function services(lang: SupportedLanguage): Service[] {
         { question: aiFaq1Question(lang), answer: aiFaq1Answer(lang) },
         { question: aiFaq2Question(lang), answer: aiFaq2Answer(lang) },
         { question: aiFaq3Question(lang), answer: aiFaq3Answer(lang) },
-        { question: aiFaq4Question(lang), answer: aiFaq4Answer(lang) }
+        { question: aiFaq5Question(lang), answer: aiFaq5Answer(lang) }
       ]
     },
     {

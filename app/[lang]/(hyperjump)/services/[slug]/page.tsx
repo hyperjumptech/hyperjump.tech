@@ -4,6 +4,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import ButtonCTA from "@/app/components/cta-button";
+import { GridItemsTitle } from "@/app/components/grid-items";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/components/ui/accordion";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
@@ -28,14 +35,6 @@ import {
 
 import type { CaseStudy, Service } from "../../data";
 import { serviceBySlug, ServiceSlug } from "../../data";
-import { GridItemsTitle } from "@/app/components/grid-items";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from "@/components/ui/accordion";
-import { CardContent, CardHeader } from "@/components/ui/card";
 
 type LangProps = {
   lang: SupportedLanguage;
@@ -531,8 +530,7 @@ function CallToAction({ lang, service }: LangProps & ServiceProps) {
 
 function Faqs({ lang, service }: LangProps & ServiceProps) {
   const { faqs } = service;
-
-  if (!faqs || faqs.length === 0) return null;
+  if (faqs.length === 0) return null;
 
   return (
     <section
@@ -552,21 +550,17 @@ function Faqs({ lang, service }: LangProps & ServiceProps) {
             collapsible
             className="mx-auto w-full max-w-5xl space-y-4"
             data-testid="faq-accordion">
-            {faqs.map((item, i) => (
-              <AccordionItem
-                key={i}
-                value={`faq-${i}`}
-                asChild
-                data-testid={`faq-item-${i}`}>
+            {faqs.map(({ answer, question }, i) => (
+              <AccordionItem key={i} value={`faq-${i}`} asChild>
                 <div className="w-full rounded-[6px] border border-gray-200 bg-white px-6 py-2 shadow-xs transition-all duration-300">
                   <AccordionTrigger
                     className="flex w-full items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline"
                     data-testid={`faq-trigger-${i}`}>
-                    {item.question}
+                    {question}
                   </AccordionTrigger>
-                  <AccordionContent asChild data-testid={`faq-content-${i}`}>
+                  <AccordionContent asChild>
                     <div className="flex flex-col gap-4 px-0 text-lg text-[#73767E] lg:text-lg">
-                      {item.answer}
+                      {answer}
                     </div>
                   </AccordionContent>
                 </div>

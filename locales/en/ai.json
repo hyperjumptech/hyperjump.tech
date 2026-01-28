@@ -115,7 +115,7 @@
     "2_answer": "Nope. We handle all the technical work. Just tell us what you want the agent to do.",
     "3_question": "What kind of tools can it integrate with?",
     "3_answer": "Slack, Notion, Google Workspace, CRMs, Zapier, APIs, internal databases, you name it.",
-    "4_question": "Can the AI use our internal data?",
-    "4_answer": "Yes. We use Retrieval-Augmented Generation (RAG) to let your agent access and reason over your internal documents, knowledge bases, and systems. Securely and with up-to-date context."
+    "5_question": "Can the AI use our internal data?",
+    "5_answer": "Yes. We use Retrieval-Augmented Generation (RAG) to let your agent access and reason over your internal documents, knowledge bases, and systems. Securely and with up-to-date context."
   }
 }

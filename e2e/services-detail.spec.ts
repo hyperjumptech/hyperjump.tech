@@ -1,6 +1,5 @@
 import { test, expect } from "@playwright/test";
 import { serviceBySlug, ServiceSlug } from "@/app/[lang]/(hyperjump)/data";
-import { supportedLanguages } from "@/locales/.generated/types";
 import {
   aiFaqHeading,
   aiProductsTitle,
@@ -12,6 +11,7 @@ import {
   servicesWhoIsItFor,
   servicesWhyHyperjump
 } from "@/locales/.generated/strings";
+import { supportedLanguages } from "@/locales/.generated/types";
 import {
   BASE_URL,
   footerTest,
@@ -57,18 +57,18 @@ for (const locale of supportedLanguages) {
             expect(page.getByText(shortDescription)).toBeVisible();
           });
 
-          test("Overview for service", async ({ page }) => {
+          test("Overview", async ({ page }) => {
             expect(page.locator("h2").filter({ hasText: title })).toBeVisible();
             expect(page.getByTestId("request-demo-button")).toHaveCount(2);
           });
 
-          test("Who is it for service", async ({ page }) => {
+          test("Who is it for", async ({ page }) => {
             expect(
               page.getByRole("heading", { name: servicesWhoIsItFor(locale) })
             ).toBeVisible();
           });
 
-          test("What we deliver service", async ({ page }) => {
+          test("What we deliver", async ({ page }) => {
             expect(
               page.getByRole("heading", {
                 name: servicesWhatWeDeliver(locale)

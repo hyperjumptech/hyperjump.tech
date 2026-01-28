@@ -115,7 +115,7 @@
     "2_answer": "Tidak perlu. Kami menangani seluruh aspek teknisnya Anda cukup menjelaskan apa yang ingin dilakukan oleh agen tersebut.",
     "3_question": "Alat apa saja yang bisa diintegrasikan?",
     "3_answer": "Slack, Notion, Google Workspace, CRM, Zapier, API, basis data internal apa pun bisa diintegrasikan.",
-    "4_question": "Apakah AI bisa menggunakan data internal kami?",
-    "4_answer": "Bisa. Kami menggunakan Retrieval-Augmented Generation (RAG) agar agen Anda dapat mengakses dan memahami dokumen internal, basis pengetahuan, dan sistem Anda secara aman dan kontekstual."
+    "5_question": "Apakah AI bisa menggunakan data internal kami?",
+    "5_answer": "Bisa. Kami menggunakan Retrieval-Augmented Generation (RAG) agar agen Anda dapat mengakses dan memahami dokumen internal, basis pengetahuan, dan sistem Anda secara aman dan kontekstual."
   }
 }

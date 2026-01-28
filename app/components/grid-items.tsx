@@ -68,9 +68,11 @@ export function GridItemsTitle({
           isHorizontal
             ? "max-w-lg text-left"
             : `w-full text-left md:w-2/3 md:text-center xl:w-3/4 ${descriptionClassname}`
-        )}>
-        {description}
-      </p>
+        )}
+        dangerouslySetInnerHTML={{
+          __html: description
+        }}
+      />
     </div>
   );
 }
@@ -247,9 +249,12 @@ export function GridItems({
             </CardHeader>
 
             <CardContent className="-mt-3 flex flex-1 flex-col justify-between gap-4">
-              <CardDescription className="text-base font-medium transition-all duration-300">
-                {description}
-              </CardDescription>
+              <CardDescription
+                className="text-base font-medium transition-all duration-300"
+                dangerouslySetInnerHTML={{
+                  __html: description
+                }}
+              />
 
               {urlCaseStudy && (
                 <Button
@@ -509,9 +514,11 @@ export const GridItemsTitleBlack = ({
           isHorizontal
             ? "max-w-lg text-left"
             : `w-full text-left md:w-2/3 md:text-center xl:w-3/4 ${descriptionClassname}`
-        )}>
-        {description}
-      </p>
+        )}
+        dangerouslySetInnerHTML={{
+          __html: description
+        }}
+      />
     </motion.div>
   ) : (
     <motion.h1

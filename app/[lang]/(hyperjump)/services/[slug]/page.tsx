@@ -3,30 +3,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import ButtonCTA from "@/app/components/cta-button";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
+import { dynamicOpengraph } from "@/lib/default-metadata";
+import type { SupportedLanguage } from "@/locales/.generated/types";
+import { supportedLanguages } from "@/locales/.generated/types";
 import {
-  supportedLanguages,
-  type SupportedLanguage
-} from "@/locales/.generated/types";
-import {
-  servicesWhoIsItFor,
-  servicesWhatWeDeliver,
-  servicesHowItWorks,
-  servicesWhatYouGet,
-  servicesWhyHyperjump,
-  servicesCaseStudies,
-  caseStudyButton,
   aiLearnMore,
+  aiProductsDescription,
   aiProductsTitle,
-  aiProductsDescription
-} from "@/locales/.generated/server";
+  caseStudyButton,
+  servicesCaseStudies,
+  servicesHowItWorks,
+  servicesRequestDemo,
+  servicesWhatWeDeliver,
+  servicesWhatYouGet,
+  servicesWhoIsItFor,
+  servicesWhyHyperjump
+} from "@/locales/.generated/strings";
 
 import type { CaseStudy, Service } from "../../data";
 import { serviceBySlug, ServiceSlug } from "../../data";
-import { dynamicOpengraph } from "@/lib/default-metadata";
-import RequestDemoButton from "./components/request-demo-button";
 
 type LangProps = {
   lang: SupportedLanguage;
@@ -109,7 +108,7 @@ function Hero({ hero: { heading, subheading } }: HeroProps) {
   return (
     <section
       id="hero"
-      className="bg-hyperjump-black relative h-[351px] overflow-hidden px-4 text-white md:px-20">
+      className="bg-hyperjump-black relative h-87.75 overflow-hidden px-4 text-white md:px-20">
       <div className="absolute inset-0 z-0">
         <Image
           alt="Hero background"
@@ -122,7 +121,7 @@ function Hero({ hero: { heading, subheading } }: HeroProps) {
         />
       </div>
 
-      <div className="relative z-10 flex h-[351px] flex-col items-center justify-around">
+      <div className="relative z-10 flex h-87.75 flex-col items-center justify-around">
         <div className="max-w-5xl text-center text-white">
           <h1 className="mt-28 mb-4 text-3xl font-medium md:text-[40px]">
             {heading}
@@ -157,7 +156,11 @@ function About({ lang, service }: LangProps & ServiceProps) {
             __html: `${what}`
           }}
         />
-        <RequestDemoButton lang={lang} service={title} />
+        <div className="mt-4 w-full md:w-auto">
+          <ButtonCTA message={`I want to request a demo for ${title}`}>
+            {servicesRequestDemo(lang)}
+          </ButtonCTA>
+        </div>
       </div>
     </section>
   );
@@ -278,7 +281,7 @@ function HowItWorks({ lang, service }: LangProps & ServiceProps) {
           <div className="bg-dashed absolute top-6 bottom-6 left-5 z-0 w-px bg-gray-300" />
           {items.map(({ description, iconUrl, title }) => (
             <div key={title} className="relative z-10 flex items-start">
-              <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white p-2 shadow">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white p-2 shadow">
                 <Image
                   width={28}
                   height={28}
@@ -505,8 +508,12 @@ function Product({ lang, service }: LangProps & ServiceProps) {
 
 function CallToAction({ lang, service }: LangProps & ServiceProps) {
   return (
-    <section className="flex items-center justify-center bg-white px-4 pb-8 md:px-20 md:pb-16">
-      <RequestDemoButton lang={lang} service={service.title} />
+    <section className="flex w-full items-center justify-center px-4 pb-10 md:w-auto md:px-20 md:pb-16">
+      <div className="w-full md:w-auto">
+        <ButtonCTA message={`I want to request a demo for ${service.title}`}>
+          {servicesRequestDemo(lang)}
+        </ButtonCTA>
+      </div>
     </section>
   );
 }

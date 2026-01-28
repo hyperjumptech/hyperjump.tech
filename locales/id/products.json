@@ -19,11 +19,11 @@
       },
       "4": {
         "title": "NEO Sense",
-        "text": "NEO Sense merupakan produk monitoring yang ditujukan untuk pelanggan dan dikembangkan sebagai <b>implementasi white-label dari Symon</b>, platform synthetic monitoring milik Hyperjump. Produk ini disediakan melalui kolaborasi dengan <b>Biznet Gio</b>, dengan Symon sebagai pengembangan dari <b>Monika</b> yang lebih mudah digunakan."
+        "text": "NEO Sense merupakan layanan synthetic monitoring hasil kolaborasi dengan Biznet GIO yang memungkinkan pemantauan ketersediaan dan performa website secara regional maupun global. Sistem notifikasi mendukung berbagai kanal, termasuk Telegram, Slack, dan WhatsApp."
       },
       "5": {
         "title": "Monitime",
-        "text": "Monitime merupakan produk monitoring yang ditujukan untuk pelanggan dan dibangun sebagai <b>implementasi white-label dari Symon</b>, platform synthetic monitoring milik Hyperjump. Produk ini disediakan melalui kolaborasi dengan <b>Qwords</b>, dengan Symon yang dirancang sebagai versi <b>Monika</b> yang lebih ramah pengguna."
+        "text": "Monitime merupakan layanan synthetic monitoring hasil kolaborasi dengan Qwords yang memungkinkan pemantauan ketersediaan dan performa website secara regional maupun global. Sistem notifikasi mendukung berbagai kanal, termasuk Telegram, Slack, dan WhatsApp."
       }
     }
   },

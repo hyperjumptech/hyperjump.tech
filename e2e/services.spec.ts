@@ -15,6 +15,7 @@ const viewports = [
 ] as const;
 
 async function expectAllImagesLoaded(page: any) {
+  // Scroll to bottom to trigger lazy-loaded images
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await page.waitForLoadState("networkidle");
 

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, Page } from "@playwright/test";
 
 // Base URL
 const baseURL = "http://localhost:3000";
@@ -17,26 +17,46 @@ const viewports = [
 ] as const;
 
 // Utility: assert all images load (no broken images)
-async function expectAllImagesLoaded(page: import("@playwright/test").Page) {
+async function expectAllImagesLoaded(page: Page) {
+  // Scroll to bottom to trigger lazy-loaded images
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await page.waitForLoadState("networkidle");
+
   const images = page.locator('img, [style*="background-image"], image');
   const count = await images.count();
+
   for (let i = 0; i < count; i++) {
     const el = images.nth(i);
     const tag = await el.evaluate((n) => n.tagName.toLowerCase());
+
     if (tag === "img" || tag === "image") {
+      // Scroll element into view to ensure it loads
+      await el.scrollIntoViewIfNeeded();
       await expect(el).toBeVisible();
-      // Ensure naturalWidth > 0
-      const ok = await el.evaluate(
-        (img: HTMLImageElement | SVGImageElement) => {
-          // @ts-ignore
-          const nw = (img as any).naturalWidth ?? 1; // SVGImageElement may not have naturalWidth
-          // @ts-ignore
-          const nh = (img as any).naturalHeight ?? 1;
-          return (nw > 0 && nh > 0) || (img as any).href?.baseVal; // allow SVG xlink:href
-        }
-      );
-      expect(ok, "image failed to load or has zero natural size").toBeTruthy();
+
+      // Check if image loaded successfully
+      const result = await el.evaluate((img: HTMLImageElement | SVGImageElement) => {
+        const nw = (img as HTMLImageElement).naturalWidth;
+        const nh = (img as HTMLImageElement).naturalHeight;
+        const hasSvgHref = !!(img as SVGImageElement).href?.baseVal;
+        const src = (img as HTMLImageElement).currentSrc || (img as HTMLImageElement).src || "";
+
+        // Image is considered loaded if:
+        // 1. It has naturalWidth/Height > 0 (regular images)
+        // 2. It's an SVG with href (SVG image elements)
+        // 3. naturalWidth/Height are undefined (SVG elements without these props)
+        const isLoaded =
+          (typeof nw === "number" && typeof nh === "number" && nw > 0 && nh > 0) ||
+          hasSvgHref ||
+          (typeof nw === "undefined" && typeof nh === "undefined");
+
+        return { isLoaded, src };
+      });
+
+      expect(
+        result.isLoaded,
+        `Image failed to load or has zero size: ${result.src}`
+      ).toBe(true);
     } else {
       await expect(el).toBeVisible();
     }
@@ -44,22 +64,22 @@ async function expectAllImagesLoaded(page: import("@playwright/test").Page) {
 }
 
 // Utility: get nav and footer link locators
-function getHeader(page: import("@playwright/test").Page) {
+function getHeader(page: Page) {
   // Header is sticky nav; fall back to first header/nav region
   const header = page.locator("header, nav").first();
   return header;
 }
 
-function getMenuNav(page: import("@playwright/test").Page) {
+function getMenuNav(page: Page) {
   return page.locator('nav[aria-label="Main"]');
 }
 
-function getFooter(page: import("@playwright/test").Page) {
+function getFooter(page: Page) {
   return page.getByRole("contentinfo");
 }
 
 // Utility: navigate and ensure route
-async function gotoAndWait(page: import("@playwright/test").Page, url: string) {
+async function gotoAndWait(page: Page, url: string) {
   await page.goto(url, { waitUntil: "domcontentloaded" });
   await expect(page).toHaveURL(
     new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))

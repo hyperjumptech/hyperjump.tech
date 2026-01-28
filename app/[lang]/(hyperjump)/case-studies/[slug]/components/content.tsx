@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 
 import {
   CaseStudiesFisheries,
-  CaseStudiesMedia
+  CaseStudiesMedia,
+  CaseStudiesVolunteeringPlatform
 } from "@/locales/.generated/locales-markdown";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
@@ -21,6 +22,10 @@ const caseStudies = [
   {
     slug: "ctoaas-media",
     content: CaseStudiesMedia
+  },
+  {
+    slug: "saas-volunteering-platform",
+    content: CaseStudiesVolunteeringPlatform
   }
 ];
 

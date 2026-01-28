@@ -33,6 +33,8 @@ const viewports = [
 
 // Utility: assert all images load (no broken images)
 export async function expectAllImagesLoaded(page: Page) {
+  // Scroll to bottom to trigger lazy-loaded images
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await page.waitForLoadState("networkidle");
   const main = page.locator("main");
   const images = main.locator('img, [style*="background-image"], image');

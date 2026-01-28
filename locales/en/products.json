@@ -19,11 +19,11 @@
       },
       "4": {
         "title": "NEO Sense",
-        "text": "NEO Sense is a customer-facing monitoring product developed as a <b>white-label implementation of Symon</b>, Hyperjump’s synthetic monitoring platform. It is delivered in collaboration with <b>Biznet Gio</b>, with Symon itself being the user-friendly evolution of <b>Monika</b>."
+        "text": "NEO Sense is a synthetic monitoring service in collaboration with Biznet GIO. You can monitor your website regionally and globally and be notified through various notification channels including Telegram, Slack, and WhatsApp."
       },
       "5": {
         "title": "Monitime",
-        "text": "Monitime is a customer-facing monitoring product built as a  <b>white-label implementation of Symon</b>, Hyperjump’s synthetic monitoring platform. It is delivered in collaboration with  <b>Qwords</b>, with Symon designed as a more user-friendly version of <b>Monika</b>."
+        "text": "Monitime is a synthetic monitoring service in collaboration with Qwords. You can monitor your website regionally and globally and be notified through various notification channels including Telegram, Slack, and WhatsApp."
       }
     }
   },

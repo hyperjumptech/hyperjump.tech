@@ -558,20 +558,18 @@ function Faqs({ lang, service }: LangProps & ServiceProps) {
                 value={`faq-${i}`}
                 asChild
                 data-testid={`faq-item-${i}`}>
-                <CardContent className="w-full rounded-2xl border border-gray-200 bg-white shadow-xs transition-all duration-300">
-                  <CardHeader className="px-2 py-1">
-                    <AccordionTrigger
-                      className="flex w-full items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline"
-                      data-testid={`faq-trigger-${i}`}>
-                      {item.question}
-                    </AccordionTrigger>
-                  </CardHeader>
+                <div className="w-full rounded-[6px] border border-gray-200 bg-white px-6 py-2 shadow-xs transition-all duration-300">
+                  <AccordionTrigger
+                    className="flex w-full items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline"
+                    data-testid={`faq-trigger-${i}`}>
+                    {item.question}
+                  </AccordionTrigger>
                   <AccordionContent asChild data-testid={`faq-content-${i}`}>
-                    <CardContent className="flex flex-col gap-4 px-2 text-base text-[#61656E] lg:text-lg">
+                    <div className="flex flex-col gap-4 px-0 text-lg text-[#73767E] lg:text-lg">
                       {item.answer}
-                    </CardContent>
+                    </div>
                   </AccordionContent>
-                </CardContent>
+                </div>
               </AccordionItem>
             ))}
           </Accordion>

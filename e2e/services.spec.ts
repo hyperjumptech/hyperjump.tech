@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { imagesTest } from "./shared-test";
 
 // Base URL
 const baseURL = "http://localhost:3000";
@@ -13,43 +14,6 @@ const viewports = [
   { name: "desktop", size: { width: 1280, height: 800 } },
   { name: "large", size: { width: 1536, height: 960 } }
 ] as const;
-
-async function expectAllImagesLoaded(page: any) {
-  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  await page.waitForLoadState("networkidle");
-
-  const images = page.locator('img, image, [style*="background-image"]');
-  const count = await images.count();
-
-  for (let i = 0; i < count; i++) {
-    const el = images.nth(i);
-    const tag = await el.evaluate((n: any) => n.tagName.toLowerCase());
-
-    await el.scrollIntoViewIfNeeded();
-    await expect(el).toBeVisible();
-
-    if (tag === "img" || tag === "image") {
-      const ok = await el.evaluate((node: any) => {
-        // @ts-ignore
-        const img = node;
-        const nw = img.naturalWidth ?? 1;
-        const nh = img.naturalHeight ?? 1;
-        const isSVG = !!img.href?.baseVal;
-
-        // Allow lazy images that are replaced with placeholder
-        const isLoaded = (nw > 0 && nh > 0) || isSVG;
-        const src = img.currentSrc || img.src || img.href?.baseVal || "(none)";
-
-        return { isLoaded, src };
-      });
-
-      expect(
-        ok.isLoaded,
-        `Image failed to load or has zero size: ${ok.src}`
-      ).toBeTruthy();
-    }
-  }
-}
 
 // Utility: get nav and footer link locators
 function getHeader(page: import("@playwright/test").Page) {
@@ -216,11 +180,7 @@ for (const { code: locale, path } of locales) {
       });
 
       // 4. Images
-      test.describe("Images", () => {
-        test("all images load without errors", async ({ page }) => {
-          await expectAllImagesLoaded(page);
-        });
-      });
+      test.describe("Images", imagesTest());
 
       // 5. Text & Content
       test.describe("Text & Content", () => {

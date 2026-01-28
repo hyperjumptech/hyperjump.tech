@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { imagesTest } from "./shared-test";
 
 // Base URL
 const baseURL = "http://localhost:3000";
@@ -15,33 +16,6 @@ const viewports = [
   { name: "desktop", size: { width: 1280, height: 800 } },
   { name: "large", size: { width: 1536, height: 960 } }
 ] as const;
-
-// Utility: assert all images load (no broken images)
-async function expectAllImagesLoaded(page: import("@playwright/test").Page) {
-  await page.waitForLoadState("networkidle");
-  const images = page.locator('img, [style*="background-image"], image');
-  const count = await images.count();
-  for (let i = 0; i < count; i++) {
-    const el = images.nth(i);
-    const tag = await el.evaluate((n) => n.tagName.toLowerCase());
-    if (tag === "img" || tag === "image") {
-      await expect(el).toBeVisible();
-      // Ensure naturalWidth > 0
-      const ok = await el.evaluate(
-        (img: HTMLImageElement | SVGImageElement) => {
-          // @ts-ignore
-          const nw = (img as any).naturalWidth ?? 1; // SVGImageElement may not have naturalWidth
-          // @ts-ignore
-          const nh = (img as any).naturalHeight ?? 1;
-          return (nw > 0 && nh > 0) || (img as any).href?.baseVal; // allow SVG xlink:href
-        }
-      );
-      expect(ok, "image failed to load or has zero natural size").toBeTruthy();
-    } else {
-      await expect(el).toBeVisible();
-    }
-  }
-}
 
 // Utility: get nav and footer link locators
 function getHeader(page: import("@playwright/test").Page) {
@@ -219,11 +193,7 @@ for (const { code: locale, path } of locales) {
       });
 
       // 4. Images
-      test.describe("Images", () => {
-        test("all images load without errors", async ({ page }) => {
-          await expectAllImagesLoaded(page);
-        });
-      });
+      test.describe("Images", imagesTest());
 
       // 5. Text & Content
       test.describe("Text & Content", () => {

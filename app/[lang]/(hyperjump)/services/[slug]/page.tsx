@@ -532,10 +532,13 @@ function CallToAction({ lang, service }: LangProps & ServiceProps) {
 function Faqs({ lang, service }: LangProps & ServiceProps) {
   const { faqs } = service;
 
-  if (faqs.length === 0) return null;
+  if (!faqs || faqs.length === 0) return null;
 
   return (
-    <section id="faqs" className="flex bg-white px-4 py-8 md:px-20 md:py-16">
+    <section
+      id="faqs"
+      data-testid="faq-section"
+      className="flex bg-white px-4 py-8 md:px-20 md:py-16">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-6 md:flex-row-reverse">
         <div className="w-full">
           <GridItemsTitle
@@ -547,16 +550,23 @@ function Faqs({ lang, service }: LangProps & ServiceProps) {
           <Accordion
             type="single"
             collapsible
-            className="mx-auto w-full max-w-5xl space-y-4">
-            {faqs?.map((item, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} asChild>
+            className="mx-auto w-full max-w-5xl space-y-4"
+            data-testid="faq-accordion">
+            {faqs.map((item, i) => (
+              <AccordionItem
+                key={i}
+                value={`faq-${i}`}
+                asChild
+                data-testid={`faq-item-${i}`}>
                 <CardContent className="w-full rounded-2xl border border-gray-200 bg-white shadow-xs transition-all duration-300">
                   <CardHeader className="px-2 py-1">
-                    <AccordionTrigger className="flex w-full items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline">
+                    <AccordionTrigger
+                      className="flex w-full items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline"
+                      data-testid={`faq-trigger-${i}`}>
                       {item.question}
                     </AccordionTrigger>
                   </CardHeader>
-                  <AccordionContent asChild>
+                  <AccordionContent asChild data-testid={`faq-content-${i}`}>
                     <CardContent className="flex flex-col gap-4 px-2 text-base text-[#61656E] lg:text-lg">
                       {item.answer}
                     </CardContent>

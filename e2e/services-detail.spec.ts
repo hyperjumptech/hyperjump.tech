@@ -340,20 +340,32 @@ for (const { code: locale, path, title, slug } of locales) {
           expect(itemCount).toBeGreaterThan(0);
         });
 
-        test("Faqs Section (optional)", async ({ page }) => {
-          const faqSection = page.locator("#faqs");
+        test("Faqs Section", async ({ page }) => {
+          const faqSection = page.locator("[data-testid='faq-section']");
+          if ((await faqSection.count()) === 0) {
+            expect(true).toBe(true);
+            return;
+          }
+          await expect(faqSection).toBeVisible();
 
-          const count = await faqSection.count();
+          const faqItems = faqSection.locator("[data-testid^='faq-item-']");
+          const itemCount = await faqItems.count();
+          expect(itemCount).toBeGreaterThan(0);
 
-          if (count === 0) {
-            expect(count).toBe(0);
-          } else {
-            await expect(faqSection).toBeVisible();
-
-            const items = faqSection.locator(
-              "[data-radix-accordion-item], h3, button"
+          for (let i = 0; i < itemCount; i++) {
+            const trigger = faqSection.locator(
+              `[data-testid='faq-trigger-${i}']`
             );
-            expect(await items.count()).toBeGreaterThan(0);
+            await expect(trigger).toBeVisible();
+            await expect(trigger).not.toBeEmpty();
+
+            await trigger.click();
+
+            const content = faqSection.locator(
+              `[data-testid='faq-content-${i}']`
+            );
+            await expect(content).toBeVisible();
+            await expect(content).not.toBeEmpty();
           }
         });
 

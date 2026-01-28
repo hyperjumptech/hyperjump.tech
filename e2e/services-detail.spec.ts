@@ -97,20 +97,24 @@ for (const locale of supportedLanguages) {
               expect(
                 page.getByRole("heading", { name: servicesCaseStudies(locale) })
               ).toBeVisible();
-              await Promise.all(
-                caseStudies.map(async ({ title, slug, description }, index) => {
-                  expect(page.getByText(title)).toBeVisible();
-                  expect(page.getByText(description)).toBeVisible();
-                  page
-                    .getByRole("link", { name: caseStudyButton(locale) })
-                    .nth(index)
-                    .click();
-                  await page.waitForURL(
-                    new RegExp(`/${locale}/case-studies/${slug}`)
-                  );
-                  page.goBack();
-                })
-              );
+              for (const [
+                index,
+                { title, slug, description }
+              ] of caseStudies.entries()) {
+                await expect(page.getByText(title)).toBeVisible();
+                await expect(page.getByText(description)).toBeVisible();
+
+                await page
+                  .getByRole("link", { name: caseStudyButton(locale) })
+                  .nth(index)
+                  .click();
+
+                await page.waitForURL(
+                  new RegExp(`/${locale}/case-studies/${slug}`)
+                );
+
+                await page.goBack();
+              }
             }
 
             // Products

@@ -18,22 +18,22 @@ const viewports = [
 ] as const;
 
 // Utility: get nav and footer link locators
-function getHeader(page: import("@playwright/test").Page) {
+function getHeader(page: Page) {
   // Header is sticky nav; fall back to first header/nav region
   const header = page.locator("header, nav").first();
   return header;
 }
 
-function getMenuNav(page: import("@playwright/test").Page) {
+function getMenuNav(page: Page) {
   return page.locator('nav[aria-label="Main"]');
 }
 
-function getFooter(page: import("@playwright/test").Page) {
+function getFooter(page: Page) {
   return page.getByRole("contentinfo");
 }
 
 // Utility: navigate and ensure route
-async function gotoAndWait(page: import("@playwright/test").Page, url: string) {
+async function gotoAndWait(page: Page, url: string) {
   await page.goto(url, { waitUntil: "domcontentloaded" });
   await expect(page).toHaveURL(
     new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))

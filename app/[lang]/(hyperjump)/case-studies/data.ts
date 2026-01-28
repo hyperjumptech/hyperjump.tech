@@ -1,3 +1,4 @@
+
 import {
   caseStudyCtoaasMediaCategory,
   caseStudyCtoaasMediaDesc,
@@ -10,7 +11,13 @@ import {
   caseStudyCtoaasMediaCtaSubject,
   caseStudyErpFisheriesCtaHeading,
   caseStudyErpFisheriesCtaLabel,
-  caseStudyErpFisheriesCtaSubject
+  caseStudyErpFisheriesCtaSubject,
+  caseStudySaasVolunteeringPlatformTitle,
+  caseStudySaasVolunteeringPlatformDesc,
+  caseStudySaasVolunteeringPlatformCategory,
+  caseStudySaasVolunteeringPlatformCtaHeading,
+  caseStudySaasVolunteeringPlatformCtaSubject,
+  caseStudySaasVolunteeringPlatformCtaLabel
 } from "@/locales/.generated/server";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
@@ -36,6 +43,17 @@ export const getCaseStudies = (lang: SupportedLanguage) => {
         heading: caseStudyCtoaasMediaCtaHeading(lang),
         subject: caseStudyCtoaasMediaCtaSubject(lang),
         label: caseStudyCtoaasMediaCtaLabel(lang)
+      }
+    },
+    {
+      slug: "saas-volunteering-platform",
+      title: caseStudySaasVolunteeringPlatformTitle(lang),
+      description: caseStudySaasVolunteeringPlatformDesc(lang),
+      category: caseStudySaasVolunteeringPlatformCategory(lang),
+      cta: {
+        heading: caseStudySaasVolunteeringPlatformCtaHeading(lang),
+        subject: caseStudySaasVolunteeringPlatformCtaSubject(lang),
+        label: caseStudySaasVolunteeringPlatformCtaLabel(lang)
       }
     }
   ];

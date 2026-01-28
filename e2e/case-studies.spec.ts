@@ -35,23 +35,31 @@ async function expectAllImagesLoaded(page: Page) {
       await expect(el).toBeVisible();
 
       // Check if image loaded successfully
-      const result = await el.evaluate((img: HTMLImageElement | SVGImageElement) => {
-        const nw = (img as HTMLImageElement).naturalWidth;
-        const nh = (img as HTMLImageElement).naturalHeight;
-        const hasSvgHref = !!(img as SVGImageElement).href?.baseVal;
-        const src = (img as HTMLImageElement).currentSrc || (img as HTMLImageElement).src || "";
+      const result = await el.evaluate(
+        (img: HTMLImageElement | SVGImageElement) => {
+          const nw = (img as HTMLImageElement).naturalWidth;
+          const nh = (img as HTMLImageElement).naturalHeight;
+          const hasSvgHref = !!(img as SVGImageElement).href?.baseVal;
+          const src =
+            (img as HTMLImageElement).currentSrc ||
+            (img as HTMLImageElement).src ||
+            "";
 
-        // Image is considered loaded if:
-        // 1. It has naturalWidth/Height > 0 (regular images)
-        // 2. It's an SVG with href (SVG image elements)
-        // 3. naturalWidth/Height are undefined (SVG elements without these props)
-        const isLoaded =
-          (typeof nw === "number" && typeof nh === "number" && nw > 0 && nh > 0) ||
-          hasSvgHref ||
-          (typeof nw === "undefined" && typeof nh === "undefined");
+          // Image is considered loaded if:
+          // 1. It has naturalWidth/Height > 0 (regular images)
+          // 2. It's an SVG with href (SVG image elements)
+          // 3. naturalWidth/Height are undefined (SVG elements without these props)
+          const isLoaded =
+            (typeof nw === "number" &&
+              typeof nh === "number" &&
+              nw > 0 &&
+              nh > 0) ||
+            hasSvgHref ||
+            (typeof nw === "undefined" && typeof nh === "undefined");
 
-        return { isLoaded, src };
-      });
+          return { isLoaded, src };
+        }
+      );
 
       expect(
         result.isLoaded,

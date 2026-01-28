@@ -13,7 +13,7 @@ export async function gotoAndWait(page: Page, url: string) {
 
 export function metaTest() {
   return () => {
-    test("Header", async ({ page }) => {
+    test("Meta title and description should exist", async ({ page }) => {
       const title = await page.title();
       const description = await page
         .locator('meta[name="description"]')
@@ -96,25 +96,29 @@ export function imagesTest() {
 }
 
 async function expectAllImagesLoaded(page: Page) {
+  // Scroll to bottom to trigger lazy-loaded images
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await page.waitForLoadState("networkidle");
-
-  const images = page.locator('img, image, [style*="background-image"]');
+  const main = page.locator("main");
+  const images = main.locator('img, image, [style*="background-image"]');
   const count = await images.count();
+
+  if (count === 0) {
+    return;
+  }
 
   for (let i = 0; i < count; i++) {
     const el = images.nth(i);
     const tag = await el.evaluate((n: any) => n.tagName.toLowerCase());
 
-    await el.scrollIntoViewIfNeeded();
-    await expect(el).toBeVisible();
-
     if (tag === "img" || tag === "image") {
-      const ok = await el.evaluate((node: any) => {
-        const img = node;
+      await el.scrollIntoViewIfNeeded();
+      await expect(el, `Image #${i} not visible`).toBeVisible();
+
+      const { isLoaded, src } = await el.evaluate((img: any) => {
         const nw = img.naturalWidth ?? 1;
         const nh = img.naturalHeight ?? 1;
-        const isSVG = !!img.href?.baseVal;
+        const isSVG = img.href?.baseVal;
 
         // Allow lazy images that are replaced with placeholder
         const isLoaded = (nw > 0 && nh > 0) || isSVG;
@@ -124,14 +128,14 @@ async function expectAllImagesLoaded(page: Page) {
       });
 
       expect(
-        ok.isLoaded,
-        `Image failed to load or has zero size: ${ok.src}`
+        isLoaded,
+        `Image failed to load or has zero size: ${src}`
       ).toBeTruthy();
     }
   }
 }
 
-export function languageSwitcherTest(locale: SupportedLanguage, path: string) {
+export function languageSwitcherTest(locale: SupportedLanguage) {
   return () => {
     test("switch language to the other locale and back", async ({ page }) => {
       const footer = getFooter(page);

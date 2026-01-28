@@ -21,7 +21,7 @@ for (const locale of supportedLanguages) {
         await gotoAndWait(page, `${BASE_URL}${path}`);
       });
       test.describe("Header", headerTest(locale, path));
-      test.describe("Language Switching", languageSwitcherTest(locale, path));
+      test.describe("Language Switching", languageSwitcherTest(locale));
       test.describe("Images", imagesTest());
       test.describe("Footer", footerTest(locale));
       test.describe("Meta title and description should exist", metaTest());

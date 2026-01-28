@@ -4,6 +4,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import ButtonCTA from "@/app/components/cta-button";
+import { GridItemsTitle } from "@/app/components/grid-items";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/components/ui/accordion";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
@@ -21,7 +28,9 @@ import {
   servicesWhatWeDeliver,
   servicesWhatYouGet,
   servicesWhoIsItFor,
-  servicesWhyHyperjump
+  servicesWhyHyperjump,
+  aiFaqDesc,
+  aiFaqHeading
 } from "@/locales/.generated/strings";
 
 import type { CaseStudy, Service } from "../../data";
@@ -91,6 +100,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
       <HowItWorks lang={lang} service={service} />
       <WhatYouGet lang={lang} service={service} />
       <WhyUs lang={lang} service={service} />
+      <Faqs lang={lang} service={service} />
       <Recommendation caseStudies={service.caseStudies} lang={lang} />
       <CallToAction lang={lang} service={service} />
     </>
@@ -513,6 +523,51 @@ function CallToAction({ lang, service }: LangProps & ServiceProps) {
         <ButtonCTA message={`I want to request a demo for ${service.title}`}>
           {servicesRequestDemo(lang)}
         </ButtonCTA>
+      </div>
+    </section>
+  );
+}
+
+function Faqs({ lang, service }: LangProps & ServiceProps) {
+  const { faqs } = service;
+  if (faqs.length === 0) return null;
+
+  return (
+    <section
+      id="faqs"
+      data-testid="faq-section"
+      className="flex bg-white px-4 py-8 md:px-20 md:py-16">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-6 md:flex-row-reverse">
+        <div className="w-full">
+          <GridItemsTitle
+            title={aiFaqHeading(lang)}
+            description={aiFaqDesc(lang)}
+            layout="vertical"
+            descriptionClassname="w-full md:max-w-2xl"
+          />
+          <Accordion
+            type="single"
+            collapsible
+            className="mx-auto w-full max-w-5xl space-y-4"
+            data-testid="faq-accordion">
+            {faqs.map(({ answer, question }, i) => (
+              <AccordionItem key={i} value={`faq-${i}`} asChild>
+                <div className="w-full rounded-[6px] border border-gray-200 bg-white px-6 py-2 shadow-xs transition-all duration-300">
+                  <AccordionTrigger
+                    className="flex w-full items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline"
+                    data-testid={`faq-trigger-${i}`}>
+                    {question}
+                  </AccordionTrigger>
+                  <AccordionContent asChild>
+                    <div className="flex flex-col gap-4 px-0 text-lg text-[#73767E] lg:text-lg">
+                      {answer}
+                    </div>
+                  </AccordionContent>
+                </div>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   );

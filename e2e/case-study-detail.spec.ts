@@ -1,5 +1,6 @@
 import { test, expect, Page } from "@playwright/test";
 import { getCaseStudies } from "@/app/[lang]/(hyperjump)/case-studies/data";
+import { imagesTest } from "./shared-test";
 
 // Base URL
 const baseURL = "http://localhost:3000";
@@ -26,43 +27,6 @@ const viewports = [
   { name: "desktop", size: { width: 1280, height: 800 } },
   { name: "large", size: { width: 1536, height: 960 } }
 ] as const;
-
-// Utility: assert all images load (no broken images)
-export async function expectAllImagesLoaded(page: Page) {
-  // Scroll to bottom to trigger lazy-loaded images
-  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  await page.waitForLoadState("networkidle");
-  const main = page.locator("main");
-  const images = main.locator('img, [style*="background-image"], image');
-  const count = await images.count();
-
-  if (count === 0) return;
-
-  for (let i = 0; i < count; i++) {
-    const el = images.nth(i);
-    const tag = await el.evaluate((n) => n.tagName.toLowerCase());
-
-    await expect(el, `Image #${i} not visible`).toBeVisible({ timeout: 5000 });
-
-    if (tag === "img" || tag === "image") {
-      const ok = await el.evaluate(
-        (img: HTMLImageElement | SVGImageElement) => {
-          // @ts-ignore — handle both <img> and SVG <image>
-          const nw = (img as any).naturalWidth ?? 1;
-          // @ts-ignore
-          const nh = (img as any).naturalHeight ?? 1;
-          // @ts-ignore
-          const href = (img as any).href?.baseVal ?? (img as any).src ?? null;
-          return (nw > 0 && nh > 0) || Boolean(href);
-        }
-      );
-      expect(
-        ok,
-        `Image #${i} failed to load or has 0x0 natural size`
-      ).toBeTruthy();
-    }
-  }
-}
 
 // Utility: get nav and footer link locators
 function getHeader(page: import("@playwright/test").Page) {
@@ -240,11 +204,7 @@ for (const { code: locale, path, title, slug } of locales) {
       });
 
       // 4. Images
-      test.describe("Images", () => {
-        test("all images load without errors", async ({ page }) => {
-          await expectAllImagesLoaded(page);
-        });
-      });
+      test.describe("Images", imagesTest());
 
       // 5. Text & Content
       test.describe("Text & Content", () => {

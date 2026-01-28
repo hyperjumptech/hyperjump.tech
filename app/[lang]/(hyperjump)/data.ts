@@ -2,8 +2,17 @@ import type { ReactNode } from "react";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   aiBestFor,
-  aiWhatIsDesc,
   aiDescription,
+  aiFaq0Answer,
+  aiFaq0Question,
+  aiFaq1Answer,
+  aiFaq1Question,
+  aiFaq2Answer,
+  aiFaq2Question,
+  aiFaq3Answer,
+  aiFaq3Question,
+  aiFaq5Answer,
+  aiFaq5Question,
   aiHeroDesc,
   aiHeroHeading,
   aiHowItWorksDesc,
@@ -17,18 +26,22 @@ import {
   aiHowItWorksStep3Title,
   aiHowItWorksStep4Text,
   aiHowItWorksStep4Title,
+  aiWhatIsDesc,
   aiWhatIsHighlight,
   aiWhatWeDeliverCard0Items0,
   aiWhatWeDeliverCard0Items1,
   aiWhatWeDeliverCard0Items2,
   aiWhatWeDeliverCard0Text,
+  aiWhatWeDeliverCard0Title,
   aiWhatWeDeliverCard1Items0,
   aiWhatWeDeliverCard1Items1,
   aiWhatWeDeliverCard1Items2,
+  aiWhatWeDeliverCard1Text,
   aiWhatWeDeliverCard1Title,
   aiWhatWeDeliverCard2Items0,
   aiWhatWeDeliverCard2Items1,
   aiWhatWeDeliverCard2Items2,
+  aiWhatWeDeliverCard2Text,
   aiWhatWeDeliverCard2Title,
   aiWhatWeDeliverDesc,
   aiWhatYouGetDesc,
@@ -39,6 +52,7 @@ import {
   aiWhoIsItDesc,
   aiWhoIsItTarget0,
   aiWhoIsItTarget1,
+  aiWhoIsItTarget2,
   aiWhyUsDesc,
   aiWhyUsReasons0,
   aiWhyUsReasons1,
@@ -259,14 +273,8 @@ import {
   tddWhyUsDesc,
   tddWhyUsReasons0,
   tddWhyUsReasons1,
-  tddWhyUsReasons2,
-  aiWhoIsItTarget2,
-  startGptHeroDesc,
-  aiWhatWeDeliverCard0Title,
-  aiWhatWeDeliverCard1Text,
-  aiWhatWeDeliverCard2Text,
-  mediaPulseHeroDesc
-} from "@/locales/.generated/server";
+  tddWhyUsReasons2
+} from "@/locales/.generated/strings";
 
 export function getCaseStudies(lang: SupportedLanguage) {
   return [
@@ -405,6 +413,7 @@ export type Service = {
   shortDescription: string;
   slug: ServiceSlug;
   title: string;
+  faqs: { question: string; answer: string }[];
 };
 
 export function services(lang: SupportedLanguage): Service[] {
@@ -517,7 +526,14 @@ export function services(lang: SupportedLanguage): Service[] {
       shortDescription: aiHeroDesc(lang),
       slug: ServiceSlug.InferenceAI,
       title: aiHeroHeading(lang),
-      caseStudies: []
+      caseStudies: [],
+      faqs: [
+        { question: aiFaq0Question(lang), answer: aiFaq0Answer(lang) },
+        { question: aiFaq1Question(lang), answer: aiFaq1Answer(lang) },
+        { question: aiFaq2Question(lang), answer: aiFaq2Answer(lang) },
+        { question: aiFaq3Question(lang), answer: aiFaq3Answer(lang) },
+        { question: aiFaq5Question(lang), answer: aiFaq5Answer(lang) }
+      ]
     },
     {
       bestFor: erpBestFor(lang),
@@ -631,7 +647,8 @@ export function services(lang: SupportedLanguage): Service[] {
       shortDescription: erpHeroDesc(lang),
       slug: ServiceSlug.ErpImplementation,
       title: erpHeroHeading(lang),
-      caseStudies: []
+      caseStudies: [],
+      faqs: []
     },
     {
       bestFor: ctoaasBestFor(lang),
@@ -785,7 +802,8 @@ export function services(lang: SupportedLanguage): Service[] {
           category: caseStudyCtoaasMediaCategory(lang),
           basePath: "case-studies"
         }
-      ]
+      ],
+      faqs: []
     },
     {
       bestFor: saasBestFor(lang),
@@ -891,7 +909,8 @@ export function services(lang: SupportedLanguage): Service[] {
       shortDescription: saasHeroDesc(lang),
       slug: ServiceSlug.SoftwareAsAService,
       title: saasHeroHeading(lang),
-      caseStudies: []
+      caseStudies: [],
+      faqs: []
     },
     {
       bestFor: tddBestFor(lang),
@@ -1021,7 +1040,8 @@ export function services(lang: SupportedLanguage): Service[] {
       shortDescription: tddHeroDesc(lang),
       slug: ServiceSlug.TechDueDiligence,
       title: tddHeroHeading(lang),
-      caseStudies: []
+      caseStudies: [],
+      faqs: []
     }
   ];
 }

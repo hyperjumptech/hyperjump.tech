@@ -16,7 +16,6 @@
   "erp_fisheries": {
     "title": "Transforming a fisheries tech team into a scalable product engine",
     "desc": "A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.",
-    "category": "CTO as a Service",
     "cta": {
       "heading": "Ready to build your future? Let's discuss your transformation",
       "subject": "Media Transformation",
@@ -26,7 +25,6 @@
   "ctoaas_media": {
     "title": "Elevating a media-tech engineering team from feature factory to innovation powerhouse",
     "desc": "When rapid growth outpaced engineering maturity, this team needed more than features, they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.",
-    "category": "CTO as a Service",
     "cta": {
       "heading": "Ready to transform your tech team? Let's talk about CTO-as-a-Service",
       "subject": "CTO as a Service",
@@ -34,9 +32,8 @@
     }
   },
   "saas_volunteering_platform": {
-    "title": "Technology Migration and Website Revitalization for Indonesia’s Leading Volunteering Platform",
-    "desc": "Indonesia’s largest volunteering platform decided to update its outdated technology by migrating from Angular.js to React. As a nonprofit organization with limited budget, they found managing an in-house engineering team costly and difficult.",
-    "category": "Software as a Service",
+    "title": "Technology Migration and Website Revitalization for Indonesia's Leading Volunteering Platform",
+    "desc": "Indonesia's largest volunteering platform decided to update its outdated technology by migrating from Angular.js to React. As a nonprofit organization with limited budget, they found managing an in-house engineering team costly and difficult.",
     "cta": {
       "heading": "Ready to build high-quality software? Let's talk about Software as a Service",
       "subject": "Software as a Service",

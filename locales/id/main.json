@@ -28,13 +28,7 @@
   "case_studies": {
     "heading": "Studi kasus",
     "desc": "Temukan bagaimana kami berhasil mengubah tantangan menjadi peluang melalui solusi nyata yang mendorong dampak berkelanjutan dan pertumbuhan bisnis.",
-    "button": "Baca studi kasus",
-    "0_title": "Mengubah tim teknologi perikanan menjadi mesin produk yang skalabel",
-    "0_text": "Sebuah tim teknologi junior namun penuh semangat. Tidak ada produk yang sudah berjalan. Taruhannya besar. Kami terlibat secara mendalam dengan tim mereka untuk memperkenalkan struktur, membangun kepercayaan diri, dan merilis MVP yang berfungsi dalam 3 bulan. Melalui praktik agile yang ketat dan peluncuran sistem menyeluruh, kami membantu mengubah organisasi teknologi yang rapuh menjadi mesin produk yang andal.",
-    "0_category": "CTO as a Service",
-    "1_title": "Meningkatkan tim rekayasa media dari pabrik fitur menjadi pusat inovasi",
-    "1_text": "Ketika pertumbuhan pesat melampaui kematangan tim, tim ini membutuhkan lebih dari sekadar fitur, mereka membutuhkan transformasi. Kami merestrukturisasi praktik agile mereka, mengotomatisasi DevOps, menetapkan KPI yang terukur, dan membantu mereka beralih dari sekadar mengeksekusi tugas menjadi pemilik produk sejati yang mampu berinovasi.",
-    "1_category": "CTO as a Service"
+    "button": "Baca studi kasus"
   },
   "project": {
     "heading": "Produk sumber terbuka",

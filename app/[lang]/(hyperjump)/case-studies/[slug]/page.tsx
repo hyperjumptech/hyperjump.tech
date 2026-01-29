@@ -15,8 +15,12 @@ import {
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import { supportedLanguages } from "@/locales/.generated/types";
 
-import type { CaseStudy } from "../../data";
-import { caseStudyBy, getCaseStudies } from "../data";
+import {
+  caseStudyBy,
+  getCaseStudies,
+  serviceBySlug,
+  type CaseStudy
+} from "../../data";
 import { Content } from "./components/content";
 
 type Params = { lang: SupportedLanguage; slug: string };
@@ -30,7 +34,7 @@ export async function generateMetadata({
 }: CaseStudyProps): Promise<Metadata> {
   const { lang, slug } = await params;
   const { url } = data;
-  const caseStudies = caseStudyBy(slug, lang);
+  const caseStudies = caseStudyBy({ lang, slug });
   const meta: Metadata = {
     title: `Case-Studies - ${caseStudies?.title ?? ""}`,
     description: caseStudies?.description ?? "",
@@ -60,7 +64,7 @@ export async function generateStaticParams(): Promise<Params[]> {
 
 export default async function CaseStudy({ params }: CaseStudyProps) {
   const { lang, slug } = await params;
-  const caseStudy = caseStudyBy(slug, lang);
+  const caseStudy = caseStudyBy({ lang, slug });
   if (!caseStudy) {
     notFound();
   }
@@ -140,13 +144,13 @@ function Recommendation({ caseStudies, lang }: RecommendationProps) {
           {caseStudyMore(lang)}
         </h2>
         <div className="grid gap-6 md:grid-cols-2">
-          {caseStudies.map(({ description, slug, title, category }) => (
+          {caseStudies.map(({ description, serviceSlug, slug, title }) => (
             <div
               key={slug}
               className="flex h-full flex-col justify-between rounded-xl border border-gray-200 p-6 text-left shadow-sm transition duration-300 hover:shadow-md">
               <div>
                 <span className="mb-4 inline-block rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-800">
-                  {category}
+                  {serviceBySlug({ lang, slug: serviceSlug })?.title}
                 </span>
                 <h3 className="text-hyperjump-black mb-2 text-lg font-semibold md:text-[22px]">
                   {title}

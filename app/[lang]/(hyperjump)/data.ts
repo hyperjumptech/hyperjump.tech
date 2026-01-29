@@ -57,12 +57,21 @@ import {
   aiWhyUsReasons0,
   aiWhyUsReasons1,
   aiWhyUsReasons2,
-  caseStudyCtoaasMediaCategory,
+  caseStudyCtoaasMediaCtaHeading,
+  caseStudyCtoaasMediaCtaLabel,
+  caseStudyCtoaasMediaCtaSubject,
   caseStudyCtoaasMediaDesc,
   caseStudyCtoaasMediaTitle,
-  caseStudyErpFisheriesCategory,
+  caseStudyErpFisheriesCtaHeading,
+  caseStudyErpFisheriesCtaLabel,
+  caseStudyErpFisheriesCtaSubject,
   caseStudyErpFisheriesDesc,
   caseStudyErpFisheriesTitle,
+  caseStudySaasVolunteeringPlatformCtaHeading,
+  caseStudySaasVolunteeringPlatformCtaLabel,
+  caseStudySaasVolunteeringPlatformCtaSubject,
+  caseStudySaasVolunteeringPlatformDesc,
+  caseStudySaasVolunteeringPlatformTitle,
   ctoaasBestFor,
   ctoaasDescription,
   ctoaasHeroDesc,
@@ -161,12 +170,6 @@ import {
   erpWhyUsReasons0,
   erpWhyUsReasons1,
   erpWhyUsReasons2,
-  mainCaseStudies0Category,
-  mainCaseStudies0Text,
-  mainCaseStudies0Title,
-  mainCaseStudies1Category,
-  mainCaseStudies1Text,
-  mainCaseStudies1Title,
   mainFaq0Answer,
   mainFaq0Question,
   mainFaq1Answer,
@@ -276,21 +279,89 @@ import {
   tddWhyUsReasons2
 } from "@/locales/.generated/strings";
 
-export function getCaseStudies(lang: SupportedLanguage) {
+export enum ServiceSlug {
+  InferenceAI = "inference-ai",
+  ErpImplementation = "erp-implementation",
+  CtoAsAService = "cto-as-a-service",
+  SoftwareAsAService = "software-as-a-service",
+  TechDueDiligence = "tech-due-diligence"
+}
+
+export type CaseStudy = {
+  cta: {
+    heading: string;
+    subject: string;
+    label: string;
+  };
+  description: string;
+  serviceSlug: ServiceSlug;
+  slug: string;
+  title: string;
+  url: string;
+};
+
+export enum CaseStudySlug {
+  Fisheries = "erp-fisheries",
+  Media = "ctoaas-media",
+  VolunteeringPlatform = "saas-volunteering-platform"
+}
+
+export function getCaseStudies(lang: SupportedLanguage): CaseStudy[] {
+  const BASE_PATH = `/${lang}/case-studies`;
   return [
     {
-      title: mainCaseStudies0Title(lang),
-      category: mainCaseStudies0Category(lang),
-      description: mainCaseStudies0Text(lang),
-      urlCaseStudy: `/${lang}/case-studies/erp-fisheries`
+      cta: {
+        heading: caseStudyErpFisheriesCtaHeading(lang),
+        subject: caseStudyErpFisheriesCtaSubject(lang),
+        label: caseStudyErpFisheriesCtaLabel(lang)
+      },
+      description: caseStudyErpFisheriesDesc(lang),
+      serviceSlug: ServiceSlug.CtoAsAService,
+      slug: CaseStudySlug.Fisheries,
+      title: caseStudyErpFisheriesTitle(lang),
+      url: `${BASE_PATH}/${CaseStudySlug.Fisheries}`
     },
     {
-      title: mainCaseStudies1Title(lang),
-      category: mainCaseStudies1Category(lang),
-      description: mainCaseStudies1Text(lang),
-      urlCaseStudy: `/${lang}/case-studies/ctoaas-media`
+      cta: {
+        heading: caseStudyCtoaasMediaCtaHeading(lang),
+        subject: caseStudyCtoaasMediaCtaSubject(lang),
+        label: caseStudyCtoaasMediaCtaLabel(lang)
+      },
+      description: caseStudyCtoaasMediaDesc(lang),
+      serviceSlug: ServiceSlug.CtoAsAService,
+      slug: CaseStudySlug.Media,
+      title: caseStudyCtoaasMediaTitle(lang),
+      url: `${BASE_PATH}/${CaseStudySlug.Media}`
+    },
+    {
+      cta: {
+        heading: caseStudySaasVolunteeringPlatformCtaHeading(lang),
+        subject: caseStudySaasVolunteeringPlatformCtaSubject(lang),
+        label: caseStudySaasVolunteeringPlatformCtaLabel(lang)
+      },
+      description: caseStudySaasVolunteeringPlatformDesc(lang),
+      serviceSlug: ServiceSlug.SoftwareAsAService,
+      slug: CaseStudySlug.VolunteeringPlatform,
+      title: caseStudySaasVolunteeringPlatformTitle(lang),
+      url: `${BASE_PATH}/${CaseStudySlug.VolunteeringPlatform}`
     }
   ];
+}
+
+type CaseStudyByParams = {
+  lang: SupportedLanguage;
+  slug: string;
+};
+
+export function caseStudyBy({ lang, slug }: CaseStudyByParams) {
+  return getCaseStudies(lang).find((cs) => cs.slug === slug);
+}
+
+function caseStudyByService({
+  lang,
+  slug
+}: ServiceBySlugParameters): CaseStudy[] {
+  return getCaseStudies(lang).filter((cs) => cs.serviceSlug === slug);
 }
 
 export function getFaqs(lang: SupportedLanguage) {
@@ -384,22 +455,6 @@ type Content = {
     description: string;
     basePath: string;
   }[];
-};
-
-export enum ServiceSlug {
-  InferenceAI = "inference-ai",
-  ErpImplementation = "erp-implementation",
-  CtoAsAService = "cto-as-a-service",
-  SoftwareAsAService = "software-as-a-service",
-  TechDueDiligence = "tech-due-diligence"
-}
-
-export type CaseStudy = {
-  slug: string;
-  title: string;
-  description: string;
-  category: string;
-  basePath?: string;
 };
 
 export type Service = {
@@ -526,7 +581,10 @@ export function services(lang: SupportedLanguage): Service[] {
       shortDescription: aiHeroDesc(lang),
       slug: ServiceSlug.InferenceAI,
       title: aiHeroHeading(lang),
-      caseStudies: [],
+      caseStudies: caseStudyByService({
+        lang,
+        slug: ServiceSlug.InferenceAI
+      }),
       faqs: [
         { question: aiFaq0Question(lang), answer: aiFaq0Answer(lang) },
         { question: aiFaq1Question(lang), answer: aiFaq1Answer(lang) },
@@ -787,22 +845,10 @@ export function services(lang: SupportedLanguage): Service[] {
       shortDescription: ctoaasHeroDesc(lang),
       slug: ServiceSlug.CtoAsAService,
       title: ctoaasHeroHeading(lang),
-      caseStudies: [
-        {
-          slug: "erp-fisheries",
-          title: caseStudyErpFisheriesTitle(lang),
-          description: caseStudyErpFisheriesDesc(lang),
-          category: caseStudyErpFisheriesCategory(lang),
-          basePath: "case-studies"
-        },
-        {
-          slug: "ctoaas-media",
-          title: caseStudyCtoaasMediaTitle(lang),
-          description: caseStudyCtoaasMediaDesc(lang),
-          category: caseStudyCtoaasMediaCategory(lang),
-          basePath: "case-studies"
-        }
-      ],
+      caseStudies: caseStudyByService({
+        lang,
+        slug: ServiceSlug.CtoAsAService
+      }),
       faqs: []
     },
     {
@@ -909,7 +955,10 @@ export function services(lang: SupportedLanguage): Service[] {
       shortDescription: saasHeroDesc(lang),
       slug: ServiceSlug.SoftwareAsAService,
       title: saasHeroHeading(lang),
-      caseStudies: [],
+      caseStudies: caseStudyByService({
+        lang,
+        slug: ServiceSlug.SoftwareAsAService
+      }),
       faqs: []
     },
     {
@@ -1040,7 +1089,10 @@ export function services(lang: SupportedLanguage): Service[] {
       shortDescription: tddHeroDesc(lang),
       slug: ServiceSlug.TechDueDiligence,
       title: tddHeroHeading(lang),
-      caseStudies: [],
+      caseStudies: caseStudyByService({
+        lang,
+        slug: ServiceSlug.TechDueDiligence
+      }),
       faqs: []
     }
   ];

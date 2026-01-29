@@ -17,11 +17,7 @@ import { motion } from "framer-motion";
 import React, { Children, isValidElement, useEffect, useState } from "react";
 import { GitFork, Star } from "lucide-react";
 import type { SupportedLanguage } from "@/locales/.generated/types";
-import {
-  mainCaseStudiesButton,
-  mainSeeMore,
-  productsLearnMore
-} from "@/locales/.generated/server";
+import { mainSeeMore, productsLearnMore } from "@/locales/.generated/strings";
 
 type GridItemsTitleProps = {
   id?: string;
@@ -82,11 +78,9 @@ export type Item = {
   title: string;
   description: string;
   url?: string;
-  category?: string;
   icon?: string | React.ReactElement<any>;
   button?: boolean;
   repo?: string;
-  urlCaseStudy?: string;
   urlSeeMore?: string;
   urlLearnMore?: string;
   repoUrl?: string;
@@ -100,25 +94,19 @@ type Column = {
   xl?: number;
 };
 
+type GridItemsProps = {
+  items: Item[];
+  columns?: Column;
+  cardClassName?: string;
+  lang: SupportedLanguage;
+};
+
 export function GridItems({
   items,
   columns = { base: 1, md: 2, xl: 3 },
-  withCard = true,
   cardClassName = "border-[#D9D9D9] bg-white",
-  borderClassName = "",
-  categoryClassName = "bg-hyperjump-black/10 text-hyperjump-black",
-  titleClassName = "text-hyperjump-black",
   lang
-}: {
-  items: Item[];
-  cardClassName?: string;
-  columns?: Column;
-  withCard?: boolean;
-  borderClassName?: string;
-  categoryClassName?: string;
-  titleClassName?: string;
-  lang: SupportedLanguage;
-}) {
+}: GridItemsProps) {
   const [repoStats, setRepoStats] = useState<
     Record<number, { stars: number; forks: number }>
   >({});
@@ -164,10 +152,6 @@ export function GridItems({
     fetchRepoStats();
   }, [items]);
 
-  const CardWrapper = withCard
-    ? Card
-    : ({ children }: { children: React.ReactNode }) => <div>{children}</div>;
-
   return (
     <div className={cn("grid gap-6", columnClass(columns))}>
       {items.map((item, idx) => {
@@ -176,10 +160,8 @@ export function GridItems({
           title,
           description,
           url,
-          category,
           icon,
           button,
-          urlCaseStudy,
           urlSeeMore,
           urlLearnMore,
           repoUrl
@@ -188,12 +170,11 @@ export function GridItems({
         const isReactIcon = isValidElement(icon);
         const isStringIcon = typeof icon === "string";
         return (
-          <CardWrapper
+          <Card
             key={idx}
             className={cn(
               "flex flex-col overflow-hidden rounded-2xl transition-colors duration-300 ease-in-out hover:bg-white/5 hover:shadow-md hover:shadow-white/10",
-              cardClassName,
-              borderClassName
+              cardClassName
             )}>
             {image && (
               <div className="relative aspect-22/9 w-full md:aspect-video">
@@ -218,31 +199,14 @@ export function GridItems({
                   <AvatarImage src={icon as string} alt={title} />
                 </Avatar>
               )}
-              {category && (
-                <p
-                  className={cn(
-                    "mb-2 w-36 rounded-3xl px-2 py-1.5 text-center text-sm font-medium",
-                    categoryClassName
-                  )}>
-                  {category}
-                </p>
-              )}
               {url ? (
                 <Link href={url} className="transition hover:underline">
-                  <CardTitle
-                    className={cn(
-                      "text-xl font-semibold md:text-[22px]",
-                      titleClassName
-                    )}>
+                  <CardTitle className="text-hyperjump-black text-xl font-semibold md:text-[22px]">
                     {title}
                   </CardTitle>
                 </Link>
               ) : (
-                <CardTitle
-                  className={cn(
-                    "text-xl font-semibold md:text-[22px]",
-                    titleClassName
-                  )}>
+                <CardTitle className="text-hyperjump-black text-xl font-semibold md:text-[22px]">
                   {title}
                 </CardTitle>
               )}
@@ -255,16 +219,6 @@ export function GridItems({
                   __html: description
                 }}
               />
-
-              {urlCaseStudy && (
-                <Button
-                  asChild
-                  variant="outline"
-                  className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
-                  <Link href={urlCaseStudy}>{mainCaseStudiesButton(lang)}</Link>
-                </Button>
-              )}
-
               {urlSeeMore && (
                 <Button
                   asChild
@@ -313,7 +267,7 @@ export function GridItems({
                 </div>
               ) : null}
             </CardContent>
-          </CardWrapper>
+          </Card>
         );
       })}
     </div>

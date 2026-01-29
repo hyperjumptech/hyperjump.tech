@@ -1,6 +1,6 @@
 import { test, expect, Page } from "@playwright/test";
-import { getCaseStudies } from "@/app/[lang]/(hyperjump)/case-studies/data";
 import { imagesTest } from "./shared-test";
+import { getCaseStudies } from "@/app/[lang]/(hyperjump)/data";
 
 // Base URL
 const baseURL = "http://localhost:3000";

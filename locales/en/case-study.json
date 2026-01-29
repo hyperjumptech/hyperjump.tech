@@ -32,8 +32,8 @@
     }
   },
   "saas_volunteering_platform": {
-    "title": "Technology Migration and Website Revitalization for Indonesia's Leading Volunteering Platform",
-    "desc": "Indonesia's largest volunteering platform decided to update its outdated technology by migrating from Angular.js to React. As a nonprofit organization with limited budget, they found managing an in-house engineering team costly and difficult.",
+    "title": "Technology migration and website revitalization for Indonesia's leading volunteering platform",
+    "desc": "Indonesia's largest volunteering platform decided to modernize its outdated technology by migrating from Angular.js to React. As a nonprofit organization with limited budget, they found managing an in-house engineering team costly and difficult.",
     "cta": {
       "heading": "Ready to build high-quality software? Let's talk about Software as a Service",
       "subject": "Software as a Service",

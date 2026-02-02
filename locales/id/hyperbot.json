@@ -1,0 +1,17 @@
+{
+  "ask_hyper_bot": "Tanya HyperBot",
+  "common": {
+    "loading": "Memuat",
+    "follow_up": "Tindak lanjut"
+  },
+  "default_messages": [
+    "Layanan apa saja yang Anda tawarkan?",
+    "Tunjukkan contoh proyek sebelumnya",
+    "Jadwalkan konsultasi gratis"
+  ],
+  "header": {
+    "greeting": "Halo! 👋",
+    "support_availability": "Mulai percakapan. Kami di sini untuk membantu 24/7."
+  },
+  "input_placeholder": "Tanyakan kepada saya tentang layanan, kisah sukses, atau tantangan Anda"
+}

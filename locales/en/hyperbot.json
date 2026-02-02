@@ -1,0 +1,17 @@
+{
+  "ask_hyper_bot": "Ask HyperBot",
+  "common": {
+    "loading": "Loading",
+    "follow_up": "Follow up"
+  },
+  "default_messages": [
+    "What services do you offer?",
+    "Show me examples of past projects",
+    "Schedule a free consultation"
+  ],
+  "header": {
+    "greeting": "Hi there! 👋",
+    "support_availability": "Start a chat. We are here to help 24/7."
+  },
+  "input_placeholder": "Ask me about services, success stories, or your challenges"
+}

@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { MessageCircle, X } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -9,6 +8,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import markdownit from "markdown-it";
 import { v4 as uuid } from "uuid";
 import { sendGAEvent } from "@next/third-parties/google";
+
+import { Button } from "@/components/ui/button";
+import {
+  hyperbotAskHyperbot,
+  hyperbotCommonFollowUp,
+  hyperbotCommonLoading,
+  hyperbotDefaultMessages,
+  hyperbotHeaderGreeting,
+  hyperbotHeaderSupportAvailability,
+  hyperbotInputPlaceholder
+} from "@/locales/.generated/strings";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
 // Types
 type PrefillAIAgentEvent = CustomEvent<{ message: string }>;
@@ -24,12 +35,6 @@ type TMessage = {
   human: string;
 };
 
-// Constants
-const DEFAULT_MESSAGES = [
-  { id: 1, text: "What services do you offer?" },
-  { id: 2, text: "Show me examples of past projects" },
-  { id: 3, text: "Schedule a free consultation" }
-];
 const ENABLE_STREAMING = true;
 
 // Functions
@@ -207,12 +212,17 @@ type GAEvent = {
   label: string;
 };
 
-interface HyperBotToggleProps {
-  gaEvent?: GAEvent;
-}
+type HyperBotProps = {
+  gaEvent: GAEvent;
+  lang: SupportedLanguage;
+};
 
-// Main component
-export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
+export default function Hyperbot({ gaEvent, lang }: HyperBotProps) {
+  const defaultMessages = [
+    { id: 1, text: hyperbotDefaultMessages(lang)[0] },
+    { id: 2, text: hyperbotDefaultMessages(lang)[1] },
+    { id: 3, text: hyperbotDefaultMessages(lang)[2] }
+  ];
   const [sessionId, setSessionId] = useState<string | undefined>(undefined);
   const [messages, setMessages] = useState<TMessage[]>([]);
   const [followUpMessages, setFollowUpMessages] = useState<string[]>([]);
@@ -444,8 +454,12 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
                 aria-label="Close chat">
                 <X className="h-6 w-6" />
               </button>
-              <p className="text-lg font-bold">Hi there! 👋</p>
-              <p className="text-sm">Start a chat. We are here to help 24/7.</p>
+              <p className="text-lg font-bold">
+                {hyperbotHeaderGreeting(lang)}
+              </p>
+              <p className="text-sm">
+                {hyperbotHeaderSupportAvailability(lang)}
+              </p>
             </div>
 
             {/* Messages */}
@@ -467,7 +481,9 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
                   {!m.ai && isSubmitting && i === messages.length - 1 && (
                     <div className="max-w-[80%] self-start rounded-xl bg-white p-3">
                       <div className="flex gap-1">
-                        <span className="sr-only">Loading...</span>
+                        <span className="sr-only">
+                          {hyperbotCommonLoading(lang)}...
+                        </span>
                         <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.3s]" />
                         <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500 [animation-delay:-0.15s]" />
                         <div className="h-2 w-2 animate-bounce rounded-full bg-gray-500" />
@@ -480,7 +496,9 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
               {/* Follow up messages */}
               {followUpMessages.length > 0 && !isSubmitting && (
                 <div className="flex flex-col gap-2">
-                  <p className="text-sm font-medium text-gray-800">Follow up</p>
+                  <p className="text-sm font-medium text-gray-800">
+                    {hyperbotCommonFollowUp(lang)}
+                  </p>
                   {followUpMessages.map((text, id) => (
                     <button
                       key={id}
@@ -504,7 +522,7 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
             <div className="shrink-0 bg-[#f2f4f8] p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:bg-white">
               {messages.length === 0 && (
                 <div className="mb-3 flex flex-wrap gap-2 md:hidden">
-                  {DEFAULT_MESSAGES.map(({ text, id }) => (
+                  {defaultMessages.map(({ text, id }) => (
                     <Button
                       key={id}
                       variant="outline"
@@ -537,8 +555,8 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
                       handleSubmit(text, ENABLE_STREAMING);
                     }
                   }}
-                  placeholder="Ask me about services, success stories, or your challenges"
-                  aria-describedby="Ask me about services, success stories, or your challenges"
+                  placeholder={hyperbotInputPlaceholder(lang)}
+                  aria-describedby={hyperbotInputPlaceholder(lang)}
                 />
                 <Button
                   className="absolute top-2 right-2 h-8 w-8 rounded-full bg-blue-500 p-2"
@@ -559,7 +577,7 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
               {/* Default messages desktop */}
               {messages.length === 0 && (
                 <div className="mt-3 hidden space-x-2 overflow-x-auto whitespace-nowrap md:flex">
-                  {DEFAULT_MESSAGES.map(({ text, id }) => (
+                  {defaultMessages.map(({ text, id }) => (
                     <Button
                       key={id}
                       variant="outline"
@@ -599,7 +617,7 @@ export default function LandingAIAgent({ gaEvent }: HyperBotToggleProps) {
         }}>
         {closed ? (
           <>
-            <span className="hidden lg:block">Ask HyperBot</span>
+            <span className="hidden lg:block">{hyperbotAskHyperbot(lang)}</span>
             <span className="block lg:hidden">
               <MessageCircle className="h-10 w-10 md:h-6 md:w-6" />
             </span>

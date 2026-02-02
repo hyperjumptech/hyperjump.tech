@@ -71,8 +71,10 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
 
   const {
     cta: { heading, label },
-    title
+    title,
+    category
   } = caseStudy;
+  const message = `${caseStudyQuestion(lang)} ${category}`;
 
   return (
     <main className="bg-white">
@@ -87,7 +89,7 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
             {heading}
           </h3>
           <div className="w-full md:w-auto">
-            <ButtonCTA message={caseStudyQuestion(lang)}>{label}</ButtonCTA>
+            <ButtonCTA message={message}>{label}</ButtonCTA>
           </div>
         </div>
       </section>

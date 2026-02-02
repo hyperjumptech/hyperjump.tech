@@ -27,6 +27,7 @@ Discover how we successfully transform challenges into opportunities with real-w
 
 - [Transforming a fisheries tech team into a scalable product engine](https://hyperjump.tech/en/case-studies/erp-fisheries): A junior but passionate tech team. Zero products in production. High impact at stake. We embedded deeply with their team to introduce structure, build confidence, and ship a functional MVP within 3 months. Through rigorous agile practices and full-system rollouts, we helped evolve a fragile tech org into a reliable product engine.
 - [Elevating a media-tech engineering team from feature factory to innovation powerhouse](https://hyperjump.tech/en/case-studies/ctoaas-media): When rapid growth outpaced engineering maturity, this team needed more than features, they needed transformation. We restructured their agile practices, automated DevOps, established measurable KPIs, and helped them move from task execution to true product ownership and experimentation.
+- [Technology migration and website revitalization for Indonesia's leading volunteering platform](https://hyperjump.tech/en/case-studies/saas-volunteering-platform): Indonesia's largest volunteering platform decided to modernize its outdated technology by migrating from Angular.js to React. As a nonprofit organization with limited budget, they found managing an in-house engineering team costly and difficult.
 
 ## Products by Hyperjump
 

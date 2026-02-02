@@ -1,8 +1,14 @@
+import { ArrowRightIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { Organization, WebPage, WithContext } from "schema-dts";
 
+import GridItemsContainer, {
+  GridItems,
+  GridItemsMoreButton,
+  GridItemsTitle
+} from "@/app/components/grid-items";
 import {
   Accordion,
   AccordionContent,
@@ -16,12 +22,8 @@ import {
   CardFooter,
   CardHeader
 } from "@/components/ui/card";
-import GridItemsContainer, {
-  GridItems,
-  GridItemsMoreButton,
-  GridItemsTitle
-} from "@/app/components/grid-items";
 import data from "@/data.json";
+import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
   supportedLanguages,
   type SupportedLanguage
@@ -42,7 +44,7 @@ import {
   mainCaseStudiesCtaExploreOurCaseStudies,
   mainHeroHeading,
   mainFaqLearnMore
-} from "@/locales/.generated/server";
+} from "@/locales/.generated/strings";
 
 import { Clients } from "./components/clients";
 import { Location } from "./components/location";
@@ -53,8 +55,7 @@ import {
   pageData,
   services
 } from "./data";
-import { dynamicOpengraph } from "@/lib/default-metadata";
-import { ArrowRightIcon } from "lucide-react";
+import { CaseStudyCard } from "./components/case-study-card";
 
 const { github, socials, title, url } = data;
 
@@ -181,12 +182,15 @@ function CaseStudies({ lang }: HomeParams) {
         title={mainCaseStudiesHeading(lang)}
         description={mainCaseStudiesDesc(lang)}
       />
-      <GridItems
-        items={getCaseStudies(lang)}
-        columns={{ base: 1, md: 2, lg: 2 }}
-        cardClassName="rounded"
-        lang={lang}
-      />
+      <div className="grid gap-6 md:grid-cols-3">
+        {getCaseStudies(lang).map((caseStudy) => (
+          <CaseStudyCard
+            key={caseStudy.slug}
+            caseStudy={caseStudy}
+            lang={lang}
+          />
+        ))}
+      </div>
       <div className="relative mt-10 w-full max-w-5xl overflow-hidden rounded">
         <div className="absolute inset-0 z-0">
           <Image

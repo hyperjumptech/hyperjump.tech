@@ -92,7 +92,9 @@ test.describe("Homepage", () => {
     for (const s of services) {
       await expect(page.getByText(s.desc)).toBeVisible();
       await expect(page.getByRole("img", { name: s.title })).toBeVisible();
-      await expect(page.getByText(s.title, { exact: true })).toBeVisible();
+      await expect(
+        page.locator("#services").getByText(s.title, { exact: true })
+      ).toBeVisible();
     }
 
     // View more link

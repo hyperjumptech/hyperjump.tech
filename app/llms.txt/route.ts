@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import data from "@/data.json";
-import { mainOpenInGoogleMaps } from "@/locales/.generated/server";
+import { mainOpenInGoogleMaps } from "@/locales/.generated/strings";
 import {
   getCommercialProduct,
   getOpenSource
@@ -85,7 +85,7 @@ function serviceList() {
 function caseStudyList() {
   return getCaseStudies(LOCALE)
     .map(
-      ({ description, title, urlCaseStudy }) =>
+      ({ description, title, url: urlCaseStudy }) =>
         `- [${title}](${url}${urlCaseStudy}): ${description}`
     )
     .join("\n");

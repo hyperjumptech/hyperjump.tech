@@ -1,38 +1,32 @@
-import type { Metadata } from "next";
 import data from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
   supportedLanguages,
   type SupportedLanguage
 } from "@/locales/.generated/types";
-import { TeamCard } from "../components/team-card";
-import { getTeams } from "./data";
 import { mainTeamDesc, mainTeamHeading } from "@/locales/.generated/strings";
 
-export const generateStaticParams = async () => {
+import { TeamCard } from "./card";
+import { team } from "./data";
+
+export async function generateMetadata() {
+  return dynamicOpengraph({
+    title: `Meet Our Team - ${data.title}`
+  });
+}
+
+export async function generateStaticParams() {
   return supportedLanguages.map((lang) => ({ lang }));
-};
+}
+
 type TeamsProps = {
   params: Promise<{ lang: SupportedLanguage }>;
 };
 
-export async function generateMetadata() {
-  const { title, description } = data;
-
-  const meta: Metadata = {
-    title: `Meet Our Team – ${title}`,
-    description: description
-  };
-
-  return dynamicOpengraph(meta);
-}
-
 export default async function TeamSection({ params }: TeamsProps) {
   const { lang } = await params;
-  const teams = getTeams();
-
-  const featuredTeams = teams.slice(0, 2);
-  const otherTeams = teams.slice(2);
+  const founders = team.slice(0, 2);
+  const members = team.slice(2);
 
   return (
     <section className="py-24 md:py-32">
@@ -47,15 +41,17 @@ export default async function TeamSection({ params }: TeamsProps) {
         </div>
 
         <div className="mb-16 grid grid-cols-1 items-stretch gap-8 md:grid-cols-2">
-          {featuredTeams.map((member, i) => (
-            <TeamCard key={member.name ?? i} variant="featured" {...member} />
+          {founders.map((founder) => (
+            <TeamCard key={founder.name} variant="featured" {...founder} />
           ))}
         </div>
 
         <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {otherTeams.map((member, i) => (
-            <TeamCard key={member.name ?? i} variant="compact" {...member} />
-          ))}
+          {members
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((member) => (
+              <TeamCard key={member.name} variant="compact" {...member} />
+            ))}
         </div>
       </section>
     </section>

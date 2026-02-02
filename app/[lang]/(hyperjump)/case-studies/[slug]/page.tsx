@@ -70,11 +70,10 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
   }
 
   const {
-    cta: { heading, label },
-    title,
-    category
+    cta: { heading, label, subject },
+    title
   } = caseStudy;
-  const message = `${caseStudyQuestion(lang)} ${category}`;
+  const message = `${caseStudyQuestion(lang)} ${subject}`;
 
   return (
     <main className="bg-white">

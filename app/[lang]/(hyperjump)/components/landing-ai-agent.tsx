@@ -11,7 +11,7 @@ import { sendGAEvent } from "@next/third-parties/google";
 
 import { Button } from "@/components/ui/button";
 import {
-  hyperbotAskHyperbot,
+  hyperbotAskHyperBot,
   hyperbotCommonFollowUp,
   hyperbotCommonLoading,
   hyperbotDefaultMessages,
@@ -217,7 +217,7 @@ type HyperBotProps = {
   lang: SupportedLanguage;
 };
 
-export default function Hyperbot({ gaEvent, lang }: HyperBotProps) {
+export default function HyperBot({ gaEvent, lang }: HyperBotProps) {
   const defaultMessages = [
     { id: 1, text: hyperbotDefaultMessages(lang)[0] },
     { id: 2, text: hyperbotDefaultMessages(lang)[1] },
@@ -617,7 +617,7 @@ export default function Hyperbot({ gaEvent, lang }: HyperBotProps) {
         }}>
         {closed ? (
           <>
-            <span className="hidden lg:block">{hyperbotAskHyperbot(lang)}</span>
+            <span className="hidden lg:block">{hyperbotAskHyperBot(lang)}</span>
             <span className="block lg:hidden">
               <MessageCircle className="h-10 w-10 md:h-6 md:w-6" />
             </span>

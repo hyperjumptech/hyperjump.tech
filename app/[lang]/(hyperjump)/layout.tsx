@@ -1,7 +1,7 @@
 import ScrollObserver from "@/app/components/scroll-observer";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import Footer from "./components/footer";
-import Hyperbot from "./components/landing-ai-agent";
+import HyperBot from "./components/landing-ai-agent";
 import Nav from "./components/nav";
 
 type MainLangLayoutProps = {
@@ -21,7 +21,7 @@ export default async function MainLangLayout({
       <div className="relative min-h-screen bg-white">
         <Nav lang={lang as SupportedLanguage} />
         {children}
-        <Hyperbot
+        <HyperBot
           gaEvent={{
             event: "hyperbot_open",
             category: "engagement",

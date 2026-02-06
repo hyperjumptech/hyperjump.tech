@@ -109,20 +109,27 @@ async function expectAllImagesLoaded(page: Page) {
 
   for (let i = 0; i < count; i++) {
     const el = images.nth(i);
-    const tag = await el.evaluate((n: any) => n.tagName.toLowerCase());
+    const { tag, isAnimated } = await el.evaluate((n: any) => {
+      const tag = n.tagName.toLowerCase();
+      const isAnimated = !!n.closest(".marquee");
+      return { tag, isAnimated };
+    });
 
     if (tag === "img" || tag === "image") {
-      await el.scrollIntoViewIfNeeded();
+      if (!isAnimated) {
+        await el.scrollIntoViewIfNeeded();
+      }
+
       await expect(el, `Image #${i} not visible`).toBeVisible();
 
       const { isLoaded, src } = await el.evaluate((img: any) => {
-        const nw = img.naturalWidth ?? 1;
-        const nh = img.naturalHeight ?? 1;
-        const isSVG = img.href?.baseVal;
-
-        // Allow lazy images that are replaced with placeholder
-        const isLoaded = (nw > 0 && nh > 0) || isSVG;
         const src = img.currentSrc || img.src || img.href?.baseVal || "(none)";
+        const isSvgFile = typeof src === "string" && src.endsWith(".svg");
+        const rect = img.getBoundingClientRect();
+        const hasLayoutSize = rect.width > 0 && rect.height > 0;
+        const hasRasterSize =
+          (img.naturalWidth ?? 0) > 0 && (img.naturalHeight ?? 0) > 0;
+        const isLoaded = hasRasterSize || (isSvgFile && hasLayoutSize);
 
         return { isLoaded, src };
       });

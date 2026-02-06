@@ -137,7 +137,7 @@ function Hero({ lang }: HeroProps) {
           </p>
         </div>
         <div className="relative top-15">
-          <Clients clients={data.clients} isPriorityLoad />
+          <Clients clients={data.clients} />
         </div>
       </div>
     </section>

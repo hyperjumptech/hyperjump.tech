@@ -85,13 +85,23 @@ test.describe("Text and Content", () => {
     const partners = [
       "Amman Mineral Internasional",
       "Bank Tabungan Negara",
-      "Eka Mas Republik",
+      "Eka Mas Republik (MyRepublic)",
       "Sinar Mas Digital Day",
-      "Smartfren"
+      "SMDV",
+      "Smartfren",
+      "IDN Media",
+      "Ismaya Group",
+      "Aruna",
+      "Cashbac",
+      "Ausvet",
+      "CoHive",
+      "Trimegah Sekuritas",
+      "Bali United",
+      "1Engage"
     ];
 
     for (const partner of partners) {
-      const logo = page.getByRole("img", { name: partner });
+      const logo = page.locator(`img[alt="${partner}"]`).first();
       await expect(logo).toBeVisible({ timeout: 10_000 });
     }
 

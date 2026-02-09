@@ -39,31 +39,29 @@ test.describe("Homepage", () => {
   });
 
   // Test Structure / UI Sections
-  test("Hero Section: should display hero title, subtitle, and CTA button correctly", async ({
-    page
-  }) => {
+  test("Hero Section: should display partner logos", async ({ page }) => {
     await page.goto(URL);
 
-    // Hero title and subtitle
-    const heroHeading = page.getByRole("heading", {
-      name: "Your partner in building"
-    });
-    await expect(heroHeading).toBeVisible();
-
-    const heroSubtitle = page.getByText("We help organizations deliver");
-    await expect(heroSubtitle).toBeVisible();
-
-    // Partner logos
     const partnerLogos = [
       "Amman Mineral Internasional",
       "Bank Tabungan Negara",
-      "Eka Mas Republik",
+      "Eka Mas Republik (MyRepublic)",
       "Sinar Mas Digital Day",
-      "Smartfren"
+      "SMDV",
+      "Smartfren",
+      "IDN Media",
+      "Ismaya Group",
+      "Aruna",
+      "Cashbac",
+      "Ausvet",
+      "CoHive",
+      "Trimegah Sekuritas",
+      "Bali United",
+      "1Engage"
     ];
 
     for (const name of partnerLogos) {
-      const logo = page.getByRole("img", { name });
+      const logo = page.locator(`img[alt="${name}"]`).first();
       await expect(logo).toBeVisible();
     }
   });

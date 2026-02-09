@@ -6,10 +6,19 @@ Your partner in building reliable, modern software. We help organizations delive
 
 - ![Amman Mineral Internasional](https://hyperjump.tech/images/clients/amman.svg) Amman Mineral Internasional
 - ![Bank Tabungan Negara](https://hyperjump.tech/images/clients/bank-tabungan-negara.svg) Bank Tabungan Negara
-- ![Eka Mas Republik](https://hyperjump.tech/images/clients/my-republic.svg) Eka Mas Republik
+- ![Eka Mas Republik (MyRepublic)](https://hyperjump.tech/images/clients/my-republic.svg) Eka Mas Republik (MyRepublic)
 - ![Sinar Mas Digital Day](https://hyperjump.tech/images/clients/smdd.svg) Sinar Mas Digital Day
 - ![SMDV](https://hyperjump.tech/images/clients/smdv.svg) SMDV
 - ![Smartfren](https://hyperjump.tech/images/clients/smartfren.svg) Smartfren
+- ![IDN Media](https://hyperjump.tech/images/clients/idn-media.svg) IDN Media
+- ![Ismaya Group](https://hyperjump.tech/images/clients/ismaya.svg) Ismaya Group
+- ![Aruna](https://hyperjump.tech/images/clients/aruna.svg) Aruna
+- ![Cashbac](https://hyperjump.tech/images/clients/cashbac.svg) Cashbac
+- ![Ausvet](https://hyperjump.tech/images/clients/ausvet.svg) Ausvet
+- ![CoHive](https://hyperjump.tech/images/clients/cohive.svg) CoHive
+- ![Trimegah Sekuritas](https://hyperjump.tech/images/clients/trimegah.svg) Trimegah Sekuritas
+- ![Bali United](https://hyperjump.tech/images/clients/bali-united.svg) Bali United
+- ![1Engage](https://hyperjump.tech/images/clients/1engage.svg) 1Engage
 
 ## Services
 

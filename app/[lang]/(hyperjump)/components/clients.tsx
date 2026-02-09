@@ -17,7 +17,7 @@ export function Clients({ clients }: ClientsProps) {
   const repeatedClients = Array(4).fill(clients).flat();
 
   return (
-    <div className="relative overflow-hidden px-8 py-6 md:px-20">
+    <div className="relative overflow-hidden py-6">
       <div className="marquee">
         <div className="marquee__track">
           {repeatedClients.map(({ imageUrl, name }, index) => (

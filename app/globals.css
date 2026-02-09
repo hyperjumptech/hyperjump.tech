@@ -187,13 +187,24 @@
 .marquee {
   overflow: hidden;
   width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #020f15 10%,
+    #020f15 90%,
+    transparent
+  );
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
 }
 
 .marquee__track {
   display: flex;
   gap: 3rem;
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
 @keyframes marquee {

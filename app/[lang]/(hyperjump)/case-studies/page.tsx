@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { BreadcrumbList, WithContext } from "schema-dts";
+import { BreadcrumbJsonLd } from "next-seo";
 
 import { Hero } from "@/app/components/hero";
 import data from "@/data.json";
@@ -81,35 +81,18 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
           </div>
         </section>
       </div>
-      <JsonLd lang={lang} />
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Case Studies",
+            item: `${url}/${lang}/case-studies`
+          }
+        ]}
+      />
     </main>
-  );
-}
-
-function JsonLd({ lang }: LangProps) {
-  const jsonLd: WithContext<BreadcrumbList> = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: `${url}/${lang}`
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Case Studies",
-        item: `${url}/${lang}/case-studies`
-      }
-    ]
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
   );
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import type { BreadcrumbList, FAQPage, WithContext } from "schema-dts";
+import { BreadcrumbJsonLd, FAQJsonLd } from "next-seo";
 
 import ButtonCTA from "@/app/components/cta-button";
 import { GridItemsTitle } from "@/app/components/grid-items";
@@ -114,72 +114,27 @@ type JsonLdProps = {
   service: Service;
 } & LangProps;
 
-function JsonLd({ lang, service }: JsonLdProps) {
+function JsonLd({ lang, service: { faqs, slug, title } }: JsonLdProps) {
   return (
     <>
-      <JsonLdBreadcrumb lang={lang} service={service} />
-      {service.faqs.length > 0 && <JsonLdFaq service={service} />}
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Services",
+            item: `${url}/${lang}/services`
+          },
+          {
+            name: title,
+            item: `${url}/${lang}/services/${slug}`
+          }
+        ]}
+      />
+      {faqs.length > 0 && <FAQJsonLd questions={faqs} />}
     </>
-  );
-}
-
-function JsonLdBreadcrumb({ lang, service: { slug, title } }: JsonLdProps) {
-  const jsonLd: WithContext<BreadcrumbList> = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: `${url}/${lang}`
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Services",
-        item: `${url}/${lang}/services`
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: title,
-        item: `${url}/${lang}/services/${slug}`
-      }
-    ]
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
-}
-
-type JsonLdFaqProps = {
-  service: Service;
-};
-
-function JsonLdFaq({ service: { faqs } }: JsonLdFaqProps) {
-  const jsonLd: WithContext<FAQPage> = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map(({ answer, question }) => ({
-      "@type": "Question",
-      name: question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: answer
-      }
-    }))
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
   );
 }
 

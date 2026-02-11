@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { BreadcrumbList, WithContext } from "schema-dts";
+import { BreadcrumbJsonLd } from "next-seo";
 
 import GridItemsContainer, {
   GridItemsTitle
@@ -32,13 +32,25 @@ type JobProps = {
 
 export default async function Home({ params }: JobProps) {
   const { lang } = await params;
+  const { url } = dataJson;
 
   return (
     <GridItemsContainer className="pt-10">
       <GridItemsTitle title="Available Positions" />
       <div className="mt-5" />
       <JobCards items={data.jobs} lang={lang} />
-      <JsonLd lang={lang} />
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Jobs",
+            item: `${url}/${lang}/jobs`
+          }
+        ]}
+      />
     </GridItemsContainer>
   );
 }
@@ -76,34 +88,5 @@ function JobCards({ items, lang }: JobCardProps) {
         </Card>
       ))}
     </div>
-  );
-}
-
-function JsonLd({ lang }: LangProps) {
-  const { url } = dataJson;
-  const jsonLd: WithContext<BreadcrumbList> = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: `${url}/${lang}`
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Jobs",
-        item: `${url}/${lang}/jobs`
-      }
-    ]
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
   );
 }

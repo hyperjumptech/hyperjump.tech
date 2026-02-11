@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import type {
-  BreadcrumbList,
-  SoftwareApplication,
-  WithContext
-} from "schema-dts";
+import { BreadcrumbJsonLd, SoftwareApplicationJsonLd } from "next-seo";
 
 import { GridItems } from "@/app/components/grid-items";
 import { Hero } from "@/app/components/hero";
@@ -18,12 +14,8 @@ import {
   productsHeroHeading
 } from "@/locales/.generated/strings";
 
-import {
-  CommercialProduct,
-  getCommercialProduct,
-  OpenSourceProduct,
-  openSourceProducts
-} from "./data";
+import type { CommercialProduct, OpenSourceProduct } from "./data";
+import { getCommercialProduct, openSourceProducts } from "./data";
 
 const { url } = dataJson;
 
@@ -94,51 +86,32 @@ type JsonLdProps = {
 } & LangProps;
 
 function JsonLd({ lang, products }: JsonLdProps) {
-  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: `${url}/${lang}`
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Products",
-        item: `${url}/${lang}/products`
-      }
-    ]
-  };
-  const softwareApplicationsJsonLd = products.map(
-    ({ description, image, title, ...product }) =>
-      ({
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: title,
-        description: description,
-        applicationCategory: "BusinessApplication",
-        operatingSystem: "Web",
-        url:
-          (product as CommercialProduct)?.urlLearnMore ||
-          (product as OpenSourceProduct)?.url,
-        image: `${url}${image}`
-      }) as WithContext<SoftwareApplication>
-  );
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Products",
+            item: `${url}/${lang}/products`
+          }
+        ]}
       />
-      {softwareApplicationsJsonLd.map((app, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(app) }}
+      {products.map(({ description, image, title, ...product }) => (
+        <SoftwareApplicationJsonLd
+          applicationCategory="BusinessApplication"
+          description={description}
+          image={`${url}${image}`}
+          key={title}
+          name={title}
+          operatingSystem="Web"
+          url={
+            (product as CommercialProduct)?.urlLearnMore ||
+            (product as OpenSourceProduct)?.url
+          }
         />
       ))}
     </>

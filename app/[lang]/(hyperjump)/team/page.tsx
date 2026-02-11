@@ -1,9 +1,4 @@
-import type {
-  AboutPage,
-  BreadcrumbList,
-  Person,
-  WithContext
-} from "schema-dts";
+import { BreadcrumbJsonLd, ProfilePageJsonLd } from "next-seo";
 
 import data from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
@@ -72,52 +67,32 @@ export default async function TeamSection({ params }: TeamsProps) {
 
 function JsonLd({ lang }: LangProps) {
   const { url } = data;
-  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: `${url}/${lang}`
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Team",
-        item: `${url}/${lang}/team`
-      }
-    ]
-  };
-  const aboutPageJsonLd: WithContext<AboutPage> = {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: "Meet Our Team",
-    description: mainTeamDesc(lang),
-    mainEntity: team.map(
-      ({ description, image, linkedIn, name, role }) =>
-        ({
-          "@type": "Person",
-          name,
-          jobTitle: role,
-          description,
-          image: `${url}/images/teams/${image}`,
-          sameAs: [linkedIn]
-        }) as Person
-    )
-  };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Team",
+            item: `${url}/${lang}/team`
+          }
+        ]}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJsonLd) }}
-      />
+      {team.map(({ description, image, linkedIn, name }) => (
+        <ProfilePageJsonLd
+          key={name}
+          mainEntity={{
+            name,
+            description,
+            image: `${url}/images/teams/${image}`,
+            sameAs: linkedIn
+          }}
+        />
+      ))}
     </>
   );
 }

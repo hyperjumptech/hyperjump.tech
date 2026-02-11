@@ -2,14 +2,12 @@ import { ArrowRightIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import type {
-  BreadcrumbList,
-  FAQPage,
-  LocalBusiness,
-  Organization,
-  WebPage,
-  WithContext
-} from "schema-dts";
+import {
+  BreadcrumbJsonLd,
+  FAQJsonLd,
+  LocalBusinessJsonLd,
+  OrganizationJsonLd
+} from "next-seo";
 
 import GridItemsContainer, {
   GridItems,
@@ -60,7 +58,6 @@ import {
   getCaseStudies,
   getFaqs,
   getProject,
-  languages,
   location,
   services
 } from "./data";
@@ -306,73 +303,46 @@ function Faqs({ lang }: HomeParams) {
 function JsonLd({ lang }: HomeParams) {
   return (
     <>
-      <JsonLdBreadcrumb lang={lang} />
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          }
+        ]}
+      />
       <JsonLdOrganization />
       <JsonLdLocalBusiness />
-      <JsonLdWebsite lang={lang} />
-      <JsonLdFaq lang={lang} />
+      <FAQJsonLd questions={getFaqs(lang)} />
     </>
-  );
-}
-
-function JsonLdBreadcrumb({ lang }: HomeParams) {
-  const jsonLd: WithContext<BreadcrumbList> = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: `${url}/${lang}`
-      }
-    ]
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
   );
 }
 
 function JsonLdOrganization() {
   const {
     address: { countryCode, locality, region, postalCode, street },
-    duns,
     email,
     title
   } = location;
-  const jsonLd: WithContext<Organization> = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: title,
-    url,
-    logo: `${url}/images/hyperjump-colored.png`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: `${title}, ${street}`,
-      addressLocality: locality,
-      addressRegion: region,
-      postalCode,
-      addressCountry: countryCode
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: email,
-      contactType: "Sales",
-      areaServed: "Worldwide",
-      availableLanguage: languages
-    },
-    sameAs: socials.map(({ url }) => url),
-    duns
-  };
-
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    <OrganizationJsonLd
+      name={title}
+      url={url}
+      logo={`${url}/images/hyperjump-colored.png`}
+      address={{
+        streetAddress: `${title}, ${street}`,
+        addressLocality: locality,
+        addressRegion: region,
+        postalCode,
+        addressCountry: countryCode
+      }}
+      contactPoint={[
+        {
+          email,
+          contactType: "Sales"
+        }
+      ]}
+      sameAs={socials.map(({ url }) => url)}
     />
   );
 }
@@ -384,72 +354,25 @@ function JsonLdLocalBusiness() {
     imageUrl,
     title
   } = location;
-  const jsonLd: WithContext<LocalBusiness> = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: title,
-    image: `${url}${imageUrl}}`,
-    "@id": url,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: `${title}, ${street}`,
-      addressLocality: locality,
-      addressRegion: region,
-      postalCode,
-      addressCountry: countryCode
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude,
-      longitude
-    },
-    url,
-    sameAs: socials.map(({ url }) => url)
-  };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
-}
-
-function JsonLdFaq({ lang }: HomeParams) {
-  const jsonLd: WithContext<FAQPage> = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: getFaqs(lang).map(({ answer, question }) => ({
-      "@type": "Question",
-      name: question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: answer
-      }
-    }))
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
-}
-
-function JsonLdWebsite({ lang }: HomeParams) {
-  const jsonLd: WithContext<WebPage> = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: title,
-    url,
-    description: mainHeroDesc(lang)
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    <LocalBusinessJsonLd
+      type="ProfessionalService"
+      name={title}
+      image={`${url}${imageUrl}`}
+      address={{
+        streetAddress: `${title}, ${street}`,
+        addressLocality: locality,
+        addressRegion: region,
+        postalCode,
+        addressCountry: countryCode
+      }}
+      geo={{
+        latitude,
+        longitude
+      }}
+      url={url}
+      sameAs={socials.map(({ url }) => url)}
     />
   );
 }

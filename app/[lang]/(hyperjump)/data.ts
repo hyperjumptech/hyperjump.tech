@@ -1148,5 +1148,3 @@ export const location: Location = {
   mapsUrl: "https://maps.app.goo.gl/Dew762WwKLruRYGC9",
   title: "Sinar Mas MSIG Tower (34th floor)"
 };
-
-export const languages = ["English", "Bahasa Indonesia"];

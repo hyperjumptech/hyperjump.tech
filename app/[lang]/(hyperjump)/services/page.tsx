@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import type { BreadcrumbList, WithContext } from "schema-dts";
+import { BreadcrumbJsonLd } from "next-seo";
 
 import { Hero } from "@/app/components/hero";
 import { Button } from "@/components/ui/button";
@@ -91,36 +91,19 @@ export default async function Services({ params }: ServicesProps) {
           <Clients clients={clients} />
         </section>
       </div>
-      <JsonLd lang={lang} />
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Services",
+            item: `${url}/${lang}/services`
+          }
+        ]}
+      />
     </main>
-  );
-}
-
-function JsonLd({ lang }: LangProps) {
-  const jsonLd: WithContext<BreadcrumbList> = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: `${url}/${lang}`
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Services",
-        item: `${url}/${lang}/services`
-      }
-    ]
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
   );
 }
 

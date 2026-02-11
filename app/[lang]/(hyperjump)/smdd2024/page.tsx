@@ -1,4 +1,4 @@
-import type { BreadcrumbList, WithContext } from "schema-dts";
+import { BreadcrumbJsonLd } from "next-seo";
 
 import data from "@/data.json";
 import {
@@ -18,16 +18,16 @@ export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
 };
 
-type LangProps = {
-  lang: SupportedLanguage;
-};
-
 type SmddProps = {
-  params: Promise<LangProps>;
+  params: Promise<{
+    lang: SupportedLanguage;
+  }>;
 };
 
 export default async function Smdd({ params }: SmddProps) {
   const { lang } = await params;
+  const { url } = data;
+
   return (
     <>
       <SmddHero lang={lang} />
@@ -39,36 +39,18 @@ export default async function Smdd({ params }: SmddProps) {
         <CaseStudies lang={lang} />
         <ContactForm lang={lang} />
       </div>
-      <JsonLd lang={lang} />
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Sinar Mas Digital Day 2024",
+            item: `${url}/${lang}/smdd2024`
+          }
+        ]}
+      />
     </>
-  );
-}
-
-function JsonLd({ lang }: LangProps) {
-  const { url } = data;
-  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: `${url}/${lang}`
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Sinar Mas Digital Day 2024",
-        item: `${url}/${lang}/smdd2024`
-      }
-    ]
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-    />
   );
 }

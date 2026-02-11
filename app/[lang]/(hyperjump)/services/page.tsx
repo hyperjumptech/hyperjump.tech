@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import type { BreadcrumbList, WithContext } from "schema-dts";
 
 import { Hero } from "@/app/components/hero";
 import { Button } from "@/components/ui/button";
@@ -18,15 +19,19 @@ import {
   servicesHeroHeading,
   servicesHeroDesc,
   servicesReadMore
-} from "@/locales/.generated/server";
+} from "@/locales/.generated/strings";
 
 import { Clients } from "../components/clients";
 import { serviceBySlug, services, ServiceSlug } from "../data";
 
 const { clients, url } = data;
 
+type LangProps = {
+  lang: SupportedLanguage;
+};
+
 export async function generateMetadata(props: {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<LangProps>;
 }): Promise<Metadata> {
   const { lang } = await props.params;
   const meta: Metadata = {
@@ -52,7 +57,7 @@ export const generateStaticParams = async () => {
 };
 
 type ServicesProps = {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<LangProps>;
 };
 
 export default async function Services({ params }: ServicesProps) {
@@ -86,15 +91,43 @@ export default async function Services({ params }: ServicesProps) {
           <Clients clients={clients} />
         </section>
       </div>
+      <JsonLd lang={lang} />
     </main>
   );
 }
 
+function JsonLd({ lang }: LangProps) {
+  const jsonLd: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${url}/${lang}`
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: `${url}/${lang}/services`
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 type ServiceProps = {
-  lang: SupportedLanguage;
   slug: ServiceSlug;
   isReverseImagePosition?: boolean;
-};
+} & LangProps;
 
 function Service({ lang, isReverseImagePosition = false, slug }: ServiceProps) {
   const service = serviceBySlug({ lang, slug });

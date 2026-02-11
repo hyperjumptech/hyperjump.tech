@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { BreadcrumbList, FAQPage, WithContext } from "schema-dts";
 
 import ButtonCTA from "@/app/components/cta-button";
 import { GridItemsTitle } from "@/app/components/grid-items";
@@ -36,6 +37,8 @@ import { CaseStudyCard } from "../../components/case-study-card";
 import type { CaseStudy, Service } from "../../data";
 import { serviceBySlug, ServiceSlug } from "../../data";
 
+const { url } = data;
+
 type LangProps = {
   lang: SupportedLanguage;
 };
@@ -43,10 +46,9 @@ type LangProps = {
 type Params = { slug: string } & LangProps;
 
 export async function generateMetadata(props: {
-  params: Promise<{ lang: SupportedLanguage; slug: ServiceSlug }>;
+  params: Promise<{ slug: ServiceSlug } & LangProps>;
 }): Promise<Metadata> {
   const { lang, slug } = await props.params;
-  const { url } = data;
   const service = serviceBySlug({ lang, slug });
   const meta: Metadata = {
     title: `Services - ${service?.title ?? ""}`,
@@ -103,7 +105,81 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
       <Faqs lang={lang} service={service} />
       <CaseStudies caseStudies={service.caseStudies} lang={lang} />
       <CallToAction lang={lang} service={service} />
+      <JsonLd lang={lang} service={service} />
     </>
+  );
+}
+
+type JsonLdProps = {
+  service: Service;
+} & LangProps;
+
+function JsonLd({ lang, service }: JsonLdProps) {
+  return (
+    <>
+      <JsonLdBreadcrumb lang={lang} service={service} />
+      {service.faqs.length > 0 && <JsonLdFaq service={service} />}
+    </>
+  );
+}
+
+function JsonLdBreadcrumb({ lang, service: { slug, title } }: JsonLdProps) {
+  const jsonLd: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${url}/${lang}`
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: `${url}/${lang}/services`
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: `${url}/${lang}/services/${slug}`
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+type JsonLdFaqProps = {
+  service: Service;
+};
+
+function JsonLdFaq({ service: { faqs } }: JsonLdFaqProps) {
+  const jsonLd: WithContext<FAQPage> = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(({ answer, question }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer
+      }
+    }))
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
   );
 }
 
@@ -145,8 +221,7 @@ function Hero({ hero: { heading, subheading } }: HeroProps) {
 
 type ServiceProps = {
   service: Service;
-  lang: SupportedLanguage;
-};
+} & LangProps;
 
 function About({ lang, service }: LangProps & ServiceProps) {
   const {
@@ -424,8 +499,7 @@ function WhyUs({ lang, service }: LangProps & ServiceProps) {
 
 type CaseStudyProps = {
   caseStudies: CaseStudy[];
-  lang: SupportedLanguage;
-};
+} & LangProps;
 
 function CaseStudies({ caseStudies, lang }: CaseStudyProps) {
   if (caseStudies.length === 0) {

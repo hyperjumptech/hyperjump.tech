@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { BreadcrumbList, WithContext } from "schema-dts";
 
 import { Hero } from "@/app/components/hero";
 import data from "@/data.json";
@@ -17,19 +18,24 @@ import {
 import { getCaseStudies } from "../data";
 import { CaseStudyCard } from "../components/case-study-card";
 
+const { url } = data;
+
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
 };
 
+type LangProps = {
+  lang: SupportedLanguage;
+};
+
 type CaseStudyProps = {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<LangProps>;
 };
 
 export async function generateMetadata(props: {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<LangProps>;
 }): Promise<Metadata> {
   const { lang } = await props.params;
-  const { url } = data;
   const meta: Metadata = {
     title: `Case Studies - ${caseStudyTitle(lang)}`,
     description: caseStudyHeroDesc(lang),
@@ -75,6 +81,35 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
           </div>
         </section>
       </div>
+      <JsonLd lang={lang} />
     </main>
+  );
+}
+
+function JsonLd({ lang }: LangProps) {
+  const jsonLd: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${url}/${lang}`
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Case Studies",
+        item: `${url}/${lang}/case-studies`
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
   );
 }

@@ -13,10 +13,19 @@ import {
   productsCommercialData4Title,
   productsCommercialData5Text,
   productsCommercialData5Title
-} from "@/locales/.generated/server";
+} from "@/locales/.generated/strings";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
-export function getCommercialProduct(lang: SupportedLanguage) {
+export type CommercialProduct = {
+  title: string;
+  description: string;
+  image: string;
+  urlLearnMore: string;
+};
+
+export function getCommercialProduct(
+  lang: SupportedLanguage
+): CommercialProduct[] {
   return [
     {
       title: productsCommercialData2Title(lang),
@@ -46,7 +55,19 @@ export function getCommercialProduct(lang: SupportedLanguage) {
   ];
 }
 
-export function getOpenSource(lang: SupportedLanguage) {
+export type OpenSourceProduct = {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  repoUrl: string;
+  button: boolean;
+  repo: string;
+};
+
+export function openSourceProducts(
+  lang: SupportedLanguage
+): OpenSourceProduct[] {
   return [
     {
       title: productsOpenSourceData1Title(lang),

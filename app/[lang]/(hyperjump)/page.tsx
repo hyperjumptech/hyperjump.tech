@@ -2,7 +2,14 @@ import { ArrowRightIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import type { Organization, WebPage, WithContext } from "schema-dts";
+import type {
+  BreadcrumbList,
+  FAQPage,
+  LocalBusiness,
+  Organization,
+  WebPage,
+  WithContext
+} from "schema-dts";
 
 import GridItemsContainer, {
   GridItems,
@@ -46,21 +53,26 @@ import {
   mainFaqLearnMore
 } from "@/locales/.generated/strings";
 
+import { CaseStudyCard } from "./components/case-study-card";
 import { Clients } from "./components/clients";
 import { Location } from "./components/location";
 import {
   getCaseStudies,
   getFaqs,
   getProject,
-  pageData,
+  languages,
+  location,
   services
 } from "./data";
-import { CaseStudyCard } from "./components/case-study-card";
 
 const { github, socials, title, url } = data;
 
+type HomeParams = {
+  lang: SupportedLanguage;
+};
+
 export async function generateMetadata(props: {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<HomeParams>;
 }): Promise<Metadata> {
   const { lang } = await props.params;
   const meta: Metadata = {
@@ -85,10 +97,6 @@ export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
 };
 
-type HomeParams = {
-  lang: SupportedLanguage;
-};
-
 type HomeProps = {
   params: Promise<HomeParams>;
 };
@@ -102,15 +110,13 @@ export default async function MainPage({ params }: HomeProps) {
       <CaseStudies lang={lang} />
       <OpenSourceProducts lang={lang} />
       <Faqs lang={lang} />
-      <Location lang={lang} location={pageData.location} />
+      <Location lang={lang} location={location} />
       <JsonLd lang={lang} />
     </>
   );
 }
 
-type HeroProps = { lang: SupportedLanguage };
-
-function Hero({ lang }: HeroProps) {
+function Hero({ lang }: HomeParams) {
   return (
     <section
       id="hero"
@@ -300,37 +306,27 @@ function Faqs({ lang }: HomeParams) {
 function JsonLd({ lang }: HomeParams) {
   return (
     <>
+      <JsonLdBreadcrumb lang={lang} />
       <JsonLdOrganization />
+      <JsonLdLocalBusiness />
       <JsonLdWebsite lang={lang} />
+      <JsonLdFaq lang={lang} />
     </>
   );
 }
 
-function JsonLdOrganization() {
-  const jsonLd: WithContext<Organization> = {
+function JsonLdBreadcrumb({ lang }: HomeParams) {
+  const jsonLd: WithContext<BreadcrumbList> = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: title,
-    url,
-    logo: `${url}/images/hyperjump-colored.png`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress:
-        "Sinar Mas MSIG Tower lt. 34, Jl. Jenderal Sudirman Kav. 21",
-      addressLocality: "Jakarta Selatan",
-      addressRegion: "DKI Jakarta",
-      postalCode: "12920",
-      addressCountry: "ID"
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: pageData.location.email,
-      contactType: "Sales",
-      areaServed: "Worldwide",
-      availableLanguage: ["English", "Indonesian"]
-    },
-    sameAs: socials.map(({ url }) => url),
-    duns: pageData.location.duns
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${url}/${lang}`
+      }
+    ]
   };
 
   return (
@@ -341,11 +337,107 @@ function JsonLdOrganization() {
   );
 }
 
-type JsonLdWebsiteParameters = {
-  lang: SupportedLanguage;
-};
+function JsonLdOrganization() {
+  const {
+    address: { countryCode, locality, region, postalCode, street },
+    duns,
+    email,
+    title
+  } = location;
+  const jsonLd: WithContext<Organization> = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: title,
+    url,
+    logo: `${url}/images/hyperjump-colored.png`,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: `${title}, ${street}`,
+      addressLocality: locality,
+      addressRegion: region,
+      postalCode,
+      addressCountry: countryCode
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: email,
+      contactType: "Sales",
+      areaServed: "Worldwide",
+      availableLanguage: languages
+    },
+    sameAs: socials.map(({ url }) => url),
+    duns
+  };
 
-function JsonLdWebsite({ lang }: JsonLdWebsiteParameters) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+function JsonLdLocalBusiness() {
+  const {
+    address: { countryCode, locality, region, postalCode, street },
+    geo: { latitude, longitude },
+    imageUrl,
+    title
+  } = location;
+  const jsonLd: WithContext<LocalBusiness> = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: title,
+    image: `${url}${imageUrl}}`,
+    "@id": url,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: `${title}, ${street}`,
+      addressLocality: locality,
+      addressRegion: region,
+      postalCode,
+      addressCountry: countryCode
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude,
+      longitude
+    },
+    url,
+    sameAs: socials.map(({ url }) => url)
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+function JsonLdFaq({ lang }: HomeParams) {
+  const jsonLd: WithContext<FAQPage> = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: getFaqs(lang).map(({ answer, question }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer
+      }
+    }))
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+function JsonLdWebsite({ lang }: HomeParams) {
   const jsonLd: WithContext<WebPage> = {
     "@context": "https://schema.org",
     "@type": "WebPage",

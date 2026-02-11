@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { BreadcrumbList, WithContext } from "schema-dts";
 
 import GridItemsContainer, {
   GridItemsTitle
@@ -10,6 +11,7 @@ import {
   CardHeader,
   CardTitle
 } from "@/components/ui/card";
+import dataJson from "@/data.json";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import { supportedLanguages } from "@/locales/.generated/types";
 
@@ -20,8 +22,12 @@ export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
 };
 
+type LangProps = {
+  lang: SupportedLanguage;
+};
+
 type JobProps = {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<LangProps>;
 };
 
 export default async function Home({ params }: JobProps) {
@@ -32,14 +38,14 @@ export default async function Home({ params }: JobProps) {
       <GridItemsTitle title="Available Positions" />
       <div className="mt-5" />
       <JobCards items={data.jobs} lang={lang} />
+      <JsonLd lang={lang} />
     </GridItemsContainer>
   );
 }
 
 type JobCardProps = {
   items: Job[];
-  lang: SupportedLanguage;
-};
+} & LangProps;
 
 function JobCards({ items, lang }: JobCardProps) {
   return (
@@ -70,5 +76,34 @@ function JobCards({ items, lang }: JobCardProps) {
         </Card>
       ))}
     </div>
+  );
+}
+
+function JsonLd({ lang }: LangProps) {
+  const { url } = dataJson;
+  const jsonLd: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${url}/${lang}`
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Jobs",
+        item: `${url}/${lang}/jobs`
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
   );
 }

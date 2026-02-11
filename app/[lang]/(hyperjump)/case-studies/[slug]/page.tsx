@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { BreadcrumbList, WithContext } from "schema-dts";
 
 import ButtonCTA from "@/app/components/cta-button";
 import { Button } from "@/components/ui/button";
@@ -23,7 +24,13 @@ import {
 } from "../../data";
 import { Content } from "./components/content";
 
-type Params = { lang: SupportedLanguage; slug: string };
+const { url } = data;
+
+type LangProps = {
+  lang: SupportedLanguage;
+};
+
+type Params = { slug: string } & LangProps;
 
 type CaseStudyProps = {
   params: Promise<Params>;
@@ -33,7 +40,6 @@ export async function generateMetadata({
   params
 }: CaseStudyProps): Promise<Metadata> {
   const { lang, slug } = await params;
-  const { url } = data;
   const caseStudies = caseStudyBy({ lang, slug });
   const meta: Metadata = {
     title: `Case-Studies - ${caseStudies?.title ?? ""}`,
@@ -99,7 +105,46 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
           lang={lang}
         />
       </section>
+      <JsonLd lang={lang} caseStudy={caseStudy} />
     </main>
+  );
+}
+
+type JsonLdProps = {
+  caseStudy: CaseStudy;
+} & LangProps;
+
+function JsonLd({ lang, caseStudy: { slug, title } }: JsonLdProps) {
+  const jsonLd: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${url}/${lang}`
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Case Studies",
+        item: `${url}/${lang}/case-studies`
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: `${url}/${lang}/case-studies/${slug}`
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
   );
 }
 
@@ -134,8 +179,7 @@ function Hero({ heading }: { heading: string }) {
 
 type RecommendationProps = {
   caseStudies: CaseStudy[];
-  lang: SupportedLanguage;
-};
+} & LangProps;
 
 function Recommendation({ caseStudies, lang }: RecommendationProps) {
   return (

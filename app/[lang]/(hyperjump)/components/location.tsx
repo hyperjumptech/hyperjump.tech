@@ -8,22 +8,21 @@ import { Button } from "@/components/ui/button";
 import {
   mainOpenInGoogleMaps,
   mainOurLocation
-} from "@/locales/.generated/server";
+} from "@/locales/.generated/strings";
 import type { SupportedLanguage } from "@/locales/.generated/types";
+import type { Location as LocationType } from "../data";
 
-type Location = {
-  title: string;
-  address: string[];
-  email: string;
-  duns: string;
-  mapsUrl: string;
-  imageUrl: string;
-};
-
-type LocationProps = { lang: SupportedLanguage; location: Location };
+type LocationProps = { lang: SupportedLanguage; location: LocationType };
 
 export function Location({ lang, location }: LocationProps) {
-  const { address, duns, email, imageUrl, mapsUrl, title } = location;
+  const {
+    address: { country, locality, postalCode, street },
+    duns,
+    email,
+    imageUrl,
+    mapsUrl,
+    title
+  } = location;
 
   return (
     <GridItemsContainer id="location">
@@ -46,9 +45,11 @@ export function Location({ lang, location }: LocationProps) {
           <div className="relative z-20">
             <h2 className="mb-4 text-lg font-bold">{title}</h2>
             <div className="mb-2 text-sm leading-relaxed">
-              {address.map((line, index) => (
-                <p key={index}>{line}</p>
-              ))}
+              <p>{street}</p>
+              <p>
+                {locality} - {postalCode}
+              </p>
+              <p>{country}</p>
             </div>
             <p className="mt-4 mb-2 text-sm">
               Email:{" "}
@@ -73,7 +74,7 @@ export function Location({ lang, location }: LocationProps) {
             alt={title}
             width={1072}
             height={500}
-            className="h-[300px] w-full object-cover object-right lg:h-[500px] lg:object-center"
+            className="h-75 w-full object-cover object-right lg:h-125 lg:object-center"
           />
         </div>
       </div>

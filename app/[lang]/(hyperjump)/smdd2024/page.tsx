@@ -1,3 +1,6 @@
+import type { BreadcrumbList, WithContext } from "schema-dts";
+
+import data from "@/data.json";
 import {
   type SupportedLanguage,
   supportedLanguages
@@ -15,8 +18,12 @@ export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
 };
 
+type LangProps = {
+  lang: SupportedLanguage;
+};
+
 type SmddProps = {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<LangProps>;
 };
 
 export default async function Smdd({ params }: SmddProps) {
@@ -32,6 +39,36 @@ export default async function Smdd({ params }: SmddProps) {
         <CaseStudies lang={lang} />
         <ContactForm lang={lang} />
       </div>
+      <JsonLd lang={lang} />
     </>
+  );
+}
+
+function JsonLd({ lang }: LangProps) {
+  const { url } = data;
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${url}/${lang}`
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Sinar Mas Digital Day 2024",
+        item: `${url}/${lang}/smdd2024`
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+    />
   );
 }

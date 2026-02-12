@@ -2,7 +2,12 @@ import { ArrowRightIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import type { Organization, WebPage, WithContext } from "schema-dts";
+import {
+  BreadcrumbJsonLd,
+  FAQJsonLd,
+  LocalBusinessJsonLd,
+  OrganizationJsonLd
+} from "next-seo";
 
 import GridItemsContainer, {
   GridItems,
@@ -46,21 +51,25 @@ import {
   mainFaqLearnMore
 } from "@/locales/.generated/strings";
 
+import { CaseStudyCard } from "./components/case-study-card";
 import { Clients } from "./components/clients";
 import { Location } from "./components/location";
 import {
   getCaseStudies,
   getFaqs,
   getProject,
-  pageData,
+  location,
   services
 } from "./data";
-import { CaseStudyCard } from "./components/case-study-card";
 
 const { github, socials, title, url } = data;
 
+type HomeParams = {
+  lang: SupportedLanguage;
+};
+
 export async function generateMetadata(props: {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<HomeParams>;
 }): Promise<Metadata> {
   const { lang } = await props.params;
   const meta: Metadata = {
@@ -85,10 +94,6 @@ export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
 };
 
-type HomeParams = {
-  lang: SupportedLanguage;
-};
-
 type HomeProps = {
   params: Promise<HomeParams>;
 };
@@ -102,15 +107,13 @@ export default async function MainPage({ params }: HomeProps) {
       <CaseStudies lang={lang} />
       <OpenSourceProducts lang={lang} />
       <Faqs lang={lang} />
-      <Location lang={lang} location={pageData.location} />
+      <Location lang={lang} location={location} />
       <JsonLd lang={lang} />
     </>
   );
 }
 
-type HeroProps = { lang: SupportedLanguage };
-
-function Hero({ lang }: HeroProps) {
+function Hero({ lang }: HomeParams) {
   return (
     <section
       id="hero"
@@ -300,64 +303,76 @@ function Faqs({ lang }: HomeParams) {
 function JsonLd({ lang }: HomeParams) {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          }
+        ]}
+      />
       <JsonLdOrganization />
-      <JsonLdWebsite lang={lang} />
+      <JsonLdLocalBusiness />
+      <FAQJsonLd questions={getFaqs(lang)} />
     </>
   );
 }
 
 function JsonLdOrganization() {
-  const jsonLd: WithContext<Organization> = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: title,
-    url,
-    logo: `${url}/images/hyperjump-colored.png`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress:
-        "Sinar Mas MSIG Tower lt. 34, Jl. Jenderal Sudirman Kav. 21",
-      addressLocality: "Jakarta Selatan",
-      addressRegion: "DKI Jakarta",
-      postalCode: "12920",
-      addressCountry: "ID"
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: pageData.location.email,
-      contactType: "Sales",
-      areaServed: "Worldwide",
-      availableLanguage: ["English", "Indonesian"]
-    },
-    sameAs: socials.map(({ url }) => url),
-    duns: pageData.location.duns
-  };
-
+  const {
+    address: { countryCode, locality, region, postalCode, street },
+    email,
+    title
+  } = location;
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    <OrganizationJsonLd
+      name={title}
+      url={url}
+      logo={`${url}/images/hyperjump-colored.png`}
+      address={{
+        streetAddress: `${title}, ${street}`,
+        addressLocality: locality,
+        addressRegion: region,
+        postalCode,
+        addressCountry: countryCode
+      }}
+      contactPoint={[
+        {
+          email,
+          contactType: "Sales"
+        }
+      ]}
+      sameAs={socials.map(({ url }) => url)}
     />
   );
 }
 
-type JsonLdWebsiteParameters = {
-  lang: SupportedLanguage;
-};
-
-function JsonLdWebsite({ lang }: JsonLdWebsiteParameters) {
-  const jsonLd: WithContext<WebPage> = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: title,
-    url,
-    description: mainHeroDesc(lang)
-  };
+function JsonLdLocalBusiness() {
+  const {
+    address: { countryCode, locality, region, postalCode, street },
+    geo: { latitude, longitude },
+    imageUrl,
+    title
+  } = location;
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    <LocalBusinessJsonLd
+      type="ProfessionalService"
+      name={title}
+      image={`${url}${imageUrl}`}
+      address={{
+        streetAddress: `${title}, ${street}`,
+        addressLocality: locality,
+        addressRegion: region,
+        postalCode,
+        addressCountry: countryCode
+      }}
+      geo={{
+        latitude,
+        longitude
+      }}
+      url={url}
+      sameAs={socials.map(({ url }) => url)}
     />
   );
 }

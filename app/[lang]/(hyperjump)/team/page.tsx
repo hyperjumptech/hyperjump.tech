@@ -1,3 +1,5 @@
+import { BreadcrumbJsonLd, ProfilePageJsonLd } from "next-seo";
+
 import data from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
@@ -19,8 +21,12 @@ export async function generateStaticParams() {
   return supportedLanguages.map((lang) => ({ lang }));
 }
 
+type LangProps = {
+  lang: SupportedLanguage;
+};
+
 type TeamsProps = {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<LangProps>;
 };
 
 export default async function TeamSection({ params }: TeamsProps) {
@@ -54,6 +60,39 @@ export default async function TeamSection({ params }: TeamsProps) {
             ))}
         </div>
       </section>
+      <JsonLd lang={lang} />
     </section>
+  );
+}
+
+function JsonLd({ lang }: LangProps) {
+  const { url } = data;
+
+  return (
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Team",
+            item: `${url}/${lang}/team`
+          }
+        ]}
+      />
+      {team.map(({ description, image, linkedIn, name }) => (
+        <ProfilePageJsonLd
+          key={name}
+          mainEntity={{
+            name,
+            description,
+            image: `${url}/images/teams/${image}`,
+            sameAs: linkedIn
+          }}
+        />
+      ))}
+    </>
   );
 }

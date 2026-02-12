@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "next-seo";
 
 import GridItemsContainer, {
   GridItemsTitle
@@ -10,6 +11,7 @@ import {
   CardHeader,
   CardTitle
 } from "@/components/ui/card";
+import dataJson from "@/data.json";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import { supportedLanguages } from "@/locales/.generated/types";
 
@@ -20,26 +22,42 @@ export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
 };
 
+type LangProps = {
+  lang: SupportedLanguage;
+};
+
 type JobProps = {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<LangProps>;
 };
 
 export default async function Home({ params }: JobProps) {
   const { lang } = await params;
+  const { url } = dataJson;
 
   return (
     <GridItemsContainer className="pt-10">
       <GridItemsTitle title="Available Positions" />
       <div className="mt-5" />
       <JobCards items={data.jobs} lang={lang} />
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Jobs",
+            item: `${url}/${lang}/jobs`
+          }
+        ]}
+      />
     </GridItemsContainer>
   );
 }
 
 type JobCardProps = {
   items: Job[];
-  lang: SupportedLanguage;
-};
+} & LangProps;
 
 function JobCards({ items, lang }: JobCardProps) {
   return (

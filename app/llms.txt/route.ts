@@ -3,12 +3,12 @@ import data from "@/data.json";
 import { mainOpenInGoogleMaps } from "@/locales/.generated/strings";
 import {
   getCommercialProduct,
-  getOpenSource
+  openSourceProducts
 } from "../[lang]/(hyperjump)/products/data";
 import {
   getCaseStudies,
   getFaqs,
-  pageData,
+  location,
   services
 } from "../[lang]/(hyperjump)/data";
 
@@ -98,7 +98,7 @@ function productList() {
 }
 
 function openSourceProductList() {
-  return getOpenSource(LOCALE)
+  return openSourceProducts(LOCALE)
     .map(
       ({ description, repoUrl, title }) =>
         `- [${title}](${repoUrl}): ${description}`
@@ -112,12 +112,18 @@ function faqList() {
     .join("\n\n");
 }
 
-const { address, duns, email, mapsUrl, title } = pageData.location;
+const {
+  address: { street, locality, postalCode, country },
+  duns,
+  email,
+  mapsUrl,
+  title
+} = location;
 
 function addressList() {
   return `### ${title}
 
-${address.join(" ")}
+Address: ${street}, ${locality} - ${postalCode}, ${country}
 Email: [${email}](mailto:${email})
 D&B D-U-N-S: ${duns}
 [${mainOpenInGoogleMaps(LOCALE)}](${mapsUrl})`;

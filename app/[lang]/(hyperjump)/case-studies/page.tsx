@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd } from "next-seo";
 
 import { Hero } from "@/app/components/hero";
 import data from "@/data.json";
@@ -17,19 +18,24 @@ import {
 import { getCaseStudies } from "../data";
 import { CaseStudyCard } from "../components/case-study-card";
 
+const { url } = data;
+
 export const generateStaticParams = async () => {
   return supportedLanguages.map((lang) => ({ lang }));
 };
 
+type LangProps = {
+  lang: SupportedLanguage;
+};
+
 type CaseStudyProps = {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<LangProps>;
 };
 
 export async function generateMetadata(props: {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<LangProps>;
 }): Promise<Metadata> {
   const { lang } = await props.params;
-  const { url } = data;
   const meta: Metadata = {
     title: `Case Studies - ${caseStudyTitle(lang)}`,
     description: caseStudyHeroDesc(lang),
@@ -75,6 +81,18 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
           </div>
         </section>
       </div>
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Case Studies",
+            item: `${url}/${lang}/case-studies`
+          }
+        ]}
+      />
     </main>
   );
 }

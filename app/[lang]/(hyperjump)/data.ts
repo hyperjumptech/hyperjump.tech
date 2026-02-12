@@ -348,10 +348,13 @@ export function getCaseStudies(lang: SupportedLanguage): CaseStudy[] {
   ];
 }
 
-type CaseStudyByParams = {
+type LangParams = {
   lang: SupportedLanguage;
-  slug: string;
 };
+
+type CaseStudyByParams = {
+  slug: string;
+} & LangParams;
 
 export function caseStudyBy({ lang, slug }: CaseStudyByParams) {
   return getCaseStudies(lang).find((cs) => cs.slug === slug);
@@ -1099,25 +1102,49 @@ export function services(lang: SupportedLanguage): Service[] {
 }
 
 type ServiceBySlugParameters = {
-  lang: SupportedLanguage;
   slug: ServiceSlug;
-};
+} & LangParams;
 
 export function serviceBySlug({ lang, slug }: ServiceBySlugParameters) {
   return services(lang).find((service) => service.slug === slug);
 }
 
-export const pageData = {
-  location: {
-    title: "Sinar Mas MSIG Tower (34th floor)",
-    address: [
-      "Jl. Jenderal Sudirman Kav. 21",
-      "Jakarta Selatan - 12920",
-      "Indonesia"
-    ],
-    email: "solution@hyperjump.tech",
-    duns: "65-975-4901",
-    mapsUrl: "https://maps.app.goo.gl/Dew762WwKLruRYGC9",
-    imageUrl: "/images/location.webp"
-  }
+export type Location = {
+  title: string;
+  address: {
+    country: string;
+    countryCode: string;
+    locality: string;
+    postalCode: string;
+    region: string;
+    street: string;
+  };
+  email: string;
+  geo: {
+    latitude: number;
+    longitude: number;
+  };
+  duns: string;
+  mapsUrl: string;
+  imageUrl: string;
+};
+
+export const location: Location = {
+  address: {
+    country: "Indonesia",
+    countryCode: "ID",
+    locality: "Jakarta Selatan",
+    postalCode: "12920",
+    region: "DKI Jakarta",
+    street: "Jl. Jenderal Sudirman Kav. 21"
+  },
+  duns: "65-975-4901",
+  email: "solution@hyperjump.tech",
+  geo: {
+    latitude: -6.210478001641156,
+    longitude: 106.82234562108262
+  },
+  imageUrl: "/images/location.webp",
+  mapsUrl: "https://maps.app.goo.gl/Dew762WwKLruRYGC9",
+  title: "Sinar Mas MSIG Tower (34th floor)"
 };

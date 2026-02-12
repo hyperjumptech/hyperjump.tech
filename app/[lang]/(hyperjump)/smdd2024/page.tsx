@@ -1,3 +1,6 @@
+import { BreadcrumbJsonLd } from "next-seo";
+
+import data from "@/data.json";
 import {
   type SupportedLanguage,
   supportedLanguages
@@ -16,11 +19,15 @@ export const generateStaticParams = async () => {
 };
 
 type SmddProps = {
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<{
+    lang: SupportedLanguage;
+  }>;
 };
 
 export default async function Smdd({ params }: SmddProps) {
   const { lang } = await params;
+  const { url } = data;
+
   return (
     <>
       <SmddHero lang={lang} />
@@ -32,6 +39,18 @@ export default async function Smdd({ params }: SmddProps) {
         <CaseStudies lang={lang} />
         <ContactForm lang={lang} />
       </div>
+      <BreadcrumbJsonLd
+        items={[
+          {
+            name: "Home",
+            item: `${url}/${lang}`
+          },
+          {
+            name: "Sinar Mas Digital Day 2024",
+            item: `${url}/${lang}/smdd2024`
+          }
+        ]}
+      />
     </>
   );
 }

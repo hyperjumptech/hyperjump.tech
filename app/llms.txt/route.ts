@@ -11,6 +11,7 @@ import {
   location,
   services
 } from "../[lang]/(hyperjump)/data";
+import { team } from "../[lang]/(hyperjump)/team/data";
 
 export const dynamic = "force-static";
 export async function GET() {
@@ -54,7 +55,13 @@ ${faqList()}
 
 ## Our location
 
-${addressList()}`;
+${addressList()}
+
+## Meet our team
+
+Our team consists of highly skilled professionals dedicated to delivering exceptional results.
+
+${teamList()}`;
 
   return new NextResponse(content, {
     status: 200,
@@ -127,4 +134,13 @@ Address: ${street}, ${locality} - ${postalCode}, ${country}
 Email: [${email}](mailto:${email})
 D&B D-U-N-S: ${duns}
 [${mainOpenInGoogleMaps(LOCALE)}](${mapsUrl})`;
+}
+
+function teamList() {
+  return team
+    .map(
+      ({ description, name, linkedIn, role }) =>
+        `- [${name}](${linkedIn}) (**${role}**) - ${description}`
+    )
+    .join("\n");
 }

@@ -138,6 +138,9 @@ D&B D-U-N-S: ${duns}
 
 function teamList() {
   return team
-    .map(({ description, name, linkedIn, role }) => `- [${name}](${linkedIn}) (**${role}**) - ${description}`)
+    .map(
+      ({ description, name, linkedIn, role }) =>
+        `- [${name}](${linkedIn}) (**${role}**) - ${description}`
+    )
     .join("\n");
 }

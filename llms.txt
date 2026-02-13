@@ -83,3 +83,26 @@ Address: Jl. Jenderal Sudirman Kav. 21, Jakarta Selatan - 12920, Indonesia
 Email: [solution@hyperjump.tech](mailto:solution@hyperjump.tech)
 D&B D-U-N-S: 65-975-4901
 [Open in Google Maps](https://maps.app.goo.gl/Dew762WwKLruRYGC9)
+
+## Meet our team
+
+Our team consists of highly skilled professionals dedicated to delivering exceptional results.
+
+- [Ari Awan](https://www.linkedin.com/in/ariawan/) (**Co-founder & CEO**) - Jack-of-all-trade in technology startups. Experienced in software engineering (20+ years of hands-on web/mobile programming), product management, operation, fundraising, and marketing.
+- [Ariya Hidayat](https://www.linkedin.com/in/ariyahidayat/) (**Co-founder & CTO**) - Experienced technology leader operating at the intersection of enterprise products and open-source software, with deep hands-on experience across diverse technology stacks.
+- [Satriyo Pranoto](https://www.linkedin.com/in/satriyo-pranoto-2b1935122/) (**Head of Product**) - Senior IT and project management professional with 20+ years of experience delivering enterprise and digital products across multiple industries.
+- [Zulfahmi Andri](https://www.linkedin.com/in/zulfahmi-andri/) (**Principle Software Architect**) - Enterprise software professional with 20+ years of experience, specializing in API-driven systems, mobile applications, and modern cloud architectures.
+- [Ferdi Ramdhon](https://id.linkedin.com/in/ferdirn) (**Head Of Development**) - A full-stack specialist with 10,000+ hours of experience across Java, Python, Go, and React. Expertise spans Android development, SQL/NoSQL databases, and Agile SDLC, focused on delivering scalable software architectures and high-performance RESTful APIs.
+- [Nico Prananta](https://www.linkedin.com/in/nico-prananta-884750200/) (**Principal Developer**) - Principal software developer with experience leading engineering teams and delivering modern web applications across multiple industries.
+- [Amri S. Pangestu](https://www.linkedin.com/in/amripangestu/) (**Product Manager**) - Product & IT Project Manager with experience in digital agencies, e-grocery, and consulting, driving product growth through strategy, execution, and technology.
+- [Hari Cahya Nugraha](https://www.linkedin.com/in/haricnugraha/) (**Software Engineer**) - Full-stack software engineer with 10+ years of experience building scalable web systems, specializing in backend, infrastructure, and cloud-native architectures.
+- [Muslim Ilmiawan](https://www.linkedin.com/in/muslimilmiawan/) (**Software Engineer**) - Backend-focused programmer passionate about system architecture, working mainly with Java, Go, and Node.js.
+- [Denny Pradipta](https://www.linkedin.com/in/dennypradipta/) (**Software Engineer**) - Experienced full-stack web developer with 8+ years of experience working across frontend, backend, and DevOps with modern JavaScript technologies.
+- [Raosan Lillahi](https://www.linkedin.com/in/raosanfikri/) (**Software Engineer**) - Software engineer with extensive full-stack experience, startup founding background, and strong interest in technology and business.
+- [Suyono](https://www.linkedin.com/in/suyono/) (**Senior Software Engineer**) - Senior software engineer with 13+ years of experience, passionate about open-source, scalable architectures, and building high-quality products.
+- [Kevin Hermawan](https://www.linkedin.com/in/khermawan/) (**Software Engineer**) - Experienced software engineer focused on frontend, system reliability, and AI-driven solutions, with hands-on work in LLMs, RAG, and monitoring tools.
+- [Budhi Widagdo](https://www.linkedin.com/in/budhi-widagdo/) (**Software Engineer**) - Experienced software engineer with a background in open-source development, digital banking platforms, and leading multi-project engineering teams.
+- [Sinta Herena](https://www.linkedin.com/in/sinta-herena/) (**Software Engineer**) - Full-stack JavaScript developer experienced in React, Next.js, and TypeScript, focused on building reliable, user-centric web applications.
+- [Lukman Adisaputro](https://www.linkedin.com/in/lukman-adisaputro-4a8969214/) (**Software Engineer**) - Software developer with experience across startups and media companies, specializing in Go backend systems and modern web development with React.
+- [M Noor Syam](https://www.linkedin.com/in/mochamad-noor-syamsu-832617a5/) (**Software Engineer**) - Software engineer with 10+ years of experience in Android and full-stack web development, delivering MVPs and scalable, production-ready systems.
+- [Harianto](https://www.linkedin.com/in/h-harianto-7493799b/) (**Head of Business Development**) - Business development executive driving long-term growth through strategy, partnerships, and commercial execution.

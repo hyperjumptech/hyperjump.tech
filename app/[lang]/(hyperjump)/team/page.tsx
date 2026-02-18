@@ -11,6 +11,8 @@ import {
 } from "@/locales/.generated/types";
 import { mainTeamDesc, mainTeamHeading } from "@/locales/.generated/strings";
 
+import { AnimatedLines } from "../components/animated-lines";
+
 import { TeamCard } from "./card";
 import { team } from "./data";
 import { Typewriter } from "./typewriter";
@@ -43,6 +45,15 @@ export default async function TeamSection({ params }: TeamsProps) {
       <section className="bg-hero-premium relative overflow-hidden text-white">
         <div className="hero-glow animate-glow top-1/4 left-1/2 -translate-x-1/2" />
         <div className="hero-glow animate-glow -top-32 right-0 [animation-delay:1.5s]" />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px)",
+            backgroundSize: "24px 24px"
+          }}
+        />
+        <AnimatedLines className="pointer-events-none absolute inset-0 h-full w-full opacity-30" />
 
         <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 pt-40 pb-20 md:px-20 md:pt-52 md:pb-28 xl:px-0">
           <div className="max-w-4xl text-center">

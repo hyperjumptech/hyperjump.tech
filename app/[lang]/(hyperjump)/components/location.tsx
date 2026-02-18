@@ -73,8 +73,7 @@ export function Location({ lang, location }: LocationProps) {
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-      viewport={{ once: true, amount: 0.1 }}
-      onMouseLeave={() => setIsHovered(false)}>
+      viewport={{ once: true, amount: 0.1 }}>
       {/* Full-bleed background image with animated clip-path */}
       <div
         className="pointer-events-none absolute inset-0 z-0"
@@ -125,6 +124,7 @@ export function Location({ lang, location }: LocationProps) {
           ref={cardRef}
           className="h-64 rounded-2xl sm:h-80 md:h-96 lg:h-112"
           onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         />
 
         <div

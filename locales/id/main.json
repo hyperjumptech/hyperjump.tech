@@ -43,6 +43,7 @@
     "2_text": "Backend Konektor Chatbot WhatsApp dibangun menggunakan Express.js. Dirancang untuk terintegrasi dengan WhatsApp Business API dan mendukung berbagai platform AI seperti Dify dan Rasa."
   },
   "faq": {
+    "eyebrow": "FAQ",
     "heading": "Pertanyaan yang sering diajukan",
     "desc": "Temukan jawaban atas pertanyaan yang sering diajukan. Jika membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.",
     "0_question": "Apa itu CTO sebagai Layanan (CTOaaS), dan bagaimana manfaatnya bagi perusahaan saya?",

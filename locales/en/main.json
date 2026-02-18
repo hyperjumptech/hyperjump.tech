@@ -43,8 +43,9 @@
     "2_text": "Backend connector for the WhatsApp Business API. Integrates with AI platforms like Dify and Rasa out of the box."
   },
   "faq": {
-    "heading": "Common questions",
-    "desc": "Everything you need to know. Can\u2019t find an answer? Reach out to us directly.",
+    "eyebrow": "FAQ",
+    "heading": "Everything you need to know",
+    "desc": "Can't find an answer? Reach out to us directly.",
     "0_question": "What is CTO as a Service (CTOaaS), and how can it benefit my company?",
     "0_answer": "CTOaaS provides on-demand access to experienced technology leadership without the cost of a full-time executive. It helps enterprises with strategic IT planning, digital transformation, and technical decision-making to scale efficiently.",
     "1_question": "How do you approach ERP implementation for enterprises?",

@@ -38,7 +38,8 @@ import {
   mainCaseStudiesCtaDesc,
   mainCaseStudiesCtaExploreOurCaseStudies,
   mainHeroHeading,
-  mainFaqLearnMore
+  mainFaqLearnMore,
+  mainFaqEyebrow
 } from "@/locales/.generated/strings";
 
 import { AnimatedLines } from "./components/animated-lines";
@@ -177,20 +178,10 @@ function Services({ lang }: HomeParams) {
           <SectionReveal>
             <Link
               href={`/${lang}/services/${featured.slug}`}
-              className="bg-cta-premium group relative mb-6 flex flex-col gap-6 overflow-hidden rounded-2xl p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#635BFF]/20 md:flex-row md:items-center md:p-10 lg:p-12">
+              className="bg-cta-premium group relative mb-6 flex flex-col gap-6 overflow-hidden rounded-2xl p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#635BFF]/20 md:flex-row md:items-center md:p-10 lg:p-12 lg:py-32">
               <AnimatedLines className="pointer-events-none absolute inset-0 h-full w-full opacity-70 transition-opacity duration-700 group-hover:opacity-100" />
               <div className="hero-glow animate-glow top-0 right-0 h-[400px]! w-[400px]! transition-opacity duration-500 group-hover:opacity-80" />
               <div className="relative z-10 flex-1">
-                <span className="mb-4 inline-block text-sm font-medium tracking-wider text-white/40 tabular-nums">
-                  {String(1).padStart(2, "0")}
-                </span>
-                {featured.imageIconUrl && (
-                  <img
-                    src={featured.imageIconUrl}
-                    alt={featured.title}
-                    className="mb-5 h-16 w-16 drop-shadow-lg transition-transform duration-500 group-hover:scale-110"
-                  />
-                )}
                 <h3 className="mb-3 text-2xl font-semibold text-white md:text-3xl">
                   {featured.title}
                 </h3>
@@ -213,10 +204,7 @@ function Services({ lang }: HomeParams) {
             <StaggerItem key={slug}>
               <Link
                 href={`/${lang}/services/${slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-black/6 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6">
-                <span className="text-hyperjump-muted mb-4 text-sm font-medium tracking-wider tabular-nums">
-                  {String(idx + 2).padStart(2, "0")}
-                </span>
+                className="group flex h-full flex-col rounded-2xl border border-black/6 bg-gray-100/35 p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6">
                 {iconUrl && (
                   <img src={iconUrl} alt={title} className="mb-4 h-12 w-12" />
                 )}
@@ -368,14 +356,26 @@ function OpenSourceProducts({ lang }: HomeParams) {
 
 function Faqs({ lang }: HomeParams) {
   return (
-    <section id="faqs" className="bg-hyperjump-surface scroll-mt-20">
-      <div className="mx-auto max-w-3xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
+    <section id="faqs" className="bg-hyperjump-navy relative scroll-mt-20">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px)",
+          backgroundSize: "24px 24px"
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-3xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
         <SectionReveal>
           <div className="mb-12 text-center">
-            <h2 className="text-hyperjump-black mb-4 text-4xl font-semibold tracking-tight md:text-5xl">
+            <span className="text-hyperjump-blue mb-4 inline-block text-xs font-semibold tracking-[0.2em] uppercase">
+              {mainFaqEyebrow(lang)}
+            </span>
+            <h2 className="mb-4 text-4xl font-semibold tracking-tight text-white md:text-5xl">
               {mainFaqHeading(lang)}
             </h2>
-            <p className="text-hyperjump-gray mx-auto max-w-lg text-lg">
+            <p className="mx-auto max-w-lg text-lg text-white/60">
               {mainFaqDesc(lang)}
             </p>
           </div>
@@ -387,16 +387,16 @@ function Faqs({ lang }: HomeParams) {
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="border-b border-black/8 py-1">
-                <AccordionTrigger className="text-hyperjump-black flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left text-lg font-medium no-underline transition hover:no-underline focus:no-underline md:text-xl">
+                className="border-b border-white/10 py-1">
+                <AccordionTrigger className="flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left text-lg font-medium text-white no-underline transition hover:no-underline focus:no-underline md:text-xl">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-hyperjump-gray pb-6 text-base leading-relaxed md:text-lg">
+                <AccordionContent className="pb-6 text-base leading-relaxed text-white/60 md:text-lg">
                   {item.answer}
                   {item?.url && (
                     <Link
                       href={item.url}
-                      className="text-hyperjump-blue mt-3 inline-flex items-center gap-1.5 text-base font-semibold transition-all duration-200 hover:gap-2.5">
+                      className="text-hyperjump-blue mt-3 inline-flex items-center gap-1.5 pl-2 text-base font-semibold transition-all duration-200 hover:gap-2.5">
                       {mainFaqLearnMore(lang)}
                       <ArrowRightIcon className="h-3.5 w-3.5" />
                     </Link>

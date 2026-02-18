@@ -18,7 +18,7 @@ export default async function MainLangLayout({
   return (
     <>
       <ScrollObserver />
-      <div className="relative min-h-screen bg-white">
+      <div className="relative min-h-screen bg-white antialiased">
         <Nav lang={lang as SupportedLanguage} />
         {children}
         <HyperBot

@@ -1,6 +1,5 @@
 import { ArrowRightIcon } from "lucide-react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   BreadcrumbJsonLd,
@@ -9,24 +8,13 @@ import {
   OrganizationJsonLd
 } from "next-seo";
 
-import GridItemsContainer, {
-  GridItems,
-  GridItemsMoreButton,
-  GridItemsTitle
-} from "@/app/components/grid-items";
+import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader
-} from "@/components/ui/card";
 import data from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
@@ -54,6 +42,11 @@ import {
 import { CaseStudyCard } from "./components/case-study-card";
 import { Clients } from "./components/clients";
 import { Location } from "./components/location";
+import {
+  SectionReveal,
+  StaggerItem,
+  StaggerContainer
+} from "./components/motion-wrappers";
 import {
   getCaseStudies,
   getFaqs,
@@ -117,29 +110,38 @@ function Hero({ lang }: HomeParams) {
   return (
     <section
       id="hero"
-      className="bg-hyperjump-black relative h-162 overflow-hidden px-4 text-white md:px-20">
-      <div className="absolute inset-0 z-0">
-        <Image
-          alt="Hero background"
-          blurDataURL="/images/banner-blur.webp"
-          className="object-cover object-center"
-          fill
-          placeholder="blur"
-          priority
-          src="/images/banner.webp"
-        />
-      </div>
+      className="bg-hero-premium relative overflow-hidden text-white">
+      <div className="hero-glow animate-glow top-1/4 left-1/2 -translate-x-1/2" />
+      <div className="hero-glow animate-glow -top-32 right-0 [animation-delay:1.5s]" />
 
-      <div className="relative z-10 flex h-162 flex-col items-center justify-center">
-        <div className="max-w-5xl text-center">
-          <h1 className="mb-4 text-4xl font-medium sm:text-5xl md:mb-6 md:text-6xl">
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 pt-40 pb-20 md:px-20 md:pt-52 md:pb-28 xl:px-0">
+        <div className="max-w-4xl text-center">
+          <h1 className="mb-6 text-5xl leading-[1.08] font-semibold tracking-tight md:text-7xl lg:text-[5.25rem]">
             {mainHeroHeading(lang)}
           </h1>
-          <p className="text-sm font-medium text-white sm:text-base md:text-xl">
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed font-medium text-white/70 md:text-xl">
             {mainHeroDesc(lang)}
           </p>
         </div>
-        <div className="relative top-15">
+
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+          <Button
+            asChild
+            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-12 rounded-full px-8 text-base font-medium text-white shadow-lg shadow-[#635BFF]/25 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#635BFF]/30">
+            <Link href={`/${lang}/services`}>
+              Explore our services
+              <ArrowRightIcon className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="h-12 rounded-full border-white/20 bg-white/5 px-8 text-base font-medium text-white backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] hover:border-white/30 hover:bg-white/10">
+            <Link href={`/${lang}/case-studies`}>View case studies</Link>
+          </Button>
+        </div>
+
+        <div className="mt-20 w-full">
           <Clients clients={data.clients} />
         </div>
       </div>
@@ -148,153 +150,219 @@ function Hero({ lang }: HomeParams) {
 }
 
 function Services({ lang }: HomeParams) {
+  const serviceList = services(lang);
+
   return (
-    <GridItemsContainer id="services">
-      <GridItemsTitle
-        title={mainServicesHeading(lang)}
-        description={mainServicesDesc(lang)}
-      />
-      <GridItems
-        items={services(lang).map(({ description, iconUrl, slug, title }) => ({
-          title,
-          description,
-          icon: iconUrl,
-          urlSeeMore: `/${lang}/services/${slug}`
-        }))}
-        columns={{ base: 1, sm: 2, lg: 3 }}
-        cardClassName="rounded"
-        lang={lang}
-      />
-      <div className="mt-10 flex w-full items-center justify-center">
-        <Button
-          variant="default"
-          className="bg-hyperjump-blue hover:bg-hyperjump-blue/90"
-          asChild>
-          <Link href={`/${lang}/services`}>{mainViewMore(lang)}</Link>
-        </Button>
+    <section id="services" className="scroll-mt-20 bg-white">
+      <div className="mx-auto max-w-5xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
+        <SectionReveal>
+          <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <h2 className="text-hyperjump-black text-4xl font-semibold tracking-tight md:text-5xl">
+              {mainServicesHeading(lang)}
+            </h2>
+            <p className="text-hyperjump-gray max-w-md text-lg">
+              {mainServicesDesc(lang)}
+            </p>
+          </div>
+        </SectionReveal>
+
+        <StaggerContainer className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {serviceList.map(({ description, iconUrl, slug, title }, idx) => (
+            <StaggerItem key={slug}>
+              <Link
+                href={`/${lang}/services/${slug}`}
+                className="group flex h-full flex-col rounded-2xl border border-black/6 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6">
+                <span className="text-hyperjump-muted mb-6 text-sm font-medium tracking-wider">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                {iconUrl && (
+                  <img src={iconUrl} alt={title} className="mb-5 h-14 w-14" />
+                )}
+                <h3 className="text-hyperjump-black mb-2 text-xl font-semibold">
+                  {title}
+                </h3>
+                <p className="text-hyperjump-gray mb-6 flex-1 text-[15px] leading-relaxed">
+                  {description}
+                </p>
+                <span className="text-hyperjump-blue inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-2.5">
+                  Learn more
+                  <ArrowRightIcon className="h-3.5 w-3.5" />
+                </span>
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        <SectionReveal>
+          <div className="mt-12 flex w-full items-center justify-center">
+            <Button
+              variant="outline"
+              className="text-hyperjump-blue border-hyperjump-blue/20 hover:bg-hyperjump-blue h-11 rounded-full px-8 font-semibold transition-all duration-200 hover:scale-[1.02] hover:text-white"
+              asChild>
+              <Link href={`/${lang}/services`}>{mainViewMore(lang)}</Link>
+            </Button>
+          </div>
+        </SectionReveal>
       </div>
-    </GridItemsContainer>
+    </section>
   );
 }
 
 function CaseStudies({ lang }: HomeParams) {
   return (
-    <GridItemsContainer className="bg-[#F6F8F9]" id="case-studies">
-      <GridItemsTitle
-        className="bg-[#F6F8F9]"
-        title={mainCaseStudiesHeading(lang)}
-        description={mainCaseStudiesDesc(lang)}
-      />
-      <div className="grid gap-6 md:grid-cols-3">
-        {getCaseStudies(lang).map((caseStudy) => (
-          <CaseStudyCard
-            key={caseStudy.slug}
-            caseStudy={caseStudy}
-            lang={lang}
-          />
-        ))}
+    <section id="case-studies" className="bg-hyperjump-surface scroll-mt-20">
+      <div className="mx-auto max-w-5xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
+        <SectionReveal>
+          <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <h2 className="text-hyperjump-black text-4xl font-semibold tracking-tight md:text-5xl">
+              {mainCaseStudiesHeading(lang)}
+            </h2>
+            <p className="text-hyperjump-gray max-w-md text-lg">
+              {mainCaseStudiesDesc(lang)}
+            </p>
+          </div>
+        </SectionReveal>
+
+        <StaggerContainer className="grid gap-6 md:grid-cols-3">
+          {getCaseStudies(lang).map((caseStudy) => (
+            <StaggerItem key={caseStudy.slug}>
+              <CaseStudyCard caseStudy={caseStudy} lang={lang} />
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        <SectionReveal>
+          <div className="bg-cta-premium relative mt-16 w-full overflow-hidden rounded-3xl">
+            <div className="hero-glow animate-glow top-0 right-0 h-[400px]! w-[400px]!" />
+            <div className="relative flex flex-col items-center justify-center px-8 py-16 text-center md:py-20">
+              <h3 className="mb-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                {mainCaseStudiesCtaHeading(lang)}
+              </h3>
+              <p className="mt-2 max-w-lg text-lg text-white/60">
+                {mainCaseStudiesCtaDesc(lang)}
+              </p>
+              <Button
+                asChild
+                className="mt-8 h-12 rounded-full border border-white/20 bg-white/10 px-8 text-base font-medium text-white backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] hover:bg-white/20">
+                <Link href={`${lang}/case-studies`}>
+                  {mainCaseStudiesCtaExploreOurCaseStudies(lang)}
+                  <ArrowRightIcon className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </SectionReveal>
       </div>
-      <div className="relative mt-10 w-full max-w-5xl overflow-hidden rounded">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/swatch.svg"
-            alt="Footer background"
-            width={1440}
-            height={308}
-            className="pointer-events-none h-full object-cover select-none"
-            style={{
-              background:
-                "linear-gradient(134.7deg, #5954DA 3.43%, #0B0B0D 48.93%)"
-            }}
-          />
-        </div>
-        <div className="relative flex flex-col items-center justify-center px-6 py-11 text-center">
-          <h3 className="text-3xl font-medium">
-            {mainCaseStudiesCtaHeading(lang)}
-          </h3>
-          <p className="mt-3 max-w-xl">{mainCaseStudiesCtaDesc(lang)}</p>
-          <Button
-            asChild
-            variant="outline"
-            className="mt-8 bg-transparent font-semibold text-white hover:bg-white">
-            <Link href={`${lang}/case-studies`}>
-              {mainCaseStudiesCtaExploreOurCaseStudies(lang)}
-            </Link>
-          </Button>
-        </div>
-      </div>
-    </GridItemsContainer>
+    </section>
   );
 }
 
 function OpenSourceProducts({ lang }: HomeParams) {
+  const projects = getProject(lang);
+
   return (
-    <GridItemsContainer id="open-source">
-      <GridItemsTitle
-        title={mainProjectHeading(lang)}
-        description={mainProjectDesc(lang)}
-      />
-      <GridItems
-        items={getProject(lang)}
-        columns={{ base: 1, sm: 2, lg: 3 }}
-        cardClassName="rounded"
-        lang={lang}
-      />
-      <GridItemsMoreButton
-        text={mainViewMore(lang)}
-        variant="outline"
-        href={github}
-      />
-    </GridItemsContainer>
+    <section id="open-source" className="scroll-mt-20 bg-white">
+      <div className="mx-auto max-w-5xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
+        <SectionReveal>
+          <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <h2 className="text-hyperjump-black text-4xl font-semibold tracking-tight md:text-5xl">
+              {mainProjectHeading(lang)}
+            </h2>
+            <p className="text-hyperjump-gray max-w-md text-lg">
+              {mainProjectDesc(lang)}
+            </p>
+          </div>
+        </SectionReveal>
+
+        <StaggerContainer className="grid gap-5 md:grid-cols-3">
+          {projects.map((project) => (
+            <StaggerItem key={project.title}>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex h-full flex-col rounded-2xl border border-black/6 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6">
+                {project.image && (
+                  <div className="bg-hyperjump-surface -mx-7 -mt-7 mb-5 overflow-hidden rounded-t-2xl">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-auto w-full object-cover"
+                    />
+                  </div>
+                )}
+                <h3 className="text-hyperjump-black mb-2 text-xl font-semibold">
+                  {project.title}
+                </h3>
+                <p className="text-hyperjump-gray mb-6 flex-1 text-[15px] leading-relaxed">
+                  {project.description}
+                </p>
+                <span className="text-hyperjump-blue inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-2.5">
+                  View on GitHub
+                  <ArrowRightIcon className="h-3.5 w-3.5" />
+                </span>
+              </a>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        <SectionReveal>
+          <div className="mt-12 flex w-full items-center justify-center">
+            <Button
+              variant="outline"
+              className="text-hyperjump-blue border-hyperjump-blue/20 hover:bg-hyperjump-blue h-11 rounded-full px-8 font-semibold transition-all duration-200 hover:scale-[1.02] hover:text-white"
+              asChild>
+              <Link href={github} target="_blank" rel="noreferrer noopener">
+                {mainViewMore(lang)}
+              </Link>
+            </Button>
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
   );
 }
 
 function Faqs({ lang }: HomeParams) {
   return (
-    <section id="faqs" className="scroll-mt-20 bg-[#F6F8F9] py-10">
-      <div className="mx-auto flex flex-wrap items-center justify-center px-4 py-5 md:px-20 md:py-8">
-        <div className="w-full">
-          <GridItemsTitle
-            title={mainFaqHeading(lang)}
-            description={mainFaqDesc(lang)}
-            layout="vertical"
-            descriptionClassname="w-full md:max-w-2xl"
-            className="bg-[#F6F8F9]"
-          />
-          <Accordion
-            type="single"
-            collapsible
-            className="mx-auto w-full max-w-5xl space-y-4">
+    <section id="faqs" className="bg-hyperjump-surface scroll-mt-20">
+      <div className="mx-auto max-w-3xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
+        <SectionReveal>
+          <div className="mb-12 text-center">
+            <h2 className="text-hyperjump-black mb-4 text-4xl font-semibold tracking-tight md:text-5xl">
+              {mainFaqHeading(lang)}
+            </h2>
+            <p className="text-hyperjump-gray mx-auto max-w-lg text-lg">
+              {mainFaqDesc(lang)}
+            </p>
+          </div>
+        </SectionReveal>
+
+        <SectionReveal>
+          <Accordion type="single" collapsible className="w-full">
             {getFaqs(lang).map((item, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} asChild>
-                <Card className="w-full border border-gray-200 bg-white shadow-xs transition-all duration-300">
-                  <CardHeader className="px-4 py-2">
-                    <AccordionTrigger className="flex w-full cursor-pointer items-center justify-between gap-2 text-left text-xl font-medium text-[#020F15] no-underline transition hover:no-underline focus:no-underline">
-                      {item.question}
-                    </AccordionTrigger>
-                  </CardHeader>
-                  <AccordionContent asChild>
-                    <CardContent className="flex flex-col gap-4 px-4 pt-0 pb-4 text-base text-[#61656E] lg:text-lg">
-                      {item.answer}
-                    </CardContent>
-                    {item?.url && (
-                      <CardFooter className="p-0 px-4">
-                        <Link
-                          href={item?.url}
-                          className="flex w-max cursor-pointer flex-row items-center justify-center gap-1 rounded-none border-b border-black px-0 text-black hover:no-underline lg:text-lg">
-                          {mainFaqLearnMore(lang)}
-                          <span>
-                            <ArrowRightIcon className="h-4 w-4" />
-                          </span>
-                        </Link>
-                      </CardFooter>
-                    )}
-                  </AccordionContent>
-                </Card>
+              <AccordionItem
+                key={i}
+                value={`faq-${i}`}
+                className="border-b border-black/8 py-1">
+                <AccordionTrigger className="text-hyperjump-black flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left text-lg font-medium no-underline transition hover:no-underline focus:no-underline md:text-xl">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-hyperjump-gray pb-6 text-base leading-relaxed md:text-lg">
+                  {item.answer}
+                  {item?.url && (
+                    <Link
+                      href={item.url}
+                      className="text-hyperjump-blue mt-3 inline-flex items-center gap-1.5 text-base font-semibold transition-all duration-200 hover:gap-2.5">
+                      {mainFaqLearnMore(lang)}
+                      <ArrowRightIcon className="h-3.5 w-3.5" />
+                    </Link>
+                  )}
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </SectionReveal>
       </div>
     </section>
   );

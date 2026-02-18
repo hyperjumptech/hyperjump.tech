@@ -1,48 +1,48 @@
 {
   "hero": {
-    "heading": "Your partner in building reliable, modern software",
-    "desc": "We help organizations deliver scalable, high\u2011quality digital systems through engineering excellence and cloud\u2011native technology."
+    "heading": "We engineer the software that powers what's next",
+    "desc": "Enterprise-grade engineering for teams building at scale. From AI to ERP to cloud\u2011native SaaS\u2014we turn complexity into your competitive edge."
   },
   "view_more": "View more",
   "see_more": "See more",
   "see_less": "See less",
   "our_location": "Our location",
   "open_in_google_maps": "Open in Google Maps",
-  "footer": "PT Artha Rajamas Mandiri (Hyperjump) is an open-source-first company providing engineering excellence service. We aim to build and commercialize open-source tools to help companies streamline, simplify, and secure the most important aspects of its modern DevOps practices.",
+  "footer": "Engineering excellence, open-source first. We build and commercialize tools that help companies streamline, simplify, and secure modern DevOps.",
   "case_studies_cta": {
-    "heading": "Solve what's holding you back",
-    "desc": "Whether you're dealing with legacy systems, operational bottlenecks, or scaling pains. We're here to help you untangle the mess and build what's next.",
+    "heading": "Ready to build what\u2019s next?",
+    "desc": "We partner with ambitious teams to solve hard engineering problems. Let\u2019s talk about yours.",
     "explore_our_case_studies": "Explore Our Case Studies"
   },
   "nav_items": {
-    "0_label": "Our Services",
+    "0_label": "Services",
     "1_label": "Case Studies",
-    "2_label": "Our Products",
+    "2_label": "Products",
     "3_label": "FAQ",
     "4_label": "Team"
   },
   "services": {
-    "heading": "Services",
-    "desc": "We offer expert technology solutions to help businesses scale, enhance efficiency, optimize operations, and drive continuous innovation."
+    "heading": "What we do",
+    "desc": "Five disciplines. One standard: engineering excellence."
   },
   "case_studies": {
-    "heading": "Case studies",
-    "desc": "Discover how we successfully transform challenges into opportunities with real-world solutions that drive lasting impact and business growth.",
+    "heading": "Proven impact",
+    "desc": "Real-world solutions that drive lasting business growth.",
     "button": "Read case study"
   },
   "project": {
-    "heading": "Open source product",
-    "desc": "Explore our open-source projects and see how we innovate, collaborate, and build solutions that drive real impact. Join our community and contribute to cutting-edge technology.",
+    "heading": "Open source",
+    "desc": "Tools we\u2019ve built, open for everyone. Explore, contribute, and build with us.",
     "0_title": "Grule",
-    "0_text": "Grule is a powerful open-source rule engine for Go that lets you define business rules in a human-readable format—making your app more flexible and maintainable.",
+    "0_text": "A powerful open-source rule engine for Go. Define business rules in a human-readable format\u2014making your app more flexible and maintainable.",
     "1_title": "Monika",
-    "1_text": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.",
+    "1_text": "Command-line monitoring for every part of your web app. Get alerts when your site is down or slow, configured with a simple JSON file.",
     "2_title": "WhatsApp Chatbot Connector",
-    "2_text": "WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa."
+    "2_text": "Backend connector for the WhatsApp Business API. Integrates with AI platforms like Dify and Rasa out of the box."
   },
   "faq": {
-    "heading": "Frequently asked questions",
-    "desc": "Find answers to commonly asked questions. If you need further assistance, feel free to reach out to us.",
+    "heading": "Common questions",
+    "desc": "Everything you need to know. Can\u2019t find an answer? Reach out to us directly.",
     "0_question": "What is CTO as a Service (CTOaaS), and how can it benefit my company?",
     "0_answer": "CTOaaS provides on-demand access to experienced technology leadership without the cost of a full-time executive. It helps enterprises with strategic IT planning, digital transformation, and technical decision-making to scale efficiently.",
     "1_question": "How do you approach ERP implementation for enterprises?",

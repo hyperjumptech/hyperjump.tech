@@ -19,9 +19,13 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         "smdd-red": "#cb3635",
-        "hyperjump-blue": "#3276F5",
-        "hyperjump-black": "#020F15",
-        "hyperjump-gray": "#73767E",
+        "hyperjump-blue": "#635BFF",
+        "hyperjump-black": "#0A2540",
+        "hyperjump-gray": "#425466",
+        "hyperjump-muted": "#8898AA",
+        "hyperjump-navy": "#0A0E27",
+        "hyperjump-surface": "#FAFBFC",
+        "hyperjump-teal": "#00D4AA",
         "inferenceai-indigo": "#050013",
         card: {
           DEFAULT: "hsl(var(--card))",
@@ -69,42 +73,47 @@ const config: Config = {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0"
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)"
-          }
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" }
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)"
-          },
-          to: {
-            height: "0"
-          }
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" }
         },
         "fade-in-up": {
-          from: {
-            opacity: 0,
-            transform: "translateY(128px)"
-          },
-          to: {
-            opacity: 1,
-            transform: "translateY(0)"
-          }
+          from: { opacity: "0", transform: "translateY(128px)" },
+          to: { opacity: "1", transform: "translateY(0)" }
+        },
+        "slide-up": {
+          from: { opacity: "0", transform: "translateY(40px)" },
+          to: { opacity: "1", transform: "translateY(0)" }
+        },
+        glow: {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" }
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" }
         }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in-up": "fade-in-up 1s ease-in-out forwards"
+        "fade-in-up": "fade-in-up 1s ease-in-out forwards",
+        "slide-up": "slide-up 0.6s ease-out forwards",
+        glow: "glow 3s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite"
       },
       backgroundImage: {
         "section-gradient":
           "linear-gradient(0deg, #050013, #050013), linear-gradient(180deg, #1513374D 0%, #15133700 23.58%)",
         "services-hero":
-          " linear-gradient(180deg, rgba(50, 118, 245, 0.3) 0%, rgba(50, 118, 245, 0) 65.67%)"
+          "linear-gradient(180deg, rgba(99, 91, 255, 0.3) 0%, rgba(99, 91, 255, 0) 65.67%)",
+        "hero-premium":
+          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 91, 255, 0.15), transparent), linear-gradient(180deg, #0A0E27 0%, #0F1735 50%, #0A0E27 100%)",
+        "cta-premium":
+          "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(99, 91, 255, 0.2), transparent), linear-gradient(135deg, #0A0E27 0%, #1a1145 100%)"
       }
     }
   },

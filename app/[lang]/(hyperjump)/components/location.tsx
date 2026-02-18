@@ -40,6 +40,15 @@ export function Location({ lang, location }: LocationProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [clipInset, setClipInset] = useState<string | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const computeClipPath = useCallback(() => {
     const section = sectionRef.current;
@@ -63,7 +72,7 @@ export function Location({ lang, location }: LocationProps) {
     return () => window.removeEventListener("resize", computeClipPath);
   }, [computeClipPath]);
 
-  const h = isHovered;
+  const h = isDesktop && isHovered;
 
   return (
     <motion.section
@@ -74,30 +83,32 @@ export function Location({ lang, location }: LocationProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
       viewport={{ once: true, amount: 0.1 }}>
-      {/* Full-bleed background image with animated clip-path */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          clipPath: h ? REVEALED_CLIP : (clipInset ?? FALLBACK_CLIP),
-          transition: "clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1)"
-        }}>
-        <Image
-          src={imageUrl}
-          alt={title}
-          fill
-          className={`object-cover object-center transition-transform duration-800 ease-in-out ${
-            h ? "scale-100" : "scale-[0.7]"
-          }`}
-        />
+      {/* Desktop: full-bleed background image with animated clip-path */}
+      {isDesktop && (
         <div
-          className="absolute inset-0 transition-opacity duration-700"
+          className="pointer-events-none absolute inset-0 z-0"
           style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65))",
-            opacity: h ? 1 : 0
-          }}
-        />
-      </div>
+            clipPath: h ? REVEALED_CLIP : (clipInset ?? FALLBACK_CLIP),
+            transition: "clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1)"
+          }}>
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            className={`object-cover object-center transition-transform duration-800 ease-in-out ${
+              h ? "scale-100" : "scale-[0.7]"
+            }`}
+          />
+          <div
+            className="absolute inset-0 transition-opacity duration-700"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65))",
+              opacity: h ? 1 : 0
+            }}
+          />
+        </div>
+      )}
 
       <div className="relative z-10 mx-auto max-w-5xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
         <div className="mb-16 text-center">
@@ -122,19 +133,33 @@ export function Location({ lang, location }: LocationProps) {
         </div>
 
         <div
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}>
-          {/* Clip-path reference area */}
-          <div
-            ref={cardRef}
-            className="relative h-64 rounded-2xl sm:h-80 md:h-96 lg:h-112">
-            <span
-              className={`pointer-events-none absolute inset-0 flex items-center justify-center text-[clamp(4rem,15vw,12rem)] font-black tracking-tight text-white transition-all duration-700 select-none ${
-                h ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-              }`}>
-              JAKARTA
-            </span>
-          </div>
+          onMouseEnter={isDesktop ? () => setIsHovered(true) : undefined}
+          onMouseLeave={isDesktop ? () => setIsHovered(false) : undefined}>
+          {/* Mobile: static full-width image */}
+          {!isDesktop && (
+            <div className="-mx-4 overflow-hidden">
+              <div className="relative h-64 sm:h-80">
+                <Image
+                  src={imageUrl}
+                  alt={title}
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Desktop: invisible clip-path reference area */}
+          {isDesktop && (
+            <div ref={cardRef} className="relative h-96 rounded-2xl lg:h-112">
+              <span
+                className={`pointer-events-none absolute inset-0 flex items-center justify-center text-[clamp(4rem,15vw,12rem)] font-black tracking-tight text-white transition-all duration-700 select-none ${
+                  h ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+                }`}>
+                JAKARTA
+              </span>
+            </div>
+          )}
 
           <div
             className={`mt-8 flex flex-col gap-8 border-t pt-8 transition-colors duration-500 md:mt-10 md:flex-row md:items-start md:justify-between md:pt-10 ${

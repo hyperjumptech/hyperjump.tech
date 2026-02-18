@@ -130,7 +130,7 @@ function Hero({ lang }: HomeParams) {
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
           <Button
             asChild
-            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-12 rounded-2xl px-8 text-base font-medium text-white shadow-lg shadow-[#635BFF]/25 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#635BFF]/30">
+            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-12 rounded-full px-8 text-base font-medium text-white shadow-lg shadow-[#635BFF]/25 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#635BFF]/30">
             <Link href={`/${lang}/services`}>
               Explore our services
               <ArrowRightIcon className="ml-2 h-4 w-4" />
@@ -139,7 +139,7 @@ function Hero({ lang }: HomeParams) {
           <Button
             asChild
             variant="outline"
-            className="h-12 rounded-full border-white/20 bg-white/5 px-8 text-base font-medium text-white backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] hover:border-white/30 hover:bg-white/10">
+            className="h-12 rounded-full border-white/20 bg-white/5 px-8 text-base font-medium text-white backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] hover:border-white/30 hover:bg-white/10 hover:text-white">
             <Link href={`/${lang}/case-studies`}>View case studies</Link>
           </Button>
         </div>

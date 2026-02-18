@@ -167,7 +167,7 @@ export default async function ProductsPage({ params }: ProductsProps) {
             02
           </span>
           <div className="relative z-10 mx-auto max-w-5xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
-            <StaggerContainer className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {restCommercial.map((product) => (
                 <StaggerItem key={product.title}>
                   <CommercialCard product={product} lang={lang} />

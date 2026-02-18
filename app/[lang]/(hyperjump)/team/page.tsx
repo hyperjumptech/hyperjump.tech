@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
 import { BreadcrumbJsonLd, ProfilePageJsonLd } from "next-seo";
 
@@ -96,7 +96,7 @@ export default async function TeamSection({ params }: TeamsProps) {
                 target="_blank"
                 rel="noreferrer noopener">
                 And more
-                <ArrowRightIcon className="ml-2 h-4 w-4" />
+                <ArrowUpRightIcon className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>

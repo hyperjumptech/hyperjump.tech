@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { GitFork, Star } from "lucide-react";
+import { ArrowUpRightIcon, GitFork, Star } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -152,6 +152,23 @@ export function OSSSection({ products }: OSSSectionProps) {
             );
           })}
         </StaggerContainer>
+
+        <SectionReveal delay={0.2}>
+          <div className="mt-12 text-center">
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full border-white/20 bg-white/5 px-8 py-3 text-base font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/30 hover:bg-white/10 hover:text-white">
+              <Link
+                href="https://github.com/hyperjumptech"
+                target="_blank"
+                rel="noopener noreferrer">
+                And more
+                <ArrowUpRightIcon className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </SectionReveal>
       </div>
     </section>
   );

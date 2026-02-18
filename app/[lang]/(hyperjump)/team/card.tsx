@@ -21,9 +21,9 @@ export function TeamCard({
   return (
     <div>
       <div
-        className={`flex h-auto flex-col rounded-xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg ${isFeatured ? "md:h-170" : "md:h-160"} `}>
+        className={`team-card flex h-auto flex-col rounded-xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg ${isFeatured ? "md:h-170" : "md:h-160"} `}>
         <div
-          className={`relative h-100 w-full overflow-hidden rounded-t-xl bg-gray-100 ${
+          className={`team-card-image relative h-100 w-full overflow-hidden rounded-t-xl bg-gray-100 ${
             isFeatured ? "md:h-110" : "md:h-80"
           }`}>
           <Image
@@ -35,7 +35,7 @@ export function TeamCard({
                 ? "(min-width: 768px) 50vw, 100vw"
                 : "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
             }
-            className="object-cover grayscale"
+            className="object-cover"
             priority={isFeatured}
           />
         </div>

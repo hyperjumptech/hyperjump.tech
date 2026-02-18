@@ -7,13 +7,17 @@ const WORDS = [
   "DevOps",
   "AI",
   "Java",
+  "PostgreSQL",
   "TypeScript",
-  "JavaScript",
   "Swift",
   "Kotlin",
   "React",
   "Go",
-  "React Native"
+  "React Native",
+  "JavaScript",
+  "Docker",
+  "Python",
+  "SQL"
 ];
 
 const TYPE_SPEED = 80;

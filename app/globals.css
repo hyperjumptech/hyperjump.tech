@@ -284,6 +284,16 @@
   }
 }
 
+/* Team card grayscale-to-color hover */
+.team-card-image {
+  filter: grayscale(100%);
+  transition: filter 300ms;
+}
+
+.team-card:hover .team-card-image {
+  filter: grayscale(0);
+}
+
 /* Premium hero glow orb */
 .hero-glow {
   position: absolute;

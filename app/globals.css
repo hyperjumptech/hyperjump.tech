@@ -294,17 +294,19 @@
   filter: grayscale(0);
 }
 
-/* Premium hero glow orb */
+/* Premium hero glow orb — soft gradient instead of filter blur for perf */
 .hero-glow {
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 700px;
+  height: 700px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(99, 91, 255, 0.12) 0%,
+    rgba(99, 91, 255, 0.1) 0%,
+    rgba(99, 91, 255, 0.05) 25%,
+    rgba(99, 91, 255, 0.015) 50%,
     transparent 70%
   );
-  filter: blur(80px);
   pointer-events: none;
+  will-change: opacity;
 }

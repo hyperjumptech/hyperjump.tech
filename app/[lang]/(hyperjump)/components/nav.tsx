@@ -61,13 +61,13 @@ export default function Nav({ lang }: NavProps) {
     <StickyNavigationMain>
       <NavContainer
         className={cn(
-          "w-full transition-all duration-500",
+          "w-full transition-[background-color,border-color] duration-500",
           isTransparent && !isOpen
-            ? "group-data-[scroll=true]:glass group-data-[scroll=false]:bg-transparent group-data-[scroll=true]:border-b group-data-[scroll=true]:border-black/6"
+            ? "group-data-[scroll=false]:bg-transparent group-data-[scroll=true]:border-b group-data-[scroll=true]:border-black/6 group-data-[scroll=true]:bg-white/95"
             : "bg-transparent",
-          isOpen && "glass border-b border-black/6",
+          isOpen && "border-b border-black/6 bg-white/95",
           !isTransparent &&
-            "group-data-[scroll=true]:glass group-data-[scroll=true]:border-b group-data-[scroll=true]:border-black/6"
+            "group-data-[scroll=true]:border-b group-data-[scroll=true]:border-black/6 group-data-[scroll=true]:bg-white/95"
         )}>
         <div className="mx-auto flex w-5xl items-center justify-between px-4 md:px-20 xl:px-0">
           <Link
@@ -149,7 +149,7 @@ export default function Nav({ lang }: NavProps) {
       </NavContainer>
 
       {isOpen && (
-        <div className="glass border-b border-black/6 lg:hidden">
+        <div className="border-b border-black/6 bg-white/95 lg:hidden">
           <div className="mx-auto flex w-full flex-col gap-1 px-4 py-4 md:px-20 xl:px-0">
             {menu(lang).map(({ href, label }) => {
               const isActive = pathname.startsWith(href);
@@ -185,7 +185,7 @@ function NavContainer({
   return (
     <div
       className={cn(
-        "mx-auto mt-0 flex w-full flex-wrap items-center justify-between border border-transparent py-2.5 transition-all duration-500 md:py-3.5",
+        "mx-auto mt-0 flex w-full flex-wrap items-center justify-between border border-transparent py-2.5 transition-[background-color,border-color] duration-500 md:py-3.5",
         className
       )}>
       {children}

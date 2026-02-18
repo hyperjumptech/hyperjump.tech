@@ -150,8 +150,10 @@ export function AnimatedLines({ className }: { className?: string }) {
     if (!svg) return;
 
     let startTime: number | null = null;
+    let isVisible = false;
 
     function animate(timestamp: number) {
+      if (!isVisible) return;
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
 
@@ -177,8 +179,23 @@ export function AnimatedLines({ className }: { className?: string }) {
       rafRef.current = requestAnimationFrame(animate);
     }
 
-    rafRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafRef.current);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          rafRef.current = requestAnimationFrame(animate);
+        } else {
+          cancelAnimationFrame(rafRef.current);
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(svg);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   const parsedColors = RIBBONS.map((r) => ({

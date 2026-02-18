@@ -31,7 +31,6 @@ const SOLID_NAV_PATHS = [
   "/case-studies",
   "/jobs",
   "/products",
-  "/team",
   ...data.jobs.map(({ id }) => `/jobs/${id}`)
 ];
 const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(

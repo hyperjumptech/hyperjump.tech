@@ -72,21 +72,35 @@ export function Typewriter() {
   }, [displayed, phase, wordIndex]);
 
   return (
-    <span className="inline-flex items-baseline text-yellow-300">
-      <AnimatePresence mode="popLayout">
+    <span className="inline-grid justify-items-center align-baseline text-yellow-300">
+      {WORDS.map((w) => (
+        <span
+          key={w}
+          className="invisible col-start-1 row-start-1 md:hidden"
+          aria-hidden="true">
+          {w}
+        </span>
+      ))}
+      <span className="col-start-1 row-start-1 inline-flex items-baseline">
+        <AnimatePresence mode="popLayout">
+          <motion.span
+            key={displayed}
+            initial={{ opacity: 0.8 }}
+            animate={{ opacity: 1 }}
+            className="inline-block">
+            {displayed}
+          </motion.span>
+        </AnimatePresence>
         <motion.span
-          key={displayed}
-          initial={{ opacity: 0.8 }}
-          animate={{ opacity: 1 }}
-          className="inline-block">
-          {displayed}
-        </motion.span>
-      </AnimatePresence>
-      <motion.span
-        animate={{ opacity: [1, 0] }}
-        transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
-        className="ml-[2px] inline-block h-[0.85em] w-[3px] translate-y-[0.05em] rounded-full bg-current"
-      />
+          animate={{ opacity: [1, 0] }}
+          transition={{
+            duration: 0.6,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
+          className="ml-[2px] inline-block h-[0.85em] w-[3px] translate-y-[0.05em] rounded-full bg-current"
+        />
+      </span>
     </span>
   );
 }

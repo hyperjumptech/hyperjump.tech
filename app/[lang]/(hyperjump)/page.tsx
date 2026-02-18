@@ -306,7 +306,7 @@ function OpenSourceProducts({ lang }: HomeParams) {
             <h2 className="text-hyperjump-black text-4xl font-semibold tracking-tight md:text-5xl">
               {mainProjectHeading(lang)}
             </h2>
-            <p className="text-hyperjump-gray max-w-md text-right text-lg">
+            <p className="text-hyperjump-gray max-w-md text-left text-lg md:text-right">
               <span
                 dangerouslySetInnerHTML={{ __html: mainProjectDesc(lang) }}
               />

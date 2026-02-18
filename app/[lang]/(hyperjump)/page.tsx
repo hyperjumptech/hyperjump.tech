@@ -115,6 +115,7 @@ function Hero({ lang }: HomeParams) {
     <section
       id="hero"
       className="bg-hero-premium relative overflow-hidden text-white">
+      <div className="pointer-events-none absolute -top-[120px] left-1/2 h-[350px] w-[700px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,91,255,0.3)_0%,rgba(99,91,255,0.08)_40%,transparent_70%)] blur-[60px]" />
       <div className="hero-glow animate-glow top-1/4 left-1/2 -translate-x-1/2" />
       <div className="hero-glow animate-glow -top-32 right-0 [animation-delay:1.5s]" />
 

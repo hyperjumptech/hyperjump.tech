@@ -85,7 +85,9 @@ export function Location({ lang, location }: LocationProps) {
           src={imageUrl}
           alt={title}
           fill
-          className="object-cover object-center"
+          className={`object-cover object-center transition-transform duration-800 ease-in-out ${
+            h ? "scale-100" : "scale-[0.7]"
+          }`}
         />
         <div
           className="absolute inset-0 transition-opacity duration-700"

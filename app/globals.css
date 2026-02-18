@@ -233,6 +233,57 @@
   }
 }
 
+/* Open-source card image hover animations */
+.oss-card:hover .oss-hover-pulse-grow {
+  animation: pulse-grow 1.5s ease-in-out infinite;
+}
+.oss-card:hover .oss-hover-wiggle {
+  animation: wiggle 0.6s ease-in-out infinite;
+}
+.oss-card:hover .oss-hover-stretch-x {
+  animation: stretch-x 1s ease-in-out infinite;
+}
+
+@keyframes pulse-grow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-3deg);
+  }
+  40% {
+    transform: rotate(3deg);
+  }
+  60% {
+    transform: rotate(-2deg);
+  }
+  80% {
+    transform: rotate(2deg);
+  }
+}
+@keyframes stretch-x {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  25% {
+    transform: scaleX(1.05);
+  }
+  75% {
+    transform: scaleX(0.95);
+  }
+}
+
 /* Premium hero glow orb */
 .hero-glow {
   position: absolute;

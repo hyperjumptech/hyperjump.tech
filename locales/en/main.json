@@ -34,7 +34,7 @@
   },
   "project": {
     "heading": "Open source",
-    "desc": "Tools we\u2019ve built, open for everyone. Explore, contribute, and build with us.",
+    "desc": "Tools we\u2019ve built, open for everyone.<br/>Explore, contribute, and build with us.",
     "0_title": "Grule",
     "0_text": "A powerful open-source rule engine for Go. Define business rules in a human-readable format\u2014making your app more flexible and maintainable.",
     "1_title": "Monika",

@@ -288,6 +288,12 @@ function CaseStudies({ lang }: HomeParams) {
   );
 }
 
+const PROJECT_HOVER_ANIMATIONS = [
+  "oss-hover-pulse-grow",
+  "oss-hover-wiggle",
+  "oss-hover-stretch-x"
+];
+
 function OpenSourceProducts({ lang }: HomeParams) {
   const projects = getProject(lang);
 
@@ -299,26 +305,28 @@ function OpenSourceProducts({ lang }: HomeParams) {
             <h2 className="text-hyperjump-black text-4xl font-semibold tracking-tight md:text-5xl">
               {mainProjectHeading(lang)}
             </h2>
-            <p className="text-hyperjump-gray max-w-md text-lg">
-              {mainProjectDesc(lang)}
+            <p className="text-hyperjump-gray max-w-md text-right text-lg">
+              <span
+                dangerouslySetInnerHTML={{ __html: mainProjectDesc(lang) }}
+              />
             </p>
           </div>
         </SectionReveal>
 
         <StaggerContainer className="grid gap-5 md:grid-cols-3">
-          {projects.map((project) => (
+          {projects.map((project, idx) => (
             <StaggerItem key={project.title}>
               <a
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col rounded-2xl border border-black/6 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6">
+                className="oss-card group flex h-full flex-col rounded-2xl border border-black/6 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6">
                 {project.image && (
-                  <div className="bg-hyperjump-surface -mx-7 -mt-7 mb-5 overflow-hidden rounded-t-2xl">
+                  <div className="bg-hyperjump-surface -mx-7 -mt-7 mb-5 h-48 overflow-hidden rounded-t-2xl">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="h-auto w-full object-cover"
+                      className={`h-full w-full scale-105 object-cover ${PROJECT_HOVER_ANIMATIONS[idx] ?? ""}`}
                     />
                   </div>
                 )}

@@ -30,7 +30,6 @@ import { data } from "../jobs/data";
 const SOLID_NAV_PATHS = [
   "/case-studies",
   "/jobs",
-  "/services",
   "/products",
   "/team",
   ...data.jobs.map(({ id }) => `/jobs/${id}`)

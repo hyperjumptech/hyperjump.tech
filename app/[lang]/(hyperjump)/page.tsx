@@ -377,7 +377,7 @@ function Faqs({ lang }: HomeParams) {
       <div className="relative z-10 mx-auto max-w-3xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
         <SectionReveal>
           <div className="mb-12 text-center">
-            <span className="text-hyperjump-blue mb-4 inline-block text-xs font-semibold tracking-[0.2em] uppercase">
+            <span className="mb-4 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
               {mainFaqEyebrow(lang)}
             </span>
             <h2 className="mb-4 text-4xl font-semibold tracking-tight text-white md:text-5xl">

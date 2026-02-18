@@ -46,7 +46,7 @@ export default async function TeamSection({ params }: TeamsProps) {
 
         <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 pt-40 pb-20 md:px-20 md:pt-52 md:pb-28 xl:px-0">
           <div className="max-w-4xl text-center">
-            <span className="text-hyperjump-blue mb-5 inline-block text-xs font-semibold tracking-[0.2em] uppercase">
+            <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
               Our Team
             </span>
             <h1 className="mb-6 text-5xl leading-[1.08] font-semibold tracking-tight md:text-7xl lg:text-[5.25rem]">

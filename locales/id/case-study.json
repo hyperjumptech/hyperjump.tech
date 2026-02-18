@@ -1,7 +1,7 @@
 {
   "hero": {
     "heading": "Dari kacau menjadi jelas: kisah nyata transformasi tim engineering",
-    "desc": "Di Hyperjump, kami tidak sekadar meningkatkan performa tim engineering, kami membantu membentuk ulang cara organisasi teknologi berpikir, bekerja, dan berkembang. Telusuri bagaimana kami bermitra dengan perusahaan-perusahaan yang berkembang pesat untuk membuka potensi mereka melalui kepemimpinan yang aktif, sistem yang skalabel, dan pembinaan teknis yang mendalam."
+    "desc": "Kisah nyata transformasi tim engineering"
   },
   "title": "Dari kacau manjadi jelas: kisah nyata transformasi tim engineering",
   "cta": {
@@ -10,6 +10,7 @@
     "label": "Hubungi kami"
   },
   "explore": "Jelajahi studi kasus kami",
+  "explore_desc": "Di Hyperjump, kami tidak sekadar meningkatkan performa tim engineering, kami membantu membentuk ulang cara organisasi teknologi berpikir, bekerja, dan berkembang. Telusuri bagaimana kami bermitra dengan perusahaan-perusahaan yang berkembang pesat untuk membuka potensi mereka melalui kepemimpinan yang aktif, sistem yang skalabel, dan pembinaan teknis yang mendalam.",
   "button": "Baca studi kasus",
   "more": "Studi kasus lainnya",
   "question": "Saya ingin mengajukan permintaan demo untuk layanan",

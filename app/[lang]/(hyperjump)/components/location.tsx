@@ -114,7 +114,7 @@ export function Location({ lang, location }: LocationProps) {
         <div className="mb-16 text-center">
           <span
             className={`mb-4 inline-block text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-500 ${
-              h ? "text-white/80" : "text-hyperjump-blue"
+              h ? "text-yellow-300" : "text-hyperjump-blue"
             }`}>
             {mainLocationEyebrow(lang)}
           </span>

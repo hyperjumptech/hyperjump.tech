@@ -88,7 +88,7 @@ export default async function Services({ params }: ServicesProps) {
           <div className="flex flex-col items-center pt-40 pb-16 md:pt-48 md:pb-20">
             <SectionReveal>
               <div className="max-w-3xl text-center">
-                <span className="text-hyperjump-blue mb-5 inline-block text-xs font-semibold tracking-[0.2em] uppercase">
+                <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
                   Our services
                 </span>
                 <h1

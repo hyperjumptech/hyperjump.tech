@@ -8,7 +8,7 @@ export type Team = {
 
 export const team: Team[] = [
   {
-    name: "Ari Awan",
+    name: "A. Awan",
     role: "Co-founder & CEO",
     image: "1763184214507.jpeg",
     description:
@@ -16,7 +16,7 @@ export const team: Team[] = [
     linkedIn: "https://www.linkedin.com/in/ariawan/"
   },
   {
-    name: "Ariya Hidayat",
+    name: "A. Hidayat",
     role: "Co-founder & CTO",
     image: "1689492669383.jpeg",
     description:

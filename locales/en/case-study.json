@@ -1,7 +1,7 @@
 {
   "hero": {
-    "heading": "From chaos to clarity: real stories of <span class=\"text-[#3276F5]\">engineering transformation</span>",
-    "desc": "At Hyperjump, we don't just improve engineering teams. We help reshape how tech organizations think, operate, and grow. Explore how we've partnered with fast-growing companies to unlock their full potential through hands-on leadership, scalable systems, and deep technical coaching."
+    "heading": "From chaos to clarity",
+    "desc": "Real stories of engineering transformation"
   },
   "title": "From chaos to clarity: real stories of engineering transformation",
   "cta": {
@@ -10,6 +10,7 @@
     "label": "Talk to us"
   },
   "explore": "Explore our case studies",
+  "explore_desc": "At Hyperjump, we don't just improve engineering teams. We help reshape how tech organizations think, operate, and grow. Explore how we've partnered with fast-growing companies to unlock their full potential through hands-on leadership, scalable systems, and deep technical coaching.",
   "button": "Read case study",
   "more": "More case studies",
   "question": "I want to request a demo for",

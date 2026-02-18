@@ -27,12 +27,7 @@ import WhiteColoredLogo from "@/public/images/hyperjump-white-colored.png";
 import StickyNavigationMain from "../../../components/sticky-nav-main";
 import { data } from "../jobs/data";
 
-const SOLID_NAV_PATHS = [
-  "/case-studies",
-  "/jobs",
-  "/products",
-  ...data.jobs.map(({ id }) => `/jobs/${id}`)
-];
+const SOLID_NAV_PATHS = ["/jobs", ...data.jobs.map(({ id }) => `/jobs/${id}`)];
 const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(
   (acc, locale) => [
     ...acc,

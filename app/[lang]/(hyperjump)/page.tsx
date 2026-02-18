@@ -42,6 +42,7 @@ import {
   caseStudyButton
 } from "@/locales/.generated/strings";
 
+import { AnimatedLines } from "./components/animated-lines";
 import { CaseStudyCard } from "./components/case-study-card";
 import { Clients } from "./components/clients";
 import { Location } from "./components/location";
@@ -179,6 +180,7 @@ function Services({ lang }: HomeParams) {
             <Link
               href={`/${lang}/services/${featured.slug}`}
               className="bg-cta-premium group relative mb-6 flex flex-col gap-6 overflow-hidden rounded-2xl p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#635BFF]/20 md:flex-row md:items-center md:p-10 lg:p-12">
+              <AnimatedLines className="pointer-events-none absolute inset-0 h-full w-full opacity-70 transition-opacity duration-700 group-hover:opacity-100" />
               <div className="hero-glow animate-glow top-0 right-0 h-[400px]! w-[400px]! transition-opacity duration-500 group-hover:opacity-80" />
               <div className="relative z-10 flex-1">
                 <span className="mb-4 inline-block text-sm font-medium tracking-wider text-white/40 tabular-nums">

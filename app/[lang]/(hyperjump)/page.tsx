@@ -38,12 +38,11 @@ import {
   mainCaseStudiesCtaDesc,
   mainCaseStudiesCtaExploreOurCaseStudies,
   mainHeroHeading,
-  mainFaqLearnMore,
-  caseStudyButton
+  mainFaqLearnMore
 } from "@/locales/.generated/strings";
 
 import { AnimatedLines } from "./components/animated-lines";
-import { CaseStudyCard } from "./components/case-study-card";
+import { CaseStudyCarousel } from "./components/case-study-carousel";
 import { Clients } from "./components/clients";
 import { Location } from "./components/location";
 import {
@@ -56,7 +55,6 @@ import {
   getFaqs,
   getProject,
   location,
-  serviceBySlug,
   services
 } from "./data";
 
@@ -254,7 +252,6 @@ function Services({ lang }: HomeParams) {
 
 function CaseStudies({ lang }: HomeParams) {
   const caseStudies = getCaseStudies(lang);
-  const [featured, ...rest] = caseStudies;
 
   return (
     <section id="case-studies" className="bg-hyperjump-surface scroll-mt-20">
@@ -273,50 +270,9 @@ function CaseStudies({ lang }: HomeParams) {
           </div>
         </SectionReveal>
 
-        {featured && (
-          <SectionReveal>
-            <div className="group mb-6 flex flex-col overflow-hidden rounded-2xl border border-black/6 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6 md:flex-row">
-              <div className="bg-cta-premium relative flex items-center justify-center overflow-hidden p-10 md:w-2/5 md:p-12">
-                <div className="hero-glow animate-glow top-1/2 left-1/2 h-[200px]! w-[200px]! -translate-x-1/2 -translate-y-1/2 opacity-60" />
-                <div className="relative z-10 text-center">
-                  <span className="text-xs font-semibold tracking-[0.2em] text-white/50 uppercase">
-                    {serviceBySlug({ lang, slug: featured.serviceSlug })?.title}
-                  </span>
-                  <div className="mt-3 text-4xl font-bold text-white md:text-5xl">
-                    &ldquo;
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-1 flex-col justify-between p-8 md:p-10">
-                <div>
-                  <h3 className="text-hyperjump-black mb-3 text-xl font-semibold md:text-2xl">
-                    {featured.title}
-                  </h3>
-                  <p className="text-hyperjump-gray mb-6 text-base leading-relaxed">
-                    {featured.description}
-                  </p>
-                </div>
-                <Link
-                  href={featured.url}
-                  className="text-hyperjump-blue inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-2.5">
-                  {caseStudyButton(lang)}
-                  <ArrowRightIcon className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-          </SectionReveal>
-        )}
-
-        {rest.length > 0 && (
-          <StaggerContainer className="grid gap-6 md:grid-cols-2">
-            {rest.map((caseStudy) => (
-              <StaggerItem key={caseStudy.slug}>
-                <CaseStudyCard caseStudy={caseStudy} lang={lang} />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        )}
+        <SectionReveal>
+          <CaseStudyCarousel caseStudies={caseStudies} lang={lang} />
+        </SectionReveal>
 
         <SectionReveal>
           <div className="bg-cta-premium relative mt-16 w-full overflow-hidden rounded-2xl">

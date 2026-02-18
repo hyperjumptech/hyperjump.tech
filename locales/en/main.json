@@ -7,6 +7,11 @@
   "see_more": "See more",
   "see_less": "See less",
   "our_location": "Our location",
+  "location": {
+    "eyebrow": "Location",
+    "heading": "Our headquarters",
+    "desc": "We are a distributed team with our center of operations based in the capital."
+  },
   "open_in_google_maps": "Open in Google Maps",
   "footer": "Engineering excellence, open-source first. We build and commercialize tools that help companies streamline, simplify, and secure modern DevOps.",
   "case_studies_cta": {

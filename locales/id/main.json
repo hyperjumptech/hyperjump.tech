@@ -7,6 +7,11 @@
   "see_more": "Lihat selengkapnya",
   "see_less": "Lihat lebih edikit",
   "our_location": "Lokasi kami",
+  "location": {
+    "eyebrow": "Lokasi",
+    "heading": "Kantor pusat kami",
+    "desc": "Kami adalah tim terdistribusi dengan pusat operasi yang berbasis di Jakarta, Indonesia."
+  },
   "open_in_google_maps": "Buka di Google Maps",
   "footer": "PT Artha Rajamas Mandiri (Hyperjump) adalah perusahaan yang berfokus pada open-source dan menyediakan layanan engineering excellence. Perusahaan ini bertujuan untuk membangun serta mengomersialkan perangkat open-source guna membantu organisasi merampingkan, menyederhanakan, dan mengamankan aspek-aspek paling krusial dalam praktik DevOps modern.",
   "case_studies_cta": {

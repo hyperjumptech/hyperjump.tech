@@ -24,8 +24,10 @@ import {
 import {
   mainServicesHeading,
   mainServicesDesc,
+  mainServicesEyebrow,
   mainCaseStudiesHeading,
   mainCaseStudiesDesc,
+  mainCaseStudiesEyebrow,
   mainProjectHeading,
   mainProjectDesc,
   mainFaqHeading,
@@ -36,7 +38,8 @@ import {
   mainCaseStudiesCtaDesc,
   mainCaseStudiesCtaExploreOurCaseStudies,
   mainHeroHeading,
-  mainFaqLearnMore
+  mainFaqLearnMore,
+  caseStudyButton
 } from "@/locales/.generated/strings";
 
 import { CaseStudyCard } from "./components/case-study-card";
@@ -52,6 +55,7 @@ import {
   getFaqs,
   getProject,
   location,
+  serviceBySlug,
   services
 } from "./data";
 
@@ -127,7 +131,7 @@ function Hero({ lang }: HomeParams) {
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
           <Button
             asChild
-            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-12 rounded-full px-8 text-base font-medium text-white shadow-lg shadow-[#635BFF]/25 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#635BFF]/30">
+            className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-12 rounded-2xl px-8 text-base font-medium text-white shadow-lg shadow-[#635BFF]/25 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#635BFF]/30">
             <Link href={`/${lang}/services`}>
               Explore our services
               <ArrowRightIcon className="ml-2 h-4 w-4" />
@@ -151,32 +155,70 @@ function Hero({ lang }: HomeParams) {
 
 function Services({ lang }: HomeParams) {
   const serviceList = services(lang);
+  const [featured, ...rest] = serviceList;
 
   return (
     <section id="services" className="scroll-mt-20 bg-white">
       <div className="mx-auto max-w-5xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
         <SectionReveal>
-          <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <h2 className="text-hyperjump-black text-4xl font-semibold tracking-tight md:text-5xl">
+          <div className="mb-16 text-center">
+            <span className="text-hyperjump-blue mb-4 inline-block text-xs font-semibold tracking-[0.2em] uppercase">
+              {mainServicesEyebrow(lang)}
+            </span>
+            <h2 className="text-hyperjump-black mx-auto max-w-2xl text-4xl font-semibold tracking-tight md:text-5xl lg:text-[3.5rem]">
               {mainServicesHeading(lang)}
             </h2>
-            <p className="text-hyperjump-gray max-w-md text-lg">
+            <p className="text-hyperjump-gray mx-auto mt-5 max-w-xl text-lg leading-relaxed">
               {mainServicesDesc(lang)}
             </p>
           </div>
         </SectionReveal>
 
-        <StaggerContainer className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {serviceList.map(({ description, iconUrl, slug, title }, idx) => (
+        {featured && (
+          <SectionReveal>
+            <Link
+              href={`/${lang}/services/${featured.slug}`}
+              className="bg-cta-premium group relative mb-6 flex flex-col gap-6 overflow-hidden rounded-2xl p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#635BFF]/20 md:flex-row md:items-center md:p-10 lg:p-12">
+              <div className="hero-glow animate-glow top-0 right-0 h-[400px]! w-[400px]! transition-opacity duration-500 group-hover:opacity-80" />
+              <div className="relative z-10 flex-1">
+                <span className="mb-4 inline-block text-sm font-medium tracking-wider text-white/40 tabular-nums">
+                  {String(1).padStart(2, "0")}
+                </span>
+                {featured.imageIconUrl && (
+                  <img
+                    src={featured.imageIconUrl}
+                    alt={featured.title}
+                    className="mb-5 h-16 w-16 drop-shadow-lg transition-transform duration-500 group-hover:scale-110"
+                  />
+                )}
+                <h3 className="mb-3 text-2xl font-semibold text-white md:text-3xl">
+                  {featured.title}
+                </h3>
+                <p className="max-w-lg text-base leading-relaxed text-white/60">
+                  {featured.description}
+                </p>
+              </div>
+              <div className="relative z-10 shrink-0">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 group-hover:border-white/40 group-hover:bg-white group-hover:text-[#0A0E27]">
+                  Learn more
+                  <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </span>
+              </div>
+            </Link>
+          </SectionReveal>
+        )}
+
+        <StaggerContainer className="grid gap-5 md:grid-cols-2">
+          {rest.map(({ description, iconUrl, slug, title }, idx) => (
             <StaggerItem key={slug}>
               <Link
                 href={`/${lang}/services/${slug}`}
                 className="group flex h-full flex-col rounded-2xl border border-black/6 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6">
-                <span className="text-hyperjump-muted mb-6 text-sm font-medium tracking-wider">
-                  {String(idx + 1).padStart(2, "0")}
+                <span className="text-hyperjump-muted mb-4 text-sm font-medium tracking-wider tabular-nums">
+                  {String(idx + 2).padStart(2, "0")}
                 </span>
                 {iconUrl && (
-                  <img src={iconUrl} alt={title} className="mb-5 h-14 w-14" />
+                  <img src={iconUrl} alt={title} className="mb-4 h-12 w-12" />
                 )}
                 <h3 className="text-hyperjump-black mb-2 text-xl font-semibold">
                   {title}
@@ -209,30 +251,73 @@ function Services({ lang }: HomeParams) {
 }
 
 function CaseStudies({ lang }: HomeParams) {
+  const caseStudies = getCaseStudies(lang);
+  const [featured, ...rest] = caseStudies;
+
   return (
     <section id="case-studies" className="bg-hyperjump-surface scroll-mt-20">
       <div className="mx-auto max-w-5xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
         <SectionReveal>
-          <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <h2 className="text-hyperjump-black text-4xl font-semibold tracking-tight md:text-5xl">
+          <div className="mb-16 text-center">
+            <span className="text-hyperjump-blue mb-4 inline-block text-xs font-semibold tracking-[0.2em] uppercase">
+              {mainCaseStudiesEyebrow(lang)}
+            </span>
+            <h2 className="text-hyperjump-black mx-auto max-w-2xl text-4xl font-semibold tracking-tight md:text-5xl lg:text-[3.5rem]">
               {mainCaseStudiesHeading(lang)}
             </h2>
-            <p className="text-hyperjump-gray max-w-md text-lg">
+            <p className="text-hyperjump-gray mx-auto mt-5 max-w-xl text-lg leading-relaxed">
               {mainCaseStudiesDesc(lang)}
             </p>
           </div>
         </SectionReveal>
 
-        <StaggerContainer className="grid gap-6 md:grid-cols-3">
-          {getCaseStudies(lang).map((caseStudy) => (
-            <StaggerItem key={caseStudy.slug}>
-              <CaseStudyCard caseStudy={caseStudy} lang={lang} />
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+        {featured && (
+          <SectionReveal>
+            <div className="group mb-6 flex flex-col overflow-hidden rounded-2xl border border-black/6 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6 md:flex-row">
+              <div className="bg-cta-premium relative flex items-center justify-center overflow-hidden p-10 md:w-2/5 md:p-12">
+                <div className="hero-glow animate-glow top-1/2 left-1/2 h-[200px]! w-[200px]! -translate-x-1/2 -translate-y-1/2 opacity-60" />
+                <div className="relative z-10 text-center">
+                  <span className="text-xs font-semibold tracking-[0.2em] text-white/50 uppercase">
+                    {serviceBySlug({ lang, slug: featured.serviceSlug })?.title}
+                  </span>
+                  <div className="mt-3 text-4xl font-bold text-white md:text-5xl">
+                    &ldquo;
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-1 flex-col justify-between p-8 md:p-10">
+                <div>
+                  <h3 className="text-hyperjump-black mb-3 text-xl font-semibold md:text-2xl">
+                    {featured.title}
+                  </h3>
+                  <p className="text-hyperjump-gray mb-6 text-base leading-relaxed">
+                    {featured.description}
+                  </p>
+                </div>
+                <Link
+                  href={featured.url}
+                  className="text-hyperjump-blue inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-2.5">
+                  {caseStudyButton(lang)}
+                  <ArrowRightIcon className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </SectionReveal>
+        )}
+
+        {rest.length > 0 && (
+          <StaggerContainer className="grid gap-6 md:grid-cols-2">
+            {rest.map((caseStudy) => (
+              <StaggerItem key={caseStudy.slug}>
+                <CaseStudyCard caseStudy={caseStudy} lang={lang} />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        )}
 
         <SectionReveal>
-          <div className="bg-cta-premium relative mt-16 w-full overflow-hidden rounded-3xl">
+          <div className="bg-cta-premium relative mt-16 w-full overflow-hidden rounded-2xl">
             <div className="hero-glow animate-glow top-0 right-0 h-[400px]! w-[400px]!" />
             <div className="relative flex flex-col items-center justify-center px-8 py-16 text-center md:py-20">
               <h3 className="mb-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">

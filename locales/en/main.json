@@ -22,12 +22,14 @@
     "4_label": "Team"
   },
   "services": {
-    "heading": "What we do",
-    "desc": "Five disciplines. One standard: engineering excellence."
+    "eyebrow": "Our expertise",
+    "heading": "Five disciplines, one standard",
+    "desc": "From AI to cloud\u2011native SaaS — enterprise-grade engineering, purpose-built for teams who refuse to compromise."
   },
   "case_studies": {
-    "heading": "Proven impact",
-    "desc": "Real-world solutions that drive lasting business growth.",
+    "eyebrow": "Case studies",
+    "heading": "Impact, measured",
+    "desc": "We don\u2019t just ship code — we move business metrics. Real outcomes from real partnerships.",
     "button": "Read case study"
   },
   "project": {

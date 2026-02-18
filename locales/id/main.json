@@ -22,12 +22,14 @@
     "4_label": "Tim"
   },
   "services": {
-    "heading": "Layanan",
-    "desc": "Kami menawarkan solusi teknologi ahli untuk membantu bisnis berkembang, meningkatkan efisiensi, mengoptimalkan operasional, dan mendorong inovasi berkelanjutan."
+    "eyebrow": "Keahlian kami",
+    "heading": "Lima disiplin, satu standar",
+    "desc": "Dari AI hingga SaaS cloud\u2011native — rekayasa kelas enterprise, dirancang khusus untuk tim yang menolak kompromi."
   },
   "case_studies": {
-    "heading": "Studi kasus",
-    "desc": "Temukan bagaimana kami berhasil mengubah tantangan menjadi peluang melalui solusi nyata yang mendorong dampak berkelanjutan dan pertumbuhan bisnis.",
+    "eyebrow": "Studi kasus",
+    "heading": "Dampak yang terukur",
+    "desc": "Kami tidak sekadar mengirim kode — kami menggerakkan metrik bisnis. Hasil nyata dari kemitraan sesungguhnya.",
     "button": "Baca studi kasus"
   },
   "project": {

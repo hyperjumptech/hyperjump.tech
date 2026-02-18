@@ -1,4 +1,8 @@
+"use client";
+
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRightIcon } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,10 +16,16 @@ import {
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
 import type { Location as LocationType } from "../data";
-import { SectionReveal } from "./motion-wrappers";
 
 type LocationProps = { lang: SupportedLanguage; location: LocationType };
 
+const FALLBACK_CLIP = "inset(30% 4% 30% 4% round 16px)";
+const REVEALED_CLIP = "inset(0 0 0 0 round 0px)";
+
+/**
+ * Location section with a full-bleed image that reveals on hover via
+ * an animated clip-path. Text transitions to white over a dark overlay.
+ */
 export function Location({ lang, location }: LocationProps) {
   const {
     address: { country, locality, postalCode, street },
@@ -26,76 +36,155 @@ export function Location({ lang, location }: LocationProps) {
     title
   } = location;
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [clipInset, setClipInset] = useState<string | null>(null);
+
+  const computeClipPath = useCallback(() => {
+    const section = sectionRef.current;
+    const card = cardRef.current;
+    if (!section || !card) return;
+
+    const s = section.getBoundingClientRect();
+    const c = card.getBoundingClientRect();
+
+    const top = c.top - s.top;
+    const right = s.right - c.right;
+    const bottom = s.bottom - c.bottom;
+    const left = c.left - s.left;
+
+    setClipInset(`inset(${top}px ${right}px ${bottom}px ${left}px round 16px)`);
+  }, []);
+
+  useEffect(() => {
+    computeClipPath();
+    window.addEventListener("resize", computeClipPath);
+    return () => window.removeEventListener("resize", computeClipPath);
+  }, [computeClipPath]);
+
+  const h = isHovered;
+
   return (
-    <section id="location" className="scroll-mt-20 bg-white">
-      <div className="mx-auto max-w-5xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
-        <SectionReveal>
-          <div className="mb-16 text-center">
-            <span className="text-hyperjump-blue mb-4 inline-block text-xs font-semibold tracking-[0.2em] uppercase">
-              {mainLocationEyebrow(lang)}
-            </span>
-            <h2 className="text-hyperjump-black mx-auto max-w-2xl text-4xl font-semibold tracking-tight md:text-5xl lg:text-[3.5rem]">
-              {mainLocationHeading(lang)}
-            </h2>
-            <p className="text-hyperjump-gray mx-auto mt-5 max-w-xl text-lg leading-relaxed">
-              {mainLocationDesc(lang)}
-            </p>
-          </div>
-        </SectionReveal>
-
-        <SectionReveal>
-          <div className="group overflow-hidden rounded-2xl shadow-lg shadow-black/8">
-            <div className="relative h-64 overflow-hidden sm:h-80 md:h-96 lg:h-112">
-              <Image
-                src={imageUrl}
-                alt={title}
-                fill
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-              />
-            </div>
-          </div>
-        </SectionReveal>
-
-        <SectionReveal>
-          <div className="mt-8 flex flex-col gap-8 border-t border-black/6 pt-8 md:mt-10 md:flex-row md:items-start md:justify-between md:pt-10">
-            <div>
-              <h3 className="text-hyperjump-black mb-3 text-xl font-semibold md:text-2xl">
-                {title}
-              </h3>
-              <div className="text-hyperjump-gray space-y-0.5 text-[15px] leading-relaxed">
-                <p>{street}</p>
-                <p>
-                  {locality} {postalCode}
-                </p>
-                <p>{country}</p>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-5 md:items-end md:text-right">
-              <div className="space-y-1">
-                <p>
-                  <a
-                    href={`mailto:${email}`}
-                    className="text-hyperjump-black text-[15px] font-medium transition-colors duration-200 hover:text-[#635BFF]">
-                    {email}
-                  </a>
-                </p>
-                <p className="text-hyperjump-gray text-sm">
-                  D&B D-U-N-S: {duns}
-                </p>
-              </div>
-              <Button
-                asChild
-                className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-11 rounded-full px-8 text-sm font-semibold text-white shadow-lg shadow-[#635BFF]/20 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#635BFF]/25">
-                <Link href={mapsUrl} target="_blank" rel="noopener noreferrer">
-                  {mainOpenInGoogleMaps(lang)}
-                  <ArrowRightIcon className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </SectionReveal>
+    <motion.section
+      ref={sectionRef}
+      id="location"
+      className="relative scroll-mt-20 overflow-hidden bg-white"
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+      viewport={{ once: true, amount: 0.1 }}
+      onMouseLeave={() => setIsHovered(false)}>
+      {/* Full-bleed background image with animated clip-path */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          clipPath: h ? REVEALED_CLIP : (clipInset ?? FALLBACK_CLIP),
+          transition: "clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1)"
+        }}>
+        <Image
+          src={imageUrl}
+          alt={title}
+          fill
+          className="object-cover object-center"
+        />
+        <div
+          className="absolute inset-0 transition-opacity duration-700"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65))",
+            opacity: h ? 1 : 0
+          }}
+        />
       </div>
-    </section>
+
+      <div className="relative z-10 mx-auto max-w-5xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
+        <div className="mb-16 text-center">
+          <span
+            className={`mb-4 inline-block text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-500 ${
+              h ? "text-white/80" : "text-hyperjump-blue"
+            }`}>
+            {mainLocationEyebrow(lang)}
+          </span>
+          <h2
+            className={`mx-auto max-w-2xl text-4xl font-semibold tracking-tight transition-colors duration-500 md:text-5xl lg:text-[3.5rem] ${
+              h ? "text-white" : "text-hyperjump-black"
+            }`}>
+            {mainLocationHeading(lang)}
+          </h2>
+          <p
+            className={`mx-auto mt-5 max-w-xl text-lg leading-relaxed transition-colors duration-500 ${
+              h ? "text-white/70" : "text-hyperjump-gray"
+            }`}>
+            {mainLocationDesc(lang)}
+          </p>
+        </div>
+
+        {/* Hover target — defines the default clip-path bounds */}
+        <div
+          ref={cardRef}
+          className="h-64 rounded-2xl sm:h-80 md:h-96 lg:h-112"
+          onMouseEnter={() => setIsHovered(true)}
+        />
+
+        <div
+          className={`mt-8 flex flex-col gap-8 border-t pt-8 transition-colors duration-500 md:mt-10 md:flex-row md:items-start md:justify-between md:pt-10 ${
+            h ? "border-white/20" : "border-black/6"
+          }`}>
+          <div>
+            <h3
+              className={`mb-3 text-xl font-semibold transition-colors duration-500 md:text-2xl ${
+                h ? "text-white" : "text-hyperjump-black"
+              }`}>
+              {title}
+            </h3>
+            <div
+              className={`space-y-0.5 text-[15px] leading-relaxed transition-colors duration-500 ${
+                h ? "text-white/70" : "text-hyperjump-gray"
+              }`}>
+              <p>{street}</p>
+              <p>
+                {locality} {postalCode}
+              </p>
+              <p>{country}</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-5 md:items-end md:text-right">
+            <div className="space-y-1">
+              <p>
+                <a
+                  href={`mailto:${email}`}
+                  className={`text-[15px] font-medium transition-colors duration-500 ${
+                    h
+                      ? "text-white hover:text-white/80"
+                      : "text-hyperjump-black hover:text-[#635BFF]"
+                  }`}>
+                  {email}
+                </a>
+              </p>
+              <p
+                className={`text-sm transition-colors duration-500 ${
+                  h ? "text-white/60" : "text-hyperjump-gray"
+                }`}>
+                D&B D-U-N-S: {duns}
+              </p>
+            </div>
+            <Button
+              asChild
+              className={`h-11 rounded-full px-8 text-sm font-semibold transition-all duration-500 hover:scale-[1.02] ${
+                h
+                  ? "border border-white/30 bg-white/10 text-white shadow-lg shadow-white/10 backdrop-blur-sm hover:bg-white/20"
+                  : "bg-hyperjump-blue hover:bg-hyperjump-blue/90 text-white shadow-lg shadow-[#635BFF]/20 hover:shadow-xl hover:shadow-[#635BFF]/25"
+              }`}>
+              <Link href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                {mainOpenInGoogleMaps(lang)}
+                <ArrowRightIcon className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </motion.section>
   );
 }

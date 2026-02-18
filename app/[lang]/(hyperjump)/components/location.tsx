@@ -121,69 +121,77 @@ export function Location({ lang, location }: LocationProps) {
           </p>
         </div>
 
-        {/* Hover target — defines the default clip-path bounds */}
         <div
-          ref={cardRef}
-          className="h-64 rounded-2xl sm:h-80 md:h-96 lg:h-112"
           onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        />
-
-        <div
-          className={`mt-8 flex flex-col gap-8 border-t pt-8 transition-colors duration-500 md:mt-10 md:flex-row md:items-start md:justify-between md:pt-10 ${
-            h ? "border-white/20" : "border-black/6"
-          }`}>
-          <div>
-            <h3
-              className={`mb-3 text-xl font-semibold transition-colors duration-500 md:text-2xl ${
-                h ? "text-white" : "text-hyperjump-black"
+          onMouseLeave={() => setIsHovered(false)}>
+          {/* Clip-path reference area */}
+          <div
+            ref={cardRef}
+            className="relative h-64 rounded-2xl sm:h-80 md:h-96 lg:h-112">
+            <span
+              className={`pointer-events-none absolute inset-0 flex items-center justify-center text-[clamp(4rem,15vw,12rem)] font-black tracking-tight text-white transition-all duration-700 select-none ${
+                h ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
               }`}>
-              {title}
-            </h3>
-            <div
-              className={`space-y-0.5 text-[15px] leading-relaxed transition-colors duration-500 ${
-                h ? "text-white/70" : "text-hyperjump-gray"
-              }`}>
-              <p>{street}</p>
-              <p>
-                {locality} {postalCode}
-              </p>
-              <p>{country}</p>
-            </div>
+              JAKARTA
+            </span>
           </div>
 
-          <div className="flex flex-col gap-5 md:items-end md:text-right">
-            <div className="space-y-1">
-              <p>
-                <a
-                  href={`mailto:${email}`}
-                  className={`text-[15px] font-medium transition-colors duration-500 ${
-                    h
-                      ? "text-white hover:text-white/80"
-                      : "text-hyperjump-black hover:text-[#635BFF]"
-                  }`}>
-                  {email}
-                </a>
-              </p>
-              <p
-                className={`text-sm transition-colors duration-500 ${
-                  h ? "text-white/60" : "text-hyperjump-gray"
+          <div
+            className={`mt-8 flex flex-col gap-8 border-t pt-8 transition-colors duration-500 md:mt-10 md:flex-row md:items-start md:justify-between md:pt-10 ${
+              h ? "border-white/20" : "border-black/6"
+            }`}>
+            <div>
+              <h3
+                className={`mb-3 text-xl font-semibold transition-colors duration-500 md:text-2xl ${
+                  h ? "text-white" : "text-hyperjump-black"
                 }`}>
-                D&B D-U-N-S: {duns}
-              </p>
+                {title}
+              </h3>
+              <div
+                className={`space-y-0.5 text-[15px] leading-relaxed transition-colors duration-500 ${
+                  h ? "text-white/70" : "text-hyperjump-gray"
+                }`}>
+                <p>{street}</p>
+                <p>
+                  {locality} {postalCode}
+                </p>
+                <p>{country}</p>
+              </div>
             </div>
-            <Button
-              asChild
-              className={`h-11 rounded-full px-8 text-sm font-semibold transition-all duration-500 hover:scale-[1.02] ${
-                h
-                  ? "border border-white/30 bg-white/10 text-white shadow-lg shadow-white/10 backdrop-blur-sm hover:bg-white/20"
-                  : "bg-hyperjump-blue hover:bg-hyperjump-blue/90 text-white shadow-lg shadow-[#635BFF]/20 hover:shadow-xl hover:shadow-[#635BFF]/25"
-              }`}>
-              <Link href={mapsUrl} target="_blank" rel="noopener noreferrer">
-                {mainOpenInGoogleMaps(lang)}
-                <ArrowRightIcon className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+
+            <div className="flex flex-col gap-5 md:items-end md:text-right">
+              <div className="space-y-1">
+                <p>
+                  <a
+                    href={`mailto:${email}`}
+                    className={`text-[15px] font-medium transition-colors duration-500 ${
+                      h
+                        ? "text-white hover:text-white/80"
+                        : "text-hyperjump-black hover:text-[#635BFF]"
+                    }`}>
+                    {email}
+                  </a>
+                </p>
+                <p
+                  className={`text-sm transition-colors duration-500 ${
+                    h ? "text-white/60" : "text-hyperjump-gray"
+                  }`}>
+                  D&B D-U-N-S: {duns}
+                </p>
+              </div>
+              <Button
+                asChild
+                className={`h-11 rounded-full px-8 text-sm font-semibold transition-all duration-500 hover:scale-[1.02] ${
+                  h
+                    ? "border border-white/30 bg-white/10 text-white shadow-lg shadow-white/10 backdrop-blur-sm hover:bg-white/20"
+                    : "bg-hyperjump-blue hover:bg-hyperjump-blue/90 text-white shadow-lg shadow-[#635BFF]/20 hover:shadow-xl hover:shadow-[#635BFF]/25"
+                }`}>
+                <Link href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                  {mainOpenInGoogleMaps(lang)}
+                  <ArrowRightIcon className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

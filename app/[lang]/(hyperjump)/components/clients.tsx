@@ -1,6 +1,6 @@
-"use client";
-
 import Image from "next/image";
+import { mainTrustedBy } from "@/locales/.generated/strings";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
 type Client = {
   name: string;
@@ -9,9 +9,10 @@ type Client = {
 
 type ClientsProps = {
   clients: Client[];
+  lang: SupportedLanguage;
 };
 
-export function Clients({ clients }: ClientsProps) {
+export function Clients({ clients, lang }: ClientsProps) {
   if (clients.length === 0) return null;
 
   const repeatedClients = Array(4).fill(clients).flat();
@@ -19,7 +20,7 @@ export function Clients({ clients }: ClientsProps) {
   return (
     <div className="relative overflow-hidden py-4">
       <p className="mb-5 text-center text-xs font-semibold tracking-[0.2em] text-white/40 uppercase">
-        Trusted by
+        {mainTrustedBy(lang)}
       </p>
       <div className="marquee">
         <div className="marquee__track">

@@ -30,7 +30,9 @@ import {
   servicesWhoIsItFor,
   servicesWhyHyperjump,
   aiFaqDesc,
-  aiFaqHeading
+  aiFaqHeading,
+  mainHome,
+  mainServicesLabel
 } from "@/locales/.generated/strings";
 
 import { AnimatedLines } from "../../components/animated-lines";
@@ -53,7 +55,7 @@ export async function generateMetadata(props: {
   const { lang, slug } = await props.params;
   const service = serviceBySlug({ lang, slug });
   const meta: Metadata = {
-    title: `Services - ${service?.title ?? ""}`,
+    title: `${mainServicesLabel(lang)} - ${service?.title ?? ""}`,
     description: service?.description ?? "",
     alternates: {
       canonical: `${url}/${lang}/services/${service?.slug}`,
@@ -95,6 +97,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
   return (
     <>
       <Hero
+        lang={lang}
         hero={{ heading: service.title, subheading: service.shortDescription }}
       />
       <About lang={lang} service={service} />
@@ -122,11 +125,11 @@ function JsonLd({ lang, service: { faqs, slug, title } }: JsonLdProps) {
       <BreadcrumbJsonLd
         items={[
           {
-            name: "Home",
+            name: mainHome(lang),
             item: `${url}/${lang}`
           },
           {
-            name: "Services",
+            name: mainServicesLabel(lang),
             item: `${url}/${lang}/services`
           },
           {
@@ -145,9 +148,9 @@ type HeroProps = {
     heading: string;
     subheading: string;
   };
-};
+} & LangProps;
 
-function Hero({ hero: { heading, subheading } }: HeroProps) {
+function Hero({ lang, hero: { heading, subheading } }: HeroProps) {
   return (
     <section
       id="hero"
@@ -169,7 +172,7 @@ function Hero({ hero: { heading, subheading } }: HeroProps) {
           <SectionReveal>
             <div className="max-w-3xl text-center">
               <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
-                Service
+                {mainServicesLabel(lang)}
               </span>
               <h1 className="mb-6 text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl lg:text-[4.5rem]">
                 {heading}

@@ -13,10 +13,18 @@ import {
   StaggerItem
 } from "../components/motion-wrappers";
 import type { OpenSourceProduct } from "./data";
+import {
+  mainAndMore,
+  mainBuiltInTheOpen,
+  mainBuiltInTheOpenDesc,
+  mainOpenSourceLabel
+} from "@/locales/.generated/strings";
+import type { SupportedLanguage } from "@/locales/.generated/types";
 
 type RepoStats = { stars: number; forks: number };
 
 type OSSSectionProps = {
+  lang: SupportedLanguage;
   products: OpenSourceProduct[];
 };
 
@@ -24,7 +32,7 @@ type OSSSectionProps = {
  * Dark-themed section for open-source products, fetching live GitHub stats
  * and rendering cards with hover micro-interactions.
  */
-export function OSSSection({ products }: OSSSectionProps) {
+export function OSSSection({ lang, products }: OSSSectionProps) {
   const [stats, setStats] = useState<Record<string, RepoStats>>({});
 
   useEffect(() => {
@@ -75,14 +83,13 @@ export function OSSSection({ products }: OSSSectionProps) {
         <SectionReveal>
           <div className="mb-14 text-center">
             <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
-              Open Source
+              {mainOpenSourceLabel(lang)}
             </span>
             <h2 className="mb-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              Built in the Open
+              {mainBuiltInTheOpen(lang)}
             </h2>
             <p className="mx-auto max-w-2xl text-lg leading-relaxed text-white/60">
-              Tools and frameworks we&apos;ve crafted and shared with the
-              developer community.
+              {mainBuiltInTheOpenDesc(lang)}
             </p>
           </div>
         </SectionReveal>
@@ -93,7 +100,7 @@ export function OSSSection({ products }: OSSSectionProps) {
             return (
               <StaggerItem key={product.title}>
                 <div className="oss-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/3 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1.5 hover:border-white/20 hover:bg-white/6">
-                  <div className="flex aspect-[16/9] items-center justify-center overflow-hidden bg-white/5">
+                  <div className="flex aspect-video items-center justify-center overflow-hidden bg-white/5">
                     <Image
                       src={product.image}
                       alt={product.title}
@@ -163,7 +170,7 @@ export function OSSSection({ products }: OSSSectionProps) {
                 href="https://github.com/hyperjumptech"
                 target="_blank"
                 rel="noopener noreferrer">
-                And more
+                {mainAndMore(lang)}
                 <ArrowUpRightIcon className="ml-2 h-4 w-4" />
               </Link>
             </Button>

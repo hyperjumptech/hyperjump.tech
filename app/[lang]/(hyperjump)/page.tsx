@@ -39,7 +39,12 @@ import {
   mainCaseStudiesCtaExploreOurCaseStudies,
   mainHeroHeading,
   mainFaqLearnMore,
-  mainFaqEyebrow
+  mainFaqEyebrow,
+  mainExploreOurServices,
+  mainViewCaseStudies,
+  mainLearnMore,
+  mainViewOnGithub,
+  mainHome
 } from "@/locales/.generated/strings";
 
 import { AnimatedLines } from "./components/animated-lines";
@@ -115,7 +120,7 @@ function Hero({ lang }: HomeParams) {
     <section
       id="hero"
       className="bg-hero-premium relative overflow-hidden text-white">
-      <div className="pointer-events-none absolute -top-[120px] left-1/2 h-[350px] w-[700px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,91,255,0.3)_0%,rgba(99,91,255,0.08)_40%,transparent_70%)] blur-[60px]" />
+      <div className="pointer-events-none absolute -top-30 left-1/2 h-87.5 w-175 -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,91,255,0.3)_0%,rgba(99,91,255,0.08)_40%,transparent_70%)] blur-[60px]" />
       <div className="hero-glow animate-glow top-1/4 left-1/2 -translate-x-1/2" />
       <div className="hero-glow animate-glow -top-32 right-0 [animation-delay:1.5s]" />
 
@@ -134,7 +139,7 @@ function Hero({ lang }: HomeParams) {
             asChild
             className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-12 rounded-full px-8 text-base font-medium text-white shadow-lg shadow-[#635BFF]/25 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#635BFF]/30">
             <Link href={`/${lang}/services`}>
-              Explore our services
+              {mainExploreOurServices(lang)}
               <ArrowRightIcon className="ml-2 h-4 w-4" />
             </Link>
           </Button>
@@ -142,12 +147,14 @@ function Hero({ lang }: HomeParams) {
             asChild
             variant="outline"
             className="h-12 rounded-full border-white/20 bg-white/5 px-8 text-base font-medium text-white backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] hover:border-white/30 hover:bg-white/10 hover:text-white">
-            <Link href={`/${lang}/case-studies`}>View case studies</Link>
+            <Link href={`/${lang}/case-studies`}>
+              {mainViewCaseStudies(lang)}
+            </Link>
           </Button>
         </div>
 
         <div className="mt-20 w-full">
-          <Clients clients={data.clients} />
+          <Clients clients={data.clients} lang={lang} />
         </div>
       </div>
     </section>
@@ -181,7 +188,7 @@ function Services({ lang }: HomeParams) {
               href={`/${lang}/services/${featured.slug}`}
               className="bg-cta-premium group relative mb-6 flex flex-col gap-6 overflow-hidden rounded-2xl p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#635BFF]/20 md:flex-row md:items-center md:p-10 lg:p-12 lg:py-32">
               <AnimatedLines className="pointer-events-none absolute inset-0 h-full w-full opacity-70 transition-opacity duration-700 group-hover:opacity-100" />
-              <div className="hero-glow animate-glow top-0 right-0 h-[400px]! w-[400px]! transition-opacity duration-500 group-hover:opacity-80" />
+              <div className="hero-glow animate-glow top-0 right-0 h-100! w-100! transition-opacity duration-500 group-hover:opacity-80" />
               <div className="relative z-10 flex-1">
                 <h3 className="mb-3 text-2xl font-semibold text-white md:text-3xl">
                   {featured.title}
@@ -192,7 +199,7 @@ function Services({ lang }: HomeParams) {
               </div>
               <div className="relative z-10 shrink-0">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 group-hover:border-white/40 group-hover:bg-white group-hover:text-[#0A0E27]">
-                  Learn more
+                  {mainLearnMore(lang)}
                   <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </span>
               </div>
@@ -216,7 +223,7 @@ function Services({ lang }: HomeParams) {
                   {description}
                 </p>
                 <span className="text-hyperjump-blue inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-2.5">
-                  Learn more
+                  {mainLearnMore(lang)}
                   <ArrowRightIcon className="h-3.5 w-3.5" />
                 </span>
               </Link>
@@ -265,7 +272,7 @@ function CaseStudies({ lang }: HomeParams) {
 
         <SectionReveal>
           <div className="bg-cta-premium relative mt-16 w-full overflow-hidden rounded-2xl">
-            <div className="hero-glow animate-glow top-0 right-0 h-[400px]! w-[400px]!" />
+            <div className="hero-glow animate-glow top-0 right-0 h-100! w-100!" />
             <div className="relative flex flex-col items-center justify-center px-8 py-16 text-center md:py-20">
               <h3 className="mb-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
                 {mainCaseStudiesCtaHeading(lang)}
@@ -338,7 +345,7 @@ function OpenSourceProducts({ lang }: HomeParams) {
                   {project.description}
                 </p>
                 <span className="text-hyperjump-blue inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-2.5">
-                  View on GitHub
+                  {mainViewOnGithub(lang)}
                   <ArrowRightIcon className="h-3.5 w-3.5" />
                 </span>
               </a>
@@ -426,7 +433,7 @@ function JsonLd({ lang }: HomeParams) {
       <BreadcrumbJsonLd
         items={[
           {
-            name: "Home",
+            name: mainHome(lang),
             item: `${url}/${lang}`
           }
         ]}

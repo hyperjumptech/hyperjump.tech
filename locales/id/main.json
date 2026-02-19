@@ -63,7 +63,31 @@
     "learn_more_chatbot_message": "Saya ingin mempelajari lebih lanjut tentang"
   },
   "team": {
-    "heading": "Kenalan dengan tim kami",
     "desc": "Tim kami terdiri dari para profesional berpengalaman yang siap memberikan hasil terbaik."
-  }
+  },
+  "explore_our_services": "Jelajahi layanan kami",
+  "view_case_studies": "Lihat studi kasus",
+  "learn_more": "Pelajari selengkapnya",
+  "view_on_github": "Lihat di GitHub",
+  "home": "Beranda",
+  "available_positions": "Posisi yang Tersedia",
+  "our_products": "Produk Kami",
+  "our_team": "Tim Kami",
+  "expert_in": "Ahli dalam",
+  "and_more": "Dan lainnya",
+  "our_services": "Layanan kami",
+  "case_studies_label": "Studi Kasus",
+  "services_label": "Layanan",
+  "products_label": "Produk",
+  "team_label": "Tim",
+  "jobs_label": "Lowongan Kerja",
+  "apply": "Lamar",
+  "apply_for": "Lamar untuk",
+  "responsibilities": "Tanggung Jawab",
+  "requirements": "Persyaratan",
+  "deliverables": "Hasil Kerja",
+  "trusted_by": "Dipercaya oleh",
+  "open_source_label": "Produk Sumber Terbuka",
+  "built_in_the_open": "Dibangun secara Terbuka",
+  "built_in_the_open_desc": "Alat dan kerangka kerja yang kami buat dan bagikan kepada komunitas pengembang."
 }

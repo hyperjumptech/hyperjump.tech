@@ -63,7 +63,31 @@
     "learn_more_chatbot_message": "I want to learn more about"
   },
   "team": {
-    "heading": "Meet our team",
     "desc": "Our team consists of highly skilled professionals dedicated to delivering exceptional results."
-  }
+  },
+  "explore_our_services": "Explore our services",
+  "view_case_studies": "View case studies",
+  "learn_more": "Learn more",
+  "view_on_github": "View on GitHub",
+  "home": "Home",
+  "available_positions": "Available Positions",
+  "our_products": "Our Products",
+  "our_team": "Our Team",
+  "expert_in": "Expert in",
+  "and_more": "And more",
+  "our_services": "Our services",
+  "case_studies_label": "Case Studies",
+  "services_label": "Services",
+  "products_label": "Products",
+  "team_label": "Team",
+  "jobs_label": "Jobs",
+  "apply": "Apply",
+  "apply_for": "Apply for",
+  "responsibilities": "Responsibilities",
+  "requirements": "Requirements",
+  "deliverables": "Deliverables",
+  "trusted_by": "Trusted by",
+  "open_source_label": "Open Source",
+  "built_in_the_open": "Built in the Open",
+  "built_in_the_open_desc": "Tools and frameworks we've crafted and shared with the developer community."
 }

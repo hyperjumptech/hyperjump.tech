@@ -18,7 +18,10 @@ import {
   servicesBestFor,
   servicesHeroHeading,
   servicesHeroDesc,
-  servicesReadMore
+  servicesReadMore,
+  mainOurServices,
+  mainHome,
+  mainServicesLabel
 } from "@/locales/.generated/strings";
 
 import { AnimatedLines } from "../components/animated-lines";
@@ -37,7 +40,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { lang } = await props.params;
   const meta: Metadata = {
-    title: `Services - ${servicesHeroHeading(lang)}`,
+    title: `${mainServicesLabel(lang)} - ${servicesHeroHeading(lang)}`,
     description: servicesHeroDesc(lang),
     alternates: {
       canonical: `${url}/${lang}/services`,
@@ -89,7 +92,7 @@ export default async function Services({ params }: ServicesProps) {
             <SectionReveal>
               <div className="max-w-3xl text-center">
                 <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
-                  Our services
+                  {mainOurServices(lang)}
                 </span>
                 <h1
                   className="mb-6 text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl lg:text-[4.5rem]"
@@ -107,7 +110,7 @@ export default async function Services({ params }: ServicesProps) {
           {/* Featured service */}
           {featured && (
             <div className="group/featured relative pb-20 md:pb-28">
-              <div className="hero-glow animate-glow right-0 bottom-0 h-[500px]! w-[500px]! [animation-delay:2s]" />
+              <div className="hero-glow animate-glow right-0 bottom-0 h-125! w-125! [animation-delay:2s]" />
               <span className="pointer-events-none absolute top-0 right-0 hidden text-[11rem] leading-none font-bold text-white/3 select-none lg:block">
                 01
               </span>
@@ -206,7 +209,7 @@ export default async function Services({ params }: ServicesProps) {
               <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-white/60">
                 {servicesPartnersDesc(lang)}
               </p>
-              <Clients clients={clients} />
+              <Clients clients={clients} lang={lang} />
             </div>
           </SectionReveal>
         </div>
@@ -215,11 +218,11 @@ export default async function Services({ params }: ServicesProps) {
       <BreadcrumbJsonLd
         items={[
           {
-            name: "Home",
+            name: mainHome(lang),
             item: `${url}/${lang}`
           },
           {
-            name: "Services",
+            name: mainServicesLabel(lang),
             item: `${url}/${lang}/services`
           }
         ]}

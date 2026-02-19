@@ -12,6 +12,9 @@ import {
   type SupportedLanguage
 } from "@/locales/.generated/types";
 import {
+  mainHome,
+  mainOurProducts,
+  mainProductsLabel,
   productsHeroDesc,
   productsHeroHeading,
   productsLearnMore
@@ -42,7 +45,7 @@ export async function generateMetadata({
 }: ProductsProps): Promise<Metadata> {
   const { lang } = await params;
   const meta: Metadata = {
-    title: productsHeroHeading(lang),
+    title: `${mainProductsLabel(lang)} - ${productsHeroHeading(lang)}`,
     description: productsHeroDesc(lang),
     alternates: {
       canonical: `${url}/${lang}/products`,
@@ -91,7 +94,7 @@ export default async function ProductsPage({ params }: ProductsProps) {
             <SectionReveal>
               <div className="max-w-3xl text-center">
                 <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
-                  Our Products
+                  {mainOurProducts(lang)}
                 </span>
                 <h1
                   className="mb-6 text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl lg:text-[4.5rem]"
@@ -109,7 +112,7 @@ export default async function ProductsPage({ params }: ProductsProps) {
           {/* Featured Product */}
           {featured && (
             <div className="group/featured relative pb-20 md:pb-28">
-              <div className="hero-glow animate-glow right-0 bottom-0 h-[500px]! w-[500px]! [animation-delay:2s]" />
+              <div className="hero-glow animate-glow right-0 bottom-0 h-125! w-125! [animation-delay:2s]" />
               <span className="pointer-events-none absolute top-0 right-0 hidden text-[11rem] leading-none font-bold text-white/3 select-none lg:block">
                 01
               </span>
@@ -179,7 +182,7 @@ export default async function ProductsPage({ params }: ProductsProps) {
       )}
 
       {/* ── Open Source Products ── */}
-      <OSSSection products={oss} />
+      <OSSSection lang={lang} products={oss} />
 
       {/* ── JSON-LD ── */}
       <JsonLd lang={lang} products={allProducts} />
@@ -199,7 +202,7 @@ type CommercialCardProps = {
 function CommercialCard({ product, lang }: CommercialCardProps) {
   return (
     <div className="group/card relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/6 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#635BFF]/8">
-      <div className="bg-hyperjump-surface flex aspect-[16/9] items-center justify-center overflow-hidden">
+      <div className="bg-hyperjump-surface flex aspect-video items-center justify-center overflow-hidden">
         <Image
           src={product.image}
           alt={product.title}
@@ -240,8 +243,8 @@ function JsonLd({ lang, products }: JsonLdProps) {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", item: `${url}/${lang}` },
-          { name: "Products", item: `${url}/${lang}/products` }
+          { name: mainHome(lang), item: `${url}/${lang}` },
+          { name: mainProductsLabel(lang), item: `${url}/${lang}/products` }
         ]}
       />
       {products.map(({ description, image, title, ...product }) => (

@@ -12,7 +12,9 @@ import {
   caseStudyHeroDesc,
   caseStudyHeroHeading,
   caseStudyTitle,
-  caseStudyExploreDesc
+  caseStudyExploreDesc,
+  mainHome,
+  mainCaseStudiesLabel
 } from "@/locales/.generated/strings";
 
 import { getCaseStudies } from "../data";
@@ -39,7 +41,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { lang } = await props.params;
   const meta: Metadata = {
-    title: `Case Studies - ${caseStudyTitle(lang)}`,
+    title: `${mainCaseStudiesLabel(lang)} - ${caseStudyTitle(lang)}`,
     description: caseStudyHeroDesc(lang),
     alternates: {
       canonical: `${url}/${lang}/case-studies`,
@@ -80,7 +82,7 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
             <SectionReveal>
               <div className="max-w-3xl text-center">
                 <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
-                  Case Studies
+                  {mainCaseStudiesLabel(lang)}
                 </span>
                 <h1
                   className="mb-6 text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl lg:text-[4.5rem] [&>span]:text-yellow-300"
@@ -119,11 +121,11 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
       <BreadcrumbJsonLd
         items={[
           {
-            name: "Home",
+            name: mainHome(lang),
             item: `${url}/${lang}`
           },
           {
-            name: "Case Studies",
+            name: mainCaseStudiesLabel(lang),
             item: `${url}/${lang}/case-studies`
           }
         ]}

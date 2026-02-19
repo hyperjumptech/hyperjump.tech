@@ -9,7 +9,14 @@ import {
   supportedLanguages,
   type SupportedLanguage
 } from "@/locales/.generated/types";
-import { mainTeamDesc, mainTeamHeading } from "@/locales/.generated/strings";
+import {
+  mainTeamDesc,
+  mainOurTeam,
+  mainExpertIn,
+  mainAndMore,
+  mainHome,
+  mainTeamLabel
+} from "@/locales/.generated/strings";
 
 import { AnimatedLines } from "../components/animated-lines";
 
@@ -17,9 +24,10 @@ import { TeamCard } from "./card";
 import { team } from "./data";
 import { Typewriter } from "./typewriter";
 
-export async function generateMetadata() {
+export async function generateMetadata(props: { params: Promise<LangProps> }) {
+  const { lang } = await props.params;
   return dynamicOpengraph({
-    title: `Meet Our Team - ${data.title}`
+    title: `${mainOurTeam(lang)} - ${data.title}`
   });
 }
 
@@ -58,10 +66,10 @@ export default async function TeamSection({ params }: TeamsProps) {
         <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 pt-40 pb-20 md:px-20 md:pt-52 md:pb-28 xl:px-0">
           <div className="max-w-4xl text-center">
             <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
-              Our Team
+              {mainOurTeam(lang)}
             </span>
             <h1 className="mb-6 text-5xl leading-[1.08] font-semibold tracking-tight md:text-7xl lg:text-[5.25rem]">
-              Expert in <Typewriter />
+              {mainExpertIn(lang)} <Typewriter />
             </h1>
             <p className="mx-auto max-w-2xl text-lg leading-relaxed font-medium text-white/70 md:text-xl">
               {mainTeamDesc(lang)}
@@ -95,7 +103,7 @@ export default async function TeamSection({ params }: TeamsProps) {
                 href="https://www.linkedin.com/company/hyperjump"
                 target="_blank"
                 rel="noreferrer noopener">
-                And more
+                {mainAndMore(lang)}
                 <ArrowUpRightIcon className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -115,11 +123,11 @@ function JsonLd({ lang }: LangProps) {
       <BreadcrumbJsonLd
         items={[
           {
-            name: "Home",
+            name: mainHome(lang),
             item: `${url}/${lang}`
           },
           {
-            name: "Team",
+            name: mainTeamLabel(lang),
             item: `${url}/${lang}/team`
           }
         ]}

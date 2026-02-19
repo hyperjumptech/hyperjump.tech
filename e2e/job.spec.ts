@@ -94,7 +94,7 @@ for (const locale of supportedLanguages) {
               ).toBeVisible();
             }
             await expect(
-              page.getByRole("link", { name: "Apply" })
+              page.getByRole("link", { name: /Apply|Lamar/i })
             ).toBeVisible();
 
             await page.goBack();

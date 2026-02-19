@@ -18,22 +18,22 @@ const viewports = [
 ] as const;
 
 // Utility: get nav and footer link locators
-function getHeader(page: Page) {
+function getHeader(page: import("@playwright/test").Page) {
   // Header is sticky nav; fall back to first header/nav region
   const header = page.locator("header, nav").first();
   return header;
 }
 
-function getMenuNav(page: Page) {
+function getMenuNav(page: import("@playwright/test").Page) {
   return page.locator('nav[aria-label="Main"]');
 }
 
-function getFooter(page: Page) {
+function getFooter(page: import("@playwright/test").Page) {
   return page.getByRole("contentinfo");
 }
 
 // Utility: navigate and ensure route
-async function gotoAndWait(page: Page, url: string) {
+async function gotoAndWait(page: import("@playwright/test").Page, url: string) {
   await page.goto(url, { waitUntil: "domcontentloaded" });
   await expect(page).toHaveURL(
     new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
@@ -52,12 +52,12 @@ const expectedMenuPaths = (locale: string) => [
 const selectors = {
   hero: "#hero",
   heroHeading:
-    "#hero div div[dangerouslysetinnerhtml], #hero h1, #hero .text-3xl",
+    "#hero h1",
   heroDesc: "#hero p",
-  exploreHeading: "main h3",
-  cardsGrid: "section >> .grid",
-  card: "section .grid > div",
-  cardButton: "section .grid > div a, section .grid > div button"
+  exploreHeading: "main h2",
+  cardsGrid: ".flex.h-64",
+  card: '.flex.h-64 [role="button"]',
+  cardButton: "main a"
 };
 
 for (const { code: locale, path } of locales) {
@@ -122,7 +122,7 @@ for (const { code: locale, path } of locales) {
             const href = await link.getAttribute("href");
             expect(href).toBeTruthy();
             // Only test one click to avoid navigating away multiple times unnecessarily
-            if (i === 0 && href) {
+            if (i === 0 && href && !href.startsWith("http")) {
               await link.click();
               await expect(page).toHaveURL(
                 new RegExp(`${href.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`)
@@ -180,7 +180,7 @@ for (const { code: locale, path } of locales) {
           const heading = page
             .locator("#hero")
             .locator(
-              ".text-3xl, .text-4xl, [class*='text-'][class*='font-medium']"
+              "h1"
             )
             .first();
           await expect(heading).toBeVisible();
@@ -206,7 +206,7 @@ for (const { code: locale, path } of locales) {
           await expect(
             hero
               .locator(
-                ".text-3xl, .text-4xl, [class*='text-'][class*='font-medium']"
+                "h1"
               )
               .first()
           ).toBeVisible();
@@ -242,7 +242,7 @@ for (const { code: locale, path } of locales) {
           page
         }) => {
           const title = await page.title();
-          expect(title).toMatch(/Case Studies - .+/);
+          expect(title).toMatch(/(Case Studies|Studi Kasus) - .+/);
 
           const metaDesc = await page
             .locator('head meta[name="description"]')

@@ -64,7 +64,7 @@ export default async function CaseStudiesPage({ params }: CaseStudyProps) {
 
   return (
     <main>
-      <section className="bg-hero-premium relative overflow-hidden text-white">
+      <section id="hero" className="bg-hero-premium relative overflow-hidden text-white">
         <div className="hero-glow animate-glow top-[12%] left-1/2 -translate-x-1/2" />
         <div className="hero-glow animate-glow -top-32 right-0 [animation-delay:1.5s]" />
         <div

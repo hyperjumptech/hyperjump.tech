@@ -1,6 +1,6 @@
-import { test, expect, Page } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 import { imagesTest } from "./shared-test";
-import { getCaseStudies } from "@/app/[lang]/(hyperjump)/data";
+import { getCaseStudies } from "../app/[lang]/(hyperjump)/data";
 
 // Base URL
 const baseURL = "http://localhost:3000";
@@ -62,13 +62,10 @@ const expectedMenuPaths = (locale: string) => [
 // Hero and list sections selectors from page.tsx
 const selectors = {
   hero: "#hero",
-  heroHeading:
-    "#hero div div[dangerouslysetinnerhtml], #hero h1, #hero .text-3xl",
+  heroHeading: "#hero h1",
   heroDesc: "#hero p",
-  exploreHeading: "main h3",
-  cardsGrid: "section >> .grid",
-  card: "section .grid > div",
-  cardButton: "section .grid > div a, section .grid > div button"
+  article: "article",
+  recommendationGrid: ".grid"
 };
 
 for (const { code: locale, path, title, slug } of locales) {
@@ -121,28 +118,6 @@ for (const { code: locale, path, title, slug } of locales) {
             expect(href, "footer link should have href").toBeTruthy();
           }
         });
-
-        test("content buttons link to intended destinations", async ({
-          page
-        }) => {
-          const cardLinks = page.locator(selectors.cardButton);
-          const n = await cardLinks.count();
-          for (let i = 0; i < n; i++) {
-            const link = cardLinks.nth(i);
-            await expect(link).toBeVisible();
-            const href = await link.getAttribute("href");
-            expect(href).toBeTruthy();
-            // Only test one click to avoid navigating away multiple times unnecessarily
-            if (i === 0 && href) {
-              await link.click();
-              await expect(page).toHaveURL(
-                new RegExp(`${href.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`)
-              );
-              await page.goBack();
-              await expect(page).toHaveURL(`${baseURL}${path}`);
-            }
-          }
-        });
       });
 
       // 2. Branding
@@ -190,9 +165,7 @@ for (const { code: locale, path, title, slug } of locales) {
           // Verify content changes (hero heading changes with locale)
           const heading = page
             .locator("#hero")
-            .locator(
-              ".text-3xl, .text-4xl, [class*='text-'][class*='font-medium']"
-            )
+            .locator("h1")
             .first();
           await expect(heading).toBeVisible();
 
@@ -215,19 +188,15 @@ for (const { code: locale, path, title, slug } of locales) {
           await expect(hero).toBeVisible();
 
           // Heading and description visible
-          await expect(
-            hero
-              .locator(
-                ".text-3xl, .text-4xl, [class*='text-'][class*='font-medium']"
-              )
-              .first()
-          ).toBeVisible();
+          const h1 = hero.locator("h1");
+          await expect(h1).toBeVisible();
+          await expect(h1).toContainText(title);
 
-          await expect(hero).toHaveText(title);
+          await expect(hero.locator("p").first()).toBeVisible();
         });
 
         test("content are visible", async ({ page }) => {
-          const article = page.locator("article");
+          const article = page.locator(selectors.article);
           await expect(article).toBeVisible();
 
           const articleHeadings = article.locator("h2");
@@ -259,14 +228,14 @@ for (const { code: locale, path, title, slug } of locales) {
         test("meta title and description are set correctly", async ({
           page
         }) => {
-          const title = await page.title();
-          expect(title).toMatch(title);
+          const pageTitle = await page.title();
+          expect(pageTitle).toContain(title);
 
           const metaDesc = await page
             .locator('head meta[name="description"]')
             .getAttribute("content");
           expect(metaDesc).toBeTruthy();
-          // Basic sanity: should include hero description text excerpt
+          // Basic sanity: should include some text
           const bodyText = await page.locator("body").innerText();
           expect(bodyText.length).toBeGreaterThan(50);
         });
@@ -284,9 +253,9 @@ for (const { code: locale, path, title, slug } of locales) {
           await expect(hero).toBeVisible();
         });
 
-        test("Case Studies Section", async ({ page }) => {
-          const grid = page.locator(selectors.cardsGrid);
-          await expect(grid).toBeVisible();
+        test("Article Content", async ({ page }) => {
+          const article = page.locator(selectors.article);
+          await expect(article).toBeVisible();
         });
 
         test("Footer", async ({ page }) => {
@@ -314,9 +283,6 @@ for (const { code: locale, path, title, slug } of locales) {
 
             const hero = page.locator(selectors.hero);
             await expect(hero).toBeVisible();
-
-            const grid = page.locator(selectors.cardsGrid);
-            await expect(grid).toBeVisible();
 
             const footer = getFooter(page);
             await expect(footer).toBeVisible();

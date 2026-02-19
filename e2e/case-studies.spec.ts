@@ -51,8 +51,7 @@ const expectedMenuPaths = (locale: string) => [
 // Hero and list sections selectors from page.tsx
 const selectors = {
   hero: "#hero",
-  heroHeading:
-    "#hero h1",
+  heroHeading: "#hero h1",
   heroDesc: "#hero p",
   exploreHeading: "main h2",
   cardsGrid: ".flex.h-64",
@@ -177,12 +176,7 @@ for (const { code: locale, path } of locales) {
           await page.waitForURL(new RegExp(`/(${other})/case-studies`));
 
           // Verify content changes (hero heading changes with locale)
-          const heading = page
-            .locator("#hero")
-            .locator(
-              "h1"
-            )
-            .first();
+          const heading = page.locator("#hero").locator("h1").first();
           await expect(heading).toBeVisible();
 
           // Switch back
@@ -203,13 +197,7 @@ for (const { code: locale, path } of locales) {
           const hero = page.locator(selectors.hero);
           await expect(hero).toBeVisible();
           // Heading and description visible
-          await expect(
-            hero
-              .locator(
-                "h1"
-              )
-              .first()
-          ).toBeVisible();
+          await expect(hero.locator("h1").first()).toBeVisible();
           await expect(hero.locator("p").first()).toBeVisible();
         });
 

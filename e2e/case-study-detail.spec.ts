@@ -163,10 +163,7 @@ for (const { code: locale, path, title, slug } of locales) {
           await page.waitForURL(new RegExp(`/(${other})/case-studies`));
 
           // Verify content changes (hero heading changes with locale)
-          const heading = page
-            .locator("#hero")
-            .locator("h1")
-            .first();
+          const heading = page.locator("#hero").locator("h1").first();
           await expect(heading).toBeVisible();
 
           // Switch back

@@ -76,7 +76,9 @@ test.describe("Homepage", () => {
     });
     await expect(servicesHeading).toBeVisible();
     await expect(
-      page.getByText(/From AI to cloud.native SaaS|Dari AI hingga SaaS/i).first()
+      page
+        .getByText(/From AI to cloud.native SaaS|Dari AI hingga SaaS/i)
+        .first()
     ).toBeVisible();
 
     // Service cards
@@ -114,16 +116,16 @@ test.describe("Homepage", () => {
     });
     await expect(caseHeading).toBeVisible();
     await expect(
-      page.getByText(/We don.t just ship code|Kami tidak sekadar mengirim kode/i).first()
+      page
+        .getByText(/We don.t just ship code|Kami tidak sekadar mengirim kode/i)
+        .first()
     ).toBeVisible();
 
     // In the carousel, images with alt text for each case study are always present
     await expect(
       page.getByAltText(/fisheries tech|teknologi perikanan/i).first()
     ).toBeVisible();
-    await expect(
-      page.getByAltText(/media.tech|media/i).first()
-    ).toBeVisible();
+    await expect(page.getByAltText(/media.tech|media/i).first()).toBeVisible();
   });
 
   test("FAQ Section: should toggle FAQ items correctly on click", async ({

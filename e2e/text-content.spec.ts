@@ -28,7 +28,10 @@ async function waitForHeading(
     await expect(byRole.first()).toBeVisible({ timeout });
     return byRole.first();
   } catch {
-    const fallback = page.locator('h1, h2, h3, h4, h5, h6').filter({ hasText: headingText }).first();
+    const fallback = page
+      .locator("h1, h2, h3, h4, h5, h6")
+      .filter({ hasText: headingText })
+      .first();
     await expect(fallback).toBeVisible({ timeout });
     return fallback;
   }
@@ -47,12 +50,14 @@ test.describe("Text and Content", () => {
       name: /engineer the software|membangun perangkat lunak/i
     });
     await expect(heroHeading.first()).toBeVisible({ timeout: 15_000 });
-    
+
     // === Services Section ===
     await safeScrollAndClick(page, "#services");
     await waitForHeading(page, /disciplines|disiplin/i);
     await expect(
-      page.getByText(/From AI to cloud.native SaaS|Dari AI hingga SaaS/i).first()
+      page
+        .getByText(/From AI to cloud.native SaaS|Dari AI hingga SaaS/i)
+        .first()
     ).toBeVisible();
 
     // === Case Studies Section ===

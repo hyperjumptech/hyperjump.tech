@@ -3,7 +3,10 @@ import { test, expect, Page, Locator } from "@playwright/test";
 const navLinks: { name: string | RegExp; expected: RegExp }[] = [
   { name: /Services|Layanan Kami/i, expected: /\/(en|id)\/services(\/|$)/ },
   { name: /Products|Produk Kami/i, expected: /\/(en|id)\/products(\/|$)/ },
-  { name: /Case Studies|Studi Kasus/i, expected: /\/(en|id)\/case-studies(\/|$)/ },
+  {
+    name: /Case Studies|Studi Kasus/i,
+    expected: /\/(en|id)\/case-studies(\/|$)/
+  },
   { name: /FAQ/i, expected: /#faqs/ }
 ];
 
@@ -36,7 +39,9 @@ test.describe("Navigation & Links", () => {
 
   for (const { name, expected } of footerLinks) {
     test(`Footer: Should open "${name}" link correctly`, async ({ page }) => {
-      const link = page.getByRole("contentinfo").getByRole("link", { name, exact: true });
+      const link = page
+        .getByRole("contentinfo")
+        .getByRole("link", { name, exact: true });
       await expect(link).toBeVisible();
 
       const popupPromise = page.waitForEvent("popup").catch(() => null);
@@ -188,15 +193,17 @@ test.describe("Navigation & Links", () => {
     }
 
     // === GRULE ===
-    const gruleLink = page.locator('.oss-card').filter({ hasText: "Grule" });
+    const gruleLink = page.locator(".oss-card").filter({ hasText: "Grule" });
     await expect(gruleLink).toBeVisible();
     const grulePage = await openLinkAndReturnPage(page, gruleLink);
-    expect(grulePage.url()).toContain("github.com/hyperjumptech/grule-rule-engine");
+    expect(grulePage.url()).toContain(
+      "github.com/hyperjumptech/grule-rule-engine"
+    );
     if (grulePage !== page) await grulePage.close();
 
     // === MONIKA ===
     await backToOpenSource();
-    const monikaLink = page.locator('.oss-card').filter({ hasText: "Monika" });
+    const monikaLink = page.locator(".oss-card").filter({ hasText: "Monika" });
     await expect(monikaLink).toBeVisible();
     const monikaPage = await openLinkAndReturnPage(page, monikaLink);
     expect(monikaPage.url()).toContain("monika.hyperjump.tech");
@@ -204,15 +211,21 @@ test.describe("Navigation & Links", () => {
 
     // === WHATSAPP CHATBOT CONNECTOR ===
     await backToOpenSource();
-    const waLink = page.locator('.oss-card').filter({ hasText: /WhatsApp Chatbot Connector|Konektor Chatbot WhatsApp/i });
+    const waLink = page
+      .locator(".oss-card")
+      .filter({
+        hasText: /WhatsApp Chatbot Connector|Konektor Chatbot WhatsApp/i
+      });
     await expect(waLink).toBeVisible();
     const waPage = await openLinkAndReturnPage(page, waLink);
-    expect(waPage.url()).toContain("github.com/hyperjumptech/whatsapp-chatbot-connector");
+    expect(waPage.url()).toContain(
+      "github.com/hyperjumptech/whatsapp-chatbot-connector"
+    );
     if (waPage !== page) await waPage.close();
 
     // === View More ===
     await backToOpenSource();
-    const viewMore = page.locator('#open-source').getByRole("link", {
+    const viewMore = page.locator("#open-source").getByRole("link", {
       name: /View More|Lihat selengkapnya/i
     });
     await expect(viewMore).toBeVisible();

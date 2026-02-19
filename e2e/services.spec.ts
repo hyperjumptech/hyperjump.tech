@@ -190,13 +190,7 @@ for (const { code: locale, path } of locales) {
           const hero = page.locator(selectors.hero);
           await expect(hero).toBeVisible();
           // Heading and description visible
-          await expect(
-            hero
-              .locator(
-                "h1"
-              )
-              .first()
-          ).toBeVisible();
+          await expect(hero.locator("h1").first()).toBeVisible();
           await expect(hero.locator("p").first()).toBeVisible();
         });
 

@@ -1,12 +1,17 @@
 {
   "hero": {
-    "heading": "Mitra Anda dalam membangun perangkat lunak yang andal dan modern",
+    "heading": "Mitra Anda dalam membangun perangkat lunak yang membantu bisnis Anda tumbuh",
     "desc": "Kami membantu organisasi menghadirkan sistem digital yang skalabel dan berkualitas tinggi melalui keunggulan rekayasa dan teknologi cloud\u2011native."
   },
   "view_more": "Lihat selengkapnya",
   "see_more": "Lihat selengkapnya",
   "see_less": "Lihat lebih edikit",
   "our_location": "Lokasi kami",
+  "location": {
+    "eyebrow": "Lokasi",
+    "heading": "Kantor pusat kami",
+    "desc": "Kami adalah tim terdistribusi dengan pusat operasi yang berbasis di Jakarta, Indonesia."
+  },
   "open_in_google_maps": "Buka di Google Maps",
   "footer": "PT Artha Rajamas Mandiri (Hyperjump) adalah perusahaan yang berfokus pada open-source dan menyediakan layanan engineering excellence. Perusahaan ini bertujuan untuk membangun serta mengomersialkan perangkat open-source guna membantu organisasi merampingkan, menyederhanakan, dan mengamankan aspek-aspek paling krusial dalam praktik DevOps modern.",
   "case_studies_cta": {
@@ -22,12 +27,14 @@
     "4_label": "Tim"
   },
   "services": {
-    "heading": "Layanan",
-    "desc": "Kami menawarkan solusi teknologi ahli untuk membantu bisnis berkembang, meningkatkan efisiensi, mengoptimalkan operasional, dan mendorong inovasi berkelanjutan."
+    "eyebrow": "Keahlian kami",
+    "heading": "Lima disiplin, satu standar",
+    "desc": "Dari AI hingga SaaS cloud\u2011native — rekayasa kelas enterprise, dirancang khusus untuk tim yang menolak kompromi."
   },
   "case_studies": {
-    "heading": "Studi kasus",
-    "desc": "Temukan bagaimana kami berhasil mengubah tantangan menjadi peluang melalui solusi nyata yang mendorong dampak berkelanjutan dan pertumbuhan bisnis.",
+    "eyebrow": "Studi kasus",
+    "heading": "Dampak yang terukur",
+    "desc": "Kami tidak sekadar mengirim kode — kami menggerakkan metrik bisnis. Hasil nyata dari kemitraan sesungguhnya.",
     "button": "Baca studi kasus"
   },
   "project": {
@@ -41,6 +48,7 @@
     "2_text": "Backend Konektor Chatbot WhatsApp dibangun menggunakan Express.js. Dirancang untuk terintegrasi dengan WhatsApp Business API dan mendukung berbagai platform AI seperti Dify dan Rasa."
   },
   "faq": {
+    "eyebrow": "FAQ",
     "heading": "Pertanyaan yang sering diajukan",
     "desc": "Temukan jawaban atas pertanyaan yang sering diajukan. Jika membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.",
     "0_question": "Apa itu CTO sebagai Layanan (CTOaaS), dan bagaimana manfaatnya bagi perusahaan saya?",
@@ -55,7 +63,31 @@
     "learn_more_chatbot_message": "Saya ingin mempelajari lebih lanjut tentang"
   },
   "team": {
-    "heading": "Kenalan dengan tim kami",
     "desc": "Tim kami terdiri dari para profesional berpengalaman yang siap memberikan hasil terbaik."
-  }
+  },
+  "explore_our_services": "Jelajahi layanan kami",
+  "view_case_studies": "Lihat studi kasus",
+  "learn_more": "Pelajari selengkapnya",
+  "view_on_github": "Lihat di GitHub",
+  "home": "Beranda",
+  "available_positions": "Posisi yang Tersedia",
+  "our_products": "Produk Kami",
+  "our_team": "Tim Kami",
+  "expert_in": "Ahli dalam",
+  "and_more": "Dan lainnya",
+  "our_services": "Layanan kami",
+  "case_studies_label": "Studi Kasus",
+  "services_label": "Layanan",
+  "products_label": "Produk",
+  "team_label": "Tim",
+  "jobs_label": "Lowongan Kerja",
+  "apply": "Lamar",
+  "apply_for": "Lamar untuk",
+  "responsibilities": "Tanggung Jawab",
+  "requirements": "Persyaratan",
+  "deliverables": "Hasil Kerja",
+  "trusted_by": "Dipercaya oleh",
+  "open_source_label": "Produk Sumber Terbuka",
+  "built_in_the_open": "Dibangun secara Terbuka",
+  "built_in_the_open_desc": "Alat dan kerangka kerja yang kami buat dan bagikan kepada komunitas pengembang."
 }

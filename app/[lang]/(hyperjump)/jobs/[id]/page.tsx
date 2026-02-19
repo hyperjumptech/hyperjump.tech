@@ -2,11 +2,23 @@ import { notFound } from "next/navigation";
 import { BreadcrumbJsonLd, JobPostingJsonLd } from "next-seo";
 
 import dataJson from "@/data.json";
-import { supportedLanguages } from "@/locales/.generated/types";
+import {
+  mainApply,
+  mainApplyFor,
+  mainDeliverables,
+  mainHome,
+  mainJobsLabel,
+  mainRequirements,
+  mainResponsibilities
+} from "@/locales/.generated/strings";
+import {
+  type SupportedLanguage,
+  supportedLanguages
+} from "@/locales/.generated/types";
 
 import { data, type Job } from "../data";
 
-type Params = { id?: string; lang: string };
+type Params = { id?: string; lang: SupportedLanguage };
 
 export const generateStaticParams = async () => {
   return data.jobs.reduce<Params[]>(
@@ -29,6 +41,12 @@ export default async function JobDetail({ params }: JobDetailProps) {
 
   const { category, description, title } = job;
 
+  const sections = [
+    { key: "responsibilities", label: mainResponsibilities(lang) },
+    { key: "requirements", label: mainRequirements(lang) },
+    { key: "deliverables", label: mainDeliverables(lang) }
+  ];
+
   return (
     <section className="container mx-auto max-w-5xl border-b px-4 py-8 pt-20 text-black md:px-20 xl:px-0">
       <div className="flex flex-col space-y-8 py-12" data-testid="job-detail">
@@ -38,25 +56,23 @@ export default async function JobDetail({ params }: JobDetailProps) {
           <p className="mt-4 leading-normal text-gray-800">{description}</p>
         </div>
         <div className="flex flex-col space-y-4">
-          {["Responsibilities", "Requirements", "Deliverables"].map((title) => {
+          {sections.map(({ key, label }) => {
             return (
-              <div key={title} className="flex flex-col space-y-2">
-                <h2 className="text-2xl font-bold">{title}</h2>
+              <div key={key} className="flex flex-col space-y-2">
+                <h2 className="text-2xl font-bold">{label}</h2>
                 <ul className="list-disc">
-                  {(job[title.toLowerCase() as never] as string[]).map(
-                    (item, i) => {
-                      return <li key={i}>{item}</li>;
-                    }
-                  )}
+                  {(job[key as keyof Job] as string[]).map((item, i) => {
+                    return <li key={i}>{item}</li>;
+                  })}
                 </ul>
               </div>
             );
           })}
         </div>
         <a
-          href={`mailto:job@hyperjump.tech?subject=Apply for ${title}`}
+          href={`mailto:job@hyperjump.tech?subject=${mainApplyFor(lang)} ${title}`}
           className="self-start rounded border border-gray-400 bg-white px-4 py-2 font-semibold text-gray-800 shadow-sm hover:bg-gray-100">
-          Apply
+          {mainApply(lang)}
         </a>
       </div>
       <JsonLd lang={lang} job={job} />
@@ -65,7 +81,7 @@ export default async function JobDetail({ params }: JobDetailProps) {
 }
 
 type JsonLdProps = {
-  lang: string;
+  lang: SupportedLanguage;
   job: Job;
 };
 
@@ -80,11 +96,11 @@ function JsonLd({
       <BreadcrumbJsonLd
         items={[
           {
-            name: "Home",
+            name: mainHome(lang),
             item: `${url}/${lang}`
           },
           {
-            name: "Jobs",
+            name: mainJobsLabel(lang),
             item: `${url}/${lang}/jobs`
           },
           {
@@ -98,11 +114,11 @@ function JsonLd({
         datePosted="2026-02-11"
         description={`
           <p>${description}</p>
-          <h2>Responsibilities</h2>
+          <h2>${mainResponsibilities(lang)}</h2>
           <ul>${responsibilities.map((r) => `<li>${r}</li>`).join("")}</ul>
-          <h2>Requirements</h2>
+          <h2>${mainRequirements(lang)}</h2>
           <ul>${requirements.map((r) => `<li>${r}</li>`).join("")}</ul>
-          <h2>Deliverables</h2>
+          <h2>${mainDeliverables(lang)}</h2>
           <ul>${deliverables.map((d) => `<li>${d}</li>`).join("")}</ul>
         `}
         employmentType="FULL_TIME"

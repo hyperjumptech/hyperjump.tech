@@ -49,9 +49,9 @@ const selectors = {
   hero: "#hero",
   heroHeading: "#hero h1, #hero .text-3xl, #hero [data-hero-heading]",
   heroDesc: "#hero p",
-  cardsSection: "section.space-y-16",
-  card: "section.space-y-16 > div",
-  cardButton: "section.space-y-16 > div a, section.space-y-16 > div button"
+  cardsSection: "section.group\\/section",
+  card: "section.group\\/section > div",
+  cardButton: "section.group\\/section a, section.group\\/section button"
 };
 
 for (const { code: locale, path } of locales) {
@@ -190,20 +190,14 @@ for (const { code: locale, path } of locales) {
           const hero = page.locator(selectors.hero);
           await expect(hero).toBeVisible();
           // Heading and description visible
-          await expect(
-            hero
-              .locator(
-                ".text-3xl, .text-4xl, [class*='text-'][class*='font-medium']"
-              )
-              .first()
-          ).toBeVisible();
+          await expect(hero.locator("h1").first()).toBeVisible();
           await expect(hero.locator("p").first()).toBeVisible();
         });
 
         test("explore heading, service section, and CTA visible", async ({
           page
         }) => {
-          const section = page.locator(selectors.cardsSection);
+          const section = page.locator(selectors.cardsSection).first();
           await expect(section).toBeVisible();
 
           const cards = page.locator(selectors.card);
@@ -246,7 +240,7 @@ for (const { code: locale, path } of locales) {
         });
 
         test("Services Section", async ({ page }) => {
-          const section = page.locator(selectors.cardsSection);
+          const section = page.locator(selectors.cardsSection).first();
           await expect(section).toBeVisible();
         });
 
@@ -276,7 +270,7 @@ for (const { code: locale, path } of locales) {
             const hero = page.locator(selectors.hero);
             await expect(hero).toBeVisible();
 
-            const section = page.locator(selectors.cardsSection);
+            const section = page.locator(selectors.cardsSection).first();
             await expect(section).toBeVisible();
 
             const footer = getFooter(page);

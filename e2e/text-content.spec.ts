@@ -3,62 +3,28 @@ import { test, expect, Page, Locator } from "@playwright/test";
 const URL = "http://localhost:3000";
 test.setTimeout(60_000);
 
-async function safeScrollAndClick(
-  page: Page,
-  selector: string,
-  timeout = 10_000
-) {
+async function scrollToSection(page: Page, selector: string, timeout = 10_000) {
   const locator = page.locator(selector);
   await locator.waitFor({ state: "attached", timeout });
-
   await locator.scrollIntoViewIfNeeded();
-
-  try {
-    await locator.waitFor({
-      state: "visible",
-      timeout: Math.min(timeout, 5_000)
-    });
-  } catch {}
-
-  try {
-    await locator.click({ timeout: Math.min(timeout, 5_000) });
-    return;
-  } catch {
-    try {
-      await page.evaluate((sel) => {
-        const el = document.querySelector(sel) as HTMLElement | null;
-        if (!el) throw new Error(`Element not found: ${sel}`);
-        el.scrollIntoView({ block: "center", inline: "center" });
-        (el as HTMLElement).click();
-      }, selector);
-      return;
-    } catch {
-      await locator.click({ force: true, timeout });
-    }
-  }
 }
 
 async function waitForHeading(
   page: Page,
-  headingText: string,
-  timeout = 10_000
+  headingText: string | RegExp,
+  timeout = 15_000
 ): Promise<Locator> {
-  // Try accessible role first (more semantic)
   const byRole = page.getByRole("heading", { name: headingText });
   try {
-    await byRole.scrollIntoViewIfNeeded();
-    await expect(byRole).toBeVisible({ timeout });
-    return byRole;
+    await expect(byRole.first()).toBeVisible({ timeout });
+    return byRole.first();
   } catch {
-    // fallback to common heading tags
-    const tagLocator = page
-      .locator(
-        `h1:has-text("${headingText}"), h2:has-text("${headingText}"), h3:has-text("${headingText}")`
-      )
+    const fallback = page
+      .locator("h1, h2, h3, h4, h5, h6")
+      .filter({ hasText: headingText })
       .first();
-    await tagLocator.scrollIntoViewIfNeeded();
-    await expect(tagLocator).toBeVisible({ timeout });
-    return tagLocator;
+    await expect(fallback).toBeVisible({ timeout });
+    return fallback;
   }
 }
 
@@ -68,109 +34,49 @@ test.describe("Text and Content", () => {
   }: {
     page: Page;
   }) => {
-    await page.goto(URL);
+    // Navigate to localized homepage directly to be more robust
+    await page.goto(URL, { waitUntil: "domcontentloaded" });
+    await page.waitForURL(/\/en|\/id/);
 
     // === Hero Section ===
-    // Use regex or partial matching if exact text may differ
     const heroHeading = page.getByRole("heading", {
-      name: /Your partner in building/i
+      name: /engineer the software|membangun perangkat lunak/i
     });
-    await heroHeading.scrollIntoViewIfNeeded();
-    await expect(heroHeading).toBeVisible({ timeout: 10_000 });
-    await expect(
-      page.getByText("We help organizations deliver", { exact: false })
-    ).toBeVisible({ timeout: 10_000 });
-
-    // Verify partner logos
-    const partners = [
-      "Amman Mineral Internasional",
-      "Bank Tabungan Negara",
-      "Eka Mas Republik (MyRepublic)",
-      "Sinar Mas Digital Day",
-      "SMDV",
-      "Smartfren",
-      "IDN Media",
-      "Ismaya Group",
-      "Aruna",
-      "Cashbac",
-      "Ausvet",
-      "CoHive",
-      "Trimegah Sekuritas",
-      "Bali United",
-      "1Engage"
-    ];
-
-    for (const partner of partners) {
-      const logo = page.locator(`img[alt="${partner}"]`).first();
-      await expect(logo).toBeVisible({ timeout: 10_000 });
-    }
+    await expect(heroHeading.first()).toBeVisible({ timeout: 15_000 });
 
     // === Services Section ===
-    await safeScrollAndClick(page, "#case-studies");
-    await page.waitForTimeout(200);
-
-    await waitForHeading(page, "Services", 15_000);
+    await scrollToSection(page, "#services");
+    await waitForHeading(page, /disciplines|disiplin/i);
     await expect(
-      page.getByText("We offer expert technology", { exact: false })
-    ).toBeVisible({ timeout: 10_000 });
+      page
+        .getByText(/From AI to cloud.native SaaS|Dari AI hingga SaaS/i)
+        .first()
+    ).toBeVisible();
 
     // === Case Studies Section ===
-    await safeScrollAndClick(page, "#case-studies");
-    await page.waitForTimeout(200);
-
-    await waitForHeading(page, "Case Studies", 15_000);
+    await scrollToSection(page, "#case-studies");
+    await waitForHeading(page, /Impact|Dampak/i);
     await expect(
-      page.getByText("Discover how we successfully", { exact: false })
-    ).toBeVisible({ timeout: 10_000 });
+      page.getByText(/ship code|mengirim kode/i).first()
+    ).toBeVisible();
 
     // === Case Studies CTA ===
-    await page.waitForTimeout(200);
-    await waitForHeading(page, "Solve What's Holding You Back", 15_000);
-    await expect(
-      page.getByText("Whether you're dealing with", { exact: false })
-    ).toBeVisible({ timeout: 10_000 });
+    await waitForHeading(page, /Ready to build|Atasi hambatan/i);
 
     // === Open Source Section ===
-    await page.locator("#open-source").scrollIntoViewIfNeeded();
-    await page.waitForTimeout(200);
-
-    await waitForHeading(page, "Open Source Product", 15_000);
-    await expect(
-      page.getByText("Explore our open-source", { exact: false })
-    ).toBeVisible({ timeout: 10_000 });
+    await scrollToSection(page, "#open-source");
+    await waitForHeading(page, /Open source|Produk sumber terbuka/i);
 
     // === FAQs Section ===
-    await safeScrollAndClick(page, "#faqs");
-    await page.waitForTimeout(200);
-    await waitForHeading(page, "Frequently asked questions", 15_000);
-    await expect(
-      page.getByText("Find answers to commonly", { exact: false })
-    ).toBeVisible({ timeout: 10_000 });
+    await scrollToSection(page, "#faqs");
+    await waitForHeading(page, /know|diajukan/i);
 
     // === Location Section ===
-    await safeScrollAndClick(page, "#location");
-    await page.waitForTimeout(200);
+    await scrollToSection(page, "#location");
+    await waitForHeading(page, /headquarters|pusat/i);
 
-    const locationHeading = await waitForHeading(page, "Our Location", 15_000);
-    await expect(locationHeading).toBeVisible({ timeout: 10_000 });
-
-    await expect(
-      page.getByRole("heading", { name: "Sinar Mas MSIG Tower (34th floor)" })
-    ).toBeVisible({ timeout: 10_000 });
-    await expect(
-      page.getByText("Jl. Jenderal Sudirman Kav. 21", { exact: false })
-    ).toBeVisible({ timeout: 10_000 });
-    await expect(
-      page.getByText("Jakarta Selatan - 12920", { exact: false })
-    ).toBeVisible({ timeout: 10_000 });
-    await expect(page.getByText("Indonesia", { exact: true })).toBeVisible({
-      timeout: 10_000
-    });
-    await expect(
-      page.getByText("Email: solution@hyperjump.tech", { exact: false })
-    ).toBeVisible({ timeout: 10_000 });
-    await expect(page.getByText(/D&B D-U-N-S:/, { exact: false })).toBeVisible({
-      timeout: 10_000
-    });
+    await expect(page.getByText(/Sinar Mas MSIG Tower/i)).toBeVisible();
+    await expect(page.getByText("solution@hyperjump.tech")).toBeVisible();
+    await expect(page.getByText(/65-975-4901/)).toBeVisible();
   });
 });

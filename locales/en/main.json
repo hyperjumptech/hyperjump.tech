@@ -1,48 +1,56 @@
 {
   "hero": {
-    "heading": "Your partner in building reliable, modern software",
-    "desc": "We help organizations deliver scalable, high\u2011quality digital systems through engineering excellence and cloud\u2011native technology."
+    "heading": "We engineer the software that grows your business",
+    "desc": "Enterprise-grade engineering for teams building at scale. From AI to ERP to cloud\u2011native SaaS\u2014we turn complexity into your competitive edge."
   },
   "view_more": "View more",
   "see_more": "See more",
   "see_less": "See less",
   "our_location": "Our location",
+  "location": {
+    "eyebrow": "Location",
+    "heading": "Our headquarters",
+    "desc": "We are a distributed team with our center of operations based in the capital."
+  },
   "open_in_google_maps": "Open in Google Maps",
-  "footer": "PT Artha Rajamas Mandiri (Hyperjump) is an open-source-first company providing engineering excellence service. We aim to build and commercialize open-source tools to help companies streamline, simplify, and secure the most important aspects of its modern DevOps practices.",
+  "footer": "Engineering excellence, open-source first. We build and commercialize tools that help companies streamline, simplify, and secure modern DevOps.",
   "case_studies_cta": {
-    "heading": "Solve what's holding you back",
-    "desc": "Whether you're dealing with legacy systems, operational bottlenecks, or scaling pains. We're here to help you untangle the mess and build what's next.",
+    "heading": "Ready to build what\u2019s next?",
+    "desc": "We partner with ambitious teams to solve hard engineering problems. Let\u2019s talk about yours.",
     "explore_our_case_studies": "Explore Our Case Studies"
   },
   "nav_items": {
-    "0_label": "Our Services",
+    "0_label": "Services",
     "1_label": "Case Studies",
-    "2_label": "Our Products",
+    "2_label": "Products",
     "3_label": "FAQ",
     "4_label": "Team"
   },
   "services": {
-    "heading": "Services",
-    "desc": "We offer expert technology solutions to help businesses scale, enhance efficiency, optimize operations, and drive continuous innovation."
+    "eyebrow": "Our expertise",
+    "heading": "Five disciplines, one standard",
+    "desc": "From AI to cloud\u2011native SaaS — enterprise-grade engineering, purpose-built for teams who refuse to compromise."
   },
   "case_studies": {
-    "heading": "Case studies",
-    "desc": "Discover how we successfully transform challenges into opportunities with real-world solutions that drive lasting impact and business growth.",
+    "eyebrow": "Case studies",
+    "heading": "Impact, measured",
+    "desc": "We don\u2019t just ship code — we move business metrics. Real outcomes from real partnerships.",
     "button": "Read case study"
   },
   "project": {
-    "heading": "Open source product",
-    "desc": "Explore our open-source projects and see how we innovate, collaborate, and build solutions that drive real impact. Join our community and contribute to cutting-edge technology.",
+    "heading": "Open source",
+    "desc": "Tools we\u2019ve built, open for everyone.<br/>Explore, contribute, and build with us.",
     "0_title": "Grule",
-    "0_text": "Grule is a powerful open-source rule engine for Go that lets you define business rules in a human-readable format—making your app more flexible and maintainable.",
+    "0_text": "A powerful open-source rule engine for Go. Define business rules in a human-readable format\u2014making your app more flexible and maintainable.",
     "1_title": "Monika",
-    "1_text": "Monika is a command line application to monitor every part of your web app using a simple JSON configuration file. Get alert not only when your site is down but also when it's slow.",
+    "1_text": "Command-line monitoring for every part of your web app. Get alerts when your site is down or slow, configured with a simple JSON file.",
     "2_title": "WhatsApp Chatbot Connector",
-    "2_text": "WhatsApp Chatbot Connector backend built using Express.js. It is designed to integrate with the WhatsApp Business API and supports various AI platforms such as Dify and Rasa."
+    "2_text": "Backend connector for the WhatsApp Business API. Integrates with AI platforms like Dify and Rasa out of the box."
   },
   "faq": {
-    "heading": "Frequently asked questions",
-    "desc": "Find answers to commonly asked questions. If you need further assistance, feel free to reach out to us.",
+    "eyebrow": "FAQ",
+    "heading": "Everything you need to know",
+    "desc": "Can't find an answer? Reach out to us directly.",
     "0_question": "What is CTO as a Service (CTOaaS), and how can it benefit my company?",
     "0_answer": "CTOaaS provides on-demand access to experienced technology leadership without the cost of a full-time executive. It helps enterprises with strategic IT planning, digital transformation, and technical decision-making to scale efficiently.",
     "1_question": "How do you approach ERP implementation for enterprises?",
@@ -55,7 +63,31 @@
     "learn_more_chatbot_message": "I want to learn more about"
   },
   "team": {
-    "heading": "Meet our team",
     "desc": "Our team consists of highly skilled professionals dedicated to delivering exceptional results."
-  }
+  },
+  "explore_our_services": "Explore our services",
+  "view_case_studies": "View case studies",
+  "learn_more": "Learn more",
+  "view_on_github": "View on GitHub",
+  "home": "Home",
+  "available_positions": "Available Positions",
+  "our_products": "Our Products",
+  "our_team": "Our Team",
+  "expert_in": "Expert in",
+  "and_more": "And more",
+  "our_services": "Our services",
+  "case_studies_label": "Case Studies",
+  "services_label": "Services",
+  "products_label": "Products",
+  "team_label": "Team",
+  "jobs_label": "Jobs",
+  "apply": "Apply",
+  "apply_for": "Apply for",
+  "responsibilities": "Responsibilities",
+  "requirements": "Requirements",
+  "deliverables": "Deliverables",
+  "trusted_by": "Trusted by",
+  "open_source_label": "Open Source",
+  "built_in_the_open": "Built in the Open",
+  "built_in_the_open_desc": "Tools and frameworks we've crafted and shared with the developer community."
 }

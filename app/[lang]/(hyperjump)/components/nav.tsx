@@ -27,14 +27,7 @@ import WhiteColoredLogo from "@/public/images/hyperjump-white-colored.png";
 import StickyNavigationMain from "../../../components/sticky-nav-main";
 import { data } from "../jobs/data";
 
-const SOLID_NAV_PATHS = [
-  "/case-studies",
-  "/jobs",
-  "/services",
-  "/products",
-  "/team",
-  ...data.jobs.map(({ id }) => `/jobs/${id}`)
-];
+const SOLID_NAV_PATHS = ["/jobs", ...data.jobs.map(({ id }) => `/jobs/${id}`)];
 const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(
   (acc, locale) => [
     ...acc,
@@ -45,10 +38,7 @@ const SOLID_NAV_PATHS_WITH_LOCALE = supportedLanguages.reduce(
 
 function menu(lang: SupportedLanguage) {
   return [
-    {
-      label: mainNavItems0Label(lang),
-      href: `/${lang}/services`
-    },
+    { label: mainNavItems0Label(lang), href: `/${lang}/services` },
     { label: mainNavItems2Label(lang), href: `/${lang}/products` },
     { label: mainNavItems1Label(lang), href: `/${lang}/case-studies` },
     { label: mainNavItems4Label(lang), href: `/${lang}/team` },
@@ -71,11 +61,13 @@ export default function Nav({ lang }: NavProps) {
     <StickyNavigationMain>
       <NavContainer
         className={cn(
-          "w-full transition",
+          "w-full transition-[background-color,border-color] duration-500",
           isTransparent && !isOpen
-            ? "group-data-[scroll=false]:bg-transparent group-data-[scroll=true]:bg-white"
+            ? "group-data-[scroll=false]:bg-transparent group-data-[scroll=true]:border-b group-data-[scroll=true]:border-black/6 group-data-[scroll=true]:bg-white/95"
             : "bg-transparent",
-          isOpen && "bg-white"
+          isOpen && "border-b border-black/6 bg-white/95",
+          !isTransparent &&
+            "group-data-[scroll=true]:border-b group-data-[scroll=true]:border-black/6 group-data-[scroll=true]:bg-white/95"
         )}>
         <div className="mx-auto flex w-5xl items-center justify-between px-4 md:px-20 xl:px-0">
           <Link
@@ -85,7 +77,7 @@ export default function Nav({ lang }: NavProps) {
           </Link>
           <CenterNavItems>
             <NavigationMenu className="mx-8 xl:mx-0">
-              <NavigationMenuList className="flex items-center space-x-8">
+              <NavigationMenuList className="flex items-center gap-1">
                 {menu(lang).map(({ href, label }) => {
                   const isActive = pathname.startsWith(href);
 
@@ -97,17 +89,19 @@ export default function Nav({ lang }: NavProps) {
                         href={href}
                         onClick={() => setIsOpen(false)}
                         className={cn(
-                          "text-xl font-medium transition duration-300",
+                          "rounded-full px-4 py-1.5 text-[15px] font-medium tracking-tight transition-all duration-300",
                           isTransparent &&
                             isActive &&
-                            "group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:border-b-2",
+                            "group-data-[scroll=true]:bg-hyperjump-blue/10 group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:bg-white/15 group-data-[scroll=false]:text-white",
                           isTransparent &&
                             !isActive &&
-                            "group-data-[scroll=true]:text-hyperjump-black hover:group-data-[scroll=true]:text-hyperjump-blue group-data-[scroll=false]:text-white hover:group-data-[scroll=false]:border-b-2",
-                          !isTransparent && isActive && "text-hyperjump-blue",
+                            "group-data-[scroll=true]:text-hyperjump-black group-data-[scroll=false]:text-white/80 hover:group-data-[scroll=false]:bg-white/10 hover:group-data-[scroll=false]:text-white hover:group-data-[scroll=true]:bg-black/4",
+                          !isTransparent &&
+                            isActive &&
+                            "bg-hyperjump-blue/10 text-hyperjump-blue",
                           !isTransparent &&
                             !isActive &&
-                            "text-hyperjump-black hover:text-hyperjump-blue"
+                            "text-hyperjump-black hover:bg-black/4"
                         )}>
                         {label}
                       </Link>
@@ -118,18 +112,17 @@ export default function Nav({ lang }: NavProps) {
             </NavigationMenu>
           </CenterNavItems>
 
-          {/* Mobile Toggle */}
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="ml-2 p-0 lg:hidden"
+              className="ml-2 rounded-lg p-1.5 transition-colors hover:bg-black/4 lg:hidden"
               aria-label="Toggle menu">
               <svg
                 className={cn(
-                  "h-6 w-6",
+                  "h-5 w-5 transition-colors",
                   isTransparent && !isOpen
-                    ? "stroke-white group-data-[scroll=true]:stroke-black"
-                    : "stroke-black"
+                    ? "group-data-[scroll=true]:stroke-hyperjump-black stroke-white"
+                    : "stroke-hyperjump-black"
                 )}
                 fill="none"
                 viewBox="0 0 24 24"
@@ -138,14 +131,14 @@ export default function Nav({ lang }: NavProps) {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
+                    strokeWidth={1.5}
                     d="M6 18L18 6M6 6l12 12"
                   />
                 ) : (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
+                    strokeWidth={1.5}
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 )}
@@ -155,10 +148,9 @@ export default function Nav({ lang }: NavProps) {
         </div>
       </NavContainer>
 
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="bg-white shadow-md lg:hidden">
-          <div className="mx-auto flex w-full flex-col space-y-4 px-4 py-5 md:px-20 xl:px-0">
+        <div className="border-b border-black/6 bg-white/95 lg:hidden">
+          <div className="mx-auto flex w-full flex-col gap-1 px-4 py-4 md:px-20 xl:px-0">
             {menu(lang).map(({ href, label }) => {
               const isActive = pathname.startsWith(href);
               return (
@@ -166,8 +158,10 @@ export default function Nav({ lang }: NavProps) {
                   key={label}
                   href={href}
                   className={cn(
-                    "text-2xl transition hover:text-gray-400",
-                    isActive ? "text-hyperjump-blue" : "text-hyperjump-black"
+                    "rounded-xl px-4 py-3 text-lg font-medium tracking-tight transition-all duration-200",
+                    isActive
+                      ? "bg-hyperjump-blue/10 text-hyperjump-blue"
+                      : "text-hyperjump-black hover:bg-black/3"
                   )}
                   onClick={() => setIsOpen(false)}>
                   {label}
@@ -191,7 +185,7 @@ function NavContainer({
   return (
     <div
       className={cn(
-        "mx-auto mt-0 flex w-full flex-wrap items-center justify-between border border-transparent py-3 transition duration-300 group-data-[scroll='true']:border-white/10 md:py-5",
+        "mx-auto mt-0 flex w-full flex-wrap items-center justify-between border border-transparent py-2.5 transition-[background-color,border-color] duration-500 md:py-3.5",
         className
       )}>
       {children}
@@ -221,7 +215,10 @@ function Logo({ isOpen, isTransparent }: LogoProps) {
     return (
       <Image
         key={src}
-        className={cn("h-8", isTransparent && logoClassNames({ isOpen, src }))}
+        className={cn(
+          "h-7 transition-opacity duration-300",
+          isTransparent && logoClassNames({ isOpen, src })
+        )}
         src={image}
         alt="Hyperjump Logo"
         width={187}

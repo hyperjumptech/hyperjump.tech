@@ -1,10 +1,13 @@
 import { test, expect, Page, Locator } from "@playwright/test";
 
-const navLinks: { name: string; expected: RegExp }[] = [
-  { name: "Our Services", expected: /\/(en|id)\/services(\/|$)/ },
-  { name: "Our Products", expected: /\/(en|id)\/products(\/|$)/ },
-  { name: "Case Studies", expected: /\/(en|id)\/case-studies(\/|$)/ },
-  { name: "FAQ", expected: /#faqs/ }
+const navLinks: { name: string | RegExp; expected: RegExp }[] = [
+  { name: /Services|Layanan Kami/i, expected: /\/(en|id)\/services(\/|$)/ },
+  { name: /Products|Produk Kami/i, expected: /\/(en|id)\/products(\/|$)/ },
+  {
+    name: /Case Studies|Studi Kasus/i,
+    expected: /\/(en|id)\/case-studies(\/|$)/
+  },
+  { name: /FAQ/i, expected: /#faqs/ }
 ];
 
 const footerLinks: { name: string; expected: string }[] = [
@@ -25,7 +28,7 @@ test.describe("Navigation & Links", () => {
     }) => {
       const nav = page.getByRole("navigation");
       const link = nav.getByRole("link", { name, exact: false });
-      await expect(link).toBeVisible();
+      await expect(link.first()).toBeVisible();
 
       await link.first().click();
       await page.waitForTimeout(2000);
@@ -36,7 +39,9 @@ test.describe("Navigation & Links", () => {
 
   for (const { name, expected } of footerLinks) {
     test(`Footer: Should open "${name}" link correctly`, async ({ page }) => {
-      const link = page.getByRole("link", { name, exact: false });
+      const link = page
+        .getByRole("contentinfo")
+        .getByRole("link", { name, exact: true });
       await expect(link).toBeVisible();
 
       const popupPromise = page.waitForEvent("popup").catch(() => null);
@@ -57,12 +62,13 @@ test.describe("Navigation & Links", () => {
     await page.waitForLoadState("networkidle");
     await page.waitForTimeout(1000);
 
-    const seeMoreLinks = await page
-      .getByRole("link", { name: "See More" })
+    const learnMoreLinks = await page
+      .locator("#services")
+      .getByRole("link", { name: /Learn More|Pelajari selengkapnya/i })
       .all();
-    expect(seeMoreLinks.length).toBeGreaterThan(0);
+    expect(learnMoreLinks.length).toBeGreaterThan(0);
 
-    for (const [_, link] of seeMoreLinks.entries()) {
+    for (const [_, link] of learnMoreLinks.entries()) {
       await link.scrollIntoViewIfNeeded();
       await expect(link).toBeVisible({ timeout: 5000 });
       await expect(link).toBeEnabled();
@@ -75,7 +81,7 @@ test.describe("Navigation & Links", () => {
 
     const viewMore = page
       .locator("#services")
-      .getByRole("link", { name: "View More" });
+      .getByRole("link", { name: /View More|Lihat selengkapnya/i });
     await expect(viewMore).toBeVisible({ timeout: 5000 });
     await viewMore.scrollIntoViewIfNeeded();
     await viewMore.click({ timeout: 10000 });
@@ -92,7 +98,8 @@ test.describe("Navigation & Links", () => {
     await page.waitForLoadState("networkidle");
     await page.waitForTimeout(1000);
     const readCaseStudyLinks = await page
-      .getByRole("link", { name: "Read Case Study" })
+      .locator("#case-studies")
+      .getByRole("link", { name: /Read case study|Baca studi kasus/i })
       .all();
     expect(readCaseStudyLinks.length).toBeGreaterThan(0);
 
@@ -115,7 +122,7 @@ test.describe("Navigation & Links", () => {
     }
 
     const viewMore = caseStudiesSection.getByRole("link", {
-      name: "Explore Our Case Studies"
+      name: /Explore Our Case Studies|Telusuri studi kasus kami/i
     });
     await expect(viewMore).toBeVisible({ timeout: 5000 });
     await viewMore.scrollIntoViewIfNeeded();
@@ -126,19 +133,6 @@ test.describe("Navigation & Links", () => {
   });
 
   test.setTimeout(60_000);
-
-  async function expectGithubURL(p: Page, repoSlug: string) {
-    const url = p.url();
-    const isRepo =
-      url.includes(`github.com/hyperjumptech/${repoSlug}`) ||
-      url.includes(
-        `github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fhyperjumptech%2F${repoSlug}`
-      );
-    expect(
-      isRepo,
-      `Expected redirect or repo for ${repoSlug}, got: ${url}`
-    ).toBeTruthy();
-  }
 
   /**
    * Click a locator and return the Page that results:
@@ -178,7 +172,6 @@ test.describe("Navigation & Links", () => {
       return popup;
     } catch (e) {
       // no popup -> same-page navigation
-      // Click, then wait for load; if click does not navigate, waitForLoadState returns quickly.
       try {
         await Promise.all([page.waitForLoadState("load"), locator.click()]);
       } catch {
@@ -200,61 +193,42 @@ test.describe("Navigation & Links", () => {
     }
 
     // === GRULE ===
-    const gruleLink = page.getByRole("link", { name: "Grule" });
+    const gruleLink = page.locator(".oss-card").filter({ hasText: "Grule" });
     await expect(gruleLink).toBeVisible();
-    await gruleLink.click();
-    await backToOpenSource();
-
-    const gruleStarLocator = page.getByRole("link", { name: /Star/i }).first();
-    const gruleStarPage = await openLinkAndReturnPage(page, gruleStarLocator);
-    await expectGithubURL(gruleStarPage, "grule-rule-engine");
-
-    await backToOpenSource();
-    const gruleForkLocator = page.getByRole("link", { name: /Fork/i }).first();
-    const gruleForkPage = await openLinkAndReturnPage(page, gruleForkLocator);
-    await expectGithubURL(gruleForkPage, "grule-rule-engine");
+    const grulePage = await openLinkAndReturnPage(page, gruleLink);
+    expect(grulePage.url()).toContain(
+      "github.com/hyperjumptech/grule-rule-engine"
+    );
+    if (grulePage !== page) await grulePage.close();
 
     // === MONIKA ===
     await backToOpenSource();
-    const monikaLink = page.getByRole("link", { name: "Monika" });
+    const monikaLink = page.locator(".oss-card").filter({ hasText: "Monika" });
     await expect(monikaLink).toBeVisible();
-    await monikaLink.click();
-    await backToOpenSource();
-
-    const monikaStarLocator = page.getByRole("link", { name: /Star/i }).nth(1);
-    const monikaStarPage = await openLinkAndReturnPage(page, monikaStarLocator);
-    await expectGithubURL(monikaStarPage, "monika");
-
-    await backToOpenSource();
-    const monikaForkLocator = page.getByRole("link", { name: /Fork/i }).nth(1);
-    const monikaForkPage = await openLinkAndReturnPage(page, monikaForkLocator);
-    await expectGithubURL(monikaForkPage, "monika");
+    const monikaPage = await openLinkAndReturnPage(page, monikaLink);
+    expect(monikaPage.url()).toContain("monika.hyperjump.tech");
+    if (monikaPage !== page) await monikaPage.close();
 
     // === WHATSAPP CHATBOT CONNECTOR ===
     await backToOpenSource();
-    const waLink = page.getByRole("link", {
-      name: "WhatsApp Chatbot Connector"
+    const waLink = page.locator(".oss-card").filter({
+      hasText: /WhatsApp Chatbot Connector|Konektor Chatbot WhatsApp/i
     });
     await expect(waLink).toBeVisible();
-    await waLink.click();
-    await backToOpenSource();
+    const waPage = await openLinkAndReturnPage(page, waLink);
+    expect(waPage.url()).toContain(
+      "github.com/hyperjumptech/whatsapp-chatbot-connector"
+    );
+    if (waPage !== page) await waPage.close();
 
-    const waStarLocator = page.getByRole("link", { name: /Star/i }).nth(2);
-    const waStarPage = await openLinkAndReturnPage(page, waStarLocator);
-    await expectGithubURL(waStarPage, "whatsapp-chatbot-connector");
-
+    // === View More ===
     await backToOpenSource();
-    const waForkLocator = page.getByRole("link", { name: /Fork/i }).nth(2);
-    const waForkPage = await openLinkAndReturnPage(page, waForkLocator);
-    await expectGithubURL(waForkPage, "whatsapp-chatbot-connector");
-
-    // Optional: click View More if present
-    await backToOpenSource();
-    const viewMore = page.locator('a[href*="github.com/hyperjumptech"]', {
-      hasText: "View More"
+    const viewMore = page.locator("#open-source").getByRole("link", {
+      name: /View More|Lihat selengkapnya/i
     });
-    if (await viewMore.first().isVisible()) {
-      await viewMore.first().click();
-    }
+    await expect(viewMore).toBeVisible();
+    const orgPage = await openLinkAndReturnPage(page, viewMore);
+    expect(orgPage.url()).toContain("github.com/hyperjumptech");
+    if (orgPage !== page) await orgPage.close();
   });
 });

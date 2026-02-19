@@ -294,6 +294,7 @@ export type CaseStudy = {
     label: string;
   };
   description: string;
+  imageUrl: string;
   serviceSlug: ServiceSlug;
   slug: string;
   title: string;
@@ -308,6 +309,7 @@ export enum CaseStudySlug {
 
 export function getCaseStudies(lang: SupportedLanguage): CaseStudy[] {
   const BASE_PATH = `/${lang}/case-studies`;
+  const IMAGE_PATH = "/images/case-studies";
   return [
     {
       cta: {
@@ -316,6 +318,7 @@ export function getCaseStudies(lang: SupportedLanguage): CaseStudy[] {
         label: caseStudyErpFisheriesCtaLabel(lang)
       },
       description: caseStudyErpFisheriesDesc(lang),
+      imageUrl: `${IMAGE_PATH}/erp-fisheries-1.jpg.webp`,
       serviceSlug: ServiceSlug.CtoAsAService,
       slug: CaseStudySlug.Fisheries,
       title: caseStudyErpFisheriesTitle(lang),
@@ -328,6 +331,7 @@ export function getCaseStudies(lang: SupportedLanguage): CaseStudy[] {
         label: caseStudyCtoaasMediaCtaLabel(lang)
       },
       description: caseStudyCtoaasMediaDesc(lang),
+      imageUrl: `${IMAGE_PATH}/ctoaas-media-1.jpg.webp`,
       serviceSlug: ServiceSlug.CtoAsAService,
       slug: CaseStudySlug.Media,
       title: caseStudyCtoaasMediaTitle(lang),
@@ -340,6 +344,7 @@ export function getCaseStudies(lang: SupportedLanguage): CaseStudy[] {
         label: caseStudySaasVolunteeringPlatformCtaLabel(lang)
       },
       description: caseStudySaasVolunteeringPlatformDesc(lang),
+      imageUrl: `${IMAGE_PATH}/saas-voluteering-1.jpg.webp`,
       serviceSlug: ServiceSlug.SoftwareAsAService,
       slug: CaseStudySlug.VolunteeringPlatform,
       title: caseStudySaasVolunteeringPlatformTitle(lang),

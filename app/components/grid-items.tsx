@@ -39,7 +39,7 @@ export function GridItemsTitle({
   const isHorizontal = layout === "horizontal";
 
   return !description ? (
-    <h1 className="font-menium text-hyperjump-black my-2 w-full text-center text-3xl leading-tight md:text-4xl">
+    <h1 className="text-hyperjump-black my-2 w-full text-center text-3xl leading-tight font-semibold tracking-tight md:text-4xl">
       {title}
     </h1>
   ) : (
@@ -53,7 +53,7 @@ export function GridItemsTitle({
       )}>
       <h2
         className={cn(
-          "text-hyperjump-black text-3xl font-medium md:text-4xl",
+          "text-hyperjump-black text-3xl font-semibold tracking-tight md:text-4xl",
           isHorizontal ? "mb-0 text-left" : "mb-6"
         )}>
         {title}
@@ -173,7 +173,7 @@ export function GridItems({
           <Card
             key={idx}
             className={cn(
-              "flex flex-col overflow-hidden rounded-2xl transition-colors duration-300 ease-in-out hover:bg-white/5 hover:shadow-md hover:shadow-white/10",
+              "flex flex-col overflow-hidden rounded-2xl transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6",
               cardClassName
             )}>
             {image && (
@@ -223,7 +223,7 @@ export function GridItems({
                 <Button
                   asChild
                   variant="outline"
-                  className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
+                  className="text-hyperjump-blue hover:bg-hyperjump-blue w-full rounded-xl border-black/8 transition-all duration-200 hover:scale-[1.01] hover:text-white">
                   <Link href={urlSeeMore}>{mainSeeMore(lang)}</Link>
                 </Button>
               )}
@@ -232,7 +232,7 @@ export function GridItems({
                 <Button
                   asChild
                   variant="outline"
-                  className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
+                  className="text-hyperjump-blue hover:bg-hyperjump-blue w-full rounded-xl border-black/8 transition-all duration-200 hover:scale-[1.01] hover:text-white">
                   <Link href={urlLearnMore}>{productsLearnMore(lang)}</Link>
                 </Button>
               )}
@@ -242,7 +242,7 @@ export function GridItems({
                   <Button
                     asChild
                     variant="outline"
-                    className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
+                    className="text-hyperjump-blue hover:bg-hyperjump-blue w-full rounded-xl border-black/8 transition-all duration-200 hover:scale-[1.01] hover:text-white">
                     <Link
                       href={repoUrl}
                       target="_blank"
@@ -255,7 +255,7 @@ export function GridItems({
                   <Button
                     asChild
                     variant="outline"
-                    className="text-hyperjump-blue hover:bg-hyperjump-blue w-full border-gray-300 hover:text-white">
+                    className="text-hyperjump-blue hover:bg-hyperjump-blue w-full rounded-xl border-black/8 transition-all duration-200 hover:scale-[1.01] hover:text-white">
                     <Link
                       href={`${repoUrl}/fork`}
                       target="_blank"
@@ -330,11 +330,15 @@ export const GridItemsMoreButton = ({
   gaEvent,
   type = "hyperjump"
 }: GridItemsMoreButtonProps) => {
-  const hyperjump = cn("font-semibold", {
-    "bg-hyperjump-blue hover:bg-hyperjump-blue/90": variant === "default",
-    "text-hyperjump-blue border-hyperjump-blue hover:bg-hyperjump-blue hover:text-white":
-      variant === "outline"
-  });
+  const hyperjump = cn(
+    "font-semibold rounded-full transition-all duration-200 hover:scale-[1.02]",
+    {
+      "bg-hyperjump-blue hover:bg-hyperjump-blue/90 shadow-lg shadow-[#635BFF]/20":
+        variant === "default",
+      "text-hyperjump-blue border-hyperjump-blue/20 hover:bg-hyperjump-blue hover:text-white":
+        variant === "outline"
+    }
+  );
 
   const inferenceai = cn(
     "color-gradient-purple transform rounded-full text-white transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-md"

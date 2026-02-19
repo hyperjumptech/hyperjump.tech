@@ -12,10 +12,15 @@ import {
   CardTitle
 } from "@/components/ui/card";
 import dataJson from "@/data.json";
+import {
+  mainAvailablePositions,
+  mainHome,
+  mainJobsLabel
+} from "@/locales/.generated/strings";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import { supportedLanguages } from "@/locales/.generated/types";
 
-import { type Job } from "./data";
+import type { Job } from "./data";
 import { data } from "./data";
 
 export const generateStaticParams = async () => {
@@ -36,17 +41,17 @@ export default async function Home({ params }: JobProps) {
 
   return (
     <GridItemsContainer className="pt-10">
-      <GridItemsTitle title="Available Positions" />
+      <GridItemsTitle title={mainAvailablePositions(lang)} />
       <div className="mt-5" />
       <JobCards items={data.jobs} lang={lang} />
       <BreadcrumbJsonLd
         items={[
           {
-            name: "Home",
+            name: mainHome(lang),
             item: `${url}/${lang}`
           },
           {
-            name: "Jobs",
+            name: mainJobsLabel(lang),
             item: `${url}/${lang}/jobs`
           }
         ]}

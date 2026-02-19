@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BreadcrumbJsonLd } from "next-seo";
@@ -11,11 +10,15 @@ import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
   caseStudyButton,
   caseStudyMore,
-  caseStudyQuestion
+  caseStudyQuestion,
+  mainHome,
+  mainCaseStudiesLabel
 } from "@/locales/.generated/strings";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import { supportedLanguages } from "@/locales/.generated/types";
 
+import { AnimatedLines } from "../../components/animated-lines";
+import { SectionReveal } from "../../components/motion-wrappers";
 import {
   caseStudyBy,
   getCaseStudies,
@@ -42,7 +45,7 @@ export async function generateMetadata({
   const { lang, slug } = await params;
   const caseStudies = caseStudyBy({ lang, slug });
   const meta: Metadata = {
-    title: `Case-Studies - ${caseStudies?.title ?? ""}`,
+    title: `${mainCaseStudiesLabel(lang)} - ${caseStudies?.title ?? ""}`,
     description: caseStudies?.description ?? "",
     alternates: {
       canonical: `${url}/${lang}/case-studies/${caseStudies?.slug}`,
@@ -83,7 +86,7 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
 
   return (
     <main className="bg-white">
-      <Hero heading={title} />
+      <Hero lang={lang} heading={title} subheading={caseStudy.description} />
       <section className="mx-auto max-w-3xl px-4 md:px-20">
         <article className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-md dark:prose-headings:text-white text-left">
           <Content slug={slug} lang={lang} />
@@ -108,11 +111,11 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
       <BreadcrumbJsonLd
         items={[
           {
-            name: "Home",
+            name: mainHome(lang),
             item: `${url}/${lang}`
           },
           {
-            name: "Case Studies",
+            name: mainCaseStudiesLabel(lang),
             item: `${url}/${lang}/case-studies`
           },
           {
@@ -125,30 +128,44 @@ export default async function CaseStudy({ params }: CaseStudyProps) {
   );
 }
 
-function Hero({ heading }: { heading: string }) {
+type HeroProps = {
+  heading: string;
+  subheading: string;
+} & LangProps;
+
+function Hero({ lang, heading, subheading }: HeroProps) {
   return (
     <section
       id="hero"
-      className="bg-hyperjump-black relative h-87.75 overflow-hidden text-white">
-      <div className="absolute inset-0 z-0">
-        <Image
-          alt="Hero background"
-          blurDataURL="/images/case-studies/banner.webp"
-          className="object-cover object-center"
-          fill
-          placeholder="blur"
-          priority
-          src="/images/case-studies/banner.webp"
-        />
-      </div>
+      className="bg-hero-premium relative overflow-hidden text-white">
+      <div className="hero-glow animate-glow top-[12%] left-1/2 -translate-x-1/2" />
+      <div className="hero-glow animate-glow -top-32 right-0 [animation-delay:1.5s]" />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px)",
+          backgroundSize: "24px 24px"
+        }}
+      />
+      <AnimatedLines className="pointer-events-none absolute inset-0 h-full w-full opacity-30" />
 
-      <div className="relative z-10 mt-10 flex h-87.75 items-center justify-center">
-        <h1
-          className="mb-4 max-w-3xl px-4 text-center text-2xl font-medium text-white sm:text-4xl md:px-20 md:text-4xl"
-          dangerouslySetInnerHTML={{
-            __html: heading
-          }}
-        />
+      <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-20 xl:px-0">
+        <div className="flex flex-col items-center pt-40 pb-20 md:pt-48 md:pb-28">
+          <SectionReveal>
+            <div className="max-w-3xl text-center">
+              <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
+                {mainCaseStudiesLabel(lang)}
+              </span>
+              <h1 className="mb-6 text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl lg:text-[4.5rem]">
+                {heading}
+              </h1>
+              <p className="mx-auto max-w-2xl text-lg leading-relaxed font-medium text-white/60 md:text-xl">
+                {subheading}
+              </p>
+            </div>
+          </SectionReveal>
+        </div>
       </div>
     </section>
   );

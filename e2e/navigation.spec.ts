@@ -211,11 +211,9 @@ test.describe("Navigation & Links", () => {
 
     // === WHATSAPP CHATBOT CONNECTOR ===
     await backToOpenSource();
-    const waLink = page
-      .locator(".oss-card")
-      .filter({
-        hasText: /WhatsApp Chatbot Connector|Konektor Chatbot WhatsApp/i
-      });
+    const waLink = page.locator(".oss-card").filter({
+      hasText: /WhatsApp Chatbot Connector|Konektor Chatbot WhatsApp/i
+    });
     await expect(waLink).toBeVisible();
     const waPage = await openLinkAndReturnPage(page, waLink);
     expect(waPage.url()).toContain(

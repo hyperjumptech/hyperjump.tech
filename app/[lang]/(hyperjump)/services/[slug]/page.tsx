@@ -169,7 +169,7 @@ function Hero({ hero: { heading, subheading } }: HeroProps) {
           <SectionReveal>
             <div className="max-w-3xl text-center">
               <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
-                Case Study
+                Service
               </span>
               <h1 className="mb-6 text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl lg:text-[4.5rem]">
                 {heading}

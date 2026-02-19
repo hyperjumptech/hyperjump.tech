@@ -136,8 +136,21 @@ function buildPath(
 }
 
 /**
+ * Detects Chromium-based browsers (excluding Edge) via user agent.
+ */
+function isChromeBrowser(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent;
+  return /Chrome\//.test(ua) && !/Edg\//.test(ua);
+}
+
+/**
  * Renders tightly-bundled flowing ribbon lines as an SVG overlay,
  * inspired by Stripe's surface-like animated gradient lines.
+ *
+ * Animation is disabled on Chrome to avoid scroll performance issues
+ * caused by the per-frame SVG path recomputation competing with
+ * Chrome's compositor thread.
  */
 export function AnimatedLines({ className }: { className?: string }) {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -149,6 +162,40 @@ export function AnimatedLines({ className }: { className?: string }) {
     const svg = svgRef.current;
     if (!svg) return;
 
+    const chrome = isChromeBrowser();
+    let cachedWidth = 0;
+    let cachedHeight = 0;
+
+    function drawStatic(width: number, height: number) {
+      for (let i = 0; i < flatLines.current.length; i++) {
+        const fl = flatLines.current[i];
+        const path = pathsRef.current[i];
+        if (path) {
+          path.setAttribute(
+            "d",
+            buildPath(RIBBONS[fl.ribbonIdx], fl.t, width, height, 0)
+          );
+        }
+      }
+    }
+
+    const resizeObserver = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      cachedWidth = width;
+      cachedHeight = height;
+      svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      if (chrome && width > 0 && height > 0) {
+        drawStatic(width, height);
+      }
+    });
+    resizeObserver.observe(svg);
+
+    if (chrome) {
+      return () => {
+        resizeObserver.disconnect();
+      };
+    }
+
     let startTime: number | null = null;
     let isVisible = false;
 
@@ -157,13 +204,10 @@ export function AnimatedLines({ className }: { className?: string }) {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
 
-      const { width, height } = svg!.getBoundingClientRect();
-      if (width === 0 || height === 0) {
+      if (cachedWidth === 0 || cachedHeight === 0) {
         rafRef.current = requestAnimationFrame(animate);
         return;
       }
-
-      svg!.setAttribute("viewBox", `0 0 ${width} ${height}`);
 
       for (let i = 0; i < flatLines.current.length; i++) {
         const fl = flatLines.current[i];
@@ -171,7 +215,13 @@ export function AnimatedLines({ className }: { className?: string }) {
         if (path) {
           path.setAttribute(
             "d",
-            buildPath(RIBBONS[fl.ribbonIdx], fl.t, width, height, elapsed)
+            buildPath(
+              RIBBONS[fl.ribbonIdx],
+              fl.t,
+              cachedWidth,
+              cachedHeight,
+              elapsed
+            )
           );
         }
       }
@@ -179,7 +229,7 @@ export function AnimatedLines({ className }: { className?: string }) {
       rafRef.current = requestAnimationFrame(animate);
     }
 
-    const observer = new IntersectionObserver(
+    const visObserver = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
         if (isVisible) {
@@ -191,9 +241,10 @@ export function AnimatedLines({ className }: { className?: string }) {
       { threshold: 0 }
     );
 
-    observer.observe(svg);
+    visObserver.observe(svg);
     return () => {
-      observer.disconnect();
+      visObserver.disconnect();
+      resizeObserver.disconnect();
       cancelAnimationFrame(rafRef.current);
     };
   }, []);

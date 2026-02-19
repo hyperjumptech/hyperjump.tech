@@ -305,5 +305,4 @@
     transparent 70%
   );
   pointer-events: none;
-  will-change: opacity;
 }

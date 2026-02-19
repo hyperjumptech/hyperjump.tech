@@ -33,7 +33,9 @@ import {
   aiFaqHeading
 } from "@/locales/.generated/strings";
 
+import { AnimatedLines } from "../../components/animated-lines";
 import { CaseStudyCard } from "../../components/case-study-card";
+import { SectionReveal } from "../../components/motion-wrappers";
 import type { CaseStudy, Service } from "../../data";
 import { serviceBySlug, ServiceSlug } from "../../data";
 
@@ -149,25 +151,34 @@ function Hero({ hero: { heading, subheading } }: HeroProps) {
   return (
     <section
       id="hero"
-      className="bg-hyperjump-black relative h-87.75 overflow-hidden px-4 text-white md:px-20">
-      <div className="absolute inset-0 z-0">
-        <Image
-          alt="Hero background"
-          blurDataURL="/images/services/banner.webp"
-          className="object-cover object-center"
-          fill
-          placeholder="blur"
-          priority
-          src="/images/services/banner.webp"
-        />
-      </div>
+      className="bg-hero-premium relative overflow-hidden text-white">
+      <div className="hero-glow animate-glow top-[12%] left-1/2 -translate-x-1/2" />
+      <div className="hero-glow animate-glow -top-32 right-0 [animation-delay:1.5s]" />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px)",
+          backgroundSize: "24px 24px"
+        }}
+      />
+      <AnimatedLines className="pointer-events-none absolute inset-0 h-full w-full opacity-30" />
 
-      <div className="relative z-10 flex h-87.75 flex-col items-center justify-around">
-        <div className="max-w-5xl text-center text-white">
-          <h1 className="mt-28 mb-4 text-3xl font-medium md:text-[40px]">
-            {heading}
-          </h1>
-          <p className="text-lg">{subheading}</p>
+      <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-20 xl:px-0">
+        <div className="flex flex-col items-center pt-40 pb-20 md:pt-48 md:pb-28">
+          <SectionReveal>
+            <div className="max-w-3xl text-center">
+              <span className="mb-5 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
+                Case Study
+              </span>
+              <h1 className="mb-6 text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl lg:text-[4.5rem]">
+                {heading}
+              </h1>
+              <p className="mx-auto max-w-2xl text-lg leading-relaxed font-medium text-white/60 md:text-xl">
+                {subheading}
+              </p>
+            </div>
+          </SectionReveal>
         </div>
       </div>
     </section>

@@ -216,7 +216,7 @@ function Logo({ isOpen, isTransparent }: LogoProps) {
       <Image
         key={src}
         className={cn(
-          "h-7 transition-opacity duration-300",
+          "h-7 w-auto transition-opacity duration-300",
           isTransparent && logoClassNames({ isOpen, src })
         )}
         src={image}

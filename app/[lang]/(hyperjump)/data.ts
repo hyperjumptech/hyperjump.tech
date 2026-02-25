@@ -344,7 +344,7 @@ export function getCaseStudies(lang: SupportedLanguage): CaseStudy[] {
         label: caseStudySaasVolunteeringPlatformCtaLabel(lang)
       },
       description: caseStudySaasVolunteeringPlatformDesc(lang),
-      imageUrl: `${IMAGE_PATH}/saas-voluteering-1.jpg.webp`,
+      imageUrl: `${IMAGE_PATH}/saas-volunteering-1.jpg.webp`,
       serviceSlug: ServiceSlug.SoftwareAsAService,
       slug: CaseStudySlug.VolunteeringPlatform,
       title: caseStudySaasVolunteeringPlatformTitle(lang),

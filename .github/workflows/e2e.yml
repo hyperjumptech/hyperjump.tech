@@ -7,13 +7,55 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pull-requests: read
+
 concurrency:
   group: e2e-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  direct_push_check:
+    name: Detect direct push to main
+    runs-on: ubuntu-latest
+    outputs:
+      is_direct: ${{ steps.detect.outputs.is_direct }}
+    steps:
+      - name: Determine if commit belongs to a PR
+        id: detect
+        uses: actions/github-script@v8
+        with:
+          script: |
+            if (context.eventName !== 'push' || context.ref !== 'refs/heads/main') {
+              // Only `push` to `main` needs direct-vs-merge detection.
+              core.setOutput('is_direct', 'false')
+              return
+            }
+
+            const sha = context.sha
+            // If this commit is associated with any PR, it's almost certainly coming from a PR merge.
+            // Direct pushes to main won't have associated PRs.
+            const { data } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: sha,
+            })
+
+            core.setOutput('is_direct', String(data.length === 0))
+
   e2e:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.57.0-jammy
+      options: --ipc=host
+    needs: [direct_push_check]
+    if: |
+      github.event_name == 'pull_request' ||
+      (github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.direct_push_check.outputs.is_direct == 'true')
+    env:
+      # Playwright's Firefox won't launch in the container unless $HOME is owned by the current user.
+      HOME: /root
     timeout-minutes: 45
     strategy:
       fail-fast: false
@@ -46,6 +88,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Install unzip
+        run: apt-get update && apt-get install -y unzip
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -61,17 +106,6 @@ jobs:
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          # Cache per-browser to avoid cross-job races and partial caches
-          # when matrix runs in parallel.
-          key: ${{ runner.os }}-playwright-${{ matrix.browser }}-${{ hashFiles('bun.lock') }}
-
-      - name: Install Playwright browsers
-        run: bunx playwright install ${{ matrix.browser }} --with-deps
 
       - name: Build app
         run: bun run build
@@ -94,10 +128,13 @@ jobs:
     name: Merge Playwright report
     runs-on: ubuntu-latest
     if: always()
-    needs: [e2e]
+    needs: [direct_push_check, e2e]
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Install unzip
+        run: sudo apt-get update && sudo apt-get install -y unzip
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2

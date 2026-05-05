@@ -46,6 +46,9 @@ jobs:
 
   e2e:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.57.0-jammy
+      options: --ipc=host
     needs: [direct_push_check]
     if: |
       github.event_name == 'pull_request' ||
@@ -97,17 +100,6 @@ jobs:
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          # Cache per-browser to avoid cross-job races and partial caches
-          # when matrix runs in parallel.
-          key: ${{ runner.os }}-playwright-${{ matrix.browser }}-${{ hashFiles('bun.lock') }}
-
-      - name: Install Playwright browsers
-        run: bunx playwright install ${{ matrix.browser }} --with-deps
 
       - name: Build app
         run: bun run build

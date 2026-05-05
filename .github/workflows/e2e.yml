@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.57.0-jammy
-      options: --ipc=host --user 1001
+      options: --ipc=host --user 1000
     needs: [direct_push_check]
     if: |
       github.event_name == 'pull_request' ||

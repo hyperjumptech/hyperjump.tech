@@ -5,6 +5,11 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: e2e-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   e2e:
@@ -20,11 +25,30 @@ jobs:
         with:
           bun-version: latest
 
+      - name: Cache Bun install + node_modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.bun/install/cache
+            node_modules
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('bun.lock') }}
+
       - name: Install Playwright browsers
-        run: bunx playwright install --with-deps
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            bunx playwright install chromium --with-deps
+          else
+            bunx playwright install --with-deps
+          fi
 
       - name: Build app
         run: bun run build
@@ -32,6 +56,8 @@ jobs:
       - name: Run E2E tests (headless)
         env:
           CI: true
+          # Speed default on PRs: chromium only. Full cross-browser can be run via workflow_dispatch.
+          E2E_BROWSERS: ${{ github.event_name == 'pull_request' && 'chromium' || 'chromium,firefox,webkit' }}
         run: bun run test:e2e
 
       - name: Upload Playwright HTML report

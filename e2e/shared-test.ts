@@ -63,7 +63,10 @@ export function headerTest(locale: SupportedLanguage, path: string) {
           menuNav.locator(`a[href='${href}']`).first().click()
         ]);
         if (href !== path) {
-          await Promise.all([page.waitForURL(`${BASE_URL}${path}`), page.goBack()]);
+          await Promise.all([
+            page.waitForURL(`${BASE_URL}${path}`),
+            page.goBack()
+          ]);
         }
       }
     });

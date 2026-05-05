@@ -192,11 +192,10 @@ test.describe("Navigation & Links", () => {
       .getByRole("link")
       .first();
     await expect(gruleLink).toBeVisible();
-    const grulePage = await openLinkAndReturnPage(page, gruleLink);
-    expect(grulePage.url()).toContain(
-      "github.com/hyperjumptech/grule-rule-engine"
+    await expect(gruleLink).toHaveAttribute(
+      "href",
+      /github\.com\/hyperjumptech\/grule-rule-engine/
     );
-    if (grulePage !== page) await grulePage.close();
 
     // === MONIKA ===
     await gotoOpenSource();
@@ -206,9 +205,7 @@ test.describe("Navigation & Links", () => {
       .getByRole("link")
       .first();
     await expect(monikaLink).toBeVisible();
-    const monikaPage = await openLinkAndReturnPage(page, monikaLink);
-    expect(monikaPage.url()).toContain("monika.hyperjump.tech");
-    if (monikaPage !== page) await monikaPage.close();
+    await expect(monikaLink).toHaveAttribute("href", /monika\.hyperjump\.tech/);
 
     // === WHATSAPP CHATBOT CONNECTOR ===
     await gotoOpenSource();
@@ -220,11 +217,10 @@ test.describe("Navigation & Links", () => {
       .getByRole("link")
       .first();
     await expect(waLink).toBeVisible();
-    const waPage = await openLinkAndReturnPage(page, waLink);
-    expect(waPage.url()).toContain(
-      "github.com/hyperjumptech/whatsapp-chatbot-connector"
+    await expect(waLink).toHaveAttribute(
+      "href",
+      /github\.com\/hyperjumptech\/whatsapp-chatbot-connector/
     );
-    if (waPage !== page) await waPage.close();
 
     // === View More ===
     await gotoOpenSource();
@@ -232,8 +228,9 @@ test.describe("Navigation & Links", () => {
       .locator('a[href="https://github.com/hyperjumptech"]')
       .first();
     await expect(viewMore).toBeVisible();
-    const orgPage = await openLinkAndReturnPage(page, viewMore);
-    expect(orgPage.url()).toContain("github.com/hyperjumptech");
-    if (orgPage !== page) await orgPage.close();
+    await expect(viewMore).toHaveAttribute(
+      "href",
+      "https://github.com/hyperjumptech"
+    );
   });
 });

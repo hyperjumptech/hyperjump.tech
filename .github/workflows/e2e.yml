@@ -19,7 +19,6 @@ jobs:
   direct_push_check:
     name: Detect direct push to main
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     outputs:
       is_direct: ${{ steps.detect.outputs.is_direct }}
     steps:
@@ -28,6 +27,12 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
+            if (context.eventName !== 'push' || context.ref !== 'refs/heads/main') {
+              // Only `push` to `main` needs direct-vs-merge detection.
+              core.setOutput('is_direct', 'false')
+              return
+            }
+
             const sha = context.sha
             // If this commit is associated with any PR, it's almost certainly coming from a PR merge.
             // Direct pushes to main won't have associated PRs.

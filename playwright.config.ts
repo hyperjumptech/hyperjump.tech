@@ -30,7 +30,7 @@ export default defineConfig({
   forbidOnly: isCI,
   retries: isCI ? 2 : 0,
   workers: isCI ? 4 : undefined,
-  reporter: "html",
+  reporter: isCI ? "blob" : "html",
   use: {
     headless: true,
     trace: "on-first-retry",

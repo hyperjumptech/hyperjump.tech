@@ -15,6 +15,12 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+        shardIndex: [1, 2]
+        shardTotal: [2]
 
     steps:
       - name: Checkout
@@ -43,12 +49,7 @@ jobs:
           key: ${{ runner.os }}-playwright-${{ hashFiles('bun.lock') }}
 
       - name: Install Playwright browsers
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            bunx playwright install chromium --with-deps
-          else
-            bunx playwright install --with-deps
-          fi
+        run: bunx playwright install ${{ matrix.browser }} --with-deps
 
       - name: Build app
         run: bun run build
@@ -56,12 +57,53 @@ jobs:
       - name: Run E2E tests (headless)
         env:
           CI: true
-          # Speed default on PRs: chromium only. Full cross-browser can be run via workflow_dispatch.
-          E2E_BROWSERS: ${{ github.event_name == 'pull_request' && 'chromium' || 'chromium,firefox,webkit' }}
-        run: bun run test:e2e
+          E2E_BROWSERS: ${{ matrix.browser }}
+        run: bun run test:e2e -- --project=${{ matrix.browser }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+
+      - name: Upload Playwright blob report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: playwright-blob-${{ matrix.browser }}-${{ matrix.shardIndex }}of${{ matrix.shardTotal }}
+          path: blob-report/
+          if-no-files-found: ignore
+
+  e2e_report:
+    name: Merge Playwright report
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [e2e]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Cache Bun install + node_modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.bun/install/cache
+            node_modules
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Download all blob reports
+        uses: actions/download-artifact@v6
+        with:
+          pattern: playwright-blob-*
+          path: playwright-blobs
+          merge-multiple: true
+
+      - name: Merge HTML report
+        run: bunx playwright merge-reports --reporter=html playwright-blobs
 
       - name: Upload Playwright HTML report
-        if: always()
         uses: actions/upload-artifact@v6
         with:
           name: playwright-report

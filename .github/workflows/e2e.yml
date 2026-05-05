@@ -18,9 +18,29 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        browser: [chromium, firefox, webkit]
-        shardIndex: [1, 2]
-        shardTotal: [2]
+        include:
+          - browser: chromium
+            shardIndex: 1
+            shardTotal: 2
+          - browser: chromium
+            shardIndex: 2
+            shardTotal: 2
+          - browser: firefox
+            shardIndex: 1
+            shardTotal: 2
+          - browser: firefox
+            shardIndex: 2
+            shardTotal: 2
+          # WebKit is consistently slower; split into more shards so no single job dominates.
+          - browser: webkit
+            shardIndex: 1
+            shardTotal: 3
+          - browser: webkit
+            shardIndex: 2
+            shardTotal: 3
+          - browser: webkit
+            shardIndex: 3
+            shardTotal: 3
 
     steps:
       - name: Checkout
@@ -46,7 +66,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('bun.lock') }}
+          # Cache per-browser to avoid cross-job races and partial caches
+          # when matrix runs in parallel.
+          key: ${{ runner.os }}-playwright-${{ matrix.browser }}-${{ hashFiles('bun.lock') }}
 
       - name: Install Playwright browsers
         run: bunx playwright install ${{ matrix.browser }} --with-deps

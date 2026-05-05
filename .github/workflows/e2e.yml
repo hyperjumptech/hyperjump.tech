@@ -7,13 +7,44 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pull-requests: read
+
 concurrency:
   group: e2e-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  direct_push_check:
+    name: Detect direct push to main
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    outputs:
+      is_direct: ${{ steps.detect.outputs.is_direct }}
+    steps:
+      - name: Determine if commit belongs to a PR
+        id: detect
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const sha = context.sha
+            // If this commit is associated with any PR, it's almost certainly coming from a PR merge.
+            // Direct pushes to main won't have associated PRs.
+            const { data } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: sha,
+            })
+
+            core.setOutput('is_direct', String(data.length === 0))
+
   e2e:
     runs-on: ubuntu-latest
+    needs: [direct_push_check]
+    if: |
+      github.event_name == 'pull_request' ||
+      (github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.direct_push_check.outputs.is_direct == 'true')
     timeout-minutes: 45
     strategy:
       fail-fast: false
@@ -94,7 +125,7 @@ jobs:
     name: Merge Playwright report
     runs-on: ubuntu-latest
     if: always()
-    needs: [e2e]
+    needs: [direct_push_check, e2e]
     steps:
       - name: Checkout
         uses: actions/checkout@v6

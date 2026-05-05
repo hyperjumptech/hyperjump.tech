@@ -53,6 +53,9 @@ jobs:
     if: |
       github.event_name == 'pull_request' ||
       (github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.direct_push_check.outputs.is_direct == 'true')
+    env:
+      # Playwright's Firefox won't launch in the container unless $HOME is owned by the current user.
+      HOME: /root
     timeout-minutes: 45
     strategy:
       fail-fast: false

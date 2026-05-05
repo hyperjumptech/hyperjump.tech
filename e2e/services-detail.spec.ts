@@ -53,40 +53,42 @@ for (const locale of supportedLanguages) {
         test.describe("Responsive Design", responsiveTest(path));
         test.describe("Content", async () => {
           test("Hero", async ({ page }) => {
-            expect(page.locator("h1")).toHaveText(title);
-            expect(page.getByText(shortDescription)).toBeVisible();
+            await expect(page.locator("h1")).toHaveText(title);
+            await expect(page.getByText(shortDescription)).toBeVisible();
           });
 
           test("Overview", async ({ page }) => {
-            expect(page.locator("h2").filter({ hasText: title })).toBeVisible();
-            expect(page.getByTestId("request-demo-button")).toHaveCount(2);
+            await expect(
+              page.locator("h2").filter({ hasText: title })
+            ).toBeVisible();
+            await expect(page.getByTestId("request-demo-button")).toHaveCount(2);
           });
 
           test("Who is it for", async ({ page }) => {
-            expect(
+            await expect(
               page.getByRole("heading", { name: servicesWhoIsItFor(locale) })
             ).toBeVisible();
           });
 
           test("What we deliver", async ({ page }) => {
-            expect(
+            await expect(
               page.getByRole("heading", {
                 name: servicesWhatWeDeliver(locale)
               })
             ).toBeVisible();
 
             // How it works
-            expect(
+            await expect(
               page.getByRole("heading", { name: servicesHowItWorks(locale) })
             ).toBeVisible();
 
             // What you get
-            expect(
+            await expect(
               page.getByRole("heading", { name: servicesWhatYouGet(locale) })
             ).toBeVisible();
 
             // Why Hyperjump
-            expect(
+            await expect(
               page.getByRole("heading", {
                 name: servicesWhyHyperjump(locale)
               })
@@ -94,7 +96,7 @@ for (const locale of supportedLanguages) {
 
             // Case studies
             if (caseStudies.length > 0) {
-              expect(
+              await expect(
                 page.getByRole("heading", { name: servicesCaseStudies(locale) })
               ).toBeVisible();
               for (const [
@@ -104,39 +106,41 @@ for (const locale of supportedLanguages) {
                 await expect(page.getByText(title)).toBeVisible();
                 await expect(page.getByText(description)).toBeVisible();
 
-                await page
-                  .getByRole("link", { name: caseStudyButton(locale) })
-                  .nth(index)
-                  .click();
+                await Promise.all([
+                  page.waitForURL(
+                    new RegExp(`/${locale}/case-studies/${slug}`),
+                    { waitUntil: "domcontentloaded" }
+                  ),
+                  page
+                    .getByRole("link", { name: caseStudyButton(locale) })
+                    .nth(index)
+                    .click()
+                ]);
 
-                await page.waitForURL(
-                  new RegExp(`/${locale}/case-studies/${slug}`)
-                );
-
-                await page.goBack();
+                await page.goBack({ waitUntil: "domcontentloaded" });
               }
             }
 
             // Products
             if (products.length > 0) {
-              expect(
+              await expect(
                 page.getByRole("heading", { name: aiProductsTitle(locale) })
               ).toBeVisible();
               for (const { title, description } of products) {
-                expect(page.getByText(title)).toBeVisible();
-                expect(page.getByText(description)).toBeVisible();
+                await expect(page.getByText(title)).toBeVisible();
+                await expect(page.getByText(description)).toBeVisible();
               }
             }
 
             // FAQ
             if (faqs.length > 0) {
-              expect(
+              await expect(
                 page.getByRole("heading", { name: aiFaqHeading(locale) })
               ).toBeVisible();
               for (const { question, answer } of faqs) {
-                expect(page.getByText(question)).toBeVisible();
+                await expect(page.getByText(question)).toBeVisible();
                 await page.getByText(question).click();
-                expect(page.getByText(answer)).toBeVisible();
+                await expect(page.getByText(answer)).toBeVisible();
               }
             }
           });

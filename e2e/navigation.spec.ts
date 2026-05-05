@@ -19,7 +19,7 @@ const footerLinks: { name: string; expected: string }[] = [
 
 test.describe("Navigation & Links", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("http://localhost:3000");
+    await page.goto("http://localhost:3000", { waitUntil: "domcontentloaded" });
   });
 
   for (const { name, expected } of navLinks) {
@@ -31,7 +31,7 @@ test.describe("Navigation & Links", () => {
       await expect(link.first()).toBeVisible();
 
       await link.first().click();
-      await page.waitForTimeout(2000);
+      await page.waitForLoadState("domcontentloaded");
 
       await expect(page).toHaveURL(expected);
     });
@@ -57,10 +57,10 @@ test.describe("Navigation & Links", () => {
   test("Services Link: Should open all Service links correctly", async ({
     page
   }) => {
+    const homeUrl = page.url();
     const servicesSection = page.locator("#services");
     await servicesSection.scrollIntoViewIfNeeded();
-    await page.waitForLoadState("networkidle");
-    await page.waitForTimeout(1000);
+    await page.waitForLoadState("domcontentloaded");
 
     const learnMoreLinks = await page
       .locator("#services")
@@ -72,11 +72,12 @@ test.describe("Navigation & Links", () => {
       await link.scrollIntoViewIfNeeded();
       await expect(link).toBeVisible({ timeout: 5000 });
       await expect(link).toBeEnabled();
-      await link.click({ timeout: 10000 });
-      await page.waitForLoadState("networkidle");
-      await page.waitForTimeout(2000);
-      await page.goBack();
-      await page.waitForLoadState("networkidle");
+      await Promise.all([
+        page.waitForURL(/\/(en|id)\/services\/.+/),
+        link.click({ timeout: 10000 })
+      ]);
+      // Avoid history-based navigation flakiness in WebKit.
+      await page.goto(`${homeUrl}#services`, { waitUntil: "domcontentloaded" });
     }
 
     const viewMore = page
@@ -84,8 +85,10 @@ test.describe("Navigation & Links", () => {
       .getByRole("link", { name: /View More|Lihat selengkapnya/i });
     await expect(viewMore).toBeVisible({ timeout: 5000 });
     await viewMore.scrollIntoViewIfNeeded();
-    await viewMore.click({ timeout: 10000 });
-    await page.waitForLoadState("networkidle");
+    await Promise.all([
+      page.waitForURL(/\/(en|id)\/services(\/|$)/),
+      viewMore.click({ timeout: 10000 })
+    ]);
 
     await expect(page).toHaveURL(/\/(en|id)\/services/);
   });
@@ -93,10 +96,10 @@ test.describe("Navigation & Links", () => {
   test("Case Studies Link: Should open all Case Study links correctly", async ({
     page
   }) => {
+    const homeUrl = page.url();
     const caseStudiesSection = page.locator("#case-studies");
     await caseStudiesSection.scrollIntoViewIfNeeded();
-    await page.waitForLoadState("networkidle");
-    await page.waitForTimeout(1000);
+    await page.waitForLoadState("domcontentloaded");
     const readCaseStudyLinks = await page
       .locator("#case-studies")
       .getByRole("link", { name: /Read case study|Baca studi kasus/i })
@@ -109,11 +112,14 @@ test.describe("Navigation & Links", () => {
       await expect(link).toBeEnabled();
 
       try {
-        await link.click({ timeout: 10000 });
-        await page.waitForLoadState("networkidle");
-        await page.waitForTimeout(2000);
-        await page.goBack();
-        await page.waitForLoadState("networkidle");
+        await Promise.all([
+          page.waitForURL(/\/(en|id)\/case-studies\/.+/),
+          link.click({ timeout: 10000 })
+        ]);
+        // Avoid history-based navigation flakiness in WebKit.
+        await page.goto(`${homeUrl}#case-studies`, {
+          waitUntil: "domcontentloaded"
+        });
       } catch (error) {
         console.warn(
           `⚠️ Skipping Case Study link ${index + 1} (not clickable or detached)`
@@ -121,13 +127,14 @@ test.describe("Navigation & Links", () => {
       }
     }
 
-    const viewMore = caseStudiesSection.getByRole("link", {
-      name: /Explore Our Case Studies|Telusuri studi kasus kami/i
-    });
+    // The CTA copy is not stable across locales/pages; prefer URL-based targeting.
+    const viewMore = caseStudiesSection.locator('a[href*="/case-studies"]').first();
     await expect(viewMore).toBeVisible({ timeout: 5000 });
     await viewMore.scrollIntoViewIfNeeded();
-    await viewMore.click({ timeout: 10000 });
-    await page.waitForLoadState("networkidle");
+    await Promise.all([
+      page.waitForURL(/\/(en|id)\/case-studies(\/|$)/),
+      viewMore.click({ timeout: 10000 })
+    ]);
 
     await expect(page).toHaveURL(/\/(en|id)\/case-studies/);
   });
@@ -188,7 +195,8 @@ test.describe("Navigation & Links", () => {
   }) => {
     async function backToOpenSource() {
       await page.goto("http://localhost:3000/en#open-source", {
-        waitUntil: "load"
+        // WebKit is prone to hanging on full 'load' for hash navigations.
+        waitUntil: "domcontentloaded"
       });
     }
 

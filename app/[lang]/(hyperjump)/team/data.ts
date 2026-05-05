@@ -40,19 +40,11 @@ export const team: Team[] = [
     linkedIn: "https://www.linkedin.com/in/zulfahmi-andri/"
   },
   {
-    name: "F. Ramdhon",
-    role: "Head Of Development",
-    image: "1517464706587.jpeg",
-    description:
-      "A full-stack specialist with 10,000+ hours of experience across Java, Python, Go, and React. Expertise spans Android development, SQL/NoSQL databases, and Agile SDLC, focused on delivering scalable software architectures and high-performance RESTful APIs.",
-    linkedIn: "https://id.linkedin.com/in/ferdirn"
-  },
-  {
     name: "N. Prananta",
-    role: "Principal Developer",
+    role: "Managing Director",
     image: "1636610990869.jpeg",
     description:
-      "Principal software developer with experience leading engineering teams and delivering modern web applications across multiple industries.",
+      "Starting from Principal Developer, Nico has improved the engineering culture in Hyperjump and finally became the Managing Director. As Managing Director he leads the company’s long-term strategy, strengthens client partnerships, and helps teams ship consistently high-quality work.",
     linkedIn: "https://www.linkedin.com/in/nico-prananta-884750200/"
   }
 ];

@@ -58,11 +58,12 @@ export function headerTest(locale: SupportedLanguage, path: string) {
 
       // Click-through checks for non-anchor-with-fragment links
       for (const href of expected) {
-        menuNav.locator(`a[href='${href}']`).first().click();
-        await expect(page).toHaveURL(`${BASE_URL}${href}`);
+        await Promise.all([
+          page.waitForURL(`${BASE_URL}${href}`),
+          menuNav.locator(`a[href='${href}']`).first().click()
+        ]);
         if (href !== path) {
-          await page.goBack();
-          await expect(page).toHaveURL(`${BASE_URL}${path}`);
+          await Promise.all([page.waitForURL(`${BASE_URL}${path}`), page.goBack()]);
         }
       }
     });

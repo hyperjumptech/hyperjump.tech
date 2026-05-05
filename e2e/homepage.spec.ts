@@ -167,6 +167,7 @@ test.describe("Homepage", () => {
       test(`should display correctly on ${device.name}`, async ({
         browser
       }) => {
+        test.setTimeout(90_000);
         const context = await browser.newContext({
           viewport: { width: device.width, height: device.height }
         });
@@ -190,24 +191,23 @@ test.describe("Homepage", () => {
         await expect(faq).toBeVisible();
         await expect(footer).toBeVisible();
 
-        await page.evaluate(async () => {
-          const delay = (ms: number) =>
-            new Promise((res) => setTimeout(res, ms));
+        // Smooth scrolling + fullPage screenshots are surprisingly slow/flaky in CI WebKit.
+        // We still exercise the page by jumping down the document in steps.
+        await page.evaluate(() => {
           const totalHeight = document.body.scrollHeight;
-          const step = window.innerHeight / 2;
+          const step = window.innerHeight;
           for (let y = 0; y < totalHeight; y += step) {
-            window.scrollTo({ top: y, behavior: "smooth" });
-            await delay(200);
+            window.scrollTo(0, y);
           }
-          window.scrollTo({ top: totalHeight, behavior: "smooth" });
+          window.scrollTo(0, totalHeight);
         });
 
-        await page.waitForTimeout(2000);
-
-        await page.screenshot({
-          path: `screenshots/homepage-full-${device.name.toLowerCase()}.png`,
-          fullPage: true
-        });
+        if (!process.env.CI) {
+          await page.screenshot({
+            path: `screenshots/homepage-full-${device.name.toLowerCase()}.png`,
+            fullPage: true
+          });
+        }
 
         await context.close();
       });

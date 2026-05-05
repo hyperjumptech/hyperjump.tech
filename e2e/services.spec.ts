@@ -77,11 +77,15 @@ for (const { code: locale, path } of locales) {
 
           // Click-through checks for non-anchor-with-fragment links
           for (const href of expected) {
-            menuNav.locator(`a[href='${href}']`).first().click();
-            await expect(page).toHaveURL(`${baseURL}${href}`);
+            await Promise.all([
+              page.waitForURL(`${baseURL}${href}`),
+              menuNav.locator(`a[href='${href}']`).first().click()
+            ]);
             if (href !== `/${locale}/services`) {
-              await page.goBack();
-              await expect(page).toHaveURL(`${baseURL}${path}`);
+              await Promise.all([
+                page.waitForURL(`${baseURL}${path}`),
+                page.goBack()
+              ]);
             }
           }
         });

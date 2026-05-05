@@ -128,7 +128,9 @@ test.describe("Navigation & Links", () => {
     }
 
     // The CTA copy is not stable across locales/pages; prefer URL-based targeting.
-    const viewMore = caseStudiesSection.locator('a[href*="/case-studies"]').first();
+    const viewMore = caseStudiesSection
+      .locator('a[href*="/case-studies"]')
+      .first();
     await expect(viewMore).toBeVisible({ timeout: 5000 });
     await viewMore.scrollIntoViewIfNeeded();
     await Promise.all([

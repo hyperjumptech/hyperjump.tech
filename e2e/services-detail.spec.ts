@@ -61,7 +61,9 @@ for (const locale of supportedLanguages) {
             await expect(
               page.locator("h2").filter({ hasText: title })
             ).toBeVisible();
-            await expect(page.getByTestId("request-demo-button")).toHaveCount(2);
+            await expect(page.getByTestId("request-demo-button")).toHaveCount(
+              2
+            );
           });
 
           test("Who is it for", async ({ page }) => {

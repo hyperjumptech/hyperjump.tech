@@ -152,42 +152,20 @@ test.describe("Navigation & Links", () => {
     page: Page,
     locator: Locator
   ): Promise<Page> {
-    const href = await locator.getAttribute("href");
-    const target = await locator.getAttribute("target");
+    // Avoid pre-reading attributes (can hang in WebKit if element gets detached).
+    const popupPromise = page
+      .waitForEvent("popup", { timeout: 3000 })
+      .catch(() => null);
+    await locator.click();
 
-    // If link clearly opens in new tab, wait for popup
-    if (target === "_blank" || (href && href.includes("github.com"))) {
-      try {
-        const [popup] = await Promise.all([
-          page.waitForEvent("popup"),
-          locator.click()
-        ]);
-        await popup.waitForLoadState("load");
-        return popup;
-      } catch (e) {
-        // fallback to same page flow if popup didn't appear for some reason
-        await page.waitForLoadState("load");
-        return page;
-      }
-    }
-
-    // Heuristic: try to detect popup with a short timeout (covers window.open without target attr).
-    try {
-      const [popup] = await Promise.all([
-        page.waitForEvent("popup", { timeout: 2000 }),
-        locator.click()
-      ]);
-      await popup.waitForLoadState("load");
+    const popup = await popupPromise;
+    if (popup) {
+      await popup.waitForLoadState("domcontentloaded");
       return popup;
-    } catch (e) {
-      // no popup -> same-page navigation
-      try {
-        await Promise.all([page.waitForLoadState("load"), locator.click()]);
-      } catch {
-        // ignore click error if any and just return current page
-      }
-      return page;
     }
+
+    await page.waitForLoadState("domcontentloaded");
+    return page;
   }
 
   test("Open Source Link: Should open all Open Source project links correctly", async ({
@@ -195,15 +173,24 @@ test.describe("Navigation & Links", () => {
   }: {
     page: Page;
   }) => {
-    async function backToOpenSource() {
-      await page.goto("http://localhost:3000/en#open-source", {
-        // WebKit is prone to hanging on full 'load' for hash navigations.
+    async function gotoOpenSource() {
+      // The OSS cards live on the Products page (no stable #open-source anchor).
+      await page.goto("http://localhost:3000/en/products", {
         waitUntil: "domcontentloaded"
       });
+      const firstCard = page.locator(".oss-card").first();
+      await firstCard.scrollIntoViewIfNeeded();
+      await expect(firstCard).toBeVisible();
     }
 
+    await gotoOpenSource();
+
     // === GRULE ===
-    const gruleLink = page.locator(".oss-card").filter({ hasText: "Grule" });
+    const gruleLink = page
+      .locator(".oss-card")
+      .filter({ hasText: "Grule" })
+      .getByRole("link")
+      .first();
     await expect(gruleLink).toBeVisible();
     const grulePage = await openLinkAndReturnPage(page, gruleLink);
     expect(grulePage.url()).toContain(
@@ -212,18 +199,26 @@ test.describe("Navigation & Links", () => {
     if (grulePage !== page) await grulePage.close();
 
     // === MONIKA ===
-    await backToOpenSource();
-    const monikaLink = page.locator(".oss-card").filter({ hasText: "Monika" });
+    await gotoOpenSource();
+    const monikaLink = page
+      .locator(".oss-card")
+      .filter({ hasText: "Monika" })
+      .getByRole("link")
+      .first();
     await expect(monikaLink).toBeVisible();
     const monikaPage = await openLinkAndReturnPage(page, monikaLink);
     expect(monikaPage.url()).toContain("monika.hyperjump.tech");
     if (monikaPage !== page) await monikaPage.close();
 
     // === WHATSAPP CHATBOT CONNECTOR ===
-    await backToOpenSource();
-    const waLink = page.locator(".oss-card").filter({
-      hasText: /WhatsApp Chatbot Connector|Konektor Chatbot WhatsApp/i
-    });
+    await gotoOpenSource();
+    const waLink = page
+      .locator(".oss-card")
+      .filter({
+        hasText: /WhatsApp Chatbot Connector|Konektor Chatbot WhatsApp/i
+      })
+      .getByRole("link")
+      .first();
     await expect(waLink).toBeVisible();
     const waPage = await openLinkAndReturnPage(page, waLink);
     expect(waPage.url()).toContain(
@@ -232,10 +227,10 @@ test.describe("Navigation & Links", () => {
     if (waPage !== page) await waPage.close();
 
     // === View More ===
-    await backToOpenSource();
-    const viewMore = page.locator("#open-source").getByRole("link", {
-      name: /View More|Lihat selengkapnya/i
-    });
+    await gotoOpenSource();
+    const viewMore = page
+      .locator('a[href="https://github.com/hyperjumptech"]')
+      .first();
     await expect(viewMore).toBeVisible();
     const orgPage = await openLinkAndReturnPage(page, viewMore);
     expect(orgPage.url()).toContain("github.com/hyperjumptech");

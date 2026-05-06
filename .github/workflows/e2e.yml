@@ -127,7 +127,8 @@ jobs:
   e2e_report:
     name: Merge Playwright report
     runs-on: ubuntu-latest
-    if: always()
+    # Skip when `e2e` did not run (e.g. merge push to main); merge-reports fails with no blob artifacts.
+    if: ${{ !cancelled() && (needs.e2e.result == 'success' || needs.e2e.result == 'failure') }}
     needs: [direct_push_check, e2e]
     steps:
       - name: Checkout

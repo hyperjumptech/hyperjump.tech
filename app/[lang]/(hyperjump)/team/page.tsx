@@ -1,8 +1,5 @@
-import { ArrowUpRightIcon } from "lucide-react";
-import Link from "next/link";
 import { BreadcrumbJsonLd, ProfilePageJsonLd } from "next-seo";
 
-import { Button } from "@/components/ui/button";
 import data from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
 import {
@@ -13,7 +10,6 @@ import {
   mainTeamDesc,
   mainOurTeam,
   mainExpertIn,
-  mainAndMore,
   mainHome,
   mainTeamLabel
 } from "@/locales/.generated/strings";
@@ -22,6 +18,7 @@ import { AnimatedLines } from "../components/animated-lines";
 
 import { TeamCard } from "./card";
 import { team } from "./data";
+import { TeamLinkedInMoreCard } from "./linkedin-more-card";
 import { Typewriter } from "./typewriter";
 
 export async function generateMetadata(props: { params: Promise<LangProps> }) {
@@ -43,6 +40,9 @@ type TeamsProps = {
   params: Promise<LangProps>;
 };
 
+/**
+ * Team listing page.
+ */
 export default async function TeamSection({ params }: TeamsProps) {
   const { lang } = await params;
   const founders = team.slice(0, 2);
@@ -92,21 +92,7 @@ export default async function TeamSection({ params }: TeamsProps) {
               .map((member) => (
                 <TeamCard key={member.name} variant="compact" {...member} />
               ))}
-          </div>
-
-          <div className="mt-12 flex w-full items-center justify-center">
-            <Button
-              variant="outline"
-              className="text-hyperjump-blue border-hyperjump-blue/20 hover:bg-hyperjump-blue h-11 rounded-full px-8 font-semibold transition-all duration-200 hover:scale-[1.02] hover:text-white"
-              asChild>
-              <Link
-                href="https://www.linkedin.com/company/hyperjump"
-                target="_blank"
-                rel="noreferrer noopener">
-                {mainAndMore(lang)}
-                <ArrowUpRightIcon className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <TeamLinkedInMoreCard variant="compact" lang={lang} />
           </div>
         </div>
       </section>
@@ -115,6 +101,9 @@ export default async function TeamSection({ params }: TeamsProps) {
   );
 }
 
+/**
+ * JSON-LD metadata for team profiles and breadcrumbs.
+ */
 function JsonLd({ lang }: LangProps) {
   const { url } = data;
 

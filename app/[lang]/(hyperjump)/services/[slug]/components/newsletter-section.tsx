@@ -14,7 +14,7 @@ import {
   aiNewsletterLanguageSu,
   aiNewsletterPlaceholder,
   aiNewsletterSubheading,
-  aiNewsletterSuccess,
+  aiNewsletterSuccess
 } from "@/locales/.generated/strings";
 
 type NewsletterSectionProps = {
@@ -26,7 +26,9 @@ export function NewsletterSection({ lang }: NewsletterSectionProps) {
   const [digestLang, setDigestLang] = useState<"en" | "id" | "su">(
     lang === "id" ? "id" : "en"
   );
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,7 +44,7 @@ export function NewsletterSection({ lang }: NewsletterSectionProps) {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: trimmed, language: digestLang }),
+        body: JSON.stringify({ email: trimmed, language: digestLang })
       });
       if (res.ok) {
         setStatus("success");
@@ -70,9 +72,10 @@ export function NewsletterSection({ lang }: NewsletterSectionProps) {
           <select
             id="digest-lang"
             value={digestLang}
-            onChange={(e) => setDigestLang(e.target.value as "en" | "id" | "su")}
-            className="rounded border border-gray-300 px-2 py-1 text-sm text-gray-700 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-200"
-          >
+            onChange={(e) =>
+              setDigestLang(e.target.value as "en" | "id" | "su")
+            }
+            className="rounded border border-gray-300 px-2 py-1 text-sm text-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-200 focus:outline-none">
             <option value="en">{aiNewsletterLanguageEn(lang)}</option>
             <option value="id">{aiNewsletterLanguageId(lang)}</option>
             <option value="su">{aiNewsletterLanguageSu(lang)}</option>
@@ -88,7 +91,7 @@ export function NewsletterSection({ lang }: NewsletterSectionProps) {
             onChange={(e) => setEmail(e.target.value)}
             placeholder={aiNewsletterPlaceholder(lang)}
             disabled={status === "loading" || status === "success"}
-            className="flex-1 rounded-lg border border-gray-200 bg-white px-4 py-3 text-base text-hyperjump-black placeholder-gray-400 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 disabled:opacity-50"
+            className="text-hyperjump-black flex-1 rounded-lg border border-gray-200 bg-white px-4 py-3 text-base placeholder-gray-400 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 disabled:opacity-50"
           />
           <button
             type="submit"
@@ -109,7 +112,9 @@ export function NewsletterSection({ lang }: NewsletterSectionProps) {
           </p>
         )}
 
-        <p className="mt-4 text-sm text-gray-400">{aiNewsletterDisclaimer(lang)}</p>
+        <p className="mt-4 text-sm text-gray-400">
+          {aiNewsletterDisclaimer(lang)}
+        </p>
       </div>
     </section>
   );

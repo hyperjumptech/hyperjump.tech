@@ -11,7 +11,8 @@ export async function POST(req: NextRequest) {
   }
 
   const apiKey = process.env.SUBSCRIBE_API_KEY;
-  const apiUrl = process.env.FRONTIERNOTES_API_URL ?? "https://tech-monitor.fly.dev";
+  const apiUrl =
+    process.env.FRONTIERNOTES_API_URL ?? "https://tech-monitor.fly.dev";
 
   if (!apiKey) {
     return NextResponse.json({ error: "Service unavailable" }, { status: 503 });
@@ -21,12 +22,12 @@ export async function POST(req: NextRequest) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer ${apiKey}`
     },
     body: JSON.stringify({
       email: email.trim().toLowerCase(),
-      language: language ?? "en",
-    }),
+      language: language ?? "en"
+    })
   });
 
   let data: { status?: string } = {};
@@ -37,7 +38,10 @@ export async function POST(req: NextRequest) {
   }
 
   if (res.status === 201 || res.status === 200) {
-    return NextResponse.json({ status: data.status ?? "subscribed" }, { status: 200 });
+    return NextResponse.json(
+      { status: data.status ?? "subscribed" },
+      { status: 200 }
+    );
   }
 
   return NextResponse.json({ error: "Subscription failed" }, { status: 500 });

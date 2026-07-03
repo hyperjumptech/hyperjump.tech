@@ -109,12 +109,14 @@
     "placeholder": "Masukkan email kamu",
     "cta": "Langganan",
     "disclaimer": "Tanpa spam. Bisa berhenti berlangganan kapan saja.",
-    "success": "Berhasil! Kami akan segera menghubungi kamu.",
+    "success": "Hampir selesai! Cek email kamu untuk konfirmasi langganan.",
     "error": "Terjadi kesalahan. Silakan coba lagi.",
+    "captchaError": "Mohon selesaikan verifikasi CAPTCHA terlebih dahulu.",
     "languageLabel": "Bahasa digest:",
     "languageEn": "English",
     "languageId": "Bahasa Indonesia",
-    "languageSu": "Basa Sunda"
+    "languageSu": "Basa Sunda",
+    "languageDe": "Deutsch"
   },
   "faq": {
     "heading": "Pertanyaan yang Sering Diajukan",

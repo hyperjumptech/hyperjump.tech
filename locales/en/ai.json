@@ -109,12 +109,14 @@
     "placeholder": "Enter your email",
     "cta": "Subscribe",
     "disclaimer": "No spam. Unsubscribe anytime.",
-    "success": "You're in! We'll be in touch soon.",
+    "success": "Almost there! Check your inbox to confirm your subscription.",
     "error": "Something went wrong. Please try again.",
+    "captchaError": "Please complete the CAPTCHA verification.",
     "languageLabel": "Digest language:",
     "languageEn": "English",
     "languageId": "Bahasa Indonesia",
-    "languageSu": "Basa Sunda"
+    "languageSu": "Basa Sunda",
+    "languageDe": "Deutsch"
   },
   "faq": {
     "heading": "Frequently asked questions",

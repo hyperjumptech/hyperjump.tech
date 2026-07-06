@@ -128,7 +128,10 @@ export function NewsletterSection({ lang }: NewsletterSectionProps) {
 
     setStatus("loading");
     try {
-      const res = await fetch("/api/subscribe", {
+      const apiUrl =
+        process.env.NEXT_PUBLIC_FRONTIERNOTES_API_URL ??
+        "https://tech-monitor.fly.dev";
+      const res = await fetch(`${apiUrl}/api/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

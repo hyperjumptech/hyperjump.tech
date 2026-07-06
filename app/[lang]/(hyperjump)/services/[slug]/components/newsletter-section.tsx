@@ -31,73 +31,72 @@ const newsletterCopyByDigestLang: Record<
   "en" | "id" | "de" | "su",
   NewsletterCopy
 > = {
-    en: {
-      heading: "Stay Ahead of the Curve",
-      subheading:
-        "Get practical AI insights, agent architecture breakdowns, and real-world implementation stories — straight to your inbox.",
-      placeholder: "Enter your email",
-      cta: "Subscribe",
-      disclaimer: "No spam. Unsubscribe anytime.",
-      success:
-        "Almost there! Check your inbox to confirm your subscription.",
-      error: "Something went wrong. Please try again.",
-      captchaError: "Please complete the CAPTCHA verification.",
-      languageLabel: "Digest language:",
-      languageEn: "English",
-      languageId: "Bahasa Indonesia",
-      languageSu: "Basa Sunda",
-      languageDe: "Deutsch"
-    },
-    id: {
-      heading: "Selangkah Lebih Maju",
-      subheading:
-        "Dapatkan insight AI praktis, breakdown arsitektur agent, dan kisah implementasi nyata — langsung ke kotak masukmu.",
-      placeholder: "Masukkan email kamu",
-      cta: "Langganan",
-      disclaimer: "Tanpa spam. Bisa berhenti berlangganan kapan saja.",
-      success: "Hampir selesai! Cek email kamu untuk konfirmasi langganan.",
-      error: "Terjadi kesalahan. Silakan coba lagi.",
-      captchaError: "Mohon selesaikan verifikasi CAPTCHA terlebih dahulu.",
-      languageLabel: "Bahasa digest:",
-      languageEn: "English",
-      languageId: "Bahasa Indonesia",
-      languageSu: "Basa Sunda",
-      languageDe: "Deutsch"
-    },
-    de: {
-      heading: "Bleiben Sie immer einen Schritt voraus",
-      subheading:
-        "Erhalte praxisnahe KI-Einblicke, detaillierte Agent-Architekturen und Berichte aus echten Implementierungen — direkt in dein Postfach.",
-      placeholder: "Gib deine E-Mail-Adresse ein",
-      cta: "Abonnieren",
-      disclaimer: "Kein Spam. Jederzeit abbestellbar.",
-      success:
-        "Fast geschafft! Bestätige dein Abonnement über den Link in deinem Postfach.",
-      error: "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
-      captchaError: "Bitte schließe die CAPTCHA-Verifizierung ab.",
-      languageLabel: "Digest-Sprache:",
-      languageEn: "English",
-      languageId: "Bahasa Indonesia",
-      languageSu: "Basa Sunda",
-      languageDe: "Deutsch"
-    },
-    su: {
-      heading: "Salangkung Leuwih Maju",
-      subheading:
-        "Kenging insight AI anu praktis, bedah arsitektur agent, sareng carita implementasi nyata — langsung ka kotak surel anjeun.",
-      placeholder: "Lebetkeun email anjeun",
-      cta: "Langganan",
-      disclaimer: "Tanpa spam. Tiasa eureun langganan iraha wae.",
-      success: "Ampir rengse! Pariksa email anjeun kanggo konfirmasi langganan.",
-      error: "Aya kasalahan. Mangga cobian deui.",
-      captchaError: "Mangga lengkepan verifikasi CAPTCHA heula.",
-      languageLabel: "Basa digest:",
-      languageEn: "English",
-      languageId: "Bahasa Indonesia",
-      languageSu: "Basa Sunda",
-      languageDe: "Deutsch"
-    }
-  };
+  en: {
+    heading: "Stay Ahead of the Curve",
+    subheading:
+      "Get practical AI insights, agent architecture breakdowns, and real-world implementation stories — straight to your inbox.",
+    placeholder: "Enter your email",
+    cta: "Subscribe",
+    disclaimer: "No spam. Unsubscribe anytime.",
+    success: "Almost there! Check your inbox to confirm your subscription.",
+    error: "Something went wrong. Please try again.",
+    captchaError: "Please complete the CAPTCHA verification.",
+    languageLabel: "Digest language:",
+    languageEn: "English",
+    languageId: "Bahasa Indonesia",
+    languageSu: "Basa Sunda",
+    languageDe: "Deutsch"
+  },
+  id: {
+    heading: "Selangkah Lebih Maju",
+    subheading:
+      "Dapatkan insight AI praktis, breakdown arsitektur agent, dan kisah implementasi nyata — langsung ke kotak masukmu.",
+    placeholder: "Masukkan email kamu",
+    cta: "Langganan",
+    disclaimer: "Tanpa spam. Bisa berhenti berlangganan kapan saja.",
+    success: "Hampir selesai! Cek email kamu untuk konfirmasi langganan.",
+    error: "Terjadi kesalahan. Silakan coba lagi.",
+    captchaError: "Mohon selesaikan verifikasi CAPTCHA terlebih dahulu.",
+    languageLabel: "Bahasa digest:",
+    languageEn: "English",
+    languageId: "Bahasa Indonesia",
+    languageSu: "Basa Sunda",
+    languageDe: "Deutsch"
+  },
+  de: {
+    heading: "Bleiben Sie immer einen Schritt voraus",
+    subheading:
+      "Erhalte praxisnahe KI-Einblicke, detaillierte Agent-Architekturen und Berichte aus echten Implementierungen — direkt in dein Postfach.",
+    placeholder: "Gib deine E-Mail-Adresse ein",
+    cta: "Abonnieren",
+    disclaimer: "Kein Spam. Jederzeit abbestellbar.",
+    success:
+      "Fast geschafft! Bestätige dein Abonnement über den Link in deinem Postfach.",
+    error: "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    captchaError: "Bitte schließe die CAPTCHA-Verifizierung ab.",
+    languageLabel: "Digest-Sprache:",
+    languageEn: "English",
+    languageId: "Bahasa Indonesia",
+    languageSu: "Basa Sunda",
+    languageDe: "Deutsch"
+  },
+  su: {
+    heading: "Salangkung Leuwih Maju",
+    subheading:
+      "Kenging insight AI anu praktis, bedah arsitektur agent, sareng carita implementasi nyata — langsung ka kotak surel anjeun.",
+    placeholder: "Lebetkeun email anjeun",
+    cta: "Langganan",
+    disclaimer: "Tanpa spam. Tiasa eureun langganan iraha wae.",
+    success: "Ampir rengse! Pariksa email anjeun kanggo konfirmasi langganan.",
+    error: "Aya kasalahan. Mangga cobian deui.",
+    captchaError: "Mangga lengkepan verifikasi CAPTCHA heula.",
+    languageLabel: "Basa digest:",
+    languageEn: "English",
+    languageId: "Bahasa Indonesia",
+    languageSu: "Basa Sunda",
+    languageDe: "Deutsch"
+  }
+};
 
 export function NewsletterSection({ lang }: NewsletterSectionProps) {
   const [email, setEmail] = useState("");
@@ -110,8 +109,8 @@ export function NewsletterSection({ lang }: NewsletterSectionProps) {
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileInstance>(null);
 
-  const copy = newsletterCopyByDigestLang[digestLang] ??
-    newsletterCopyByDigestLang.en;
+  const copy =
+    newsletterCopyByDigestLang[digestLang] ?? newsletterCopyByDigestLang.en;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -218,9 +217,7 @@ export function NewsletterSection({ lang }: NewsletterSectionProps) {
           <p className="mt-4 text-sm text-red-400">{copy.error}</p>
         )}
         {status === "captcha-error" && (
-          <p className="mt-4 text-sm text-red-400">
-            {copy.captchaError}
-          </p>
+          <p className="mt-4 text-sm text-red-400">{copy.captchaError}</p>
         )}
 
         <p className="mt-4 text-sm text-gray-400">{copy.disclaimer}</p>

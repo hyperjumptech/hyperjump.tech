@@ -35,6 +35,7 @@ import {
   mainServicesLabel
 } from "@/locales/.generated/strings";
 
+import { NewsletterSection } from "./components/newsletter-section";
 import { AnimatedLines } from "../../components/animated-lines";
 import { CaseStudyCard } from "../../components/case-study-card";
 import { SectionReveal } from "../../components/motion-wrappers";
@@ -107,6 +108,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
       <HowItWorks lang={lang} service={service} />
       <WhatYouGet lang={lang} service={service} />
       <WhyUs lang={lang} service={service} />
+      {slug === ServiceSlug.InferenceAI && <NewsletterSection lang={lang} />}
       <Faqs lang={lang} service={service} />
       <CaseStudies caseStudies={service.caseStudies} lang={lang} />
       <CallToAction lang={lang} service={service} />

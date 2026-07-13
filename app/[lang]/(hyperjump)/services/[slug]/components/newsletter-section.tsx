@@ -32,9 +32,9 @@ const newsletterCopyByDigestLang: Record<
   NewsletterCopy
 > = {
   en: {
-    heading: "Stay Ahead of the Curve",
+    heading: "Turn hours of AI videos into a 5-minute daily briefing.",
     subheading:
-      "Get practical AI insights, agent architecture breakdowns, and real-world implementation stories — straight to your inbox.",
+      "Every day, we watch the latest videos from hand-picked AI creators, extract the news, tools, and breakthroughs that matter, and deliver them straight to your inbox.",
     placeholder: "Enter your email",
     cta: "Subscribe",
     disclaimer: "No spam. Unsubscribe anytime.",
@@ -48,9 +48,9 @@ const newsletterCopyByDigestLang: Record<
     languageDe: "Deutsch"
   },
   id: {
-    heading: "Selangkah Lebih Maju",
+    heading: "Gantikan berjam-jam video AI jadi ringkasan 5 menit setiap hari.",
     subheading:
-      "Dapatkan insight AI praktis, breakdown arsitektur agent, dan kisah implementasi nyata — langsung ke kotak masukmu.",
+      "Setiap hari, kami menonton video terbaru dari kreator AI pilihan, merangkum berita, tools, dan terobosan paling berharga, dikirim langsung ke inbox mu.",
     placeholder: "Masukkan email kamu",
     cta: "Langganan",
     disclaimer: "Tanpa spam. Bisa berhenti berlangganan kapan saja.",
@@ -64,9 +64,10 @@ const newsletterCopyByDigestLang: Record<
     languageDe: "Deutsch"
   },
   de: {
-    heading: "Bleiben Sie immer einen Schritt voraus",
+    heading:
+      "Verwandle stundenlange KI-Videos in ein 5-Minuten-Briefing pro Tag.",
     subheading:
-      "Erhalte praxisnahe KI-Einblicke, detaillierte Agent-Architekturen und Berichte aus echten Implementierungen — direkt in dein Postfach.",
+      "Jeden Tag sichten wir die neuesten Videos handverlesener KI-Creator, fassen die relevanten News, Tools und Durchbrüche zusammen und liefern sie direkt in dein Postfach.",
     placeholder: "Gib deine E-Mail-Adresse ein",
     cta: "Abonnieren",
     disclaimer: "Kein Spam. Jederzeit abbestellbar.",
@@ -81,9 +82,9 @@ const newsletterCopyByDigestLang: Record<
     languageDe: "Deutsch"
   },
   su: {
-    heading: "Salangkung Leuwih Maju",
+    heading: "Ganti puluhan jam vidéo AI jadi ringkesan 5 menit unggal poé.",
     subheading:
-      "Kenging insight AI anu praktis, bedah arsitektur agent, sareng carita implementasi nyata — langsung ka kotak surel anjeun.",
+      "Unggal poé, kami nongton vidéo panganyarna ti Kreator AI pinilih, ngarangkum warta, tools, sareng terobosan anu penting, dikintunkeun langsung ka kotak surel anjeun.",
     placeholder: "Lebetkeun email anjeun",
     cta: "Langganan",
     disclaimer: "Tanpa spam. Tiasa eureun langganan iraha wae.",

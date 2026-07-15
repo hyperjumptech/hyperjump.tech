@@ -24,6 +24,22 @@
       "5": {
         "title": "Monitime",
         "text": "Monitime is a synthetic monitoring service in collaboration with Qwords. You can monitor your website regionally and globally and be notified through various notification channels including Telegram, Slack, and WhatsApp."
+      },
+      "6": {
+        "title": "TypeTable",
+        "text": "Say what to record. Fill it in instantly. Describe what your team keeps re-typing — TypeTable proposes the table, enforces the rules, and lets everyone add records in plain language."
+      },
+      "7": {
+        "title": "Hydra8",
+        "text": "Version, test, and monitor LLM prompts without redeploying. An open-source LLM gateway for versioned prompt templates, evaluations, and monitoring — ship prompt changes from one dashboard."
+      },
+      "8": {
+        "title": "Avenu",
+        "text": "Enterprise-ready AI gateway. Create routing rules and budget for your team."
+      },
+      "9": {
+        "title": "Frontier News",
+        "text": "Daily newsletter with curated summaries of YouTube videos about AI, available in multiple languages."
       }
     }
   },

@@ -12,7 +12,15 @@ import {
   productsCommercialData4Text,
   productsCommercialData4Title,
   productsCommercialData5Text,
-  productsCommercialData5Title
+  productsCommercialData5Title,
+  productsCommercialData6Text,
+  productsCommercialData6Title,
+  productsCommercialData7Text,
+  productsCommercialData7Title,
+  productsCommercialData8Text,
+  productsCommercialData8Title,
+  productsCommercialData9Text,
+  productsCommercialData9Title
 } from "@/locales/.generated/strings";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
@@ -20,13 +28,41 @@ export type CommercialProduct = {
   title: string;
   description: string;
   image: string;
-  urlLearnMore: string;
+  urlLearnMore?: string;
 };
 
+/**
+ * Returns commercial products for the products page, newest first.
+ *
+ * @param lang - Active locale for localized titles and descriptions
+ */
 export function getCommercialProduct(
   lang: SupportedLanguage
 ): CommercialProduct[] {
   return [
+    {
+      title: productsCommercialData6Title(lang),
+      description: productsCommercialData6Text(lang),
+      image: "/images/products/typetable.svg",
+      urlLearnMore: "https://typetable.io"
+    },
+    {
+      title: productsCommercialData7Title(lang),
+      description: productsCommercialData7Text(lang),
+      image: "/images/products/hydra8.png",
+      urlLearnMore: "https://hydra8.hyperjump.tech"
+    },
+    {
+      title: productsCommercialData8Title(lang),
+      description: productsCommercialData8Text(lang),
+      image: "/images/products/avenu.png",
+      urlLearnMore: "https://avenu.hyperjump.tech"
+    },
+    {
+      title: productsCommercialData9Title(lang),
+      description: productsCommercialData9Text(lang),
+      image: "/images/products/frontier-news.svg"
+    },
     {
       title: productsCommercialData2Title(lang),
       description: productsCommercialData2Text(lang),
@@ -65,6 +101,11 @@ export type OpenSourceProduct = {
   repo: string;
 };
 
+/**
+ * Returns open-source products for the products page.
+ *
+ * @param lang - Active locale for localized titles and descriptions
+ */
 export function openSourceProducts(
   lang: SupportedLanguage
 ): OpenSourceProduct[] {

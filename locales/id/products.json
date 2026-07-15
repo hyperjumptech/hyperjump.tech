@@ -24,6 +24,22 @@
       "5": {
         "title": "Monitime",
         "text": "Monitime merupakan layanan synthetic monitoring hasil kolaborasi dengan Qwords yang memungkinkan pemantauan ketersediaan dan performa website secara regional maupun global. Sistem notifikasi mendukung berbagai kanal, termasuk Telegram, Slack, dan WhatsApp."
+      },
+      "6": {
+        "title": "TypeTable",
+        "text": "Ucapkan apa yang perlu dicatat. Isi secara instan. Jelaskan data yang biasanya diketik ulang tim Anda — TypeTable menyarankan tabel, menegakkan aturan, dan memungkinkan semua orang menambahkan catatan dengan bahasa sehari-hari."
+      },
+      "7": {
+        "title": "Hydra8",
+        "text": "Versi, uji, dan pantau prompt LLM tanpa perlu redeploy. Gateway LLM open-source untuk template prompt berversi, evaluasi, dan monitoring — kelola perubahan prompt dari satu dashboard."
+      },
+      "8": {
+        "title": "Avenu",
+        "text": "Gateway AI siap enterprise. Buat aturan routing dan anggaran untuk tim Anda."
+      },
+      "9": {
+        "title": "Frontier News",
+        "text": "Newsletter harian berisi ringkasan terkurasi dari video YouTube tentang AI, tersedia dalam berbagai bahasa."
       }
     }
   },

@@ -145,17 +145,19 @@ export default async function ProductsPage({ params }: ProductsProps) {
                       __html: featured.description
                     }}
                   />
-                  <Button
-                    asChild
-                    className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-12 rounded-full px-8 text-base font-semibold text-white shadow-lg shadow-[#635BFF]/25 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#635BFF]/30">
-                    <Link
-                      href={featured.urlLearnMore}
-                      target="_blank"
-                      rel="noopener noreferrer">
-                      {productsLearnMore(lang)}
-                      <ArrowUpRightIcon className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                  {featured.urlLearnMore && (
+                    <Button
+                      asChild
+                      className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-12 rounded-full px-8 text-base font-semibold text-white shadow-lg shadow-[#635BFF]/25 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#635BFF]/30">
+                      <Link
+                        href={featured.urlLearnMore}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        {productsLearnMore(lang)}
+                        <ArrowUpRightIcon className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  )}
                 </SectionReveal>
               </div>
             </div>
@@ -222,14 +224,16 @@ function CommercialCard({ product, lang }: CommercialCardProps) {
           className="text-hyperjump-gray mb-6 flex-1 text-[15px] leading-relaxed"
           dangerouslySetInnerHTML={{ __html: product.description }}
         />
-        <Link
-          href={product.urlLearnMore}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-hyperjump-blue inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 hover:gap-2.5">
-          {productsLearnMore(lang)}
-          <ArrowUpRightIcon className="h-3.5 w-3.5" />
-        </Link>
+        {product.urlLearnMore && (
+          <Link
+            href={product.urlLearnMore}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-hyperjump-blue inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 hover:gap-2.5">
+            {productsLearnMore(lang)}
+            <ArrowUpRightIcon className="h-3.5 w-3.5" />
+          </Link>
+        )}
       </div>
     </div>
   );
@@ -249,20 +253,24 @@ function JsonLd({ lang, products }: JsonLdProps) {
           { name: mainProductsLabel(lang), item: `${url}/${lang}/products` }
         ]}
       />
-      {products.map(({ description, image, title, ...product }) => (
-        <SoftwareApplicationJsonLd
-          applicationCategory="BusinessApplication"
-          description={description}
-          image={`${url}${image}`}
-          key={title}
-          name={title}
-          operatingSystem="Web"
-          url={
-            (product as CommercialProduct)?.urlLearnMore ||
-            (product as OpenSourceProduct)?.url
-          }
-        />
-      ))}
+      {products.map(({ description, image, title, ...product }) => {
+        const productUrl =
+          (product as CommercialProduct)?.urlLearnMore ||
+          (product as OpenSourceProduct)?.url ||
+          `${url}/${lang}/products`;
+
+        return (
+          <SoftwareApplicationJsonLd
+            applicationCategory="BusinessApplication"
+            description={description}
+            image={`${url}${image}`}
+            key={title}
+            name={title}
+            operatingSystem="Web"
+            url={productUrl}
+          />
+        );
+      })}
     </>
   );
 }

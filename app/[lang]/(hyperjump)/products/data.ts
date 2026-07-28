@@ -61,7 +61,8 @@ export function getCommercialProduct(
     {
       title: productsCommercialData9Title(lang),
       description: productsCommercialData9Text(lang),
-      image: "/images/products/frontier-news.svg"
+      image: "/images/products/frontier-news.svg",
+      urlLearnMore: "https://frontiernews.tech/"
     },
     {
       title: productsCommercialData2Title(lang),

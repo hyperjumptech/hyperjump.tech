@@ -24,7 +24,16 @@ import {
 } from "@/locales/.generated/strings";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
+/**
+ * Product slugs shown on the homepage, in display order.
+ * Edit this list to change which commercial products are featured.
+ */
+export const FEATURED_PRODUCT_SLUGS = ["typetable", "hydra8", "avenu"] as const;
+
+export type FeaturedProductSlug = (typeof FEATURED_PRODUCT_SLUGS)[number];
+
 export type CommercialProduct = {
+  slug: string;
   title: string;
   description: string;
   image: string;
@@ -41,48 +50,56 @@ export function getCommercialProduct(
 ): CommercialProduct[] {
   return [
     {
+      slug: "typetable",
       title: productsCommercialData6Title(lang),
       description: productsCommercialData6Text(lang),
       image: "/images/products/typetable.svg",
       urlLearnMore: "https://typetable.io"
     },
     {
+      slug: "hydra8",
       title: productsCommercialData7Title(lang),
       description: productsCommercialData7Text(lang),
       image: "/images/products/hydra8.png",
       urlLearnMore: "https://hydra8.hyperjump.tech"
     },
     {
+      slug: "avenu",
       title: productsCommercialData8Title(lang),
       description: productsCommercialData8Text(lang),
       image: "/images/products/avenu.png",
       urlLearnMore: "https://avenu.hyperjump.tech"
     },
     {
+      slug: "frontier-news",
       title: productsCommercialData9Title(lang),
       description: productsCommercialData9Text(lang),
       image: "/images/products/frontier-news.svg",
       urlLearnMore: "https://frontiernews.tech/"
     },
     {
+      slug: "media-pulse",
       title: productsCommercialData2Title(lang),
       description: productsCommercialData2Text(lang),
       image: "/images/products/media-pulse.svg",
       urlLearnMore: "https://mediapulse.hyperjump.tech/"
     },
     {
+      slug: "startgpt",
       title: productsCommercialData1Title(lang),
       description: productsCommercialData1Text(lang),
       image: "/images/products/startGPT.svg",
       urlLearnMore: "https://startgpt.hyperjump.tech/"
     },
     {
+      slug: "neosense",
       title: productsCommercialData4Title(lang),
       description: productsCommercialData4Text(lang),
       image: "/images/products/neosense.svg",
       urlLearnMore: "https://www.biznetgio.com/product/neo-sense"
     },
     {
+      slug: "monitime",
       title: productsCommercialData5Title(lang),
       description: productsCommercialData5Text(lang),
       image: "/images/products/monitime.svg",

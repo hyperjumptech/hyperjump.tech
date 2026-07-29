@@ -13,6 +13,8 @@
     "lint": "next lint",
     "check-format": "prettier --check .",
     "format": "prettier --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "test:e2e": "playwright test -c playwright.config.ts",
     "test:e2e:codegen": "wait-on http://localhost:3000 && playwright codegen",
     "test:e2e:headed": "playwright test --headed -c playwright.config.ts",
@@ -76,6 +78,7 @@
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^5",
+    "vitest": "^4.1.10",
     "wait-on": "^9.0.3"
   }
 }

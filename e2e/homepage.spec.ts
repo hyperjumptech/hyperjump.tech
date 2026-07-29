@@ -128,6 +128,37 @@ test.describe("Homepage", () => {
     await expect(page.getByAltText(/media.tech|media/i).first()).toBeVisible();
   });
 
+  test("Products Section: should display featured products before open source", async ({
+    page
+  }) => {
+    await page.goto(URL);
+
+    const products = page.locator("#products");
+    await products.scrollIntoViewIfNeeded();
+
+    const productsHeading = page.getByRole("heading", {
+      name: /Built to ship, ready to scale|Dibangun untuk diluncurkan, siap diskalakan/i
+    });
+    await expect(productsHeading).toBeVisible();
+
+    for (const title of ["TypeTable", "Hydra8", "Avenu"]) {
+      await expect(products.getByText(title).first()).toBeVisible();
+    }
+
+    const viewMore = products.getByRole("link", {
+      name: /View More|Lihat selengkapnya/i
+    });
+    await expect(viewMore).toBeVisible();
+    await expect(viewMore).toHaveAttribute("href", /products/i);
+
+    const openSource = page.locator("#open-source");
+    const productsBox = await products.boundingBox();
+    const openSourceBox = await openSource.boundingBox();
+    expect(productsBox).not.toBeNull();
+    expect(openSourceBox).not.toBeNull();
+    expect(productsBox!.y).toBeLessThan(openSourceBox!.y);
+  });
+
   test("FAQ Section: should toggle FAQ items correctly on click", async ({
     page
   }) => {
@@ -180,6 +211,7 @@ test.describe("Homepage", () => {
         const hero = page.locator("#hero");
         const services = page.locator("#services");
         const caseStudies = page.locator("#case-studies");
+        const products = page.locator("#products");
         const openSource = page.locator("#open-source");
         const faq = page.locator("#faqs");
         const footer = page.locator("footer");
@@ -187,9 +219,16 @@ test.describe("Homepage", () => {
         await expect(hero).toBeVisible();
         await expect(services).toBeVisible();
         await expect(caseStudies).toBeVisible();
+        await expect(products).toBeVisible();
         await expect(openSource).toBeVisible();
         await expect(faq).toBeVisible();
         await expect(footer).toBeVisible();
+
+        const productsBox = await products.boundingBox();
+        const openSourceBox = await openSource.boundingBox();
+        expect(productsBox).not.toBeNull();
+        expect(openSourceBox).not.toBeNull();
+        expect(productsBox!.y).toBeLessThan(openSourceBox!.y);
 
         // Smooth scrolling + fullPage screenshots are surprisingly slow/flaky in CI WebKit.
         // We still exercise the page by jumping down the document in steps.

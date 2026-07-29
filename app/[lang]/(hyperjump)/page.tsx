@@ -28,6 +28,9 @@ import {
   mainCaseStudiesHeading,
   mainCaseStudiesDesc,
   mainCaseStudiesEyebrow,
+  mainProductsEyebrow,
+  mainProductsHeading,
+  mainProductsDesc,
   mainProjectHeading,
   mainProjectDesc,
   mainFaqHeading,
@@ -63,6 +66,7 @@ import {
   location,
   services
 } from "./data";
+import { getFeaturedProducts } from "./products/get-featured-products";
 
 const { github, socials, title, url } = data;
 
@@ -107,6 +111,7 @@ export default async function MainPage({ params }: HomeProps) {
       <Hero lang={lang} />
       <Services lang={lang} />
       <CaseStudies lang={lang} />
+      <FeaturedProducts lang={lang} />
       <OpenSourceProducts lang={lang} />
       <Faqs lang={lang} />
       <Location lang={lang} location={location} />
@@ -301,6 +306,79 @@ const PROJECT_HOVER_ANIMATIONS = [
   "oss-hover-wiggle",
   "oss-hover-stretch-x"
 ];
+
+/**
+ * Homepage section showcasing commercial products selected via FEATURED_PRODUCT_SLUGS.
+ *
+ * @param lang - Active locale for copy and product catalog
+ */
+function FeaturedProducts({ lang }: HomeParams) {
+  const products = getFeaturedProducts(lang);
+
+  return (
+    <section id="products" className="scroll-mt-20 bg-white">
+      <div className="mx-auto max-w-5xl px-4 py-20 md:px-20 md:py-28 xl:px-0">
+        <SectionReveal>
+          <div className="mb-16 text-center">
+            <span className="text-hyperjump-blue mb-4 inline-block text-xs font-semibold tracking-[0.2em] uppercase">
+              {mainProductsEyebrow(lang)}
+            </span>
+            <h2 className="text-hyperjump-black mx-auto max-w-2xl text-4xl font-semibold tracking-tight md:text-5xl lg:text-[3.5rem]">
+              {mainProductsHeading(lang)}
+            </h2>
+            <p className="text-hyperjump-gray mx-auto mt-5 max-w-xl text-lg leading-relaxed">
+              {mainProductsDesc(lang)}
+            </p>
+          </div>
+        </SectionReveal>
+
+        <StaggerContainer className="grid gap-5 md:grid-cols-3">
+          {products.map((product) => (
+            <StaggerItem key={product.slug}>
+              <a
+                href={product.urlLearnMore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex h-full flex-col rounded-2xl border border-black/6 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6">
+                {product.image && (
+                  <div className="bg-hyperjump-surface -mx-7 -mt-7 mb-5 flex h-48 items-center justify-center overflow-hidden rounded-t-2xl">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                  </div>
+                )}
+                <h3 className="text-hyperjump-black mb-2 text-xl font-semibold">
+                  {product.title}
+                </h3>
+                <p
+                  className="text-hyperjump-gray mb-6 flex-1 text-[15px] leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: product.description }}
+                />
+                <span className="text-hyperjump-blue inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-2.5">
+                  {mainLearnMore(lang)}
+                  <ArrowRightIcon className="h-3.5 w-3.5" />
+                </span>
+              </a>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        <SectionReveal>
+          <div className="mt-12 flex w-full items-center justify-center">
+            <Button
+              variant="outline"
+              className="text-hyperjump-blue border-hyperjump-blue/20 hover:bg-hyperjump-blue h-11 rounded-full px-8 font-semibold transition-all duration-200 hover:scale-[1.02] hover:text-white"
+              asChild>
+              <Link href={`/${lang}/products`}>{mainViewMore(lang)}</Link>
+            </Button>
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
+  );
+}
 
 function OpenSourceProducts({ lang }: HomeParams) {
   const projects = getProject(lang);

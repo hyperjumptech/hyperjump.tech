@@ -37,6 +37,11 @@
     "desc": "We don\u2019t just ship code — we move business metrics. Real outcomes from real partnerships.",
     "button": "Read case study"
   },
+  "products": {
+    "eyebrow": "Our products",
+    "heading": "Built to ship, ready to scale",
+    "desc": "Commercial products we engineer and operate\u2014from AI platforms to monitoring tools."
+  },
   "project": {
     "heading": "Open source",
     "desc": "Tools we\u2019ve built, open for everyone.<br/>Explore, contribute, and build with us.",

@@ -31,6 +31,10 @@ import {
   mainProductsEyebrow,
   mainProductsHeading,
   mainProductsDesc,
+  mainFrontierNewsCtaEyebrow,
+  mainFrontierNewsCtaHeading,
+  mainFrontierNewsCtaDesc,
+  mainFrontierNewsCtaCta,
   mainProjectHeading,
   mainProjectDesc,
   mainFaqHeading,
@@ -67,6 +71,7 @@ import {
   services
 } from "./data";
 import { getFeaturedProducts } from "./products/get-featured-products";
+import { getProductBySlug } from "./products/get-product-by-slug";
 
 const { github, socials, title, url } = data;
 
@@ -365,6 +370,8 @@ function FeaturedProducts({ lang }: HomeParams) {
           ))}
         </StaggerContainer>
 
+        <FrontierNewsPromo lang={lang} />
+
         <SectionReveal>
           <div className="mt-12 flex w-full items-center justify-center">
             <Button
@@ -377,6 +384,63 @@ function FeaturedProducts({ lang }: HomeParams) {
         </SectionReveal>
       </div>
     </section>
+  );
+}
+
+const FRONTIER_NEWS_SLUG = "frontier-news";
+const FRONTIER_NEWS_FALLBACK_URL = "https://frontiernews.tech/";
+
+/**
+ * Brief homepage promo for Frontier News under the products grid.
+ *
+ * @param lang - Active locale for promo copy
+ * @param getProduct - Optional product lookup; defaults to getProductBySlug
+ */
+function FrontierNewsPromo({
+  lang,
+  getProduct = getProductBySlug
+}: HomeParams & {
+  getProduct?: typeof getProductBySlug;
+}) {
+  const product = getProduct(lang, FRONTIER_NEWS_SLUG);
+  const href = product?.urlLearnMore ?? FRONTIER_NEWS_FALLBACK_URL;
+  const image = product?.image ?? "/images/products/frontier-news.svg";
+
+  return (
+    <SectionReveal>
+      <a
+        id="frontier-news"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-cta-premium group relative mt-10 flex flex-col gap-6 overflow-hidden rounded-2xl p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#635BFF]/20 md:flex-row md:items-center md:p-10">
+        <div className="hero-glow animate-glow top-0 right-0 h-100! w-100! transition-opacity duration-500 group-hover:opacity-80" />
+        <div className="relative z-10 flex shrink-0 items-center justify-center md:w-48">
+          <img
+            src={image}
+            alt={mainFrontierNewsCtaHeading(lang)}
+            className="h-28 w-auto rounded-xl bg-white/95 object-contain p-3 shadow-lg shadow-black/20 transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+        <div className="relative z-10 flex-1">
+          <span className="mb-3 inline-block text-xs font-semibold tracking-[0.2em] text-yellow-300 uppercase">
+            {mainFrontierNewsCtaEyebrow(lang)}
+          </span>
+          <h3 className="mb-3 text-2xl font-semibold text-white md:text-3xl">
+            {mainFrontierNewsCtaHeading(lang)}
+          </h3>
+          <p className="max-w-xl text-base leading-relaxed text-white/60">
+            {mainFrontierNewsCtaDesc(lang)}
+          </p>
+        </div>
+        <div className="relative z-10 shrink-0">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 group-hover:border-white/40 group-hover:bg-white group-hover:text-[#0A0E27]">
+            {mainFrontierNewsCtaCta(lang)}
+            <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+          </span>
+        </div>
+      </a>
+    </SectionReveal>
   );
 }
 

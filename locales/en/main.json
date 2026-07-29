@@ -42,6 +42,12 @@
     "heading": "Built to ship, ready to scale",
     "desc": "Commercial products we engineer and operate\u2014from AI platforms to monitoring tools."
   },
+  "frontier_news_cta": {
+    "eyebrow": "Stay ahead on AI",
+    "heading": "Frontier News",
+    "desc": "A daily newsletter with curated summaries of YouTube videos about AI\u2014available in multiple languages.",
+    "cta": "Read Frontier News"
+  },
   "project": {
     "heading": "Open source",
     "desc": "Tools we\u2019ve built, open for everyone.<br/>Explore, contribute, and build with us.",

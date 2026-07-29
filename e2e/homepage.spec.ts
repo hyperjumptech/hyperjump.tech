@@ -145,6 +145,13 @@ test.describe("Homepage", () => {
       await expect(products.getByText(title).first()).toBeVisible();
     }
 
+    const frontierNews = products.locator("#frontier-news");
+    await expect(frontierNews).toBeVisible();
+    await expect(
+      frontierNews.getByRole("heading", { name: "Frontier News" })
+    ).toBeVisible();
+    await expect(frontierNews).toHaveAttribute("href", /frontiernews\.tech/i);
+
     const viewMore = products.getByRole("link", {
       name: /View More|Lihat selengkapnya/i
     });

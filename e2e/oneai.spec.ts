@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 
+import { getOneaiPdfPath } from "@/app/[lang]/(hyperjump)/oneai/get-oneai-pdf-download";
 import {
   oneaiComparisonHeadingPartsControl,
   oneaiPdfDownloadCta,
@@ -93,7 +94,7 @@ for (const locale of supportedLanguages) {
       await expect(page.getByTestId("oneai-pdf-download")).toBeVisible();
       await expect(downloadLink).toHaveAttribute(
         "href",
-        "/documents/oneai-promo.pdf"
+        getOneaiPdfPath(locale)
       );
       await expect(downloadLink).toHaveText(oneaiPdfDownloadCta(locale));
     });

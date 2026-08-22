@@ -181,8 +181,8 @@
   "pricing": {
     "label": "Plan · up to 40 users",
     "price": "Rp12.400.000",
-    "price_unit": "/ month",
-    "quarterly": "Billed quarterly · Rp37.200.000 per quarter",
+    "price_unit": "/ month · before tax",
+    "quarterly": "Billed quarterly · Rp37.200.000 per quarter before tax",
     "annual": "Save 10% with annual billing",
     "includes": "Includes USD 300 AI credit, 1× team onboarding, and monthly usage reports. Customization (internal systems, custom SSO, etc.) scoped separately.",
     "compare_kicker": "Compare",
@@ -204,7 +204,7 @@
     },
     "1": {
       "question": "How is billing structured?",
-      "answer": "Rp12.400.000 per month, invoiced quarterly (Rp37.200.000 per quarter). Annual billing saves 10%."
+      "answer": "Rp12.400.000 per month before tax, invoiced quarterly (Rp37.200.000 per quarter before tax). Annual billing saves 10%."
     },
     "2": {
       "question": "What is Zero Data Retention (ZDR)?",

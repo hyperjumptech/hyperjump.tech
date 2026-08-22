@@ -181,8 +181,8 @@
   "pricing": {
     "label": "Paket harga · hingga 40 pengguna",
     "price": "Rp12.400.000",
-    "price_unit": "/ bulan",
-    "quarterly": "Ditagih 3-bulanan · Rp37.200.000 per kuartal",
+    "price_unit": "/ bulan · sebelum pajak",
+    "quarterly": "Ditagih 3-bulanan · Rp37.200.000 per kuartal sebelum pajak",
     "annual": "Hemat 10% untuk pembayaran tahunan",
     "includes": "Termasuk kredit AI senilai USD 300, 1× training/orientasi tim, dan laporan penggunaan bulanan. Kustomisasi (sistem internal, SSO khusus, dan sejenisnya) disepakati terpisah.",
     "compare_kicker": "Bandingkan",
@@ -204,7 +204,7 @@
     },
     "1": {
       "question": "Bagaimana struktur penagihan?",
-      "answer": "Rp12.400.000 per bulan, ditagih per kuartal (Rp37.200.000 per kuartal). Pembayaran tahunan hemat 10%."
+      "answer": "Rp12.400.000 per bulan sebelum pajak, ditagih per kuartal (Rp37.200.000 per kuartal sebelum pajak). Pembayaran tahunan hemat 10%."
     },
     "2": {
       "question": "Apa itu Zero Data Retention (ZDR)?",

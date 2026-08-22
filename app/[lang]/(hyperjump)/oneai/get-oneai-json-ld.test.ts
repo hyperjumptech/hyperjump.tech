@@ -66,6 +66,7 @@ describe("getOneaiJsonLd", () => {
     expect(product.image).toBe(`${siteUrl}${ONEAI_OG_IMAGE_PATH}`);
     expect(product.offers.price).toBe("12400000");
     expect(product.offers.priceCurrency).toBe("IDR");
+    expect(product.offers.description).toContain("before tax");
 
     const faqPage = graph["@graph"][2];
     expect(faqPage["@type"]).toBe("FAQPage");
@@ -81,6 +82,7 @@ describe("getOneaiJsonLd", () => {
 
     const breadcrumb = graph["@graph"][0];
     expect(breadcrumb.itemListElement[0].name).toBe("Beranda");
+    expect(graph["@graph"][1].offers.description).toContain("sebelum pajak");
   });
 });
 

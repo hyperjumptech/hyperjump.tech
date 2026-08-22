@@ -85,8 +85,8 @@ export function getOneaiJsonLd({
           priceCurrency: "IDR",
           description:
             lang === "id"
-              ? "Paket hingga 40 pengguna, ditagih per kuartal"
-              : "Plan for up to 40 users, billed quarterly",
+              ? "Paket hingga 40 pengguna, ditagih per kuartal, sebelum pajak"
+              : "Plan for up to 40 users, billed quarterly, before tax",
           url: pageUrl
         },
         provider: {

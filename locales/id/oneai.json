@@ -86,6 +86,8 @@
       "text": "Satu tagihan Rp12.400.000 sampai 40 pengguna, termasuk kredit USD 300. Di titik ini, kursi per orang plus kredit terpisah sudah menyamai atau melebihi harga OneAI — tanpa ZDR, RAG, atau kontrol model."
     },
     "table_label": "Perbandingan biaya dan kemampuan · per bulan",
+    "advantage_price_badge": "Harga terbaik",
+    "advantage_included_badge": "Termasuk",
     "columns": {
       "feature": "Fitur",
       "stipend": "Tunjangan individu",
@@ -155,6 +157,11 @@
       }
     },
     "assumptions": "Asumsi: kurs Rp16.000/USD. Tunjangan contoh Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (tagihan bulanan). Kredit USD 300 ≈ Rp4.800.000. Harga kompetitor bisa berubah; angka ini untuk perbandingan, bukan kuotasi mereka.",
+    "why_section": {
+      "label": "Kenapa OneAI",
+      "heading": "Satu platform mengalahkan tiga jalan pintas",
+      "desc": "Tunjangan, ChatGPT per kursi, dan tool tambahan masing-masing hanya menyelesaikan sebagian masalah. OneAI menyatukan kontrol, akses multi-model, dan fitur enterprise dalam satu anggaran — itulah mengapa OneAI menang begitu tim Anda melampaui AI ala kadarnya."
+    },
     "why": {
       "0": {
         "title": "Tunjangan sering tidak jadi AI",

@@ -1,10 +1,5 @@
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
-  oneaiComparisonAssumptions,
-  oneaiComparisonColumnsChatgpt,
-  oneaiComparisonColumnsFeature,
-  oneaiComparisonColumnsOneai,
-  oneaiComparisonColumnsStipend,
   oneaiComparisonEyebrow,
   oneaiComparisonGoodFitKicker,
   oneaiComparisonGoodFitText,
@@ -20,7 +15,9 @@ import {
   oneaiComparisonNotForYouKicker,
   oneaiComparisonNotForYouText,
   oneaiComparisonNotForYouTitle,
-  oneaiComparisonTableLabel
+  oneaiComparisonWhySectionDesc,
+  oneaiComparisonWhySectionHeading,
+  oneaiComparisonWhySectionLabel
 } from "@/locales/.generated/strings";
 
 import {
@@ -28,10 +25,8 @@ import {
   StaggerContainer,
   StaggerItem
 } from "../components/motion-wrappers";
-import {
-  getOneaiComparisonRows,
-  getOneaiComparisonWhy
-} from "./get-oneai-comparison-rows";
+import { getOneaiComparisonWhy } from "./get-oneai-comparison-rows";
+import { OneaiComparisonTable } from "./oneai-comparison-table";
 import { OneaiPdfDownload } from "./oneai-pdf-download";
 
 type OneaiComparisonSectionProps = {
@@ -74,7 +69,6 @@ function OneaiComparisonHeading({ lang }: { lang: SupportedLanguage }) {
  * @param props - Active locale for copy and table rows
  */
 export function OneaiComparisonSection({ lang }: OneaiComparisonSectionProps) {
-  const rows = getOneaiComparisonRows({ lang });
   const whyColumns = getOneaiComparisonWhy({ lang });
 
   return (
@@ -122,68 +116,25 @@ export function OneaiComparisonSection({ lang }: OneaiComparisonSectionProps) {
           </StaggerItem>
         </StaggerContainer>
 
-        <SectionReveal delay={0.05}>
-          <p className="text-hyperjump-gray mb-4 text-xs font-bold tracking-[0.14em] uppercase">
-            {oneaiComparisonTableLabel(lang)}
-          </p>
-          <div className="-mx-4 overflow-x-auto px-4 md:mx-0 md:px-0">
-            <table
-              className="w-full min-w-[720px] border-collapse text-left text-sm"
-              data-testid="oneai-comparison-table">
-              <thead>
-                <tr className="border-b border-black/10">
-                  <th
-                    scope="col"
-                    className="text-hyperjump-black sticky left-0 z-10 bg-white py-3 pr-4 font-semibold">
-                    {oneaiComparisonColumnsFeature(lang)}
-                  </th>
-                  <th
-                    scope="col"
-                    className="text-hyperjump-gray px-3 py-3 font-semibold">
-                    {oneaiComparisonColumnsStipend(lang)}
-                  </th>
-                  <th
-                    scope="col"
-                    className="text-hyperjump-gray px-3 py-3 font-semibold">
-                    {oneaiComparisonColumnsChatgpt(lang)}
-                  </th>
-                  <th
-                    scope="col"
-                    className="bg-hyperjump-blue/8 text-hyperjump-black px-3 py-3 font-bold">
-                    {oneaiComparisonColumnsOneai(lang)}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr
-                    key={row.feature}
-                    className="border-b border-black/6 last:border-0">
-                    <th
-                      scope="row"
-                      className="text-hyperjump-black sticky left-0 z-10 bg-white py-3 pr-4 align-top font-medium">
-                      {row.feature}
-                    </th>
-                    <td className="text-hyperjump-gray px-3 py-3 align-top">
-                      {row.stipend}
-                    </td>
-                    <td className="text-hyperjump-gray px-3 py-3 align-top">
-                      {row.chatgpt}
-                    </td>
-                    <td className="bg-hyperjump-blue/5 text-hyperjump-black px-3 py-3 align-top font-medium">
-                      {row.oneai}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <OneaiComparisonTable lang={lang} />
+
+        <SectionReveal delay={0.08}>
+          <div
+            className="mt-12 max-w-3xl"
+            data-testid="oneai-comparison-why-intro">
+            <p className="text-hyperjump-blue mb-2 text-xs font-bold tracking-[0.16em] uppercase">
+              {oneaiComparisonWhySectionLabel(lang)}
+            </p>
+            <h3 className="text-hyperjump-black mb-3 text-xl font-semibold md:text-2xl">
+              {oneaiComparisonWhySectionHeading(lang)}
+            </h3>
+            <p className="text-hyperjump-gray text-[15px] leading-relaxed md:text-base">
+              {oneaiComparisonWhySectionDesc(lang)}
+            </p>
           </div>
-          <p className="text-hyperjump-gray mt-4 text-xs leading-relaxed">
-            {oneaiComparisonAssumptions(lang)}
-          </p>
         </SectionReveal>
 
-        <StaggerContainer className="mt-12 grid gap-6 md:grid-cols-3">
+        <StaggerContainer className="mt-8 grid gap-6 md:grid-cols-3">
           {whyColumns.map(({ text, title }) => (
             <StaggerItem key={title}>
               <article className="h-full rounded-2xl border border-black/6 bg-[#F6F8F9] p-6">

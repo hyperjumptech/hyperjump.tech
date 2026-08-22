@@ -48,11 +48,15 @@ import {
   oneaiComparisonWhy2Title
 } from "@/locales/.generated/strings";
 
+/** How OneAI compares on a given table row. */
+export type OneaiComparisonRowAdvantage = "price" | "capability" | null;
+
 export type OneaiComparisonRow = {
   feature: string;
   stipend: string;
   chatgpt: string;
   oneai: string;
+  advantage: OneaiComparisonRowAdvantage;
 };
 
 export type OneaiComparisonWhy = {
@@ -65,6 +69,7 @@ type RowLoader = {
   stipend: (lang: SupportedLanguage) => string;
   chatgpt: (lang: SupportedLanguage) => string;
   oneai: (lang: SupportedLanguage) => string;
+  advantage: OneaiComparisonRowAdvantage;
 };
 
 type WhyLoader = {
@@ -78,66 +83,79 @@ export type GetOneaiComparisonRowsOptions = {
   whyLoaders?: WhyLoader[];
 };
 
+const NEGATIVE_COMPARISON_VALUE_PATTERN =
+  /^(No|Tidak|Limited|Terbatas|Not ZDR|Bukan ZDR|Tergantung|Depends)/i;
+
 const DEFAULT_ROW_LOADERS: RowLoader[] = [
   {
     feature: oneaiComparisonRows0Feature,
     stipend: oneaiComparisonRows0Stipend,
     chatgpt: oneaiComparisonRows0Chatgpt,
-    oneai: oneaiComparisonRows0Oneai
+    oneai: oneaiComparisonRows0Oneai,
+    advantage: null
   },
   {
     feature: oneaiComparisonRows1Feature,
     stipend: oneaiComparisonRows1Stipend,
     chatgpt: oneaiComparisonRows1Chatgpt,
-    oneai: oneaiComparisonRows1Oneai
+    oneai: oneaiComparisonRows1Oneai,
+    advantage: "price"
   },
   {
     feature: oneaiComparisonRows2Feature,
     stipend: oneaiComparisonRows2Stipend,
     chatgpt: oneaiComparisonRows2Chatgpt,
-    oneai: oneaiComparisonRows2Oneai
+    oneai: oneaiComparisonRows2Oneai,
+    advantage: "capability"
   },
   {
     feature: oneaiComparisonRows3Feature,
     stipend: oneaiComparisonRows3Stipend,
     chatgpt: oneaiComparisonRows3Chatgpt,
-    oneai: oneaiComparisonRows3Oneai
+    oneai: oneaiComparisonRows3Oneai,
+    advantage: "price"
   },
   {
     feature: oneaiComparisonRows4Feature,
     stipend: oneaiComparisonRows4Stipend,
     chatgpt: oneaiComparisonRows4Chatgpt,
-    oneai: oneaiComparisonRows4Oneai
+    oneai: oneaiComparisonRows4Oneai,
+    advantage: "capability"
   },
   {
     feature: oneaiComparisonRows5Feature,
     stipend: oneaiComparisonRows5Stipend,
     chatgpt: oneaiComparisonRows5Chatgpt,
-    oneai: oneaiComparisonRows5Oneai
+    oneai: oneaiComparisonRows5Oneai,
+    advantage: "capability"
   },
   {
     feature: oneaiComparisonRows6Feature,
     stipend: oneaiComparisonRows6Stipend,
     chatgpt: oneaiComparisonRows6Chatgpt,
-    oneai: oneaiComparisonRows6Oneai
+    oneai: oneaiComparisonRows6Oneai,
+    advantage: "capability"
   },
   {
     feature: oneaiComparisonRows7Feature,
     stipend: oneaiComparisonRows7Stipend,
     chatgpt: oneaiComparisonRows7Chatgpt,
-    oneai: oneaiComparisonRows7Oneai
+    oneai: oneaiComparisonRows7Oneai,
+    advantage: "capability"
   },
   {
     feature: oneaiComparisonRows8Feature,
     stipend: oneaiComparisonRows8Stipend,
     chatgpt: oneaiComparisonRows8Chatgpt,
-    oneai: oneaiComparisonRows8Oneai
+    oneai: oneaiComparisonRows8Oneai,
+    advantage: "capability"
   },
   {
     feature: oneaiComparisonRows9Feature,
     stipend: oneaiComparisonRows9Stipend,
     chatgpt: oneaiComparisonRows9Chatgpt,
-    oneai: oneaiComparisonRows9Oneai
+    oneai: oneaiComparisonRows9Oneai,
+    advantage: "capability"
   }
 ];
 
@@ -146,6 +164,16 @@ const DEFAULT_WHY_LOADERS: WhyLoader[] = [
   { title: oneaiComparisonWhy1Title, text: oneaiComparisonWhy1Text },
   { title: oneaiComparisonWhy2Title, text: oneaiComparisonWhy2Text }
 ];
+
+/**
+ * Returns whether a competitor cell value represents a clear disadvantage.
+ *
+ * @param value - Localized comparison cell copy
+ * @returns True when the value starts with a known negative phrase
+ */
+export function isNegativeComparisonValue(value: string): boolean {
+  return NEGATIVE_COMPARISON_VALUE_PATTERN.test(value.trim());
+}
 
 /**
  * Loads localized comparison table rows for the OneAI landing page.
@@ -157,11 +185,12 @@ export function getOneaiComparisonRows({
   lang,
   rowLoaders = DEFAULT_ROW_LOADERS
 }: GetOneaiComparisonRowsOptions): OneaiComparisonRow[] {
-  return rowLoaders.map(({ chatgpt, feature, oneai, stipend }) => ({
+  return rowLoaders.map(({ advantage, chatgpt, feature, oneai, stipend }) => ({
     feature: feature(lang),
     stipend: stipend(lang),
     chatgpt: chatgpt(lang),
-    oneai: oneai(lang)
+    oneai: oneai(lang),
+    advantage
   }));
 }
 

@@ -4,8 +4,30 @@ import {
   DEFAULT_ROW_LOADERS,
   DEFAULT_WHY_LOADERS,
   getOneaiComparisonRows,
-  getOneaiComparisonWhy
+  getOneaiComparisonWhy,
+  isNegativeComparisonValue
 } from "./get-oneai-comparison-rows";
+
+describe("isNegativeComparisonValue", () => {
+  it("detects English negative values", () => {
+    expect(isNegativeComparisonValue("No")).toBe(true);
+    expect(isNegativeComparisonValue("Limited")).toBe(true);
+    expect(isNegativeComparisonValue("Not ZDR")).toBe(true);
+    expect(isNegativeComparisonValue("Depends on individual")).toBe(true);
+  });
+
+  it("detects Indonesian negative values", () => {
+    expect(isNegativeComparisonValue("Tidak")).toBe(true);
+    expect(isNegativeComparisonValue("Terbatas")).toBe(true);
+    expect(isNegativeComparisonValue("Bukan ZDR")).toBe(true);
+    expect(isNegativeComparisonValue("Tergantung orang")).toBe(true);
+  });
+
+  it("returns false for positive or neutral values", () => {
+    expect(isNegativeComparisonValue("Yes · all models")).toBe(false);
+    expect(isNegativeComparisonValue("Rp12,400,000")).toBe(false);
+  });
+});
 
 describe("getOneaiComparisonRows", () => {
   it("returns ten localized rows for English", () => {
@@ -13,7 +35,10 @@ describe("getOneaiComparisonRows", () => {
 
     expect(rows).toHaveLength(10);
     expect(rows[0]?.feature).toBe("20 users");
+    expect(rows[0]?.advantage).toBeNull();
+    expect(rows[1]?.advantage).toBe("price");
     expect(rows[9]?.oneai).toBe("Yes");
+    expect(rows[9]?.advantage).toBe("capability");
   });
 
   it("returns ten localized rows for Indonesian", () => {
@@ -22,6 +47,7 @@ describe("getOneaiComparisonRows", () => {
     expect(rows).toHaveLength(10);
     expect(rows[0]?.feature).toBe("20 pengguna");
     expect(rows[1]?.oneai).toContain("harga tetap");
+    expect(rows[3]?.advantage).toBe("price");
   });
 
   it("uses injected row loaders when provided", () => {
@@ -32,7 +58,8 @@ describe("getOneaiComparisonRows", () => {
           feature: () => "Feature A",
           stipend: () => "Stipend A",
           chatgpt: () => "ChatGPT A",
-          oneai: () => "OneAI A"
+          oneai: () => "OneAI A",
+          advantage: "price"
         }
       ]
     });
@@ -42,13 +69,20 @@ describe("getOneaiComparisonRows", () => {
         feature: "Feature A",
         stipend: "Stipend A",
         chatgpt: "ChatGPT A",
-        oneai: "OneAI A"
+        oneai: "OneAI A",
+        advantage: "price"
       }
     ]);
   });
 
   it("exports default row loaders for each comparison row", () => {
     expect(DEFAULT_ROW_LOADERS).toHaveLength(10);
+    expect(
+      DEFAULT_ROW_LOADERS.filter((row) => row.advantage === "price")
+    ).toHaveLength(2);
+    expect(
+      DEFAULT_ROW_LOADERS.filter((row) => row.advantage === "capability")
+    ).toHaveLength(7);
   });
 });
 

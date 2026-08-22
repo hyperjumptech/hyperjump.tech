@@ -86,6 +86,8 @@
       "text": "One invoice of Rp12,400,000 for up to 40 users, including USD 300 credit. At this point, per-seat plus separate credits matches or exceeds OneAI — without ZDR, RAG, or model control."
     },
     "table_label": "Cost and capability comparison · per month",
+    "advantage_price_badge": "Best value",
+    "advantage_included_badge": "Included",
     "columns": {
       "feature": "Feature",
       "stipend": "Individual stipends",
@@ -155,6 +157,11 @@
       }
     },
     "assumptions": "Assumptions: Rp16,000/USD exchange rate. Stipend example Rp500,000/person/month. ChatGPT Business $25/user/month (monthly billing). USD 300 credit ≈ Rp4,800,000. Competitor prices may change; figures are for comparison, not their quotes.",
+    "why_section": {
+      "label": "Why OneAI",
+      "heading": "One platform beats three workarounds",
+      "desc": "Stipends, per-seat ChatGPT, and bolt-on tools each solve part of the problem. OneAI brings control, multi-model access, and enterprise features into a single budget — which is why it wins once your team outgrows ad-hoc AI."
+    },
     "why": {
       "0": {
         "title": "Stipends often don't become AI spending",

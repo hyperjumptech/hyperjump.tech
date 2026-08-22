@@ -7,6 +7,7 @@ import { BreadcrumbJsonLd, SoftwareApplicationJsonLd } from "next-seo";
 import { Button } from "@/components/ui/button";
 import dataJson from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
+import { isExternalUrl } from "@/lib/is-external-url";
 import {
   supportedLanguages,
   type SupportedLanguage
@@ -151,8 +152,12 @@ export default async function ProductsPage({ params }: ProductsProps) {
                       className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-12 rounded-full px-8 text-base font-semibold text-white shadow-lg shadow-[#635BFF]/25 transition-all duration-200 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#635BFF]/30">
                       <Link
                         href={featured.urlLearnMore}
-                        target="_blank"
-                        rel="noopener noreferrer">
+                        {...(isExternalUrl(featured.urlLearnMore)
+                          ? {
+                              target: "_blank",
+                              rel: "noopener noreferrer"
+                            }
+                          : {})}>
                         {productsLearnMore(lang)}
                         <ArrowUpRightIcon className="ml-2 h-4 w-4" />
                       </Link>
@@ -227,8 +232,9 @@ function CommercialCard({ product, lang }: CommercialCardProps) {
         {product.urlLearnMore && (
           <Link
             href={product.urlLearnMore}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...(isExternalUrl(product.urlLearnMore)
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
             className="text-hyperjump-blue inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 hover:gap-2.5">
             {productsLearnMore(lang)}
             <ArrowUpRightIcon className="h-3.5 w-3.5" />
@@ -254,10 +260,12 @@ function JsonLd({ lang, products }: JsonLdProps) {
         ]}
       />
       {products.map(({ description, image, title, ...product }) => {
-        const productUrl =
-          (product as CommercialProduct)?.urlLearnMore ||
-          (product as OpenSourceProduct)?.url ||
-          `${url}/${lang}/products`;
+        const learnMore = (product as CommercialProduct)?.urlLearnMore;
+        const productUrl = learnMore
+          ? isExternalUrl(learnMore)
+            ? learnMore
+            : `${url}${learnMore}`
+          : (product as OpenSourceProduct)?.url || `${url}/${lang}/products`;
 
         return (
           <SoftwareApplicationJsonLd

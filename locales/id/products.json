@@ -5,6 +5,10 @@
   },
   "commercial": {
     "data": {
+      "0": {
+        "title": "OneAI",
+        "text": "Satu platform AI terkontrol untuk seluruh perusahaan — dashboard terpusat, satu anggaran, Zero Data Retention, dan model terbaru hingga 40 pengguna."
+      },
       "1": {
         "title": "StartGPT",
         "text": "Gunakan asisten pribadi mirip ChatGPT yang mendukung model Anda sendiri, baik proprietary maupun produk kami, di lingkungan cloud maupun on-premises."

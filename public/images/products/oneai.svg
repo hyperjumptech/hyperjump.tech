@@ -1,0 +1,12 @@
+<svg width="400" height="222" viewBox="0 0 400 222" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="222" fill="#0A0E27" />
+  <rect x="48" y="40" width="304" height="130" rx="16" fill="#111827" stroke="rgba(99,91,255,0.35)" />
+  <rect x="68" y="60" width="96" height="10" rx="5" fill="#635BFF" />
+  <rect x="68" y="82" width="240" height="8" rx="4" fill="rgba(255,255,255,0.15)" />
+  <rect x="68" y="100" width="180" height="8" rx="4" fill="rgba(255,255,255,0.08)" />
+  <rect x="68" y="128" width="72" height="22" rx="11" fill="rgba(99,91,255,0.25)" />
+  <rect x="152" y="128" width="72" height="22" rx="11" fill="rgba(0,212,170,0.2)" />
+  <circle cx="320" cy="72" r="18" fill="rgba(99,91,255,0.35)" />
+  <text x="200" y="198" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif"
+    font-size="20" font-weight="700" fill="#FFFFFF">OneAI</text>
+</svg>

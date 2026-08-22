@@ -5,6 +5,8 @@ import {
   productsOpenSourceData2Title,
   productsOpenSourceData3Title,
   productsOpenSourceData3Text,
+  productsCommercialData0Text,
+  productsCommercialData0Title,
   productsCommercialData1Text,
   productsCommercialData1Title,
   productsCommercialData2Text,
@@ -49,6 +51,13 @@ export function getCommercialProduct(
   lang: SupportedLanguage
 ): CommercialProduct[] {
   return [
+    {
+      slug: "oneai",
+      title: productsCommercialData0Title(lang),
+      description: productsCommercialData0Text(lang),
+      image: "/images/products/oneai.svg",
+      urlLearnMore: `/${lang}/oneai`
+    },
     {
       slug: "typetable",
       title: productsCommercialData6Title(lang),

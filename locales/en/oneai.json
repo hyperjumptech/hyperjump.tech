@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "title": "OneAI — Unified Enterprise AI Platform | Hyperjump",
+    "description": "One controlled AI platform for your whole company. Central dashboard, one budget, Zero Data Retention, and the latest models — up to 40 users from Rp12.400.000/month."
+  },
+  "hero": {
+    "eyebrow": "Unified enterprise AI",
+    "heading": "OneAI",
+    "lede": "One AI platform for your entire company. Controlled, audited, and cost-efficient.",
+    "proofs": {
+      "0": "Centralized dashboard",
+      "1": "One budget for everyone",
+      "2": "Latest models on release"
+    },
+    "cta": "Request OneAI plan",
+    "visual": {
+      "chat_label": "AI workspace for teams",
+      "admin_label": "Central admin dashboard"
+    }
+  },
+  "pillars": {
+    "label": "Why teams choose OneAI",
+    "0": {
+      "kicker": "01 — Control",
+      "title": "Centralized AI rollout",
+      "text": "Manage and monitor all AI usage from one dashboard. Zero Data Retention (ZDR): your data is not stored for model training."
+    },
+    "1": {
+      "kicker": "02 — Budget",
+      "title": "One invoice for all",
+      "text": "Pay once per month for every employee. No individual AI stipends that are hard to track or reconcile."
+    },
+    "2": {
+      "kicker": "03 — Capacity",
+      "title": "Latest models, fast",
+      "text": "Access current AI models as they launch. Admins choose which models are available to each team."
+    }
+  },
+  "capabilities": {
+    "label": "What your team can do",
+    "0": {
+      "title": "Read & create office files",
+      "text": "DOCX, PPTX, XLSX, and PDF — generated directly from AI commands."
+    },
+    "1": {
+      "title": "Write & run code",
+      "text": "AI writes and executes code for more complex tasks."
+    },
+    "2": {
+      "title": "Browse the web",
+      "text": "Search for up-to-date information so answers stay accurate."
+    },
+    "3": {
+      "title": "Shared knowledge",
+      "text": "Upload internal documents. Teams get answers from your company knowledge base."
+    },
+    "4": {
+      "title": "Speech to text",
+      "text": "Turn voice into text — ideal for meeting notes and documentation."
+    },
+    "5": {
+      "title": "Text to speech",
+      "text": "Convert text to natural speech for audio content and virtual assistants."
+    }
+  },
+  "comparison": {
+    "eyebrow": "Why credits or stipends aren't enough",
+    "heading_parts": {
+      "before_highlights": "ChatGPT seats cost less for small teams. OneAI saves money once you need ",
+      "control": "control",
+      "after_control": ", ",
+      "multiple_models": "multiple models",
+      "after_multiple_models": ", and ",
+      "one_budget": "one budget",
+      "after_one_budget": " for 20–40 people."
+    },
+    "lede": "A fair objection: \"We can give employees money, or buy credits ourselves.\" That makes sense for small teams with chat-only needs. As headcount grows, stipends often aren't used for AI, admin overhead increases, and features you need must be bought separately.",
+    "not_for_you": {
+      "kicker": "Not for you if",
+      "title": "Fewer than 20 people with chat-only needs",
+      "text": "For that team size, ChatGPT Plus or Business is usually enough and cheaper. OneAI isn't meant to replace personal subscriptions at that scale."
+    },
+    "good_fit": {
+      "kicker": "Good fit if",
+      "title": "20–40 people who need one platform, not 20–40 subscriptions",
+      "text": "One invoice of Rp12,400,000 for up to 40 users, including USD 300 credit. At this point, per-seat plus separate credits matches or exceeds OneAI — without ZDR, RAG, or model control."
+    },
+    "table_label": "Cost and capability comparison · per month",
+    "columns": {
+      "feature": "Feature",
+      "stipend": "Individual stipends",
+      "chatgpt": "ChatGPT Business",
+      "oneai": "OneAI"
+    },
+    "rows": {
+      "0": {
+        "feature": "20 users",
+        "stipend": "Rp10,000,000 · Rp500k/person",
+        "chatgpt": "Rp8,000,000 · $25/user",
+        "oneai": "Rp12,400,000"
+      },
+      "1": {
+        "feature": "40 users",
+        "stipend": "Rp20,000,000",
+        "chatgpt": "Rp16,000,000",
+        "oneai": "Rp12,400,000 · fixed price"
+      },
+      "2": {
+        "feature": "AI credit included",
+        "stipend": "No",
+        "chatgpt": "No · bought separately",
+        "oneai": "USD 300/month"
+      },
+      "3": {
+        "feature": "20 users + USD 300 credit",
+        "stipend": "Rp14,800,000",
+        "chatgpt": "Rp12,800,000",
+        "oneai": "Rp12,400,000"
+      },
+      "4": {
+        "feature": "Single invoice & usage reports",
+        "stipend": "No",
+        "chatgpt": "Yes · ChatGPT only",
+        "oneai": "Yes · all models"
+      },
+      "5": {
+        "feature": "Ensure funds used for AI",
+        "stipend": "No",
+        "chatgpt": "Yes · within ChatGPT",
+        "oneai": "Yes"
+      },
+      "6": {
+        "feature": "Admin chooses available models",
+        "stipend": "No",
+        "chatgpt": "Limited",
+        "oneai": "Yes"
+      },
+      "7": {
+        "feature": "Multi-model, not one vendor",
+        "stipend": "Depends on individual",
+        "chatgpt": "No · OpenAI only",
+        "oneai": "Yes"
+      },
+      "8": {
+        "feature": "Zero Data Retention (ZDR)",
+        "stipend": "No",
+        "chatgpt": "Not ZDR",
+        "oneai": "Yes"
+      },
+      "9": {
+        "feature": "Internal knowledge, office files, code",
+        "stipend": "No",
+        "chatgpt": "Limited",
+        "oneai": "Yes"
+      }
+    },
+    "assumptions": "Assumptions: Rp16,000/USD exchange rate. Stipend example Rp500,000/person/month. ChatGPT Business $25/user/month (monthly billing). USD 300 credit ≈ Rp4,800,000. Competitor prices may change; figures are for comparison, not their quotes.",
+    "why": {
+      "0": {
+        "title": "Stipends often don't become AI spending",
+        "text": "Money in employee accounts can be spent on anything. There is no model reporting, no audit trail, and no way to enforce company policy. You pay for capacity you cannot see."
+      },
+      "1": {
+        "title": "Per-seat costs scale linearly",
+        "text": "ChatGPT Business for 40 people ≈ Rp16 million, before extra credits. OneAI stays at Rp12.4 million for up to 40 users, with USD 300 credit included. The fuller the plan, the lower the cost per person."
+      },
+      "2": {
+        "title": "Separate features cost more",
+        "text": "RAG, office files, code execution, ZDR, and model control usually become separate projects or subscriptions. On OneAI they are one platform. That is why this plan can cost less even when the headline price looks higher than 10 ChatGPT seats."
+      }
+    }
+  },
+  "pricing": {
+    "label": "Plan · up to 40 users",
+    "price": "Rp12.400.000",
+    "price_unit": "/ month",
+    "quarterly": "Billed quarterly · Rp37.200.000 per quarter",
+    "annual": "Save 10% with annual billing",
+    "includes": "Includes USD 300 AI credit, 1× team onboarding, and monthly usage reports. Customization (internal systems, custom SSO, etc.) scoped separately.",
+    "compare_kicker": "Compare",
+    "compare_title": "Individual AI stipends usually fail",
+    "compare_items": {
+      "0": "Usage cannot be verified",
+      "1": "Funds may not be spent on AI",
+      "2": "Extra admin overhead, higher cost",
+      "3": "No centralized control"
+    },
+    "cta": "Email us to get started"
+  },
+  "faq": {
+    "heading": "Frequently asked questions",
+    "desc": "Straight answers about the OneAI plan. Need more detail? Email us — we reply quickly.",
+    "0": {
+      "question": "How many users does the plan include?",
+      "answer": "The standard OneAI plan covers up to 40 users. Need more seats or a phased rollout? Tell us your team size when you reach out."
+    },
+    "1": {
+      "question": "How is billing structured?",
+      "answer": "Rp12.400.000 per month, invoiced quarterly (Rp37.200.000 per quarter). Annual billing saves 10%."
+    },
+    "2": {
+      "question": "What is Zero Data Retention (ZDR)?",
+      "answer": "With ZDR, your company data is not retained for model training. You get AI productivity with a clear data-handling posture."
+    },
+    "3": {
+      "question": "What is included in the plan?",
+      "answer": "USD 300 in AI credits, one team training/orientation session, and monthly usage reports — plus centralized access to current models and admin controls."
+    },
+    "4": {
+      "question": "Can you integrate with our internal systems or SSO?",
+      "answer": "Yes. Custom integrations (internal systems, dedicated SSO, and similar requirements) are scoped and priced separately after we understand your environment."
+    }
+  },
+  "pdf_download": {
+    "eyebrow": "Take it to your boss",
+    "heading": "Building the business case?",
+    "desc": "Download our two-page OneAI overview — product summary, pricing, and the full comparison table. Forward it to your manager, finance, or procurement team.",
+    "cta": "Download PDF (2 pages)",
+    "file_name": "OneAI-overview.pdf"
+  },
+  "close_cta": {
+    "heading": "Ready to unify AI for your company?",
+    "desc": "Tell us your team size and timeline. We will confirm fit, onboarding, and next steps.",
+    "cta": "Contact solution@hyperjump.tech"
+  },
+  "mailto": {
+    "subject": "OneAI plan inquiry — up to 40 users",
+    "body": "Hi Hyperjump team,\n\nI am interested in the OneAI plan (up to 40 users, Rp12.400.000/month).\n\nCompany:\nName:\nTeam size:\nPreferred start date:\n\nAdditional notes:\n"
+  },
+  "sticky_cta": "Get OneAI plan"
+}

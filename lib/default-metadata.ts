@@ -51,35 +51,61 @@ export const DEFAULT_OPENGRAPH: Metadata = {
   }
 };
 
+export type DynamicOpengraphImage = {
+  url: string;
+  width?: number;
+  height?: number;
+  alt?: string;
+};
+
+export type DynamicOpengraphOptions = Metadata & {
+  /** Optional Open Graph / Twitter image override */
+  image?: DynamicOpengraphImage;
+};
+
+/**
+ * Merges page metadata with site-wide Open Graph defaults.
+ *
+ * @param options - Page title, description, alternates, and optional OG image
+ * @returns Metadata object with Open Graph and Twitter tags
+ */
 export function dynamicOpengraph({
   title: dynamicTitle,
-  description: dynamicDescription
-}: Metadata): Metadata {
+  description: dynamicDescription,
+  image,
+  openGraph,
+  twitter,
+  alternates,
+  ...rest
+}: DynamicOpengraphOptions): Metadata {
+  const resolvedTitle = dynamicTitle || title;
+  const resolvedDescription = dynamicDescription || description;
+  const resolvedImage = image ?? {
+    url: DEFAULT_IMAGE,
+    width: 1200,
+    height: 630,
+    alt: (resolvedTitle as string) || title
+  };
+
   return {
     ...DEFAULT_OPENGRAPH,
-    title: dynamicTitle || title,
-    description: dynamicDescription || description,
+    ...rest,
+    title: resolvedTitle,
+    description: resolvedDescription,
+    alternates: alternates ?? DEFAULT_OPENGRAPH.alternates,
     openGraph: {
       ...DEFAULT_OPENGRAPH.openGraph,
-      title: dynamicTitle || title,
-      description: dynamicDescription || description,
-      images: {
-        url: DEFAULT_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: (dynamicTitle as string) || title
-      }
+      ...openGraph,
+      title: resolvedTitle,
+      description: resolvedDescription,
+      images: resolvedImage
     },
     twitter: {
       ...DEFAULT_OPENGRAPH.twitter,
-      title: dynamicTitle || title,
-      description: dynamicDescription || description,
-      images: {
-        url: DEFAULT_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: (dynamicTitle as string) || title
-      }
+      ...twitter,
+      title: resolvedTitle,
+      description: resolvedDescription,
+      images: resolvedImage
     }
   };
 }

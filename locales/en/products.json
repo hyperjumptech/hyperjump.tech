@@ -5,6 +5,10 @@
   },
   "commercial": {
     "data": {
+      "0": {
+        "title": "OneAI",
+        "text": "One controlled AI platform for your entire company — centralized dashboard, one budget, Zero Data Retention, and the latest models for up to 40 users."
+      },
       "1": {
         "title": "StartGPT",
         "text": "Deploy a private, ChatGPT-like assistant that supports your own model, whether proprietary or our products, in both cloud and on-premises environments."

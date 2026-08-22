@@ -1,0 +1,205 @@
+import type { SupportedLanguage } from "@/locales/.generated/types";
+import {
+  oneaiComparisonAssumptions,
+  oneaiComparisonColumnsChatgpt,
+  oneaiComparisonColumnsFeature,
+  oneaiComparisonColumnsOneai,
+  oneaiComparisonColumnsStipend,
+  oneaiComparisonEyebrow,
+  oneaiComparisonGoodFitKicker,
+  oneaiComparisonGoodFitText,
+  oneaiComparisonGoodFitTitle,
+  oneaiComparisonHeadingPartsAfterControl,
+  oneaiComparisonHeadingPartsAfterMultipleModels,
+  oneaiComparisonHeadingPartsAfterOneBudget,
+  oneaiComparisonHeadingPartsBeforeHighlights,
+  oneaiComparisonHeadingPartsControl,
+  oneaiComparisonHeadingPartsMultipleModels,
+  oneaiComparisonHeadingPartsOneBudget,
+  oneaiComparisonLede,
+  oneaiComparisonNotForYouKicker,
+  oneaiComparisonNotForYouText,
+  oneaiComparisonNotForYouTitle,
+  oneaiComparisonTableLabel
+} from "@/locales/.generated/strings";
+
+import {
+  SectionReveal,
+  StaggerContainer,
+  StaggerItem
+} from "../components/motion-wrappers";
+import {
+  getOneaiComparisonRows,
+  getOneaiComparisonWhy
+} from "./get-oneai-comparison-rows";
+import { OneaiPdfDownload } from "./oneai-pdf-download";
+
+type OneaiComparisonSectionProps = {
+  lang: SupportedLanguage;
+};
+
+const HIGHLIGHT_CLASS =
+  "underline decoration-hyperjump-blue decoration-[3px] underline-offset-[0.22em] decoration-skip-ink-none";
+
+/**
+ * Renders the comparison section headline with underlined key phrases.
+ *
+ * @param lang - Active locale for copy
+ */
+function OneaiComparisonHeading({ lang }: { lang: SupportedLanguage }) {
+  return (
+    <h2
+      className="text-hyperjump-black mb-4 text-3xl font-semibold tracking-tight md:text-4xl"
+      data-testid="oneai-comparison-heading">
+      {oneaiComparisonHeadingPartsBeforeHighlights(lang)}
+      <span className={HIGHLIGHT_CLASS}>
+        {oneaiComparisonHeadingPartsControl(lang)}
+      </span>
+      {oneaiComparisonHeadingPartsAfterControl(lang)}
+      <span className={HIGHLIGHT_CLASS}>
+        {oneaiComparisonHeadingPartsMultipleModels(lang)}
+      </span>
+      {oneaiComparisonHeadingPartsAfterMultipleModels(lang)}
+      <span className={HIGHLIGHT_CLASS}>
+        {oneaiComparisonHeadingPartsOneBudget(lang)}
+      </span>
+      {oneaiComparisonHeadingPartsAfterOneBudget(lang)}
+    </h2>
+  );
+}
+
+/**
+ * Full cost and capability comparison from the OneAI promo (PDF page 2).
+ *
+ * @param props - Active locale for copy and table rows
+ */
+export function OneaiComparisonSection({ lang }: OneaiComparisonSectionProps) {
+  const rows = getOneaiComparisonRows({ lang });
+  const whyColumns = getOneaiComparisonWhy({ lang });
+
+  return (
+    <section
+      id="comparison"
+      data-testid="oneai-comparison-section"
+      className="bg-white py-16 md:py-24">
+      <div className="mx-auto max-w-5xl px-4 md:px-20 xl:px-0">
+        <SectionReveal>
+          <p className="text-hyperjump-blue mb-4 text-xs font-bold tracking-[0.16em] uppercase">
+            {oneaiComparisonEyebrow(lang)}
+          </p>
+          <OneaiComparisonHeading lang={lang} />
+          <p className="text-hyperjump-gray mb-10 max-w-3xl text-lg leading-relaxed">
+            {oneaiComparisonLede(lang)}
+          </p>
+        </SectionReveal>
+
+        <StaggerContainer className="mb-10 grid gap-4 sm:grid-cols-2">
+          <StaggerItem>
+            <article className="h-full rounded-2xl border border-[#e8d5d0] bg-[#f7f1ef] p-6">
+              <p className="mb-2 text-xs font-bold tracking-[0.14em] text-[#b4534a] uppercase">
+                {oneaiComparisonNotForYouKicker(lang)}
+              </p>
+              <h3 className="text-hyperjump-black mb-2 text-lg font-semibold">
+                {oneaiComparisonNotForYouTitle(lang)}
+              </h3>
+              <p className="text-hyperjump-gray text-[15px] leading-relaxed">
+                {oneaiComparisonNotForYouText(lang)}
+              </p>
+            </article>
+          </StaggerItem>
+          <StaggerItem>
+            <article className="h-full rounded-2xl border border-[#c8d9eb] bg-[#eef5fb] p-6">
+              <p className="text-hyperjump-blue mb-2 text-xs font-bold tracking-[0.14em] uppercase">
+                {oneaiComparisonGoodFitKicker(lang)}
+              </p>
+              <h3 className="text-hyperjump-black mb-2 text-lg font-semibold">
+                {oneaiComparisonGoodFitTitle(lang)}
+              </h3>
+              <p className="text-hyperjump-gray text-[15px] leading-relaxed">
+                {oneaiComparisonGoodFitText(lang)}
+              </p>
+            </article>
+          </StaggerItem>
+        </StaggerContainer>
+
+        <SectionReveal delay={0.05}>
+          <p className="text-hyperjump-gray mb-4 text-xs font-bold tracking-[0.14em] uppercase">
+            {oneaiComparisonTableLabel(lang)}
+          </p>
+          <div className="-mx-4 overflow-x-auto px-4 md:mx-0 md:px-0">
+            <table
+              className="w-full min-w-[720px] border-collapse text-left text-sm"
+              data-testid="oneai-comparison-table">
+              <thead>
+                <tr className="border-b border-black/10">
+                  <th
+                    scope="col"
+                    className="text-hyperjump-black sticky left-0 z-10 bg-white py-3 pr-4 font-semibold">
+                    {oneaiComparisonColumnsFeature(lang)}
+                  </th>
+                  <th
+                    scope="col"
+                    className="text-hyperjump-gray px-3 py-3 font-semibold">
+                    {oneaiComparisonColumnsStipend(lang)}
+                  </th>
+                  <th
+                    scope="col"
+                    className="text-hyperjump-gray px-3 py-3 font-semibold">
+                    {oneaiComparisonColumnsChatgpt(lang)}
+                  </th>
+                  <th
+                    scope="col"
+                    className="bg-hyperjump-blue/8 text-hyperjump-black px-3 py-3 font-bold">
+                    {oneaiComparisonColumnsOneai(lang)}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((row) => (
+                  <tr
+                    key={row.feature}
+                    className="border-b border-black/6 last:border-0">
+                    <th
+                      scope="row"
+                      className="text-hyperjump-black sticky left-0 z-10 bg-white py-3 pr-4 align-top font-medium">
+                      {row.feature}
+                    </th>
+                    <td className="text-hyperjump-gray px-3 py-3 align-top">
+                      {row.stipend}
+                    </td>
+                    <td className="text-hyperjump-gray px-3 py-3 align-top">
+                      {row.chatgpt}
+                    </td>
+                    <td className="bg-hyperjump-blue/5 text-hyperjump-black px-3 py-3 align-top font-medium">
+                      {row.oneai}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-hyperjump-gray mt-4 text-xs leading-relaxed">
+            {oneaiComparisonAssumptions(lang)}
+          </p>
+        </SectionReveal>
+
+        <StaggerContainer className="mt-12 grid gap-6 md:grid-cols-3">
+          {whyColumns.map(({ text, title }) => (
+            <StaggerItem key={title}>
+              <article className="h-full rounded-2xl border border-black/6 bg-[#F6F8F9] p-6">
+                <h3 className="text-hyperjump-black mb-2 text-base font-semibold">
+                  {title}
+                </h3>
+                <p className="text-hyperjump-gray text-[15px] leading-relaxed">
+                  {text}
+                </p>
+              </article>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        <OneaiPdfDownload lang={lang} />
+      </div>
+    </section>
+  );
+}

@@ -6,6 +6,7 @@
   "hero": {
     "eyebrow": "Solusi AI enterprise terpadu",
     "heading": "OneAI",
+    "tagline": "Seperti ChatGPT, tapi lebih baik!",
     "lede": "Satu platform AI untuk seluruh perusahaan. Terkontrol, teraudit, dan hemat biaya.",
     "proofs": {
       "0": "Dashboard terpusat",
@@ -33,7 +34,7 @@
     "2": {
       "kicker": "03 — Kapasitas",
       "title": "Model terbaru, segera",
-      "text": "Akses model AI terkini saat dirilis. Admin menentukan model mana yang tersedia untuk tim."
+      "text": "Akses model AI terkini saat dirilis — OpenAI, Anthropic, DeepSeek, dan lainnya. Admin menentukan model mana yang tersedia untuk tim."
     }
   },
   "capabilities": {

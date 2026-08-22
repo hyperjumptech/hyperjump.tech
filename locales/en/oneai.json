@@ -6,6 +6,7 @@
   "hero": {
     "eyebrow": "Unified enterprise AI",
     "heading": "OneAI",
+    "tagline": "It's like ChatGPT but better!",
     "lede": "One AI platform for your entire company. Controlled, audited, and cost-efficient.",
     "proofs": {
       "0": "Centralized dashboard",
@@ -33,7 +34,7 @@
     "2": {
       "kicker": "03 — Capacity",
       "title": "Latest models, fast",
-      "text": "Access current AI models as they launch. Admins choose which models are available to each team."
+      "text": "Access current AI models as they launch — OpenAI, Anthropic, DeepSeek, and more. Admins choose which models are available to each team."
     }
   },
   "capabilities": {

@@ -38,6 +38,7 @@ import {
   oneaiHeroEyebrow,
   oneaiHeroHeading,
   oneaiHeroLede,
+  oneaiHeroTagline,
   oneaiHeroProofs0,
   oneaiHeroProofs1,
   oneaiHeroProofs2,
@@ -251,6 +252,11 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
                     </li>
                   ))}
                 </ul>
+                <p
+                  className="mb-5 inline-block rounded-lg bg-yellow-300/15 px-3 py-1.5 text-base font-semibold text-yellow-100 ring-1 ring-yellow-300/35 ring-inset md:text-[17px]"
+                  data-testid="oneai-hero-tagline">
+                  {oneaiHeroTagline(lang)}
+                </p>
                 <Button
                   asChild
                   className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 hidden h-12 rounded-full px-8 text-base font-semibold shadow-lg shadow-[#635BFF]/25 md:inline-flex">

@@ -42,6 +42,7 @@ Discover how we successfully transform challenges into opportunities with real-w
 
 Explore the products that power tomorrow's digital solutions.
 
+- OneAI: One controlled AI platform for your entire company — centralized dashboard, one budget, Zero Data Retention, and the latest models for up to 40 users.
 - TypeTable: Say what to record. Fill it in instantly. Describe what your team keeps re-typing — TypeTable proposes the table, enforces the rules, and lets everyone add records in plain language.
 - Hydra8: Version, test, and monitor LLM prompts without redeploying. An open-source LLM gateway for versioned prompt templates, evaluations, and monitoring — ship prompt changes from one dashboard.
 - Avenu: Enterprise-ready AI gateway. Create routing rules and budget for your team.

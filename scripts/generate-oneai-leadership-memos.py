@@ -100,9 +100,10 @@ EN = {
         "Customization (internal systems, custom SSO) is scoped separately.",
     ],
     "why_oneai_close": (
-        "At 40 users, ChatGPT Business is about Rp16 million / month before extra "
-        "credits. OneAI stays at Rp12.4 million with credit included. The attached "
-        "PDF has the full comparison table."
+        "At 40 users, ChatGPT Business is about Rp16 million monthly or "
+        "Rp12.8 million annually. OneAI stays at Rp12.4 million. Those prices "
+        "are close. The case is one platform across vendors, not cheaper chat. "
+        "The attached PDF has the full comparison table."
     ),
     "caveat_heading": "Honest caveat",
     "caveat": (
@@ -119,16 +120,17 @@ EN = {
         "OneAI",
     ],
     "snapshot_rows": [
-        ["Monthly cost", "Rp20.000.000", "Rp16.000.000", "Rp12.400.000 · fixed"],
-        ["AI credit", "No", "Bought separately", "USD 300 included"],
+        ["Monthly cost", "Rp20.000.000", "Rp16.0M / Rp12.8M yr", "Rp12.400.000 · fixed"],
+        ["Usage budget", "No", "Included in ChatGPT", "USD 300 across providers"],
         ["ZDR", "No", "Not ZDR", "Yes"],
         ["On-prem or isolated instance", "No", "Vendor cloud", "Yes"],
         ["One invoice & usage reports", "No", "ChatGPT only", "Yes · all models"],
     ],
     "snapshot_note": (
         "Assumptions in the public comparison: Rp16.000/USD; stipend example "
-        "Rp500.000/person; ChatGPT Business $25/user/month. Competitor prices "
-        "may change; these figures are for comparison, not their quotes. Tax is extra."
+        "Rp500.000/person; ChatGPT Business $25/user monthly or $20/user annually. "
+        "ChatGPT includes model usage; extra credits are optional. Competitor "
+        "prices may change; these figures are for comparison, not their quotes. Tax is extra."
     ),
     "next_heading": "5. Proposed next step",
     "next_steps": [
@@ -224,9 +226,10 @@ ID = {
         "Kustomisasi (sistem internal, SSO khusus) disepakati terpisah.",
     ],
     "why_oneai_close": (
-        "Di 40 pengguna, ChatGPT Business sekitar Rp16 juta / bulan sebelum kredit "
-        "tambahan. OneAI tetap Rp12,4 juta dengan kredit termasuk. PDF terlampir "
-        "memuat tabel perbandingan lengkap."
+        "Di 40 pengguna, ChatGPT Business sekitar Rp16 juta bulanan atau "
+        "Rp12,8 juta tahunan. OneAI tetap Rp12,4 juta. Harganya berdekatan. "
+        "argumennya satu platform lintas vendor, bukan chat yang lebih murah. "
+        "PDF terlampir memuat tabel perbandingan lengkap."
     ),
     "caveat_heading": "Catatan jujur",
     "caveat": (
@@ -243,16 +246,17 @@ ID = {
         "OneAI",
     ],
     "snapshot_rows": [
-        ["Biaya bulanan", "Rp20.000.000", "Rp16.000.000", "Rp12.400.000 · tetap"],
-        ["Kredit AI", "Tidak", "Dibeli terpisah", "USD 300 termasuk"],
+        ["Biaya bulanan", "Rp20.000.000", "Rp16,0 jt / Rp12,8 jt thn", "Rp12.400.000 · tetap"],
+        ["Anggaran pemakaian", "Tidak", "Termasuk di ChatGPT", "USD 300 lintas penyedia"],
         ["ZDR", "Tidak", "Bukan ZDR", "Ya"],
         ["On-premise / instance terisolasi", "Tidak", "Cloud vendor", "Ya"],
         ["Satu tagihan & laporan", "Tidak", "Hanya ChatGPT", "Ya · semua model"],
     ],
     "snapshot_note": (
         "Asumsi di perbandingan publik: kurs Rp16.000/USD; contoh tunjangan "
-        "Rp500.000/orang; ChatGPT Business $25/orang/bulan. Harga kompetitor bisa "
-        "berubah; angka ini untuk perbandingan, bukan kuotasi mereka. Pajak belum termasuk."
+        "Rp500.000/orang; ChatGPT Business $25/orang bulanan atau $20/orang tahunan. "
+        "ChatGPT sudah termasuk pemakaian model; kredit tambahan opsional. Harga "
+        "kompetitor bisa berubah; angka ini untuk perbandingan, bukan kuotasi mereka. Pajak belum termasuk."
     ),
     "next_heading": "5. Usulan langkah berikutnya",
     "next_steps": [

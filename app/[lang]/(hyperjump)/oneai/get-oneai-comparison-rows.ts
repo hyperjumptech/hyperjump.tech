@@ -103,7 +103,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     stipend: oneaiComparisonRows1Stipend,
     chatgpt: oneaiComparisonRows1Chatgpt,
     oneai: oneaiComparisonRows1Oneai,
-    advantage: "price"
+    advantage: null
   },
   {
     feature: oneaiComparisonRows2Feature,
@@ -117,7 +117,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     stipend: oneaiComparisonRows3Stipend,
     chatgpt: oneaiComparisonRows3Chatgpt,
     oneai: oneaiComparisonRows3Oneai,
-    advantage: "price"
+    advantage: "capability"
   },
   {
     feature: oneaiComparisonRows4Feature,
@@ -131,7 +131,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     stipend: oneaiComparisonRows5Stipend,
     chatgpt: oneaiComparisonRows5Chatgpt,
     oneai: oneaiComparisonRows5Oneai,
-    advantage: "capability"
+    advantage: null
   },
   {
     feature: oneaiComparisonRows6Feature,
@@ -159,7 +159,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     stipend: oneaiComparisonRows9Stipend,
     chatgpt: oneaiComparisonRows9Chatgpt,
     oneai: oneaiComparisonRows9Oneai,
-    advantage: "capability"
+    advantage: null
   },
   {
     feature: oneaiComparisonRows10Feature,

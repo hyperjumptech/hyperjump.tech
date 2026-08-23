@@ -70,17 +70,17 @@
     }
   },
   "comparison": {
-    "eyebrow": "Kenapa tidak cukup beli kredit atau kasih tunjangan?",
+    "eyebrow": "Kursi ChatGPT bukan produk yang sama",
     "heading_parts": {
-      "before_highlights": "Beli kursi ChatGPT lebih murah untuk tim kecil. OneAI lebih hemat begitu Anda butuh ",
+      "before_highlights": "Beli kursi ChatGPT lebih murah untuk tim kecil. Pilih OneAI jika Anda butuh ",
       "control": "kontrol",
       "after_control": ", ",
       "multiple_models": "banyak model",
       "after_multiple_models": ", dan ",
       "one_budget": "satu anggaran",
-      "after_one_budget": " untuk 20–40 orang."
+      "after_one_budget": " lintas penyedia, bukan chat yang lebih murah."
     },
-    "lede": "Keberatan yang wajar: \"Kami bisa kasih uang ke karyawan, atau beli kredit sendiri.\" Itu masuk akal jika tim kecil dan kebutuhannya hanya chat. Begitu jumlah pengguna naik, tunjangan sering tidak terpakai untuk AI, administrasi bertambah, dan fitur yang Anda butuhkan harus dibeli terpisah.",
+    "lede": "Keberatan yang wajar: \"Kami bisa kasih uang ke karyawan, atau beli ChatGPT Business.\" Itu masuk akal jika tim kecil dan kebutuhannya hanya chat. ChatGPT Business sudah termasuk pemakaian model, pengetahuan perusahaan, file, kode, dan kontrol admin. OneAI adalah produk yang berbeda: akses multi-model, hosting on-premise atau terisolasi, dan satu anggaran lintas vendor.",
     "not_for_you": {
       "kicker": "Belum untuk Anda jika",
       "title": "Kurang dari 20 orang, dan kebutuhan utamanya hanya ChatGPT",
@@ -89,7 +89,7 @@
     "good_fit": {
       "kicker": "Cocok jika",
       "title": "20–40 orang yang butuh satu platform, bukan 20–40 langganan",
-      "text": "Satu tagihan Rp12.400.000 sampai 40 pengguna, termasuk kredit USD 300. Di titik ini, kursi per orang plus kredit terpisah sudah menyamai atau melebihi harga OneAI — tanpa on-premise, ZDR, RAG, atau kontrol model."
+      "text": "Satu tagihan Rp12.400.000 sampai 40 pengguna, termasuk kredit USD 300 lintas penyedia model, plus hosting on-premise atau terisolasi, akses multi-model, dan implementasi lokal. Di 40 kursi ChatGPT tahunan, harganya berdekatan. Beli platformnya, bukan kursi chat yang lebih murah."
     },
     "table_label": "Perbandingan biaya dan kemampuan · per bulan",
     "advantage_price_badge": "Harga terbaik",
@@ -104,26 +104,26 @@
       "0": {
         "feature": "20 pengguna",
         "stipend": "Rp10.000.000 · Rp500 rb/orang",
-        "chatgpt": "Rp8.000.000 · $25/orang",
+        "chatgpt": "Rp8.000.000 bulanan · Rp6.400.000 tahunan",
         "oneai": "Rp12.400.000"
       },
       "1": {
         "feature": "40 pengguna",
         "stipend": "Rp20.000.000",
-        "chatgpt": "Rp16.000.000",
+        "chatgpt": "Rp16.000.000 bulanan · Rp12.800.000 tahunan",
         "oneai": "Rp12.400.000 · harga tetap"
       },
       "2": {
-        "feature": "Kredit AI termasuk",
+        "feature": "Anggaran pemakaian lintas penyedia",
         "stipend": "Tidak",
-        "chatgpt": "Tidak · dibeli terpisah",
-        "oneai": "USD 300 / bulan"
+        "chatgpt": "Pemakaian ChatGPT termasuk",
+        "oneai": "USD 300 lintas penyedia"
       },
       "3": {
-        "feature": "20 pengguna + kredit USD 300",
-        "stipend": "Rp14.800.000",
-        "chatgpt": "Rp12.800.000",
-        "oneai": "Rp12.400.000"
+        "feature": "Satu anggaran lintas penyedia",
+        "stipend": "Tidak",
+        "chatgpt": "Hanya ChatGPT",
+        "oneai": "Ya"
       },
       "4": {
         "feature": "Satu tagihan & laporan pemakaian",
@@ -140,8 +140,8 @@
       "6": {
         "feature": "Admin pilih model yang tersedia",
         "stipend": "Tidak",
-        "chatgpt": "Terbatas",
-        "oneai": "Ya"
+        "chatgpt": "Hanya model OpenAI",
+        "oneai": "Ya · lintas penyedia"
       },
       "7": {
         "feature": "Multi-model, bukan satu merek",
@@ -152,14 +152,14 @@
       "8": {
         "feature": "Zero Data Retention (ZDR)",
         "stipend": "Tidak",
-        "chatgpt": "Bukan ZDR",
+        "chatgpt": "Default: tanpa training · bukan ZDR",
         "oneai": "Ya"
       },
       "9": {
         "feature": "Pengetahuan internal, file kantor, kode",
         "stipend": "Tidak",
-        "chatgpt": "Terbatas",
-        "oneai": "Ya"
+        "chatgpt": "Ya · ChatGPT",
+        "oneai": "Ya · semua model"
       },
       "10": {
         "feature": "On-premise atau instance terisolasi",
@@ -168,11 +168,11 @@
         "oneai": "Ya"
       }
     },
-    "assumptions": "Asumsi: kurs Rp16.000/USD. Tunjangan contoh Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (tagihan bulanan). Kredit USD 300 ≈ Rp4.800.000. Harga kompetitor bisa berubah; angka ini untuk perbandingan, bukan kuotasi mereka.",
+    "assumptions": "Asumsi: kurs Rp16.000/USD. Tunjangan contoh Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (bulanan) atau $20/orang/bulan (tahunan). Kredit USD 300 ≈ Rp4.800.000. ChatGPT Business sudah termasuk pemakaian model; kredit tambahan bersifat opsional. Harga kompetitor bisa berubah; angka ini untuk perbandingan, bukan kuotasi mereka.",
     "why_section": {
       "label": "Kenapa OneAI",
       "heading": "Satu platform mengalahkan tiga jalan pintas",
-      "desc": "Tunjangan, ChatGPT per kursi, dan tool tambahan masing-masing hanya menyelesaikan sebagian masalah. OneAI menyatukan kontrol, akses multi-model, dan fitur enterprise dalam satu anggaran — itulah mengapa OneAI menang begitu tim Anda melampaui AI ala kadarnya."
+      "desc": "Tunjangan gagal di kontrol. ChatGPT Business adalah kursi vendor tunggal yang kuat. OneAI adalah platformnya jika Anda butuh banyak model, hosting terisolasi atau on-premise, dan satu anggaran lintas penyedia."
     },
     "why": {
       "0": {
@@ -180,12 +180,12 @@
         "text": "Uang di rekening karyawan bisa dipakai untuk apa saja. Tidak ada laporan model, tidak ada audit, dan tidak ada cara memastikan kebijakan perusahaan diikuti. Anda membayar kapasitas yang tidak bisa Anda lihat."
       },
       "1": {
-        "title": "Kursi per orang naik linear",
-        "text": "ChatGPT Business di 40 orang ≈ Rp16 juta, belum termasuk kredit extra. OneAI tetap Rp12,4 juta sampai 40 pengguna, dengan USD 300 kredit. Semakin penuh paketnya, semakin rendah biaya per orang."
+        "title": "Harga kursi bukan produknya",
+        "text": "Di 40 pengguna, ChatGPT Business sekitar Rp16 juta bulanan atau Rp12,8 juta tahunan. OneAI tetap Rp12,4 juta sampai 40 pengguna. Harganya berdekatan. Argumennya satu platform lintas vendor, bukan chat OpenAI yang lebih murah."
       },
       "2": {
-        "title": "Fitur terpisah lebih mahal",
-        "text": "RAG, file kantor, eksekusi kode, ZDR, on-premise, dan kontrol model biasanya jadi proyek atau langganan lain. Di OneAI itu satu platform. Itulah alasan paket ini bisa lebih hemat meski harga awal terlihat lebih tinggi daripada 10 kursi ChatGPT."
+        "title": "ChatGPT sudah punya pengetahuan, file, dan kode",
+        "text": "Pengetahuan perusahaan, konektor, file kantor, kode, SSO, dan kontrol admin sudah ada di ChatGPT Business. OneAI menambah pilihan multi-model, hosting on-premise atau terisolasi, satu anggaran lintas penyedia, dan implementasi lokal. Itu bukan klaim bahwa fitur itu harus dibeli terpisah."
       }
     }
   },

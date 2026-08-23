@@ -70,17 +70,17 @@
     }
   },
   "comparison": {
-    "eyebrow": "Why credits or stipends aren't enough",
+    "eyebrow": "Why a ChatGPT seat is not the same product",
     "heading_parts": {
-      "before_highlights": "ChatGPT seats cost less for small teams. OneAI saves money once you need ",
+      "before_highlights": "ChatGPT seats cost less for small teams. Choose OneAI when you need ",
       "control": "control",
       "after_control": ", ",
       "multiple_models": "multiple models",
       "after_multiple_models": ", and ",
       "one_budget": "one budget",
-      "after_one_budget": " for 20–40 people."
+      "after_one_budget": " across providers, not cheaper chat."
     },
-    "lede": "A fair objection: \"We can give employees money, or buy credits ourselves.\" That makes sense for small teams with chat-only needs. As headcount grows, stipends often aren't used for AI, admin overhead increases, and features you need must be bought separately.",
+    "lede": "A fair objection: \"We can give employees money, or buy ChatGPT Business.\" That makes sense for small teams with chat-only needs. ChatGPT Business already includes model usage, company knowledge, files, code, and admin controls. OneAI is a different product: multi-model access, on-prem or isolated hosting, and one budget across vendors.",
     "not_for_you": {
       "kicker": "Not for you if",
       "title": "Fewer than 20 people with chat-only needs",
@@ -89,7 +89,7 @@
     "good_fit": {
       "kicker": "Good fit if",
       "title": "20–40 people who need one platform, not 20–40 subscriptions",
-      "text": "One invoice of Rp12,400,000 for up to 40 users, including USD 300 credit. At this point, per-seat plus separate credits matches or exceeds OneAI — without on-prem, ZDR, RAG, or model control."
+      "text": "One invoice of Rp12,400,000 for up to 40 users, including USD 300 credit across model providers, plus on-prem or isolated hosting, multi-model access, and local implementation. At 40 annual ChatGPT seats the prices are close. Buy the platform, not a cheaper chat seat."
     },
     "table_label": "Cost and capability comparison · per month",
     "advantage_price_badge": "Best value",
@@ -104,26 +104,26 @@
       "0": {
         "feature": "20 users",
         "stipend": "Rp10,000,000 · Rp500k/person",
-        "chatgpt": "Rp8,000,000 · $25/user",
+        "chatgpt": "Rp8,000,000 monthly · Rp6,400,000 annual",
         "oneai": "Rp12,400,000"
       },
       "1": {
         "feature": "40 users",
         "stipend": "Rp20,000,000",
-        "chatgpt": "Rp16,000,000",
+        "chatgpt": "Rp16,000,000 monthly · Rp12,800,000 annual",
         "oneai": "Rp12,400,000 · fixed price"
       },
       "2": {
-        "feature": "AI credit included",
+        "feature": "Usage budget across providers",
         "stipend": "No",
-        "chatgpt": "No · bought separately",
-        "oneai": "USD 300/month"
+        "chatgpt": "ChatGPT usage included",
+        "oneai": "USD 300 across providers"
       },
       "3": {
-        "feature": "20 users + USD 300 credit",
-        "stipend": "Rp14,800,000",
-        "chatgpt": "Rp12,800,000",
-        "oneai": "Rp12,400,000"
+        "feature": "One budget across providers",
+        "stipend": "No",
+        "chatgpt": "ChatGPT only",
+        "oneai": "Yes"
       },
       "4": {
         "feature": "Single invoice & usage reports",
@@ -140,8 +140,8 @@
       "6": {
         "feature": "Admin chooses available models",
         "stipend": "No",
-        "chatgpt": "Limited",
-        "oneai": "Yes"
+        "chatgpt": "OpenAI models only",
+        "oneai": "Yes · across providers"
       },
       "7": {
         "feature": "Multi-model, not one vendor",
@@ -152,14 +152,14 @@
       "8": {
         "feature": "Zero Data Retention (ZDR)",
         "stipend": "No",
-        "chatgpt": "Not ZDR",
+        "chatgpt": "Default: no training · not ZDR",
         "oneai": "Yes"
       },
       "9": {
         "feature": "Internal knowledge, office files, code",
         "stipend": "No",
-        "chatgpt": "Limited",
-        "oneai": "Yes"
+        "chatgpt": "Yes · ChatGPT",
+        "oneai": "Yes · all models"
       },
       "10": {
         "feature": "On-prem or isolated instance",
@@ -168,11 +168,11 @@
         "oneai": "Yes"
       }
     },
-    "assumptions": "Assumptions: Rp16,000/USD exchange rate. Stipend example Rp500,000/person/month. ChatGPT Business $25/user/month (monthly billing). USD 300 credit ≈ Rp4,800,000. Competitor prices may change; figures are for comparison, not their quotes.",
+    "assumptions": "Assumptions: Rp16,000/USD exchange rate. Stipend example Rp500,000/person/month. ChatGPT Business $25/user/month (monthly) or $20/user/month (annual). USD 300 credit ≈ Rp4,800,000. ChatGPT Business includes model usage; extra credits are optional. Competitor prices may change; figures are for comparison, not their quotes.",
     "why_section": {
       "label": "Why OneAI",
       "heading": "One platform beats three workarounds",
-      "desc": "Stipends, per-seat ChatGPT, and bolt-on tools each solve part of the problem. OneAI brings control, multi-model access, and enterprise features into a single budget — which is why it wins once your team outgrows ad-hoc AI."
+      "desc": "Stipends fail at control. ChatGPT Business is a strong single-vendor seat. OneAI is the platform when you need multiple models, isolated or on-prem hosting, and one budget across providers."
     },
     "why": {
       "0": {
@@ -180,12 +180,12 @@
         "text": "Money in employee accounts can be spent on anything. There is no model reporting, no audit trail, and no way to enforce company policy. You pay for capacity you cannot see."
       },
       "1": {
-        "title": "Per-seat costs scale linearly",
-        "text": "ChatGPT Business for 40 people ≈ Rp16 million, before extra credits. OneAI stays at Rp12.4 million for up to 40 users, with USD 300 credit included. The fuller the plan, the lower the cost per person."
+        "title": "Seat price is not the product",
+        "text": "At 40 users, ChatGPT Business is about Rp16 million monthly or Rp12.8 million annually. OneAI stays at Rp12.4 million for up to 40 users. Those prices are close. The case is one platform across vendors, not cheaper OpenAI chat."
       },
       "2": {
-        "title": "Separate features cost more",
-        "text": "RAG, office files, code execution, ZDR, on-prem, and model control usually become separate projects or subscriptions. On OneAI they are one platform. That is why this plan can cost less even when the headline price looks higher than 10 ChatGPT seats."
+        "title": "ChatGPT already ships knowledge, files, and code",
+        "text": "Company knowledge, connectors, office files, code, SSO, and admin controls are in ChatGPT Business today. OneAI adds multi-model choice, on-prem or isolated hosting, one budget across providers, and local implementation. That is not a claim that those features must be bought separately."
       }
     }
   },

@@ -36,9 +36,15 @@ describe("getOneaiComparisonRows", () => {
     expect(rows).toHaveLength(11);
     expect(rows[0]?.feature).toBe("20 users");
     expect(rows[0]?.advantage).toBeNull();
-    expect(rows[1]?.advantage).toBe("price");
-    expect(rows[9]?.oneai).toBe("Yes");
-    expect(rows[9]?.advantage).toBe("capability");
+    expect(rows[0]?.chatgpt).toContain("annual");
+    expect(rows[1]?.advantage).toBeNull();
+    expect(rows[1]?.chatgpt).toContain("Rp12,800,000");
+    expect(rows[2]?.chatgpt).toContain("included");
+    expect(rows[2]?.chatgpt).not.toMatch(/bought separately/i);
+    expect(rows[3]?.feature).toContain("across providers");
+    expect(rows[9]?.chatgpt).toContain("Yes");
+    expect(rows[9]?.oneai).toContain("Yes");
+    expect(rows[9]?.advantage).toBeNull();
     expect(rows[10]?.feature).toContain("On-prem");
     expect(rows[10]?.oneai).toBe("Yes");
     expect(rows[10]?.advantage).toBe("capability");
@@ -50,7 +56,9 @@ describe("getOneaiComparisonRows", () => {
     expect(rows).toHaveLength(11);
     expect(rows[0]?.feature).toBe("20 pengguna");
     expect(rows[1]?.oneai).toContain("harga tetap");
-    expect(rows[3]?.advantage).toBe("price");
+    expect(rows[1]?.chatgpt).toContain("tahunan");
+    expect(rows[2]?.chatgpt).not.toMatch(/dibeli terpisah/i);
+    expect(rows[3]?.advantage).toBe("capability");
     expect(rows[10]?.feature).toContain("On-premise");
   });
 
@@ -83,10 +91,10 @@ describe("getOneaiComparisonRows", () => {
     expect(DEFAULT_ROW_LOADERS).toHaveLength(11);
     expect(
       DEFAULT_ROW_LOADERS.filter((row) => row.advantage === "price")
-    ).toHaveLength(2);
+    ).toHaveLength(0);
     expect(
       DEFAULT_ROW_LOADERS.filter((row) => row.advantage === "capability")
-    ).toHaveLength(8);
+    ).toHaveLength(7);
   });
 });
 
@@ -103,7 +111,7 @@ describe("getOneaiComparisonWhy", () => {
     const columns = getOneaiComparisonWhy({ lang: "id" });
 
     expect(columns).toHaveLength(3);
-    expect(columns[1]?.title).toContain("Kursi");
+    expect(columns[1]?.title).toContain("kursi");
   });
 
   it("uses injected why loaders when provided", () => {

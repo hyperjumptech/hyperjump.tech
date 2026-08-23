@@ -47,3 +47,5 @@ playwright/.cache/
 **/test-results/
 .ms-playwright/
 /screenshots/
+
+tmp

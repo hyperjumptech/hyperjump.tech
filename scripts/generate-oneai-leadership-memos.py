@@ -49,12 +49,12 @@ EN = {
     "request_paras": [
         (
             "I recommend we evaluate OneAI from Hyperjump Technology as our "
-            "company-wide AI platform — or, at minimum, schedule a short briefing "
+            "company-wide AI platform, or at minimum schedule a short briefing "
             "with the vendor."
         ),
         (
             "This is not a request to replace personal ChatGPT for a handful of "
-            "people. It is a request to decide how we will govern AI once 20–40 "
+            "people. It is a request to decide how we will govern AI once 20-40 "
             "of us are already using it."
         ),
     ],
@@ -70,11 +70,11 @@ EN = {
         ),
         (
             "A single budget",
-            "one invoice instead of 20–40 subscriptions and unverified stipends.",
+            "one invoice instead of 20-40 subscriptions and unverified stipends.",
         ),
         (
             "A clear data posture",
-            "OneAI is installed on our premises so data stays with us — Hyperjump maintains it. Or they run an isolated instance for us only. Zero Data Retention (ZDR): data is not kept for model training.",
+            "OneAI is installed on our premises so data stays with us. Hyperjump maintains it. Or they run an isolated instance for us only. Zero Data Retention (ZDR): data is not kept for model training.",
         ),
         (
             "Real capability",
@@ -109,8 +109,8 @@ EN = {
     "caveat": (
         "If we have fewer than 20 people and only need chat, ChatGPT Plus or "
         "Business is usually enough and cheaper. OneAI is meant for a company "
-        "that needs one platform — control, multiple models, and one budget — "
-        "not 20–40 subscriptions."
+        "that needs one platform: control, multiple models, and one budget, "
+        "not 20-40 subscriptions."
     ),
     "snapshot_heading": "4. Cost snapshot (per month)",
     "snapshot_headers": [
@@ -136,7 +136,7 @@ EN = {
     "next_steps": [
         "Review the attached two-page overview.",
         "Approve a 30-minute call with Hyperjump (solution@hyperjump.tech) to confirm fit, onboarding, and commercial terms.",
-        "Decide after that call — adopt, wait, or stay with the current approach.",
+        "Decide after that call: adopt, wait, or stay with the current approach.",
     ],
     "next_close": "I am happy to coordinate the conversation and report back.",
     "signoff": "Respectfully,",
@@ -174,12 +174,12 @@ ID = {
     "request_paras": [
         (
             "Saya mengusulkan agar perusahaan mengevaluasi OneAI dari Hyperjump "
-            "Technology sebagai platform AI terpadu — atau setidaknya menjadwalkan "
+            "Technology sebagai platform AI terpadu, atau setidaknya menjadwalkan "
             "briefing singkat dengan vendor."
         ),
         (
             "Ini bukan usulan untuk mengganti ChatGPT pribadi bagi beberapa orang. "
-            "Ini usulan untuk memutuskan bagaimana kita mengatur AI begitu 20–40 "
+            "Ini usulan untuk memutuskan bagaimana kita mengatur AI begitu 20-40 "
             "orang di perusahaan sudah memakainya."
         ),
     ],
@@ -195,11 +195,11 @@ ID = {
         ),
         (
             "Satu anggaran",
-            "satu tagihan, bukan 20–40 langganan dan tunjangan yang tidak terverifikasi.",
+            "satu tagihan, bukan 20-40 langganan dan tunjangan yang tidak terverifikasi.",
         ),
         (
             "Postur data yang jelas",
-            "OneAI dipasang di infrastruktur kita agar data tetap di sisi kita — Hyperjump merawatnya. Atau mereka menjalankan instance terisolasi khusus kita. ZDR: data tidak disimpan untuk training model.",
+            "OneAI dipasang di infrastruktur kita agar data tetap di sisi kita. Hyperjump merawatnya. Atau mereka menjalankan instance terisolasi khusus kita. ZDR: data tidak disimpan untuk training model.",
         ),
         (
             "Kapabilitas yang nyata",
@@ -235,8 +235,8 @@ ID = {
     "caveat": (
         "Jika kita kurang dari 20 orang dan kebutuhannya hanya chat, ChatGPT Plus "
         "atau Business biasanya cukup dan lebih murah. OneAI dimaksudkan untuk "
-        "perusahaan yang butuh satu platform — kontrol, banyak model, dan satu "
-        "anggaran — bukan 20–40 langganan."
+        "perusahaan yang butuh satu platform: kontrol, banyak model, dan satu "
+        "anggaran, bukan 20-40 langganan."
     ),
     "snapshot_heading": "4. Ringkasan biaya (per bulan)",
     "snapshot_headers": [
@@ -262,7 +262,7 @@ ID = {
     "next_steps": [
         "Meninjau ringkasan dua halaman terlampir.",
         "Menyetujui panggilan 30 menit dengan Hyperjump (solution@hyperjump.tech) untuk konfirmasi kesesuaian, onboarding, dan ketentuan komersial.",
-        "Memutuskan setelah panggilan itu — adopsi, menunggu, atau tetap dengan pendekatan saat ini.",
+        "Memutuskan setelah panggilan itu: adopsi, menunggu, atau tetap dengan pendekatan saat ini.",
     ],
     "next_close": "Saya siap mengkoordinasikan percakapan tersebut dan melapor kembali.",
     "signoff": "Hormat saya,",
@@ -389,7 +389,7 @@ def add_bullet(doc, title, text):
     """Add a bold-lead bullet."""
     paragraph = doc.add_paragraph(style="List Bullet")
     set_paragraph_spacing(paragraph, after=4)
-    title_run = paragraph.add_run(f"{title} — ")
+    title_run = paragraph.add_run(f"{title}: ")
     set_run_font(title_run, size=11, bold=True, color=NAVY)
     body_run = paragraph.add_run(text)
     set_run_font(body_run, size=11, color=GRAY)

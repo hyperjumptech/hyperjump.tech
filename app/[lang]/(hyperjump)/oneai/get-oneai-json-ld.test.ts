@@ -60,7 +60,7 @@ describe("getOneaiJsonLd", () => {
       lang: "en",
       pageUrl,
       siteUrl,
-      getTitle: () => "OneAI — Unified Enterprise AI",
+      getTitle: () => "OneAI: Unified Enterprise AI",
       getDescription: () => "One controlled AI platform.",
       getFaqs: () => [
         { question: "Q1", answer: "A1" },

@@ -1,13 +1,13 @@
 {
   "meta": {
-    "title": "OneAI — Platform AI Enterprise Terpadu | Hyperjump",
-    "description": "Satu platform AI terkontrol untuk seluruh perusahaan. On-premise atau hosting terisolasi, satu anggaran, Zero Data Retention, dan model terbaru — hingga 40 pengguna dari Rp12.400.000/bulan."
+    "title": "OneAI: Platform AI Enterprise Terpadu | Hyperjump",
+    "description": "Satu platform AI terkontrol untuk seluruh perusahaan. On-premise atau hosting terisolasi, satu anggaran, Zero Data Retention, dan model terbaru, hingga 40 pengguna dari Rp12.400.000/bulan."
   },
   "hero": {
     "eyebrow": "Solusi AI enterprise terpadu",
     "heading": "OneAI",
     "tagline": "Seperti ChatGPT, tapi lebih baik!",
-    "lede": "Satu platform AI untuk seluruh perusahaan. Di server Anda — atau terisolasi di server kami. Terkontrol, teraudit, dan hemat biaya.",
+    "lede": "Satu platform AI untuk seluruh perusahaan. Di server Anda, atau terisolasi di server kami. Terkontrol, teraudit, dan hemat biaya.",
     "proofs": {
       "0": "Dashboard terpusat",
       "1": "Satu anggaran untuk semua",
@@ -23,19 +23,19 @@
   "pillars": {
     "label": "Mengapa tim memilih OneAI",
     "0": {
-      "kicker": "01 — Kontrol",
+      "kicker": "01 · Kontrol",
       "title": "Implementasi AI terpusat",
-      "text": "Dipasang di server Anda agar data perusahaan tetap di sisi Anda — kami yang merawatnya. Tidak ingin host sendiri? Kami menjalankan instance OneAI terisolasi khusus perusahaan Anda. ZDR: data tidak disimpan untuk training."
+      "text": "Dipasang di server Anda agar data perusahaan tetap di sisi Anda. Kami yang merawatnya. Tidak ingin host sendiri? Kami menjalankan instance OneAI terisolasi khusus perusahaan Anda. ZDR: data tidak disimpan untuk training."
     },
     "1": {
-      "kicker": "02 — Anggaran",
+      "kicker": "02 · Anggaran",
       "title": "Satu tagihan untuk semua",
-      "text": "Bayar sekali per bulan untuk seluruh karyawan. Atur batas per tim atau bahkan per pengguna — tanpa tunjangan AI individu yang sulit diawasi."
+      "text": "Bayar sekali per bulan untuk seluruh karyawan. Atur batas per tim atau bahkan per pengguna, tanpa tunjangan AI individu yang sulit diawasi."
     },
     "2": {
-      "kicker": "03 — Kapasitas",
+      "kicker": "03 · Kapasitas",
       "title": "Model terbaru, segera",
-      "text": "Akses model AI terkini saat dirilis — OpenAI, Anthropic, DeepSeek, dan lainnya. Admin menentukan model mana yang tersedia untuk tim."
+      "text": "Akses model AI terkini saat dirilis: OpenAI, Anthropic, DeepSeek, dan lainnya. Admin menentukan model mana yang tersedia untuk tim."
     }
   },
   "capabilities": {
@@ -66,7 +66,7 @@
     },
     "6": {
       "title": "Otomasi terjadwal",
-      "text": "Berikan tugas ke model pilihan Anda — per jam, harian, mingguan, atau sesuai jadwal Anda."
+      "text": "Berikan tugas ke model pilihan Anda: per jam, harian, mingguan, atau sesuai jadwal Anda."
     }
   },
   "comparison": {
@@ -88,7 +88,7 @@
     },
     "good_fit": {
       "kicker": "Cocok jika",
-      "title": "20–40 orang yang butuh satu platform, bukan 20–40 langganan",
+      "title": "20-40 orang yang butuh satu platform, bukan 20-40 langganan",
       "text": "Satu tagihan Rp12.400.000 sampai 40 pengguna, termasuk kredit USD 300 lintas penyedia model, plus hosting on-premise atau terisolasi, akses multi-model, dan implementasi lokal. Di 40 kursi ChatGPT tahunan, harganya berdekatan. Beli platformnya, bukan kursi chat yang lebih murah."
     },
     "table_label": "Perbandingan biaya dan kemampuan · per bulan",
@@ -208,7 +208,7 @@
   },
   "faq": {
     "heading": "Pertanyaan yang sering diajukan",
-    "desc": "Jawaban singkat tentang paket OneAI. Butuh detail lebih lanjut? Email kami — kami merespons dengan cepat.",
+    "desc": "Jawaban singkat tentang paket OneAI. Butuh detail lebih lanjut? Email kami. Kami merespons dengan cepat.",
     "0": {
       "question": "Berapa jumlah pengguna dalam paket ini?",
       "answer": "Paket standar OneAI mencakup hingga 40 pengguna. Butuh lebih banyak seat atau rollout bertahap? Sebutkan ukuran tim saat Anda menghubungi kami."
@@ -223,7 +223,7 @@
     },
     "3": {
       "question": "Apa saja yang termasuk dalam paket?",
-      "answer": "Kredit AI USD 300, satu sesi training/orientasi tim, dan laporan penggunaan bulanan — plus akses terpusat ke model terkini dan kontrol admin."
+      "answer": "Kredit AI USD 300, satu sesi training/orientasi tim, dan laporan penggunaan bulanan, plus akses terpusat ke model terkini dan kontrol admin."
     },
     "4": {
       "question": "Bisakah diintegrasikan dengan sistem internal atau SSO kami?",
@@ -239,13 +239,13 @@
     },
     "7": {
       "question": "Di mana OneAI dipasang? Apakah data tetap di perusahaan kami?",
-      "answer": "Ya. OneAI dipasang di infrastruktur Anda, sehingga platform, berkas, dan data pemakaian tetap di sisi Anda. Hyperjump merawat sistemnya. Jika Anda tidak ingin host sendiri, kami menjalankan OneAI di server terisolasi khusus perusahaan Anda — tidak dipakai bersama pelanggan lain."
+      "answer": "Ya. OneAI dipasang di infrastruktur Anda, sehingga platform, berkas, dan data pemakaian tetap di sisi Anda. Hyperjump merawat sistemnya. Jika Anda tidak ingin host sendiri, kami menjalankan OneAI di server terisolasi khusus perusahaan Anda, tidak dipakai bersama pelanggan lain."
     }
   },
   "pdf_download": {
     "eyebrow": "Bawa ke atasan Anda",
     "heading": "Menyusun business case?",
-    "desc": "Dua berkas untuk dibagikan secara internal: ringkasan PDF dua halaman (produk, harga, tabel perbandingan), dan surat pengantar Word yang bisa diedit untuk dikirim ke manajer atau pimpinan — alasan perusahaan sebaiknya mempertimbangkan OneAI.",
+    "desc": "Dua berkas untuk dibagikan secara internal: ringkasan PDF dua halaman (produk, harga, tabel perbandingan), dan surat pengantar Word yang bisa diedit untuk dikirim ke manajer atau pimpinan, alasan perusahaan sebaiknya mempertimbangkan OneAI.",
     "cta": "Unduh PDF (2 halaman)",
     "file_name": "OneAI-ringkasan.pdf"
   },
@@ -259,7 +259,7 @@
     "cta": "Hubungi solution@hyperjump.tech"
   },
   "mailto": {
-    "subject": "Minat paket OneAI — hingga 40 pengguna",
+    "subject": "Minat paket OneAI: hingga 40 pengguna",
     "body": "Halo tim Hyperjump,\n\nSaya tertarik dengan paket OneAI (hingga 40 pengguna, Rp12.400.000/bulan).\n\nPerusahaan:\nNama:\nJumlah tim:\nTanggal mulai diinginkan:\n\nCatatan tambahan:\n"
   },
   "sticky_cta": "Dapatkan paket OneAI"

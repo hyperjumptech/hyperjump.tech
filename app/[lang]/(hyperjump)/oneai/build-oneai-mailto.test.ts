@@ -1,20 +1,17 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  buildOneaiMailto,
-  ONEAI_CONTACT_EMAIL
-} from "./build-oneai-mailto";
+import { buildOneaiMailto, ONEAI_CONTACT_EMAIL } from "./build-oneai-mailto";
 
 describe("buildOneaiMailto", () => {
   it("builds a mailto link with default recipient and encoded query params", () => {
     const href = buildOneaiMailto({
-      subject: "OneAI plan inquiry — up to 40 users",
+      subject: "OneAI plan inquiry: up to 40 users",
       body: "Company:\nName:\n"
     });
 
     expect(href).toBe(
       `mailto:${ONEAI_CONTACT_EMAIL}?subject=${encodeURIComponent(
-        "OneAI plan inquiry — up to 40 users"
+        "OneAI plan inquiry: up to 40 users"
       )}&body=${encodeURIComponent("Company:\nName:\n")}`
     );
   });
@@ -31,12 +28,12 @@ describe("buildOneaiMailto", () => {
 
   it("encodes special characters in subject and body", () => {
     const href = buildOneaiMailto({
-      subject: "Minat paket OneAI — hingga 40 pengguna",
+      subject: "Minat paket OneAI: hingga 40 pengguna",
       body: "Halo & selamat?"
     });
 
     expect(href).toContain(
-      encodeURIComponent("Minat paket OneAI — hingga 40 pengguna")
+      encodeURIComponent("Minat paket OneAI: hingga 40 pengguna")
     );
     expect(href).toContain(encodeURIComponent("Halo & selamat?"));
   });

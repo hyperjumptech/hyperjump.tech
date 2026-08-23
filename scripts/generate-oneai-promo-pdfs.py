@@ -26,7 +26,7 @@ EN = {
     "file": "oneai-promo-en.pdf",
     "place": "JAKARTA · INDONESIA",
     "eyebrow": "UNIFIED ENTERPRISE AI",
-    "lede": "One AI platform for your entire company. On your servers — or isolated on ours.",
+    "lede": "One AI platform for your entire company. On your servers, or isolated on ours.",
     "proofs": [
         "Centralized dashboard",
         "One budget for everyone",
@@ -35,19 +35,19 @@ EN = {
     ],
     "pillars": [
         (
-            "01 — CONTROL",
+            "01 · CONTROL",
             "Data stays with you",
-            "Installed on your servers — we maintain it. Or an isolated instance on our servers, never shared with another company. ZDR: data is not stored for model training.",
+            "Installed on your servers. We maintain it. Or an isolated instance on our servers, never shared with another company. ZDR: data is not stored for model training.",
         ),
         (
-            "02 — BUDGET",
+            "02 · BUDGET",
             "One invoice for all",
             "Pay once per month for every employee. No individual AI stipends that are hard to track or reconcile.",
         ),
         (
-            "03 — CAPACITY",
+            "03 · CAPACITY",
             "Latest models, fast",
-            "Access current AI models as they launch — OpenAI, Anthropic, DeepSeek, and more. Admins choose which models each team can use.",
+            "Access current AI models as they launch: OpenAI, Anthropic, DeepSeek, and more. Admins choose which models each team can use.",
         ),
     ],
     "cap_label": "WHAT YOUR TEAM CAN DO",
@@ -79,7 +79,7 @@ EN = {
     "not_title": "Fewer than 20 people with chat-only needs",
     "not_text": "ChatGPT Plus or Business is usually enough and cheaper. OneAI is not meant to replace personal subscriptions at that scale.",
     "fit_kicker": "GOOD FIT IF",
-    "fit_title": "20–40 people who need one platform",
+    "fit_title": "20-40 people who need one platform",
     "fit_text": "Rp12,400,000 for up to 40 users, including USD 300 credit across providers, with on-prem or isolated hosting and multi-model access. Prices at 40 annual ChatGPT seats are close.",
     "table_label": "COST AND CAPABILITY COMPARISON · PER MONTH",
     "cols": ["", "Individual stipends", "ChatGPT Business", "OneAI"],
@@ -117,7 +117,7 @@ ID = {
     "file": "oneai-promo-id.pdf",
     "place": "JAKARTA · INDONESIA",
     "eyebrow": "SOLUSI AI ENTERPRISE TERPADU",
-    "lede": "Satu platform AI untuk seluruh perusahaan. Di server Anda — atau terisolasi di server kami.",
+    "lede": "Satu platform AI untuk seluruh perusahaan. Di server Anda, atau terisolasi di server kami.",
     "proofs": [
         "Dashboard terpusat",
         "Satu anggaran untuk semua",
@@ -126,19 +126,19 @@ ID = {
     ],
     "pillars": [
         (
-            "01 — KONTROL",
+            "01 · KONTROL",
             "Data tetap di sisi Anda",
-            "Dipasang di server Anda — kami merawatnya. Atau instance terisolasi di server kami, tidak dipakai bersama perusahaan lain. ZDR: data tidak disimpan untuk training.",
+            "Dipasang di server Anda. Kami merawatnya. Atau instance terisolasi di server kami, tidak dipakai bersama perusahaan lain. ZDR: data tidak disimpan untuk training.",
         ),
         (
-            "02 — ANGGARAN",
+            "02 · ANGGARAN",
             "Satu tagihan untuk semua",
             "Bayar sekali per bulan untuk seluruh karyawan. Tanpa tunjangan AI individu yang sulit diawasi.",
         ),
         (
-            "03 — KAPASITAS",
+            "03 · KAPASITAS",
             "Model terbaru, segera",
-            "Akses model AI terkini saat dirilis — OpenAI, Anthropic, DeepSeek, dan lainnya. Admin menentukan model untuk tiap tim.",
+            "Akses model AI terkini saat dirilis: OpenAI, Anthropic, DeepSeek, dan lainnya. Admin menentukan model untuk tiap tim.",
         ),
     ],
     "cap_label": "YANG BISA DIKERJAKAN TIM ANDA",
@@ -170,7 +170,7 @@ ID = {
     "not_title": "Kurang dari 20 orang, kebutuhan hanya chat",
     "not_text": "ChatGPT Plus atau Business biasanya cukup dan lebih murah. OneAI tidak dimaksudkan menggantikan langganan pribadi di skala itu.",
     "fit_kicker": "COCOK JIKA",
-    "fit_title": "20–40 orang yang butuh satu platform",
+    "fit_title": "20-40 orang yang butuh satu platform",
     "fit_text": "Rp12.400.000 sampai 40 pengguna, termasuk kredit USD 300 lintas penyedia, dengan hosting on-premise atau terisolasi dan akses multi-model. Di 40 kursi ChatGPT tahunan, harganya berdekatan.",
     "table_label": "PERBANDINGAN BIAYA DAN KEMAMPUAN · PER BULAN",
     "cols": ["", "Tunjangan individu", "ChatGPT Business", "OneAI"],
@@ -455,7 +455,7 @@ def build(copy: dict) -> Path:
     path = OUT / copy["file"]
     OUT.mkdir(parents=True, exist_ok=True)
     c = canvas.Canvas(str(path), pagesize=A4)
-    c.setTitle("OneAI — Hyperjump Technology")
+    c.setTitle("OneAI: Hyperjump Technology")
     c.setAuthor("Hyperjump Technology")
     page_one(c, copy)
     c.showPage()

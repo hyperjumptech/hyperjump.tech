@@ -32,7 +32,7 @@ export function OneaiHeroVisual({ lang, productName }: OneaiHeroVisualProps) {
         </div>
         <Image
           src="/images/oneai/avenu-dashboard.png"
-          alt={`${productName} — ${adminLabel}`}
+          alt={`${productName}: ${adminLabel}`}
           width={1200}
           height={720}
           className="h-auto w-full"
@@ -48,7 +48,7 @@ export function OneaiHeroVisual({ lang, productName }: OneaiHeroVisualProps) {
         </div>
         <Image
           src="/images/oneai/startgpt-chat.png"
-          alt={`${productName} — ${chatLabel}`}
+          alt={`${productName}: ${chatLabel}`}
           width={1200}
           height={720}
           className="h-auto w-full"

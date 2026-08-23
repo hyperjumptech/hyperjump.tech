@@ -29,7 +29,7 @@
     "1": {
       "kicker": "02 — Budget",
       "title": "One invoice for all",
-      "text": "Pay once per month for every employee. No individual AI stipends that are hard to track or reconcile."
+      "text": "Pay once per month for every employee. Set limits per team or even per user — no individual AI stipends that are hard to track or reconcile."
     },
     "2": {
       "kicker": "03 — Capacity",
@@ -62,6 +62,10 @@
     "5": {
       "title": "Text to speech",
       "text": "Convert text to natural speech for audio content and virtual assistants."
+    },
+    "6": {
+      "title": "Scheduled automation",
+      "text": "Tell a selected model what to do — hourly, daily, weekly, or on your own schedule."
     }
   },
   "comparison": {

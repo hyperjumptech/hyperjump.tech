@@ -1,8 +1,10 @@
 import { test, expect } from "@playwright/test";
 
+import { getOneaiDocxPath } from "@/app/[lang]/(hyperjump)/oneai/get-oneai-docx-download";
 import { getOneaiPdfPath } from "@/app/[lang]/(hyperjump)/oneai/get-oneai-pdf-download";
 import {
   oneaiComparisonHeadingPartsControl,
+  oneaiDocxDownloadCta,
   oneaiPdfDownloadCta,
   oneaiHeroHeading,
   oneaiMailtoSubject,
@@ -88,15 +90,15 @@ for (const locale of supportedLanguages) {
       );
     });
 
-    test("pdf download link is available", async ({ page }) => {
-      const downloadLink = page.getByTestId("oneai-pdf-download").locator("a");
+    test("pdf and docx download links are available", async ({ page }) => {
+      const pdfLink = page.getByTestId("oneai-pdf-download");
+      const docxLink = page.getByTestId("oneai-docx-download");
 
-      await expect(page.getByTestId("oneai-pdf-download")).toBeVisible();
-      await expect(downloadLink).toHaveAttribute(
-        "href",
-        getOneaiPdfPath(locale)
-      );
-      await expect(downloadLink).toHaveText(oneaiPdfDownloadCta(locale));
+      await expect(page.getByTestId("oneai-downloads")).toBeVisible();
+      await expect(pdfLink).toHaveAttribute("href", getOneaiPdfPath(locale));
+      await expect(pdfLink).toHaveText(oneaiPdfDownloadCta(locale));
+      await expect(docxLink).toHaveAttribute("href", getOneaiDocxPath(locale));
+      await expect(docxLink).toHaveText(oneaiDocxDownloadCta(locale));
     });
 
     test("faq section is visible", async ({ page }) => {

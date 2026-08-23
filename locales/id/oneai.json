@@ -226,9 +226,13 @@
   "pdf_download": {
     "eyebrow": "Bawa ke atasan Anda",
     "heading": "Menyusun business case?",
-    "desc": "Unduh ringkasan OneAI dua halaman — gambaran produk, harga, dan tabel perbandingan lengkap. Teruskan ke manajer, finance, atau tim procurement.",
+    "desc": "Dua berkas untuk dibagikan secara internal: ringkasan PDF dua halaman (produk, harga, tabel perbandingan), dan surat pengantar Word yang bisa diedit untuk dikirim ke manajer atau pimpinan — alasan perusahaan sebaiknya mempertimbangkan OneAI.",
     "cta": "Unduh PDF (2 halaman)",
     "file_name": "OneAI-ringkasan.pdf"
+  },
+  "docx_download": {
+    "cta": "Unduh surat pengantar (Word)",
+    "file_name": "OneAI-memo-pimpinan.docx"
   },
   "close_cta": {
     "heading": "Siap menyatukan AI untuk perusahaan Anda?",

@@ -419,7 +419,7 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
             data-testid="oneai-faq-accordion">
             {faqs.map(({ answer, question }, index) => (
               <AccordionItem
-                key={question}
+                key={`oneai-faq-${index}`}
                 value={`oneai-faq-${index}`}
                 asChild>
                 <div className="rounded-xl border border-gray-200 bg-white px-6 py-2 shadow-xs">

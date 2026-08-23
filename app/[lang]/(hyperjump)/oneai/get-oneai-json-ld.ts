@@ -10,6 +10,10 @@ import {
   oneaiFaq3Question,
   oneaiFaq4Answer,
   oneaiFaq4Question,
+  oneaiFaq5Answer,
+  oneaiFaq5Question,
+  oneaiFaq6Answer,
+  oneaiFaq6Question,
   oneaiMetaDescription,
   oneaiMetaTitle
 } from "@/locales/.generated/strings";
@@ -119,7 +123,9 @@ export function getOneaiJsonLd({
 export function getDefaultOneaiFaqs(lang: SupportedLanguage): OneaiFaq[] {
   return [
     { question: oneaiFaq0Question(lang), answer: oneaiFaq0Answer(lang) },
+    { question: oneaiFaq5Question(lang), answer: oneaiFaq5Answer(lang) },
     { question: oneaiFaq1Question(lang), answer: oneaiFaq1Answer(lang) },
+    { question: oneaiFaq6Question(lang), answer: oneaiFaq6Answer(lang) },
     { question: oneaiFaq2Question(lang), answer: oneaiFaq2Answer(lang) },
     { question: oneaiFaq3Question(lang), answer: oneaiFaq3Answer(lang) },
     { question: oneaiFaq4Question(lang), answer: oneaiFaq4Answer(lang) }

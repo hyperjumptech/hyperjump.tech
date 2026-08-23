@@ -22,18 +22,26 @@ function getPngSize(buffer: Buffer) {
 }
 
 describe("getDefaultOneaiFaqs", () => {
-  it("returns five localized FAQ entries for English", () => {
+  it("returns seven localized FAQ entries for English", () => {
     const faqs = getDefaultOneaiFaqs("en");
 
-    expect(faqs).toHaveLength(5);
+    expect(faqs).toHaveLength(7);
     expect(faqs[0]?.question).toContain("users");
+    expect(faqs[1]?.question).toContain("more than 40");
+    expect(faqs[1]?.answer).toContain("Contact us");
+    expect(faqs[3]?.question).toContain("USD 300");
+    expect(faqs[3]?.answer).toContain("overage");
   });
 
-  it("returns five localized FAQ entries for Indonesian", () => {
+  it("returns seven localized FAQ entries for Indonesian", () => {
     const faqs = getDefaultOneaiFaqs("id");
 
-    expect(faqs).toHaveLength(5);
+    expect(faqs).toHaveLength(7);
     expect(faqs[0]?.question).toContain("pengguna");
+    expect(faqs[1]?.question).toContain("lebih dari 40");
+    expect(faqs[1]?.answer).toContain("Hubungi kami");
+    expect(faqs[3]?.question).toContain("USD 300");
+    expect(faqs[3]?.answer).toContain("overage");
   });
 });
 

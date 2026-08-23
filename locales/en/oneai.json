@@ -221,6 +221,14 @@
     "4": {
       "question": "Can you integrate with our internal systems or SSO?",
       "answer": "Yes. Custom integrations (internal systems, dedicated SSO, and similar requirements) are scoped and priced separately after we understand your environment."
+    },
+    "5": {
+      "question": "What if we need more than 40 users?",
+      "answer": "Contact us. If you need more than 40 users, we will scope a plan that fits your team size."
+    },
+    "6": {
+      "question": "What happens if usage exceeds USD 300?",
+      "answer": "If monthly usage exceeds the included USD 300 credit, your company can choose to completely suspend further requests, or allow more requests and be charged for the overage."
     }
   },
   "pdf_download": {

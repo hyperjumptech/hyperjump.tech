@@ -221,6 +221,14 @@
     "4": {
       "question": "Bisakah diintegrasikan dengan sistem internal atau SSO kami?",
       "answer": "Ya. Integrasi kustom (sistem internal, SSO khusus, dan kebutuhan serupa) disepakati dan dihargai terpisah setelah kami memahami lingkungan Anda."
+    },
+    "5": {
+      "question": "Bagaimana jika kami membutuhkan lebih dari 40 pengguna?",
+      "answer": "Hubungi kami. Jika Anda membutuhkan lebih dari 40 pengguna, kami akan menyesuaikan paket sesuai ukuran tim Anda."
+    },
+    "6": {
+      "question": "Apa yang terjadi jika penggunaan melebihi USD 300?",
+      "answer": "Jika penggunaan bulanan melebihi kredit USD 300 yang termasuk, perusahaan Anda dapat memilih untuk menonaktifkan permintaan selanjutnya sepenuhnya, atau tetap mengizinkan permintaan tambahan dan dikenai biaya overage."
     }
   },
   "pdf_download": {

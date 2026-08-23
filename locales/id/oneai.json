@@ -1,17 +1,18 @@
 {
   "meta": {
     "title": "OneAI — Platform AI Enterprise Terpadu | Hyperjump",
-    "description": "Satu platform AI terkontrol untuk seluruh perusahaan. Dashboard terpusat, satu anggaran, Zero Data Retention, dan model terbaru — hingga 40 pengguna dari Rp12.400.000/bulan."
+    "description": "Satu platform AI terkontrol untuk seluruh perusahaan. On-premise atau hosting terisolasi, satu anggaran, Zero Data Retention, dan model terbaru — hingga 40 pengguna dari Rp12.400.000/bulan."
   },
   "hero": {
     "eyebrow": "Solusi AI enterprise terpadu",
     "heading": "OneAI",
     "tagline": "Seperti ChatGPT, tapi lebih baik!",
-    "lede": "Satu platform AI untuk seluruh perusahaan. Terkontrol, teraudit, dan hemat biaya.",
+    "lede": "Satu platform AI untuk seluruh perusahaan. Di server Anda — atau terisolasi di server kami. Terkontrol, teraudit, dan hemat biaya.",
     "proofs": {
       "0": "Dashboard terpusat",
       "1": "Satu anggaran untuk semua",
-      "2": "Model terbaru saat rilis"
+      "2": "Model terbaru saat rilis",
+      "3": "On-premise, atau hosting terisolasi"
     },
     "cta": "Minta paket OneAI",
     "visual": {
@@ -24,7 +25,7 @@
     "0": {
       "kicker": "01 — Kontrol",
       "title": "Implementasi AI terpusat",
-      "text": "Kelola dan pantau semua penggunaan AI dari satu dashboard. Didukung Zero Data Retention (ZDR): data tidak disimpan untuk training."
+      "text": "Dipasang di server Anda agar data perusahaan tetap di sisi Anda — kami yang merawatnya. Tidak ingin host sendiri? Kami menjalankan instance OneAI terisolasi khusus perusahaan Anda. ZDR: data tidak disimpan untuk training."
     },
     "1": {
       "kicker": "02 — Anggaran",
@@ -88,7 +89,7 @@
     "good_fit": {
       "kicker": "Cocok jika",
       "title": "20–40 orang yang butuh satu platform, bukan 20–40 langganan",
-      "text": "Satu tagihan Rp12.400.000 sampai 40 pengguna, termasuk kredit USD 300. Di titik ini, kursi per orang plus kredit terpisah sudah menyamai atau melebihi harga OneAI — tanpa ZDR, RAG, atau kontrol model."
+      "text": "Satu tagihan Rp12.400.000 sampai 40 pengguna, termasuk kredit USD 300. Di titik ini, kursi per orang plus kredit terpisah sudah menyamai atau melebihi harga OneAI — tanpa on-premise, ZDR, RAG, atau kontrol model."
     },
     "table_label": "Perbandingan biaya dan kemampuan · per bulan",
     "advantage_price_badge": "Harga terbaik",
@@ -159,6 +160,12 @@
         "stipend": "Tidak",
         "chatgpt": "Terbatas",
         "oneai": "Ya"
+      },
+      "10": {
+        "feature": "On-premise atau instance terisolasi",
+        "stipend": "Tidak",
+        "chatgpt": "Tidak · cloud vendor",
+        "oneai": "Ya"
       }
     },
     "assumptions": "Asumsi: kurs Rp16.000/USD. Tunjangan contoh Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (tagihan bulanan). Kredit USD 300 ≈ Rp4.800.000. Harga kompetitor bisa berubah; angka ini untuk perbandingan, bukan kuotasi mereka.",
@@ -178,7 +185,7 @@
       },
       "2": {
         "title": "Fitur terpisah lebih mahal",
-        "text": "RAG, file kantor, eksekusi kode, ZDR, dan kontrol model biasanya jadi proyek atau langganan lain. Di OneAI itu satu platform. Itulah alasan paket ini bisa lebih hemat meski harga awal terlihat lebih tinggi daripada 10 kursi ChatGPT."
+        "text": "RAG, file kantor, eksekusi kode, ZDR, on-premise, dan kontrol model biasanya jadi proyek atau langganan lain. Di OneAI itu satu platform. Itulah alasan paket ini bisa lebih hemat meski harga awal terlihat lebih tinggi daripada 10 kursi ChatGPT."
       }
     }
   },
@@ -188,7 +195,7 @@
     "price_unit": "/ bulan · sebelum pajak",
     "quarterly": "Ditagih 3-bulanan · Rp37.200.000 per kuartal sebelum pajak",
     "annual": "Hemat 10% untuk pembayaran tahunan",
-    "includes": "Termasuk kredit AI senilai USD 300, 1× training/orientasi tim, dan laporan penggunaan bulanan. Kustomisasi (sistem internal, SSO khusus, dan sejenisnya) disepakati terpisah.",
+    "includes": "Dipasang on-premise (kami merawatnya) atau di server managed yang terisolasi. Termasuk kredit AI senilai USD 300, 1× training/orientasi tim, dan laporan penggunaan bulanan. Kustomisasi (sistem internal, SSO khusus, dan sejenisnya) disepakati terpisah.",
     "compare_kicker": "Bandingkan",
     "compare_title": "Tunjangan AI individu biasanya bermasalah",
     "compare_items": {
@@ -229,6 +236,10 @@
     "6": {
       "question": "Apa yang terjadi jika penggunaan melebihi USD 300?",
       "answer": "Jika penggunaan bulanan melebihi kredit USD 300 yang termasuk, perusahaan Anda dapat memilih untuk menonaktifkan permintaan selanjutnya sepenuhnya, atau tetap mengizinkan permintaan tambahan dan dikenai biaya overage."
+    },
+    "7": {
+      "question": "Di mana OneAI dipasang? Apakah data tetap di perusahaan kami?",
+      "answer": "Ya. OneAI dipasang di infrastruktur Anda, sehingga platform, berkas, dan data pemakaian tetap di sisi Anda. Hyperjump merawat sistemnya. Jika Anda tidak ingin host sendiri, kami menjalankan OneAI di server terisolasi khusus perusahaan Anda — tidak dipakai bersama pelanggan lain."
     }
   },
   "pdf_download": {

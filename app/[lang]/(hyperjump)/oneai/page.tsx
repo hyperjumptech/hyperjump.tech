@@ -44,6 +44,7 @@ import {
   oneaiHeroProofs0,
   oneaiHeroProofs1,
   oneaiHeroProofs2,
+  oneaiHeroProofs3,
   oneaiMailtoBody,
   oneaiMailtoSubject,
   oneaiMetaDescription,
@@ -157,7 +158,8 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
   const heroProofs = [
     oneaiHeroProofs0(lang),
     oneaiHeroProofs1(lang),
-    oneaiHeroProofs2(lang)
+    oneaiHeroProofs2(lang),
+    oneaiHeroProofs3(lang)
   ];
   const pillars = [
     {

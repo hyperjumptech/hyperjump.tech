@@ -14,6 +14,8 @@ import {
   oneaiFaq5Question,
   oneaiFaq6Answer,
   oneaiFaq6Question,
+  oneaiFaq7Answer,
+  oneaiFaq7Question,
   oneaiMetaDescription,
   oneaiMetaTitle
 } from "@/locales/.generated/strings";
@@ -79,7 +81,7 @@ export function getOneaiJsonLd({
         "@type": "SoftwareApplication",
         name: "OneAI",
         applicationCategory: "BusinessApplication",
-        operatingSystem: "Web",
+        operatingSystem: "On-premises, Web",
         description,
         url: pageUrl,
         image: `${siteUrl}${ONEAI_OG_IMAGE_PATH}`,
@@ -127,6 +129,7 @@ export function getDefaultOneaiFaqs(lang: SupportedLanguage): OneaiFaq[] {
     { question: oneaiFaq1Question(lang), answer: oneaiFaq1Answer(lang) },
     { question: oneaiFaq6Question(lang), answer: oneaiFaq6Answer(lang) },
     { question: oneaiFaq2Question(lang), answer: oneaiFaq2Answer(lang) },
+    { question: oneaiFaq7Question(lang), answer: oneaiFaq7Answer(lang) },
     { question: oneaiFaq3Question(lang), answer: oneaiFaq3Answer(lang) },
     { question: oneaiFaq4Question(lang), answer: oneaiFaq4Answer(lang) }
   ];

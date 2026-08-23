@@ -22,26 +22,32 @@ function getPngSize(buffer: Buffer) {
 }
 
 describe("getDefaultOneaiFaqs", () => {
-  it("returns seven localized FAQ entries for English", () => {
+  it("returns eight localized FAQ entries for English", () => {
     const faqs = getDefaultOneaiFaqs("en");
 
-    expect(faqs).toHaveLength(7);
+    expect(faqs).toHaveLength(8);
     expect(faqs[0]?.question).toContain("users");
     expect(faqs[1]?.question).toContain("more than 40");
     expect(faqs[1]?.answer).toContain("Contact us");
     expect(faqs[3]?.question).toContain("USD 300");
     expect(faqs[3]?.answer).toContain("overage");
+    expect(faqs[5]?.question).toContain("installed");
+    expect(faqs[5]?.answer).toContain("premises");
+    expect(faqs[5]?.answer).toContain("isolated");
   });
 
-  it("returns seven localized FAQ entries for Indonesian", () => {
+  it("returns eight localized FAQ entries for Indonesian", () => {
     const faqs = getDefaultOneaiFaqs("id");
 
-    expect(faqs).toHaveLength(7);
+    expect(faqs).toHaveLength(8);
     expect(faqs[0]?.question).toContain("pengguna");
     expect(faqs[1]?.question).toContain("lebih dari 40");
     expect(faqs[1]?.answer).toContain("Hubungi kami");
     expect(faqs[3]?.question).toContain("USD 300");
     expect(faqs[3]?.answer).toContain("overage");
+    expect(faqs[5]?.question).toContain("dipasang");
+    expect(faqs[5]?.answer).toContain("infrastruktur");
+    expect(faqs[5]?.answer).toContain("terisolasi");
   });
 });
 
@@ -71,6 +77,7 @@ describe("getOneaiJsonLd", () => {
     const product = graph["@graph"][1];
     expect(product["@type"]).toBe("SoftwareApplication");
     expect(product.name).toBe("OneAI");
+    expect(product.operatingSystem).toBe("On-premises, Web");
     expect(product.image).toBe(`${siteUrl}${ONEAI_OG_IMAGE_PATH}`);
     expect(product.offers.price).toBe("12400000");
     expect(product.offers.priceCurrency).toBe("IDR");

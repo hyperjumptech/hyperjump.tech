@@ -40,6 +40,10 @@ import {
   oneaiComparisonRows9Feature,
   oneaiComparisonRows9Oneai,
   oneaiComparisonRows9Stipend,
+  oneaiComparisonRows10Chatgpt,
+  oneaiComparisonRows10Feature,
+  oneaiComparisonRows10Oneai,
+  oneaiComparisonRows10Stipend,
   oneaiComparisonWhy0Text,
   oneaiComparisonWhy0Title,
   oneaiComparisonWhy1Text,
@@ -155,6 +159,13 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     stipend: oneaiComparisonRows9Stipend,
     chatgpt: oneaiComparisonRows9Chatgpt,
     oneai: oneaiComparisonRows9Oneai,
+    advantage: "capability"
+  },
+  {
+    feature: oneaiComparisonRows10Feature,
+    stipend: oneaiComparisonRows10Stipend,
+    chatgpt: oneaiComparisonRows10Chatgpt,
+    oneai: oneaiComparisonRows10Oneai,
     advantage: "capability"
   }
 ];

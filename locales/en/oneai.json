@@ -1,17 +1,18 @@
 {
   "meta": {
     "title": "OneAI — Unified Enterprise AI Platform | Hyperjump",
-    "description": "One controlled AI platform for your whole company. Central dashboard, one budget, Zero Data Retention, and the latest models — up to 40 users from Rp12.400.000/month."
+    "description": "One controlled AI platform for your whole company. On-prem or isolated hosting, one budget, Zero Data Retention, and the latest models — up to 40 users from Rp12.400.000/month."
   },
   "hero": {
     "eyebrow": "Unified enterprise AI",
     "heading": "OneAI",
     "tagline": "It's like ChatGPT but better!",
-    "lede": "One AI platform for your entire company. Controlled, audited, and cost-efficient.",
+    "lede": "One AI platform for your entire company. On your servers — or isolated on ours. Controlled, audited, and cost-efficient.",
     "proofs": {
       "0": "Centralized dashboard",
       "1": "One budget for everyone",
-      "2": "Latest models on release"
+      "2": "Latest models on release",
+      "3": "On-prem, or isolated hosting"
     },
     "cta": "Request OneAI plan",
     "visual": {
@@ -24,7 +25,7 @@
     "0": {
       "kicker": "01 — Control",
       "title": "Centralized AI rollout",
-      "text": "Manage and monitor all AI usage from one dashboard. Zero Data Retention (ZDR): your data is not stored for model training."
+      "text": "Installed on your servers so company data stays with you — we maintain it. Prefer not to host? We run an isolated OneAI instance for your company only. ZDR: data is not stored for model training."
     },
     "1": {
       "kicker": "02 — Budget",
@@ -88,7 +89,7 @@
     "good_fit": {
       "kicker": "Good fit if",
       "title": "20–40 people who need one platform, not 20–40 subscriptions",
-      "text": "One invoice of Rp12,400,000 for up to 40 users, including USD 300 credit. At this point, per-seat plus separate credits matches or exceeds OneAI — without ZDR, RAG, or model control."
+      "text": "One invoice of Rp12,400,000 for up to 40 users, including USD 300 credit. At this point, per-seat plus separate credits matches or exceeds OneAI — without on-prem, ZDR, RAG, or model control."
     },
     "table_label": "Cost and capability comparison · per month",
     "advantage_price_badge": "Best value",
@@ -159,6 +160,12 @@
         "stipend": "No",
         "chatgpt": "Limited",
         "oneai": "Yes"
+      },
+      "10": {
+        "feature": "On-prem or isolated instance",
+        "stipend": "No",
+        "chatgpt": "No · vendor cloud",
+        "oneai": "Yes"
       }
     },
     "assumptions": "Assumptions: Rp16,000/USD exchange rate. Stipend example Rp500,000/person/month. ChatGPT Business $25/user/month (monthly billing). USD 300 credit ≈ Rp4,800,000. Competitor prices may change; figures are for comparison, not their quotes.",
@@ -178,7 +185,7 @@
       },
       "2": {
         "title": "Separate features cost more",
-        "text": "RAG, office files, code execution, ZDR, and model control usually become separate projects or subscriptions. On OneAI they are one platform. That is why this plan can cost less even when the headline price looks higher than 10 ChatGPT seats."
+        "text": "RAG, office files, code execution, ZDR, on-prem, and model control usually become separate projects or subscriptions. On OneAI they are one platform. That is why this plan can cost less even when the headline price looks higher than 10 ChatGPT seats."
       }
     }
   },
@@ -188,7 +195,7 @@
     "price_unit": "/ month · before tax",
     "quarterly": "Billed quarterly · Rp37.200.000 per quarter before tax",
     "annual": "Save 10% with annual billing",
-    "includes": "Includes USD 300 AI credit, 1× team onboarding, and monthly usage reports. Customization (internal systems, custom SSO, etc.) scoped separately.",
+    "includes": "Installed on-prem (we maintain it) or on an isolated managed server. Includes USD 300 AI credit, 1× team onboarding, and monthly usage reports. Customization (internal systems, custom SSO, etc.) scoped separately.",
     "compare_kicker": "Compare",
     "compare_title": "Individual AI stipends usually fail",
     "compare_items": {
@@ -229,6 +236,10 @@
     "6": {
       "question": "What happens if usage exceeds USD 300?",
       "answer": "If monthly usage exceeds the included USD 300 credit, your company can choose to completely suspend further requests, or allow more requests and be charged for the overage."
+    },
+    "7": {
+      "question": "Where is OneAI installed? Does our data stay with us?",
+      "answer": "Yes. OneAI is installed on your premises, so the platform, files, and usage data stay on your infrastructure. Hyperjump maintains the system. If you do not want to host it, we run OneAI on a dedicated isolated server for your company only — not shared with other customers."
     }
   },
   "pdf_download": {

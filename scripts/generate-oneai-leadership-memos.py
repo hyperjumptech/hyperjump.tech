@@ -74,7 +74,7 @@ EN = {
         ),
         (
             "A clear data posture",
-            "Zero Data Retention (ZDR), so company data is not kept for model training.",
+            "OneAI is installed on our premises so data stays with us — Hyperjump maintains it. Or they run an isolated instance for us only. Zero Data Retention (ZDR): data is not kept for model training.",
         ),
         (
             "Real capability",
@@ -95,6 +95,7 @@ EN = {
         "USD 300 AI credit included each month.",
         "10% off with annual billing.",
         "Latest models as they launch (OpenAI, Anthropic, DeepSeek, and others); admins choose what each team can use.",
+        "Installed on-prem (Hyperjump maintains it) or on an isolated managed server for our company only.",
         "One team onboarding session and monthly usage reports included.",
         "Customization (internal systems, custom SSO) is scoped separately.",
     ],
@@ -121,6 +122,7 @@ EN = {
         ["Monthly cost", "Rp20.000.000", "Rp16.000.000", "Rp12.400.000 · fixed"],
         ["AI credit", "No", "Bought separately", "USD 300 included"],
         ["ZDR", "No", "Not ZDR", "Yes"],
+        ["On-prem or isolated instance", "No", "Vendor cloud", "Yes"],
         ["One invoice & usage reports", "No", "ChatGPT only", "Yes · all models"],
     ],
     "snapshot_note": (
@@ -195,7 +197,7 @@ ID = {
         ),
         (
             "Postur data yang jelas",
-            "Zero Data Retention (ZDR), sehingga data perusahaan tidak disimpan untuk training model.",
+            "OneAI dipasang di infrastruktur kita agar data tetap di sisi kita — Hyperjump merawatnya. Atau mereka menjalankan instance terisolasi khusus kita. ZDR: data tidak disimpan untuk training model.",
         ),
         (
             "Kapabilitas yang nyata",
@@ -217,6 +219,7 @@ ID = {
         "Kredit AI USD 300 termasuk setiap bulan.",
         "Hemat 10% untuk pembayaran tahunan.",
         "Model terbaru saat rilis (OpenAI, Anthropic, DeepSeek, dan lainnya); admin memilih model yang boleh dipakai tiap tim.",
+        "Dipasang on-premise (Hyperjump merawatnya) atau di server managed terisolasi khusus perusahaan kita.",
         "Satu sesi onboarding/orientasi tim dan laporan pemakaian bulanan termasuk.",
         "Kustomisasi (sistem internal, SSO khusus) disepakati terpisah.",
     ],
@@ -243,6 +246,7 @@ ID = {
         ["Biaya bulanan", "Rp20.000.000", "Rp16.000.000", "Rp12.400.000 · tetap"],
         ["Kredit AI", "Tidak", "Dibeli terpisah", "USD 300 termasuk"],
         ["ZDR", "Tidak", "Bukan ZDR", "Ya"],
+        ["On-premise / instance terisolasi", "Tidak", "Cloud vendor", "Ya"],
         ["Satu tagihan & laporan", "Tidak", "Hanya ChatGPT", "Ya · semua model"],
     ],
     "snapshot_note": (

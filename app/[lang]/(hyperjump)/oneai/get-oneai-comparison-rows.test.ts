@@ -30,24 +30,28 @@ describe("isNegativeComparisonValue", () => {
 });
 
 describe("getOneaiComparisonRows", () => {
-  it("returns ten localized rows for English", () => {
+  it("returns eleven localized rows for English", () => {
     const rows = getOneaiComparisonRows({ lang: "en" });
 
-    expect(rows).toHaveLength(10);
+    expect(rows).toHaveLength(11);
     expect(rows[0]?.feature).toBe("20 users");
     expect(rows[0]?.advantage).toBeNull();
     expect(rows[1]?.advantage).toBe("price");
     expect(rows[9]?.oneai).toBe("Yes");
     expect(rows[9]?.advantage).toBe("capability");
+    expect(rows[10]?.feature).toContain("On-prem");
+    expect(rows[10]?.oneai).toBe("Yes");
+    expect(rows[10]?.advantage).toBe("capability");
   });
 
-  it("returns ten localized rows for Indonesian", () => {
+  it("returns eleven localized rows for Indonesian", () => {
     const rows = getOneaiComparisonRows({ lang: "id" });
 
-    expect(rows).toHaveLength(10);
+    expect(rows).toHaveLength(11);
     expect(rows[0]?.feature).toBe("20 pengguna");
     expect(rows[1]?.oneai).toContain("harga tetap");
     expect(rows[3]?.advantage).toBe("price");
+    expect(rows[10]?.feature).toContain("On-premise");
   });
 
   it("uses injected row loaders when provided", () => {
@@ -76,13 +80,13 @@ describe("getOneaiComparisonRows", () => {
   });
 
   it("exports default row loaders for each comparison row", () => {
-    expect(DEFAULT_ROW_LOADERS).toHaveLength(10);
+    expect(DEFAULT_ROW_LOADERS).toHaveLength(11);
     expect(
       DEFAULT_ROW_LOADERS.filter((row) => row.advantage === "price")
     ).toHaveLength(2);
     expect(
       DEFAULT_ROW_LOADERS.filter((row) => row.advantage === "capability")
-    ).toHaveLength(7);
+    ).toHaveLength(8);
   });
 });
 

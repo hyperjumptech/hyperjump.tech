@@ -177,11 +177,11 @@
     "why": {
       "0": {
         "title": "Stipends often don't become AI spending",
-        "text": "Money in employee accounts can be spent on anything. There is no model reporting, no audit trail, and no way to enforce company policy. You pay for capacity you cannot see."
+        "text": "Money in employee accounts can be spent on anything. There is no model reporting, no audit trail, and no way to enforce company policy. <strong>You pay for capacity you cannot see.</strong>"
       },
       "1": {
         "title": "Seat price is not the product",
-        "text": "At 40 users, ChatGPT Business is about Rp16 million monthly or Rp12.8 million annually. OneAI stays at Rp12.4 million for up to 40 users. Those prices are close. The case is one platform across vendors, not cheaper OpenAI chat."
+        "text": "At 40 users, ChatGPT Business is about Rp16 million monthly or Rp12.8 million annually. OneAI stays at Rp12.4 million for up to 40 users. Those prices are close. The case is <strong>one platform across vendors</strong>, not cheaper OpenAI chat."
       },
       "2": {
         "title": "ChatGPT already ships knowledge, files, and code",

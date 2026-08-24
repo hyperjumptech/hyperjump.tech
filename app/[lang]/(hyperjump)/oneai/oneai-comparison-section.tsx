@@ -141,9 +141,10 @@ export function OneaiComparisonSection({ lang }: OneaiComparisonSectionProps) {
                 <h3 className="text-hyperjump-black mb-2 text-base font-semibold">
                   {title}
                 </h3>
-                <p className="text-hyperjump-gray text-[15px] leading-relaxed">
-                  {text}
-                </p>
+                <p
+                  className="text-hyperjump-gray text-[15px] leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: text }}
+                />
               </article>
             </StaggerItem>
           ))}

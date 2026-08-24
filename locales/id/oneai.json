@@ -1,95 +1,95 @@
 {
   "meta": {
     "title": "OneAI: Platform AI Enterprise Terpadu | Hyperjump",
-    "description": "Satu platform AI terkontrol untuk seluruh perusahaan. On-premise atau hosting terisolasi, satu anggaran, Zero Data Retention, dan model terbaru, hingga 40 pengguna dari Rp12.400.000/bulan."
+    "description": "Satu platform AI yang terkendali untuk seluruh perusahaan. On-premise atau hosting terisolasi, satu anggaran, Zero Data Retention, plus akses model terbaru. Untuk hingga 40 pengguna, mulai Rp12.400.000/bulan."
   },
   "hero": {
-    "eyebrow": "Solusi AI enterprise terpadu",
+    "eyebrow": "AI enterprise dalam satu platform",
     "heading": "OneAI",
     "tagline": "Seperti ChatGPT, tapi lebih baik!",
-    "lede": "Satu platform AI untuk seluruh perusahaan. Di server Anda, atau terisolasi di server kami. Terkontrol, teraudit, dan hemat biaya.",
+    "lede": "Satu platform AI untuk seluruh perusahaan, berjalan di server Anda sendiri atau terisolasi di server kami. Terkendali, teraudit, dan hemat biaya.",
     "proofs": {
       "0": "Dashboard terpusat",
       "1": "Satu anggaran untuk semua",
-      "2": "Model terbaru saat rilis",
+      "2": "Model terbaru begitu rilis",
       "3": "On-premise, atau hosting terisolasi"
     },
-    "cta": "Minta paket OneAI",
+    "cta": "Minta penawaran OneAI",
     "visual": {
       "chat_label": "Workspace AI untuk tim",
       "admin_label": "Dashboard admin terpusat"
     }
   },
   "pillars": {
-    "label": "Mengapa tim memilih OneAI",
+    "label": "Alasan tim memilih OneAI",
     "0": {
       "kicker": "01 · Kontrol",
-      "title": "Implementasi AI terpusat",
-      "text": "Dipasang di server Anda agar data perusahaan tetap di sisi Anda. Kami yang merawatnya. Tidak ingin host sendiri? Kami menjalankan instance OneAI terisolasi khusus perusahaan Anda. ZDR: data tidak disimpan untuk training."
+      "title": "Adopsi AI yang terpusat",
+      "text": "Dipasang langsung di server Anda, jadi data perusahaan tidak ke mana-mana. Perawatannya kami yang tangani. Tidak mau repot hosting sendiri? Kami siapkan instance OneAI terisolasi khusus untuk perusahaan Anda. Dengan ZDR, data Anda tidak dipakai untuk melatih model."
     },
     "1": {
       "kicker": "02 · Anggaran",
       "title": "Satu tagihan untuk semua",
-      "text": "Bayar sekali per bulan untuk seluruh karyawan. Atur batas per tim atau bahkan per pengguna, tanpa tunjangan AI individu yang sulit diawasi."
+      "text": "Cukup bayar sekali sebulan untuk seluruh karyawan. Tetapkan batas per tim atau bahkan per pengguna, tanpa pusing mengurus tunjangan AI perorangan yang sulit dilacak."
     },
     "2": {
       "kicker": "03 · Kapasitas",
-      "title": "Model terbaru, segera",
-      "text": "Akses model AI terkini saat dirilis: OpenAI, Anthropic, DeepSeek, dan lainnya. Admin menentukan model mana yang tersedia untuk tim."
+      "title": "Model terbaru, tanpa menunggu",
+      "text": "Pakai model AI terkini begitu diluncurkan: OpenAI, Anthropic, DeepSeek, dan lainnya. Admin bebas menentukan model mana yang bisa diakses tiap tim."
     }
   },
   "capabilities": {
     "label": "Yang bisa dikerjakan tim Anda",
     "0": {
       "title": "Baca & buat file kantor",
-      "text": "DOCX, PPTX, XLSX, dan PDF langsung dari perintah AI."
+      "text": "Buat DOCX, PPTX, XLSX, hingga PDF langsung lewat perintah ke AI."
     },
     "1": {
-      "title": "Tulis & jalankan program",
-      "text": "AI menulis dan mengeksekusi kode untuk tugas yang lebih kompleks."
+      "title": "Tulis & jalankan kode",
+      "text": "AI bisa menulis sekaligus menjalankan kode untuk tugas yang lebih rumit."
     },
     "2": {
       "title": "Jelajahi internet",
-      "text": "Cari informasi terkini agar jawaban tetap akurat dan mutakhir."
+      "text": "Cari informasi terbaru supaya jawabannya selalu akurat dan mutakhir."
     },
     "3": {
-      "title": "Pengetahuan bersama",
-      "text": "Unggah dokumen internal. Tim mendapat jawaban dari basis pengetahuan perusahaan."
+      "title": "Basis pengetahuan bersama",
+      "text": "Unggah dokumen internal, lalu tim bisa langsung mendapat jawaban dari basis pengetahuan perusahaan."
     },
     "4": {
       "title": "Speech to text",
-      "text": "Ubah suara menjadi teks. Cocok untuk notulensi rapat dan dokumentasi."
+      "text": "Ubah rekaman suara jadi teks. Pas untuk notulen rapat dan dokumentasi."
     },
     "5": {
       "title": "Text to speech",
-      "text": "Konversi teks ke suara natural untuk konten audio dan asisten virtual."
+      "text": "Ubah teks jadi suara yang natural untuk konten audio maupun asisten virtual."
     },
     "6": {
       "title": "Otomasi terjadwal",
-      "text": "Berikan tugas ke model pilihan Anda: per jam, harian, mingguan, atau sesuai jadwal Anda."
+      "text": "Serahkan tugas rutin ke model pilihan Anda: tiap jam, harian, mingguan, atau sesuai jadwal yang Anda tentukan."
     }
   },
   "comparison": {
-    "eyebrow": "Kursi ChatGPT bukan produk yang sama",
+    "eyebrow": "Kenapa kursi ChatGPT itu produk yang berbeda",
     "heading_parts": {
-      "before_highlights": "Beli kursi ChatGPT lebih murah untuk tim kecil. Pilih OneAI jika Anda butuh ",
+      "before_highlights": "Untuk tim kecil, kursi ChatGPT memang lebih murah. Pilih OneAI kalau Anda butuh ",
       "control": "kontrol",
       "after_control": ", ",
       "multiple_models": "banyak model",
       "after_multiple_models": ", dan ",
       "one_budget": "satu anggaran",
-      "after_one_budget": " lintas penyedia, bukan chat yang lebih murah."
+      "after_one_budget": " lintas penyedia, bukan sekadar chat murah."
     },
-    "lede": "Keberatan yang wajar: \"Kami bisa kasih uang ke karyawan, atau beli ChatGPT Business.\" Itu masuk akal jika tim kecil dan kebutuhannya hanya chat. ChatGPT Business sudah termasuk pemakaian model, pengetahuan perusahaan, file, kode, dan kontrol admin. OneAI adalah produk yang berbeda: akses multi-model, hosting on-premise atau terisolasi, dan satu anggaran lintas vendor.",
+    "lede": "Keberatan yang wajar: \"Kan bisa kasih tunjangan ke karyawan, atau langsung beli ChatGPT Business.\" Masuk akal, apalagi kalau timnya kecil dan cuma butuh chat. ChatGPT Business memang sudah mencakup pemakaian model, pengetahuan perusahaan, file, kode, sampai kontrol admin. Tapi OneAI produk yang berbeda: akses multi-model, hosting on-premise atau terisolasi, dan satu anggaran lintas penyedia.",
     "not_for_you": {
       "kicker": "Belum untuk Anda jika",
-      "title": "Kurang dari 20 orang, dan kebutuhan utamanya hanya ChatGPT",
-      "text": "Untuk tim itu, ChatGPT Plus atau Business biasanya cukup dan lebih murah. OneAI tidak dimaksudkan menggantikan langganan pribadi di skala itu."
+      "title": "Tim di bawah 20 orang yang cukup pakai ChatGPT",
+      "text": "Untuk tim sekecil itu, ChatGPT Plus atau Business biasanya sudah cukup dan lebih hemat. OneAI memang bukan untuk menggantikan langganan pribadi di skala ini."
     },
     "good_fit": {
       "kicker": "Cocok jika",
       "title": "20-40 orang yang butuh satu platform, bukan 20-40 langganan",
-      "text": "Satu tagihan Rp12.400.000 sampai 40 pengguna, termasuk kredit USD 300 lintas penyedia model, plus hosting on-premise atau terisolasi, akses multi-model, dan implementasi lokal. Di 40 kursi ChatGPT tahunan, harganya berdekatan. Beli platformnya, bukan kursi chat yang lebih murah."
+      "text": "Satu tagihan Rp12.400.000 untuk hingga 40 pengguna, sudah termasuk kredit USD 300 lintas penyedia model, hosting on-premise atau terisolasi, akses multi-model, dan implementasi di tempat Anda. Dibanding 40 kursi ChatGPT tahunan, selisih harganya tipis. Jadi, ambil platformnya, bukan sekadar kursi chat yang lebih murah."
     },
     "table_label": "Perbandingan biaya dan kemampuan · per bulan",
     "advantage_price_badge": "Harga terbaik",
@@ -132,7 +132,7 @@
         "oneai": "Ya · semua model"
       },
       "5": {
-        "feature": "Pastikan dana dipakai untuk AI",
+        "feature": "Jaminan dana benar-benar untuk AI",
         "stipend": "Tidak",
         "chatgpt": "Ya · di dalam ChatGPT",
         "oneai": "Ya"
@@ -145,7 +145,7 @@
       },
       "7": {
         "feature": "Multi-model, bukan satu merek",
-        "stipend": "Tergantung orang",
+        "stipend": "Tergantung individu",
         "chatgpt": "Tidak · OpenAI saja",
         "oneai": "Ya"
       },
@@ -168,24 +168,24 @@
         "oneai": "Ya"
       }
     },
-    "assumptions": "Asumsi: kurs Rp16.000/USD. Tunjangan contoh Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (bulanan) atau $20/orang/bulan (tahunan). Kredit USD 300 ≈ Rp4.800.000. ChatGPT Business sudah termasuk pemakaian model; kredit tambahan bersifat opsional. Harga kompetitor bisa berubah; angka ini untuk perbandingan, bukan kuotasi mereka.",
+    "assumptions": "Asumsi: kurs Rp16.000/USD. Contoh tunjangan Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (bulanan) atau $20/orang/bulan (tahunan). Kredit USD 300 ≈ Rp4.800.000. ChatGPT Business sudah termasuk pemakaian model; kredit tambahan sifatnya opsional. Harga kompetitor bisa berubah; angka di sini untuk perbandingan, bukan penawaran resmi mereka.",
     "why_section": {
       "label": "Kenapa OneAI",
-      "heading": "Satu platform mengalahkan tiga jalan pintas",
-      "desc": "Tunjangan gagal di kontrol. ChatGPT Business adalah kursi vendor tunggal yang kuat. OneAI adalah platformnya jika Anda butuh banyak model, hosting terisolasi atau on-premise, dan satu anggaran lintas penyedia."
+      "heading": "Satu platform utuh, bukan solusi tambal sulam",
+      "desc": "Tunjangan lemah di sisi kontrol. ChatGPT Business adalah kursi vendor tunggal yang solid. Sementara OneAI adalah platformnya, untuk Anda yang butuh banyak model, hosting terisolasi atau on-premise, dan satu anggaran lintas penyedia."
     },
     "why": {
       "0": {
-        "title": "Tunjangan sering tidak jadi AI",
-        "text": "Uang di rekening karyawan bisa dipakai untuk apa saja. Tidak ada laporan model, tidak ada audit, dan tidak ada cara memastikan kebijakan perusahaan diikuti. Anda membayar kapasitas yang tidak bisa Anda lihat."
+        "title": "Tunjangan sering tidak berujung jadi AI",
+        "text": "Uang yang sudah masuk rekening karyawan bisa dipakai untuk apa saja. Tidak ada laporan pemakaian model, tidak ada jejak audit, dan tidak ada cara memastikan kebijakan perusahaan dipatuhi. Ujung-ujungnya Anda <strong>membayar kapasitas yang tidak bisa Anda pantau.</strong>"
       },
       "1": {
         "title": "Harga kursi bukan produknya",
-        "text": "Di 40 pengguna, ChatGPT Business sekitar Rp16 juta bulanan atau Rp12,8 juta tahunan. OneAI tetap Rp12,4 juta sampai 40 pengguna. Harganya berdekatan. Argumennya satu platform lintas vendor, bukan chat OpenAI yang lebih murah."
+        "text": "Untuk 40 pengguna, ChatGPT Business ada di kisaran Rp16 juta per bulan (bulanan) atau Rp12,8 juta (tahunan). OneAI tetap Rp12,4 juta untuk hingga 40 pengguna. Selisihnya tipis. Intinya bukan soal chat OpenAI yang lebih murah, tapi <strong>satu platform lintas vendor.</strong>"
       },
       "2": {
         "title": "ChatGPT sudah punya pengetahuan, file, dan kode",
-        "text": "Pengetahuan perusahaan, konektor, file kantor, kode, SSO, dan kontrol admin sudah ada di ChatGPT Business. OneAI menambah pilihan multi-model, hosting on-premise atau terisolasi, satu anggaran lintas penyedia, dan implementasi lokal. Itu bukan klaim bahwa fitur itu harus dibeli terpisah."
+        "text": "Pengetahuan perusahaan, konektor, file kantor, kode, SSO, sampai kontrol admin sudah tersedia di ChatGPT Business. OneAI melengkapinya dengan pilihan multi-model, hosting on-premise atau terisolasi, satu anggaran lintas penyedia, dan implementasi di tempat Anda. Ini bukan berarti fitur-fitur tadi harus dibeli terpisah."
       }
     }
   },
@@ -193,59 +193,59 @@
     "label": "Paket harga · hingga 40 pengguna",
     "price": "Rp12.400.000",
     "price_unit": "/ bulan · sebelum pajak",
-    "quarterly": "Ditagih 3-bulanan · Rp37.200.000 per kuartal sebelum pajak",
+    "quarterly": "Ditagih tiap 3 bulan · Rp37.200.000 per kuartal sebelum pajak",
     "annual": "Hemat 10% untuk pembayaran tahunan",
-    "includes": "Dipasang on-premise (kami merawatnya) atau di server managed yang terisolasi. Termasuk kredit AI senilai USD 300, 1× training/orientasi tim, dan laporan penggunaan bulanan. Kustomisasi (sistem internal, SSO khusus, dan sejenisnya) disepakati terpisah.",
+    "includes": "Dipasang on-premise (perawatannya kami tangani) atau di server terkelola yang terisolasi. Sudah termasuk kredit AI USD 300, 1× sesi training/orientasi tim, dan laporan pemakaian bulanan. Kebutuhan kustom (sistem internal, SSO khusus, dan sejenisnya) dibahas terpisah.",
     "compare_kicker": "Bandingkan",
-    "compare_title": "Tunjangan AI individu biasanya bermasalah",
+    "compare_title": "Tunjangan AI perorangan biasanya bikin repot",
     "compare_items": {
-      "0": "Pemakaian tidak terverifikasi",
-      "1": "Dana bisa tidak dipakai untuk AI",
-      "2": "Administrasi tambahan, biaya lebih mahal",
+      "0": "Pemakaian sulit diverifikasi",
+      "1": "Dana belum tentu dipakai untuk AI",
+      "2": "Administrasi bertambah, biaya membengkak",
       "3": "Tidak ada kontrol terpusat"
     },
     "cta": "Email kami untuk memulai"
   },
   "faq": {
     "heading": "Pertanyaan yang sering diajukan",
-    "desc": "Jawaban singkat tentang paket OneAI. Butuh detail lebih lanjut? Email kami. Kami merespons dengan cepat.",
+    "desc": "Jawaban ringkas seputar paket OneAI. Butuh detail lebih lanjut? Kirim email ke kami, kami balas dengan cepat.",
     "0": {
       "question": "Berapa jumlah pengguna dalam paket ini?",
-      "answer": "Paket standar OneAI mencakup hingga 40 pengguna. Butuh lebih banyak seat atau rollout bertahap? Sebutkan ukuran tim saat Anda menghubungi kami."
+      "answer": "Paket standar OneAI mencakup hingga 40 pengguna. Butuh lebih banyak seat atau penerapan bertahap? Cukup sebutkan ukuran tim Anda saat menghubungi kami."
     },
     "1": {
-      "question": "Bagaimana struktur penagihan?",
+      "question": "Bagaimana struktur penagihannya?",
       "answer": "Rp12.400.000 per bulan sebelum pajak, ditagih per kuartal (Rp37.200.000 per kuartal sebelum pajak). Pembayaran tahunan hemat 10%."
     },
     "2": {
       "question": "Apa itu Zero Data Retention (ZDR)?",
-      "answer": "Dengan ZDR, data perusahaan Anda tidak disimpan untuk training model. Anda mendapat produktivitas AI dengan postur penanganan data yang jelas."
+      "answer": "Dengan ZDR, data perusahaan Anda tidak disimpan untuk melatih model. Anda tetap mendapat produktivitas AI, dengan kebijakan penanganan data yang jelas."
     },
     "3": {
       "question": "Apa saja yang termasuk dalam paket?",
-      "answer": "Kredit AI USD 300, satu sesi training/orientasi tim, dan laporan penggunaan bulanan, plus akses terpusat ke model terkini dan kontrol admin."
+      "answer": "Kredit AI USD 300, satu sesi training/orientasi tim, dan laporan pemakaian bulanan, plus akses terpusat ke model terkini dan kontrol admin."
     },
     "4": {
       "question": "Bisakah diintegrasikan dengan sistem internal atau SSO kami?",
-      "answer": "Ya. Integrasi kustom (sistem internal, SSO khusus, dan kebutuhan serupa) disepakati dan dihargai terpisah setelah kami memahami lingkungan Anda."
+      "answer": "Bisa. Integrasi kustom (sistem internal, SSO khusus, dan kebutuhan sejenis) kami bahas dan hitung terpisah setelah memahami lingkungan Anda."
     },
     "5": {
-      "question": "Bagaimana jika kami membutuhkan lebih dari 40 pengguna?",
-      "answer": "Hubungi kami. Jika Anda membutuhkan lebih dari 40 pengguna, kami akan menyesuaikan paket sesuai ukuran tim Anda."
+      "question": "Bagaimana jika kami butuh lebih dari 40 pengguna?",
+      "answer": "Hubungi kami saja. Kalau kebutuhan Anda lebih dari 40 pengguna, kami akan menyusun paket yang pas dengan ukuran tim Anda."
     },
     "6": {
-      "question": "Apa yang terjadi jika penggunaan melebihi USD 300?",
-      "answer": "Jika penggunaan bulanan melebihi kredit USD 300 yang termasuk, perusahaan Anda dapat memilih untuk menonaktifkan permintaan selanjutnya sepenuhnya, atau tetap mengizinkan permintaan tambahan dan dikenai biaya overage."
+      "question": "Apa yang terjadi jika pemakaian melebihi USD 300?",
+      "answer": "Kalau pemakaian bulanan melewati kredit USD 300 yang sudah termasuk, perusahaan Anda bisa memilih: menghentikan permintaan berikutnya sepenuhnya, atau tetap mengizinkannya dengan biaya tambahan (overage)."
     },
     "7": {
       "question": "Di mana OneAI dipasang? Apakah data tetap di perusahaan kami?",
-      "answer": "Ya. OneAI dipasang di infrastruktur Anda, sehingga platform, berkas, dan data pemakaian tetap di sisi Anda. Hyperjump merawat sistemnya. Jika Anda tidak ingin host sendiri, kami menjalankan OneAI di server terisolasi khusus perusahaan Anda, tidak dipakai bersama pelanggan lain."
+      "answer": "Ya. OneAI dipasang di infrastruktur Anda, jadi platform, berkas, dan data pemakaian tetap berada di lingkungan Anda. Sistemnya dirawat oleh Hyperjump. Kalau Anda tidak mau hosting sendiri, kami jalankan OneAI di server terisolasi khusus perusahaan Anda, tidak dibagi dengan pelanggan lain."
     }
   },
   "pdf_download": {
     "eyebrow": "Bawa ke atasan Anda",
-    "heading": "Menyusun business case?",
-    "desc": "Dua berkas untuk dibagikan secara internal: ringkasan PDF dua halaman (produk, harga, tabel perbandingan), dan surat pengantar Word yang bisa diedit untuk dikirim ke manajer atau pimpinan, alasan perusahaan sebaiknya mempertimbangkan OneAI.",
+    "heading": "Sedang menyiapkan business case?",
+    "desc": "Dua berkas siap pakai untuk dibagikan ke internal: ringkasan PDF dua halaman (produk, harga, dan tabel perbandingan), plus surat pengantar Word yang bisa Anda sunting untuk dikirim ke manajer atau pimpinan, berisi alasan kenapa perusahaan layak mempertimbangkan OneAI.",
     "cta": "Unduh PDF (2 halaman)",
     "file_name": "OneAI-ringkasan.pdf"
   },
@@ -254,13 +254,13 @@
     "file_name": "OneAI-memo-pimpinan.docx"
   },
   "close_cta": {
-    "heading": "Siap menyatukan AI untuk perusahaan Anda?",
-    "desc": "Ceritakan ukuran tim dan timeline Anda. Kami akan konfirmasi kesesuaian, onboarding, dan langkah berikutnya.",
+    "heading": "Siap mengadopsi AI secara terpadu di perusahaan Anda?",
+    "desc": "Ceritakan ukuran tim dan target waktu Anda. Kami akan bantu pastikan kecocokannya, proses onboarding, hingga langkah selanjutnya.",
     "cta": "Hubungi solution@hyperjump.tech"
   },
   "mailto": {
     "subject": "Minat paket OneAI: hingga 40 pengguna",
-    "body": "Halo tim Hyperjump,\n\nSaya tertarik dengan paket OneAI (hingga 40 pengguna, Rp12.400.000/bulan).\n\nPerusahaan:\nNama:\nJumlah tim:\nTanggal mulai diinginkan:\n\nCatatan tambahan:\n"
+    "body": "Halo tim Hyperjump,\n\nSaya tertarik dengan paket OneAI (hingga 40 pengguna, Rp12.400.000/bulan).\n\nPerusahaan:\nNama:\nUkuran tim:\nPerkiraan tanggal mulai:\n\nCatatan tambahan:\n"
   },
   "sticky_cta": "Dapatkan paket OneAI"
 }

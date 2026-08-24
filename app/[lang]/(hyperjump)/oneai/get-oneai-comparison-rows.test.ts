@@ -111,6 +111,7 @@ describe("getOneaiComparisonWhy", () => {
     const columns = getOneaiComparisonWhy({ lang: "id" });
 
     expect(columns).toHaveLength(3);
+    expect(columns[0]?.title).toContain("Allowance");
     expect(columns[1]?.title).toContain("kursi");
   });
 

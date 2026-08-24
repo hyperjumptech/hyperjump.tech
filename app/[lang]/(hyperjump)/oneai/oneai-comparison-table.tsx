@@ -146,9 +146,11 @@ export function OneaiComparisonTable({ lang }: OneaiComparisonTableProps) {
               </th>
               <th
                 scope="col"
-                className="text-hyperjump-gray px-3 py-3 font-semibold">
-                {oneaiComparisonColumnsStipend(lang)}
-              </th>
+                className="text-hyperjump-gray px-3 py-3 font-semibold"
+                dangerouslySetInnerHTML={{
+                  __html: oneaiComparisonColumnsStipend(lang)
+                }}
+              />
               <th
                 scope="col"
                 className="text-hyperjump-gray px-3 py-3 font-semibold">
@@ -197,9 +199,12 @@ export function OneaiComparisonTable({ lang }: OneaiComparisonTableProps) {
           </tbody>
         </table>
       </div>
-      <p className="text-hyperjump-gray mt-4 text-xs leading-relaxed">
-        {oneaiComparisonAssumptions(lang)}
-      </p>
+      <p
+        className="text-hyperjump-gray mt-4 text-xs leading-relaxed"
+        dangerouslySetInnerHTML={{
+          __html: oneaiComparisonAssumptions(lang)
+        }}
+      />
     </SectionReveal>
   );
 }

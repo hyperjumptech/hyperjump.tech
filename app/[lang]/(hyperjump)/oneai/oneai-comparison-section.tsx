@@ -82,9 +82,10 @@ export function OneaiComparisonSection({ lang }: OneaiComparisonSectionProps) {
             {oneaiComparisonEyebrow(lang)}
           </p>
           <OneaiComparisonHeading lang={lang} />
-          <p className="text-hyperjump-gray mb-10 max-w-3xl text-lg leading-relaxed">
-            {oneaiComparisonLede(lang)}
-          </p>
+          <p
+            className="text-hyperjump-gray mb-10 max-w-3xl text-lg leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: oneaiComparisonLede(lang) }}
+          />
         </SectionReveal>
 
         <StaggerContainer className="mb-10 grid gap-4 sm:grid-cols-2">
@@ -128,9 +129,12 @@ export function OneaiComparisonSection({ lang }: OneaiComparisonSectionProps) {
             <h3 className="text-hyperjump-black mb-3 text-xl font-semibold md:text-2xl">
               {oneaiComparisonWhySectionHeading(lang)}
             </h3>
-            <p className="text-hyperjump-gray text-[15px] leading-relaxed md:text-base">
-              {oneaiComparisonWhySectionDesc(lang)}
-            </p>
+            <p
+              className="text-hyperjump-gray text-[15px] leading-relaxed md:text-base"
+              dangerouslySetInnerHTML={{
+                __html: oneaiComparisonWhySectionDesc(lang)
+              }}
+            />
           </div>
         </SectionReveal>
 
@@ -138,9 +142,10 @@ export function OneaiComparisonSection({ lang }: OneaiComparisonSectionProps) {
           {whyColumns.map(({ text, title }) => (
             <StaggerItem key={title}>
               <article className="h-full rounded-2xl border border-black/6 bg-[#F6F8F9] p-6">
-                <h3 className="text-hyperjump-black mb-2 text-base font-semibold">
-                  {title}
-                </h3>
+                <h3
+                  className="text-hyperjump-black mb-2 text-base font-semibold"
+                  dangerouslySetInnerHTML={{ __html: title }}
+                />
                 <p
                   className="text-hyperjump-gray text-[15px] leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: text }}

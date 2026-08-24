@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from reportlab.lib.colors import HexColor, white
@@ -32,6 +33,7 @@ EN = {
         "One budget for everyone",
         "Latest models on release",
         "On-prem, or isolated hosting",
+        "Jakarta-based support",
     ],
     "pillars": [
         (
@@ -93,6 +95,7 @@ EN = {
         ["Zero Data Retention", "No", "No training · not ZDR", "Yes"],
         ["On-prem or isolated host", "No", "Vendor cloud", "Yes"],
         ["Knowledge, files, code", "No", "Yes · ChatGPT", "Yes · all models"],
+        ["Support in Indonesia", "No", "Overseas queue", "Yes · Jakarta team"],
     ],
     "assumptions": "Assumptions: Rp16,000/USD. Stipend example Rp500,000/person. ChatGPT Business $25/user monthly or $20/user annually. USD 300 ≈ Rp4,800,000. ChatGPT includes model usage; extra credits are optional. Competitor prices may change; not their quotes.",
     "whys": [
@@ -109,6 +112,9 @@ EN = {
             "Knowledge, files, code, and admin controls are in ChatGPT Business. OneAI adds multi-model, on-prem, and one budget across vendors.",
         ),
     ],
+    "support_kicker": "SUPPORT IN INDONESIA",
+    "support_title": "If your company is in Indonesia, we are already next door",
+    "support_text": "Same timezone, Bahasa Indonesia, and on-site when it matters. Support from companies like OpenAI will never feel like that.",
     "contact": "Contact solution@hyperjump.tech",
     "footer": "PT Artha Rajamas Mandiri · Hyperjump Technology",
 }
@@ -117,12 +123,13 @@ ID = {
     "file": "oneai-promo-id.pdf",
     "place": "JAKARTA · INDONESIA",
     "eyebrow": "AI ENTERPRISE DALAM SATU PLATFORM",
-    "lede": "Satu platform AI untuk seluruh perusahaan—di server Anda sendiri atau terisolasi di server kami.",
+    "lede": "Satu platform AI untuk semua tim—di server Anda sendiri atau terisolasi di server kami.",
     "proofs": [
         "Dashboard terpusat",
         "Satu anggaran untuk semua",
         "Model terbaru begitu rilis",
         "On-premise, atau hosting terisolasi",
+        "Support dari tim Jakarta",
     ],
     "pillars": [
         (
@@ -133,7 +140,7 @@ ID = {
         (
             "02 · ANGGARAN",
             "Satu tagihan untuk semua",
-            "Cukup bayar sekali sebulan untuk seluruh karyawan. Tanpa repot mengurus tunjangan AI perorangan yang sulit dilacak.",
+            "Cukup bayar sekali sebulan untuk seluruh karyawan. Tanpa repot mengurus allowance AI perorangan yang sulit dilacak.",
         ),
         (
             "03 · KAPASITAS",
@@ -155,7 +162,7 @@ ID = {
     "plan_meta": "Ditagih tiap 3 bulan · Rp37.200.000  ·  Hemat 10% tahunan",
     "includes": "Dipasang on-premise (perawatannya kami tangani) atau di server terkelola terisolasi. Termasuk kredit AI USD 300, 1× onboarding, dan laporan bulanan. SSO khusus dibahas terpisah.",
     "compare_kicker": "BANDINGKAN",
-    "compare_title": "Tunjangan AI perorangan biasanya bikin repot",
+    "compare_title": "Allowance AI perorangan biasanya bikin repot",
     "compare_items": [
         "Pemakaian sulit diverifikasi",
         "Dana belum tentu dipakai untuk AI",
@@ -173,7 +180,7 @@ ID = {
     "fit_title": "20-40 orang yang butuh satu platform",
     "fit_text": "Satu tagihan Rp12.400.000 untuk hingga 40 pengguna, termasuk kredit USD 300 lintas penyedia, plus hosting on-premise atau terisolasi dan akses multi-model. Dibanding 40 kursi ChatGPT tahunan, selisihnya tipis.",
     "table_label": "PERBANDINGAN BIAYA DAN KEMAMPUAN · PER BULAN",
-    "cols": ["", "Tunjangan individu", "ChatGPT Business", "OneAI"],
+    "cols": ["", "Allowance individu", "ChatGPT Business", "OneAI"],
     "rows": [
         ["20 pengguna", "Rp10.000.000", "Rp8,0 jt / Rp6,4 jt thn", "Rp12.400.000"],
         ["40 pengguna", "Rp20.000.000", "Rp16,0 jt / Rp12,8 jt thn", "Rp12.400.000 · tetap"],
@@ -184,11 +191,12 @@ ID = {
         ["Zero Data Retention", "Tidak", "Tanpa training · bukan ZDR", "Ya"],
         ["On-premise / terisolasi", "Tidak", "Cloud vendor", "Ya"],
         ["Pengetahuan, file, kode", "Tidak", "Ya · ChatGPT", "Ya · semua model"],
+        ["Support di Indonesia", "Tidak", "Antrean luar negeri", "Ya · tim Jakarta"],
     ],
-    "assumptions": "Asumsi: kurs Rp16.000/USD. Contoh tunjangan Rp500.000/orang. ChatGPT Business $25/orang bulanan atau $20/orang tahunan. USD 300 ≈ Rp4.800.000. ChatGPT sudah termasuk pemakaian model; kredit tambahan opsional. Harga kompetitor bisa berubah; bukan penawaran resmi mereka.",
+    "assumptions": "Asumsi: kurs Rp16.000/USD. Contoh allowance Rp500.000/orang. ChatGPT Business $25/orang bulanan atau $20/orang tahunan. USD 300 ≈ Rp4.800.000. ChatGPT sudah termasuk pemakaian model; kredit tambahan opsional. Harga kompetitor bisa berubah; bukan penawaran resmi mereka.",
     "whys": [
         (
-            "Tunjangan sering tidak berujung jadi AI",
+            "Allowance sering tidak berujung jadi AI",
             "Uang yang sudah di rekening karyawan bisa dipakai untuk apa saja—tanpa laporan, audit, atau kontrol kebijakan.",
         ),
         (
@@ -200,6 +208,9 @@ ID = {
             "Pengetahuan, file, kode, dan kontrol admin sudah ada di ChatGPT Business. OneAI melengkapinya dengan multi-model, on-premise, dan satu anggaran lintas vendor.",
         ),
     ],
+    "support_kicker": "SUPPORT DI INDONESIA",
+    "support_title": "Cepat dan gampang, karena kami di Indonesia juga",
+    "support_text": "Zona waktu yang sama, Bahasa Indonesia, dan bisa datang ke kantor Anda. Support dari perusahaan seperti OpenAI tidak akan seperti itu.",
     "contact": "Hubungi solution@hyperjump.tech",
     "footer": "PT Artha Rajamas Mandiri · Hyperjump Technology",
 }
@@ -221,6 +232,35 @@ def wrap(c: canvas.Canvas, text: str, font: str, size: float, max_w: float) -> l
     if current:
         lines.append(current)
     return lines
+
+
+_TOKEN = re.compile(r"\S+|\s+")
+_OBLIQUE_FONTS = {
+    "Helvetica": "Helvetica-Oblique",
+    "Helvetica-Bold": "Helvetica-BoldOblique",
+}
+
+
+def italic_font(font: str) -> str:
+    """Return the italic counterpart of a standard Helvetica font."""
+    return _OBLIQUE_FONTS.get(font, font)
+
+
+def is_allowance_token(token: str) -> bool:
+    """Return True when a drawn token is the loanword allowance."""
+    return token.strip(".,:;!?\"'").lower() == "allowance"
+
+
+def draw_copy_string(
+    c: canvas.Canvas, x: float, y: float, text: str, font: str, size: float
+) -> None:
+    """Draw one line of copy, italicizing the loanword allowance."""
+    cursor = x
+    for token in _TOKEN.findall(text):
+        token_font = italic_font(font) if is_allowance_token(token) else font
+        c.setFont(token_font, size)
+        c.drawString(cursor, y, token)
+        cursor += c.stringWidth(token, token_font, size)
 
 
 def draw_footer(c: canvas.Canvas, copy: dict, page: str) -> None:
@@ -286,7 +326,7 @@ def page_one(c: canvas.Canvas, copy: dict) -> None:
         c.setFont("Helvetica", 8)
         ty = y - 54
         for line in wrap(c, body, "Helvetica", 8, card_w - 20):
-            c.drawString(x + 10, ty, line)
+            draw_copy_string(c, x + 10, ty, line, "Helvetica", 8)
             ty -= 11
 
     y = y - card_h - 22
@@ -327,8 +367,9 @@ def page_one(c: canvas.Canvas, copy: dict) -> None:
     c.setFont("Helvetica-Bold", 8)
     c.drawString(360, 36 + band_top - 18, copy["compare_kicker"])
     c.setFillColor(white)
-    c.setFont("Helvetica-Bold", 10)
-    c.drawString(360, 36 + band_top - 36, copy["compare_title"])
+    draw_copy_string(
+        c, 360, 36 + band_top - 36, copy["compare_title"], "Helvetica-Bold", 10
+    )
     c.setFont("Helvetica", 8)
     c.setFillColor(HexColor("#C5CBD8"))
     iy = 36 + band_top - 54
@@ -402,10 +443,9 @@ def page_two(c: canvas.Canvas, copy: dict) -> None:
     c.setFillColor(NAVY)
     c.rect(x0, y - row_h, table_w, row_h, fill=1, stroke=0)
     c.setFillColor(white)
-    c.setFont("Helvetica-Bold", 7)
     x = x0
     for i, col in enumerate(cols):
-        c.drawString(x + 4, y - 12, col)
+        draw_copy_string(c, x + 4, y - 12, col, "Helvetica-Bold", 7)
         x += col_w[i]
     y -= row_h
     for r, row in enumerate(rows):
@@ -422,23 +462,43 @@ def page_two(c: canvas.Canvas, copy: dict) -> None:
 
     y -= 10
     c.setFillColor(MUTED)
-    c.setFont("Helvetica", 7)
     for line in wrap(c, copy["assumptions"], "Helvetica", 7, table_w):
-        c.drawString(MARGIN, y, line)
+        draw_copy_string(c, MARGIN, y, line, "Helvetica", 7)
         y -= 10
 
-    y -= 8
+    y -= 10
+    band_h = 78
+    c.setFillColor(NAVY)
+    c.roundRect(MARGIN, y - band_h, table_w, band_h, 6, fill=1, stroke=0)
+    c.setFillColor(PURPLE)
+    c.setFont("Helvetica-Bold", 8)
+    c.drawString(MARGIN + 12, y - 16, copy["support_kicker"])
+    c.setFillColor(white)
+    c.setFont("Helvetica-Bold", 11)
+    title_lines = wrap(
+        c, copy["support_title"], "Helvetica-Bold", 11, table_w - 24
+    )
+    ty = y - 32
+    for line in title_lines:
+        c.drawString(MARGIN + 12, ty, line)
+        ty -= 14
+    c.setFillColor(HexColor("#C5CBD8"))
+    c.setFont("Helvetica", 8)
+    for line in wrap(c, copy["support_text"], "Helvetica", 8, table_w - 24):
+        c.drawString(MARGIN + 12, ty, line)
+        ty -= 11
+    y = y - band_h - 12
+
     why_w = (PAGE_W - 2 * MARGIN - 16) / 3
-    why_h = 92
+    why_h = 84
     for i, (title, body) in enumerate(copy["whys"]):
         x = MARGIN + i * (why_w + 8)
         c.setFillColor(CARD)
         c.roundRect(x, y - why_h, why_w, why_h, 6, fill=1, stroke=0)
         c.setFillColor(INK)
-        c.setFont("Helvetica-Bold", 9)
         ty = y - 16
         for line in wrap(c, title, "Helvetica-Bold", 9, why_w - 16):
-            c.drawString(x + 8, ty, line)
+            draw_copy_string(c, x + 8, ty, line, "Helvetica-Bold", 9)
             ty -= 12
         c.setFillColor(MUTED)
         c.setFont("Helvetica", 8)

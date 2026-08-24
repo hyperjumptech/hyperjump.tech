@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "OneAI: Platform AI Enterprise Terpadu | Hyperjump",
-    "description": "Satu platform AI yang terkendali untuk seluruh perusahaan. On-premise atau hosting terisolasi, satu anggaran, Zero Data Retention, plus akses model terbaru. Untuk hingga 40 pengguna, mulai Rp12.400.000/bulan."
+    "description": "Satu platform AI yang terkendali untuk semua tim di perusahaan. On-premise atau hosting terisolasi, satu anggaran, Zero Data Retention, plus akses model terbaru. Untuk hingga 40 pengguna, mulai Rp12.400.000/bulan."
   },
   "hero": {
     "eyebrow": "AI enterprise dalam satu platform",
     "heading": "OneAI",
     "tagline": "Seperti ChatGPT, tapi lebih baik!",
-    "lede": "Satu platform AI untuk seluruh perusahaan, berjalan di server Anda sendiri atau terisolasi di server kami. Terkendali, teraudit, dan hemat biaya.",
+    "lede": "Satu platform AI untuk semua tim di perusahaan, berjalan di server Anda sendiri (on-premise). Terkendali, teraudit, dan hemat biaya.",
     "proofs": {
       "0": "Dashboard terpusat",
       "1": "Satu anggaran untuk semua",
@@ -25,12 +25,12 @@
     "0": {
       "kicker": "01 · Kontrol",
       "title": "Adopsi AI yang terpusat",
-      "text": "Dipasang langsung di server Anda, jadi data perusahaan tidak ke mana-mana. Perawatannya kami yang tangani. Tidak mau repot hosting sendiri? Kami siapkan instance OneAI terisolasi khusus untuk perusahaan Anda. Dengan ZDR, data Anda tidak dipakai untuk melatih model."
+      "text": "Dipasang langsung di server Anda, jadi data perusahaan tidak ke mana-mana. Perawatannya kami yang tangani. Tidak mau repot hosting sendiri? Kami siapkan instance OneAI terisolasi khusus untuk perusahaan Anda. Dengan ZDR (Zero Data Retention), data Anda tidak dipakai untuk melatih model."
     },
     "1": {
       "kicker": "02 · Anggaran",
       "title": "Satu tagihan untuk semua",
-      "text": "Cukup bayar sekali sebulan untuk seluruh karyawan. Tetapkan batas per tim atau bahkan per pengguna, tanpa pusing mengurus tunjangan AI perorangan yang sulit dilacak."
+      "text": "Cukup bayar sekali sebulan untuk seluruh karyawan. Tetapkan batas per tim atau bahkan per pengguna, tanpa pusing mengurus <i>allowance</i> AI perorangan yang sulit dilacak."
     },
     "2": {
       "kicker": "03 · Kapasitas",
@@ -42,11 +42,11 @@
     "label": "Yang bisa dikerjakan tim Anda",
     "0": {
       "title": "Baca & buat file kantor",
-      "text": "Buat DOCX, PPTX, XLSX, hingga PDF langsung lewat perintah ke AI."
+      "text": "Buat DOCX, PPTX, XLSX, hingga PDF langsung lewat perintah ke AI secara native."
     },
     "1": {
       "title": "Tulis & jalankan kode",
-      "text": "AI bisa menulis sekaligus menjalankan kode untuk tugas yang lebih rumit."
+      "text": "AI menulis dan mengeksekusi kode dalam terminal yang disiapkan untuk masing-masing indvidu sehingga tugas yang lebih kompleks dapat dilakukan tanpa tambahan harness coding seperti Claude code, OpenCode, dan lain-lain."
     },
     "2": {
       "title": "Jelajahi internet",
@@ -80,7 +80,7 @@
       "one_budget": "satu anggaran",
       "after_one_budget": " lintas penyedia, bukan sekadar chat murah."
     },
-    "lede": "Keberatan yang wajar: \"Kan bisa kasih tunjangan ke karyawan, atau langsung beli ChatGPT Business.\" Masuk akal, apalagi kalau timnya kecil dan cuma butuh chat. ChatGPT Business memang sudah mencakup pemakaian model, pengetahuan perusahaan, file, kode, sampai kontrol admin. Tapi OneAI produk yang berbeda: akses multi-model, hosting on-premise atau terisolasi, dan satu anggaran lintas penyedia.",
+    "lede": "Keberatan yang wajar: \"Kan bisa kasih <i>allowance</i> ke karyawan, atau langsung beli ChatGPT Business.\" Masuk akal, apalagi kalau timnya kecil dan cuma butuh chat. ChatGPT Business memang sudah mencakup pemakaian model, pengetahuan perusahaan, file, kode, sampai kontrol admin. Tapi OneAI produk yang berbeda: akses multi-model, hosting on-premise atau terisolasi, dan satu anggaran lintas penyedia.",
     "not_for_you": {
       "kicker": "Belum untuk Anda jika",
       "title": "Tim di bawah 20 orang yang cukup pakai ChatGPT",
@@ -96,7 +96,7 @@
     "advantage_included_badge": "Termasuk",
     "columns": {
       "feature": "Fitur",
-      "stipend": "Tunjangan individu",
+      "stipend": "<i>Allowance</i> individu",
       "chatgpt": "ChatGPT Business",
       "oneai": "OneAI"
     },
@@ -168,15 +168,15 @@
         "oneai": "Ya"
       }
     },
-    "assumptions": "Asumsi: kurs Rp16.000/USD. Contoh tunjangan Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (bulanan) atau $20/orang/bulan (tahunan). Kredit USD 300 ≈ Rp4.800.000. ChatGPT Business sudah termasuk pemakaian model; kredit tambahan sifatnya opsional. Harga kompetitor bisa berubah; angka di sini untuk perbandingan, bukan penawaran resmi mereka.",
+    "assumptions": "Asumsi: kurs Rp16.000/USD. Contoh <i>allowance</i> Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (bulanan) atau $20/orang/bulan (tahunan). Kredit USD 300 ≈ Rp4.800.000. ChatGPT Business sudah termasuk pemakaian model; kredit tambahan sifatnya opsional. Harga kompetitor bisa berubah; angka di sini untuk perbandingan, bukan penawaran resmi mereka.",
     "why_section": {
       "label": "Kenapa OneAI",
       "heading": "Satu platform utuh, bukan solusi tambal sulam",
-      "desc": "Tunjangan lemah di sisi kontrol. ChatGPT Business adalah kursi vendor tunggal yang solid. Sementara OneAI adalah platformnya, untuk Anda yang butuh banyak model, hosting terisolasi atau on-premise, dan satu anggaran lintas penyedia."
+      "desc": "<i>Allowance</i> lemah di sisi kontrol. ChatGPT Business adalah kursi vendor tunggal yang solid. Sementara OneAI adalah platformnya, untuk Anda yang butuh banyak model, hosting terisolasi atau on-premise, dan satu anggaran lintas penyedia."
     },
     "why": {
       "0": {
-        "title": "Tunjangan sering tidak berujung jadi AI",
+        "title": "<i>Allowance</i> sering tidak berujung jadi AI",
         "text": "Uang yang sudah masuk rekening karyawan bisa dipakai untuk apa saja. Tidak ada laporan pemakaian model, tidak ada jejak audit, dan tidak ada cara memastikan kebijakan perusahaan dipatuhi. Ujung-ujungnya Anda <strong>membayar kapasitas yang tidak bisa Anda pantau.</strong>"
       },
       "1": {
@@ -218,7 +218,7 @@
     "annual": "Hemat 10% untuk pembayaran tahunan",
     "includes": "Dipasang on-premise (perawatannya kami tangani) atau di server terkelola yang terisolasi. Sudah termasuk kredit AI USD 300, 1× sesi training/orientasi tim, dan laporan pemakaian bulanan. Kebutuhan kustom (sistem internal, SSO khusus, dan sejenisnya) dibahas terpisah.",
     "compare_kicker": "Bandingkan",
-    "compare_title": "Tunjangan AI perorangan biasanya bikin repot",
+    "compare_title": "<i>Allowance</i> AI perorangan biasanya bikin repot",
     "compare_items": {
       "0": "Pemakaian sulit diverifikasi",
       "1": "Dana belum tentu dipakai untuk AI",
@@ -266,7 +266,7 @@
   "pdf_download": {
     "eyebrow": "Bawa ke atasan Anda",
     "heading": "Sedang menyiapkan business case?",
-    "desc": "Dua berkas siap pakai untuk dibagikan ke internal: ringkasan PDF dua halaman (produk, harga, dan tabel perbandingan), plus surat pengantar Word yang bisa Anda sunting untuk dikirim ke manajer atau pimpinan, berisi alasan kenapa perusahaan layak mempertimbangkan OneAI.",
+    "desc": "Dua berkas siap pakai untuk dibagikan ke internal: ringkasan PDF dua halaman (produk, harga, tabel perbandingan, dan support lokal), plus surat pengantar Word yang bisa Anda sunting untuk dikirim ke manajer atau pimpinan, berisi alasan kenapa perusahaan layak mempertimbangkan OneAI.",
     "cta": "Unduh PDF (2 halaman)",
     "file_name": "OneAI-ringkasan.pdf"
   },

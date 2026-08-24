@@ -306,9 +306,10 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
                   <h3 className="text-hyperjump-black mb-3 text-xl font-semibold">
                     {title}
                   </h3>
-                  <p className="text-hyperjump-gray text-[15px] leading-relaxed">
-                    {text}
-                  </p>
+                  <p
+                    className="text-hyperjump-gray text-[15px] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: text }}
+                  />
                 </article>
               </StaggerItem>
             ))}
@@ -382,9 +383,12 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
               <p className="text-hyperjump-teal mb-3 text-xs font-bold tracking-[0.16em] uppercase">
                 {oneaiPricingCompareKicker(lang)}
               </p>
-              <h2 className="mb-6 text-2xl font-semibold md:text-3xl">
-                {oneaiPricingCompareTitle(lang)}
-              </h2>
+              <h2
+                className="mb-6 text-2xl font-semibold md:text-3xl"
+                dangerouslySetInnerHTML={{
+                  __html: oneaiPricingCompareTitle(lang)
+                }}
+              />
               <ul className="space-y-4">
                 {compareItems.map((item) => (
                   <li

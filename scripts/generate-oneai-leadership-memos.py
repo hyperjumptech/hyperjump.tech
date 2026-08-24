@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from docx import Document
@@ -185,7 +186,7 @@ ID = {
     ],
     "why_heading": "2. Mengapa ini penting sekarang",
     "why_intro": (
-        "Tim sudah memakai AI. Langganan pribadi, tunjangan informal, atau beli "
+        "Tim sudah memakai AI. Langganan pribadi, <i>allowance</i> informal, atau beli "
         "kredit secara ad hoc tidak memberi kita:"
     ),
     "why_points": [
@@ -195,7 +196,7 @@ ID = {
         ),
         (
             "Satu anggaran",
-            "satu tagihan, bukan 20-40 langganan dan tunjangan yang tidak terverifikasi.",
+            "satu tagihan, bukan 20-40 langganan dan <i>allowance</i> yang tidak terverifikasi.",
         ),
         (
             "Postur data yang jelas",
@@ -207,7 +208,7 @@ ID = {
         ),
     ],
     "why_close": (
-        "Uang yang diberikan sebagai tunjangan bisa dipakai untuk apa saja. Kita "
+        "Uang yang diberikan sebagai <i>allowance</i> bisa dipakai untuk apa saja. Kita "
         "membayar kapasitas yang tidak bisa kita lihat, dan tidak bisa menegakkan "
         "kebijakan perusahaan."
     ),
@@ -241,7 +242,7 @@ ID = {
     "snapshot_heading": "4. Ringkasan biaya (per bulan)",
     "snapshot_headers": [
         "Di 40 pengguna",
-        "Tunjangan individu",
+        "<i>Allowance</i> individu",
         "ChatGPT Business",
         "OneAI",
     ],
@@ -253,7 +254,7 @@ ID = {
         ["Satu tagihan & laporan", "Tidak", "Hanya ChatGPT", "Ya · semua model"],
     ],
     "snapshot_note": (
-        "Asumsi di perbandingan publik: kurs Rp16.000/USD; contoh tunjangan "
+        "Asumsi di perbandingan publik: kurs Rp16.000/USD; contoh <i>allowance</i> "
         "Rp500.000/orang; ChatGPT Business $25/orang bulanan atau $20/orang tahunan. "
         "ChatGPT sudah termasuk pemakaian model; kredit tambahan opsional. Harga "
         "kompetitor bisa berubah; angka ini untuk perbandingan, bukan kuotasi mereka. Pajak belum termasuk."
@@ -343,7 +344,10 @@ def set_table_widths(table, widths_cm):
             row.cells[index].width = Cm(width)
 
 
-def add_text(paragraph, text, **font):
+ITALIC_TAG = re.compile(r"<i>(.*?)</i>")
+
+
+def add_text_with_placeholders(paragraph, text, font):
     """Add a run, highlighting [placeholder] tokens in amber."""
     remaining = text
     while remaining:
@@ -365,6 +369,20 @@ def add_text(paragraph, text, **font):
         hl.set(qn("w:val"), "yellow")
         rpr.append(hl)
         remaining = remaining[end + 1 :]
+
+
+def add_text(paragraph, text, **font):
+    """Add runs, italicizing <i> fragments and highlighting [placeholder] tokens."""
+    pos = 0
+    for match in ITALIC_TAG.finditer(text):
+        if match.start() > pos:
+            add_text_with_placeholders(paragraph, text[pos : match.start()], font)
+        add_text_with_placeholders(
+            paragraph, match.group(1), {**font, "italic": True}
+        )
+        pos = match.end()
+    if pos < len(text):
+        add_text_with_placeholders(paragraph, text[pos:], font)
 
 
 def add_body_paragraph(doc, text, *, after=8):
@@ -391,8 +409,7 @@ def add_bullet(doc, title, text):
     set_paragraph_spacing(paragraph, after=4)
     title_run = paragraph.add_run(f"{title}: ")
     set_run_font(title_run, size=11, bold=True, color=NAVY)
-    body_run = paragraph.add_run(text)
-    set_run_font(body_run, size=11, color=GRAY)
+    add_text(paragraph, text, size=11, color=GRAY)
 
 
 def add_plain_bullet(doc, text):
@@ -533,8 +550,7 @@ def add_snapshot_table(doc, copy):
         )
         paragraph = cell.paragraphs[0]
         set_paragraph_spacing(paragraph, before=3, after=3)
-        run = paragraph.add_run(header)
-        set_run_font(run, size=9, bold=True, color=WHITE)
+        add_text(paragraph, header, size=9, bold=True, color=WHITE)
     for row_index, row in enumerate(rows):
         for col, value in enumerate(row):
             cell = table.cell(row_index + 1, col)

@@ -189,6 +189,27 @@
       }
     }
   },
+  "support": {
+    "eyebrow": "Support di Indonesia",
+    "heading": "Cepat dan gampang, karena kami di Indonesia juga",
+    "lede": "Kalau ada yang macet, Anda tidak antre tiket ke San Francisco. Engineer Hyperjump ada di zona waktu Anda, bicara bahasa Anda, dan bisa datang ke kantor Anda. Support dari perusahaan seperti OpenAI tidak akan seperti itu.",
+    "points": {
+      "0": {
+        "title": "Zona waktu yang sama",
+        "text": "Dibalas di jam kerja Indonesia, bukan setelah tim Anda pulang."
+      },
+      "1": {
+        "title": "Bahasa Indonesia, tanpa bolak-balik",
+        "text": "Bicara langsung dengan engineer yang sudah paham stack, kendala, dan bahasa Anda."
+      },
+      "2": {
+        "title": "Datang ke kantor kalau perlu",
+        "text": "Kalau rollout butuh orang di ruangan, kami bisa datang. Portal tiket global tidak bisa."
+      }
+    },
+    "cta": "Ngobrol dengan tim Jakarta",
+    "image_alt": "Engineer Hyperjump sedang berkolaborasi di kantor Jakarta"
+  },
   "pricing": {
     "label": "Paket harga · hingga 40 pengguna",
     "price": "Rp12.400.000",

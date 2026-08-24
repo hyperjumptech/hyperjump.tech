@@ -7,6 +7,7 @@ import {
   oneaiDocxDownloadCta,
   oneaiPdfDownloadCta,
   oneaiHeroHeading,
+  oneaiSupportHeading,
   oneaiMailtoSubject,
   oneaiMetaDescription,
   oneaiMetaTitle,
@@ -99,6 +100,14 @@ for (const locale of supportedLanguages) {
       await expect(pdfLink).toHaveText(oneaiPdfDownloadCta(locale));
       await expect(docxLink).toHaveAttribute("href", getOneaiDocxPath(locale));
       await expect(docxLink).toHaveText(oneaiDocxDownloadCta(locale));
+    });
+
+    test("support section highlights local engineers", async ({ page }) => {
+      await expect(page.getByTestId("oneai-support-section")).toBeVisible();
+      await expect(page.getByTestId("oneai-support-heading")).toHaveText(
+        oneaiSupportHeading(locale)
+      );
+      await expect(page.getByTestId("oneai-support-cta")).toBeVisible();
     });
 
     test("faq section is visible", async ({ page }) => {

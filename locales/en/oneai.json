@@ -189,6 +189,27 @@
       }
     }
   },
+  "support": {
+    "eyebrow": "Support in Indonesia",
+    "heading": "If your company is in Indonesia, we are already next door",
+    "lede": "You get engineers in the same timezone, who speak your language, and can sit with you in the office. Questions get answered during your workday: fast, direct, and easy. Support from companies like OpenAI will never feel like that.",
+    "points": {
+      "0": {
+        "title": "Same timezone, same workday",
+        "text": "Replies during Indonesian office hours, not after your team has gone home."
+      },
+      "1": {
+        "title": "Bahasa Indonesia, no translation lag",
+        "text": "Talk to engineers who already understand your stack, your constraints, and your language."
+      },
+      "2": {
+        "title": "On-site when it matters",
+        "text": "When a rollout needs someone in the room, we can come to you. A global ticket portal cannot."
+      }
+    },
+    "cta": "Talk to the Jakarta team",
+    "image_alt": "Hyperjump engineers collaborating in a Jakarta office"
+  },
   "pricing": {
     "label": "Plan · up to 40 users",
     "price": "Rp12.400.000",

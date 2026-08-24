@@ -90,6 +90,7 @@ import {
 import { OneaiComparisonSection } from "./oneai-comparison-section";
 import { OneaiHeroVisual } from "./oneai-hero-visual";
 import { OneaiStickyCta } from "./oneai-sticky-cta";
+import { OneaiSupportSection } from "./oneai-support-section";
 
 const { url } = data;
 const OG_IMAGE = `${url}${ONEAI_OG_IMAGE_PATH}`;
@@ -400,6 +401,8 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
       </section>
 
       <OneaiComparisonSection lang={lang} />
+
+      <OneaiSupportSection lang={lang} mailtoHref={mailtoHref} />
 
       <section
         id="faqs"

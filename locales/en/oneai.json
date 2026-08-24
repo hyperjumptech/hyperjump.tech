@@ -266,12 +266,12 @@
   "pdf_download": {
     "eyebrow": "Take it to your boss",
     "heading": "Building the business case?",
-    "desc": "Two files for internal sharing: a two-page PDF overview (product, pricing, comparison table, and local support), and an editable Word cover letter you can send to your manager or leadership on why the company should consider OneAI.",
+    "desc": "Two files for internal sharing: a two-page PDF overview (product, pricing, comparison table, and local support), and a one-page Word memo you can send to your manager or leadership on why the company should consider OneAI.",
     "cta": "Download PDF (2 pages)",
     "file_name": "OneAI-overview.pdf"
   },
   "docx_download": {
-    "cta": "Download cover letter (Word)",
+    "cta": "Download 1-page memo (Word)",
     "file_name": "OneAI-leadership-memo.docx"
   },
   "close_cta": {

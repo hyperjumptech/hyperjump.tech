@@ -266,12 +266,12 @@
   "pdf_download": {
     "eyebrow": "Bawa ke atasan Anda",
     "heading": "Sedang menyiapkan business case?",
-    "desc": "Dua berkas siap pakai untuk dibagikan ke internal: ringkasan PDF dua halaman (produk, harga, tabel perbandingan, dan support lokal), plus surat pengantar Word yang bisa Anda sunting untuk dikirim ke manajer atau pimpinan, berisi alasan kenapa perusahaan layak mempertimbangkan OneAI.",
+    "desc": "Dua berkas siap pakai untuk dibagikan ke internal: ringkasan PDF dua halaman (produk, harga, tabel perbandingan, dan support lokal), plus memo Word satu halaman yang bisa Anda sunting untuk dikirim ke manajer atau pimpinan.",
     "cta": "Unduh PDF (2 halaman)",
     "file_name": "OneAI-ringkasan.pdf"
   },
   "docx_download": {
-    "cta": "Unduh surat pengantar (Word)",
+    "cta": "Unduh memo 1 halaman (Word)",
     "file_name": "OneAI-memo-pimpinan.docx"
   },
   "close_cta": {

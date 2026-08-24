@@ -19,9 +19,15 @@ INK = HexColor("#0A2540")
 MUTED = HexColor("#5B6575")
 RULE = HexColor("#D8DEE6")
 CARD = HexColor("#F6F8F9")
+SOFT = HexColor("#EEF0FF")
+FIT = HexColor("#EEF5FB")
+NOT_FIT = HexColor("#F7F1EF")
 AMBER = HexColor("#B4534A")
 PAGE_W, PAGE_H = A4
 MARGIN = 36
+PLAN_RIGHT_X = 360
+PLAN_GUTTER = 20
+PLAN_LEFT_W = PLAN_RIGHT_X - MARGIN - PLAN_GUTTER
 
 EN = {
     "file": "oneai-promo-en.pdf",
@@ -263,6 +269,30 @@ def draw_copy_string(
         cursor += c.stringWidth(token, token_font, size)
 
 
+def draw_wrapped(
+    c: canvas.Canvas,
+    x: float,
+    y: float,
+    text: str,
+    font: str,
+    size: float,
+    max_w: float,
+    leading: float,
+    *,
+    italicize_allowance: bool = False,
+) -> float:
+    """Draw wrapped lines at the given font size and return y below the last line."""
+    c.setFont(font, size)
+    for line in wrap(c, text, font, size, max_w):
+        if italicize_allowance:
+            draw_copy_string(c, x, y, line, font, size)
+        else:
+            c.setFont(font, size)
+            c.drawString(x, y, line)
+        y -= leading
+    return y
+
+
 def draw_footer(c: canvas.Canvas, copy: dict, page: str) -> None:
     """Draw contact, company, and page number on the bottom edge."""
     c.setFillColor(MUTED)
@@ -274,7 +304,7 @@ def draw_footer(c: canvas.Canvas, copy: dict, page: str) -> None:
 
 def page_one(c: canvas.Canvas, copy: dict) -> None:
     """Draw the product overview page."""
-    c.setFillColor(NAVY)
+    c.setFillColor(white)
     c.rect(0, 0, PAGE_W, PAGE_H, fill=1, stroke=0)
     c.setFillColor(PURPLE)
     c.rect(0, 0, 8, PAGE_H, fill=1, stroke=0)
@@ -282,30 +312,28 @@ def page_one(c: canvas.Canvas, copy: dict) -> None:
     c.setFillColor(PURPLE)
     c.setFont("Helvetica-Bold", 9)
     c.drawString(MARGIN, PAGE_H - 40, "HYPERJUMP TECHNOLOGY")
-    c.setFillColor(HexColor("#8A93A6"))
+    c.setFillColor(MUTED)
     c.setFont("Helvetica", 8)
     c.drawRightString(PAGE_W - MARGIN, PAGE_H - 40, copy["place"])
 
-    c.setFillColor(white)
+    c.setFillColor(INK)
     c.setFont("Helvetica-Bold", 36)
     c.drawString(MARGIN, PAGE_H - 92, "OneAI")
     c.setFillColor(PURPLE)
     c.setFont("Helvetica-Bold", 9)
     c.drawString(MARGIN, PAGE_H - 110, copy["eyebrow"])
-    c.setFillColor(HexColor("#C5CBD8"))
-    c.setFont("Helvetica", 11)
-    y = PAGE_H - 136
-    for line in wrap(c, copy["lede"], "Helvetica", 11, PAGE_W - 2 * MARGIN - 8):
-        c.drawString(MARGIN, y, line)
-        y -= 15
+    c.setFillColor(MUTED)
+    y = draw_wrapped(
+        c, MARGIN, PAGE_H - 136, copy["lede"], "Helvetica", 11, PAGE_W - 2 * MARGIN - 8, 15
+    )
 
     y -= 8
-    c.setFillColor(white)
     c.setFont("Helvetica", 10)
     for proof in copy["proofs"]:
         c.setFillColor(TEAL)
         c.circle(MARGIN + 4, y + 3, 3, fill=1, stroke=0)
-        c.setFillColor(white)
+        c.setFillColor(INK)
+        c.setFont("Helvetica", 10)
         c.drawString(MARGIN + 16, y, proof)
         y -= 16
 
@@ -314,20 +342,26 @@ def page_one(c: canvas.Canvas, copy: dict) -> None:
     card_h = 132
     for i, (kicker, title, body) in enumerate(copy["pillars"]):
         x = MARGIN + i * (card_w + 8)
-        c.setFillColor(HexColor("#12183A"))
+        c.setFillColor(CARD)
         c.roundRect(x, y - card_h, card_w, card_h, 8, fill=1, stroke=0)
         c.setFillColor(PURPLE)
         c.setFont("Helvetica-Bold", 8)
         c.drawString(x + 10, y - 18, kicker)
-        c.setFillColor(white)
+        c.setFillColor(INK)
         c.setFont("Helvetica-Bold", 11)
         c.drawString(x + 10, y - 36, title)
-        c.setFillColor(HexColor("#C5CBD8"))
-        c.setFont("Helvetica", 8)
-        ty = y - 54
-        for line in wrap(c, body, "Helvetica", 8, card_w - 20):
-            draw_copy_string(c, x + 10, ty, line, "Helvetica", 8)
-            ty -= 11
+        c.setFillColor(MUTED)
+        draw_wrapped(
+            c,
+            x + 10,
+            y - 54,
+            body,
+            "Helvetica",
+            8,
+            card_w - 20,
+            11,
+            italicize_allowance=True,
+        )
 
     y = y - card_h - 22
     c.setFillColor(PURPLE)
@@ -338,46 +372,56 @@ def page_one(c: canvas.Canvas, copy: dict) -> None:
     for i, (title, body) in enumerate(copy["caps"]):
         col, row = i % 3, i // 3
         x = MARGIN + col * (cap_w + 8)
-        cy = y - row * 48
-        c.setFillColor(white)
+        cy = y - row * 52
+        c.setFillColor(INK)
         c.setFont("Helvetica-Bold", 9)
         c.drawString(x, cy, title)
-        c.setFillColor(HexColor("#C5CBD8"))
-        c.setFont("Helvetica", 8)
-        c.drawString(x, cy - 13, body)
+        c.setFillColor(MUTED)
+        draw_wrapped(c, x, cy - 13, body, "Helvetica", 8, cap_w - 8, 11)
 
-    band_top = 168
-    c.setFillColor(HexColor("#12183A"))
-    c.rect(0, 36, PAGE_W, band_top, fill=1, stroke=0)
+    band_top = 176
+    c.setStrokeColor(RULE)
+    c.setLineWidth(0.6)
+    c.line(MARGIN, 36 + band_top, PAGE_W - MARGIN, 36 + band_top)
+    band_y = 36 + band_top
+    right_w = PAGE_W - MARGIN - PLAN_RIGHT_X
+
     c.setFillColor(PURPLE)
     c.setFont("Helvetica-Bold", 8)
-    c.drawString(MARGIN, 36 + band_top - 18, copy["plan_kicker"])
-    c.setFillColor(white)
+    c.drawString(MARGIN, band_y - 18, copy["plan_kicker"])
+    c.setFillColor(INK)
     c.setFont("Helvetica-Bold", 18)
-    c.drawString(MARGIN, 36 + band_top - 42, copy["price"])
-    c.setFillColor(HexColor("#C5CBD8"))
+    c.drawString(MARGIN, band_y - 42, copy["price"])
+    c.setFillColor(MUTED)
     c.setFont("Helvetica", 9)
-    c.drawString(MARGIN, 36 + band_top - 58, copy["plan_meta"])
-    ty = 36 + band_top - 76
-    for line in wrap(c, copy["includes"], "Helvetica", 8, 300):
-        c.drawString(MARGIN, ty, line)
-        ty -= 11
+    c.drawString(MARGIN, band_y - 58, copy["plan_meta"])
+    c.setFillColor(MUTED)
+    draw_wrapped(
+        c, MARGIN, band_y - 76, copy["includes"], "Helvetica", 8, PLAN_LEFT_W, 11
+    )
 
     c.setFillColor(PURPLE)
     c.setFont("Helvetica-Bold", 8)
-    c.drawString(360, 36 + band_top - 18, copy["compare_kicker"])
-    c.setFillColor(white)
-    draw_copy_string(
-        c, 360, 36 + band_top - 36, copy["compare_title"], "Helvetica-Bold", 10
+    c.drawString(PLAN_RIGHT_X, band_y - 18, copy["compare_kicker"])
+    c.setFillColor(INK)
+    title_bottom = draw_wrapped(
+        c,
+        PLAN_RIGHT_X,
+        band_y - 36,
+        copy["compare_title"],
+        "Helvetica-Bold",
+        9,
+        right_w,
+        12,
+        italicize_allowance=True,
     )
-    c.setFont("Helvetica", 8)
-    c.setFillColor(HexColor("#C5CBD8"))
-    iy = 36 + band_top - 54
+    iy = title_bottom - 6
     for item in copy["compare_items"]:
         c.setFillColor(AMBER)
-        c.rect(360, iy + 2, 8, 2, fill=1, stroke=0)
-        c.setFillColor(HexColor("#C5CBD8"))
-        c.drawString(372, iy, item)
+        c.rect(PLAN_RIGHT_X, iy + 2, 8, 2, fill=1, stroke=0)
+        c.setFillColor(MUTED)
+        c.setFont("Helvetica", 8)
+        c.drawString(PLAN_RIGHT_X + 12, iy, item)
         iy -= 14
 
     draw_footer(c, copy, "1 / 2")
@@ -407,8 +451,8 @@ def page_two(c: canvas.Canvas, copy: dict) -> None:
     box_h = 100
     for i, (kicker, title, body, fill) in enumerate(
         [
-            (copy["not_kicker"], copy["not_title"], copy["not_text"], HexColor("#F7F1EF")),
-            (copy["fit_kicker"], copy["fit_title"], copy["fit_text"], HexColor("#EEF5FB")),
+            (copy["not_kicker"], copy["not_title"], copy["not_text"], NOT_FIT),
+            (copy["fit_kicker"], copy["fit_title"], copy["fit_text"], FIT),
         ]
     ):
         x = MARGIN + i * (box_w + 10)
@@ -449,7 +493,7 @@ def page_two(c: canvas.Canvas, copy: dict) -> None:
         x += col_w[i]
     y -= row_h
     for r, row in enumerate(rows):
-        bg = HexColor("#EEF0FF") if r % 2 else CARD
+        bg = SOFT if r % 2 else CARD
         c.setFillColor(bg)
         c.rect(x0, y - row_h, table_w, row_h, fill=1, stroke=0)
         x = x0
@@ -468,25 +512,26 @@ def page_two(c: canvas.Canvas, copy: dict) -> None:
 
     y -= 10
     band_h = 78
-    c.setFillColor(NAVY)
+    c.setFillColor(FIT)
     c.roundRect(MARGIN, y - band_h, table_w, band_h, 6, fill=1, stroke=0)
     c.setFillColor(PURPLE)
     c.setFont("Helvetica-Bold", 8)
     c.drawString(MARGIN + 12, y - 16, copy["support_kicker"])
-    c.setFillColor(white)
-    c.setFont("Helvetica-Bold", 11)
-    title_lines = wrap(
-        c, copy["support_title"], "Helvetica-Bold", 11, table_w - 24
+    c.setFillColor(INK)
+    ty = draw_wrapped(
+        c,
+        MARGIN + 12,
+        y - 32,
+        copy["support_title"],
+        "Helvetica-Bold",
+        11,
+        table_w - 24,
+        14,
     )
-    ty = y - 32
-    for line in title_lines:
-        c.drawString(MARGIN + 12, ty, line)
-        ty -= 14
-    c.setFillColor(HexColor("#C5CBD8"))
-    c.setFont("Helvetica", 8)
-    for line in wrap(c, copy["support_text"], "Helvetica", 8, table_w - 24):
-        c.drawString(MARGIN + 12, ty, line)
-        ty -= 11
+    c.setFillColor(MUTED)
+    draw_wrapped(
+        c, MARGIN + 12, ty, copy["support_text"], "Helvetica", 8, table_w - 24, 11
+    )
     y = y - band_h - 12
 
     why_w = (PAGE_W - 2 * MARGIN - 16) / 3

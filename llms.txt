@@ -30,6 +30,12 @@ We offer expert technology solutions to help businesses scale, enhance efficienc
 - [Software as a Service](https://hyperjump.tech/en/services/software-as-a-service): Deploy and scale software solutions tailored to your enterprise for optimal performance and growth.
 - [Tech Due Diligence](https://hyperjump.tech/en/services/tech-due-diligence): Verify and assess your company's ability to execute its roadmap and evaluate its current state.
 
+## Hands-on AI workshop
+
+An in-person workshop for teams already using ChatGPT or Gemini. Everyone types. Participants leave knowing where AI fails, and when not to use it. Contact: solution@hyperjump.tech
+
+- [Hands-on AI Workshop](https://hyperjump.tech/en/ai-workshop)
+
 ## Case studies
 
 Discover how we successfully transform challenges into opportunities with real-world solutions that drive lasting impact and business growth.

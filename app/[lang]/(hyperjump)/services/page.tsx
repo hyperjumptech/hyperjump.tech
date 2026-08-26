@@ -24,6 +24,7 @@ import {
   mainServicesLabel
 } from "@/locales/.generated/strings";
 
+import { AiWorkshopTeaser } from "../ai-workshop/workshop-teaser";
 import { AnimatedLines } from "../components/animated-lines";
 import { Clients } from "../components/clients";
 import { SectionReveal } from "../components/motion-wrappers";
@@ -189,6 +190,8 @@ export default async function Services({ params }: ServicesProps) {
           isReversed={index % 2 !== 0}
         />
       ))}
+
+      <AiWorkshopTeaser lang={lang} />
 
       {/* ── Partners ── */}
       <section className="bg-hyperjump-navy relative overflow-hidden">

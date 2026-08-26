@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "title": "Hands-on AI Workshop | Hyperjump",
+    "description": "An in-person workshop for teams already using ChatGPT or Gemini. Everyone types. You leave knowing where AI fails, and when not to use it.",
+    "og_alt": "Hyperjump hands-on AI workshop: a facilitator with a team seated around a U-shaped table",
+    "schema_name": "Hands-on AI Workshop"
+  },
+  "hero": {
+    "eyebrow": "In-person workshop",
+    "heading": "You cannot govern AI you have only been briefed on",
+    "lede": "For leadership and working teams that already use ChatGPT or Gemini. We go through the basics briefly, then spend the time on hands-on practice.",
+    "cta": "Ask about a workshop",
+    "image_alt": "Facilitator leading a Hyperjump AI workshop in front of a screen"
+  },
+  "proofs": {
+    "0": "Everyone types. Nobody only watches.",
+    "1": "Built from your actual work, not generic demos.",
+    "2": "You catch the failures yourself."
+  },
+  "quote": {
+    "text": "You cannot govern a technology that you have only been briefed on. Get your hands dirty, then you understand the potential, the limits, and the problems.",
+    "credit": "The starting point of this workshop"
+  },
+  "photos": {
+    "participants_alt": "Participants at the table during a Hyperjump AI workshop, laptops open",
+    "room_alt": "Wide view of a Hyperjump AI workshop with the team seated around a U-shaped table"
+  },
+  "rule": {
+    "kicker": "The rule of the room",
+    "heading": "Everyone types. Nobody only watches.",
+    "text": "A briefing does not give you a position on AI. Using it on your own work does. Each person brings a laptop, opens the tools they already have, and works on files that look like their week. You will see AI do impressive things. You will also catch it failing. Both matter."
+  },
+  "who": {
+    "label": "Who this is for",
+    "heading": "Teams that already use the tools, and now need a position",
+    "0": {
+      "title": "Leadership teams",
+      "text": "You are asked to set direction on AI. You cannot do that from a vendor slide deck."
+    },
+    "1": {
+      "title": "People who already live in ChatGPT or Gemini",
+      "text": "Daily use is not the same as knowing when the answer is wrong, or when the tool should stay closed."
+    },
+    "2": {
+      "title": "Organizations that will be held accountable",
+      "text": "Letters, reports, and board papers still go out under your name. Someone has to check the work."
+    }
+  },
+  "sessions": {
+    "label": "How it runs",
+    "heading": "Four sessions. Your work, not a curriculum from a binder.",
+    "desc": "We confirm dates with you. A short gap after the first day lets us turn what you told us into the hands-on exercises.",
+    "0": {
+      "kicker": "Session 1",
+      "title": "How these tools really work",
+      "duration": "25 min",
+      "text": "The basics, briefly. Then a calibration: what has changed, and where the tools still fail quietly. You leave knowing the three ways AI fails and how to spot each one."
+    },
+    "1": {
+      "kicker": "Session 2",
+      "title": "Discovery",
+      "duration": "3 hours",
+      "text": "A conversation, not a lecture. We map weekly decisions, current AI use, and what must never go into a prompt. The output is a short list of exercises built from your actual work."
+    },
+    "2": {
+      "kicker": "Session 3",
+      "title": "Where it fails, and staying in charge",
+      "duration": "3.5 hours",
+      "text": "On your own laptop, in small groups. Check sources. Turn a weekly task into instructions the tool can follow. Then decide, from what you just saw, what never goes in, who is accountable, and when AI is the wrong tool."
+    },
+    "3": {
+      "kicker": "Session 4",
+      "title": "Your work",
+      "duration": "3.5 hours",
+      "text": "Apply it to tasks you are already doing this week. Draft, compare, prepare talking points. Write your own rules: when to use AI, how to verify, what never to paste, who signs off."
+    }
+  },
+  "outcomes": {
+    "label": "What you leave with",
+    "heading": "Understanding you can stand behind",
+    "desc": "The goal is not tool proficiency. It is a position you can hold when someone asks you what AI is good for, and what it is not.",
+    "0": {
+      "title": "You used it on your own work",
+      "text": "Typed, tested, and caught at least one failure yourself. Not watched a demo."
+    },
+    "1": {
+      "title": "Your own rules for using AI",
+      "text": "When you use AI, how you verify, what never goes into a prompt, and who signs off before it leaves the building."
+    },
+    "2": {
+      "title": "You can explain it without us in the room",
+      "text": "What it is, what it does well, where it breaks, and what a responsible approach looks like. In your own words."
+    }
+  },
+  "feedback": {
+    "label": "Feedback",
+    "heading": "From a participant",
+    "0": {
+      "quote": "We learned so many new things that our understanding and knowledge of AI is much better. I will encourage my colleagues to use AI as a tool that helps us in our work.",
+      "credit": "Head of Education of a prominent charity foundation"
+    }
+  },
+  "logistics": {
+    "label": "What you need",
+    "heading": "No new software. No slide marathon.",
+    "0": "A laptop and Wi-Fi",
+    "1": "A ChatGPT or Gemini login. Free tier is fine.",
+    "2": "One non-sensitive document per hands-on session",
+    "3": "A room where the team can sit with laptops open"
+  },
+  "faq": {
+    "heading": "Questions we get before a workshop",
+    "desc": "If yours is not here, write to us. That is the next step anyway.",
+    "0": {
+      "question": "Do we need to buy a tool?",
+      "answer": "No. The workshop uses ChatGPT or Gemini in the browser, with accounts you already have. Free tier is enough."
+    },
+    "1": {
+      "question": "Is this an introduction to AI?",
+      "answer": "No. We cover the basics briefly so everyone is on the same page. Most of the time goes to catching errors that look correct, and to knowing when not to use AI at all."
+    },
+    "2": {
+      "question": "How long is it?",
+      "answer": "A short first session, a discovery morning, then two hands-on half-days after a 1–2 day prep gap. We fit this to your calendar."
+    },
+    "3": {
+      "question": "How many people?",
+      "answer": "It works best with a team around a table. About 8 to 15 people. Smaller is fine. Much larger and people start watching instead of typing."
+    },
+    "4": {
+      "question": "English or Indonesian?",
+      "answer": "Either. Or mixed, if that is how your team already works."
+    },
+    "5": {
+      "question": "Can this be remote?",
+      "answer": "The format is in person. The point is everyone typing in the same room, on work that looks like yours, and comparing what each table caught."
+    }
+  },
+  "cta": {
+    "heading": "Want this for your team?",
+    "desc": "Tell us who the group is and roughly when you would run it. We will reply with fit, format, and next steps.",
+    "button": "Email Hyperjump"
+  },
+  "sticky_cta": "Ask about a workshop",
+  "teaser": {
+    "eyebrow": "Hands-on AI workshop",
+    "heading": "Your team already uses ChatGPT. That is not the same as knowing where it fails.",
+    "desc": "An in-person workshop with hands-on practice. You leave knowing what AI is good for, and when not to use it. Not a slide deck from a briefing.",
+    "cta": "See the workshop"
+  },
+  "mailto": {
+    "subject": "AI workshop inquiry",
+    "body": "Company / organization:\nName:\nRole:\nTeam size:\nPreferred language (English / Indonesian):\nRough timing:\n\nWhat you want the team to be able to do after the workshop:\n"
+  }
+}

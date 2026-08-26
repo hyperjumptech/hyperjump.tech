@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "title": "Workshop AI Hands-on | Hyperjump",
+    "description": "Workshop tatap muka untuk tim yang sudah memakai ChatGPT atau Gemini. Semua ikut mengetik. Pulangnya, Anda tahu di mana AI sering salah, dan kapan lebih baik tidak dipakai.",
+    "og_alt": "Workshop AI hands-on Hyperjump: fasilitator bersama tim duduk mengelilingi meja berbentuk U",
+    "schema_name": "Workshop AI Hands-on"
+  },
+  "hero": {
+    "eyebrow": "Workshop tatap muka",
+    "heading": "Tidak bisa mengatur AI kalau cuma sempat dengar briefing",
+    "lede": "Untuk pimpinan dan tim yang sudah memakai ChatGPT atau Gemini. Dasarnya kami bahas sebentar, lalu waktunya dipakai untuk praktik secara langsung.",
+    "cta": "Tanya soal workshop",
+    "image_alt": "Fasilitator memimpin workshop AI Hyperjump di depan layar"
+  },
+  "proofs": {
+    "0": "Semua mengetik. Tidak ada yang hanya menonton.",
+    "1": "Dari kerja Anda sendiri, bukan demo generik.",
+    "2": "Anda sendiri yang menangkap AI salah."
+  },
+  "quote": {
+    "text": "Teknologi yang cuma Anda dengar dari briefing tidak bisa Anda atur. Pakai sendiri dulu, baru ketahuan potensinya, batasnya, dan masalahnya.",
+    "credit": "Dasar dari workshop ini"
+  },
+  "photos": {
+    "participants_alt": "Peserta duduk di meja saat workshop AI Hyperjump, laptop terbuka",
+    "room_alt": "Suasana workshop AI Hyperjump, tim duduk mengelilingi meja berbentuk U"
+  },
+  "rule": {
+    "kicker": "Aturan di ruangan",
+    "heading": "Semua mengetik. Tidak ada yang hanya menonton.",
+    "text": "Dari briefing saja, Anda belum punya sikap yang jelas soal AI. Baru kalau dipakai di kerja sendiri. Tiap orang bawa laptop, buka tool yang sudah dipakai sehari-hari, dan mengerjakan berkas yang mirip kerja minggu ini. Anda akan melihat AI mengerjakan hal yang mengesankan. Anda juga akan menangkapnya salah. Keduanya penting."
+  },
+  "who": {
+    "label": "Untuk siapa",
+    "heading": "Tim yang sudah memakai tool-nya, dan sekarang butuh sikap yang jelas",
+    "0": {
+      "title": "Tim pimpinan",
+      "text": "Anda diminta menentukan arah soal AI. Itu tidak bisa diputuskan dari slide vendor."
+    },
+    "1": {
+      "title": "Yang sudah sehari-hari pakai ChatGPT atau Gemini",
+      "text": "Pakai setiap hari belum berarti tahu kapan jawabannya salah, atau kapan tool-nya lebih baik ditutup."
+    },
+    "2": {
+      "title": "Organisasi yang harus bertanggung jawab",
+      "text": "Surat, laporan, dan bahan rapat tetap keluar atas nama Anda. Harus ada yang memeriksa."
+    }
+  },
+  "sessions": {
+    "label": "Jalannya workshop",
+    "heading": "Empat sesi. Dari kerja Anda, bukan materi paket.",
+    "desc": "Tanggal kami tentukan bersama. Setelah hari pertama ada jeda singkat, supaya cerita Anda bisa kami ubah jadi latihan praktik.",
+    "0": {
+      "kicker": "Sesi 1",
+      "title": "Bagaimana tool ini benar-benar bekerja",
+      "duration": "25 menit",
+      "text": "Dasarnya kami bahas sebentar. Lalu kami samakan pemahaman: apa yang sudah berubah, dan di mana tool masih sering salah tanpa ketahuan. Pulangnya, Anda tahu tiga cara AI gagal, dan cara menandainya."
+    },
+    "1": {
+      "kicker": "Sesi 2",
+      "title": "Pemetaan",
+      "duration": "3 jam",
+      "text": "Percakapan, bukan ceramah. Kami petakan keputusan mingguan, pemakaian AI saat ini, dan apa yang tidak boleh masuk prompt. Hasilnya: daftar pendek latihan dari kerja Anda sendiri."
+    },
+    "2": {
+      "kicker": "Sesi 3",
+      "title": "Di mana AI gagal, dan bagaimana tetap memegang kendali",
+      "duration": "3,5 jam",
+      "text": "Di laptop masing-masing, dalam kelompok kecil. Periksa sumber. Ubah tugas mingguan jadi instruksi yang bisa diikuti tool. Lalu putuskan, dari apa yang baru Anda lihat: apa yang tidak boleh masuk, siapa yang bertanggung jawab, dan kapan AI tidak perlu dipakai."
+    },
+    "3": {
+      "kicker": "Sesi 4",
+      "title": "Kerja Anda",
+      "duration": "3,5 jam",
+      "text": "Langsung dipakai ke tugas yang sedang dikerjakan minggu ini. Buat draf, bandingkan hasil, siapkan bahan rapat. Tulis aturan sendiri: kapan AI dipakai, bagaimana dicek, apa yang tidak boleh ditempel, siapa yang menandatangani."
+    }
+  },
+  "outcomes": {
+    "label": "Yang Anda bawa pulang",
+    "heading": "Pemahaman yang berani Anda sampaikan",
+    "desc": "Bukan supaya mahir memakai tool. Supaya Anda punya jawaban sendiri kalau ditanya AI itu berguna untuk apa, dan untuk apa tidak.",
+    "0": {
+      "title": "Sudah dipakai di kerja sendiri",
+      "text": "Mengetik, menguji, dan menangkap sendiri setidaknya satu kesalahan. Bukan hanya menonton demo."
+    },
+    "1": {
+      "title": "Aturan Anda sendiri soal memakai AI",
+      "text": "Kapan AI dipakai, bagaimana dicek, apa yang tidak boleh masuk prompt, dan siapa yang menandatangani sebelum berkas dikirim."
+    },
+    "2": {
+      "title": "Bisa dijelaskan tanpa kami di ruangan",
+      "text": "Apa itu AI, apa yang dikerjakannya dengan baik, di mana sering salah, dan seperti apa cara pakai yang aman. Dengan kata-kata sendiri."
+    }
+  },
+  "feedback": {
+    "label": "Masukan",
+    "heading": "Dari peserta",
+    "0": {
+      "quote": "Banyak hal baru yang kami pelajari, sehingga pemahaman dan pengetahuan kami tentang AI jadi lebih baik. Saya akan mendorong teman-teman untuk menggunakan AI sebagai alat bantu kami dalam bekerja.",
+      "credit": "Kepala Pendidikan sebuah yayasan amal terkemuka"
+    }
+  },
+  "logistics": {
+    "label": "Yang perlu disiapkan",
+    "heading": "Tidak perlu software baru. Bukan rapat slide seharian.",
+    "0": "Laptop dan Wi-Fi",
+    "1": "Akun ChatGPT atau Gemini. Paket gratis sudah cukup.",
+    "2": "Satu dokumen yang tidak rahasia untuk tiap sesi praktik",
+    "3": "Ruangan tempat tim bisa duduk dengan laptop terbuka"
+  },
+  "faq": {
+    "heading": "Pertanyaan yang biasanya muncul sebelum workshop",
+    "desc": "Kalau pertanyaan Anda belum ada di sini, kirim email saja. Itu memang langkah berikutnya.",
+    "0": {
+      "question": "Perlu beli tool dulu?",
+      "answer": "Tidak. Workshop memakai ChatGPT atau Gemini di browser, dengan akun yang sudah Anda punya. Paket gratis cukup."
+    },
+    "1": {
+      "question": "Ini pengenalan AI?",
+      "answer": "Bukan. Dasarnya kami bahas sebentar biar pemahamannya sama dulu. Sebagian besar waktu dipakai untuk menangkap kesalahan yang kelihatannya benar, dan untuk tahu kapan AI tidak perlu dipakai sama sekali."
+    },
+    "2": {
+      "question": "Berapa lama?",
+      "answer": "Sesi pertama singkat, satu pagi untuk pemetaan, lalu dua sesi praktik setengah hari setelah jeda 1–2 hari. Jadwalnya kami sesuaikan."
+    },
+    "3": {
+      "question": "Berapa orang?",
+      "answer": "Paling pas untuk satu tim di sekitar meja. Sekitar 8 sampai 15 orang. Lebih kecil tidak masalah. Kalau jauh lebih besar, orang mulai menonton, bukan mengetik."
+    },
+    "4": {
+      "question": "Bahasa Inggris atau Indonesia?",
+      "answer": "Boleh salah satu. Atau campur, kalau memang begitu cara tim Anda bekerja."
+    },
+    "5": {
+      "question": "Bisa daring?",
+      "answer": "Formatnya tatap muka. Intinya semua orang mengetik di ruangan yang sama, pada pekerjaan yang mirip kerja sehari-hari, lalu membandingkan temuan tiap meja."
+    }
+  },
+  "cta": {
+    "heading": "Mau workshop ini untuk tim Anda?",
+    "desc": "Ceritakan siapa timnya dan kira-kira kapan bisa dijalankan. Nanti kami balas apakah cocok, bagaimana formatnya, dan langkah selanjutnya.",
+    "button": "Email Hyperjump"
+  },
+  "sticky_cta": "Tanya soal workshop",
+  "teaser": {
+    "eyebrow": "Workshop AI hands-on",
+    "heading": "Tim Anda sudah memakai ChatGPT. Itu belum berarti tahu di mana AI sering salah.",
+    "desc": "Workshop tatap muka, dengan latihan langsung. Pulangnya Anda tahu AI berguna untuk apa, dan kapan tidak usah dipakai. Bukan tumpukan slide dari briefing.",
+    "cta": "Lihat workshop"
+  },
+  "mailto": {
+    "subject": "Minat workshop AI",
+    "body": "Perusahaan / organisasi:\nNama:\nJabatan:\nUkuran tim:\nBahasa yang dipakai (Inggris / Indonesia):\nPerkiraan waktu:\n\nYang diharapkan tim bisa lakukan setelah workshop:\n"
+  }
+}

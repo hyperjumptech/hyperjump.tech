@@ -98,6 +98,7 @@
       "feature": "Feature",
       "stipend": "Individual stipends",
       "chatgpt": "ChatGPT Business",
+      "copilot": "Microsoft 365 Copilot",
       "oneai": "OneAI"
     },
     "rows": {
@@ -105,70 +106,81 @@
         "feature": "20 users",
         "stipend": "Rp10,000,000 · Rp500k/person",
         "chatgpt": "Rp8,000,000 monthly · Rp6,400,000 annual",
+        "copilot": "Rp19,000,000+ · from $30/user + M365 base",
         "oneai": "Rp12,400,000"
       },
       "1": {
         "feature": "40 users",
         "stipend": "Rp20,000,000",
         "chatgpt": "Rp16,000,000 monthly · Rp12,800,000 annual",
+        "copilot": "Rp19,000,000+ · $30/user + M365 base",
         "oneai": "Rp12,400,000 · fixed price"
       },
       "2": {
         "feature": "Usage budget across providers",
         "stipend": "No",
         "chatgpt": "ChatGPT usage included",
+        "copilot": "No · flat add-on fee",
         "oneai": "USD 300 across providers"
       },
       "3": {
         "feature": "One budget across providers",
         "stipend": "No",
         "chatgpt": "ChatGPT only",
+        "copilot": "No · per-provider toggles",
         "oneai": "Yes"
       },
       "4": {
         "feature": "Single invoice & usage reports",
         "stipend": "No",
         "chatgpt": "Yes · ChatGPT only",
+        "copilot": "Yes · Microsoft only",
         "oneai": "Yes · all models"
       },
       "5": {
         "feature": "Ensure funds used for AI",
         "stipend": "No",
         "chatgpt": "Yes · within ChatGPT",
+        "copilot": "Requires M365 bundle",
         "oneai": "Yes"
       },
       "6": {
         "feature": "Admin chooses available models",
         "stipend": "No",
         "chatgpt": "OpenAI models only",
+        "copilot": "Yes · Microsoft + Anthropic + OpenAI",
         "oneai": "Yes · across providers"
       },
       "7": {
         "feature": "Multi-model, not one vendor",
         "stipend": "Depends on individual",
         "chatgpt": "No · OpenAI only",
+        "copilot": "Yes · Microsoft, Anthropic, OpenAI",
         "oneai": "Yes"
       },
       "8": {
         "feature": "Zero Data Retention (ZDR)",
         "stipend": "No",
         "chatgpt": "Default: no training · not ZDR",
+        "copilot": "No · stores interaction history",
         "oneai": "Yes"
       },
       "9": {
         "feature": "Internal knowledge, office files, code",
         "stipend": "No",
         "chatgpt": "Yes · ChatGPT",
+        "copilot": "Yes · Word/Excel/PPT/Teams",
         "oneai": "Yes · all models"
       },
       "10": {
         "feature": "On-prem or isolated instance",
         "stipend": "No",
         "chatgpt": "No · vendor cloud",
+        "copilot": "No · cloud-only",
         "oneai": "Yes"
       }
     },
-    "assumptions": "Assumptions: Rp16,000/USD exchange rate. Stipend example Rp500,000/person/month. ChatGPT Business $25/user/month (monthly) or $20/user/month (annual). USD 300 credit ≈ Rp4,800,000. ChatGPT Business includes model usage; extra credits are optional. Competitor prices may change; figures are for comparison, not their quotes.",
+    "assumptions": "Assumptions: Rp16,000/USD exchange rate. Stipend example Rp500,000/person/month. ChatGPT Business $25/user/month (monthly) or $20/user/month (annual). Microsoft 365 Copilot $30/user/month add-on on top of an eligible Microsoft 365 base license (all-in from ~$42/user/month) · minimum total prices shown. USD 300 credit ≈ Rp4,800,000. ChatGPT Business includes model usage; extra credits are optional. Competitor prices may change; figures are for comparison, not their quotes.",
     "why_section": {
       "label": "Why OneAI",
       "heading": "One platform beats three workarounds",

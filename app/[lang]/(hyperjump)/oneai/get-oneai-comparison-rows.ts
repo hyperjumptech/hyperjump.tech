@@ -1,46 +1,57 @@
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
   oneaiComparisonRows0Chatgpt,
+  oneaiComparisonRows0Copilot,
   oneaiComparisonRows0Feature,
   oneaiComparisonRows0Oneai,
   oneaiComparisonRows0Stipend,
   oneaiComparisonRows1Chatgpt,
+  oneaiComparisonRows1Copilot,
   oneaiComparisonRows1Feature,
   oneaiComparisonRows1Oneai,
   oneaiComparisonRows1Stipend,
   oneaiComparisonRows2Chatgpt,
+  oneaiComparisonRows2Copilot,
   oneaiComparisonRows2Feature,
   oneaiComparisonRows2Oneai,
   oneaiComparisonRows2Stipend,
   oneaiComparisonRows3Chatgpt,
+  oneaiComparisonRows3Copilot,
   oneaiComparisonRows3Feature,
   oneaiComparisonRows3Oneai,
   oneaiComparisonRows3Stipend,
   oneaiComparisonRows4Chatgpt,
+  oneaiComparisonRows4Copilot,
   oneaiComparisonRows4Feature,
   oneaiComparisonRows4Oneai,
   oneaiComparisonRows4Stipend,
   oneaiComparisonRows5Chatgpt,
+  oneaiComparisonRows5Copilot,
   oneaiComparisonRows5Feature,
   oneaiComparisonRows5Oneai,
   oneaiComparisonRows5Stipend,
   oneaiComparisonRows6Chatgpt,
+  oneaiComparisonRows6Copilot,
   oneaiComparisonRows6Feature,
   oneaiComparisonRows6Oneai,
   oneaiComparisonRows6Stipend,
   oneaiComparisonRows7Chatgpt,
+  oneaiComparisonRows7Copilot,
   oneaiComparisonRows7Feature,
   oneaiComparisonRows7Oneai,
   oneaiComparisonRows7Stipend,
   oneaiComparisonRows8Chatgpt,
+  oneaiComparisonRows8Copilot,
   oneaiComparisonRows8Feature,
   oneaiComparisonRows8Oneai,
   oneaiComparisonRows8Stipend,
   oneaiComparisonRows9Chatgpt,
+  oneaiComparisonRows9Copilot,
   oneaiComparisonRows9Feature,
   oneaiComparisonRows9Oneai,
   oneaiComparisonRows9Stipend,
   oneaiComparisonRows10Chatgpt,
+  oneaiComparisonRows10Copilot,
   oneaiComparisonRows10Feature,
   oneaiComparisonRows10Oneai,
   oneaiComparisonRows10Stipend,
@@ -59,6 +70,7 @@ export type OneaiComparisonRow = {
   feature: string;
   stipend: string;
   chatgpt: string;
+  copilot: string;
   oneai: string;
   advantage: OneaiComparisonRowAdvantage;
 };
@@ -72,6 +84,7 @@ type RowLoader = {
   feature: (lang: SupportedLanguage) => string;
   stipend: (lang: SupportedLanguage) => string;
   chatgpt: (lang: SupportedLanguage) => string;
+  copilot: (lang: SupportedLanguage) => string;
   oneai: (lang: SupportedLanguage) => string;
   advantage: OneaiComparisonRowAdvantage;
 };
@@ -95,6 +108,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows0Feature,
     stipend: oneaiComparisonRows0Stipend,
     chatgpt: oneaiComparisonRows0Chatgpt,
+    copilot: oneaiComparisonRows0Copilot,
     oneai: oneaiComparisonRows0Oneai,
     advantage: null
   },
@@ -102,6 +116,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows1Feature,
     stipend: oneaiComparisonRows1Stipend,
     chatgpt: oneaiComparisonRows1Chatgpt,
+    copilot: oneaiComparisonRows1Copilot,
     oneai: oneaiComparisonRows1Oneai,
     advantage: null
   },
@@ -109,6 +124,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows2Feature,
     stipend: oneaiComparisonRows2Stipend,
     chatgpt: oneaiComparisonRows2Chatgpt,
+    copilot: oneaiComparisonRows2Copilot,
     oneai: oneaiComparisonRows2Oneai,
     advantage: "capability"
   },
@@ -116,6 +132,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows3Feature,
     stipend: oneaiComparisonRows3Stipend,
     chatgpt: oneaiComparisonRows3Chatgpt,
+    copilot: oneaiComparisonRows3Copilot,
     oneai: oneaiComparisonRows3Oneai,
     advantage: "capability"
   },
@@ -123,6 +140,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows4Feature,
     stipend: oneaiComparisonRows4Stipend,
     chatgpt: oneaiComparisonRows4Chatgpt,
+    copilot: oneaiComparisonRows4Copilot,
     oneai: oneaiComparisonRows4Oneai,
     advantage: "capability"
   },
@@ -130,6 +148,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows5Feature,
     stipend: oneaiComparisonRows5Stipend,
     chatgpt: oneaiComparisonRows5Chatgpt,
+    copilot: oneaiComparisonRows5Copilot,
     oneai: oneaiComparisonRows5Oneai,
     advantage: null
   },
@@ -137,6 +156,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows6Feature,
     stipend: oneaiComparisonRows6Stipend,
     chatgpt: oneaiComparisonRows6Chatgpt,
+    copilot: oneaiComparisonRows6Copilot,
     oneai: oneaiComparisonRows6Oneai,
     advantage: "capability"
   },
@@ -144,6 +164,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows7Feature,
     stipend: oneaiComparisonRows7Stipend,
     chatgpt: oneaiComparisonRows7Chatgpt,
+    copilot: oneaiComparisonRows7Copilot,
     oneai: oneaiComparisonRows7Oneai,
     advantage: "capability"
   },
@@ -151,6 +172,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows8Feature,
     stipend: oneaiComparisonRows8Stipend,
     chatgpt: oneaiComparisonRows8Chatgpt,
+    copilot: oneaiComparisonRows8Copilot,
     oneai: oneaiComparisonRows8Oneai,
     advantage: "capability"
   },
@@ -158,6 +180,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows9Feature,
     stipend: oneaiComparisonRows9Stipend,
     chatgpt: oneaiComparisonRows9Chatgpt,
+    copilot: oneaiComparisonRows9Copilot,
     oneai: oneaiComparisonRows9Oneai,
     advantage: null
   },
@@ -165,6 +188,7 @@ const DEFAULT_ROW_LOADERS: RowLoader[] = [
     feature: oneaiComparisonRows10Feature,
     stipend: oneaiComparisonRows10Stipend,
     chatgpt: oneaiComparisonRows10Chatgpt,
+    copilot: oneaiComparisonRows10Copilot,
     oneai: oneaiComparisonRows10Oneai,
     advantage: "capability"
   }
@@ -196,10 +220,11 @@ export function getOneaiComparisonRows({
   lang,
   rowLoaders = DEFAULT_ROW_LOADERS
 }: GetOneaiComparisonRowsOptions): OneaiComparisonRow[] {
-  return rowLoaders.map(({ advantage, chatgpt, feature, oneai, stipend }) => ({
+  return rowLoaders.map(({ advantage, chatgpt, copilot, feature, oneai, stipend }) => ({
     feature: feature(lang),
     stipend: stipend(lang),
     chatgpt: chatgpt(lang),
+    copilot: copilot(lang),
     oneai: oneai(lang),
     advantage
   }));

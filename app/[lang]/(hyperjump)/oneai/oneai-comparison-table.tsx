@@ -6,6 +6,7 @@ import {
   oneaiComparisonAdvantagePriceBadge,
   oneaiComparisonAssumptions,
   oneaiComparisonColumnsChatgpt,
+  oneaiComparisonColumnsCopilot,
   oneaiComparisonColumnsFeature,
   oneaiComparisonColumnsOneai,
   oneaiComparisonColumnsStipend,
@@ -158,6 +159,11 @@ export function OneaiComparisonTable({ lang }: OneaiComparisonTableProps) {
               </th>
               <th
                 scope="col"
+                className="text-hyperjump-gray px-3 py-3 font-semibold">
+                {oneaiComparisonColumnsCopilot(lang)}
+              </th>
+              <th
+                scope="col"
                 className="bg-hyperjump-blue/10 text-hyperjump-black border-hyperjump-blue/20 border-b-2 px-3 py-3 font-bold">
                 {oneaiComparisonColumnsOneai(lang)}
               </th>
@@ -191,6 +197,10 @@ export function OneaiComparisonTable({ lang }: OneaiComparisonTableProps) {
                   <CompetitorCell
                     muted={mutedCompetitors}
                     value={row.chatgpt}
+                  />
+                  <CompetitorCell
+                    muted={mutedCompetitors}
+                    value={row.copilot}
                   />
                   <OneaiCell lang={lang} row={row} />
                 </tr>

@@ -98,6 +98,7 @@
       "feature": "Fitur",
       "stipend": "<i>Allowance</i> individu",
       "chatgpt": "ChatGPT Business",
+      "copilot": "Microsoft 365 Copilot",
       "oneai": "OneAI"
     },
     "rows": {
@@ -105,70 +106,81 @@
         "feature": "20 pengguna",
         "stipend": "Rp10.000.000 · Rp500 rb/orang",
         "chatgpt": "Rp8.000.000 bulanan · Rp6.400.000 tahunan",
+        "copilot": "Rp19.000.000+ · mulai $30/orang + lisensi M365",
         "oneai": "Rp12.400.000"
       },
       "1": {
         "feature": "40 pengguna",
         "stipend": "Rp20.000.000",
         "chatgpt": "Rp16.000.000 bulanan · Rp12.800.000 tahunan",
+        "copilot": "Rp19.000.000+ · $30/orang + lisensi M365",
         "oneai": "Rp12.400.000 · harga tetap"
       },
       "2": {
         "feature": "Anggaran pemakaian lintas penyedia",
         "stipend": "Tidak",
         "chatgpt": "Pemakaian ChatGPT termasuk",
+        "copilot": "Tidak · biaya tambahan flat",
         "oneai": "USD 300 lintas penyedia"
       },
       "3": {
         "feature": "Satu anggaran lintas penyedia",
         "stipend": "Tidak",
         "chatgpt": "Hanya ChatGPT",
+        "copilot": "Tidak · sakelar per penyedia",
         "oneai": "Ya"
       },
       "4": {
         "feature": "Satu tagihan & laporan pemakaian",
         "stipend": "Tidak",
         "chatgpt": "Ya · hanya ChatGPT",
+        "copilot": "Ya · hanya Microsoft",
         "oneai": "Ya · semua model"
       },
       "5": {
         "feature": "Jaminan dana benar-benar untuk AI",
         "stipend": "Tidak",
         "chatgpt": "Ya · di dalam ChatGPT",
+        "copilot": "Butuh paket M365",
         "oneai": "Ya"
       },
       "6": {
         "feature": "Admin pilih model yang tersedia",
         "stipend": "Tidak",
         "chatgpt": "Hanya model OpenAI",
+        "copilot": "Ya · Microsoft + Anthropic + OpenAI",
         "oneai": "Ya · lintas penyedia"
       },
       "7": {
         "feature": "Multi-model, bukan satu merek",
         "stipend": "Tergantung individu",
         "chatgpt": "Tidak · OpenAI saja",
+        "copilot": "Ya · Microsoft, Anthropic, OpenAI",
         "oneai": "Ya"
       },
       "8": {
         "feature": "Zero Data Retention (ZDR)",
         "stipend": "Tidak",
         "chatgpt": "Default: tanpa training · bukan ZDR",
+        "copilot": "Tidak · menyimpan riwayat interaksi",
         "oneai": "Ya"
       },
       "9": {
         "feature": "Pengetahuan internal, file kantor, kode",
         "stipend": "Tidak",
         "chatgpt": "Ya · ChatGPT",
+        "copilot": "Ya · Word/Excel/PPT/Teams",
         "oneai": "Ya · semua model"
       },
       "10": {
         "feature": "On-premise atau instance terisolasi",
         "stipend": "Tidak",
         "chatgpt": "Tidak · cloud vendor",
+        "copilot": "Tidak · cloud saja",
         "oneai": "Ya"
       }
     },
-    "assumptions": "Asumsi: kurs Rp16.000/USD. Contoh <i>allowance</i> Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (bulanan) atau $20/orang/bulan (tahunan). Kredit USD 300 ≈ Rp4.800.000. ChatGPT Business sudah termasuk pemakaian model; kredit tambahan sifatnya opsional. Harga kompetitor bisa berubah; angka di sini untuk perbandingan, bukan penawaran resmi mereka.",
+    "assumptions": "Asumsi: kurs Rp16.000/USD. Contoh <i>allowance</i> Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (bulanan) atau $20/orang/bulan (tahunan). Microsoft 365 Copilot add-on $30/orang/bulan di atas lisensi dasar Microsoft 365 yang memenuhi syarat (total mulai ~$42/orang/bulan) · harga minimum yang ditampilkan. Kredit USD 300 ≈ Rp4.800.000. ChatGPT Business sudah termasuk pemakaian model; kredit tambahan sifatnya opsional. Harga kompetitor bisa berubah; angka di sini untuk perbandingan, bukan penawaran resmi mereka.",
     "why_section": {
       "label": "Kenapa OneAI",
       "heading": "Satu platform utuh, bukan solusi tambal sulam",

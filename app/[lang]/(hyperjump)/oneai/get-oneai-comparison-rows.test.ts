@@ -37,16 +37,19 @@ describe("getOneaiComparisonRows", () => {
     expect(rows[0]?.feature).toBe("20 users");
     expect(rows[0]?.advantage).toBeNull();
     expect(rows[0]?.chatgpt).toContain("annual");
+    expect(rows[0]?.copilot).toContain("M365");
     expect(rows[1]?.advantage).toBeNull();
     expect(rows[1]?.chatgpt).toContain("Rp12,800,000");
     expect(rows[2]?.chatgpt).toContain("included");
     expect(rows[2]?.chatgpt).not.toMatch(/bought separately/i);
+    expect(rows[2]?.copilot).toContain("add-on");
     expect(rows[3]?.feature).toContain("across providers");
     expect(rows[9]?.chatgpt).toContain("Yes");
     expect(rows[9]?.oneai).toContain("Yes");
     expect(rows[9]?.advantage).toBeNull();
     expect(rows[10]?.feature).toContain("On-prem");
     expect(rows[10]?.oneai).toBe("Yes");
+    expect(rows[10]?.copilot).toContain("cloud-only");
     expect(rows[10]?.advantage).toBe("capability");
   });
 
@@ -57,9 +60,11 @@ describe("getOneaiComparisonRows", () => {
     expect(rows[0]?.feature).toBe("20 pengguna");
     expect(rows[1]?.oneai).toContain("harga tetap");
     expect(rows[1]?.chatgpt).toContain("tahunan");
+    expect(rows[1]?.copilot).toContain("M365");
     expect(rows[2]?.chatgpt).not.toMatch(/dibeli terpisah/i);
     expect(rows[3]?.advantage).toBe("capability");
     expect(rows[10]?.feature).toContain("On-premise");
+    expect(rows[10]?.copilot).toContain("cloud saja");
   });
 
   it("uses injected row loaders when provided", () => {
@@ -70,6 +75,7 @@ describe("getOneaiComparisonRows", () => {
           feature: () => "Feature A",
           stipend: () => "Stipend A",
           chatgpt: () => "ChatGPT A",
+          copilot: () => "Copilot A",
           oneai: () => "OneAI A",
           advantage: "price"
         }
@@ -81,6 +87,7 @@ describe("getOneaiComparisonRows", () => {
         feature: "Feature A",
         stipend: "Stipend A",
         chatgpt: "ChatGPT A",
+        copilot: "Copilot A",
         oneai: "OneAI A",
         advantage: "price"
       }

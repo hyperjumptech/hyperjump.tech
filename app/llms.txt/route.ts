@@ -29,6 +29,12 @@ We offer expert technology solutions to help businesses scale, enhance efficienc
 
 ${serviceList()}
 
+## Hands-on AI workshop
+
+An in-person workshop for teams already using ChatGPT or Gemini. Everyone types. Participants leave knowing where AI fails, and when not to use it. Contact: ${data.email}
+
+- [Hands-on AI Workshop](${url}/${LOCALE}/ai-workshop)
+
 ## Case studies
 
 Discover how we successfully transform challenges into opportunities with real-world solutions that drive lasting impact and business growth.

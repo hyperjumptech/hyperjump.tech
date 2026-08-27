@@ -70,6 +70,7 @@ import {
   location,
   services
 } from "./data";
+import { AiWorkshopTeaser } from "./ai-workshop/workshop-teaser";
 import { getFeaturedProducts } from "./products/get-featured-products";
 import { getProductBySlug } from "./products/get-product-by-slug";
 
@@ -115,6 +116,7 @@ export default async function MainPage({ params }: HomeProps) {
     <>
       <Hero lang={lang} />
       <Services lang={lang} />
+      <AiWorkshopTeaser lang={lang} />
       <CaseStudies lang={lang} />
       <FeaturedProducts lang={lang} />
       <OpenSourceProducts lang={lang} />

@@ -220,14 +220,16 @@ export function getOneaiComparisonRows({
   lang,
   rowLoaders = DEFAULT_ROW_LOADERS
 }: GetOneaiComparisonRowsOptions): OneaiComparisonRow[] {
-  return rowLoaders.map(({ advantage, chatgpt, copilot, feature, oneai, stipend }) => ({
-    feature: feature(lang),
-    stipend: stipend(lang),
-    chatgpt: chatgpt(lang),
-    copilot: copilot(lang),
-    oneai: oneai(lang),
-    advantage
-  }));
+  return rowLoaders.map(
+    ({ advantage, chatgpt, copilot, feature, oneai, stipend }) => ({
+      feature: feature(lang),
+      stipend: stipend(lang),
+      chatgpt: chatgpt(lang),
+      copilot: copilot(lang),
+      oneai: oneai(lang),
+      advantage
+    })
+  );
 }
 
 /**

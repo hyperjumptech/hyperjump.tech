@@ -67,6 +67,10 @@
     "6": {
       "title": "Otomasi terjadwal",
       "text": "Serahkan tugas rutin ke model pilihan Anda: tiap jam, harian, mingguan, atau sesuai jadwal yang Anda tentukan."
+    },
+    "7": {
+      "title": "Redaksi PII",
+      "text": "Deteksi dan samarkan data sensitif seperti NIK, NPWP, no. HP dan email otomatis sebelum dikirim ke model, lengkap dengan audit log."
     }
   },
   "comparison": {

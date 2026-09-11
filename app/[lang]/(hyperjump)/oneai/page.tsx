@@ -30,6 +30,8 @@ import {
   oneaiCapabilities5Title,
   oneaiCapabilities6Text,
   oneaiCapabilities6Title,
+  oneaiCapabilities7Text,
+  oneaiCapabilities7Title,
   oneaiCapabilitiesLabel,
   oneaiCloseCtaCta,
   oneaiCloseCtaDesc,
@@ -207,6 +209,10 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
     {
       title: oneaiCapabilities6Title(lang),
       text: oneaiCapabilities6Text(lang)
+    },
+    {
+      title: oneaiCapabilities7Title(lang),
+      text: oneaiCapabilities7Text(lang)
     }
   ];
   const compareItems = [

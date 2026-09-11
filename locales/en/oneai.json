@@ -67,6 +67,10 @@
     "6": {
       "title": "Scheduled automation",
       "text": "Tell a selected model what to do: hourly, daily, weekly, or on your own schedule."
+    },
+    "7": {
+      "title": "PII Redaction",
+      "text": "Automatically detect and mask sensitive data such as NIK, NPWP, phone and email before it reaches the model, with audit logs."
     }
   },
   "comparison": {

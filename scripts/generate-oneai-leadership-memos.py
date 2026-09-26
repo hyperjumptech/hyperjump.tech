@@ -47,9 +47,9 @@ EN = {
     "request_heading": "1. Request",
     "request": (
         "I recommend we evaluate OneAI from Hyperjump Technology as our "
-        "company-wide AI platform, or at minimum schedule a 30-minute briefing. "
-        "This is not about replacing personal ChatGPT for a few people. It is "
-        "about governing AI now that 20-40 of us already use it."
+        "company AI platform: one workspace for OpenAI, Claude, Gemini, "
+        "DeepSeek, and other models, running only for us. Please at least "
+        "schedule a 30-minute briefing."
     ),
     "why_heading": "2. Why this matters now",
     "why_intro": (
@@ -71,7 +71,7 @@ EN = {
         ),
         (
             "Real capability",
-            "office files, internal knowledge, code execution, and more than one model vendor.",
+            "ask files, a VolunteerNow Helpdesk knowledge base, documents, code, web search, PII handling, budgets, and multiple providers in one workspace.",
         ),
     ],
     "cost": (
@@ -126,9 +126,8 @@ ID = {
     "request": (
         "Saya mengusulkan agar perusahaan mengevaluasi OneAI dari Hyperjump "
         "Technology sebagai platform AI terpadu, atau setidaknya menjadwalkan "
-        "briefing 30 menit. Ini bukan usulan mengganti ChatGPT pribadi untuk "
-        "beberapa orang. Ini usulan mengatur AI begitu 20-40 orang di "
-        "perusahaan sudah memakainya."
+        "briefing 30 menit. OneAI adalah satu workspace untuk OpenAI, Claude, "
+        "Gemini, DeepSeek, dan model lain, yang berjalan hanya untuk perusahaan kita."
     ),
     "why_heading": "2. Mengapa ini penting sekarang",
     "why_intro": (
@@ -150,7 +149,7 @@ ID = {
         ),
         (
             "Kapabilitas yang nyata",
-            "file kantor, pengetahuan internal, eksekusi kode, dan lebih dari satu vendor model.",
+            "tanya file, basis VolunteerNow Helpdesk, dokumen, kode, pencarian web, penanganan PII, anggaran, dan multiple providers dalam satu workspace.",
         ),
     ],
     "cost": (

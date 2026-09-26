@@ -6,8 +6,7 @@
   "hero": {
     "eyebrow": "AI enterprise dalam satu platform",
     "heading": "OneAI",
-    "tagline": "Seperti ChatGPT, tapi lebih baik!",
-    "lede": "Satu platform AI untuk semua tim di perusahaan, berjalan di server Anda sendiri (on-premise). Terkendali, teraudit, dan hemat biaya.",
+    "lede": "Satu workspace milik perusahaan Anda, dengan model yang tim sudah mau pakai: OpenAI, Claude, Gemini, DeepSeek, dan lainnya. Berjalan hanya untuk Anda, di server Anda atau terisolasi di server kami.",
     "proofs": {
       "0": "Dashboard terpusat",
       "1": "Satu anggaran untuk semua",
@@ -35,42 +34,42 @@
     "2": {
       "kicker": "03 · Kapasitas",
       "title": "Model terbaru, tanpa menunggu",
-      "text": "Pakai model AI terkini begitu diluncurkan: OpenAI, Anthropic, DeepSeek, dan lainnya. Admin bebas menentukan model mana yang bisa diakses tiap tim."
+      "text": "Pakai OpenAI, Claude, Gemini, DeepSeek, dan model lain begitu tersedia. Admin yang menentukan model mana yang bisa diakses tiap tim."
     }
   },
   "capabilities": {
     "label": "Yang bisa dikerjakan tim Anda",
     "0": {
-      "title": "Baca & buat file kantor",
-      "text": "Buat DOCX, PPTX, XLSX, hingga PDF langsung lewat perintah ke AI secara native."
+      "title": "Tanya file",
+      "text": "Unggah file di chat, pilih dokumennya, lalu tanya. Lanjutkan di percakapan yang sama."
     },
     "1": {
-      "title": "Tulis & jalankan kode",
-      "text": "AI menulis dan mengeksekusi kode dalam terminal yang disiapkan untuk masing-masing indvidu sehingga tugas yang lebih kompleks dapat dilakukan tanpa tambahan harness coding seperti Claude code, OpenCode, dan lain-lain."
+      "title": "Pengetahuan bersama",
+      "text": "Agen VolunteerNow Helpdesk menjawab dari satu basis pengetahuan. Tidak perlu unggah ulang per orang."
     },
     "2": {
-      "title": "Jelajahi internet",
-      "text": "Cari informasi terbaru supaya jawabannya selalu akurat dan mutakhir."
+      "title": "Buat/Edit Dokumen",
+      "text": "Word, PowerPoint, Excel, atau PDF. Tulis brief-nya, lalu unduh filenya."
     },
     "3": {
-      "title": "Basis pengetahuan bersama",
-      "text": "Unggah dokumen internal, lalu tim bisa langsung mendapat jawaban dari basis pengetahuan perusahaan."
+      "title": "Jalankan kode",
+      "text": "Python atau JavaScript untuk scraping, bukti konsep website, atau grafik. Anda bisa meninjau apa yang dijalankan."
     },
     "4": {
-      "title": "Speech to text",
-      "text": "Ubah rekaman suara jadi teks. Pas untuk notulen rapat dan dokumentasi."
+      "title": "Pencarian web",
+      "text": "Nyalakan pencarian web kalau jawaban butuh internet. Kalau mati, model tetap di batas pengetahuannya."
     },
     "5": {
-      "title": "Text to speech",
-      "text": "Ubah teks jadi suara yang natural untuk konten audio maupun asisten virtual."
+      "title": "Penanganan PII",
+      "text": "NIK, email, dan data sensitif lain. Deteksi, samarkan, atau blokir pesannya."
     },
     "6": {
-      "title": "Otomasi terjadwal",
-      "text": "Serahkan tugas rutin ke model pilihan Anda: tiap jam, harian, mingguan, atau sesuai jadwal yang Anda tentukan."
+      "title": "Anggaran",
+      "text": "Batas per penyedia, virtual key, model, organisasi, tim, atau pengguna. Batasi biaya, token, atau jumlah permintaan."
     },
     "7": {
-      "title": "Redaksi PII",
-      "text": "Deteksi dan samarkan data sensitif seperti NIK, NPWP, no. HP dan email otomatis sebelum dikirim ke model, lengkap dengan audit log."
+      "title": "Multiple Providers",
+      "text": "Sambungkan penyedia yang sudah Anda pakai. Semua orang bekerja di satu workspace."
     }
   },
   "comparison": {

@@ -33,13 +33,12 @@ EN = {
     "file": "oneai-promo-en.pdf",
     "place": "JAKARTA · INDONESIA",
     "eyebrow": "UNIFIED ENTERPRISE AI",
-    "lede": "One AI platform for your entire company. On your servers, or isolated on ours.",
+    "lede": "One workspace your company owns, with the models your teams already want: OpenAI, Claude, Gemini, DeepSeek, and others. It runs only for you, on your servers or isolated on ours.",
     "proofs": [
         "Centralized dashboard",
         "One budget for everyone",
         "Latest models on release",
         "On-prem, or isolated hosting",
-        "Jakarta-based support",
     ],
     "pillars": [
         (
@@ -55,17 +54,19 @@ EN = {
         (
             "03 · CAPACITY",
             "Latest models, fast",
-            "Access current AI models as they launch: OpenAI, Anthropic, DeepSeek, and more. Admins choose which models each team can use.",
+            "Use OpenAI, Claude, Gemini, DeepSeek, and other models as they launch. Admins choose which ones each team can access.",
         ),
     ],
     "cap_label": "WHAT YOUR TEAM CAN DO",
     "caps": [
-        ("Read & create office files", "DOCX, PPTX, XLSX, and PDF from AI commands."),
-        ("Write & run code", "AI writes and executes code for complex tasks."),
-        ("Browse the web", "Search for up-to-date information."),
-        ("Shared knowledge", "Answers from your company documents."),
-        ("Speech to text", "Voice into meeting notes and documentation."),
-        ("Text to speech", "Natural speech for audio and assistants."),
+        ("Ask your files", "Upload in the chat, ask, and follow up in the same thread."),
+        ("Shared knowledge", "VolunteerNow Helpdesk uses one shared base. No re-upload per person."),
+        ("Create/Edit Documents", "Word, PowerPoint, Excel, or PDF. Type the brief, then download."),
+        ("Run code", "Python or JavaScript for scraping, a site POC, or charts. Review what it ran."),
+        ("Web search", "On for the live web. Off, and the model stays at its knowledge cutoff."),
+        ("PII Handling", "National ID, email, and more. Detect, redact, or block."),
+        ("Budget", "Cap by provider, key, model, org, team, or user: cost, tokens, or requests."),
+        ("Multiple Providers", "Connect the providers you already use. One workspace."),
     ],
     "plan_kicker": "PLAN · UP TO 40 USERS",
     "price": "Rp12.400.000 / month",
@@ -78,7 +79,6 @@ EN = {
         "Funds may not be spent on AI",
         "Extra admin overhead, higher cost",
         "No centralized control",
-        "Data leaves on 40 personal accounts",
     ],
     "p2_kicker": "ONEAI · COMPARISON",
     "p2_eyebrow": "WHY A CHATGPT SEAT IS NOT THE SAME PRODUCT",
@@ -129,13 +129,12 @@ ID = {
     "file": "oneai-promo-id.pdf",
     "place": "JAKARTA · INDONESIA",
     "eyebrow": "AI ENTERPRISE DALAM SATU PLATFORM",
-    "lede": "Satu platform AI untuk semua tim—di server Anda sendiri atau terisolasi di server kami.",
+    "lede": "Satu workspace milik perusahaan Anda, dengan model yang tim sudah mau pakai: OpenAI, Claude, Gemini, DeepSeek, dan lainnya. Berjalan hanya untuk Anda, di server Anda atau terisolasi di server kami.",
     "proofs": [
         "Dashboard terpusat",
         "Satu anggaran untuk semua",
         "Model terbaru begitu rilis",
         "On-premise, atau hosting terisolasi",
-        "Support dari tim Jakarta",
     ],
     "pillars": [
         (
@@ -151,17 +150,19 @@ ID = {
         (
             "03 · KAPASITAS",
             "Model terbaru, tanpa menunggu",
-            "Pakai model AI terkini begitu diluncurkan: OpenAI, Anthropic, DeepSeek, dan lainnya. Admin menentukan model untuk tiap tim.",
+            "Pakai OpenAI, Claude, Gemini, DeepSeek, dan model lain begitu tersedia. Admin menentukan model untuk tiap tim.",
         ),
     ],
     "cap_label": "YANG BISA DIKERJAKAN TIM ANDA",
     "caps": [
-        ("Baca & buat file kantor", "DOCX, PPTX, XLSX, & PDF lewat perintah AI."),
-        ("Tulis & jalankan kode", "AI menulis dan menjalankan kode."),
-        ("Jelajahi internet", "Cari informasi terbaru yang akurat."),
-        ("Basis pengetahuan bersama", "Jawaban dari dokumen internal perusahaan."),
-        ("Speech to text", "Ubah suara jadi teks & notulen."),
-        ("Text to speech", "Suara natural untuk audio & asisten."),
+        ("Tanya file", "Unggah di chat, tanya, lanjut di percakapan yang sama."),
+        ("Pengetahuan bersama", "Agen VolunteerNow Helpdesk, satu basis. Tanpa unggah ulang per orang."),
+        ("Buat/Edit Dokumen", "Word, PowerPoint, Excel, atau PDF. Tulis brief, lalu unduh."),
+        ("Jalankan kode", "Python atau JavaScript untuk scraping, POC website, atau grafik."),
+        ("Pencarian web", "Nyala untuk web hidup. Mati, model tetap di batas pengetahuannya."),
+        ("Penanganan PII", "NIK, email, dan lainnya. Deteksi, samarkan, atau blokir."),
+        ("Anggaran", "Batas per penyedia, key, model, org, tim, atau user: biaya, token, atau permintaan."),
+        ("Multiple Providers", "Sambungkan penyedia yang sudah dipakai. Satu workspace."),
     ],
     "plan_kicker": "PAKET · HINGGA 40 PENGGUNA",
     "price": "Rp12.400.000 / bulan",
@@ -174,7 +175,6 @@ ID = {
         "Dana belum tentu dipakai untuk AI",
         "Administrasi bertambah, biaya membengkak",
         "Tidak ada kontrol terpusat",
-        "Data tersebar di 40 akun pribadi",
     ],
     "p2_kicker": "ONEAI · PERBANDINGAN",
     "p2_eyebrow": "KENAPA KURSI CHATGPT ITU PRODUK BERBEDA",
@@ -368,11 +368,11 @@ def page_one(c: canvas.Canvas, copy: dict) -> None:
     c.setFont("Helvetica-Bold", 8)
     c.drawString(MARGIN, y, copy["cap_label"])
     y -= 18
-    cap_w = (PAGE_W - 2 * MARGIN - 16) / 3
+    cap_w = (PAGE_W - 2 * MARGIN - 24) / 4
     for i, (title, body) in enumerate(copy["caps"]):
-        col, row = i % 3, i // 3
+        col, row = i % 4, i // 4
         x = MARGIN + col * (cap_w + 8)
-        cy = y - row * 52
+        cy = y - row * 58
         c.setFillColor(INK)
         c.setFont("Helvetica-Bold", 9)
         c.drawString(x, cy, title)

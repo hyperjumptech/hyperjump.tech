@@ -42,7 +42,6 @@ import {
   oneaiHeroEyebrow,
   oneaiHeroHeading,
   oneaiHeroLede,
-  oneaiHeroTagline,
   oneaiHeroProofs0,
   oneaiHeroProofs1,
   oneaiHeroProofs2,
@@ -267,11 +266,6 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
                     </li>
                   ))}
                 </ul>
-                <p
-                  className="mb-5 inline-block rounded-lg bg-yellow-300/15 px-3 py-1.5 text-base font-semibold text-yellow-100 ring-1 ring-yellow-300/35 ring-inset md:text-[17px]"
-                  data-testid="oneai-hero-tagline">
-                  {oneaiHeroTagline(lang)}
-                </p>
                 <Button
                   asChild
                   className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 hidden h-12 rounded-full px-8 text-base font-semibold shadow-lg shadow-[#635BFF]/25 md:inline-flex">
@@ -324,13 +318,13 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
       </section>
 
       <section className="bg-[#F6F8F9] py-16 md:py-24">
-        <div className="mx-auto max-w-5xl px-4 md:px-20 xl:px-0">
+        <div className="mx-auto max-w-6xl px-4 md:px-8 xl:px-0">
           <SectionReveal>
             <h2 className="text-hyperjump-black mb-10 text-center text-3xl font-semibold tracking-tight md:text-4xl">
               {oneaiCapabilitiesLabel(lang)}
             </h2>
           </SectionReveal>
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {capabilities.map(({ text, title }) => (
               <StaggerItem key={title}>
                 <article className="h-full rounded-2xl border border-black/6 bg-white p-6 shadow-sm">

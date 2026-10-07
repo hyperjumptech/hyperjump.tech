@@ -1,15 +1,5 @@
 import type { SupportedLanguage } from "@/locales/.generated/types";
 import {
-  oneaiComparisonRows0Chatgpt,
-  oneaiComparisonRows0Copilot,
-  oneaiComparisonRows0Feature,
-  oneaiComparisonRows0Oneai,
-  oneaiComparisonRows0Stipend,
-  oneaiComparisonRows1Chatgpt,
-  oneaiComparisonRows1Copilot,
-  oneaiComparisonRows1Feature,
-  oneaiComparisonRows1Oneai,
-  oneaiComparisonRows1Stipend,
   oneaiComparisonRows2Chatgpt,
   oneaiComparisonRows2Copilot,
   oneaiComparisonRows2Feature,
@@ -104,22 +94,6 @@ const NEGATIVE_COMPARISON_VALUE_PATTERN =
   /^(No|Tidak|Limited|Terbatas|Not ZDR|Bukan ZDR|Tergantung|Depends)/i;
 
 const DEFAULT_ROW_LOADERS: RowLoader[] = [
-  {
-    feature: oneaiComparisonRows0Feature,
-    stipend: oneaiComparisonRows0Stipend,
-    chatgpt: oneaiComparisonRows0Chatgpt,
-    copilot: oneaiComparisonRows0Copilot,
-    oneai: oneaiComparisonRows0Oneai,
-    advantage: null
-  },
-  {
-    feature: oneaiComparisonRows1Feature,
-    stipend: oneaiComparisonRows1Stipend,
-    chatgpt: oneaiComparisonRows1Chatgpt,
-    copilot: oneaiComparisonRows1Copilot,
-    oneai: oneaiComparisonRows1Oneai,
-    advantage: null
-  },
   {
     feature: oneaiComparisonRows2Feature,
     stipend: oneaiComparisonRows2Stipend,

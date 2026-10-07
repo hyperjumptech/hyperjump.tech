@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "OneAI: Unified Enterprise AI Platform | Hyperjump",
-    "description": "One controlled AI platform for your whole company. On-prem or isolated hosting, one budget, Zero Data Retention, and the latest models, up to 40 users from Rp12.400.000/month."
+    "description": "One controlled AI platform for your whole company. On-prem or isolated hosting, one budget, Zero Data Retention, and the latest models for teams of up to 40 users."
   },
   "hero": {
     "eyebrow": "Unified enterprise AI",
@@ -92,9 +92,9 @@
     "good_fit": {
       "kicker": "Good fit if",
       "title": "20-40 people who need one platform, not 20-40 subscriptions",
-      "text": "One invoice of Rp12,400,000 for up to 40 users, including USD 300 credit across model providers, plus on-prem or isolated hosting, multi-model access, and local implementation. At 40 annual ChatGPT seats the prices are close. Buy the platform, not a cheaper chat seat."
+      "text": "One platform for up to 40 users, with a shared budget across model providers, on-prem or isolated hosting, multi-model access, and local implementation. Choose the platform when you need control beyond a chat subscription."
     },
-    "table_label": "Cost and capability comparison · per month",
+    "table_label": "Capability comparison",
     "advantage_price_badge": "Best value",
     "advantage_included_badge": "Included",
     "columns": {
@@ -106,25 +106,25 @@
     },
     "rows": {
       "0": {
-        "feature": "20 users",
-        "stipend": "Rp10,000,000 · Rp500k/person",
-        "chatgpt": "Rp8,000,000 monthly · Rp6,400,000 annual",
-        "copilot": "Rp19,000,000+ · from $30/user + M365 base",
-        "oneai": "Rp12,400,000"
+        "feature": "Deployment fit",
+        "stipend": "Individual accounts",
+        "chatgpt": "Vendor workspace",
+        "copilot": "Microsoft workspace",
+        "oneai": "Company AI platform"
       },
       "1": {
-        "feature": "40 users",
-        "stipend": "Rp20,000,000",
-        "chatgpt": "Rp16,000,000 monthly · Rp12,800,000 annual",
-        "copilot": "Rp19,000,000+ · $30/user + M365 base",
-        "oneai": "Rp12,400,000 · fixed price"
+        "feature": "Governance",
+        "stipend": "Employee managed",
+        "chatgpt": "Single-vendor controls",
+        "copilot": "Microsoft controls",
+        "oneai": "Cross-provider controls"
       },
       "2": {
         "feature": "Usage budget across providers",
         "stipend": "No",
         "chatgpt": "ChatGPT usage included",
         "copilot": "No · flat add-on fee",
-        "oneai": "USD 300 across providers"
+        "oneai": "Shared budget across providers"
       },
       "3": {
         "feature": "One budget across providers",
@@ -183,7 +183,7 @@
         "oneai": "Yes"
       }
     },
-    "assumptions": "Assumptions: Rp16,000/USD exchange rate. Stipend example Rp500,000/person/month. ChatGPT Business $25/user/month (monthly) or $20/user/month (annual). Microsoft 365 Copilot $30/user/month add-on on top of an eligible Microsoft 365 base license (all-in from ~$42/user/month) · minimum total prices shown. USD 300 credit ≈ Rp4,800,000. ChatGPT Business includes model usage; extra credits are optional. Competitor prices may change; figures are for comparison, not their quotes.",
+    "assumptions": "Capability notes: product availability and terms may change. Contact each provider for current commercial terms.",
     "why_section": {
       "label": "Why OneAI",
       "heading": "One platform beats three workarounds",
@@ -195,8 +195,8 @@
         "text": "Money in employee accounts can be spent on anything. There is no model reporting, no audit trail, and no way to enforce company policy. <strong>You pay for capacity you cannot see.</strong>"
       },
       "1": {
-        "title": "Seat price is not the product",
-        "text": "At 40 users, ChatGPT Business is about Rp16 million monthly or Rp12.8 million annually. OneAI stays at Rp12.4 million for up to 40 users. Those prices are close. The case is <strong>one platform across vendors</strong>, not cheaper OpenAI chat."
+        "title": "A seat is not the product",
+        "text": "The case for OneAI is <strong>one platform across vendors</strong>, not a cheaper OpenAI chat seat."
       },
       "2": {
         "title": "ChatGPT already ships knowledge, files, and code",
@@ -225,23 +225,6 @@
     "cta": "Talk to the Jakarta team",
     "image_alt": "Hyperjump engineers collaborating in a Jakarta office"
   },
-  "pricing": {
-    "label": "Plan · up to 40 users",
-    "price": "Rp12.400.000",
-    "price_unit": "/ month · before tax",
-    "quarterly": "Billed quarterly · Rp37.200.000 per quarter before tax",
-    "annual": "Save 10% with annual billing",
-    "includes": "Installed on-prem (we maintain it) or on an isolated managed server. Includes USD 300 AI credit, 1× team onboarding, and monthly usage reports. Customization (internal systems, custom SSO, etc.) scoped separately.",
-    "compare_kicker": "Compare",
-    "compare_title": "Individual AI stipends usually fail",
-    "compare_items": {
-      "0": "Usage cannot be verified",
-      "1": "Funds may not be spent on AI",
-      "2": "Extra admin overhead, higher cost",
-      "3": "No centralized control"
-    },
-    "cta": "Email us to get started"
-  },
   "faq": {
     "heading": "Frequently asked questions",
     "desc": "Straight answers about the OneAI plan. Need more detail? Email us. We reply quickly.",
@@ -250,8 +233,8 @@
       "answer": "The standard OneAI plan covers up to 40 users. Need more seats or a phased rollout? Tell us your team size when you reach out."
     },
     "1": {
-      "question": "How is billing structured?",
-      "answer": "Rp12.400.000 per month before tax, invoiced quarterly (Rp37.200.000 per quarter before tax). Annual billing saves 10%."
+      "question": "How are commercial terms structured?",
+      "answer": "Contact us to discuss commercial terms for your rollout, hosting requirements, and timeline."
     },
     "2": {
       "question": "What is Zero Data Retention (ZDR)?",
@@ -259,7 +242,7 @@
     },
     "3": {
       "question": "What is included in the plan?",
-      "answer": "USD 300 in AI credits, one team training/orientation session, and monthly usage reports, plus centralized access to current models and admin controls."
+      "answer": "AI usage capacity, one team training/orientation session, and monthly usage reports, plus centralized access to current models and admin controls."
     },
     "4": {
       "question": "Can you integrate with our internal systems or SSO?",
@@ -270,8 +253,8 @@
       "answer": "Contact us. If you need more than 40 users, we will scope a plan that fits your team size."
     },
     "6": {
-      "question": "What happens if usage exceeds USD 300?",
-      "answer": "If monthly usage exceeds the included USD 300 credit, your company can choose to completely suspend further requests, or allow more requests and be charged for the overage."
+      "question": "What happens if usage reaches its limit?",
+      "answer": "Your company can choose to suspend further requests or contact us to discuss additional capacity."
     },
     "7": {
       "question": "Where is OneAI installed? Does our data stay with us?",
@@ -281,7 +264,7 @@
   "pdf_download": {
     "eyebrow": "Take it to your boss",
     "heading": "Building the business case?",
-    "desc": "Two files for internal sharing: a two-page PDF overview (product, pricing, comparison table, and local support), and a one-page Word memo you can send to your manager or leadership on why the company should consider OneAI.",
+    "desc": "Two files for internal sharing: a two-page PDF overview (product, capability comparison table, and local support), and a one-page Word memo you can send to your manager or leadership on why the company should consider OneAI.",
     "cta": "Download PDF (2 pages)",
     "file_name": "OneAI-overview.pdf"
   },
@@ -296,7 +279,7 @@
   },
   "mailto": {
     "subject": "OneAI plan inquiry: up to 40 users",
-    "body": "Hi Hyperjump team,\n\nI am interested in the OneAI plan (up to 40 users, Rp12.400.000/month).\n\nCompany:\nName:\nTeam size:\nPreferred start date:\n\nAdditional notes:\n"
+    "body": "Hi Hyperjump team,\n\nI am interested in OneAI for my company.\n\nCompany:\nName:\nTeam size:\nPreferred start date:\n\nAdditional notes:\n"
   },
   "sticky_cta": "Get OneAI plan"
 }

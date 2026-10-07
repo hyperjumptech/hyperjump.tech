@@ -10,8 +10,7 @@ import {
   oneaiSupportHeading,
   oneaiMailtoSubject,
   oneaiMetaDescription,
-  oneaiMetaTitle,
-  oneaiPricingPrice
+  oneaiMetaTitle
 } from "@/locales/.generated/strings";
 import { supportedLanguages } from "@/locales/.generated/types";
 
@@ -66,16 +65,15 @@ for (const locale of supportedLanguages) {
       expect(ogImage).toContain("/images/oneai/og.png");
     });
 
-    test("shows pricing amount", async ({ page }) => {
-      await expect(page.getByTestId("oneai-price")).toHaveText(
-        new RegExp(oneaiPricingPrice(locale).replace(/\./g, "\\."))
-      );
+    test("does not expose a price section", async ({ page }) => {
+      await expect(page.getByTestId("oneai-pricing")).toHaveCount(0);
+      await expect(page.getByTestId("oneai-price")).toHaveCount(0);
     });
 
     test("mailto CTA includes prefilled subject", async ({ page }) => {
       await page.setViewportSize({ width: 1280, height: 800 });
       const href = await page
-        .getByTestId("oneai-pricing-cta")
+        .getByTestId("oneai-hero-cta")
         .getAttribute("href");
 
       expect(href).toContain("mailto:solution@hyperjump.tech");

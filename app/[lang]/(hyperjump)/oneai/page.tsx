@@ -60,19 +60,6 @@ import {
   oneaiPillars2Text,
   oneaiPillars2Title,
   oneaiPillarsLabel,
-  oneaiPricingAnnual,
-  oneaiPricingCompareItems0,
-  oneaiPricingCompareItems1,
-  oneaiPricingCompareItems2,
-  oneaiPricingCompareItems3,
-  oneaiPricingCompareKicker,
-  oneaiPricingCompareTitle,
-  oneaiPricingCta,
-  oneaiPricingIncludes,
-  oneaiPricingLabel,
-  oneaiPricingPrice,
-  oneaiPricingPriceUnit,
-  oneaiPricingQuarterly,
   oneaiStickyCta
 } from "@/locales/.generated/strings";
 
@@ -214,13 +201,6 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
       text: oneaiCapabilities7Text(lang)
     }
   ];
-  const compareItems = [
-    oneaiPricingCompareItems0(lang),
-    oneaiPricingCompareItems1(lang),
-    oneaiPricingCompareItems2(lang),
-    oneaiPricingCompareItems3(lang)
-  ];
-
   return (
     <main className="pb-24 md:pb-0">
       <script
@@ -339,68 +319,6 @@ export default async function OneaiPage({ params }: OneaiPageProps) {
               </StaggerItem>
             ))}
           </StaggerContainer>
-        </div>
-      </section>
-
-      <section
-        id="pricing"
-        data-testid="oneai-pricing"
-        className="bg-cta-premium relative overflow-hidden py-16 text-white md:py-24">
-        <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-20 xl:px-0">
-          <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
-            <SectionReveal>
-              <p className="text-hyperjump-teal mb-4 text-xs font-bold tracking-[0.16em] uppercase">
-                {oneaiPricingLabel(lang)}
-              </p>
-              <p
-                className="mb-2 text-4xl font-bold tracking-tight md:text-5xl"
-                data-testid="oneai-price">
-                {oneaiPricingPrice(lang)}
-                <span className="ml-2 text-lg font-medium text-white/70">
-                  {oneaiPricingPriceUnit(lang)}
-                </span>
-              </p>
-              <p className="mb-4 text-base text-white/75">
-                {oneaiPricingQuarterly(lang)}
-              </p>
-              <span className="bg-hyperjump-blue/20 text-hyperjump-teal mb-6 inline-block rounded-full px-4 py-1.5 text-sm font-semibold">
-                {oneaiPricingAnnual(lang)}
-              </span>
-              <p className="mb-8 text-sm leading-relaxed text-white/60">
-                {oneaiPricingIncludes(lang)}
-              </p>
-              <Button
-                asChild
-                className="bg-hyperjump-blue hover:bg-hyperjump-blue/90 h-12 rounded-full px-8 text-base font-semibold">
-                <Link href={mailtoHref} data-testid="oneai-pricing-cta">
-                  <MailIcon className="mr-2 h-4 w-4" aria-hidden />
-                  {oneaiPricingCta(lang)}
-                </Link>
-              </Button>
-            </SectionReveal>
-
-            <SectionReveal delay={0.1}>
-              <p className="text-hyperjump-teal mb-3 text-xs font-bold tracking-[0.16em] uppercase">
-                {oneaiPricingCompareKicker(lang)}
-              </p>
-              <h2
-                className="mb-6 text-2xl font-semibold md:text-3xl"
-                dangerouslySetInnerHTML={{
-                  __html: oneaiPricingCompareTitle(lang)
-                }}
-              />
-              <ul className="space-y-4">
-                {compareItems.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 border-b border-white/10 pb-4 text-white/85 last:border-0">
-                    <span className="mt-2 h-0.5 w-4 shrink-0 bg-red-400" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </SectionReveal>
-          </div>
         </div>
       </section>
 

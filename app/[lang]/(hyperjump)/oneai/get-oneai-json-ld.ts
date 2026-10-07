@@ -43,7 +43,7 @@ const ONEAI_OG_IMAGE_PATH = "/images/oneai/og.png";
  * Returns structured data graphs for the OneAI landing page.
  *
  * @param options - Locale, URLs, and optional string loaders for DI
- * @returns JSON-LD graph with SoftwareApplication, Offer, FAQPage, and BreadcrumbList
+ * @returns JSON-LD graph with SoftwareApplication, FAQPage, and BreadcrumbList
  */
 export function getOneaiJsonLd({
   lang,
@@ -85,16 +85,6 @@ export function getOneaiJsonLd({
         description,
         url: pageUrl,
         image: `${siteUrl}${ONEAI_OG_IMAGE_PATH}`,
-        offers: {
-          "@type": "Offer",
-          price: "12400000",
-          priceCurrency: "IDR",
-          description:
-            lang === "id"
-              ? "Paket hingga 40 pengguna, ditagih per kuartal, sebelum pajak"
-              : "Plan for up to 40 users, billed quarterly, before tax",
-          url: pageUrl
-        },
         provider: {
           "@type": "Organization",
           name: "Hyperjump Technology",

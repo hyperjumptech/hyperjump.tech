@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "OneAI: Platform AI Enterprise Terpadu | Hyperjump",
-    "description": "Satu platform AI yang terkendali untuk semua tim di perusahaan. On-premise atau hosting terisolasi, satu anggaran, Zero Data Retention, plus akses model terbaru. Untuk hingga 40 pengguna, mulai Rp12.400.000/bulan."
+    "description": "Satu platform AI yang terkendali untuk semua tim di perusahaan. On-premise atau hosting terisolasi, satu anggaran, Zero Data Retention, plus akses model terbaru untuk hingga 40 pengguna."
   },
   "hero": {
     "eyebrow": "AI enterprise dalam satu platform",
@@ -92,9 +92,9 @@
     "good_fit": {
       "kicker": "Cocok jika",
       "title": "20-40 orang yang butuh satu platform, bukan 20-40 langganan",
-      "text": "Satu tagihan Rp12.400.000 untuk hingga 40 pengguna, sudah termasuk kredit USD 300 lintas penyedia model, hosting on-premise atau terisolasi, akses multi-model, dan implementasi di tempat Anda. Dibanding 40 kursi ChatGPT tahunan, selisih harganya tipis. Jadi, ambil platformnya, bukan sekadar kursi chat yang lebih murah."
+      "text": "Satu platform untuk hingga 40 pengguna, dengan satu anggaran lintas penyedia model, hosting on-premise atau terisolasi, akses multi-model, dan implementasi di tempat Anda. Pilih platform saat Anda membutuhkan kontrol yang lebih dari sekadar langganan chat."
     },
-    "table_label": "Perbandingan biaya dan kemampuan · per bulan",
+    "table_label": "Perbandingan kemampuan",
     "advantage_price_badge": "Harga terbaik",
     "advantage_included_badge": "Termasuk",
     "columns": {
@@ -106,25 +106,25 @@
     },
     "rows": {
       "0": {
-        "feature": "20 pengguna",
-        "stipend": "Rp10.000.000 · Rp500 rb/orang",
-        "chatgpt": "Rp8.000.000 bulanan · Rp6.400.000 tahunan",
-        "copilot": "Rp19.000.000+ · mulai $30/orang + lisensi M365",
-        "oneai": "Rp12.400.000"
+        "feature": "Kecocokan penerapan",
+        "stipend": "Akun perorangan",
+        "chatgpt": "Workspace vendor",
+        "copilot": "Workspace Microsoft",
+        "oneai": "Platform AI perusahaan"
       },
       "1": {
-        "feature": "40 pengguna",
-        "stipend": "Rp20.000.000",
-        "chatgpt": "Rp16.000.000 bulanan · Rp12.800.000 tahunan",
-        "copilot": "Rp19.000.000+ · $30/orang + lisensi M365",
-        "oneai": "Rp12.400.000 · harga tetap"
+        "feature": "Tata kelola",
+        "stipend": "Dikelola karyawan",
+        "chatgpt": "Kontrol satu vendor",
+        "copilot": "Kontrol Microsoft",
+        "oneai": "Kontrol lintas penyedia"
       },
       "2": {
         "feature": "Anggaran pemakaian lintas penyedia",
         "stipend": "Tidak",
         "chatgpt": "Pemakaian ChatGPT termasuk",
         "copilot": "Tidak · biaya tambahan flat",
-        "oneai": "USD 300 lintas penyedia"
+        "oneai": "Satu anggaran lintas penyedia"
       },
       "3": {
         "feature": "Satu anggaran lintas penyedia",
@@ -183,7 +183,7 @@
         "oneai": "Ya"
       }
     },
-    "assumptions": "Asumsi: kurs Rp16.000/USD. Contoh <i>allowance</i> Rp500.000/orang/bulan. ChatGPT Business $25/orang/bulan (bulanan) atau $20/orang/bulan (tahunan). Microsoft 365 Copilot add-on $30/orang/bulan di atas lisensi dasar Microsoft 365 yang memenuhi syarat (total mulai ~$42/orang/bulan) · harga minimum yang ditampilkan. Kredit USD 300 ≈ Rp4.800.000. ChatGPT Business sudah termasuk pemakaian model; kredit tambahan sifatnya opsional. Harga kompetitor bisa berubah; angka di sini untuk perbandingan, bukan penawaran resmi mereka.",
+    "assumptions": "Catatan kemampuan: ketersediaan produk dan ketentuannya dapat berubah. Hubungi masing-masing penyedia untuk ketentuan komersial terkini.",
     "why_section": {
       "label": "Kenapa OneAI",
       "heading": "Satu platform utuh, bukan solusi tambal sulam",
@@ -195,8 +195,8 @@
         "text": "Uang yang sudah masuk rekening karyawan bisa dipakai untuk apa saja. Tidak ada laporan pemakaian model, tidak ada jejak audit, dan tidak ada cara memastikan kebijakan perusahaan dipatuhi. Ujung-ujungnya Anda <strong>membayar kapasitas yang tidak bisa Anda pantau.</strong>"
       },
       "1": {
-        "title": "Harga kursi bukan produknya",
-        "text": "Untuk 40 pengguna, ChatGPT Business ada di kisaran Rp16 juta per bulan (bulanan) atau Rp12,8 juta (tahunan). OneAI tetap Rp12,4 juta untuk hingga 40 pengguna. Selisihnya tipis. Intinya bukan soal chat OpenAI yang lebih murah, tapi <strong>satu platform lintas vendor.</strong>"
+        "title": "Kursi bukan produknya",
+        "text": "Intinya adalah <strong>satu platform lintas vendor</strong>, bukan sekadar chat OpenAI yang lebih murah."
       },
       "2": {
         "title": "ChatGPT sudah punya pengetahuan, file, dan kode",
@@ -225,23 +225,6 @@
     "cta": "Ngobrol dengan tim Jakarta",
     "image_alt": "Engineer Hyperjump sedang berkolaborasi di kantor Jakarta"
   },
-  "pricing": {
-    "label": "Paket harga · hingga 40 pengguna",
-    "price": "Rp12.400.000",
-    "price_unit": "/ bulan · sebelum pajak",
-    "quarterly": "Ditagih tiap 3 bulan · Rp37.200.000 per kuartal sebelum pajak",
-    "annual": "Hemat 10% untuk pembayaran tahunan",
-    "includes": "Dipasang on-premise (perawatannya kami tangani) atau di server terkelola yang terisolasi. Sudah termasuk kredit AI USD 300, 1× sesi training/orientasi tim, dan laporan pemakaian bulanan. Kebutuhan kustom (sistem internal, SSO khusus, dan sejenisnya) dibahas terpisah.",
-    "compare_kicker": "Bandingkan",
-    "compare_title": "<i>Allowance</i> AI perorangan biasanya bikin repot",
-    "compare_items": {
-      "0": "Pemakaian sulit diverifikasi",
-      "1": "Dana belum tentu dipakai untuk AI",
-      "2": "Administrasi bertambah, biaya membengkak",
-      "3": "Tidak ada kontrol terpusat"
-    },
-    "cta": "Email kami untuk memulai"
-  },
   "faq": {
     "heading": "Pertanyaan yang sering diajukan",
     "desc": "Jawaban ringkas seputar paket OneAI. Butuh detail lebih lanjut? Kirim email ke kami, kami balas dengan cepat.",
@@ -250,8 +233,8 @@
       "answer": "Paket standar OneAI mencakup hingga 40 pengguna. Butuh lebih banyak seat atau penerapan bertahap? Cukup sebutkan ukuran tim Anda saat menghubungi kami."
     },
     "1": {
-      "question": "Bagaimana struktur penagihannya?",
-      "answer": "Rp12.400.000 per bulan sebelum pajak, ditagih per kuartal (Rp37.200.000 per kuartal sebelum pajak). Pembayaran tahunan hemat 10%."
+      "question": "Bagaimana struktur ketentuan komersialnya?",
+      "answer": "Hubungi kami untuk membahas ketentuan komersial berdasarkan kebutuhan rollout, hosting, dan target waktu Anda."
     },
     "2": {
       "question": "Apa itu Zero Data Retention (ZDR)?",
@@ -259,7 +242,7 @@
     },
     "3": {
       "question": "Apa saja yang termasuk dalam paket?",
-      "answer": "Kredit AI USD 300, satu sesi training/orientasi tim, dan laporan pemakaian bulanan, plus akses terpusat ke model terkini dan kontrol admin."
+      "answer": "Kapasitas pemakaian AI, satu sesi training/orientasi tim, dan laporan pemakaian bulanan, plus akses terpusat ke model terkini dan kontrol admin."
     },
     "4": {
       "question": "Bisakah diintegrasikan dengan sistem internal atau SSO kami?",
@@ -270,8 +253,8 @@
       "answer": "Hubungi kami saja. Kalau kebutuhan Anda lebih dari 40 pengguna, kami akan menyusun paket yang pas dengan ukuran tim Anda."
     },
     "6": {
-      "question": "Apa yang terjadi jika pemakaian melebihi USD 300?",
-      "answer": "Kalau pemakaian bulanan melewati kredit USD 300 yang sudah termasuk, perusahaan Anda bisa memilih: menghentikan permintaan berikutnya sepenuhnya, atau tetap mengizinkannya dengan biaya tambahan (overage)."
+      "question": "Apa yang terjadi jika pemakaian mencapai batasnya?",
+      "answer": "Perusahaan Anda dapat memilih menghentikan permintaan berikutnya atau menghubungi kami untuk membahas kapasitas tambahan."
     },
     "7": {
       "question": "Di mana OneAI dipasang? Apakah data tetap di perusahaan kami?",
@@ -281,7 +264,7 @@
   "pdf_download": {
     "eyebrow": "Bawa ke atasan Anda",
     "heading": "Sedang menyiapkan business case?",
-    "desc": "Dua berkas siap pakai untuk dibagikan ke internal: ringkasan PDF dua halaman (produk, harga, tabel perbandingan, dan support lokal), plus memo Word satu halaman yang bisa Anda sunting untuk dikirim ke manajer atau pimpinan.",
+    "desc": "Dua berkas siap pakai untuk dibagikan ke internal: ringkasan PDF dua halaman (produk, tabel perbandingan kemampuan, dan support lokal), plus memo Word satu halaman yang bisa Anda sunting untuk dikirim ke manajer atau pimpinan.",
     "cta": "Unduh PDF (2 halaman)",
     "file_name": "OneAI-ringkasan.pdf"
   },
@@ -296,7 +279,7 @@
   },
   "mailto": {
     "subject": "Minat paket OneAI: hingga 40 pengguna",
-    "body": "Halo tim Hyperjump,\n\nSaya tertarik dengan paket OneAI (hingga 40 pengguna, Rp12.400.000/bulan).\n\nPerusahaan:\nNama:\nUkuran tim:\nPerkiraan tanggal mulai:\n\nCatatan tambahan:\n"
+    "body": "Halo tim Hyperjump,\n\nSaya tertarik dengan OneAI untuk perusahaan saya.\n\nPerusahaan:\nNama:\nUkuran tim:\nPerkiraan tanggal mulai:\n\nCatatan tambahan:\n"
   },
   "sticky_cta": "Dapatkan paket OneAI"
 }

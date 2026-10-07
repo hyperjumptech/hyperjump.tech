@@ -75,11 +75,9 @@ EN = {
         ),
     ],
     "cost": (
-        "At 40 users, OneAI is Rp12.400.000 per month (USD 300 AI credit "
-        "included; billed quarterly). ChatGPT Business is about Rp16 million "
-        "monthly or Rp12.8 million annually. The prices are close. The case is "
-        "one platform across vendors, not cheaper chat. The attached PDF has "
-        "the full comparison. Tax is extra."
+        "The case for OneAI is one platform across vendors, not cheaper chat. "
+        "The attached PDF explains the capability comparison, hosting options, "
+        "and local support. Commercial terms can be discussed for our rollout."
     ),
     "caveat": (
         "If we have fewer than 20 people and only need chat, ChatGPT Plus or "
@@ -153,11 +151,10 @@ ID = {
         ),
     ],
     "cost": (
-        "Di 40 pengguna, OneAI Rp12.400.000 per bulan (kredit AI USD 300 "
-        "termasuk; ditagih per kuartal). ChatGPT Business sekitar Rp16 juta "
-        "bulanan atau Rp12,8 juta tahunan. Harganya berdekatan. Argumennya "
-        "satu platform lintas vendor, bukan chat yang lebih murah. Tabel "
-        "lengkap ada di PDF terlampir. Pajak belum termasuk."
+        "Argumen untuk OneAI adalah satu platform lintas vendor, bukan chat "
+        "yang lebih murah. PDF terlampir menjelaskan perbandingan kemampuan, "
+        "opsi hosting, dan support lokal. Ketentuan komersial dapat dibahas "
+        "sesuai kebutuhan rollout kita."
     ),
     "caveat": (
         "Jika kita kurang dari 20 orang dan kebutuhannya hanya chat, ChatGPT "

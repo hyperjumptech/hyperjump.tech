@@ -44,6 +44,10 @@
       "9": {
         "title": "Frontier News",
         "text": "Daily newsletter with curated summaries of YouTube videos about AI, available in multiple languages."
+      },
+      "10": {
+        "title": "SearchPoint",
+        "text": "Search local files, OneDrive, and SharePoint in one place. On-premise, with source permissions respected and raw files kept in your environment."
       }
     }
   },

@@ -141,9 +141,26 @@ test.describe("Homepage", () => {
     });
     await expect(productsHeading).toBeVisible();
 
-    for (const title of ["TypeTable", "Hydra8", "Avenu"]) {
+    for (const title of ["OneAI", "SearchPoint", "MediaPulse"]) {
       await expect(products.getByText(title).first()).toBeVisible();
     }
+
+    await expect(products.getByText("TypeTable")).toHaveCount(0);
+
+    const oneAi = products.getByRole("link", { name: /OneAI/i });
+    await expect(oneAi).toHaveAttribute("href", /\/oneai$/);
+
+    const searchPoint = products.getByRole("link", { name: /SearchPoint/i });
+    await expect(searchPoint).toHaveAttribute(
+      "href",
+      "https://searchpoint.sinarmas.hyperjump.tech/landing"
+    );
+
+    const mediaPulse = products.getByRole("link", { name: /MediaPulse/i });
+    await expect(mediaPulse).toHaveAttribute(
+      "href",
+      /mediapulse\.hyperjump\.tech/i
+    );
 
     const frontierNews = products.locator("#frontier-news");
     await expect(frontierNews).toBeVisible();

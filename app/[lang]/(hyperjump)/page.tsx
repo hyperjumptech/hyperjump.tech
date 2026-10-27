@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/accordion";
 import data from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
+import { isExternalUrl } from "@/lib/is-external-url";
 import {
   supportedLanguages,
   type SupportedLanguage
@@ -344,8 +345,9 @@ function FeaturedProducts({ lang }: HomeParams) {
             <StaggerItem key={product.slug}>
               <a
                 href={product.urlLearnMore}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(product.urlLearnMore && isExternalUrl(product.urlLearnMore)
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="group flex h-full flex-col rounded-2xl border border-black/6 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/6">
                 {product.image && (
                   <div className="bg-hyperjump-surface -mx-7 -mt-7 mb-5 flex h-48 items-center justify-center overflow-hidden rounded-t-2xl">

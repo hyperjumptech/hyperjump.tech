@@ -71,6 +71,21 @@ describe("getFeaturedProducts", () => {
     expect(result).toEqual([]);
   });
 
+  it("features OneAI, SearchPoint, and MediaPulse from the production catalog", () => {
+    // Act
+    const result = getFeaturedProducts(lang);
+
+    // Assert
+    expect(result.map((product) => product.slug)).toEqual([
+      "oneai",
+      "searchpoint",
+      "media-pulse"
+    ]);
+    expect(
+      result.find((product) => product.slug === "searchpoint")?.urlLearnMore
+    ).toBe("https://searchpoint.sinarmas.hyperjump.tech/landing");
+  });
+
   it("returns an empty list when catalog has no matches", () => {
     // Act
     const result = getFeaturedProducts(lang, {

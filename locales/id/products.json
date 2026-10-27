@@ -44,6 +44,10 @@
       "9": {
         "title": "Frontier News",
         "text": "Newsletter harian berisi ringkasan terkurasi dari video YouTube tentang AI, tersedia dalam berbagai bahasa."
+      },
+      "10": {
+        "title": "SearchPoint",
+        "text": "Cari file lokal, OneDrive, dan SharePoint di satu tempat. On-premise, dengan izin sumber yang tetap dihormati dan file asli yang tetap di lingkungan Anda."
       }
     }
   },

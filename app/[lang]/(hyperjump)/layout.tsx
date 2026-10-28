@@ -15,11 +15,15 @@ export default async function MainLangLayout({
 }: MainLangLayoutProps) {
   const { lang } = await params;
 
+  // Standalone builds (e.g. the OneAI landing page on oneaisystem.tech) ship
+  // without the hyperjump site chrome. Set via BUILD_TARGET, see .env.oneai.
+  const isStandaloneBuild = process.env.BUILD_TARGET === "oneai";
+
   return (
     <>
       <ScrollObserver />
       <div className="relative min-h-screen bg-white antialiased">
-        <Nav lang={lang as SupportedLanguage} />
+        {isStandaloneBuild ? null : <Nav lang={lang as SupportedLanguage} />}
         {children}
         <HyperBot
           gaEvent={{

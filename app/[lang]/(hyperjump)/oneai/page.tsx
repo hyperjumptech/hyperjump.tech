@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import data from "@/data.json";
 import { dynamicOpengraph } from "@/lib/default-metadata";
+import { SITE_URL } from "@/lib/site-url";
 import {
   supportedLanguages,
   type SupportedLanguage
@@ -80,7 +81,8 @@ import { OneaiHeroVisual } from "./oneai-hero-visual";
 import { OneaiStickyCta } from "./oneai-sticky-cta";
 import { OneaiSupportSection } from "./oneai-support-section";
 
-const { url } = data;
+// Site URL can be overridden by standalone builds (see .env.oneai)
+const url = SITE_URL;
 const OG_IMAGE = `${url}${ONEAI_OG_IMAGE_PATH}`;
 
 type LangProps = { lang: SupportedLanguage };

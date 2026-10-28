@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import data from "@/data.json";
 import { supportedLanguages } from "@/locales/.generated/types";
+import { SITE_URL } from "@/lib/site-url";
 
-const { description, title, url } = data;
+const { description, title } = data;
+const url = SITE_URL;
 const DEFAULT_IMAGE = `${url}/images/hyperjump-og.png`;
 export const DEFAULT_OPENGRAPH: Metadata = {
   metadataBase: new URL(url),

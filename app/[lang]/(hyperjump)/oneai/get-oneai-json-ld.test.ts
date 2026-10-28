@@ -94,7 +94,7 @@ describe("getOneaiJsonLd", () => {
     });
 
     const breadcrumb = graph["@graph"][0];
-    expect(breadcrumb.itemListElement[0].name).toBe("Beranda");
+    expect(breadcrumb.itemListElement?.[0].name).toBe("Beranda");
     expect(graph["@graph"][1]).not.toHaveProperty("offers");
   });
 });

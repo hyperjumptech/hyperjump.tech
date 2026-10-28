@@ -1,0 +1,58 @@
+name: Deploy OneAI to oneaisystem.tech
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  NEXT_PUBLIC_AI_AGENT_URL: ${{ vars.NEXT_PUBLIC_AI_AGENT_URL }}
+  NEXT_PUBLIC_INFERENCEAI_POST_CHATS_WEBHOOK: ${{ vars.NEXT_PUBLIC_INFERENCEAI_POST_CHATS_WEBHOOK }}
+  NEXT_PUBLIC_INFERENCEAI_GET_CHATS_WEBHOOK: ${{ vars.NEXT_PUBLIC_INFERENCEAI_GET_CHATS_WEBHOOK }}
+  NEXT_PUBLIC_LANDING_POST_CHATS_WEBHOOK: ${{ vars.NEXT_PUBLIC_LANDING_POST_CHATS_WEBHOOK }}
+  NEXT_PUBLIC_LANDING_GET_CHATS_WEBHOOK: ${{ vars.NEXT_PUBLIC_LANDING_GET_CHATS_WEBHOOK }}
+  NEXT_PUBLIC_LANDING_GET_FOLLOWUP_WEBHOOK: ${{ vars.NEXT_PUBLIC_LANDING_GET_FOLLOWUP_WEBHOOK }}
+  NEXT_PUBLIC_GA_TRACKING_ID: ${{ vars.NEXT_PUBLIC_GA_TRACKING_ID }}
+  NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+  NEXT_PUBLIC_FRONTIERNOTES_API_URL: ${{ vars.NEXT_PUBLIC_FRONTIERNOTES_API_URL }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build OneAI static deployment
+        run: bun run build:oneai
+        env:
+          NEXT_PUBLIC_AI_AGENT_URL: ${{ vars.NEXT_PUBLIC_AI_AGENT_URL }}
+          NEXT_PUBLIC_INFERENCEAI_POST_CHATS_WEBHOOK: ${{ vars.NEXT_PUBLIC_INFERENCEAI_POST_CHATS_WEBHOOK }}
+          NEXT_PUBLIC_INFERENCEAI_GET_CHATS_WEBHOOK: ${{ vars.NEXT_PUBLIC_INFERENCEAI_GET_CHATS_WEBHOOK }}
+          NEXT_PUBLIC_LANDING_POST_CHATS_WEBHOOK: ${{ vars.NEXT_PUBLIC_LANDING_POST_CHATS_WEBHOOK }}
+          NEXT_PUBLIC_LANDING_GET_CHATS_WEBHOOK: ${{ vars.NEXT_PUBLIC_LANDING_GET_CHATS_WEBHOOK }}
+          NEXT_PUBLIC_LANDING_GET_FOLLOWUP_WEBHOOK: ${{ vars.NEXT_PUBLIC_LANDING_GET_FOLLOWUP_WEBHOOK }}
+          NEXT_PUBLIC_GA_TRACKING_ID: ${{ vars.NEXT_PUBLIC_GA_TRACKING_ID }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+          NEXT_PUBLIC_FRONTIERNOTES_API_URL: ${{ vars.NEXT_PUBLIC_FRONTIERNOTES_API_URL }}
+
+      - name: Deploy to hyperjumptech/oneaisystem.tech
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # PAT with permission to push to hyperjumptech/oneaisystem.tech (Content: read & write)
+          personal_token: ${{ secrets.ONEAI_DEPLOY_TOKEN }}
+          external_repository: hyperjumptech/oneaisystem.tech
+          publish_branch: main
+          publish_dir: ./out-oneai
+          force_orphan: true
+          keep_files: false
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+          commit_message: "Deploy OneAI static build from hyperjump.tech@${{ github.sha }}"

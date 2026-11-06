@@ -62,14 +62,14 @@ export function getCommercialProduct(
       title: productsCommercialData0Title(lang),
       description: productsCommercialData0Text(lang),
       image: "/images/products/oneai.svg",
-      urlLearnMore: `/${lang}/oneai`
+      urlLearnMore: "https://oneaisystem.tech/en"
     },
     {
       slug: "searchpoint",
       title: productsCommercialData10Title(lang),
       description: productsCommercialData10Text(lang),
       image: "/images/searchpoint/feature-sp-1-trimmed.webp",
-      urlLearnMore: "https://searchpoint.sinarmas.hyperjump.tech/landing"
+      urlLearnMore: "https://searchpoint.tech"
     },
     {
       slug: "typetable",

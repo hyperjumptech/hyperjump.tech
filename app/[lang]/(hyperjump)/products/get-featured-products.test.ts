@@ -82,8 +82,11 @@ describe("getFeaturedProducts", () => {
       "media-pulse"
     ]);
     expect(
+      result.find((product) => product.slug === "oneai")?.urlLearnMore
+    ).toBe("https://oneaisystem.tech/en");
+    expect(
       result.find((product) => product.slug === "searchpoint")?.urlLearnMore
-    ).toBe("https://searchpoint.sinarmas.hyperjump.tech/landing");
+    ).toBe("https://searchpoint.tech");
   });
 
   it("returns an empty list when catalog has no matches", () => {

@@ -17,8 +17,6 @@ import {
   productsCommercialData5Title,
   productsCommercialData6Text,
   productsCommercialData6Title,
-  productsCommercialData7Text,
-  productsCommercialData7Title,
   productsCommercialData8Text,
   productsCommercialData8Title,
   productsCommercialData9Text,
@@ -77,13 +75,6 @@ export function getCommercialProduct(
       description: productsCommercialData6Text(lang),
       image: "/images/products/typetable.svg",
       urlLearnMore: "https://typetable.io"
-    },
-    {
-      slug: "hydra8",
-      title: productsCommercialData7Title(lang),
-      description: productsCommercialData7Text(lang),
-      image: "/images/products/hydra8.png",
-      urlLearnMore: "https://hydra8.hyperjump.tech"
     },
     {
       slug: "avenu",

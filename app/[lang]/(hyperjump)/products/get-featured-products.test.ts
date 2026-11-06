@@ -29,17 +29,21 @@ describe("getFeaturedProducts", () => {
     const catalog = [
       fakeProduct("avenu", "Avenu"),
       fakeProduct("typetable", "TypeTable"),
-      fakeProduct("hydra8", "Hydra8")
+      fakeProduct("frontier-news", "Frontier News")
     ];
 
     // Act
     const result = getFeaturedProducts(lang, {
       getProducts: () => catalog,
-      featuredSlugs: ["typetable", "hydra8", "avenu"]
+      featuredSlugs: ["typetable", "frontier-news", "avenu"]
     });
 
     // Assert
-    expect(result.map((p) => p.slug)).toEqual(["typetable", "hydra8", "avenu"]);
+    expect(result.map((p) => p.slug)).toEqual([
+      "typetable",
+      "frontier-news",
+      "avenu"
+    ]);
   });
 
   it("skips unknown slugs", () => {

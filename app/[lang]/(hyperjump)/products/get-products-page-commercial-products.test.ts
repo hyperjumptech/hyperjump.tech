@@ -34,7 +34,7 @@ describe("getProductsPageCommercialProducts", () => {
       fakeProduct("avenu", "Avenu"),
       fakeProduct("typetable", "TypeTable"),
       fakeProduct("startgpt", "StartGPT"),
-      fakeProduct("hydra8", "Hydra8")
+      fakeProduct("frontier-news", "Frontier News")
     ];
 
     // Act
@@ -43,7 +43,10 @@ describe("getProductsPageCommercialProducts", () => {
     });
 
     // Assert
-    expect(result.map((product) => product.slug)).toEqual(["oneai", "hydra8"]);
+    expect(result.map((product) => product.slug)).toEqual([
+      "oneai",
+      "frontier-news"
+    ]);
   });
 
   it("returns every product when the exclusion list is empty", () => {
@@ -85,6 +88,6 @@ describe("getProductsPageCommercialProducts", () => {
     expect(slugs).not.toContain("typetable");
     expect(slugs).toContain("oneai");
     expect(slugs).toContain("searchpoint");
-    expect(slugs).toContain("hydra8");
+    expect(slugs).not.toContain("hydra8");
   });
 });

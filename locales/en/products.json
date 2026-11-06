@@ -33,10 +33,6 @@
         "title": "TypeTable",
         "text": "Say what to record. Fill it in instantly. Describe what your team keeps re-typing — TypeTable proposes the table, enforces the rules, and lets everyone add records in plain language."
       },
-      "7": {
-        "title": "Hydra8",
-        "text": "Version, test, and monitor LLM prompts without redeploying. An open-source LLM gateway for versioned prompt templates, evaluations, and monitoring — ship prompt changes from one dashboard."
-      },
       "8": {
         "title": "Avenu",
         "text": "Enterprise-ready AI gateway. Create routing rules and budget for your team."

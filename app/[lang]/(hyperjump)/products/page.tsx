@@ -29,7 +29,8 @@ import {
 } from "../components/motion-wrappers";
 
 import type { CommercialProduct, OpenSourceProduct } from "./data";
-import { getCommercialProduct, openSourceProducts } from "./data";
+import { openSourceProducts } from "./data";
+import { getProductsPageCommercialProducts } from "./get-products-page-commercial-products";
 import { OSSSection } from "./oss-section";
 
 const { url } = dataJson;
@@ -65,7 +66,7 @@ export async function generateMetadata({
 
 export default async function ProductsPage({ params }: ProductsProps) {
   const { lang } = await params;
-  const commercial = getCommercialProduct(lang);
+  const commercial = getProductsPageCommercialProducts(lang);
   const oss = openSourceProducts(lang);
   const [featured, ...restCommercial] = commercial;
   const allProducts: (CommercialProduct | OpenSourceProduct)[] = [

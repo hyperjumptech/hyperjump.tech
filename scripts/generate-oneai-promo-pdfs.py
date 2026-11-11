@@ -33,13 +33,12 @@ EN = {
     "file": "oneai-promo-en.pdf",
     "place": "JAKARTA · INDONESIA",
     "eyebrow": "UNIFIED ENTERPRISE AI",
-    "lede": "One AI platform for your entire company. On your servers, or isolated on ours.",
+    "lede": "One workspace your company owns, with the models your teams already want: OpenAI, Claude, Gemini, DeepSeek, and others. It runs only for you, on your servers or isolated on ours.",
     "proofs": [
         "Centralized dashboard",
         "One budget for everyone",
         "Latest models on release",
         "On-prem, or isolated hosting",
-        "Jakarta-based support",
     ],
     "pillars": [
         (
@@ -55,22 +54,24 @@ EN = {
         (
             "03 · CAPACITY",
             "Latest models, fast",
-            "Access current AI models as they launch: OpenAI, Anthropic, DeepSeek, and more. Admins choose which models each team can use.",
+            "Use OpenAI, Claude, Gemini, DeepSeek, and other models as they launch. Admins choose which ones each team can access.",
         ),
     ],
     "cap_label": "WHAT YOUR TEAM CAN DO",
     "caps": [
-        ("Read & create office files", "DOCX, PPTX, XLSX, and PDF from AI commands."),
-        ("Write & run code", "AI writes and executes code for complex tasks."),
-        ("Browse the web", "Search for up-to-date information."),
-        ("Shared knowledge", "Answers from your company documents."),
-        ("Speech to text", "Voice into meeting notes and documentation."),
-        ("Text to speech", "Natural speech for audio and assistants."),
+        ("Ask your files", "Upload in the chat, ask, and follow up in the same thread."),
+        ("Shared knowledge", "VolunteerNow Helpdesk uses one shared base. No re-upload per person."),
+        ("Create/Edit Documents", "Word, PowerPoint, Excel, or PDF. Type the brief, then download."),
+        ("Run code", "Python or JavaScript for scraping, a site POC, or charts. Review what it ran."),
+        ("Web search", "On for the live web. Off, and the model stays at its knowledge cutoff."),
+        ("PII Handling", "National ID, email, and more. Detect, redact, or block."),
+        ("Budget", "Cap by provider, key, model, org, team, or user: cost, tokens, or requests."),
+        ("Multiple Providers", "Connect the providers you already use. One workspace."),
     ],
-    "plan_kicker": "PLAN · UP TO 40 USERS",
-    "price": "Rp12.400.000 / month",
-    "plan_meta": "Billed quarterly · Rp37.200.000  ·  Save 10% annually",
-    "includes": "On-prem install (we maintain it) or isolated managed server. USD 300 AI credit, 1× onboarding, monthly reports. Custom SSO scoped separately.",
+    "plan_kicker": "PLATFORM · UP TO 40 USERS",
+    "price": "Built for your company",
+    "plan_meta": "Commercial terms tailored to your rollout",
+    "includes": "On-prem install (we maintain it) or isolated managed server, onboarding, monthly reports, and shared AI capacity. Custom SSO scoped separately.",
     "compare_kicker": "COMPARE",
     "compare_title": "Individual AI stipends usually fail",
     "compare_items": [
@@ -78,7 +79,6 @@ EN = {
         "Funds may not be spent on AI",
         "Extra admin overhead, higher cost",
         "No centralized control",
-        "Data leaves on 40 personal accounts",
     ],
     "p2_kicker": "ONEAI · COMPARISON",
     "p2_eyebrow": "WHY A CHATGPT SEAT IS NOT THE SAME PRODUCT",
@@ -88,13 +88,11 @@ EN = {
     "not_text": "ChatGPT Plus or Business is usually enough and cheaper. OneAI is not meant to replace personal subscriptions at that scale.",
     "fit_kicker": "GOOD FIT IF",
     "fit_title": "20-40 people who need one platform",
-    "fit_text": "Rp12,400,000 for up to 40 users, including USD 300 credit across providers, with on-prem or isolated hosting and multi-model access. Prices at 40 annual ChatGPT seats are close.",
-    "table_label": "COST AND CAPABILITY COMPARISON · PER MONTH",
+    "fit_text": "One platform for up to 40 users, with shared capacity across providers, on-prem or isolated hosting, and multi-model access.",
+    "table_label": "CAPABILITY COMPARISON",
     "cols": ["", "Individual stipends", "ChatGPT Business", "OneAI"],
     "rows": [
-        ["20 users", "Rp10,000,000", "Rp8.0M / Rp6.4M yr", "Rp12,400,000"],
-        ["40 users", "Rp20,000,000", "Rp16.0M / Rp12.8M yr", "Rp12,400,000 · fixed"],
-        ["Usage across providers", "No", "Included in ChatGPT", "USD 300 pool"],
+        ["Usage across providers", "No", "Included in ChatGPT", "Shared budget"],
         ["Single invoice & reports", "No", "ChatGPT only", "Yes · all models"],
         ["Admin chooses models", "No", "OpenAI only", "Yes · all vendors"],
         ["Multi-model", "Depends", "OpenAI only", "Yes"],
@@ -103,15 +101,15 @@ EN = {
         ["Knowledge, files, code", "No", "Yes · ChatGPT", "Yes · all models"],
         ["Support in Indonesia", "No", "Overseas queue", "Yes · Jakarta team"],
     ],
-    "assumptions": "Assumptions: Rp16,000/USD. Stipend example Rp500,000/person. ChatGPT Business $25/user monthly or $20/user annually. USD 300 ≈ Rp4,800,000. ChatGPT includes model usage; extra credits are optional. Competitor prices may change; not their quotes.",
+    "assumptions": "Capability notes: availability and commercial terms can change. Contact each provider for current terms.",
     "whys": [
         (
             "Stipends often don't become AI",
             "Money in employee accounts can be spent on anything. No reporting, no audit, no policy.",
         ),
         (
-            "Seat price is not the product",
-            "At 40 seats ChatGPT is ~Rp16M monthly or ~Rp12.8M annually. OneAI stays at Rp12.4M. Prices are close; buy the platform.",
+            "A seat is not the product",
+            "Choose the platform when your company needs control across vendors, not simply a chat subscription.",
         ),
         (
             "ChatGPT already has files and code",
@@ -129,13 +127,12 @@ ID = {
     "file": "oneai-promo-id.pdf",
     "place": "JAKARTA · INDONESIA",
     "eyebrow": "AI ENTERPRISE DALAM SATU PLATFORM",
-    "lede": "Satu platform AI untuk semua tim—di server Anda sendiri atau terisolasi di server kami.",
+    "lede": "Satu workspace milik perusahaan Anda, dengan model yang tim sudah mau pakai: OpenAI, Claude, Gemini, DeepSeek, dan lainnya. Berjalan hanya untuk Anda, di server Anda atau terisolasi di server kami.",
     "proofs": [
         "Dashboard terpusat",
         "Satu anggaran untuk semua",
         "Model terbaru begitu rilis",
         "On-premise, atau hosting terisolasi",
-        "Support dari tim Jakarta",
     ],
     "pillars": [
         (
@@ -151,22 +148,24 @@ ID = {
         (
             "03 · KAPASITAS",
             "Model terbaru, tanpa menunggu",
-            "Pakai model AI terkini begitu diluncurkan: OpenAI, Anthropic, DeepSeek, dan lainnya. Admin menentukan model untuk tiap tim.",
+            "Pakai OpenAI, Claude, Gemini, DeepSeek, dan model lain begitu tersedia. Admin menentukan model untuk tiap tim.",
         ),
     ],
     "cap_label": "YANG BISA DIKERJAKAN TIM ANDA",
     "caps": [
-        ("Baca & buat file kantor", "DOCX, PPTX, XLSX, & PDF lewat perintah AI."),
-        ("Tulis & jalankan kode", "AI menulis dan menjalankan kode."),
-        ("Jelajahi internet", "Cari informasi terbaru yang akurat."),
-        ("Basis pengetahuan bersama", "Jawaban dari dokumen internal perusahaan."),
-        ("Speech to text", "Ubah suara jadi teks & notulen."),
-        ("Text to speech", "Suara natural untuk audio & asisten."),
+        ("Tanya file", "Unggah di chat, tanya, lanjut di percakapan yang sama."),
+        ("Pengetahuan bersama", "Agen VolunteerNow Helpdesk, satu basis. Tanpa unggah ulang per orang."),
+        ("Buat/Edit Dokumen", "Word, PowerPoint, Excel, atau PDF. Tulis brief, lalu unduh."),
+        ("Jalankan kode", "Python atau JavaScript untuk scraping, POC website, atau grafik."),
+        ("Pencarian web", "Nyala untuk web hidup. Mati, model tetap di batas pengetahuannya."),
+        ("Penanganan PII", "NIK, email, dan lainnya. Deteksi, samarkan, atau blokir."),
+        ("Anggaran", "Batas per penyedia, key, model, org, tim, atau user: biaya, token, atau permintaan."),
+        ("Multiple Providers", "Sambungkan penyedia yang sudah dipakai. Satu workspace."),
     ],
-    "plan_kicker": "PAKET · HINGGA 40 PENGGUNA",
-    "price": "Rp12.400.000 / bulan",
-    "plan_meta": "Ditagih tiap 3 bulan · Rp37.200.000  ·  Hemat 10% tahunan",
-    "includes": "Dipasang on-premise (perawatannya kami tangani) atau di server terkelola terisolasi. Termasuk kredit AI USD 300, 1× onboarding, dan laporan bulanan. SSO khusus dibahas terpisah.",
+    "plan_kicker": "PLATFORM · HINGGA 40 PENGGUNA",
+    "price": "Dibuat untuk perusahaan Anda",
+    "plan_meta": "Ketentuan komersial disesuaikan dengan rollout Anda",
+    "includes": "Dipasang on-premise (perawatannya kami tangani) atau di server terkelola terisolasi, plus onboarding, laporan bulanan, dan kapasitas AI bersama. SSO khusus dibahas terpisah.",
     "compare_kicker": "BANDINGKAN",
     "compare_title": "Allowance AI perorangan biasanya bikin repot",
     "compare_items": [
@@ -174,7 +173,6 @@ ID = {
         "Dana belum tentu dipakai untuk AI",
         "Administrasi bertambah, biaya membengkak",
         "Tidak ada kontrol terpusat",
-        "Data tersebar di 40 akun pribadi",
     ],
     "p2_kicker": "ONEAI · PERBANDINGAN",
     "p2_eyebrow": "KENAPA KURSI CHATGPT ITU PRODUK BERBEDA",
@@ -184,13 +182,11 @@ ID = {
     "not_text": "Untuk tim sekecil itu, ChatGPT Plus atau Business biasanya sudah cukup dan lebih hemat. OneAI memang bukan pengganti langganan pribadi di skala ini.",
     "fit_kicker": "COCOK JIKA",
     "fit_title": "20-40 orang yang butuh satu platform",
-    "fit_text": "Satu tagihan Rp12.400.000 untuk hingga 40 pengguna, termasuk kredit USD 300 lintas penyedia, plus hosting on-premise atau terisolasi dan akses multi-model. Dibanding 40 kursi ChatGPT tahunan, selisihnya tipis.",
-    "table_label": "PERBANDINGAN BIAYA DAN KEMAMPUAN · PER BULAN",
+    "fit_text": "Satu platform untuk hingga 40 pengguna, dengan kapasitas bersama lintas penyedia, hosting on-premise atau terisolasi, dan akses multi-model.",
+    "table_label": "PERBANDINGAN KEMAMPUAN",
     "cols": ["", "Allowance individu", "ChatGPT Business", "OneAI"],
     "rows": [
-        ["20 pengguna", "Rp10.000.000", "Rp8,0 jt / Rp6,4 jt thn", "Rp12.400.000"],
-        ["40 pengguna", "Rp20.000.000", "Rp16,0 jt / Rp12,8 jt thn", "Rp12.400.000 · tetap"],
-        ["Pemakaian lintas penyedia", "Tidak", "Termasuk di ChatGPT", "USD 300 lintas"],
+        ["Pemakaian lintas penyedia", "Tidak", "Termasuk di ChatGPT", "Anggaran bersama"],
         ["Satu tagihan & laporan", "Tidak", "Hanya ChatGPT", "Ya · semua model"],
         ["Admin pilih model", "Tidak", "OpenAI saja", "Ya · semua vendor"],
         ["Multi-model", "Tergantung", "OpenAI saja", "Ya"],
@@ -199,15 +195,15 @@ ID = {
         ["Pengetahuan, file, kode", "Tidak", "Ya · ChatGPT", "Ya · semua model"],
         ["Support di Indonesia", "Tidak", "Antrean luar negeri", "Ya · tim Jakarta"],
     ],
-    "assumptions": "Asumsi: kurs Rp16.000/USD. Contoh allowance Rp500.000/orang. ChatGPT Business $25/orang bulanan atau $20/orang tahunan. USD 300 ≈ Rp4.800.000. ChatGPT sudah termasuk pemakaian model; kredit tambahan opsional. Harga kompetitor bisa berubah; bukan penawaran resmi mereka.",
+    "assumptions": "Catatan kemampuan: ketersediaan dan ketentuan komersial dapat berubah. Hubungi masing-masing penyedia untuk ketentuan terkini.",
     "whys": [
         (
             "Allowance sering tidak berujung jadi AI",
             "Uang yang sudah di rekening karyawan bisa dipakai untuk apa saja—tanpa laporan, audit, atau kontrol kebijakan.",
         ),
         (
-            "Harga kursi bukan produknya",
-            "Untuk 40 pengguna, ChatGPT ~Rp16 jt/bulan atau ~Rp12,8 jt/tahun. OneAI tetap Rp12,4 jt. Selisihnya tipis—ambil platformnya.",
+            "Kursi bukan produknya",
+            "Pilih platform saat perusahaan butuh kontrol lintas vendor, bukan sekadar langganan chat.",
         ),
         (
             "ChatGPT sudah punya file dan kode",
@@ -368,11 +364,11 @@ def page_one(c: canvas.Canvas, copy: dict) -> None:
     c.setFont("Helvetica-Bold", 8)
     c.drawString(MARGIN, y, copy["cap_label"])
     y -= 18
-    cap_w = (PAGE_W - 2 * MARGIN - 16) / 3
+    cap_w = (PAGE_W - 2 * MARGIN - 24) / 4
     for i, (title, body) in enumerate(copy["caps"]):
-        col, row = i % 3, i // 3
+        col, row = i % 4, i // 4
         x = MARGIN + col * (cap_w + 8)
-        cy = y - row * 52
+        cy = y - row * 58
         c.setFillColor(INK)
         c.setFont("Helvetica-Bold", 9)
         c.drawString(x, cy, title)

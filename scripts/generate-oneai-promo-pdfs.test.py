@@ -4,9 +4,12 @@ from __future__ import annotations
 
 import importlib.util
 import io
+import re
+import tempfile
 import unittest
 from pathlib import Path
 
+from pypdf import PdfReader
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 
@@ -88,6 +91,21 @@ class PromoPdfLayoutTests(unittest.TestCase):
         lines = mod.wrap(self.c, "Hi Supercalifragilistic", "Helvetica", 8, 20)
         self.assertEqual(lines[0], "Hi")
         self.assertEqual(lines[1], "Supercalifragilistic")
+
+    def test_generated_promos_do_not_expose_price_figures(self) -> None:
+        """Public promo PDFs omit currency amounts while pricing is hidden."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            original_out = mod.OUT
+            mod.OUT = Path(temp_dir)
+            try:
+                for copy in (mod.EN, mod.ID):
+                    pdf = mod.build(copy)
+                    text = "\n".join(
+                        page.extract_text() or "" for page in PdfReader(pdf).pages
+                    )
+                    self.assertNotRegex(text, re.compile(r"(?:Rp|USD|\$)\s?\d"))
+            finally:
+                mod.OUT = original_out
 
 
 if __name__ == "__main__":

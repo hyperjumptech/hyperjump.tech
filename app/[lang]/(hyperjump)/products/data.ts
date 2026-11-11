@@ -17,12 +17,12 @@ import {
   productsCommercialData5Title,
   productsCommercialData6Text,
   productsCommercialData6Title,
-  productsCommercialData7Text,
-  productsCommercialData7Title,
   productsCommercialData8Text,
   productsCommercialData8Title,
   productsCommercialData9Text,
-  productsCommercialData9Title
+  productsCommercialData9Title,
+  productsCommercialData10Text,
+  productsCommercialData10Title
 } from "@/locales/.generated/strings";
 import type { SupportedLanguage } from "@/locales/.generated/types";
 
@@ -30,7 +30,11 @@ import type { SupportedLanguage } from "@/locales/.generated/types";
  * Product slugs shown on the homepage, in display order.
  * Edit this list to change which commercial products are featured.
  */
-export const FEATURED_PRODUCT_SLUGS = ["typetable", "hydra8", "avenu"] as const;
+export const FEATURED_PRODUCT_SLUGS = [
+  "oneai",
+  "searchpoint",
+  "media-pulse"
+] as const;
 
 export type FeaturedProductSlug = (typeof FEATURED_PRODUCT_SLUGS)[number];
 
@@ -56,7 +60,14 @@ export function getCommercialProduct(
       title: productsCommercialData0Title(lang),
       description: productsCommercialData0Text(lang),
       image: "/images/products/oneai.svg",
-      urlLearnMore: `/${lang}/oneai`
+      urlLearnMore: "https://oneaisystem.tech/en"
+    },
+    {
+      slug: "searchpoint",
+      title: productsCommercialData10Title(lang),
+      description: productsCommercialData10Text(lang),
+      image: "/images/searchpoint/feature-sp-1-trimmed.webp",
+      urlLearnMore: "https://searchpoint.tech"
     },
     {
       slug: "typetable",
@@ -64,13 +75,6 @@ export function getCommercialProduct(
       description: productsCommercialData6Text(lang),
       image: "/images/products/typetable.svg",
       urlLearnMore: "https://typetable.io"
-    },
-    {
-      slug: "hydra8",
-      title: productsCommercialData7Title(lang),
-      description: productsCommercialData7Text(lang),
-      image: "/images/products/hydra8.png",
-      urlLearnMore: "https://hydra8.hyperjump.tech"
     },
     {
       slug: "avenu",

@@ -126,22 +126,27 @@ async function expectAllImagesLoaded(page: Page) {
 
       await expect(el, `Image #${i} not visible`).toBeVisible();
 
-      const { isLoaded, src } = await el.evaluate((img: any) => {
-        const src = img.currentSrc || img.src || img.href?.baseVal || "(none)";
-        const isSvgFile = typeof src === "string" && src.endsWith(".svg");
-        const rect = img.getBoundingClientRect();
-        const hasLayoutSize = rect.width > 0 && rect.height > 0;
-        const hasRasterSize =
-          (img.naturalWidth ?? 0) > 0 && (img.naturalHeight ?? 0) > 0;
-        const isLoaded = hasRasterSize || (isSvgFile && hasLayoutSize);
+      await expect
+        .poll(
+          () =>
+            el.evaluate((img: any) => {
+              const src =
+                img.currentSrc || img.src || img.href?.baseVal || "(none)";
+              const isSvgFile = typeof src === "string" && src.endsWith(".svg");
+              const rect = img.getBoundingClientRect();
+              const hasLayoutSize = rect.width > 0 && rect.height > 0;
+              const hasRasterSize =
+                (img.naturalWidth ?? 0) > 0 && (img.naturalHeight ?? 0) > 0;
 
-        return { isLoaded, src };
-      });
-
-      expect(
-        isLoaded,
-        `Image failed to load or has zero size: ${src}`
-      ).toBeTruthy();
+              return hasRasterSize || (isSvgFile && hasLayoutSize);
+            }),
+          {
+            message:
+              "Image did not finish loading after it entered the viewport",
+            timeout: 10_000
+          }
+        )
+        .toBeTruthy();
     }
   }
 }

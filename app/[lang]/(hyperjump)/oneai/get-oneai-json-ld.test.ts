@@ -29,8 +29,8 @@ describe("getDefaultOneaiFaqs", () => {
     expect(faqs[0]?.question).toContain("users");
     expect(faqs[1]?.question).toContain("more than 40");
     expect(faqs[1]?.answer).toContain("Contact us");
-    expect(faqs[3]?.question).toContain("USD 300");
-    expect(faqs[3]?.answer).toContain("overage");
+    expect(faqs[3]?.question).toContain("usage reaches its limit");
+    expect(faqs[3]?.answer).toContain("additional capacity");
     expect(faqs[5]?.question).toContain("installed");
     expect(faqs[5]?.answer).toContain("premises");
     expect(faqs[5]?.answer).toContain("isolated");
@@ -43,8 +43,8 @@ describe("getDefaultOneaiFaqs", () => {
     expect(faqs[0]?.question).toContain("pengguna");
     expect(faqs[1]?.question).toContain("lebih dari 40");
     expect(faqs[1]?.answer).toContain("Hubungi kami");
-    expect(faqs[3]?.question).toContain("USD 300");
-    expect(faqs[3]?.answer).toContain("overage");
+    expect(faqs[3]?.question).toContain("mencapai batasnya");
+    expect(faqs[3]?.answer).toContain("kapasitas tambahan");
     expect(faqs[5]?.question).toContain("dipasang");
     expect(faqs[5]?.answer).toContain("infrastruktur");
     expect(faqs[5]?.answer).toContain("terisolasi");
@@ -79,9 +79,7 @@ describe("getOneaiJsonLd", () => {
     expect(product.name).toBe("OneAI");
     expect(product.operatingSystem).toBe("On-premises, Web");
     expect(product.image).toBe(`${siteUrl}${ONEAI_OG_IMAGE_PATH}`);
-    expect(product.offers.price).toBe("12400000");
-    expect(product.offers.priceCurrency).toBe("IDR");
-    expect(product.offers.description).toContain("before tax");
+    expect(product).not.toHaveProperty("offers");
 
     const faqPage = graph["@graph"][2];
     expect(faqPage["@type"]).toBe("FAQPage");
@@ -97,7 +95,7 @@ describe("getOneaiJsonLd", () => {
 
     const breadcrumb = graph["@graph"][0];
     expect(breadcrumb.itemListElement[0].name).toBe("Beranda");
-    expect(graph["@graph"][1].offers.description).toContain("sebelum pajak");
+    expect(graph["@graph"][1]).not.toHaveProperty("offers");
   });
 });
 

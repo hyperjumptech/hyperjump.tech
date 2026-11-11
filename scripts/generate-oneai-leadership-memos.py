@@ -47,9 +47,9 @@ EN = {
     "request_heading": "1. Request",
     "request": (
         "I recommend we evaluate OneAI from Hyperjump Technology as our "
-        "company-wide AI platform, or at minimum schedule a 30-minute briefing. "
-        "This is not about replacing personal ChatGPT for a few people. It is "
-        "about governing AI now that 20-40 of us already use it."
+        "company AI platform: one workspace for OpenAI, Claude, Gemini, "
+        "DeepSeek, and other models, running only for us. Please at least "
+        "schedule a 30-minute briefing."
     ),
     "why_heading": "2. Why this matters now",
     "why_intro": (
@@ -71,15 +71,13 @@ EN = {
         ),
         (
             "Real capability",
-            "office files, internal knowledge, code execution, and more than one model vendor.",
+            "ask files, a VolunteerNow Helpdesk knowledge base, documents, code, web search, PII handling, budgets, and multiple providers in one workspace.",
         ),
     ],
     "cost": (
-        "At 40 users, OneAI is Rp12.400.000 per month (USD 300 AI credit "
-        "included; billed quarterly). ChatGPT Business is about Rp16 million "
-        "monthly or Rp12.8 million annually. The prices are close. The case is "
-        "one platform across vendors, not cheaper chat. The attached PDF has "
-        "the full comparison. Tax is extra."
+        "The case for OneAI is one platform across vendors, not cheaper chat. "
+        "The attached PDF explains the capability comparison, hosting options, "
+        "and local support. Commercial terms can be discussed for our rollout."
     ),
     "caveat": (
         "If we have fewer than 20 people and only need chat, ChatGPT Plus or "
@@ -126,9 +124,8 @@ ID = {
     "request": (
         "Saya mengusulkan agar perusahaan mengevaluasi OneAI dari Hyperjump "
         "Technology sebagai platform AI terpadu, atau setidaknya menjadwalkan "
-        "briefing 30 menit. Ini bukan usulan mengganti ChatGPT pribadi untuk "
-        "beberapa orang. Ini usulan mengatur AI begitu 20-40 orang di "
-        "perusahaan sudah memakainya."
+        "briefing 30 menit. OneAI adalah satu workspace untuk OpenAI, Claude, "
+        "Gemini, DeepSeek, dan model lain, yang berjalan hanya untuk perusahaan kita."
     ),
     "why_heading": "2. Mengapa ini penting sekarang",
     "why_intro": (
@@ -150,15 +147,14 @@ ID = {
         ),
         (
             "Kapabilitas yang nyata",
-            "file kantor, pengetahuan internal, eksekusi kode, dan lebih dari satu vendor model.",
+            "tanya file, basis VolunteerNow Helpdesk, dokumen, kode, pencarian web, penanganan PII, anggaran, dan multiple providers dalam satu workspace.",
         ),
     ],
     "cost": (
-        "Di 40 pengguna, OneAI Rp12.400.000 per bulan (kredit AI USD 300 "
-        "termasuk; ditagih per kuartal). ChatGPT Business sekitar Rp16 juta "
-        "bulanan atau Rp12,8 juta tahunan. Harganya berdekatan. Argumennya "
-        "satu platform lintas vendor, bukan chat yang lebih murah. Tabel "
-        "lengkap ada di PDF terlampir. Pajak belum termasuk."
+        "Argumen untuk OneAI adalah satu platform lintas vendor, bukan chat "
+        "yang lebih murah. PDF terlampir menjelaskan perbandingan kemampuan, "
+        "opsi hosting, dan support lokal. Ketentuan komersial dapat dibahas "
+        "sesuai kebutuhan rollout kita."
     ),
     "caveat": (
         "Jika kita kurang dari 20 orang dan kebutuhannya hanya chat, ChatGPT "

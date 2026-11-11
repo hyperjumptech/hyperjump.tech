@@ -29,17 +29,21 @@ describe("getFeaturedProducts", () => {
     const catalog = [
       fakeProduct("avenu", "Avenu"),
       fakeProduct("typetable", "TypeTable"),
-      fakeProduct("hydra8", "Hydra8")
+      fakeProduct("frontier-news", "Frontier News")
     ];
 
     // Act
     const result = getFeaturedProducts(lang, {
       getProducts: () => catalog,
-      featuredSlugs: ["typetable", "hydra8", "avenu"]
+      featuredSlugs: ["typetable", "frontier-news", "avenu"]
     });
 
     // Assert
-    expect(result.map((p) => p.slug)).toEqual(["typetable", "hydra8", "avenu"]);
+    expect(result.map((p) => p.slug)).toEqual([
+      "typetable",
+      "frontier-news",
+      "avenu"
+    ]);
   });
 
   it("skips unknown slugs", () => {
@@ -69,6 +73,24 @@ describe("getFeaturedProducts", () => {
 
     // Assert
     expect(result).toEqual([]);
+  });
+
+  it("features OneAI, SearchPoint, and MediaPulse from the production catalog", () => {
+    // Act
+    const result = getFeaturedProducts(lang);
+
+    // Assert
+    expect(result.map((product) => product.slug)).toEqual([
+      "oneai",
+      "searchpoint",
+      "media-pulse"
+    ]);
+    expect(
+      result.find((product) => product.slug === "oneai")?.urlLearnMore
+    ).toBe("https://oneaisystem.tech/en");
+    expect(
+      result.find((product) => product.slug === "searchpoint")?.urlLearnMore
+    ).toBe("https://searchpoint.tech");
   });
 
   it("returns an empty list when catalog has no matches", () => {

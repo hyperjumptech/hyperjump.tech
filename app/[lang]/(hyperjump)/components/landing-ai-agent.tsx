@@ -180,7 +180,7 @@ const fetchFollowUpMessages = async (sessionId: string): Promise<string[]> => {
   }
 
   const data = await response.json();
-  return data.data;
+  return data.data ?? [];
 };
 
 // Cookies
@@ -494,7 +494,7 @@ export default function HyperBot({ gaEvent, lang }: HyperBotProps) {
               ))}
 
               {/* Follow up messages */}
-              {followUpMessages.length > 0 && !isSubmitting && (
+              {(followUpMessages ?? []).length > 0 && !isSubmitting && (
                 <div className="flex flex-col gap-2">
                   <p className="text-sm font-medium text-gray-800">
                     {hyperbotCommonFollowUp(lang)}
